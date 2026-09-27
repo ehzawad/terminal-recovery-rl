@@ -1,0 +1,71 @@
+{
+ "what": "HF+PEFT vs vLLM --lora-modules per-token log-probabilities on 6 recorded rollouts (model tokens only, tool_mask 1; first 1024 completion tokens)",
+ "note": "the GRPO smoke adapter has lora_B = 0 (untrained) and moves nothing, so synthetic adapters with random lora_B (std 0.03, seed 0) stand in; 'linattn' perturbs only the Gated DeltaNet projections (in_proj_qkv, in_proj_z, out_proj)",
+ "pass_rule": "served-vs-trained gap at the base floor while the adapter itself moves the model well above it",
+ "parity_synth_all": {
+  "sequences": 6,
+  "adapter": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.0066,
+   "p99_abs_diff": 0.1127,
+   "max_abs_diff": 0.4875
+  },
+  "adapter_effect_hf": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.1261,
+   "p99_abs_diff": 2.2968,
+   "max_abs_diff": 7.0628
+  },
+  "adapter_effect_vllm": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.126,
+   "p99_abs_diff": 2.3121,
+   "max_abs_diff": 7.2923
+  },
+  "base_floor": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.0041,
+   "p99_abs_diff": 0.0872,
+   "max_abs_diff": 0.2158
+  },
+  "adapter_all_tokens": {
+   "tokens": 5959,
+   "mean_abs_diff": 0.1052,
+   "p99_abs_diff": 2.0034,
+   "max_abs_diff": 6.9639
+  }
+ },
+ "parity_synth_linattn": {
+  "sequences": 6,
+  "adapter": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.0046,
+   "p99_abs_diff": 0.0937,
+   "max_abs_diff": 0.3032
+  },
+  "adapter_effect_hf": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.0538,
+   "p99_abs_diff": 1.0027,
+   "max_abs_diff": 3.0517
+  },
+  "adapter_effect_vllm": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.0544,
+   "p99_abs_diff": 1.0788,
+   "max_abs_diff": 3.2766
+  },
+  "base_floor": {
+   "tokens": 3186,
+   "mean_abs_diff": 0.0041,
+   "p99_abs_diff": 0.0872,
+   "max_abs_diff": 0.2158
+  },
+  "adapter_all_tokens": {
+   "tokens": 5959,
+   "mean_abs_diff": 0.1122,
+   "p99_abs_diff": 2.0844,
+   "max_abs_diff": 16.9565
+  }
+ }
+}
