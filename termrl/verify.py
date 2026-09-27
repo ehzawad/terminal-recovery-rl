@@ -64,8 +64,9 @@ def parse_junit(path: str) -> tuple[int, int, list[str]]:
 def verify_image(image: str, tests_dir: str, *, timeout: float = 240) -> Verdict:
     """Run tests_dir/test_final_state.py against a filesystem snapshot image.
 
-    Each test gets 20 s (a check blocked on a FIFO the agent left behind fails instead of
-    hanging); exceeding the whole-run timeout is reported as an infrastructure error.
+    Tests run as uid 1000 (hidden tests sometimes execute agent-written artifacts such as a
+    Makefile, which must not run as root). Each test gets 20 s, so a check blocked on a FIFO fails
+    instead of hanging; a verifier error is reported and scored as a failure by the caller.
     """
     out = tempfile.mkdtemp(prefix="termrl-v-")
     os.chmod(out, 0o777)  # container runs as root; host user must read the report
@@ -74,7 +75,7 @@ def verify_image(image: str, tests_dir: str, *, timeout: float = 240) -> Verdict
         f.write(_RUNNER)
     name = "v" + secrets.token_hex(6)
     args = [
-        "run", "--rm", "--name", name, "--network", "none", "--cpus", "1", "--memory", "2g",
+        "run", "--rm", "--name", name, "--user", "1000:1000", "--network", "none", "--cpus", "1", "--memory", "2g",
         "--pids-limit", "256", "--security-opt", "no-new-privileges",
         "-v", f"{os.path.abspath(tests_dir)}:/tests:ro",
         "-v", f"{TOOLCHAIN}:/opt/vt:ro",

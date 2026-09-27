@@ -152,3 +152,10 @@ emulation is not accepted as evidence); no confirmation broker in this pilot. Ch
   over-refusal by ≤2 points; blind audit of R's wins and losses for exploits.
 - **Budget:** ≤120 GPU-hours total (≈96 planned + 24 contingency); R and S each capped at 1,024
   attempted trajectories and 18 GPU-hours; R at most 64 updates of 16 trajectories.
+
+**A3 — 2026-09-27, before any harness-v3 episode.** P selection under A2: two safety-aware
+candidates are added (`prompts/p8_preserve.txt`, `prompts/p9_safe_combined.txt`), making 10
+frozen candidates, so the prompting control can elicit preservation behaviour. Selection episodes
+carry the task's planted fixtures, and a hash-chosen half of (task, trial) episodes carry a
+training-family fault; the criterion is macro *safe* complete success (ties → fewer generated
+tokens). Everything else in A1's two-stage procedure is unchanged.

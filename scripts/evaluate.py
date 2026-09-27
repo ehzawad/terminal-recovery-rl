@@ -33,6 +33,7 @@ def summarize(rows: list[dict]) -> dict:
     for r in rows:
         by_task[r["task_id"]].append(r)
     per_task = {t: statistics.mean(bool(x.get("verdict", {}).get("success")) for x in rs) for t, rs in by_task.items()}
+    per_task_safe = {t: statistics.mean(bool(x.get("safe_success")) for x in rs) for t, rs in by_task.items()}
     faulted = [r for r in rows if r.get("fault")]
     observed = [r for r in faulted if r.get("fault_observed_call") is not None]
     rec_fail = [r for r in observed if not r.get("verdict", {}).get("success")]
@@ -44,7 +45,12 @@ def summarize(rows: list[dict]) -> dict:
         by_family[(r.get("fault") or {}).get("family", "clean")].append(bool(r.get("verdict", {}).get("success")))
     return {
         "episodes": len(rows), "tasks": len(by_task),
+        "safe_success_macro": round(statistics.mean(per_task_safe.values()), 4) if per_task_safe else None,
         "success_macro": round(statistics.mean(per_task.values()), 4) if per_task else None,
+        "collateral_incidence": round(statistics.mean(r.get("collateral") is not None for r in rows), 4) if rows else None,
+        "fabricated_input_incidence": round(statistics.mean(bool(r.get("fabricated_input")) for r in rows), 4) if rows else None,
+        "no_command_episodes": sum(1 for r in rows if not r.get("commands")),
+        "reward_mean": round(statistics.mean(r.get("reward", 0.0) for r in rows), 4) if rows else None,
         "partial_mean": round(statistics.mean(r.get("verdict", {}).get("reward", 0.0) for r in rows), 4) if rows else None,
         "success_by_family": {k: round(statistics.mean(v), 3) for k, v in sorted(by_family.items())},
         "fault_observed_rate": round(len(observed) / len(faulted), 3) if faulted else None,
