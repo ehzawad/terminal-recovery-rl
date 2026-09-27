@@ -15,9 +15,12 @@ import os
 import threading
 import time
 
+import math
+
 import torch
 from datasets import Dataset
 from peft import LoraConfig
+from transformers import TrainerCallback
 from trl import GRPOConfig, GRPOTrainer
 
 from termrl.config import MODEL_PATH as MODEL  # pinned local snapshot of Qwen/Qwen3.5-9B
@@ -37,6 +40,58 @@ class RolloutEnv(TerminalEnv):
         if v.error:  # infrastructure failure: excluded from the update, never scored as a policy outcome
             return None
         return 0.5 * float(v.success) + 0.5 * v.reward
+
+
+class RecordingGRPOTrainer(GRPOTrainer):
+    """Writes every rollout exactly as generated (token ids, tool mask, verdict) for arm D and auditing."""
+
+    def __init__(self, *a, rollout_log: str, **k):
+        super().__init__(*a, **k)
+        self._rollout_log = rollout_log
+
+    def _generate_and_score_completions(self, inputs):
+        out = super()._generate_and_score_completions(inputs)
+        pad = self.pad_token_id
+        with open(self._rollout_log, "a") as f:
+            for i, env in enumerate(self.environments):
+                p = out["prompt_ids"][i][out["prompt_mask"][i].bool()].tolist()
+                c = out["completion_ids"][i]
+                n = int((c != pad).sum())
+                v = env._verdict
+                f.write(json.dumps({
+                    "step": self.state.global_step, "task_root": env._task.root,
+                    "fault": env._fault.as_dict() if env._fault else None,
+                    "fault_observed_call": env._fault_observed_call, "fault_cleared": env._fault_cleared,
+                    "verdict": None if v is None else {"passed": v.passed, "total": v.total, "success": v.success,
+                                                       "reward": v.reward, "error": v.error},
+                    "prompt_ids": p, "completion_ids": c[:n].tolist(), "tool_mask": out["tool_mask"][i][:n].tolist(),
+                }) + "\n")
+        return out
+
+
+class LivenessGate(TrainerCallback):
+    """Registered stop rules (gate 4): no usable gradient, clipping, or non-finite values."""
+
+    def __init__(self):
+        self.no_signal_streak = 0
+        self.clip_windows = []
+        self.reason = None
+
+    def on_log(self, args, state, control, logs=None, **kw):
+        if not logs or "loss" not in logs:
+            return
+        if any(isinstance(logs.get(k), float) and not math.isfinite(logs[k]) for k in ("loss", "grad_norm")):
+            self.reason = "non-finite loss or gradient"
+        self.no_signal_streak = self.no_signal_streak + 1 if logs.get("frac_reward_zero_std", 0.0) >= 1.0 else 0
+        if self.no_signal_streak >= 3:
+            self.reason = "3 consecutive updates with no within-group reward variance"
+        self.clip_windows.append(logs.get("completions/clipped_ratio", 0.0))
+        w = self.clip_windows
+        if len(w) >= 8 and sum(w[-8:-4]) / 4 > 0.05 and sum(w[-4:]) / 4 > 0.05:
+            self.reason = ">5% clipped completions in two consecutive 4-update windows"
+        if self.reason:
+            print(f"LIVENESS GATE: stopping: {self.reason}", flush=True)
+            control.should_training_stop = True
 
 
 def load_rows(path: str, system_prompt: str) -> Dataset:
@@ -124,17 +179,20 @@ def main() -> None:
     )
     lora = LoraConfig(r=args.lora_r, lora_alpha=2 * args.lora_r, lora_dropout=0.0, target_modules=LORA_TARGETS,
                       task_type="CAUSAL_LM")
-    trainer = GRPOTrainer(model=MODEL, args=cfg, train_dataset=ds, peft_config=lora,
-                          environment_factory=lambda: RolloutEnv(command_timeout=30.0, output_limit=3000))
+    os.makedirs(args.out, exist_ok=True)
+    gate = LivenessGate()
+    trainer = RecordingGRPOTrainer(model=MODEL, args=cfg, train_dataset=ds, peft_config=lora,
+                                   environment_factory=lambda: RolloutEnv(command_timeout=30.0, output_limit=3000),
+                                   callbacks=[gate], rollout_log=os.path.join(args.out, "rollouts.jsonl"))
     probe = MemoryProbe()
     probe.start()
     t0 = time.time()
     trainer.train()
     probe.stop()
     summary = {"seconds": round(time.time() - t0, 1), "peak_device_gib": round(probe.peak_gib, 2),
+               "liveness_stop": gate.reason,
                "torch_max_allocated_gib": round(torch.cuda.max_memory_allocated() / 2**30, 2),
                "log_history": trainer.state.log_history}
-    os.makedirs(args.out, exist_ok=True)
     with open(os.path.join(args.out, "run_summary.json"), "w") as f:
         json.dump(summary, f, indent=1)
     print(json.dumps({k: v for k, v in summary.items() if k != "log_history"}))
