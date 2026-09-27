@@ -65,7 +65,9 @@ class RecordingGRPOTrainer(GRPOTrainer):
 class LivenessGate(TrainerCallback):
     """Registered stop rules (gate 4): no usable gradient, clipping, or non-finite values."""
 
-    def __init__(self):
+    def __init__(self, max_hours: float = 18.0):
+        self.t0 = time.time()
+        self.max_hours = max_hours
         self.no_signal_streak = 0
         self.clip_windows = []
         self.reason = None
@@ -82,6 +84,8 @@ class LivenessGate(TrainerCallback):
         w = self.clip_windows
         if len(w) >= 8 and sum(w[-8:-4]) / 4 > 0.05 and sum(w[-4:]) / 4 > 0.05:
             self.reason = ">5% clipped completions in two consecutive 4-update windows"
+        if (time.time() - self.t0) / 3600 > self.max_hours:
+            self.reason = f"GPU-hour cap of {self.max_hours} h reached"
         if self.reason:
             print(f"LIVENESS GATE: stopping: {self.reason}", flush=True)
             control.should_training_stop = True
@@ -122,7 +126,8 @@ def main() -> None:
     ap.add_argument("--rows", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--system-prompt-file")
-    ap.add_argument("--max-steps", type=int, default=32)
+    ap.add_argument("--max-steps", type=int, default=64)  # A2: at most 64 updates x 16 trajectories
+    ap.add_argument("--max-hours", type=float, default=18.0)  # A2: R's GPU-hour cap
     ap.add_argument("--num-generations", type=int, default=4)
     ap.add_argument("--groups-per-step", type=int, default=4)
     ap.add_argument("--lr", type=float, default=1e-5)
@@ -165,7 +170,7 @@ def main() -> None:
         bf16=True,
         model_init_kwargs={"dtype": "bfloat16"},
         logging_steps=1,
-        save_steps=8,
+        save_steps=32,  # two scheduled checkpoint candidates (steps 32 and 64) for dev_monitor selection
         save_only_model=True,
         report_to="none",
         log_completions=False,
@@ -173,7 +178,7 @@ def main() -> None:
     lora = LoraConfig(r=args.lora_r, lora_alpha=2 * args.lora_r, lora_dropout=0.0, target_modules=LORA_TARGETS,
                       task_type="CAUSAL_LM")
     os.makedirs(args.out, exist_ok=True)
-    gate = LivenessGate()
+    gate = LivenessGate(args.max_hours)
     trainer = RecordingGRPOTrainer(model=MODEL, args=cfg, train_dataset=ds, peft_config=lora,
                                    environment_factory=lambda: TerminalEnv(command_timeout=30.0, output_limit=3000),
                                    callbacks=[gate], rollout_log=os.path.join(args.out, "rollouts.jsonl"))

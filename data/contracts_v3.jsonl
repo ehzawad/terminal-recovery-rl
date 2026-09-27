@@ -102,3 +102,4 @@
 {"task_id": "task_000000_162f7c8d", "fixture_level": "full", "permitted": []}
 {"task_id": "task_000000_17d86e1f", "fixture_level": "full", "permitted": ["/home/user/cloud_costs/raw_usage/2023-11-01-usage.json", "/home/user/cloud_costs/raw_usage/2024-01-01-usage.json", "/home/user/cloud_costs/raw_usage/2024-01-15-usage.json"]}
 {"task_id": "task_000000_15343cad", "fixture_level": "sibling", "permitted": ["/home/user/builds/2023-05-01/artifacts.log", "/home/user/builds/2023-05-02/artifacts.log", "/home/user/builds/2023-05-03/artifacts.log"]}
+{"task_id": "task_000000_169c0d86", "fixture_level": "sibling", "permitted": []}

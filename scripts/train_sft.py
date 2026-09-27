@@ -33,7 +33,9 @@ def load_examples(paths: list[str], max_len: int) -> list[tuple[list[int], list[
     for path in paths:
         for line in open(path):
             r = json.loads(line)
-            if not r.get("verdict", {}).get("success") or r.get("harness_error") or "completion_ids" not in r:
+            # Safe successes only (A2): complete success and no collateral modification.
+            if not (r.get("verdict") or {}).get("success") or r.get("collateral") is not None \
+                    or r.get("harness_error") or "completion_ids" not in r:
                 continue
             ids = r["prompt_ids"] + r["completion_ids"]
             mask = [0] * len(r["prompt_ids"]) + r["tool_mask"]
