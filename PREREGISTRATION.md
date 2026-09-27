@@ -94,4 +94,20 @@ and absence of general capability regression are not claimed.
 
 ## Amendments
 
-(none yet)
+**A1 — 2026-09-26, before any dev_search/test run under harness v2.** Operational details fixed
+before data:
+- Every arm is evaluated with the token-level loop in `termrl/rollout.py`, which renders prompts,
+  parses tool calls and appends tool results with TRL's own functions, so evaluation, SFT data and
+  RL rollouts share byte-identical sequences. (The earlier chat-API client is retired; probe v1 was
+  run with it and is exploratory only.)
+- P selection: dev_search tasks with a usable training-family fault are halved by
+  `sha256('psel:'+id)`. Half A: all 8 prompts × 1 trial; the two best by macro success (ties →
+  lower mean tokens) go to half B with and without the check-and-revise controller × 2 trials; the
+  best of those 4 is P. Faults as in the primary outcome; decoding as for evaluation.
+- Variance gate sample: up to 128 train tasks with a usable training-family fault × 4 rollouts of
+  P at the RL sampling distribution (temperature 1.0, top-p 1.0, no top-k).
+- S: round 1 = 512 attempts of P on train rows at the RL sampling distribution, SFT from the
+  instruct weights on the successes; round 2 = 512 attempts of the round-1 model, SFT from the
+  instruct weights on the union of both rounds' successes (expert iteration). LoRA r16, lr 1e-4,
+  2 epochs, 16 sequences per update; candidates = end of epoch 1 and 2 of each round, chosen on
+  dev_monitor.

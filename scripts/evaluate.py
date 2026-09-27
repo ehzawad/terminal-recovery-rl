@@ -68,6 +68,9 @@ def main() -> None:
     ap.add_argument("--system-prompt-file")
     ap.add_argument("--check-revise", action="store_true")
     ap.add_argument("--concurrency", type=int, default=6)
+    ap.add_argument("--temperature", type=float, default=0.7, help="0.7 for evaluation; 1.0 to collect SFT data")
+    ap.add_argument("--top-p", type=float, default=0.95)
+    ap.add_argument("--top-k", type=int, default=20)
     ap.add_argument("--base-url", default="http://127.0.0.1:8765/v1")
     args = ap.parse_args()
 
@@ -88,7 +91,8 @@ def main() -> None:
     def work(row):
         tr = run_episode(client, renderer, args.model, row["task_root"], system_prompt=system_prompt,
                          seed=seed_for(row["task_id"], row["trial"]), fault_family=row.get("fault_family"),
-                         fault_seed=row.get("fault_seed", 0), check_revise=args.check_revise)
+                         fault_seed=row.get("fault_seed", 0), check_revise=args.check_revise,
+                         temperature=args.temperature, top_p=args.top_p, top_k=args.top_k)
         tr.update({"task_id": row["task_id"], "trial": row["trial"], "partition": row.get("partition"),
                    "arm_model": args.model, "prompt_file": args.system_prompt_file})
         with lock:
