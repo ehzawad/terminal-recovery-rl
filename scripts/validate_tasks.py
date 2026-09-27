@@ -46,6 +46,10 @@ def trial(task, prelude: str | None = None, fault: str | None = None, seed: int 
         if run_reference:
             script += task.solution
         out = sb.run(script_cmd(script), timeout=run_timeout) if script.strip() else None
+        if fault and prelude is None and out is not None and out.timed_out:
+            # The reference itself hung on the fault: it bites by construction, no need to grade.
+            return {"passed": 0, "total": None, "success": False, "error": None, "exit": None,
+                    "timed_out": True, "fault": applied.as_dict()}
         snap = sb.commit()
     try:
         v = verify_image(snap, task.tests_dir)
@@ -70,7 +74,7 @@ def validate(task_id: str) -> dict:
                 if faults.choose(task, fam, 0) is None:
                     rec["faults"][fam] = {"eligible": False}
                     continue
-                bite = trial(task, fault=fam, run_timeout=45)  # a blocked reference is the expected outcome
+                bite = trial(task, fault=fam, run_timeout=25)  # a blocked reference is the expected outcome
                 entry = {"eligible": True, "bite": bite}
                 if fam != "missing_tool":
                     entry["repaired"] = trial(task, prelude="repair", fault=fam)

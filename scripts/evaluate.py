@@ -20,7 +20,8 @@ import threading
 
 from openai import OpenAI
 
-from termrl.agent import SYSTEM_DEFAULT, run_episode
+from termrl.config import MODEL_PATH, SYSTEM_DEFAULT
+from termrl.rollout import Renderer, run_episode
 
 
 def seed_for(task_id: str, trial: int) -> int:
@@ -73,6 +74,7 @@ def main() -> None:
     rows_in = [json.loads(l) for l in open(args.rows)]
     system_prompt = open(args.system_prompt_file).read().strip() if args.system_prompt_file else SYSTEM_DEFAULT
     client = OpenAI(base_url=args.base_url, api_key="none", timeout=900)
+    renderer = Renderer(MODEL_PATH)
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     results, done = [], set()
     if os.path.exists(args.out):
@@ -84,7 +86,7 @@ def main() -> None:
     lock = threading.Lock()
 
     def work(row):
-        tr = run_episode(client, args.model, row["task_root"], system_prompt=system_prompt,
+        tr = run_episode(client, renderer, args.model, row["task_root"], system_prompt=system_prompt,
                          seed=seed_for(row["task_id"], row["trial"]), fault_family=row.get("fault_family"),
                          fault_seed=row.get("fault_seed", 0), check_revise=args.check_revise)
         tr.update({"task_id": row["task_id"], "trial": row["trial"], "partition": row.get("partition"),

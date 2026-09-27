@@ -20,10 +20,9 @@ from datasets import Dataset
 from peft import LoraConfig
 from trl import GRPOConfig, GRPOTrainer
 
-from termrl.agent import SYSTEM_DEFAULT
+from termrl.config import MODEL_PATH as MODEL  # pinned local snapshot of Qwen/Qwen3.5-9B
+from termrl.config import SYSTEM_DEFAULT
 from termrl.env import TerminalEnv
-
-from termrl.agent import MODEL_PATH as MODEL  # pinned local snapshot of Qwen/Qwen3.5-9B
 # Language-model projections only. in_proj_qkv and in_proj_z are packed together by vLLM, so they are
 # targeted together; in_proj_a/in_proj_b (also a packed pair) and the vision tower are left alone.
 LORA_TARGETS = (r"model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj"
