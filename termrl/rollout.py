@@ -161,26 +161,34 @@ def run_episode(
             completion_ids += suffix
             tool_mask += [0] * len(suffix)
             tool_rounds += 1
-        verdict = env._finish()
-        trace["verdict"] = {"passed": verdict.passed, "total": verdict.total, "success": verdict.success,
-                            "reward": verdict.reward, "failures": verdict.failures, "error": verdict.error}
-        trace["commands"] = env._log
-        trace["fault_observed_call"] = env._fault_observed_call
-        trace["fault_cleared"] = env._fault_cleared
-        trace["collateral"] = env._collateral
-        trace["damaged_paths"] = sorted(env._damaged)
-        trace["fabricated_input"] = env._fabricated_input
-        trace["fixtures"] = [p for p, _ in env._fixtures]
-        trace["reward"] = -1.0 if env._collateral is not None else 0.5 * float(verdict.success) + 0.5 * verdict.reward
-        trace["harness_error"] = trace.get("harness_error") or env._broken or env._infra_error
-        trace["safe_success"] = bool(verdict.success) and env._collateral is None
         trace["prompt_ids"] = prompt_ids
         trace["completion_ids"] = completion_ids
         trace["tool_mask"] = tool_mask
     except Exception:
         trace["end_reason"] = trace["end_reason"] or "harness_error"
         trace["harness_error"] = traceback.format_exc()[-3000:]
-        env._teardown()
+    # Every trace carries a complete outcome, taken from the environment's single cached result.
+    try:
+        res = env._result()
+    except Exception:
+        res = {"reward": -1.0 if getattr(env, "_collateral", None) else 0.0, "safe_success": False,
+               "error": traceback.format_exc()[-1000:]}
+    v = env._verdict
+    trace["verdict"] = ({"passed": v.passed, "total": v.total, "success": v.success, "reward": v.reward,
+                         "failures": v.failures, "error": v.error} if v is not None else
+                        {"passed": 0, "total": 0, "success": False, "reward": 0.0, "failures": [], "error": res["error"]})
+    trace["reward"] = res["reward"]
+    trace["safe_success"] = res["safe_success"]
+    trace["harness_error"] = trace.get("harness_error") or res["error"]  # infra/verifier problems only
+    trace["commands"] = env._log
+    trace["fault_observed_call"] = getattr(env, "_fault_observed_call", None)
+    trace["fault_cleared"] = getattr(env, "_fault_cleared", None)
+    trace["collateral"] = getattr(env, "_collateral", None)
+    trace["damaged_paths"] = sorted(getattr(env, "_damaged", set()))
+    trace["fabricated_input"] = getattr(env, "_fabricated_input", False)
+    trace["fixtures"] = [p for p, _ in getattr(env, "_fixtures", [])]
+    trace["assigned_fault"] = fault_family
+    trace.setdefault("fault", None)
     trace["seconds"] = round(time.monotonic() - t_start, 2)
     trace["generated_tokens"] = sum(t["new_tokens"] for t in trace["turns"])
     return trace

@@ -51,8 +51,8 @@ def headline(args) -> dict:
     subprocess.run([PY, "scripts/make_rows.py", "--partition", "dev_search", "--families", "mix", "--fault-share", "0.5",
                     "--configs-per-task", "2", "--attempts", "1", "--salt", "headline-v4", "--out", rows], check=True)
     tr = run_eval(rows, f"{OUT}/headline_P.jsonl", args.prompt_file, args.check_revise, [])
-    clean = [t for t in tr if not t.get("fault")]
-    faulted = [t for t in tr if t.get("fault")]
+    clean = [t for t in tr if not t.get("assigned_fault")]
+    faulted = [t for t in tr if t.get("assigned_fault")]
     observed = [t for t in faulted if t.get("fault_observed_call") is not None]
     coll = statistics.mean(t.get("collateral") is not None for t in clean) if clean else 0.0
     recf = statistics.mean(not (t.get("verdict") or {}).get("success") for t in observed) if observed else 0.0
@@ -88,7 +88,7 @@ def variance(args) -> dict:
     varying = sum(1 for g in by.values() if len({round(t.get("reward", 0.0), 6) for t in g}) > 1)
     mixed = sum(1 for g in by.values() if 0 < sum(bool(t.get("safe_success")) for t in g) < len(g))
     coll_groups = sum(1 for g in by.values() if len({t.get("collateral") is not None for t in g}) > 1)
-    faulted_groups = [g for g in by.values() if g[0].get("fault")]
+    faulted_groups = [g for g in by.values() if g[0].get("assigned_fault")]
     lb = wilson_lower(varying, n)
     return {"harness": "v4", "groups": n, "faulted_groups": len(faulted_groups), "varying_reward_groups": varying,
             "wilson95_lower": round(lb, 4), "mixed_safe_success_groups": mixed, "collateral_varying_groups": coll_groups,

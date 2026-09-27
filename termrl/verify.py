@@ -7,8 +7,10 @@ script); anything those can write or print is untrusted. Results therefore trave
 they cannot forge: the host sends a random nonce on the runner's stdin, the runner keeps it only in
 memory, detaches stdin before any test runs, collects outcomes in-process and prints one
 nonce-tagged JSON line. Without the nonce a forged report is ignored. The collected test ids must
-also equal the task's expected inventory (recorded from the reference run), or the run is an error.
-Reward is the fraction of test functions that pass; `success` means all of them pass.
+also be a superset of the task's expected inventory (the tests the reference solution actually executed);
+only inventory tests are graded, and a skipped inventory test counts as failed. A pytest internal error
+or an abnormal process exit makes the run an error. Reward is the fraction of inventory tests that pass;
+`success` means all of them pass.
 """
 
 from __future__ import annotations
@@ -37,13 +39,13 @@ class Collect:
     def __init__(self):
         self.res = {}
     def pytest_runtest_logreport(self, report):
-        r = self.res.setdefault(report.nodeid, {"ok": True, "msg": ""})
-        if report.failed or (report.when == "call" and report.skipped):
-            r["ok"] = False
-            r["msg"] = (r["msg"] or str(report.longrepr)[-300:])
+        r = self.res.setdefault(report.nodeid, {"phases": {}, "msg": ""})
+        r["phases"][report.when] = report.outcome
+        if report.failed and not r["msg"]:
+            r["msg"] = str(report.longrepr)[-300:]
     def pytest_collectreport(self, report):
         if report.failed:
-            self.res.setdefault("<collection>", {"ok": False, "msg": str(report.longrepr)[-300:]})
+            self.res.setdefault("<collection>", {"phases": {"collect": "failed"}, "msg": str(report.longrepr)[-300:]})
 
 c = Collect()
 code = pytest.main(["/tests/test_final_state.py", "-q", "-p", "no:cacheprovider", "-p", "pytest_timeout",
@@ -102,18 +104,29 @@ def verify_image(image: str, tests_dir: str, *, expected_tests: list[str] | None
         if report is None:
             tail = (proc.stdout + proc.stderr).decode(errors="replace")[-1500:]
             return Verdict(0, 0, False, error=f"no authenticated report (exit {proc.returncode}): {tail}")
+        if proc.returncode != 0 or report.get("exit") not in (0, 1):
+            return Verdict(0, 0, False, error=f"abnormal verifier exit (process {proc.returncode}, pytest {report.get('exit')})")
         tests = report["tests"]
         if "<collection>" in tests:
             return Verdict(0, 0, False, error="collection failed: " + tests["<collection>"]["msg"])
-        ids = sorted(tests)
-        if expected_tests is not None and ids != sorted(expected_tests):
-            return Verdict(0, len(expected_tests), False, tests=ids,
-                           error=f"test inventory mismatch: got {len(ids)} expected {len(expected_tests)}")
-        if not ids:
-            return Verdict(0, 0, False, error="verifier collected zero tests")
-        passed = sum(1 for t in ids if tests[t]["ok"])
-        failures = [f"{t}: {tests[t]['msg'][:200]}" for t in ids if not tests[t]["ok"]]
-        return Verdict(passed, len(ids), passed == len(ids), failures, tests=ids)
+        # A test counts as executed only if setup and call both ran; it passes only if both passed and
+        # teardown did not fail. Skipped tests are neither executed nor passed.
+        def executed(t):
+            ph = tests[t]["phases"]
+            return ph.get("setup") == "passed" and ph.get("call") in ("passed", "failed")
+        def passed(t):
+            ph = tests[t]["phases"]
+            return ph.get("setup") == "passed" and ph.get("call") == "passed" and ph.get("teardown") != "failed"
+        inventory = sorted(expected_tests) if expected_tests is not None else sorted(t for t in tests if executed(t))
+        if not inventory:
+            return Verdict(0, 0, False, error="no executed tests to grade")
+        missing = [t for t in inventory if t not in tests]
+        if missing:
+            return Verdict(0, len(inventory), False, tests=inventory,
+                           error=f"test inventory mismatch: {len(missing)} expected tests not collected")
+        ok = [t for t in inventory if passed(t)]
+        failures = [f"{t}: {tests[t]['msg'][:200] or 'skipped or not run'}" for t in inventory if not passed(t)]
+        return Verdict(len(ok), len(inventory), len(ok) == len(inventory), failures, tests=inventory)
     finally:
         try:
             docker(["rm", "-f", name], check=False, timeout=60)

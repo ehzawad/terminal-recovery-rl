@@ -28,6 +28,7 @@ import json
 import os
 
 from termrl import faults
+from termrl.tasks import load_task, tests_execute_code
 
 POOL = "/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals"
 
@@ -64,6 +65,8 @@ def main() -> None:
     for tid, rec in validity.items():
         if split.get(tid) not in args.partition or not rec.get("valid"):
             continue
+        if tests_execute_code(load_task(os.path.join(POOL, tid))):
+            continue  # A6: hidden tests that run or import code are excluded everywhere
         usable = [f for f in fams if rec.get("faults", {}).get(f, {}).get("usable")]
         train_usable = [f for f in faults.TRAIN_FAMILIES if rec.get("faults", {}).get(f, {}).get("usable")]
         if args.require_faultable and not train_usable:
@@ -89,7 +92,7 @@ def main() -> None:
     with open(args.out, "w") as f:
         for _, tid, c, fam in configs:
             for a in range(args.attempts):
-                f.write(json.dumps({"row_id": f"{tid}:c{c}:a{a}", "task_id": tid, "task_root": os.path.join(POOL, tid),
+                f.write(json.dumps({"row_id": f"{args.salt}:{tid}:c{c}:a{a}", "task_id": tid, "task_root": os.path.join(POOL, tid),
                                     "partition": split[tid], "fault_family": fam, "fault_seed": c, "config": c,
                                     "attempt": a, "trial": a}) + "\n")
     print(f"{len(configs)} configurations ({n_faulted} faulted, {len(configs) - n_faulted} clean) x "

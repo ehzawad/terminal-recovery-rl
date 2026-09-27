@@ -107,6 +107,17 @@ class Task:
         return out
 
 
+_EXEC = re.compile(r"\bsubprocess\b|os\.system\(|os\.popen\(|\bPopen\(|check_output\(|check_call\(|pexpect|importlib|"
+                   r"spec_from_file_location|runpy|\bexec\(|__import__\(|import_module\(|sys\.path\.(?:insert|append)\(")
+
+
+def tests_execute_code(task: "Task") -> bool:
+    """Hidden tests that can run or import code (possibly agent-written) are excluded (amendment A6):
+    their grading would execute the agent's artifacts outside the damage oracle and inside the grader."""
+    with open(os.path.join(task.tests_dir, "test_final_state.py")) as f:
+        return bool(_EXEC.search(f.read()))
+
+
 def load_task(root: str) -> Task:
     root = os.path.abspath(root)
     with open(os.path.join(root, "instruction.md")) as f:

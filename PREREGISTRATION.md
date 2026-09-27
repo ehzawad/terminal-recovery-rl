@@ -221,3 +221,33 @@ the variance gate grouped trials with different faults. Harness v4 changes, all 
 - *Test rows* are generated and hashed into `results/test_rows_manifest.json`, committed before any arm is
   evaluated on test: primary = faulted test configurations (4 per task, 1 attempt) or clean ones if the
   headline is collateral; secondary = held-out FIFO (2 per task) and clean (2 per task).
+
+**A6 — 2026-09-27, after council round 5 and an independent reward re-audit
+(results/audit_2026-09-27/round5/), before any harness-v4 selection, gate or training data.**
+- *Tasks whose hidden tests can run or import code* (subprocess/os.system/Popen/pexpect/importlib/runpy/
+  exec/`sys.path` edits; 37 of the 609, including 5 test tasks) are excluded from every partition: their
+  grading would execute agent-written artifacts outside the damage oracle and inside the grader process.
+- *Verifier*: a test counts only if its setup and call phases both ran; the inventory is the set of tests
+  the reference actually executed (reference-skipped optional tests are not graded); an inventory test that
+  is skipped in an agent run fails; a pytest internal error or abnormal process exit is an error.
+- *Scoring*: one cached result per episode; any harness, verifier or grading-restore error scores 0 (or
+  −1 if collateral was already latched) and is flagged; cleanup problems never change the result. Agent
+  processes are killed before the final manifest. An *empty* placeholder at the fault's input path (e.g.
+  created by `sqlite3` opening a missing file) latches only if still present at the end; non-empty foreign
+  bytes latch at once. A type change no longer hides mode or owner changes. Faults and test inventories
+  are required by the (frozen) contract; the moved-input injector handles dotfiles.
+- *Contracts* are frozen atomically from the finished validity records into
+  `data/contracts_v4_frozen.jsonl` with task-environment and test hashes; the environment reads only that
+  file. Re-validation under v4.1 covers exactly the tasks whose outcome these changes can alter: hidden
+  tests containing `skip`, contracts permitting `type_changed`, dotfile fault targets, any task or fault
+  family with a harness/verifier error, and every task that came out invalid; all other tasks keep their v4
+  records (the changed code paths cannot affect them), and the harness version is recorded per contract.
+- *P selection* compares prompts only, without the check-and-revise controller (R and S cannot implement a
+  mid-episode user nudge); "P + check-and-revise" is evaluated on test as a reported inference-compute
+  diagnostic, outside the pilot rule. Row ids and sampling seeds are namespaced by the row-set salt, so the
+  headline gate's configurations are fresh. Episodes are classified by their *assigned* fault.
+- Before training (not before the gates): long-trajectory memory and nonzero adapter-sync probes, a
+  checkpoint-selection script with an immutable selection manifest, and the frozen test-row manifest.
+- Disclosed limitations: byte-identical regeneration; within-call damage-and-restore; gid/timestamps/xattrs
+  and paths outside /home/user; moved/FIFO inputs restored for grading when intact (so a success does not by
+  itself prove unassisted recovery; the blind trace audit separates the cases); structural partial credit.

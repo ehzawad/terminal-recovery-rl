@@ -44,7 +44,7 @@ def script_cmd(script: str) -> str:
 
 def episode(root, *, contract, fault=None, script=None, repair=False, run_timeout=180, measure_writes=False):
     env = TerminalEnv(command_timeout=run_timeout)
-    env.reset(task_root=root, fault_family=fault, fault_seed=0, contract=contract)
+    env.reset(task_root=root, fault_family=fault, fault_seed=0, contract={**contract, "provisional": True})
     if env._broken:
         raise RuntimeError(env._broken)
     writes = None
@@ -61,12 +61,13 @@ def episode(root, *, contract, fault=None, script=None, repair=False, run_timeou
                 writes = {p: sorted(k) for p, k in sorted(w.items())}
             env._check_collateral()
             if fault and not repair and out.timed_out:
-                return {"success": False, "timed_out": True, "fault": env._fault.as_dict(),
+                return {"success": False, "timed_out": True, "error": None, "fault": env._fault.as_dict(),
                         "collateral": env._collateral}, writes
-        v = env._finish()
+        res = env._result()
+        v = env._verdict
     finally:
         env._teardown()
-    return {"passed": v.passed, "total": v.total, "success": v.success, "error": v.error, "tests": v.tests,
+    return {"passed": v.passed, "total": v.total, "success": v.success, "error": res["error"], "tests": v.tests,
             "collateral": env._collateral, "fabricated_input": env._fabricated_input,
             "fault_cleared": env._fault_cleared, "fixtures": [p for p, _ in env._fixtures],
             "fault": env._fault.as_dict() if env._fault else None}, writes
@@ -76,7 +77,7 @@ def validate(task_id: str) -> dict:
     t0 = time.time()
     root = os.path.join(POOL, task_id)
     task = load_task(root)
-    rec = {"task_id": task_id, "env_hash": task.env_hash(), "harness": "v4", "valid": False, "attempts": []}
+    rec = {"task_id": task_id, "env_hash": task.env_hash(), "harness": "v4.1", "valid": False, "attempts": []}
     try:
         _validate_into(task, root, rec)
     except Exception:
@@ -120,13 +121,19 @@ def _validate_into(task, root: str, rec: dict) -> None:
             rec["faults"][fam] = {"eligible": False}
             continue
         c = {**contract, "fault_targets": {fam: f.target}}
-        bite, _ = episode(root, contract=c, fault=fam, script=task.solution, run_timeout=25)
-        rep, _ = episode(root, contract=c, fault=fam, script=task.solution, repair=True)
-        forged, _ = episode(root, contract=c, fault=fam,
-                            script=f"rm -f {shlex.quote(f.target)}; echo forged > {shlex.quote(f.target)}")
+        try:  # a problem with one fault family never invalidates the task itself
+            bite, _ = episode(root, contract=c, fault=fam, script=task.solution, run_timeout=25)
+            rep, _ = episode(root, contract=c, fault=fam, script=task.solution, repair=True)
+            forged, _ = episode(root, contract=c, fault=fam,
+                                script=f"rm -f {shlex.quote(f.target)}; echo forged > {shlex.quote(f.target)}")
+        except Exception:
+            rec["faults"][fam] = {"eligible": True, "target": f.target, "usable": False,
+                                  "error": traceback.format_exc()[-800:]}
+            continue
         entry = {"eligible": True, "target": f.target, "bite": bite, "repaired": rep,
                  "forgery_detected": forged["collateral"] is not None}
-        entry["usable"] = ((not bite["success"]) and rep["success"] and rep["collateral"] is None
+        genuine_bite = (not bite["success"]) and (bite.get("timed_out") or not bite.get("error"))
+        entry["usable"] = (genuine_bite and rep["success"] and not rep.get("error") and rep["collateral"] is None
                            and bool(rep["fault_cleared"]) and entry["forgery_detected"])
         rec["faults"][fam] = entry
 

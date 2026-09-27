@@ -144,7 +144,7 @@ class Sandbox:
         assert self._shell is not None and self._shell.stdin is not None and self._shell.stdout is not None
         nonce = secrets.token_hex(8)
         marker = f"__END_{nonce}__".encode()
-        end_re = re.compile(rb"(?:^|\n)" + re.escape(marker) + rb" (-?\d+)\n\Z")
+        end_re = re.compile(rb"(?:^|\n)" + re.escape(marker) + rb" (-?\d+)\n")
         payload = base64.b64encode(command.encode()).decode()
         line = (f'eval "$(printf %s {payload} | base64 -d)" < /dev/null 2>&1; __rc=$?; echo; '
                 f'echo "{marker.decode()} $__rc"\n')
@@ -179,9 +179,12 @@ class Sandbox:
             m = end_re.search(tail)
             if m:
                 exit_code = int(m.group(1))
-                body = self._assemble(head, tail, total, cut_tail_at=m.start())
+                # Absolute stream offset of the marker line; bytes after it (late background output)
+                # are discarded, and the output is cut there in both the head and the tail buffer.
+                cut_abs = total - len(tail) + m.start()
+                body = self._assemble(head, tail, total, cut_abs)
                 out, cut = truncate(body, self.output_limit)
-                return CommandResult(out, exit_code, False, cut or total > 2 * cap, time.monotonic() - t0)
+                return CommandResult(out, exit_code, False, cut or cut_abs > len(head), time.monotonic() - t0)
         elapsed = time.monotonic() - t0
         partial = self._assemble(head, tail, total)
         exited = self._shell.poll() is not None
@@ -195,17 +198,17 @@ class Sandbox:
         return CommandResult((out + "\n" if out else "") + note, None, True, cut, elapsed)
 
     @staticmethod
-    def _assemble(head: bytearray, tail: bytearray, total: int, cut_tail_at: int | None = None) -> str:
-        """Reconstruct output from the bounded capture, dropping the end marker (at tail[cut_tail_at:])."""
-        t = bytes(tail[:cut_tail_at]) if cut_tail_at is not None else bytes(tail)
-        if total <= len(tail):          # the rolling tail holds everything
-            data = t
+    def _assemble(head: bytearray, tail: bytearray, total: int, cut_abs: int | None = None) -> str:
+        """Reconstruct stream[0:cut_abs] (or the whole stream) from the bounded head/tail capture."""
+        end = total if cut_abs is None else cut_abs
+        tail_start = total - len(tail)               # absolute offset of tail[0]
+        if end <= len(head):                         # everything wanted is in the head
+            data = bytes(head[:end])
+        elif tail_start <= len(head):                # head and tail overlap or touch: contiguous
+            data = bytes(head) + bytes(tail[len(head) - tail_start:end - tail_start])
         else:
-            overlap = len(head) + len(tail) - total   # bytes present in both head and tail
-            if overlap > 0:
-                data = bytes(head) + t[overlap:]
-            else:
-                data = bytes(head) + f"\n[... {-overlap} bytes omitted ...]\n".encode() + t
+            omitted = tail_start - len(head)
+            data = bytes(head) + f"\n[... {omitted} bytes omitted ...]\n".encode() + bytes(tail[:end - tail_start])
         text = data.decode(errors="replace")
         return text[:-1] if text.endswith("\n") else text
 

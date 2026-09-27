@@ -98,7 +98,8 @@ def inject(sb: Sandbox, fault: Fault, seed: int) -> Fault:
         sb.root_exec(f"chown 1000:1000 {t} && chmod 000 {t}")
     elif fault.family == "moved_input":
         hide = f"/home/user/.cache_{_h(fault.target, seed) % 10**6:06d}"
-        sb.root_exec(f"mkdir -p {hide} && chown 1000:1000 {hide} && mv {t} {hide}/ && chown 1000:1000 {hide}/*")
+        moved = shlex.quote(f"{hide}/{os.path.basename(fault.target)}")
+        sb.root_exec(f"mkdir -p {hide} && chown 1000:1000 {hide} && mv {t} {hide}/ && chown 1000:1000 {moved}")
         fault.detail = hide
     elif fault.family == "missing_tool":
         sb.root_exec(f"for p in $(command -v -a {t} 2>/dev/null) /usr/bin/{t} /bin/{t}; do rm -f \"$p\"; done")

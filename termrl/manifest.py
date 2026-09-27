@@ -42,16 +42,16 @@ def changes(before: tuple, after: tuple | None) -> list[str]:
     """Every property that differs between two manifest entries of the same path."""
     if after is None:
         return ["deleted"]
-    if after[0] != before[0]:
-        return ["type_changed"]
     out = []
-    if before[0] == "f" and after[4] != before[4]:
+    if after[0] != before[0]:  # a type change does not hide mode or owner changes
+        out.append("type_changed")
+    elif before[0] == "f" and after[4] != before[4]:
         out.append("content_changed")
     if after[1] != before[1]:
         out.append("mode_changed")
     if after[2] != before[2]:
         out.append("owner_changed")
-    if before[0] == "l" and after[5] != before[5]:
+    if before[0] == "l" and after[0] == "l" and after[5] != before[5]:
         out.append("link_changed")
     return out
 

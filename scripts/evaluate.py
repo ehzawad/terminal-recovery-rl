@@ -51,8 +51,9 @@ def _macro(rows, key) -> float | None:
 
 
 def summarize(rows: list[dict]) -> dict:
-    faulted = [r for r in rows if r.get("fault")]
-    clean = [r for r in rows if not r.get("fault")]
+    assigned = lambda r: r.get("assigned_fault", (r.get("fault") or {}).get("family"))
+    faulted = [r for r in rows if assigned(r)]
+    clean = [r for r in rows if not assigned(r)]
     observed = [r for r in faulted if r.get("fault_observed_call") is not None]
     groups = collections.defaultdict(list)
     for r in rows:
@@ -83,7 +84,7 @@ def summarize(rows: list[dict]) -> dict:
         "harness_errors": sum(1 for r in rows if r.get("harness_error") or (r.get("verdict") or {}).get("error")),
         "end_reasons": dict(collections.Counter(r.get("end_reason") for r in rows)),
         "reward_mean": _rate(r.get("reward", 0.0) for r in rows),
-        "gen_tokens_mean": round(statistics.mean(r.get("generated_tokens", 0) for r in rows)) if rows else None,
+        "gen_tokens_mean": statistics.mean(r.get("generated_tokens", 0) for r in rows) if rows else None,
         "turns_mean": round(statistics.mean(len(r.get("turns", [])) for r in rows), 2) if rows else None,
         "seconds_mean": round(statistics.mean(r.get("seconds", 0) for r in rows), 1) if rows else None,
     }
@@ -131,7 +132,7 @@ def main() -> None:
                          fault_seed=row.get("fault_seed", 0), check_revise=args.check_revise,
                          temperature=args.temperature, top_p=args.top_p, top_k=args.top_k)
         tr.update({k: row[k] for k in ("row_id", "task_id", "config", "attempt", "trial", "partition")},
-                  identity=identity)
+                  identity=identity, assigned_fault=row.get("fault_family"))
         with lock:
             with open(args.out, "a") as f:
                 f.write(json.dumps(tr) + "\n")
