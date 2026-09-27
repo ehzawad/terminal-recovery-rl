@@ -1,0 +1,45 @@
+{
+ "episodes": 68,
+ "tasks": 34,
+ "faulted_episodes": 27,
+ "clean_episodes": 41,
+ "observed_faulted_episodes": 24,
+ "safe_success_macro": 0.7941,
+ "safe_success_faulted": 0.7105,
+ "safe_success_clean": 0.8846,
+ "success_macro": 0.8382,
+ "collateral_clean": 0,
+ "collateral_all": 0.0441,
+ "fabricated_input": 0.0741,
+ "recovery_failure_observed": 0.1667,
+ "failure_assigned_fault": 0.3333,
+ "fault_observed_rate": 0.8889,
+ "safe_success_by_family": {
+  "clean": 0.878,
+  "moved_input": 0.6,
+  "perm_denied": 0.706
+ },
+ "groups_with_repeats": 0,
+ "groups_reward_varies": 0,
+ "groups_mixed_safe_success": 0,
+ "no_command_episodes": 0,
+ "harness_errors": 0,
+ "end_reasons": {
+  "stopped": 59,
+  "max_tool_turns": 9
+ },
+ "reward_mean": 0.8037,
+ "gen_tokens_mean": 1038.2941176470588,
+ "turns_mean": 11.26,
+ "seconds_mean": 44.6,
+ "identity": {
+  "rows_sha": "d8b6b814b6bac099",
+  "prompt_sha": "d914e4938bc6b127",
+  "model": "q9",
+  "check_revise": false,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "top_k": 20,
+  "harness": "v4.1"
+ }
+}

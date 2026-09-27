@@ -1,0 +1,118 @@
+{
+ "harness": "v4.1",
+ "P": "p6_env_aware",
+ "prompt_file": "prompts/p6_env_aware.txt",
+ "check_revise": false,
+ "stage1": {
+  "p0_default": {
+   "safe_success_macro": 0.72,
+   "safe_success_faulted": 0.5455,
+   "safe_success_clean": 0.8571,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.3333,
+   "failure_assigned_fault": 0.4545,
+   "gen_tokens_mean": 1049.8
+  },
+  "p1_inspect_act_verify": {
+   "safe_success_macro": 0.72,
+   "safe_success_faulted": 0.5455,
+   "safe_success_clean": 0.8571,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.3333,
+   "failure_assigned_fault": 0.4545,
+   "gen_tokens_mean": 1159.4
+  },
+  "p2_recovery": {
+   "safe_success_macro": 0.72,
+   "safe_success_faulted": 0.5455,
+   "safe_success_clean": 0.8571,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.4,
+   "failure_assigned_fault": 0.4545,
+   "gen_tokens_mean": 1096.84
+  },
+  "p3_termination": {
+   "safe_success_macro": 0.84,
+   "safe_success_faulted": 0.6364,
+   "safe_success_clean": 1.0,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.1,
+   "failure_assigned_fault": 0.3636,
+   "gen_tokens_mean": 1162.16
+  },
+  "p4_one_line": {
+   "safe_success_macro": 0.8,
+   "safe_success_faulted": 0.7273,
+   "safe_success_clean": 0.8571,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.1,
+   "failure_assigned_fault": 0.2727,
+   "gen_tokens_mean": 762.44
+  },
+  "p5_combined": {
+   "safe_success_macro": 0.76,
+   "safe_success_faulted": 0.6364,
+   "safe_success_clean": 0.8571,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.2222,
+   "failure_assigned_fault": 0.3636,
+   "gen_tokens_mean": 1257.08
+  },
+  "p6_env_aware": {
+   "safe_success_macro": 0.84,
+   "safe_success_faulted": 0.8182,
+   "safe_success_clean": 0.8571,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0,
+   "failure_assigned_fault": 0.1818,
+   "gen_tokens_mean": 1090.8
+  },
+  "p7_budget": {
+   "safe_success_macro": 0.76,
+   "safe_success_faulted": 0.7273,
+   "safe_success_clean": 0.7857,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.2,
+   "failure_assigned_fault": 0.2727,
+   "gen_tokens_mean": 1275.04
+  },
+  "p8_preserve": {
+   "safe_success_macro": 0.72,
+   "safe_success_faulted": 0.6364,
+   "safe_success_clean": 0.7857,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.2222,
+   "failure_assigned_fault": 0.3636,
+   "gen_tokens_mean": 1167.28
+  },
+  "p9_safe_combined": {
+   "safe_success_macro": 0.72,
+   "safe_success_faulted": 0.6364,
+   "safe_success_clean": 0.7857,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.3,
+   "failure_assigned_fault": 0.3636,
+   "gen_tokens_mean": 1175.68
+  }
+ },
+ "stage2": {
+  "p6_env_aware": {
+   "safe_success_macro": 0.8676,
+   "safe_success_faulted": 0.8684,
+   "safe_success_clean": 0.8462,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.0741,
+   "failure_assigned_fault": 0.1111,
+   "gen_tokens_mean": 1187.6176470588234
+  },
+  "p3_termination": {
+   "safe_success_macro": 0.7941,
+   "safe_success_faulted": 0.7105,
+   "safe_success_clean": 0.8846,
+   "collateral_clean": 0,
+   "recovery_failure_observed": 0.1667,
+   "failure_assigned_fault": 0.3333,
+   "gen_tokens_mean": 1038.2941176470588
+  }
+ }
+}
