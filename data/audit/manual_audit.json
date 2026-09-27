@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-26",
+  "method": "Static source review only; no task, test, reference solution, shell snippet, or container was executed.",
+  "endless_sample": {
+    "sampling_frame": "829 semantic-text candidates before literal-block and package exclusions",
+    "sample_size": 24,
+    "selection": "First 24 SHA256(audit-semantic-v1 + task_id) values; see endless_semantic_sample_ids.json",
+    "substantive_weak_verifier_cases": [
+      {
+        "id": "task_000000_1425dd17",
+        "issue": "Requires a genuine RSA-4096 key pair and matching fingerprint; tests only key-file existence/modes, final public-key token, and fingerprint-shaped text."
+      },
+      {
+        "id": "task_000000_946d03dc",
+        "issue": "Requires moving CSV source data; tests destination names and nonzero byte counts but do not verify preserved bytes."
+      },
+      {
+        "id": "task_000000_d5588849",
+        "issue": "Claims deterministic archival; final determinism test only checks a truthy MD5, and content comparison trusts mutable source files."
+      }
+    ],
+    "additional_unchecked_requirement": {
+      "id": "task_000000_5bac2c03",
+      "issue": "Instruction claims final stdout COMPRESSION DONE is graded; supplied verifier checks only filesystem artifacts."
+    },
+    "answer_or_all_input_exposed_cases": [
+      "task_000000_94315521",
+      "task_000000_25c7c73a",
+      "task_000000_b8a3e9a3",
+      "task_000000_946d03dc",
+      "task_000000_b8ff2da7",
+      "task_000000_bf234084",
+      "task_000000_8f115a0d",
+      "task_000000_62c7991d"
+    ],
+    "interpretation": "These eight are a convention/observation-dependence concern, not eight secret-answer leaks. Static filters are conservative and also exclude some sound tasks. Rates are not representative of all 2492 tasks.",
+    "manual_final_exclusions": [
+      "task_000000_25c7c73a",
+      "task_000000_bf234084",
+      "task_000000_5bac2c03",
+      "task_000000_62c7991d"
+    ],
+    "build_context_copy_flags_false_positives": [
+      "task_000000_91def600",
+      "task_000000_e2e88388"
+    ],
+    "copy_flag_correction": "Both COPY/ADD matches occur inside heredocs creating task Dockerfiles, not as outer image build directives. No task.json leakage was established by these flags. Neither task is in the recommended slice.",
+    "prepopulated_solution_candidate": {
+      "id": "task_000000_91def600",
+      "issue": "Outer Dockerfile creates the requested scaffold, exact files and a formatted setup log before the agent starts. No-op pass is plausible but UNVERIFIED without execution."
+    }
+  },
+  "tmax": {
+    "random_static_candidate_sample_size": 16,
+    "sample_ids_file": "tmax_sample_ids.json",
+    "difficulty_label_counterexamples": [
+      "task_003891_0546af50",
+      "task_007439_dafb25c4",
+      "task_000673_236be5f3"
+    ],
+    "targeted_answer_path_sample_size": 7,
+    "confirmed_exposed_answer_files": [
+      "task_000117_20c3d5b7",
+      "task_000426_f9bb3e45",
+      "task_001220_6f0ad61b",
+      "task_001920_2066bfea",
+      "task_002093_bd02aef4",
+      "task_002266_70532baf"
+    ],
+    "false_positive_filename_flag": {
+      "id": "task_000414_f3988799",
+      "issue": "solution.txt is written by the broken program when it eventually succeeds, not by setup as an oracle answer."
+    },
+    "additional_known_leak_outside_targeted_slice": "task_000000_f8baca82",
+    "interpretation": "Six confirmed exposed answers among seven deliberately selected suspicious tasks is not a prevalence estimate. The broader 39 answer-path flags are suspects, not 39 proven leaks. No remaining task is certified safe by absence of flags."
+  },
+  "lineage": {
+    "endless": "2492 UUID task roots, no parent field. Text and normalized-verifier dedup found no merges, but failed a semantic sanity check: task_000000_0f50d50e and task_000000_52e18e5e are closely related IP/status frequency tasks with TF-IDF cosine only 0.1762. Do not call singleton components certified independent lineages.",
+    "tmax": "No parent field in released parquet. Complexity/domain/skills are taxonomy labels, not independent-root identifiers.",
+    "seta": "Collapse __b1/__d1 style evolution suffixes and StackOverflow/Unix question subvariants. Explicit root linkage supports 3465 source-root groups globally, and 55 in the tagged Nginx/TLS-plus-known-seed slice."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "semantic_candidates": 829,
+  "literal_block_exclusions": 170,
+  "final_task_ids": 659,
+  "candidate_lineages": 659,
+  "o3_by_lineage": {
+    "15/16": 129,
+    "16/16": 385,
+    "12-14/16": 145
+  },
+  "paired_rates_lineages": 52,
+  "similarity_sensitivity": {
+    "0.5": {
+      "clusters": 659,
+      "largest_groups": [
+        [
+          "task_000000_003d339f"
+        ],
+        [
+          "task_000000_010fa6d9"
+        ],
+        [
+          "task_000000_0228cd64"
+        ],
+        [
+          "task_000000_0319faa5"
+        ],
+        [
+          "task_000000_034899ca"
+        ]
+      ]
+    },
+    "0.6": {
+      "clusters": 659,
+      "largest_groups": [
+        [
+          "task_000000_003d339f"
+        ],
+        [
+          "task_000000_010fa6d9"
+        ],
+        [
+          "task_000000_0228cd64"
+        ],
+        [
+          "task_000000_0319faa5"
+        ],
+        [
+          "task_000000_034899ca"
+        ]
+      ]
+    },
+    "0.7": {
+      "clusters": 659,
+      "largest_groups": [
+        [
+          "task_000000_003d339f"
+        ],
+        [
+          "task_000000_010fa6d9"
+        ],
+        [
+          "task_000000_0228cd64"
+        ],
+        [
+          "task_000000_0319faa5"
+        ],
+        [
+          "task_000000_034899ca"
+        ]
+      ]
+    },
+    "0.8": {
+      "clusters": 659,
+      "largest_groups": [
+        [
+          "task_000000_003d339f"
+        ],
+        [
+          "task_000000_010fa6d9"
+        ],
+        [
+          "task_000000_0228cd64"
+        ],
+        [
+          "task_000000_0319faa5"
+        ],
+        [
+          "task_000000_034899ca"
+        ]
+      ]
+    }
+  },
+  "definitions": "Candidate lineage = connected component at word 1/2-gram TF-IDF cosine >=0.60 after path and number normalization; no verified generator-parent field exists.",
+  "warning": "Intermediate 659-ID stage, superseded by recommendation_counts.json (609 IDs). candidate_lineages is a lexical-clustering label, NOT verified independent lineages. Known semantic near-duplicates evade this detector; see manual_audit.json."
+}

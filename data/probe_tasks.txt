@@ -1,0 +1,52 @@
+# headroom probe v1: 16 tasks per o3-difficulty stratum, rng seed 20260926; these tasks are DEV-only forever
+# stratum o3_le8 (pool size 398)
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_227b72ab
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_17a9f9f4
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_0b1e4e69
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_c2be1abb
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_59dd29f4
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_a5f62ad5
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_4a3dfdf0
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_cf69fe1f
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_148a2720
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_2fe381b3
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_8626cdca
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_a4c7babc
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_fb371f39
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_5ed58a49
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_58efc061
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_3341b098
+# stratum o3_9to14 (pool size 640)
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_a8f61a57
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_1555b2ec
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_805121ba
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_dcdd53fb
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_f97ab70d
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_511d89d4
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_ef48b597
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_f52427ae
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_ba708fa7
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_3f4e78da
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_4c810431
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_30f9989a
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_d4cfcdb7
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_83263bef
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_8dcc6f38
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_65f3d0ea
+# stratum o3_15to16 (pool size 1454)
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_59154106
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_7dc12a3e
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_0568dece
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_9d230cc4
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_85b653dc
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_c700fc39
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_5e01077c
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_08afd77e
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_216503c6
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_4300d51b
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_c87a6651
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_8e1c176b
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_f458cf79
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_b0c2660e
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_417e169a
+/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals/task_000000_99cae0e6
