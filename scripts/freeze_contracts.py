@@ -1,6 +1,7 @@
 """Build the one authoritative contract file from finished validity records (amendment A6).
 
-Later records override earlier ones for the same task. A contract is written only for a valid task,
+Later records override earlier ones for the same task. Only the audited task set is considered (a stray
+debug record for another task is ignored). A contract is written only for a valid task,
 with its test inventory, the usable fault targets, and the identities it was validated against (task
 environment hash, sha256 of the hidden tests, harness version). The file is written atomically; the
 environment reads only this frozen file.
@@ -22,11 +23,13 @@ def main() -> None:
     ap.add_argument("--validity", action="append", required=True)
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
+    audited = set(json.load(open("data/audit/endless_recommended_ids.json")))
     recs = {}
     for path in args.validity:
         for line in open(path):
             r = json.loads(line)
-            recs[r["task_id"]] = r
+            if r["task_id"] in audited:
+                recs[r["task_id"]] = r
     tmp = args.out + ".tmp"
     n = 0
     with open(tmp, "w") as f:
