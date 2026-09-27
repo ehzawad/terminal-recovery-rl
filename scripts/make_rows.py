@@ -31,7 +31,8 @@ def main() -> None:
     ap.add_argument("--trials", type=int, default=4)
     ap.add_argument("--families", choices=["train", "heldout", "clean", "mix"], default="train")
     ap.add_argument("--fault-share", type=float, default=0.5)
-    ap.add_argument("--validity", default="data/validity/v3.jsonl")
+    ap.add_argument("--validity", action="append",
+                    help="validity JSONL (repeatable; later files override earlier records of the same task)")
     ap.add_argument("--split", default="data/splits_v1.json")
     ap.add_argument("--limit", type=int, help="first N eligible tasks in sha256 order (deterministic subsample)")
     ap.add_argument("--out", required=True)
@@ -39,9 +40,11 @@ def main() -> None:
 
     split = json.load(open(args.split))["assignments"]
     validity = {}
-    for line in open(args.validity):
-        r = json.loads(line)
-        validity[r["task_id"]] = r
+    for path in args.validity or ["data/validity/v3.jsonl", "data/validity/v3_redo.jsonl"]:
+        if os.path.exists(path):
+            for line in open(path):
+                r = json.loads(line)
+                validity[r["task_id"]] = r
     fams = {"train": faults.TRAIN_FAMILIES, "heldout": faults.HELDOUT_FAMILIES, "clean": (),
             "mix": faults.TRAIN_FAMILIES}[args.families]
 

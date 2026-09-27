@@ -32,10 +32,11 @@ def contract_for(task_id: str) -> dict | None:
     global _contracts
     if _contracts is None:
         _contracts = {}
-        if os.path.exists(CONTRACTS):
-            for line in open(CONTRACTS):
-                r = json.loads(line)
-                _contracts[r["task_id"]] = r
+        for path in (CONTRACTS, CONTRACTS.replace(".jsonl", "_redo.jsonl")):
+            if os.path.exists(path):
+                for line in open(path):
+                    r = json.loads(line)
+                    _contracts[r["task_id"]] = r
     return _contracts.get(task_id)
 
 
@@ -77,6 +78,7 @@ class TerminalEnv:
         self._fault_observed_call: int | None = None
         self._fault_cleared: bool | None = None
         self._fabricated_input = False
+        self._grading_restore_failed = False
         self._collateral: dict | None = None
         self._damaged: set[str] = set()
         self._pristine = manifest.take(self._sandbox.name)
@@ -153,11 +155,15 @@ class TerminalEnv:
         # bytes and mode back only when the agent left them intact somewhere.
         t = shlex.quote(f.target)
         mode = orig[1]
+        script = None
         if intact_target:
-            sb.root_exec(f"chmod {mode} {t}")
-        elif at_target is None or at_target[0] == "p":
-            if intact_spare:
-                sb.root_exec(f"rm -f {t} && cp -p {shlex.quote(spare_path)} {t} && chmod {mode} {t}")
+            script = f"chmod {mode} {t}"
+        elif (at_target is None or at_target[0] == "p") and intact_spare:
+            script = (f"rm -f {t} && mkdir -p {shlex.quote(os.path.dirname(f.target))} && "
+                      f"cp -p {shlex.quote(spare_path)} {t} && chmod {mode} {t}")
+        if script:
+            rc = docker(["exec", "-u", "0:0", sb.name, "bash", "-c", script], check=False, timeout=60).returncode
+            self._grading_restore_failed = rc != 0
 
     def _finish(self) -> Verdict:
         if self._verdict is None:
