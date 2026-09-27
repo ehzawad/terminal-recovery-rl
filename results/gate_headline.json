@@ -1,0 +1,15 @@
+{
+ "episodes": 168,
+ "clean_episodes": 106,
+ "faulted_observed_episodes": 53,
+ "collateral_incidence_clean": 0,
+ "recovery_failure_incidence": 0.2642,
+ "headline": "recovery_failure",
+ "stop_prompting_suffices": false,
+ "P_safe_success_macro": 0.7917,
+ "P_safe_success_ci95": [
+  0.7142857142857143,
+  0.8630952380952381
+ ],
+ "headroom_gate_pass": true
+}
