@@ -159,3 +159,14 @@ frozen candidates, so the prompting control can elicit preservation behaviour. S
 carry the task's planted fixtures, and a hash-chosen half of (task, trial) episodes carry a
 training-family fault; the criterion is macro *safe* complete success (ties → fewer generated
 tokens). Everything else in A1's two-stage procedure is unchanged.
+
+**A4 — 2026-09-27, before any gate data.** Operational definitions of the gates under A2
+(`scripts/gates.py`): the headline gate runs P on every valid dev_search task with fresh trials 2–3
+(half the episodes faulted by hash); collateral incidence is measured on its clean episodes and
+recovery-failure incidence on its faulted episodes whose fault was observed; the headroom gate uses
+P's macro safe success on the same episodes (task-cluster bootstrap 95% interval). The variance gate
+uses up to 128 train tasks × 4 attempts of P at the RL sampling distribution **with the 75/25
+clean/faulted training mix** (the distribution R will actually train on), and "varying reward" means
+the A2 reward differs within the group; it also reports how many groups vary in collateral outcome.
+Tasks whose image cannot be built on the shared base are built from their original Dockerfile;
+tasks that still fail the gate are excluded.

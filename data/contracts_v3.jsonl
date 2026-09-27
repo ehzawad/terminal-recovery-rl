@@ -99,3 +99,6 @@
 {"task_id": "task_000000_14305724", "fixture_level": "full", "permitted": []}
 {"task_id": "task_000000_134721ed", "fixture_level": "sibling", "permitted": []}
 {"task_id": "task_000000_15369990", "fixture_level": "full", "permitted": ["/home/user/project/config/build.cfg", "/home/user/project/config/deploy.cfg", "/home/user/project/config/test.cfg"]}
+{"task_id": "task_000000_162f7c8d", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_17d86e1f", "fixture_level": "full", "permitted": ["/home/user/cloud_costs/raw_usage/2023-11-01-usage.json", "/home/user/cloud_costs/raw_usage/2024-01-01-usage.json", "/home/user/cloud_costs/raw_usage/2024-01-15-usage.json"]}
+{"task_id": "task_000000_15343cad", "fixture_level": "sibling", "permitted": ["/home/user/builds/2023-05-01/artifacts.log", "/home/user/builds/2023-05-02/artifacts.log", "/home/user/builds/2023-05-03/artifacts.log"]}
