@@ -68,49 +68,53 @@ def validate(task_id: str) -> dict:
     task = load_task(root)
     rec = {"task_id": task_id, "env_hash": task.env_hash(), "valid": False, "attempts": []}
     try:
-        task.ensure_image()
-        for level in ("full", "sibling"):
-            noop, _ = episode(root, level=level)
-            ref, writes = episode(root, level=level, script=task.solution, measure_writes=True)
-            touched_fixture = sorted(set(ref["fixtures"]) & set(writes or []))
-            ok = (not noop["success"]) and ref["success"] and not touched_fixture and not noop["error"]
-            rec["attempts"].append({"level": level, "noop": noop, "reference": ref, "writes": writes,
-                                    "touched_fixture": touched_fixture, "ok": ok})
-            if ok:
-                rec.update(valid=True, fixture_level=level, permitted=writes, fixtures=ref["fixtures"])
-                break
-        if not rec["valid"]:
-            return rec
-        contract = {"fixture_level": rec["fixture_level"], "permitted": rec["permitted"]}
-        victim = rec["fixtures"][0]
-        damaged, _ = episode(root, level=rec["fixture_level"], contract=contract,
-                             script=task.solution + f"\nrm -f {shlex.quote(victim)}\n")
-        clean, _ = episode(root, level=rec["fixture_level"], contract=contract, script=task.solution)
-        rec["oracle_selftest"] = {"damage_detected": damaged["collateral"] is not None,
-                                  "reference_clean": clean["collateral"] is None and clean["success"]}
-        rec["valid"] = rec["oracle_selftest"]["damage_detected"] and rec["oracle_selftest"]["reference_clean"]
-        rec["faults"] = {}
-        if rec["valid"]:
-            for fam in faults.TRAIN_FAMILIES + faults.HELDOUT_FAMILIES:
-                if faults.choose(task, fam, 0) is None:
-                    rec["faults"][fam] = {"eligible": False}
-                    continue
-                bite, _ = episode(root, level=rec["fixture_level"], contract=contract, fault=fam,
-                                  script=task.solution, run_timeout=25)
-                entry = {"eligible": True, "bite": bite}
-                if fam != "missing_tool":
-                    rep, _ = episode(root, level=rec["fixture_level"], contract=contract, fault=fam,
-                                     script=task.solution, repair=True)
-                    entry["repaired"] = rep
-                    entry["usable"] = (not bite["success"]) and rep["success"] and rep["collateral"] is None
-                else:
-                    entry["usable"] = not bite["success"]
-                rec["faults"][fam] = entry
+        _validate_into(task, root, rec)
     except Exception:
         rec["valid"] = False
         rec["harness_error"] = traceback.format_exc()[-2000:]
     rec["seconds"] = round(time.time() - t0, 1)
     return rec
+
+
+def _validate_into(task, root: str, rec: dict) -> None:
+    task.ensure_image()
+    for level in ("full", "sibling"):
+        noop, _ = episode(root, level=level)
+        ref, writes = episode(root, level=level, script=task.solution, measure_writes=True)
+        touched_fixture = sorted(set(ref["fixtures"]) & set(writes or []))
+        ok = (not noop["success"]) and ref["success"] and not touched_fixture and not noop["error"]
+        rec["attempts"].append({"level": level, "noop": noop, "reference": ref, "writes": writes,
+                                "touched_fixture": touched_fixture, "ok": ok})
+        if ok:
+            rec.update(valid=True, fixture_level=level, permitted=writes, fixtures=ref["fixtures"])
+            break
+    if not rec["valid"]:
+        return
+    contract = {"fixture_level": rec["fixture_level"], "permitted": rec["permitted"]}
+    victim = rec["fixtures"][0]
+    damaged, _ = episode(root, level=rec["fixture_level"], contract=contract,
+                         script=task.solution + f"\nrm -f {shlex.quote(victim)}\n")
+    clean, _ = episode(root, level=rec["fixture_level"], contract=contract, script=task.solution)
+    rec["oracle_selftest"] = {"damage_detected": damaged["collateral"] is not None,
+                              "reference_clean": clean["collateral"] is None and clean["success"]}
+    rec["valid"] = rec["oracle_selftest"]["damage_detected"] and rec["oracle_selftest"]["reference_clean"]
+    rec["faults"] = {}
+    if rec["valid"]:
+        for fam in faults.TRAIN_FAMILIES + faults.HELDOUT_FAMILIES:
+            if faults.choose(task, fam, 0) is None:
+                rec["faults"][fam] = {"eligible": False}
+                continue
+            bite, _ = episode(root, level=rec["fixture_level"], contract=contract, fault=fam,
+                              script=task.solution, run_timeout=25)
+            entry = {"eligible": True, "bite": bite}
+            if fam != "missing_tool":
+                rep, _ = episode(root, level=rec["fixture_level"], contract=contract, fault=fam,
+                                 script=task.solution, repair=True)
+                entry["repaired"] = rep
+                entry["usable"] = (not bite["success"]) and rep["success"] and rep["collateral"] is None
+            else:
+                entry["usable"] = not bite["success"]
+            rec["faults"][fam] = entry
 
 
 def main() -> None:

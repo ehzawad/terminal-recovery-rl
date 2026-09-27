@@ -75,7 +75,7 @@ class Sandbox:
         self.output_limit = output_limit
         self.name = "w" + secrets.token_hex(6)
         docker([
-            "run", "-d", "--name", self.name, "--network", "none",
+            "run", "-d", "--name", self.name, "--label", f"termrl.owner_pid={os.getpid()}", "--network", "none",
             "--cpus", str(cpus), "--memory", memory, "--pids-limit", str(pids),
             "--security-opt", "no-new-privileges", "--cap-drop", "NET_RAW",
             "--workdir", workdir, "--entrypoint", "sleep", image, "infinity",

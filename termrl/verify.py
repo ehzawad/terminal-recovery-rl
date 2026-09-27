@@ -75,7 +75,7 @@ def verify_image(image: str, tests_dir: str, *, timeout: float = 240) -> Verdict
         f.write(_RUNNER)
     name = "v" + secrets.token_hex(6)
     args = [
-        "run", "--rm", "--name", name, "--user", "1000:1000", "--network", "none", "--cpus", "1", "--memory", "2g",
+        "run", "--rm", "--name", name, "--label", f"termrl.owner_pid={os.getpid()}", "--user", "1000:1000", "--network", "none", "--cpus", "1", "--memory", "2g",
         "--pids-limit", "256", "--security-opt", "no-new-privileges",
         "-v", f"{os.path.abspath(tests_dir)}:/tests:ro",
         "-v", f"{TOOLCHAIN}:/opt/vt:ro",

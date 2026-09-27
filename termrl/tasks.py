@@ -60,23 +60,38 @@ class Task:
 
     @property
     def image(self) -> str:
-        return f"termrl-task:{self.env_hash()}"
+        """The shared-base build if it exists, else the original-Dockerfile fallback if that exists."""
+        tag = f"termrl-task:{self.env_hash()}"
+        if docker(["image", "inspect", tag], check=False, timeout=60).returncode != 0 and \
+                docker(["image", "inspect", tag + "-orig"], check=False, timeout=60).returncode == 0:
+            return tag + "-orig"
+        return tag
 
     def ensure_image(self, timeout: float = 1200) -> str:
-        tag = self.image
-        if docker(["image", "inspect", tag], check=False, timeout=60).returncode != 0:
-            ctx = tempfile.mkdtemp(prefix="termrl-ctx-")
+        tag = f"termrl-task:{self.env_hash()}"
+        for t in (tag, tag + "-orig"):
+            if docker(["image", "inspect", t], check=False, timeout=60).returncode == 0:
+                return t
+        ctx = tempfile.mkdtemp(prefix="termrl-ctx-")
+        try:
+            shutil.copytree(self.env_dir, ctx, dirs_exist_ok=True)
+            df = os.path.join(ctx, "Dockerfile")
+            with open(df) as f:
+                text = f.read()
+            with open(df, "w") as f:
+                f.write(patched_dockerfile(text))
             try:
-                shutil.copytree(self.env_dir, ctx, dirs_exist_ok=True)
-                df = os.path.join(ctx, "Dockerfile")
-                with open(df) as f:
-                    text = f.read()
-                with open(df, "w") as f:
-                    f.write(patched_dockerfile(text))
                 docker(["build", "-q", "-t", tag, ctx], timeout=timeout)
-            finally:
-                shutil.rmtree(ctx, ignore_errors=True)
-        return tag
+                return tag
+            except RuntimeError:
+                # The shared base skips `apt-get update`; packages it lacks can then be unfetchable.
+                # Fall back to the task's own Dockerfile, unchanged.
+                with open(df, "w") as f:
+                    f.write(text)
+                docker(["build", "-q", "-t", tag + "-orig", ctx], timeout=timeout)
+                return tag + "-orig"
+        finally:
+            shutil.rmtree(ctx, ignore_errors=True)
 
     def reference_pass_rates(self) -> dict[str, float]:
         """Per-model pass@1 shipped with Endless Terminals (solution/<model>_summary.json)."""

@@ -41,12 +41,14 @@ class RecordingGRPOTrainer(GRPOTrainer):
 
     def _generate_and_score_completions(self, inputs):
         out = super()._generate_and_score_completions(inputs)
-        pad = self.pad_token_id
+        pad = self._tokenizer.pad_token_id
         with open(self._rollout_log, "a") as f:
             for i, env in enumerate(self.environments):
                 p = out["prompt_ids"][i][out["prompt_mask"][i].bool()].tolist()
                 c = out["completion_ids"][i]
-                n = int((c != pad).sum())
+                n = len(c)
+                while n > 0 and int(c[n - 1]) == pad:  # completions are right-padded
+                    n -= 1
                 v = env._verdict
                 f.write(json.dumps({
                     "step": self.state.global_step, "task_root": env._task.root,
@@ -125,7 +127,7 @@ def main() -> None:
     ap.add_argument("--groups-per-step", type=int, default=4)
     ap.add_argument("--lr", type=float, default=1e-5)
     ap.add_argument("--lora-r", type=int, default=16)
-    ap.add_argument("--vllm-util", type=float, default=0.45)
+    ap.add_argument("--vllm-util", type=float, default=0.40)
     ap.add_argument("--max-completion", type=int, default=6144)
     ap.add_argument("--max-model-len", type=int, default=8192)
     ap.add_argument("--max-tool-turns", type=int, default=16)
