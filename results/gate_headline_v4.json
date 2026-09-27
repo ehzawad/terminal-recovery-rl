@@ -1,0 +1,19 @@
+{
+ "harness": "v4.1",
+ "episodes": 156,
+ "clean_episodes": 110,
+ "faulted_episodes": 46,
+ "observed_faulted_episodes": 40,
+ "collateral_incidence_clean": 0.0364,
+ "recovery_failure_incidence": 0.15,
+ "failure_rate_all_assigned_faults": 0.1957,
+ "headline": null,
+ "stop_prompting_suffices": true,
+ "P_safe_success_macro": 0.7756,
+ "P_safe_success_ci95": [
+  0.6923076923076923,
+  0.8525641025641025
+ ],
+ "headroom_gate_pass": true,
+ "harness_errors": 0
+}
