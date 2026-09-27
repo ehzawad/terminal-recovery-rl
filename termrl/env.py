@@ -36,6 +36,8 @@ class TerminalEnv:
         self._log = []
         self._verdict = None
         self._fault = None
+        self._fault_observed_call: int | None = None
+        self._fault_cleared: bool | None = None
         if fault_family:
             fault = faults.choose(self._task, fault_family, fault_seed)
             if fault is None:
@@ -56,6 +58,9 @@ class TerminalEnv:
         r = self._sandbox.run(command)
         self._log.append({"command": command, "exit_code": r.exit_code, "timed_out": r.timed_out,
                           "truncated": r.truncated, "seconds": round(r.seconds, 3), "output_chars": len(r.output)})
+        if self._fault is not None and self._fault_observed_call is None and \
+                faults.observed(self._fault, command, r.output, r.timed_out):
+            self._fault_observed_call = len(self._log) - 1
         status = "timed out" if r.timed_out else f"exit code {r.exit_code}"
         return f"{r.output}\n[{status}]" if r.output else f"[no output; {status}]"
 
@@ -67,6 +72,11 @@ class TerminalEnv:
         if self._verdict is None:
             assert self._sandbox is not None and self._task is not None
             t0 = time.monotonic()
+            check = faults.state_check(self._fault) if self._fault is not None else None
+            if check is not None:
+                user, test = check
+                rc = docker(["exec", "-u", user, self._sandbox.name, "bash", "-c", test], check=False, timeout=60).returncode
+                self._fault_cleared = rc == 0
             snap = self._sandbox.commit()
             try:
                 self._verdict = verify_image(snap, self._task.tests_dir)

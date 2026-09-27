@@ -18,6 +18,12 @@ from transformers.utils import get_json_schema
 
 from .env import TerminalEnv
 
+REVISE_NUDGE = (
+    "Before finishing, use the terminal to check your result against every requirement in the task "
+    "(paths, exact formats, permissions, contents). Fix anything that does not match. When everything "
+    "is verified, reply with a brief summary and no tool call."
+)
+
 SYSTEM_DEFAULT = (
     "You are an agent operating a Linux terminal through the `bash` tool. Complete the user's task. "
     "When you are finished, reply with a brief summary and no tool call."
@@ -68,12 +74,13 @@ def run_episode(
     command_timeout: float = 30.0,
     fault_family: str | None = None,
     fault_seed: int = 0,
+    check_revise: bool = False,
 ) -> dict:
     # Budgets mirror the RL rollout limits (TRL max_completion_length / vllm_max_model_length /
     # max_tool_calling_iterations), so every arm is evaluated under the conditions R was trained in.
     env = TerminalEnv(command_timeout=command_timeout, output_limit=output_limit)
     trace: dict = {"task_root": task_root, "model": model, "enable_thinking": enable_thinking, "seed": seed,
-                   "system_prompt": system_prompt, "turns": [], "end_reason": None}
+                   "system_prompt": system_prompt, "check_revise": check_revise, "turns": [], "end_reason": None}
     t_start = time.monotonic()
     try:
         env.reset(task_root=task_root, fault_family=fault_family, fault_seed=fault_seed)
@@ -115,6 +122,11 @@ def run_episode(
             if not calls:
                 rec["reasoning"] = reasoning[-4000:]
                 trace["turns"].append(rec)
+                if check_revise and not trace.get("revise_used") and choice.finish_reason != "length":
+                    # Verifier-free inference-compute control: one self-check round inside the same budget.
+                    trace["revise_used"] = turn
+                    messages.append({"role": "user", "content": REVISE_NUDGE})
+                    continue
                 trace["end_reason"] = "truncated" if choice.finish_reason == "length" else "stopped"
                 break
             for c in calls:
@@ -133,6 +145,8 @@ def run_episode(
         trace["verdict"] = {"passed": verdict.passed, "total": verdict.total, "success": verdict.success,
                             "reward": verdict.reward, "failures": verdict.failures, "error": verdict.error}
         trace["commands"] = env._log
+        trace["fault_observed_call"] = env._fault_observed_call
+        trace["fault_cleared"] = env._fault_cleared
     except Exception:
         trace["end_reason"] = trace["end_reason"] or "harness_error"
         trace["harness_error"] = traceback.format_exc()[-3000:]

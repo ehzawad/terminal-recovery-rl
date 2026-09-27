@@ -113,3 +113,30 @@ def repair_script(fault: Fault) -> str:
     if fault.family == "blocking_fifo":
         return f"rm -f {t} && mv {shlex.quote(fault.detail)} {t}"
     return ""  # missing_tool: validity is established by an alternative solution, not a repair
+
+
+def observed(fault: Fault, command: str, output: str, timed_out: bool) -> bool:
+    """Did this tool call surface the fault to the agent? (signature-based, per family)"""
+    base = os.path.basename(fault.target)
+    touched = base in command or base in output
+    if fault.family == "perm_denied":
+        return touched and "Permission denied" in output
+    if fault.family == "moved_input":
+        return touched and any(s in output for s in ("No such file", "cannot access", "not found", "does not exist"))
+    if fault.family == "missing_tool":
+        return fault.target in output and any(s in output for s in ("command not found", "No such file", "not found"))
+    if fault.family == "blocking_fifo":
+        return timed_out and base in command
+    return False
+
+
+def state_check(fault: Fault) -> tuple[str, str] | None:
+    """(user, shell test) that succeeds iff the fault is no longer present in the final filesystem."""
+    t = shlex.quote(fault.target)
+    if fault.family == "perm_denied":
+        return "1000:1000", f"test -r {t}"
+    if fault.family == "moved_input":
+        return "0:0", f"test -e {t}"
+    if fault.family == "blocking_fifo":
+        return "0:0", f"! test -p {t}"
+    return None  # missing_tool: nothing to restore; recovery shows only as task success
