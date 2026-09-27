@@ -17,3 +17,10 @@ REVISE_NUDGE = (
     "(paths, exact formats, permissions, contents). Fix anything that does not match. When everything "
     "is verified, reply with a brief summary and no tool call."
 )
+
+# Episode limits shared by evaluation (termrl/rollout.py), SFT collection and RL (scripts/train_grpo.py).
+MAX_TOOL_TURNS = 16        # TRL max_tool_calling_iterations
+MAX_COMPLETION = 6144      # TRL max_completion_length (tool-result tokens count toward it)
+MAX_MODEL_LEN = 8192       # TRL vllm_max_model_length / evaluation server --max-model-len
+COMMAND_TIMEOUT = 30.0     # seconds per bash call
+OUTPUT_LIMIT = 3000        # characters of tool output shown to the model (head + tail)

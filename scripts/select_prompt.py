@@ -1,8 +1,8 @@
-"""Choose arm P exactly as pre-registered (amendment A1).
+"""Choose arm P exactly as pre-registered (amendments A1, A3, A5).
 
-Valid dev_search tasks are halved by sha256('psel:'+id); every episode carries the task's planted
-fixtures and half of the (task, trial) episodes, chosen by hash, carry a training-family fault
-(amendment A3). Half A: all 10 frozen prompts x 1 trial. The two best by macro *safe* complete
+Valid dev_search tasks *with a usable training-family fault* (A1's eligibility, restored in A5) are
+halved by sha256('psel:'+id); every episode carries the task's planted fixtures and a hash-chosen
+half of the (task, configuration) episodes carry a training-family fault (A3). Half A: all 10 frozen prompts x 1 trial. The two best by macro *safe* complete
 success (ties -> fewer mean generated tokens) go to half B, each with and without check-and-revise,
 x 2 trials. The best of those four configurations is P; the choice is written to
 runs/psel/choice.json.
@@ -17,14 +17,15 @@ import os
 import subprocess
 import sys
 
-OUT = "runs/psel"
+OUT = "runs/psel_v4"
 PY = sys.executable
 
 
 def rows_for(half: str, trials: int) -> str:
     path = f"{OUT}/rows_{half}.jsonl"
-    subprocess.run([PY, "scripts/make_rows.py", "--partition", "dev_search", "--trials", str(trials),
-                    "--families", "mix", "--fault-share", "0.5", "--out", path + ".all"], check=True)
+    subprocess.run([PY, "scripts/make_rows.py", "--partition", "dev_search", "--families", "mix",
+                    "--fault-share", "0.5", "--require-faultable", "--configs-per-task", str(trials),
+                    "--attempts", "1", "--out", path + ".all"], check=True)
     keep = []
     for line in open(path + ".all"):
         r = json.loads(line)
@@ -64,10 +65,12 @@ def main() -> None:
             stage2[key] = run(rows_b, f"B_{key}", f"prompts/{name}.txt", revise)
             print(key, stage2[key]["safe_success_macro"], flush=True)
     best = sorted(stage2, key=lambda k: (-stage2[k]["safe_success_macro"], stage2[k]["gen_tokens_mean"]))[0]
-    choice = {"P": best, "prompt_file": f"prompts/{best.split('+')[0]}.txt", "check_revise": best.endswith("+revise"),
-              "stage1": {k: {x: v[x] for x in ("safe_success_macro", "success_macro", "collateral_incidence", "recovery_failure_incidence", "gen_tokens_mean")}
+    choice = {"harness": "v4", "P": best, "prompt_file": f"prompts/{best.split('+')[0]}.txt", "check_revise": best.endswith("+revise"),
+              "stage1": {k: {x: v[x] for x in ("safe_success_macro", "safe_success_faulted", "safe_success_clean", "collateral_clean",
+                                 "recovery_failure_observed", "failure_assigned_fault", "gen_tokens_mean")}
                          for k, v in stage1.items()},
-              "stage2": {k: {x: v[x] for x in ("safe_success_macro", "success_macro", "collateral_incidence", "recovery_failure_incidence", "gen_tokens_mean")}
+              "stage2": {k: {x: v[x] for x in ("safe_success_macro", "safe_success_faulted", "safe_success_clean", "collateral_clean",
+                                 "recovery_failure_observed", "failure_assigned_fault", "gen_tokens_mean")}
                          for k, v in stage2.items()}}
     json.dump(choice, open(f"{OUT}/choice.json", "w"), indent=1)
     print(json.dumps(choice, indent=1))

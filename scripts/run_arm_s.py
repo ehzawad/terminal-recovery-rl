@@ -1,12 +1,12 @@
-"""Arm S: two rounds of self-generated, verifier-filtered multi-turn SFT (expert iteration).
+"""Arm S: two rounds of self-generated, verifier-filtered multi-turn SFT (expert iteration; A1, A5).
 
-Round 1: 512 attempts of the instruct model with P's prompt on train rows (75% clean with planted
-fixtures, 25% training-family faults) at the RL sampling distribution (temperature 1.0, top-p 1.0,
-no top-k); keep *safe* successes (complete success, no collateral modification); SFT from the
-instruct weights -> checkpoints r1/epoch1, r1/epoch2.
-Round 2: 512 fresh attempts of r1/epoch2; SFT from the instruct weights on the union of both
-rounds' safe successes -> r2/epoch1, r2/epoch2. The four checkpoints are the candidates chosen on
-dev_monitor. Every attempt counts against the budget, failures included.
+S and R share one set of 256 training configurations (make_rows salt 'train-v4', 75/25 clean/faulted
+on faultable tasks). R trains on all 256 as GRPO groups of four; S spends the same 1,024 attempts:
+round 1 = configurations 0-127 x 4 attempts of the instruct model with P's prompt at the RL sampling
+distribution; SFT from the instruct weights on the *safe* successes -> r1/epoch1, r1/epoch2.
+round 2 = configurations 128-255 x 4 attempts of r1/epoch2; SFT from the instruct weights on the union
+of both rounds' safe successes -> r2/epoch1, r2/epoch2. The four checkpoints are candidates for
+dev_monitor selection. One 18 GPU-hour cap covers collection and fitting together.
 
 Usage: python scripts/run_arm_s.py --prompt-file prompts/pX.txt [--out runs/S_seed1]
 """
@@ -16,16 +16,24 @@ import json
 import os
 import subprocess
 import sys
+import time
 
 from termrl import server
 
 PY = sys.executable
 
 
-def collect(rows: str, out: str, prompt: str, model: str, lora: dict | None) -> list[dict]:
+def rows(skip: int, out: str) -> str:
+    subprocess.run([PY, "scripts/make_rows.py", "--partition", "train", "--families", "mix", "--fault-share", "0.25",
+                    "--salt", "train-v4", "--skip", str(skip), "--limit", "128", "--attempts", "4", "--out", out],
+                   check=True)
+    return out
+
+
+def collect(rows_path: str, out: str, prompt: str, model: str, lora: dict | None) -> list[dict]:
     proc = server.start(lora, log_path=f"{os.path.dirname(out)}/vllm.log")
     try:
-        subprocess.run([PY, "scripts/evaluate.py", "--rows", rows, "--out", out, "--model", model,
+        subprocess.run([PY, "scripts/evaluate.py", "--rows", rows_path, "--out", out, "--model", model,
                         "--system-prompt-file", prompt, "--temperature", "1.0", "--top-p", "1.0", "--top-k", "-1",
                         "--concurrency", "8"], check=True)
     finally:
@@ -33,50 +41,37 @@ def collect(rows: str, out: str, prompt: str, model: str, lora: dict | None) -> 
     return [json.loads(l) for l in open(out)]
 
 
-def safe_successes(traces: list[dict], path: str) -> int:
-    keep = [t for t in traces if t.get("safe_success") and not t.get("harness_error")]
-    with open(path, "w") as f:
-        for t in keep:
-            f.write(json.dumps(t) + "\n")
-    return len(keep)
-
-
-def rows_slice(trials: tuple[int, int], out: str, limit: int) -> str:
-    tmp = out + ".all"
-    subprocess.run([PY, "scripts/make_rows.py", "--partition", "train", "--trials", str(trials[1]),
-                    "--families", "mix", "--fault-share", "0.25", "--out", tmp], check=True)
-    rows = [json.loads(l) for l in open(tmp) if trials[0] <= json.loads(l)["trial"] < trials[1]]
-    os.remove(tmp)
-    with open(out, "w") as f:
-        for r in rows[:limit]:
-            f.write(json.dumps(r) + "\n")
-    return out
-
-
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--prompt-file", required=True)
     ap.add_argument("--out", default="runs/S_seed1")
-    ap.add_argument("--attempts-per-round", type=int, default=512)
+    ap.add_argument("--max-hours", type=float, default=18.0)
     args = ap.parse_args()
-    os.makedirs(args.out, exist_ok=True)
     o = args.out
+    os.makedirs(o, exist_ok=True)
+    t0 = time.time()
+    left = lambda: args.max_hours - (time.time() - t0) / 3600
+    ledger = {"prompt_file": args.prompt_file}
 
-    r1_rows = rows_slice((0, 2), f"{o}/r1_rows.jsonl", args.attempts_per_round)
-    r1 = collect(r1_rows, f"{o}/r1_rollouts.jsonl", args.prompt_file, "q9", None)
-    n1 = safe_successes(r1, f"{o}/r1_safe.jsonl")
-    print(f"round 1: {n1}/{len(r1)} safe successes", flush=True)
-    subprocess.run([PY, "scripts/train_sft.py", "--data", f"{o}/r1_safe.jsonl", "--out", f"{o}/r1"], check=True)
+    r1 = collect(rows(0, f"{o}/r1_rows.jsonl"), f"{o}/r1_rollouts.jsonl", args.prompt_file, "q9", None)
+    ledger["round1"] = {"attempts": len(r1), "safe_successes": sum(bool(t.get("safe_success")) for t in r1),
+                        "hours_after_collection": round((time.time() - t0) / 3600, 2)}
+    subprocess.run([PY, "scripts/train_sft.py", "--data", f"{o}/r1_rollouts.jsonl", "--out", f"{o}/r1",
+                    "--max-hours", f"{max(0.25, left() / 3):.2f}"], check=True)
+    ledger["round1"]["hours_after_fit"] = round((time.time() - t0) / 3600, 2)
 
-    r2_rows = rows_slice((2, 4), f"{o}/r2_rows.jsonl", args.attempts_per_round)
-    r2 = collect(r2_rows, f"{o}/r2_rollouts.jsonl", args.prompt_file, "s1", {"s1": f"{o}/r1/epoch2"})
-    n2 = safe_successes(r2, f"{o}/r2_safe.jsonl")
-    print(f"round 2: {n2}/{len(r2)} safe successes", flush=True)
-    subprocess.run([PY, "scripts/train_sft.py", "--data", f"{o}/r1_safe.jsonl", "--data", f"{o}/r2_safe.jsonl",
-                    "--out", f"{o}/r2"], check=True)
-    json.dump({"round1": {"attempts": len(r1), "safe_successes": n1}, "round2": {"attempts": len(r2), "safe_successes": n2},
-               "candidates": [f"{o}/r1/epoch1", f"{o}/r1/epoch2", f"{o}/r2/epoch1", f"{o}/r2/epoch2"]},
-              open(f"{o}/summary.json", "w"), indent=1)
+    r2 = collect(rows(128, f"{o}/r2_rows.jsonl"), f"{o}/r2_rollouts.jsonl", args.prompt_file, "s1",
+                 {"s1": f"{o}/r1/epoch2"})
+    ledger["round2"] = {"attempts": len(r2), "safe_successes": sum(bool(t.get("safe_success")) for t in r2),
+                        "hours_after_collection": round((time.time() - t0) / 3600, 2)}
+    subprocess.run([PY, "scripts/train_sft.py", "--data", f"{o}/r1_rollouts.jsonl", "--data", f"{o}/r2_rollouts.jsonl",
+                    "--out", f"{o}/r2", "--max-hours", f"{max(0.25, left()):.2f}"], check=True)
+    ledger["total_hours"] = round((time.time() - t0) / 3600, 2)
+    ledger["within_cap"] = ledger["total_hours"] <= args.max_hours
+    ledger["candidates"] = [p for p in (f"{o}/r1/epoch1", f"{o}/r1/epoch2", f"{o}/r2/epoch1", f"{o}/r2/epoch2")
+                            if os.path.isdir(p)]
+    json.dump(ledger, open(f"{o}/summary.json", "w"), indent=1)
+    print(json.dumps(ledger, indent=1))
 
 
 if __name__ == "__main__":

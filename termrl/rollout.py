@@ -24,7 +24,7 @@ from trl.chat_template_utils import (
 )
 from trl.data_utils import prepare_multimodal_messages
 
-from .config import REVISE_NUDGE
+from .config import COMMAND_TIMEOUT, MAX_COMPLETION, MAX_MODEL_LEN, MAX_TOOL_TURNS, OUTPUT_LIMIT, REVISE_NUDGE
 from .env import TerminalEnv
 
 
@@ -78,21 +78,21 @@ def run_episode(
     system_prompt: str,
     fault_family: str | None = None,
     fault_seed: int = 0,
-    max_tool_turns: int = 16,
-    max_completion: int = 6144,
-    max_model_len: int = 8192,
+    max_tool_turns: int = MAX_TOOL_TURNS,
+    max_completion: int = MAX_COMPLETION,
+    max_model_len: int = MAX_MODEL_LEN,
     temperature: float = 0.7,
     top_p: float = 0.95,
     top_k: int = 20,
     seed: int | None = None,
-    command_timeout: float = 30.0,
-    output_limit: int = 3000,
+    command_timeout: float = COMMAND_TIMEOUT,
+    output_limit: int = OUTPUT_LIMIT,
     check_revise: bool = False,
     revise_nudge: str | None = None,
 ) -> dict:
     env = TerminalEnv(command_timeout=command_timeout, output_limit=output_limit)
     trace: dict = {"task_root": task_root, "model": model, "system_prompt": system_prompt, "seed": seed,
-                   "check_revise": check_revise, "turns": [], "end_reason": None}
+                   "check_revise": check_revise, "turns": [], "end_reason": None, "harness": "v4"}
     t_start = time.monotonic()
     try:
         env.reset(task_root=task_root, fault_family=fault_family, fault_seed=fault_seed)
@@ -123,7 +123,7 @@ def run_episode(
             rec = {"turn": len(trace["turns"]), "latency": round(time.monotonic() - t0, 3), "finish_reason": ch.finish_reason,
                    "new_tokens": len(new_ids), "content": parsed.get("content"), "tool_calls": []}
             trace["turns"].append(rec)
-            if ch.finish_reason == "length":
+            if ch.finish_reason == "length" and not calls:
                 trace["end_reason"] = "truncated"
                 break
             if not calls:
@@ -139,6 +139,8 @@ def run_episode(
             if tool_rounds >= max_tool_turns:
                 trace["end_reason"] = "max_tool_turns"
                 break
+            # (TRL also runs tool calls parsed from a turn cut by the length limit; the overlong check
+            # below then drops the result and ends the rollout, but the tool has already acted.)
             tool_messages = []
             for c in calls:
                 fn = c.get("function", {})
@@ -170,6 +172,7 @@ def run_episode(
         trace["fabricated_input"] = env._fabricated_input
         trace["fixtures"] = [p for p, _ in env._fixtures]
         trace["reward"] = -1.0 if env._collateral is not None else 0.5 * float(verdict.success) + 0.5 * verdict.reward
+        trace["harness_error"] = trace.get("harness_error") or env._broken or env._infra_error
         trace["safe_success"] = bool(verdict.success) and env._collateral is None
         trace["prompt_ids"] = prompt_ids
         trace["completion_ids"] = completion_ids

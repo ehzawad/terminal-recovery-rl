@@ -5,17 +5,23 @@ vLLM is colocated on the one card and sleeps during the update, there is no refe
 (beta=0), and the loss follows Dr. GRPO: rewards are centred within each group but not divided by
 the group's standard deviation, and token losses are normalised by a constant.
 
+Registered limits (A2, A5): at most 64 updates of 4 groups x 4 completions (1,024 trajectories) and
+18 GPU-hours, both counted across restarts (run_state.json); liveness stop rules as in LivenessGate.
+TRL's vLLM importance-sampling correction is pinned explicitly (sequence_mask, cap 3.0) and its
+masked share is logged by TRL.
+
 Usage:
-  python scripts/train_grpo.py --rows data/rl_rows_train.jsonl --out runs/grpo_seed1 [--smoke]
+  python scripts/train_grpo.py --rows data/rows/train_configs.jsonl --out runs/R_seed1 \
+      --system-prompt-file prompts/pX.txt [--resume] [--smoke]
 """
 
 import argparse
+import hashlib
 import json
+import math
 import os
 import threading
 import time
-
-import math
 
 import torch
 from datasets import Dataset
@@ -23,9 +29,10 @@ from peft import LoraConfig
 from transformers import TrainerCallback
 from trl import GRPOConfig, GRPOTrainer
 
+from termrl.config import COMMAND_TIMEOUT, MAX_COMPLETION, MAX_MODEL_LEN, MAX_TOOL_TURNS, OUTPUT_LIMIT
 from termrl.config import MODEL_PATH as MODEL  # pinned local snapshot of Qwen/Qwen3.5-9B
-from termrl.config import SYSTEM_DEFAULT
 from termrl.env import TerminalEnv
+
 # Language-model projections only. in_proj_qkv and in_proj_z are packed together by vLLM, so they are
 # targeted together; in_proj_a/in_proj_b (also a packed pair) and the vision tower are left alone.
 LORA_TARGETS = (r"model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj|mlp\.(gate|up|down)_proj"
@@ -38,6 +45,7 @@ class RecordingGRPOTrainer(GRPOTrainer):
     def __init__(self, *a, rollout_log: str, **k):
         super().__init__(*a, **k)
         self._rollout_log = rollout_log
+        self._batch_counter = 0
 
     def _generate_and_score_completions(self, inputs):
         out = super()._generate_and_score_completions(inputs)
@@ -49,9 +57,15 @@ class RecordingGRPOTrainer(GRPOTrainer):
                 n = len(c)
                 while n > 0 and int(c[n - 1]) == pad:  # completions are right-padded
                     n -= 1
+                # TRL zeroes the completion mask (and with it the usable tool mask) of truncated rollouts;
+                # they carry no loss in R and are excluded from D.
+                truncated = n > 0 and int(out["completion_mask"][i].sum()) == 0
                 v = env._verdict
                 f.write(json.dumps({
-                    "step": self.state.global_step, "task_root": env._task.root,
+                    "attempt_id": f"{self.state.global_step}:{self._batch_counter}:{i}", "truncated": truncated,
+                    "reward": env.get_reward() if v is not None or env._broken else None,
+                    "harness_error": env._broken or env._infra_error,
+                    "step": self.state.global_step, "task_root": env._task.root if env._task else None,
                     "fault": env._fault.as_dict() if env._fault else None,
                     "fault_observed_call": env._fault_observed_call, "fault_cleared": env._fault_cleared,
                     "collateral": env._collateral, "fabricated_input": env._fabricated_input,
@@ -59,33 +73,56 @@ class RecordingGRPOTrainer(GRPOTrainer):
                                                        "reward": v.reward, "error": v.error},
                     "prompt_ids": p, "completion_ids": c[:n].tolist(), "tool_mask": out["tool_mask"][i][:n].tolist(),
                 }) + "\n")
+        self._batch_counter += 1
         return out
 
 
 class LivenessGate(TrainerCallback):
-    """Registered stop rules (gate 4): no usable gradient, clipping, or non-finite values."""
+    """Registered stop rules (gate 4, windows fixed in A5), with hours and trajectories kept across restarts.
 
-    def __init__(self, max_hours: float = 18.0):
+    - non-finite loss or gradient norm;
+    - 3 consecutive updates whose groups all have zero reward variance;
+    - two consecutive windows of 32 updates (128 groups) with < 60% informative groups;
+    - two consecutive windows of 8 updates (128 trajectories) with > 5% truncated completions
+      (TRL's completions/clipped_ratio = completions that hit the length limit);
+    - 18 GPU-hours or 1,024 trajectories in total.
+    """
+
+    def __init__(self, state_path: str, max_hours: float, max_trajectories: int, per_step: int):
+        self.state_path, self.max_hours, self.max_traj, self.per_step = state_path, max_hours, max_trajectories, per_step
+        self.state = json.load(open(state_path)) if os.path.exists(state_path) else {"hours": 0.0, "trajectories": 0}
         self.t0 = time.time()
-        self.max_hours = max_hours
         self.no_signal_streak = 0
-        self.clip_windows = []
+        self.informative, self.clipped = [], []
         self.reason = None
+
+    def _save(self):
+        s = dict(self.state, hours=self.state["hours"] + (time.time() - self.t0) / 3600)
+        json.dump(s, open(self.state_path, "w"))
+        return s
 
     def on_log(self, args, state, control, logs=None, **kw):
         if not logs or "loss" not in logs:
             return
+        self.state["trajectories"] += self.per_step
+        s = self._save()
         if any(isinstance(logs.get(k), float) and not math.isfinite(logs[k]) for k in ("loss", "grad_norm")):
             self.reason = "non-finite loss or gradient"
-        self.no_signal_streak = self.no_signal_streak + 1 if logs.get("frac_reward_zero_std", 0.0) >= 1.0 else 0
+        zero = logs.get("frac_reward_zero_std", 0.0)
+        self.no_signal_streak = self.no_signal_streak + 1 if zero >= 1.0 else 0
         if self.no_signal_streak >= 3:
             self.reason = "3 consecutive updates with no within-group reward variance"
-        self.clip_windows.append(logs.get("completions/clipped_ratio", 0.0))
-        w = self.clip_windows
-        if len(w) >= 8 and sum(w[-8:-4]) / 4 > 0.05 and sum(w[-4:]) / 4 > 0.05:
-            self.reason = ">5% clipped completions in two consecutive 4-update windows"
-        if (time.time() - self.t0) / 3600 > self.max_hours:
+        self.informative.append(1.0 - zero)
+        self.clipped.append(logs.get("completions/clipped_ratio", 0.0))
+        inf, clp = self.informative, self.clipped
+        if len(inf) >= 64 and len(inf) % 32 == 0 and sum(inf[-64:-32]) / 32 < 0.60 and sum(inf[-32:]) / 32 < 0.60:
+            self.reason = "<60% informative groups in two consecutive windows of 128 groups"
+        if len(clp) >= 16 and len(clp) % 8 == 0 and sum(clp[-16:-8]) / 8 > 0.05 and sum(clp[-8:]) / 8 > 0.05:
+            self.reason = ">5% truncated completions in two consecutive windows of 128 trajectories"
+        if s["hours"] > self.max_hours:
             self.reason = f"GPU-hour cap of {self.max_hours} h reached"
+        if s["trajectories"] >= self.max_traj:
+            self.reason = f"trajectory cap of {self.max_traj} reached"
         if self.reason:
             print(f"LIVENESS GATE: stopping: {self.reason}", flush=True)
             control.should_training_stop = True
@@ -125,7 +162,9 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--rows", required=True)
     ap.add_argument("--out", required=True)
-    ap.add_argument("--system-prompt-file")
+    ap.add_argument("--system-prompt-file", required=True)
+    ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--max-trajectories", type=int, default=1024)
     ap.add_argument("--max-steps", type=int, default=64)  # A2: at most 64 updates x 16 trajectories
     ap.add_argument("--max-hours", type=float, default=18.0)  # A2: R's GPU-hour cap
     ap.add_argument("--num-generations", type=int, default=4)
@@ -133,14 +172,14 @@ def main() -> None:
     ap.add_argument("--lr", type=float, default=1e-5)
     ap.add_argument("--lora-r", type=int, default=16)
     ap.add_argument("--vllm-util", type=float, default=0.40)
-    ap.add_argument("--max-completion", type=int, default=6144)
-    ap.add_argument("--max-model-len", type=int, default=8192)
-    ap.add_argument("--max-tool-turns", type=int, default=16)
+    ap.add_argument("--max-completion", type=int, default=MAX_COMPLETION)
+    ap.add_argument("--max-model-len", type=int, default=MAX_MODEL_LEN)
+    ap.add_argument("--max-tool-turns", type=int, default=MAX_TOOL_TURNS)
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--smoke", action="store_true")
     args = ap.parse_args()
 
-    system_prompt = open(args.system_prompt_file).read().strip() if args.system_prompt_file else SYSTEM_DEFAULT
+    system_prompt = open(args.system_prompt_file).read().strip()
     ds = load_rows(args.rows, system_prompt)
     completions_per_step = args.num_generations * args.groups_per_step
     cfg = GRPOConfig(
@@ -161,6 +200,9 @@ def main() -> None:
         loss_type="dr_grpo",
         scale_rewards="none",
         mask_truncated_completions=True,
+        vllm_importance_sampling_correction=True,
+        vllm_importance_sampling_mode="sequence_mask",
+        vllm_importance_sampling_clip_max=3.0,
         use_vllm=True,
         vllm_mode="colocate",
         vllm_enable_sleep_mode=True,
@@ -171,24 +213,28 @@ def main() -> None:
         model_init_kwargs={"dtype": "bfloat16"},
         logging_steps=1,
         save_steps=32,  # two scheduled checkpoint candidates (steps 32 and 64) for dev_monitor selection
-        save_only_model=True,
+        save_only_model=False,  # optimizer state kept so an interrupted run can resume
         report_to="none",
         log_completions=False,
     )
     lora = LoraConfig(r=args.lora_r, lora_alpha=2 * args.lora_r, lora_dropout=0.0, target_modules=LORA_TARGETS,
                       task_type="CAUSAL_LM")
     os.makedirs(args.out, exist_ok=True)
-    gate = LivenessGate(args.max_hours)
+    gate = LivenessGate(os.path.join(args.out, "run_state.json"), args.max_hours, args.max_trajectories,
+                        completions_per_step)
     trainer = RecordingGRPOTrainer(model=MODEL, args=cfg, train_dataset=ds, peft_config=lora,
-                                   environment_factory=lambda: TerminalEnv(command_timeout=30.0, output_limit=3000),
+                                   environment_factory=lambda: TerminalEnv(command_timeout=COMMAND_TIMEOUT,
+                                                                           output_limit=OUTPUT_LIMIT),
                                    callbacks=[gate], rollout_log=os.path.join(args.out, "rollouts.jsonl"))
     probe = MemoryProbe()
     probe.start()
     t0 = time.time()
-    trainer.train()
+    trainer.train(resume_from_checkpoint=True if args.resume else None)
     probe.stop()
     summary = {"seconds": round(time.time() - t0, 1), "peak_device_gib": round(probe.peak_gib, 2),
-               "liveness_stop": gate.reason,
+               "liveness_stop": gate.reason, "run_state": gate._save(),
+               "system_prompt_file": args.system_prompt_file,
+               "system_prompt_sha": hashlib.sha256(system_prompt.encode()).hexdigest()[:16],
                "torch_max_allocated_gib": round(torch.cuda.max_memory_allocated() / 2**30, 2),
                "log_history": trainer.state.log_history}
     with open(os.path.join(args.out, "run_summary.json"), "w") as f:

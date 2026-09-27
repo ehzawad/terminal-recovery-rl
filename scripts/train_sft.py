@@ -29,13 +29,15 @@ LORA_TARGETS = (r"model\.language_model\.layers\.\d+\.(self_attn\.(q|k|v|o)_proj
 
 
 def load_examples(paths: list[str], max_len: int) -> list[tuple[list[int], list[int]]]:
-    out, skipped = [], 0
+    out, skipped, skipped_other = [], 0, 0
     for path in paths:
         for line in open(path):
             r = json.loads(line)
-            # Safe successes only (A2): complete success and no collateral modification.
+            # Safe successes only (A2), never truncated or harness-error trajectories (A5).
             if not (r.get("verdict") or {}).get("success") or r.get("collateral") is not None \
-                    or r.get("harness_error") or "completion_ids" not in r:
+                    or r.get("harness_error") or r.get("truncated") or "completion_ids" not in r \
+                    or r.get("end_reason") in ("truncated", "length_budget"):
+                skipped_other += 1
                 continue
             ids = r["prompt_ids"] + r["completion_ids"]
             mask = [0] * len(r["prompt_ids"]) + r["tool_mask"]
@@ -43,7 +45,8 @@ def load_examples(paths: list[str], max_len: int) -> list[tuple[list[int], list[
                 skipped += 1
                 continue
             out.append((ids, mask))
-    print(f"{len(out)} training sequences ({skipped} over {max_len} tokens skipped)")
+    print(f"{len(out)} training sequences ({skipped} over {max_len} tokens and {skipped_other} unsafe, failed, "
+          f"truncated or errored records skipped)")
     return out
 
 
@@ -93,6 +96,8 @@ def main() -> None:
                 # Logits only where the next token is the model's own (a full 8K x 248K-vocab fp32 logit
                 # tensor would be ~8 GB); position i predicts token i+1.
                 pos = [i for i in range(len(ids) - 1) if mask[i + 1]]
+                if not pos:
+                    continue
                 x = torch.tensor([ids], device="cuda")
                 logits = model(input_ids=x, logits_to_keep=torch.tensor(pos, device="cuda")).logits[0]
                 targets = torch.tensor([ids[i + 1] for i in pos], device="cuda")
