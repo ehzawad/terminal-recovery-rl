@@ -1,21 +1,24 @@
 """Out-of-sandbox verification.
 
-After the agent stops, its container is committed to an image and the hidden tests
-run in a *fresh* container from that snapshot. The tests and the Python/pytest that
-execute them are bind-mounted read-only from the host and were never visible to the
-agent, so it cannot edit the tests, shadow pytest, or plant a conftest. Only the
-final filesystem state carries over. Reward is the fraction of test functions that
-pass; `success` means all of them pass.
+After the agent stops, its container is committed to an image and the hidden tests run in a
+*fresh* container from that snapshot, as uid 1000, with the tests and a trusted Python/pytest
+bind-mounted read-only. Hidden tests sometimes execute agent-written artifacts (a Makefile, a
+script); anything those can write or print is untrusted. Results therefore travel over a channel
+they cannot forge: the host sends a random nonce on the runner's stdin, the runner keeps it only in
+memory, detaches stdin before any test runs, collects outcomes in-process and prints one
+nonce-tagged JSON line. Without the nonce a forged report is ignored. The collected test ids must
+also equal the task's expected inventory (recorded from the reference run), or the run is an error.
+Reward is the fraction of test functions that pass; `success` means all of them pass.
 """
 
 from __future__ import annotations
 
+import json
 import os
 import secrets
 import shutil
 import subprocess
 import tempfile
-import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 
 from .sandbox import docker
@@ -23,14 +26,30 @@ from .sandbox import docker
 TOOLCHAIN = os.environ.get("TERMRL_VERIFIER_TOOLCHAIN", "/mnt/sdb/arafat/ehz/llm/.venvs/vt")
 
 _RUNNER = r"""
-import sys
+import json, os, sys
+nonce = sys.stdin.readline().strip()
+devnull = os.open(os.devnull, os.O_RDONLY)
+os.dup2(devnull, 0)  # tests and anything they spawn never see the nonce
 sys.path.insert(0, "/opt/vt/site")
 import pytest
-sys.exit(pytest.main([
-    "/tests/test_final_state.py", "-q", "-p", "no:cacheprovider", "-p", "pytest_timeout", "--noconftest",
-    "--timeout=20", "--timeout-method=signal",
-    "--rootdir=/tests", "--junitxml=/out/junit.xml", "-o", "junit_family=xunit2",
-]))
+
+class Collect:
+    def __init__(self):
+        self.res = {}
+    def pytest_runtest_logreport(self, report):
+        r = self.res.setdefault(report.nodeid, {"ok": True, "msg": ""})
+        if report.failed or (report.when == "call" and report.skipped):
+            r["ok"] = False
+            r["msg"] = (r["msg"] or str(report.longrepr)[-300:])
+    def pytest_collectreport(self, report):
+        if report.failed:
+            self.res.setdefault("<collection>", {"ok": False, "msg": str(report.longrepr)[-300:]})
+
+c = Collect()
+code = pytest.main(["/tests/test_final_state.py", "-q", "-p", "no:cacheprovider", "-p", "pytest_timeout",
+                    "--noconftest", "--timeout=20", "--timeout-method=signal", "--rootdir=/tests"], plugins=[c])
+sys.stdout.write("\n" + nonce + " " + json.dumps({"exit": int(code), "tests": c.res}) + "\n")
+sys.stdout.flush()
 """
 
 
@@ -40,47 +59,32 @@ class Verdict:
     total: int
     success: bool
     failures: list[str] = field(default_factory=list)
-    error: str | None = None  # verifier infrastructure problem, not an agent failure
+    error: str | None = None  # verifier-level problem; the caller scores it as a failure (A2)
+    tests: list[str] = field(default_factory=list)
 
     @property
     def reward(self) -> float:
         return self.passed / self.total if self.total else 0.0
 
 
-def parse_junit(path: str) -> tuple[int, int, list[str]]:
-    root = ET.parse(path).getroot()
-    passed = total = 0
-    failures: list[str] = []
-    for case in root.iter("testcase"):
-        total += 1
-        bad = [c for c in case if c.tag in ("failure", "error", "skipped")]
-        if bad:
-            failures.append(f"{case.get('name')}: {(bad[0].get('message') or '')[:200]}")
-        else:
-            passed += 1
-    return passed, total, failures
-
-
-def verify_image(image: str, tests_dir: str, *, timeout: float = 240) -> Verdict:
-    """Run tests_dir/test_final_state.py against a filesystem snapshot image.
-
-    Tests run as uid 1000 (hidden tests sometimes execute agent-written artifacts such as a
-    Makefile, which must not run as root). Each test gets 20 s, so a check blocked on a FIFO fails
-    instead of hanging; a verifier error is reported and scored as a failure by the caller.
-    """
-    out = tempfile.mkdtemp(prefix="termrl-v-")
-    os.chmod(out, 0o777)  # container runs as root; host user must read the report
-    runner = os.path.join(out, "runner.py")
+def verify_image(image: str, tests_dir: str, *, expected_tests: list[str] | None = None,
+                 timeout: float = 240) -> Verdict:
+    """Run tests_dir/test_final_state.py against a filesystem snapshot image."""
+    work = tempfile.mkdtemp(prefix="termrl-v-")
+    runner = os.path.join(work, "runner.py")
     with open(runner, "w") as f:
         f.write(_RUNNER)
+    os.chmod(work, 0o755)
+    os.chmod(runner, 0o644)
     name = "v" + secrets.token_hex(6)
+    nonce = secrets.token_hex(16)
     args = [
-        "run", "--rm", "--name", name, "--label", f"termrl.owner_pid={os.getpid()}", "--user", "1000:1000", "--network", "none", "--cpus", "1", "--memory", "2g",
-        "--pids-limit", "256", "--security-opt", "no-new-privileges",
+        "run", "--rm", "-i", "--name", name, "--label", f"termrl.owner_pid={os.getpid()}", "--user", "1000:1000",
+        "--network", "none", "--cpus", "1", "--memory", "2g", "--pids-limit", "256",
+        "--security-opt", "no-new-privileges",
         "-v", f"{os.path.abspath(tests_dir)}:/tests:ro",
         "-v", f"{TOOLCHAIN}:/opt/vt:ro",
         "-v", f"{runner}:/opt/runner.py:ro",
-        "-v", f"{out}:/out",
         # An agent that wrote /etc/ld.so.preload could inject code into the verifier's interpreter.
         "-v", "/dev/null:/etc/ld.so.preload:ro",
         "--workdir", "/tests", "-e", "PYTEST_DISABLE_PLUGIN_AUTOLOAD=1",
@@ -88,17 +92,31 @@ def verify_image(image: str, tests_dir: str, *, timeout: float = 240) -> Verdict
     ]
     try:
         try:
-            proc = docker(args, check=False, timeout=timeout)
+            proc = docker(args, check=False, timeout=timeout, input=(nonce + "\n").encode())
         except subprocess.TimeoutExpired:
             return Verdict(0, 0, False, error=f"verifier exceeded {timeout:.0f}s")
-        junit = os.path.join(out, "junit.xml")
-        if not os.path.exists(junit):
+        report = None
+        for line in proc.stdout.decode(errors="replace").splitlines():
+            if line.startswith(nonce + " "):
+                report = json.loads(line[len(nonce) + 1:])
+        if report is None:
             tail = (proc.stdout + proc.stderr).decode(errors="replace")[-1500:]
-            return Verdict(0, 0, False, error=f"no junit report (exit {proc.returncode}): {tail}")
-        passed, total, failures = parse_junit(junit)
-        if total == 0:
+            return Verdict(0, 0, False, error=f"no authenticated report (exit {proc.returncode}): {tail}")
+        tests = report["tests"]
+        if "<collection>" in tests:
+            return Verdict(0, 0, False, error="collection failed: " + tests["<collection>"]["msg"])
+        ids = sorted(tests)
+        if expected_tests is not None and ids != sorted(expected_tests):
+            return Verdict(0, len(expected_tests), False, tests=ids,
+                           error=f"test inventory mismatch: got {len(ids)} expected {len(expected_tests)}")
+        if not ids:
             return Verdict(0, 0, False, error="verifier collected zero tests")
-        return Verdict(passed, total, passed == total, failures)
+        passed = sum(1 for t in ids if tests[t]["ok"])
+        failures = [f"{t}: {tests[t]['msg'][:200]}" for t in ids if not tests[t]["ok"]]
+        return Verdict(passed, len(ids), passed == len(ids), failures, tests=ids)
     finally:
-        docker(["rm", "-f", name], check=False, timeout=60)
-        shutil.rmtree(out, ignore_errors=True)
+        try:
+            docker(["rm", "-f", name], check=False, timeout=60)
+        except subprocess.TimeoutExpired:
+            pass
+        shutil.rmtree(work, ignore_errors=True)

@@ -35,21 +35,45 @@ def take(container: str, root: str = HOME, timeout: float = 60) -> dict[str, tup
     return {p: tuple(v) for p, v in objs.items()}
 
 
-def diff(baseline: dict[str, tuple], current: dict[str, tuple], permitted: set[str]) -> list[dict]:
-    """Pre-existing objects outside the permitted write set that were deleted or changed."""
+KINDS = ("deleted", "type_changed", "content_changed", "mode_changed", "owner_changed", "link_changed")
+
+
+def changes(before: tuple, after: tuple | None) -> list[str]:
+    """Every property that differs between two manifest entries of the same path."""
+    if after is None:
+        return ["deleted"]
+    if after[0] != before[0]:
+        return ["type_changed"]
+    out = []
+    if before[0] == "f" and after[4] != before[4]:
+        out.append("content_changed")
+    if after[1] != before[1]:
+        out.append("mode_changed")
+    if after[2] != before[2]:
+        out.append("owner_changed")
+    if before[0] == "l" and after[5] != before[5]:
+        out.append("link_changed")
+    return out
+
+
+def allowed_kinds(path: str, permitted: dict[str, set[str]]) -> set[str]:
+    """Kinds of change permitted for `path`: exact entries, plus entries ending in '/' as prefixes."""
+    kinds = set(permitted.get(path, ()))
+    for p, k in permitted.items():
+        if p.endswith("/") and path.startswith(p):
+            kinds |= set(k)
+    return kinds
+
+
+def diff(baseline: dict[str, tuple], current: dict[str, tuple], permitted: dict[str, set[str]]) -> list[dict]:
+    """Changes to pre-existing objects that the permitted write set does not cover, property by property.
+
+    A path permitted only a mode change is still protected against deletion, truncation or rewrite.
+    """
     events = []
     for path, before in baseline.items():
-        if path in permitted or any(path.startswith(p.rstrip("/") + "/") for p in permitted if p.endswith("/")):
-            continue
-        after = current.get(path)
-        if after is None:
-            events.append({"path": path, "kind": "deleted"})
-        elif after[0] != before[0]:
-            events.append({"path": path, "kind": "type_changed", "from": before[0], "to": after[0]})
-        elif before[0] == "f" and after[4] != before[4]:
-            events.append({"path": path, "kind": "content_changed"})
-        elif after[1] != before[1]:
-            events.append({"path": path, "kind": "mode_changed", "from": before[1], "to": after[1]})
-        elif before[0] == "l" and after[5] != before[5]:
-            events.append({"path": path, "kind": "link_changed"})
+        allowed = allowed_kinds(path, permitted)
+        for kind in changes(before, current.get(path)):
+            if kind not in allowed:
+                events.append({"path": path, "kind": kind})
     return events

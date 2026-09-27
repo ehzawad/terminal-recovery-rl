@@ -25,7 +25,9 @@ from dataclasses import dataclass
 from .sandbox import Sandbox, docker
 from .tasks import Task
 
-TRAIN_FAMILIES = ("perm_denied", "moved_input", "missing_tool")
+# missing_tool is not used: validity needs a proven alternative solution per task, which the pool
+# does not provide, and almost no task was eligible (audit 2026-09-27).
+TRAIN_FAMILIES = ("perm_denied", "moved_input")
 HELDOUT_FAMILIES = ("blocking_fifo",)
 TOOLS = ("jq", "rsync", "gawk", "sqlite3", "csvtool", "bc", "column", "sort", "uniq", "awk")
 
@@ -58,10 +60,13 @@ def initial_files(task: Task) -> list[str]:
     return out
 
 
-def input_candidates(task: Task) -> list[str]:
+def input_candidates(task: Task, exclude: set[str] | frozenset = frozenset()) -> list[str]:
+    """Pre-existing files named in the instruction that the task only reads (never ones it must edit)."""
     text = task.instruction
     cands = []
     for p in initial_files(task):
+        if p in exclude:
+            continue
         base = os.path.basename(p)
         if p in text or re.search(r"(?<![\w.-])" + re.escape(base) + r"(?![\w-])", text):
             cands.append(p)
@@ -73,14 +78,18 @@ def tool_candidates(task: Task) -> list[str]:
     return [t for t in TOOLS if re.search(r"(?<![\w/-])" + re.escape(t) + r"(?![\w-])", sol) and t not in ("sort", "uniq", "awk")]
 
 
-def choose(task: Task, family: str, seed: int) -> Fault | None:
+def choose(task: Task, family: str, seed: int = 0, exclude: set[str] | frozenset = frozenset()) -> Fault | None:
+    """The fault's target is fixed per (task, family) -- exactly the target the validity gate checked.
+
+    `seed` does not move the target; it only varies incidental details (the hidden directory's name).
+    """
     if family == "missing_tool":
         tools = tool_candidates(task)
-        return Fault(family, tools[_h(task.task_id, family, seed) % len(tools)]) if tools else None
-    files = input_candidates(task)
+        return Fault(family, tools[_h(task.task_id, family, 0) % len(tools)]) if tools else None
+    files = input_candidates(task, exclude)
     if not files:
         return None
-    return Fault(family, files[_h(task.task_id, family, seed) % len(files)])
+    return Fault(family, files[_h(task.task_id, family, 0) % len(files)])
 
 
 def inject(sb: Sandbox, fault: Fault, seed: int) -> Fault:
@@ -115,28 +124,26 @@ def repair_script(fault: Fault) -> str:
     return ""  # missing_tool: validity is established by an alternative solution, not a repair
 
 
+_READ_ERRORS = ("Permission denied", "EACCES", "unable to open", "Unable to open", "cannot open", "can't open",
+                "Cannot open", "No such file", "cannot access", "not found", "does not exist", "no such table")
+
+
 def observed(fault: Fault, command: str, output: str, timed_out: bool) -> bool:
-    """Did this tool call surface the fault to the agent? (signature-based, per family)"""
+    """Did this tool call surface the fault to the agent? (signature-based, per family)
+
+    Frozen rubric (amendment A5): the target's basename appears in the command or output, and the output
+    shows the family's symptom -- a read error for perm_denied/moved_input (including an `ls -l` line with
+    mode ---------- for perm_denied), or a timeout for blocking_fifo.
+    """
     base = os.path.basename(fault.target)
     touched = base in command or base in output
     if fault.family == "perm_denied":
-        return touched and "Permission denied" in output
+        mode_line = any(l.lstrip().startswith("----------") and base in l for l in output.splitlines())
+        return touched and (mode_line or any(s in output for s in _READ_ERRORS))
     if fault.family == "moved_input":
-        return touched and any(s in output for s in ("No such file", "cannot access", "not found", "does not exist"))
+        return touched and any(s in output for s in _READ_ERRORS)
     if fault.family == "missing_tool":
         return fault.target in output and any(s in output for s in ("command not found", "No such file", "not found"))
     if fault.family == "blocking_fifo":
-        return timed_out and base in command
+        return timed_out and (base in command or base in output)
     return False
-
-
-def state_check(fault: Fault) -> tuple[str, str] | None:
-    """(user, shell test) that succeeds iff the fault is no longer present in the final filesystem."""
-    t = shlex.quote(fault.target)
-    if fault.family == "perm_denied":
-        return "1000:1000", f"test -r {t}"
-    if fault.family == "moved_input":
-        return "0:0", f"test -e {t}"
-    if fault.family == "blocking_fifo":
-        return "0:0", f"! test -p {t}"
-    return None  # missing_tool: nothing to restore; recovery shows only as task success
