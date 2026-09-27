@@ -103,3 +103,283 @@
 {"task_id": "task_000000_17d86e1f", "fixture_level": "full", "permitted": ["/home/user/cloud_costs/raw_usage/2023-11-01-usage.json", "/home/user/cloud_costs/raw_usage/2024-01-01-usage.json", "/home/user/cloud_costs/raw_usage/2024-01-15-usage.json"]}
 {"task_id": "task_000000_15343cad", "fixture_level": "sibling", "permitted": ["/home/user/builds/2023-05-01/artifacts.log", "/home/user/builds/2023-05-02/artifacts.log", "/home/user/builds/2023-05-03/artifacts.log"]}
 {"task_id": "task_000000_169c0d86", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_1acc06f1", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_1701115e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_17a590fc", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_1f619a68", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_1a9c14ea", "fixture_level": "full", "permitted": ["/home/user/experiments/experiment_metrics.csv"]}
+{"task_id": "task_000000_1db698a9", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_1f347e2d", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_27f97966", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2129b0c0", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_238a6ccd", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_24218bfc", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2b0645d6", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_248cf61a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2f6642af", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_290b8ac1", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2942a33e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2d54bc09", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2efcd937", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2fa63c4b", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2dda3f8c", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_2b1418fe", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_329e129c", "fixture_level": "full", "permitted": ["/home/user/ci_cd/build-artifacts/cache/build123.tmp", "/home/user/ci_cd/build-artifacts/cache/old.build.tmp", "/home/user/ci_cd/build-artifacts/temp1.tmp", "/home/user/ci_cd/build-artifacts/temp2.tmp"]}
+{"task_id": "task_000000_3147ec58", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_3216429f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_30bbc046", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_32e12f58", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_3745e3f6", "fixture_level": "full", "permitted": ["/home/user/incidents/daily-20240201/system.log", "/home/user/incidents/daily-20240205/app.log"]}
+{"task_id": "task_000000_37888793", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_34d041e1", "fixture_level": "full", "permitted": ["/home/user/devops-demo/config/service.conf"]}
+{"task_id": "task_000000_3672bebe", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_3744c683", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_350329b8", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_3780cf6f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_39356494", "fixture_level": "full", "permitted": ["/home/user/my_project/notes/tmp/info.tmp", "/home/user/my_project/src/old.tmp", "/home/user/my_project/test/data.tmp"]}
+{"task_id": "task_000000_3a229767", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_38093c4f", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_3bbffdeb", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_395e1e6a", "fixture_level": "sibling", "permitted": ["/home/user/old_service/conf/a.conf", "/home/user/old_service/conf/b.conf", "/home/user/old_service/conf/c.conf"]}
+{"task_id": "task_000000_3c2a89d9", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_3d356a1f", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_3e97f2db", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_474a0fa3", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_41eee653", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_48955954", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_499e2d32", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_471ce9d0", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_49abb02c", "fixture_level": "full", "permitted": ["/home/user/raw_data/avian_flu_cases.csv", "/home/user/raw_data/avian_flu_metadata.csv"]}
+{"task_id": "task_000000_4f8a16e2", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4aa6da4c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4a6bf362", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_5288ba4d", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4c08a553", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4bca03d7", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4c9883f6", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4de29b94", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_50177ff1", "fixture_level": "full", "permitted": ["/home/user"]}
+{"task_id": "task_000000_52c77beb", "fixture_level": "full", "permitted": ["/home/user/observability-dashboard/CHANGELOG.md", "/home/user/observability-dashboard/VERSION"]}
+{"task_id": "task_000000_57d821bb", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5225b374", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_53732e2a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_556e806b", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_530d88ed", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_54fe38b3", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5664908c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5812e0e0", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_582deff6", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5c4b5c44", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5a1ce92a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_61b4e485", "fixture_level": "full", "permitted": ["/home/user/datasets/config.json", "/home/user/datasets/meta.json", "/home/user/datasets/sample1.csv", "/home/user/datasets/sample2.csv", "/home/user/datasets/sample3.csv"]}
+{"task_id": "task_000000_5f2264d0", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5838556c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5f50b94e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5d2af6e4", "fixture_level": "sibling", "permitted": ["/home/user/new-certs/internal.pem"]}
+{"task_id": "task_000000_633a0cf9", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6142a600", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6a6a571e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_632baa52", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_61d190b6", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_632e1b3e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_69c294b2", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6a27647f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7645c673", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6d2dd3e4", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6c16b8b4", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_6ea209ba", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6f107048", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_77789dff", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6fe01691", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_72661da9", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7a89ae06", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_74b88965", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7ea02ffd", "fixture_level": "full", "permitted": ["/home/user/query_scripts/archive_customers.sql", "/home/user/query_scripts/delete_tmp.sql", "/home/user/query_scripts/get_users.sql"]}
+{"task_id": "task_000000_7ba67ab6", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7bdfe199", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7cfb0682", "fixture_level": "full", "permitted": ["/home/user/iot_configs/dev01.cfg", "/home/user/iot_configs/dev03.cfg"]}
+{"task_id": "task_000000_7c1151c2", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7d2d02ae", "fixture_level": "full", "permitted": ["/home/user/datasets/raw_data/dataset_node1.csv", "/home/user/datasets/raw_data/dataset_node2.csv", "/home/user/datasets/raw_data/dataset_node3.csv"]}
+{"task_id": "task_000000_7d6d5c0c", "fixture_level": "full", "permitted": ["/home/user/dashboards/new/db_metrics.json", "/home/user/dashboards/new/queue_depth.json", "/home/user/dashboards/new/system_overview.json"]}
+{"task_id": "task_000000_7f22efcb", "fixture_level": "sibling", "permitted": ["/home/user/network_logs/region1/router1.trace", "/home/user/network_logs/region2/backup/router4.trace", "/home/user/network_logs/region2/router3.trace"]}
+{"task_id": "task_000000_7f552cdb", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8090f25b", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_81300318", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_82006de8", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_83a5b5ca", "fixture_level": "full", "permitted": ["/home/user/backups", "/home/user/backups/sha256sums.txt"]}
+{"task_id": "task_000000_812b5469", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_81e0a487", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_888d9771", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_844319f0", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_8a86405a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8950465e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8ea054e1", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8b65b66c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8f259b8b", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8f485831", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_906a0acf", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_920aabd5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8f931580", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8f5e2522", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_8fd511d2", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_91751988", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_904bd378", "fixture_level": "sibling", "permitted": ["/home/user/projects/l10n/fr_FR.json"]}
+{"task_id": "task_000000_92a45e3d", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_92d52b6a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_92d4a304", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_93a3581a", "fixture_level": "full", "permitted": ["/home/user/pipeline_configs/app1/prod.conf.tmp", "/home/user/pipeline_configs/app1/staging.conf.tmp", "/home/user/pipeline_configs/app2/dev.conf.tmp"]}
+{"task_id": "task_000000_93d5d513", "fixture_level": "full", "permitted": ["/home/user/infra-observability/CHANGELOG.md", "/home/user/infra-observability/VERSION", "/home/user/infra-observability/package.json"]}
+{"task_id": "task_000000_99504a1a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_93e3dd9c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_96a87c01", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_978d86dc", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_9578c8d5", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_9d46ee9c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_996cb1b5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_99f965b0", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_9a7c9917", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_9b4fb033", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_9f315897", "fixture_level": "full", "permitted": ["/home/user/projects/alpha-tool/CHANGELOG.md", "/home/user/projects/alpha-tool/TODO.md", "/home/user/projects/alpha-tool/VERSION"]}
+{"task_id": "task_000000_a49e454e", "fixture_level": "full", "permitted": ["/home/user/project/docs/readme.md.bak", "/home/user/project/src/main.c.bak", "/home/user/project/src/util.c.bak", "/home/user/project/tmp/notes.txt.bak"]}
+{"task_id": "task_000000_9f7626fe", "fixture_level": "sibling", "permitted": ["/home/user/app/logs/app.log", "/home/user/app/logs/db.log"]}
+{"task_id": "task_000000_a30c60b6", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_a1c78ac5", "fixture_level": "sibling", "permitted": ["/home/user/app/config/database.toml", "/home/user/app/config/settings.yaml"]}
+{"task_id": "task_000000_a3468b18", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_a36951b5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_a47279aa", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_a8bcf247", "fixture_level": "full", "permitted": ["/home/user/artifacts/repoA/releases/staging.tmp", "/home/user/artifacts/repoA/releases/unused.tmp", "/home/user/artifacts/repoB/snapshots/cache.tmp"]}
+{"task_id": "task_000000_af827526", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_a916a610", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_a9c2bfc8", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_acd8fa36", "fixture_level": "full", "permitted": ["/home/user/backup-tool/CHANGELOG.md", "/home/user/backup-tool/version.txt"]}
+{"task_id": "task_000000_ae1eda7b", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_adab787e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_af066fb4", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_b0aa0d87", "fixture_level": "full", "permitted": ["/home/user/backup_target/logo.png", "/home/user/backup_target/old_report.txt"]}
+{"task_id": "task_000000_b39caa47", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_b3e144df", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_b64e188f", "fixture_level": "full", "permitted": ["/home/user/audit_demo", "/home/user/audit_demo/credentials.txt"]}
+{"task_id": "task_000000_ba1d6ef0", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_bc090048", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_b888f106", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_bbf67bce", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_bc4ad31c", "fixture_level": "full", "permitted": ["/home/user/secure_app/config.ini"]}
+{"task_id": "task_000000_bd159162", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c2634996", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_bd616d83", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_bf8fd1e7", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_bd9b4fcf", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_c0d576aa", "fixture_level": "full", "permitted": ["/home/user/repositories/repoA/empty.tmp", "/home/user/repositories/repoA/nested/zero.txt", "/home/user/repositories/repoB/nothing.txt"]}
+{"task_id": "task_000000_bf7a9566", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_c0c3544e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c3cd2604", "fixture_level": "full", "permitted": ["/home/user/projects/datasets/links", "/home/user/projects/datasets/links/cust_link", "/home/user/projects/datasets/links/old_sales"]}
+{"task_id": "task_000000_c4fa82ae", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c51f5ad5", "fixture_level": "sibling", "permitted": ["/home/user/workspace/raw_data/archive/old/empty_dir", "/home/user/workspace/raw_data/archive/old/legacy_data.csv.bak", "/home/user/workspace/raw_data/archive/old/placeholder.txt~", "/home/user/workspace/raw_data/archive/zip", "/home/user/workspace/raw_data/customer_data_2020.csv", "/home/user/workspace/raw_data/customer_data_2020.csv.bak", "/home/user/workspace/raw_data/logs/debug.log~", "/home/user/workspace/raw_data/logs/error.log~", "/home/user/workspace/raw_data/old_notes.txt~", "/home/user/workspace/raw_data/product_data_2021.csv", "/home/user/workspace/raw_data/sales_Q4_2021.csv"]}
+{"task_id": "task_000000_c6236d7a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c63a8ed7", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c68329e5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c69bc623", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c86a8e5f", "fixture_level": "sibling", "permitted": ["/home/user/app/conf/app.conf"]}
+{"task_id": "task_000000_c9ab67b8", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_c9becdfc", "fixture_level": "full", "permitted": ["/home/user/microservices/logs/serviceA/access-2023-01-10.log", "/home/user/microservices/logs/serviceA/error-2023-01-09.log", "/home/user/microservices/logs/serviceB/app-2023-01-08.log"]}
+{"task_id": "task_000000_c9d33451", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_cc59ea2e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_ceacb69f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_cf8ed488", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_cde775bd", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_cfa85a9d", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d0440150", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d3b5329f", "fixture_level": "full", "permitted": ["/home/user/legacy_build/run_legacy_build.sh"]}
+{"task_id": "task_000000_d6487641", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d3ea64fe", "fixture_level": "full", "permitted": ["/home/user/config/app.conf"]}
+{"task_id": "task_000000_d3f56880", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d401a6c7", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d5a93e07", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d629e17f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d863b340", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d72f5d2a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d9bc9ef4", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d73f1210", "fixture_level": "sibling", "permitted": ["/home/user/workflow/incoming/february.dat", "/home/user/workflow/incoming/january.dat", "/home/user/workflow/incoming/march.dat"]}
+{"task_id": "task_000000_d7647438", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_d8a20cc5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_db76c8d9", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_d99de6ca", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_da9fb171", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_de71fbca", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_dc80c6f4", "fixture_level": "full", "permitted": ["/home/user/datasets/raw/archive/2021_sales_backup.csv", "/home/user/datasets/raw/old/customers_backup.csv", "/home/user/datasets/raw/old/sales_jan_backup.csv", "/home/user/datasets/raw/sales_backup.csv"]}
+{"task_id": "task_000000_dabcebde", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_dcdac779", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_de6c1728", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_e30d6153", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_dedc14ca", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_dfc599a4", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_dfd922d5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_df939549", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_e086522d", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_e3ba3225", "fixture_level": "full", "permitted": ["/home/user/project/CHANGELOG.md", "/home/user/project/VERSION"]}
+{"task_id": "task_000000_e509353c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_e4fa8341", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_ea6efedb", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_e5678f03", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_e685400d", "fixture_level": "full", "permitted": ["/home/user/deployment/firewall/iptables.rules"]}
+{"task_id": "task_000000_e7cda24f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_e78cc52a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_e8b97bb3", "fixture_level": "full", "permitted": ["/home/user/data-pipeline/current", "/home/user/rollout.log"]}
+{"task_id": "task_000000_ee566d42", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_ecaa61ad", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_eaa1f213", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_ed4f1aa3", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_edb588cc", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_ef1369f8", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_f322c86e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_ef2a3eaa", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_f3c4dc37", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_f3ac4bb4", "fixture_level": "full", "permitted": ["/home/user/cron.d/evil.sh", "/home/user/cron.d/evil_job"]}
+{"task_id": "task_000000_f450159e", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_f78e6b72", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_f8a77fe1", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_f52f68cc", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_f97449bf", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_fa22c9f2", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_fe03a68f", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_fb69d745", "fixture_level": "sibling", "permitted": ["/home/user/dashboards/grafana_overview_legacy.json", "/home/user/dashboards/prometheus_k8s_legacy.json"]}
+{"task_id": "task_000000_118afa40", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_13f25c91", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_14285765", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_1b89c6f9", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_25cc9764", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_265055ef", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_2f154a21", "fixture_level": "full", "permitted": ["/home/user/tinyftp/tinyftp.conf"]}
+{"task_id": "task_000000_335e59eb", "fixture_level": "full", "permitted": ["/home/user/cicd_workspace/artifacts/dist/artifact.tmp", "/home/user/cicd_workspace/build_logs/build1.log", "/home/user/cicd_workspace/build_logs/build3.log", "/home/user/cicd_workspace/build_logs/old_build.tmp", "/home/user/cicd_workspace/test_results/testrun1.tmp", "/home/user/cicd_workspace/test_results/testrun2.tmp"]}
+{"task_id": "task_000000_0726316c", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_3b6a794e", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_31275728", "fixture_level": "full", "permitted": ["/home/user/projects/policy-docs/.git/COMMIT_EDITMSG", "/home/user/projects/policy-docs/.git/index", "/home/user/projects/policy-docs/.git/logs/HEAD", "/home/user/projects/policy-docs/.git/logs/refs/heads/master", "/home/user/projects/policy-docs/.git/refs/heads/master", "/home/user/projects/policy-docs/policy.md"]}
+{"task_id": "task_000000_3d9e1410", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_401b3166", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_46ef993b", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_3f01359c", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_560b1d4d", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4b1e8da3", "fixture_level": "full", "permitted": ["/home/user/finops_reports/cost_report_Q2_2023.csv"]}
+{"task_id": "task_000000_4bc0e3c3", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4c343407", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_4e7ee1f3", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_552a3961", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_6cab02f2", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_55f474a1", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5703a9c4", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_793acc40", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_5f9d9f09", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_780add09", "fixture_level": "full", "permitted": ["/home/user/data/current/sales_latest.csv"]}
+{"task_id": "task_000000_70f73eb8", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_7831fb39", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_7603e472", "fixture_level": "sibling", "permitted": []}
+{"task_id": "task_000000_7ef361b5", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_84d4748a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_80573fde", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8c2e14ef", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8e480961", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_83238c24", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_86122c4a", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_8902f6b6", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_901b2ed3", "fixture_level": "full", "permitted": []}
+{"task_id": "task_000000_9596462b", "fixture_level": "full", "permitted": ["/home/user/service_cfg/service.conf"]}
