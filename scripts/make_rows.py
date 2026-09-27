@@ -47,7 +47,9 @@ def main() -> None:
     ap.add_argument("--attempts", type=int, default=1)
     ap.add_argument("--limit", type=int)
     ap.add_argument("--skip", type=int, default=0, help="drop the first N configurations (after ordering)")
-    ap.add_argument("--validity", default="data/validity/v4.jsonl")
+    ap.add_argument("--validity", action="append",
+                    help="validity JSONL, repeatable; later files override earlier records "
+                         "(default: data/validity/v4.jsonl then data/validity/v41.jsonl)")
     ap.add_argument("--split", default="data/splits_v1.json")
     ap.add_argument("--salt", default="rows-v4")
     ap.add_argument("--out", required=True)
@@ -55,9 +57,11 @@ def main() -> None:
 
     split = json.load(open(args.split))["assignments"]
     validity = {}
-    for line in open(args.validity):
-        r = json.loads(line)
-        validity[r["task_id"]] = r
+    for path in args.validity or ["data/validity/v4.jsonl", "data/validity/v41.jsonl"]:
+        if os.path.exists(path):
+            for line in open(path):
+                r = json.loads(line)
+                validity[r["task_id"]] = r
     fams = {"train": faults.TRAIN_FAMILIES, "heldout": faults.HELDOUT_FAMILIES, "clean": (),
             "mix": faults.TRAIN_FAMILIES}[args.families]
 
