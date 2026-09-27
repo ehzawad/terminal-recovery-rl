@@ -1,0 +1,107 @@
+{
+ "P": "p3_termination",
+ "prompt_file": "prompts/p3_termination.txt",
+ "check_revise": false,
+ "stage1": {
+  "p0_default": {
+   "safe_success_macro": 0.7778,
+   "success_macro": 0.8056,
+   "collateral_incidence": 0.0556,
+   "recovery_failure_incidence": 0.091,
+   "gen_tokens_mean": 1151
+  },
+  "p1_inspect_act_verify": {
+   "safe_success_macro": 0.8056,
+   "success_macro": 0.8333,
+   "collateral_incidence": 0.0556,
+   "recovery_failure_incidence": 0.091,
+   "gen_tokens_mean": 1328
+  },
+  "p2_recovery": {
+   "safe_success_macro": 0.8611,
+   "success_macro": 0.8611,
+   "collateral_incidence": 0,
+   "recovery_failure_incidence": 0.1,
+   "gen_tokens_mean": 1169
+  },
+  "p3_termination": {
+   "safe_success_macro": 0.8056,
+   "success_macro": 0.8056,
+   "collateral_incidence": 0,
+   "recovery_failure_incidence": 0.091,
+   "gen_tokens_mean": 1244
+  },
+  "p4_one_line": {
+   "safe_success_macro": 0.7778,
+   "success_macro": 0.7778,
+   "collateral_incidence": 0,
+   "recovery_failure_incidence": 0.182,
+   "gen_tokens_mean": 727
+  },
+  "p5_combined": {
+   "safe_success_macro": 0.8056,
+   "success_macro": 0.8056,
+   "collateral_incidence": 0,
+   "recovery_failure_incidence": 0.3,
+   "gen_tokens_mean": 1318
+  },
+  "p6_env_aware": {
+   "safe_success_macro": 0.6667,
+   "success_macro": 0.6667,
+   "collateral_incidence": 0.0278,
+   "recovery_failure_incidence": 0.5,
+   "gen_tokens_mean": 1323
+  },
+  "p7_budget": {
+   "safe_success_macro": 0.75,
+   "success_macro": 0.75,
+   "collateral_incidence": 0.0556,
+   "recovery_failure_incidence": 0.182,
+   "gen_tokens_mean": 1082
+  },
+  "p8_preserve": {
+   "safe_success_macro": 0.7222,
+   "success_macro": 0.7222,
+   "collateral_incidence": 0,
+   "recovery_failure_incidence": 0.0,
+   "gen_tokens_mean": 1313
+  },
+  "p9_safe_combined": {
+   "safe_success_macro": 0.7222,
+   "success_macro": 0.75,
+   "collateral_incidence": 0.0278,
+   "recovery_failure_incidence": 0.2,
+   "gen_tokens_mean": 1244
+  }
+ },
+ "stage2": {
+  "p2_recovery": {
+   "safe_success_macro": 0.8229,
+   "success_macro": 0.8229,
+   "collateral_incidence": 0,
+   "recovery_failure_incidence": 0.258,
+   "gen_tokens_mean": 996
+  },
+  "p2_recovery+revise": {
+   "safe_success_macro": 0.8021,
+   "success_macro": 0.8021,
+   "collateral_incidence": 0.0104,
+   "recovery_failure_incidence": 0.375,
+   "gen_tokens_mean": 1349
+  },
+  "p3_termination": {
+   "safe_success_macro": 0.8333,
+   "success_macro": 0.8333,
+   "collateral_incidence": 0.0104,
+   "recovery_failure_incidence": 0.257,
+   "gen_tokens_mean": 1104
+  },
+  "p3_termination+revise": {
+   "safe_success_macro": 0.8333,
+   "success_macro": 0.8333,
+   "collateral_incidence": 0.0104,
+   "recovery_failure_incidence": 0.294,
+   "gen_tokens_mean": 1399
+  }
+ }
+}

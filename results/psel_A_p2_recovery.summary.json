@@ -1,0 +1,30 @@
+{
+ "episodes": 36,
+ "tasks": 36,
+ "safe_success_macro": 0.8611,
+ "success_macro": 0.8611,
+ "collateral_incidence": 0,
+ "fabricated_input_incidence": 0,
+ "no_command_episodes": 0,
+ "reward_mean": 0.9121,
+ "partial_mean": 0.9632,
+ "success_by_family": {
+  "clean": 0.84,
+  "moved_input": 0.833,
+  "perm_denied": 1
+ },
+ "fault_observed_rate": 0.909,
+ "recovery_failure_incidence": 0.1,
+ "fault_left_uncleared": 0.3,
+ "informative_groups_semantic": "0/36",
+ "mixed_success_groups": "0/36",
+ "end_reasons": {
+  "stopped": 28,
+  "max_tool_turns": 7,
+  "truncated": 1
+ },
+ "harness_errors": 0,
+ "gen_tokens_mean": 1169,
+ "turns_mean": 11.94,
+ "seconds_mean": 74.0
+}
