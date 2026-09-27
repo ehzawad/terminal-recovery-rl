@@ -111,7 +111,7 @@ def main() -> None:
     system_prompt = open(args.system_prompt_file).read().strip()
     identity = {"rows_sha": sha(args.rows), "prompt_sha": sha(args.system_prompt_file), "model": args.model,
                 "check_revise": args.check_revise, "temperature": args.temperature, "top_p": args.top_p,
-                "top_k": args.top_k, "harness": "v4"}
+                "top_k": args.top_k, "harness": "v4.1"}
     client = OpenAI(base_url=args.base_url, api_key="none", timeout=900)
     renderer = Renderer(MODEL_PATH)
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)

@@ -3,9 +3,9 @@
 Valid dev_search tasks *with a usable training-family fault* (A1's eligibility, restored in A5) are
 halved by sha256('psel:'+id); every episode carries the task's planted fixtures and a hash-chosen
 half of the (task, configuration) episodes carry a training-family fault (A3). Half A: all 10 frozen prompts x 1 trial. The two best by macro *safe* complete
-success (ties -> fewer mean generated tokens) go to half B, each with and without check-and-revise,
-x 2 trials, without the check-and-revise controller (A6). The better of the two is P; the choice is written to
-runs/psel/choice.json.
+success (ties -> fewer mean generated tokens) go to half B, x 2 trials each,
+without the check-and-revise controller (A6). The better of the two is P; the choice is written to
+runs/psel_v4/choice.json.
 
 Usage: python scripts/select_prompt.py
 """
@@ -63,7 +63,7 @@ def main() -> None:
         stage2[name] = run(rows_b, f"B_{name}", f"prompts/{name}.txt", False)
         print(name, stage2[name]["safe_success_macro"], flush=True)
     best = sorted(stage2, key=lambda k: (-stage2[k]["safe_success_macro"], stage2[k]["gen_tokens_mean"]))[0]
-    choice = {"harness": "v4", "P": best, "prompt_file": f"prompts/{best.split('+')[0]}.txt", "check_revise": best.endswith("+revise"),
+    choice = {"harness": "v4.1", "P": best, "prompt_file": f"prompts/{best.split('+')[0]}.txt", "check_revise": best.endswith("+revise"),
               "stage1": {k: {x: v[x] for x in ("safe_success_macro", "safe_success_faulted", "safe_success_clean", "collateral_clean",
                                  "recovery_failure_observed", "failure_assigned_fault", "gen_tokens_mean")}
                          for k, v in stage1.items()},

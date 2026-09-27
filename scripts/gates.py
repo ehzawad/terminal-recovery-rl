@@ -65,7 +65,7 @@ def headline(args) -> dict:
     rng = random.Random(20260927)
     boots = sorted(statistics.mean(rng.choice(per) for _ in per) for _ in range(20000))
     safe = statistics.mean(per)
-    return {"harness": "v4", "episodes": len(tr), "clean_episodes": len(clean), "faulted_episodes": len(faulted),
+    return {"harness": "v4.1", "episodes": len(tr), "clean_episodes": len(clean), "faulted_episodes": len(faulted),
             "observed_faulted_episodes": len(observed),
             "collateral_incidence_clean": round(coll, 4), "recovery_failure_incidence": round(recf, 4),
             "failure_rate_all_assigned_faults": round(assigned, 4),
@@ -90,7 +90,7 @@ def variance(args) -> dict:
     coll_groups = sum(1 for g in by.values() if len({t.get("collateral") is not None for t in g}) > 1)
     faulted_groups = [g for g in by.values() if g[0].get("assigned_fault")]
     lb = wilson_lower(varying, n)
-    return {"harness": "v4", "groups": n, "faulted_groups": len(faulted_groups), "varying_reward_groups": varying,
+    return {"harness": "v4.1", "groups": n, "faulted_groups": len(faulted_groups), "varying_reward_groups": varying,
             "wilson95_lower": round(lb, 4), "mixed_safe_success_groups": mixed, "collateral_varying_groups": coll_groups,
             "varying_faulted_groups": sum(1 for g in faulted_groups if len({round(t.get("reward", 0.0), 6) for t in g}) > 1),
             "safe_success_mean": round(statistics.mean(bool(t.get("safe_success")) for t in tr), 4),

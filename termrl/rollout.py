@@ -92,7 +92,7 @@ def run_episode(
 ) -> dict:
     env = TerminalEnv(command_timeout=command_timeout, output_limit=output_limit)
     trace: dict = {"task_root": task_root, "model": model, "system_prompt": system_prompt, "seed": seed,
-                   "check_revise": check_revise, "turns": [], "end_reason": None, "harness": "v4"}
+                   "check_revise": check_revise, "turns": [], "end_reason": None, "harness": "v4.1"}
     t_start = time.monotonic()
     try:
         env.reset(task_root=task_root, fault_family=fault_family, fault_seed=fault_seed)
