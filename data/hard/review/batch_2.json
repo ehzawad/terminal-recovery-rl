@@ -1,0 +1,293 @@
+{
+  "reviewer": "batch_2",
+  "tasks": {
+    "task_000000_08a3a999": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "instruction.md:64 gives the 'example' line 'cache-01|down|2|2023-01-12 11:05:00', which is byte-for-byte the entire expected report (tests/test_final_state.py:229); the investigation result (only cache-01 impacted, so its status becomes 'investigating', test:185-190) is therefore leaked and only the mechanical CSV import is left to do.",
+      "tests": {
+        "test_incidents_directory_exists": "presence",
+        "test_database_file_exists_and_non_empty": "presence",
+        "test_triage_report_file_exists": "presence",
+        "test_required_tables_exist": "presence",
+        "test_table_schema": "format",
+        "test_events_table_has_correct_foreign_key": "format",
+        "test_servers_table_final_rows": "substantive",
+        "test_events_table_rows_unchanged": "substantive",
+        "test_report_file_content_exact": "substantive"
+      }
+    },
+    "task_000000_1f3fb454": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Column reorder; test:44-57 expects exactly the reorder of Dockerfile:18-30 data under the header stated at instruction.md:33; update_log 'COMPLETED' stated at instruction.md:42.",
+      "tests": {
+        "test_original_csv_still_intact": "presence",
+        "test_updated_csv_exists_and_is_correct": "substantive",
+        "test_log_file_exists_and_is_correct": "presence"
+      }
+    },
+    "task_000000_2a0a7cde": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Conversion check (test:99-137) only verifies valid UTF-8 containing non-ASCII (weak: a double-encoded file would pass), but it does fail an unconverted ISO-8859-1 file; log content, order and header are checked (test:165-237) as specified at instruction.md:19-30.",
+      "tests": {
+        "test_docs_directory_still_exists_and_is_dir": "presence",
+        "test_docs_contains_exact_original_txt_files_only": "presence",
+        "test_each_file_is_now_utf8_and_content_preserved": "substantive",
+        "test_log_file_exists_and_is_regular_file": "presence",
+        "test_log_file_has_unix_line_endings_only": "format",
+        "test_log_file_exact_content_and_format": "substantive",
+        "test_no_unexpected_log_files_created": "presence"
+      }
+    },
+    "task_000000_31f2fb6d": {
+      "exclude": true,
+      "reasons": [
+        "presence_only"
+      ],
+      "evidence": "The only content test (test:98-122) is a regex on labels plus 'real/user/sys <float>' with any numbers; nothing ties the numbers to /usr/bin/time runs, so a hand-written 12-line file with made-up timings passes. The tarball check is skipped if the tarball is absent (test:125-128). Grades format only.",
+      "tests": {
+        "test_benchmarks_directory_exists": "presence",
+        "test_benchmark_log_exists_and_permissions": "presence",
+        "test_benchmark_log_has_unix_line_endings": "format",
+        "test_benchmark_log_line_count": "format",
+        "test_benchmark_log_exact_structure_and_format": "format",
+        "test_src_tarball_is_valid_and_contains_src_dir": "presence"
+      }
+    },
+    "task_000000_3cd7f4a7": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Expected counts, key union, new-keys diff and sanitised 'key=value' files (test:45-86) follow from the rules at instruction.md:27-56 applied to Dockerfile:12-39; trimming key and value removes the spaces around '=', so the separator can be inferred.",
+      "tests": {
+        "test_required_directories_exist_and_have_sane_permissions": "presence",
+        "test_output_directory_contains_required_files": "presence",
+        "test_output_file_contents_match_truth": "substantive",
+        "test_all_keys_file_contains_unique_sorted_keys": "format",
+        "test_clean_configs_directory_contains_correct_files_only": "presence",
+        "test_each_cleaned_config_matches_truth": "substantive",
+        "test_new_keys_is_subset_of_all_keys_and_difference_logic_correct": "substantive"
+      }
+    },
+    "task_000000_58efc061": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The replica is checked byte-for-byte, including the symlink target (test:78-141). The log checks are weak (at least 5 lines with one starting '>', test:156-167), and <B> is checked only as digits (test:195), never against rsync's value.",
+      "tests": {
+        "test_remote_directory_and_structure_are_in_place": "substantive",
+        "test_log_directory_and_detailed_rsync_log": "format",
+        "test_human_readable_summary_file": "substantive"
+      }
+    },
+    "task_000000_609ebf49": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Modes, settings.ini content, backup deletion and a 4-entry audit log with old/new states (test:61-214) all follow instruction.md:11-47. The log must be world-readable (test:125), which is not stated but holds under the default umask 022.",
+      "tests": {
+        "test_specific_permission_fixes": "substantive",
+        "test_previously_secure_objects_unchanged": "presence",
+        "test_no_world_writable_bits_remaining": "substantive",
+        "test_settings_ini_hardened_and_clean": "substantive",
+        "test_settings_backup_removed": "substantive",
+        "test_log_entries_format_and_content": "substantive"
+      }
+    },
+    "task_000000_66cb08f7": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed",
+        "contradiction"
+      ],
+      "evidence": "The required log content 'bin/include/lib/pyvenv.cfg' is given verbatim at instruction.md:14-19 and is checked exactly (test:101-126). instruction.md:10 asks for 'every item that exists directly inside' the venv, but Ubuntu 22.04 python3.10 -m venv also creates a lib64 symlink (verified locally: bin, include, lib, lib64, pyvenv.cfg), so a faithful listing has 5 lines and fails the fixed 4 lines. The venv checks are existence only (test:67-87).",
+      "tests": {
+        "test_virtualenv_directory_exists": "presence",
+        "test_mandatory_items_present_with_correct_type": "presence",
+        "test_log_file_exists": "presence",
+        "test_log_file_contents": "substantive"
+      }
+    },
+    "task_000000_7212f9c7": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Summary rows, best-accuracy line and relative symlink (test:97-205) are derived from the INI files per instruction.md:14-38; the best accuracy string 0.93 is the same raw or at 2 decimal places.",
+      "tests": {
+        "test_summary_log_exists_and_is_file": "presence",
+        "test_summary_log_ascii_and_trailing_newline": "format",
+        "test_summary_log_contents": "substantive",
+        "test_best_accuracy_log_exists_and_is_correct": "substantive",
+        "test_best_experiment_symlink": "substantive"
+      }
+    },
+    "task_000000_78a8665b": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Ground-truth counts 5/4/9 and missing counts 2/2/1 (test:27-32) require empty numeric CSV cells to load as NULL. A plain sqlite3 .import stores '' and gives MISSING_WEIGHT=0 (a trap), but the MISSING_* semantics at instruction.md:45-48 make NULL-for-empty inferable.",
+      "tests": {
+        "test_original_csv_files_still_exist": "presence",
+        "test_database_and_tables_exist_with_correct_schema": "format",
+        "test_row_counts_and_missing_value_statistics": "substantive",
+        "test_validation_log_contents_match_database": "substantive",
+        "test_validation_log_is_overwritten_not_appended": "format"
+      }
+    },
+    "task_000000_83455158": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "Every graded byte is given verbatim in the instruction: VERSION '1.0.1\\n' (instruction.md:45), version_bump.log (instruction.md:41-42), and the full final CHANGELOG (the original is shown at instruction.md:11-17 and the new entry at :29-31). The tests (test:44, 65-77, 103) compare these exact strings, so the task can be passed with three printf commands without reading any file. (Minor: instruction.md:34 says 'four lines' but shows three.)",
+      "tests": {
+        "test_version_file_content_is_exactly_1_0_1_newline": "substantive",
+        "test_changelog_content_matches_expected": "substantive",
+        "test_version_bump_log_exists_and_is_correct": "substantive"
+      }
+    },
+    "task_000000_914cdb97": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "The 'example layout (values are examples)' at instruction.md:63-67 is exactly the true CSV (2024-05-10,5,3,1,1 / 2024-05-11,7,3,2,2 / 2024-05-12,2,2,0,0 / TOTAL,14,8,3,3) computed from Dockerfile:38-59 and checked at test:203-216. The action.log lines are also fully determined (instruction.md:30,75), leaving only two mv commands.",
+      "tests": {
+        "test_archive_directory_exists": "presence",
+        "test_old_files_are_in_archive_and_not_in_logs": "substantive",
+        "test_archive_contains_no_unexpected_files": "presence",
+        "test_summary_csv_exists": "presence",
+        "test_summary_csv_content_is_correct": "substantive",
+        "test_action_log_exists": "presence",
+        "test_action_log_content_exact": "substantive",
+        "test_no_unexpected_files_left_in_logs_dir": "presence"
+      }
+    },
+    "task_000000_9bc5c5e6": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Top-3 ranking and rules are derived from usage.csv (test:54-77). Rule syntax '-A OUTPUT -p tcp --sport N -j ACCEPT' follows the baseline style plus instruction.md:27. Borderline: instruction.md:26-27 says start with all baseline rules and 'append', while :31 says keep the 'terminating DROP line' last; the test (test:64-77) requires the new rules before DROP. Kept because :31 signals DROP-last clearly, and the reference does the same.",
+      "tests": {
+        "test_output_directory_exists_and_is_directory": "presence",
+        "test_top_services_file_content_and_permissions": "substantive",
+        "test_new_firewall_rules_content_and_permissions": "substantive",
+        "test_log_file_content_and_permissions": "presence",
+        "test_baseline_firewall_rules_unmodified": "presence",
+        "test_usage_csv_still_present": "presence"
+      }
+    },
+    "task_000000_a34927e4": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The expected lines are derived from the JSON (test:35-49); 'VARIABLES: 1.5,0.0,2.5' matches instruction.md:30 ('exactly as they appear'). jq would print 0 for 0.0, but that is a stated-format trap, not an uninferable one.",
+      "tests": {
+        "test_api_directory_and_json_still_intact": "presence",
+        "test_log_file_exists_and_is_regular_file": "presence",
+        "test_log_file_content_and_format": "substantive",
+        "test_log_file_has_no_extra_whitespace": "format"
+      }
+    },
+    "task_000000_b20b6b19": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Deduplicated rows sorted by date (test:35-49) and the [OK] lines plus 'Total unique rows written: 13' (test:148-182) follow instruction.md:21-43 and the HTML at Dockerfile:26-69.",
+      "tests": {
+        "test_output_directory_exists_and_is_writable": "presence",
+        "test_output_directory_contains_only_expected_files": "presence",
+        "test_csv_uses_unix_newlines_and_no_trailing_blank_line": "format",
+        "test_csv_has_correct_header_and_rows_sorted_unique": "substantive",
+        "test_log_uses_unix_newlines": "format",
+        "test_log_structure_and_content": "substantive"
+      }
+    },
+    "task_000000_ba620f3c": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Checks the sshd edits (test:95-127), byte-identical copies of the reference logs (test:152-165), the report JSON (test:169-211) and the action-log tokens, all as specified at instruction.md:13-85. The JSON counts 3/4 are given at instruction.md:57-58 (a minor leak), but the edits and copies still have to be performed.",
+      "tests": {
+        "test_directories_now_exist": "presence",
+        "test_sshd_config_hardened_correctly": "substantive",
+        "test_scripts_exist_and_executable": "presence",
+        "test_audit_logs_identical_to_reference": "substantive",
+        "test_compliance_report_contents": "substantive",
+        "test_action_log_contents": "format"
+      }
+    },
+    "task_000000_ca4ffb19": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "instruction.md:37 asks the log to hold 'the literal SQL statements you executed' (any valid SQL the solver chooses), but test:260-270 requires three exact strings, e.g. \"INSERT INTO translations (locale,key,value,updated_at) VALUES ('fr','welcome','Bienvenue','2024-06-01');\" with no spaces after commas and a fixed column list, SET order and inserts-before-update. Any other correct SQL spelling fails.",
+      "tests": {
+        "test_backup_file_exists_and_permissions": "presence",
+        "test_backup_contains_original_4_rows": "substantive",
+        "test_final_database_rows": "substantive",
+        "test_csv_export_exists_and_permissions": "presence",
+        "test_csv_header_and_row_order_and_content": "substantive",
+        "test_log_file_exists_and_permissions": "presence",
+        "test_log_file_structure_and_content": "substantive",
+        "test_all_dates_are_iso8601": "format"
+      }
+    },
+    "task_000000_d3910f9d": {
+      "exclude": true,
+      "reasons": [
+        "other"
+      ],
+      "evidence": "Impossible honestly: test:95 and test:178 require each .gz to be strictly smaller than the 68/71/75-byte originals (Dockerfile:15-30), but gzip output for these files is 95/96/102 bytes (81/85/88 with -n; measured). The reference solution passes only by overwriting the archives with empty gzip streams (solve.sh:6 'gzip -n -c /dev/null > \"$f\"'), destroying the backups.",
+      "tests": {
+        "test_backup_directory_contains_only_expected_gz_files": "presence",
+        "test_each_gz_is_smaller_than_original": "presence",
+        "test_report_format_and_values_match_truth": "substantive"
+      }
+    },
+    "task_000000_e1fb3207": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The 5 qualifying files (at least 1024 bytes, .log/.txt; Dockerfile:23-32), sorted list, archive members without a leading '/', and checksums verified against the extracted archive (test:105-226) all follow instruction.md:6-58.",
+      "tests": {
+        "test_diagnostics_directory_and_membership": "presence",
+        "test_file_list_log": "substantive",
+        "test_archive_membership_and_paths": "substantive",
+        "test_checksums_file": "substantive"
+      }
+    },
+    "task_000000_f05cbcd8": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Report rows (test:36-44) and the appended example.com hosts line (test:29-34) follow from the lookup rules at instruction.md:25-41 and the data at Dockerfile:19-38; the SUMMARY mapping can be inferred from the message wording.",
+      "tests": {
+        "test_report_file_exists_and_permissions": "presence",
+        "test_report_file_format_and_content": "substantive",
+        "test_report_lines_correspond_to_ticket_order": "format",
+        "test_mock_hosts_updated_correctly": "substantive",
+        "test_no_unexpected_modifications_to_dns_json": "presence",
+        "test_ticket_file_unchanged": "presence"
+      }
+    },
+    "task_000000_f6529d5b": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:35 says 'Use one (and only one) space as a separator between each column', yet the template at instruction.md:24 shows two spaces before MD5 (every template line also carries two trailing spaces from markdown). test:99-109 (_parse_file_record, used at test:211) requires exactly two spaces (\\s{2}) before 'MD5=', so a solver following the explicit one-space rule fails.",
+      "tests": {
+        "test_audit_directory_exists_and_mode_0700": "presence",
+        "test_required_output_files_exist": "presence",
+        "test_log_file_structure_and_checksums": "substantive",
+        "test_summary_json_matches_log_and_spec": "substantive"
+      }
+    },
+    "task_000000_fffbc984": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Version bump in config.yaml and the prepended 4-line block (test:37-62). A blank separator after the block is required (test:115) but not stated; it is inferable from the existing CHANGELOG, which separates sections with a blank line (Dockerfile:23-31). Unlike task_000000_83455158, the full original files are not in the instruction, so the files must be edited in place.",
+      "tests": {
+        "test_repository_directory_still_exists": "presence",
+        "test_config_yaml_version_bumped_and_nothing_else_changed": "substantive",
+        "test_changelog_has_correct_new_block_and_old_content_preserved": "substantive",
+        "test_no_accidental_files_created": "presence"
+      }
+    }
+  }
+}

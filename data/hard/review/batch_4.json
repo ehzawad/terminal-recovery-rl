@@ -1,0 +1,288 @@
+{
+  "reviewer": "batch_4",
+  "tasks": {
+    "task_000000_0dbc0d6a": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "No nmap in image (environment/Dockerfile:12), so the stated mock path applies; tests check the mock line (tests/test_final_state.py:43,92), CSV rows with an empty Notes field (:47,116) and the START/FINISH sequence (:164-187), all specified in instruction.md:22-27,50-72.",
+      "tests": {
+        "test_required_directories_exist": "presence",
+        "test_nmap_files_exist_and_content": "substantive",
+        "test_report_csv_contents": "substantive",
+        "test_errors_log_empty": "presence",
+        "test_run_log_sequence_and_format": "substantive"
+      }
+    },
+    "task_000000_227b72ab": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The move-not-copy check (tests/test_final_state.py:77-80) is implied by 'readme.md must remain' (instruction.md:16-17). The exact findings (:135-138) follow the stated ABS_PATH::LINE::TEXT format (instruction.md:25-33).",
+      "tests": {
+        "test_required_directories_exist": "presence",
+        "test_source_files_moved_correctly": "presence",
+        "test_readme_md_stayed_in_unorganized": "presence",
+        "test_secret_findings_log_exists": "presence",
+        "test_secret_findings_log_content_is_exact": "substantive",
+        "test_log_line_numbers_are_correct": "substantive"
+      }
+    },
+    "task_000000_2ce110bb": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The invalid objects and their order (tests/test_final_state.py:141) follow instruction.md:13-21. The '^  {' indentation check (:169) accepts both jq's default output and one object per line. The VALID/INVALID counts (:201-223) follow instruction.md:28-36.",
+      "tests": {
+        "test_output_files_exist": "presence",
+        "test_original_files_unchanged": "presence",
+        "test_invalid_devices_json_content": "substantive",
+        "test_invalid_devices_json_pretty_printing": "format",
+        "test_validation_report_format": "format",
+        "test_validation_report_numbers_consistency": "substantive",
+        "test_no_extra_files_created": "presence"
+      }
+    },
+    "task_000000_333a2797": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "endpoint_summary.csv rows must appear in first-appearance order /v1/users,/v1/login,/v1/orders,/v1/products (tests/test_final_state.py:60-66, exact list compare at :152). instruction.md:10-16,30 never gives a row order, so an alphabetically sorted summary with correct values is rejected.",
+      "tests": {
+        "test_directories_exist": "presence",
+        "test_original_access_log_unchanged": "presence",
+        "test_critical_posts_file_exists": "presence",
+        "test_critical_posts_contents": "substantive",
+        "test_endpoint_summary_file_exists": "presence",
+        "test_endpoint_summary_contents": "substantive",
+        "test_sanitized_log_file_exists": "presence",
+        "test_sanitized_log_contents": "substantive"
+      }
+    },
+    "task_000000_44510e43": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The cleaned CSVs and the summary values 15.00/9.00/pooled 11.57 (tests/test_final_state.py:32-56) follow the rules in instruction.md:34-48. The log is only checked for 'awk ' and 'sed ' substrings (:119), which instruction.md:73 states.",
+      "tests": {
+        "test_clean_csv_exists_and_has_correct_content": "substantive",
+        "test_summary_tsv_correct": "substantive",
+        "test_process_log_exists_and_mentions_awk_and_sed": "presence",
+        "test_raw_files_untouched": "presence"
+      }
+    },
+    "task_000000_59dd29f4": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The list is compared against the live *.sif set in any order (tests/test_final_state.py:85-142). The single trailing newline (:150-156) matches instruction.md:34 and the example. The loose '(i.e., an empty line follows...)' gloss at instruction.md:17 is outweighed by those. The task is trivial but its output is not given verbatim.",
+      "tests": {
+        "test_container_list_exists_and_is_regular": "presence",
+        "test_header_is_correct": "format",
+        "test_list_items_match_images_directory": "substantive",
+        "test_file_ends_with_single_newline": "format"
+      }
+    },
+    "task_000000_61924df6": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "instruction.md:26-30 gives authors.csv verbatim ('must look exactly like this'), and tests/test_final_state.py:59-95 compares against exactly that. The log line is verbatim at instruction.md:39 (test :122). The only check not given away (:101-108) just requires no TAB bytes, so deleting tabs also passes.",
+      "tests": {
+        "test_authors_csv_exists": "presence",
+        "test_authors_csv_content_matches_metadata": "substantive",
+        "test_source_files_contain_no_tabs": "substantive",
+        "test_processing_log_last_line": "substantive"
+      }
+    },
+    "task_000000_6812317c": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The exact CSV (tests/test_final_state.py:40-46) follows the stated header, case-sensitive sort and byte sizes (instruction.md:12-23). Leaving the report out of its own listing follows from 'artifacts ... already present' (instruction.md:1-2).",
+      "tests": {
+        "test_experiment_directory_still_exists": "presence",
+        "test_original_artifacts_unchanged": "presence",
+        "test_report_file_created": "presence",
+        "test_report_file_content_exact_match": "substantive",
+        "test_no_extra_or_missing_files_final": "presence"
+      }
+    },
+    "task_000000_744639f5": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The app.yml and db.toml edits and the 6 log lines (tests/test_final_state.py:52-111) follow instruction.md:11-26,43-50. 'features' is left out of the log because it is a list, not a scalar (instruction.md:43,50). combined.yml is given verbatim (instruction.md:31-38), but the other files need real edits. Minor risk: TOML string values must be logged unquoted (:107).",
+      "tests": {
+        "test_app_yml_content": "substantive",
+        "test_app_yml_top_level_key_order": "format",
+        "test_db_toml_content": "substantive",
+        "test_combined_yml_content": "substantive",
+        "test_changes_log_lines": "substantive",
+        "test_no_unexpected_files_created": "presence"
+      }
+    },
+    "task_000000_7b368f5e": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "filter_commands.log must have 1-3 non-blank lines (tests/test_final_state.py:172). instruction.md:24-26 only asks for one command per line, so an honest record of 4 or more commands fails. The .count file must also have NO trailing newline (:137), while instruction.md:21-22 only forbids an 'extra newline'.",
+      "tests": {
+        "test_source_log_still_unchanged": "presence",
+        "test_critical_log_exists_and_has_correct_content": "substantive",
+        "test_count_file_matches_critical_log": "substantive",
+        "test_filter_commands_log_exists_and_has_1_to_3_non_empty_lines": "presence"
+      }
+    },
+    "task_000000_8863b346": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed",
+        "uninferable_requirement"
+      ],
+      "evidence": "migration_plan.tsv is given verbatim in instruction.md:36-45 and compared byte-for-byte (tests/test_final_state.py:111-135). column_ops.log must list only commands from a hidden whitelist {cut,paste,awk,column,tr} (:33,207). instruction.md:51 asks for the commands actually run, so logging mkdir, sed or cat fails. The 0644 mode check (:182-188) is not stated.",
+      "tests": {
+        "test_output_directory_exists": "presence",
+        "test_migration_plan_tsv_exists": "presence",
+        "test_migration_plan_tsv_content_exact_match": "substantive",
+        "test_migration_plan_tsv_sanity": "format",
+        "test_column_ops_log_exists": "presence",
+        "test_column_ops_log_mode": "presence",
+        "test_column_ops_log_content": "format"
+      }
+    },
+    "task_000000_930d1d79": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "Archive members must sit under a top-level 'api_samples/' directory (tests/test_final_state.py:117,140-141), which instruction.md:7-9 never states. instruction.md:11-19 wants the files directly in restore_test/, so a contents-only archive (tar -C api_samples .) is a natural reading, and the test rejects it.",
+      "tests": {
+        "test_archive_exists_and_is_gzip_tar": "presence",
+        "test_archive_contains_exact_expected_files_and_only_them": "substantive",
+        "test_archive_file_contents_match_source": "substantive",
+        "test_restore_directory_exists_and_contains_expected_files": "presence",
+        "test_restored_file_contents_match_source": "substantive",
+        "test_backup_log_ends_with_required_lines": "substantive"
+      }
+    },
+    "task_000000_9c465b6a": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "The instruction sorts only 'by user_id' (instruction.md:16), but the test requires tied rows ordered by event_type (u02,click before u02,view; tests/test_final_state.py:25-33,97). The raw data lists u02 view before u02 click (environment/Dockerfile:20,25), so a stable sort by user_id, which is what the instruction literally asks for, is rejected.",
+      "tests": {
+        "test_processed_directory_exists": "presence",
+        "test_csv_file_exists": "presence",
+        "test_csv_file_content_exact_match": "substantive",
+        "test_log_file_exists": "presence",
+        "test_log_file_content_exact_match": "substantive",
+        "test_raw_file_still_exists": "presence"
+      }
+    },
+    "task_000000_a5d3bbae": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The exact manifest (tests/test_final_state.py:28-40) follows instruction.md:9-17 ('./' prefix, pure lexicographic sort, TOTAL=N). The image sets no locale, so sort is bytewise. Leaving the manifest out of its own listing is the natural reading of listing the project's files.",
+      "tests": {
+        "test_manifest_file_exists_and_is_regular": "presence",
+        "test_manifest_content_exact_bytes": "substantive",
+        "test_manifest_line_level_properties": "substantive",
+        "test_manifest_paths_correspond_to_real_files": "presence",
+        "test_no_unexpected_regular_files_created": "presence"
+      }
+    },
+    "task_000000_b49d20ff": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "capacity_extraction.log must have at least 4 lines (tests/test_final_state.py:145). instruction.md:35,46 only require one timestamped line per command plus a regex, so a valid 2-3 command solution (e.g. mkdir plus one pipeline) is rejected.",
+      "tests": {
+        "test_analysis_directory_exists": "presence",
+        "test_weekly_report_exists_and_readable": "presence",
+        "test_weekly_report_exact_content": "substantive",
+        "test_weekly_report_line_count": "format",
+        "test_audit_log_exists_and_readable": "presence",
+        "test_audit_log_format_and_line_count": "format"
+      }
+    },
+    "task_000000_bcc53e4e": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:65 allows staging temporary files anywhere under /home/user and says only the deliverables are assessed. The tests fail on any extra file in pipe_stage/ (tests/test_final_state.py:122) or finops_logs/ (:283). Also, the 'illustrative' service table (instruction.md:44-50) is exactly the expected answer.",
+      "tests": {
+        "test_pipe_stage_directory_and_contents": "presence",
+        "test_pipe_file_line_counts_and_exact_substitution": "substantive",
+        "test_service_cost_log_content_and_order": "substantive",
+        "test_daily_trend_log_content_and_order": "substantive",
+        "test_no_unexpected_files_in_finops_logs": "presence"
+      }
+    },
+    "task_000000_cb1a129c": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The move plus a log with dynamically computed sizes (tests/test_final_state.py:130-199) matches instruction.md:7-28; the 5-line template generalises to 2 files + 2 totals. The 0755 directory-mode checks (:58,73) hold if the directories are left as they are.",
+      "tests": {
+        "test_incoming_directory_is_empty_and_still_exists": "presence",
+        "test_remote_backup_contains_correct_files_and_only_them": "presence",
+        "test_remote_backup_file_content_and_size": "substantive",
+        "test_sync_log_exists_and_has_correct_permissions": "presence",
+        "test_sync_log_format_and_values": "substantive"
+      }
+    },
+    "task_000000_daa1c073": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "The stated schema (instruction.md:17) and the completion regex (instruction.md:53) require a TAB between date and time. tests/test_final_state.py:57 requires a single space, and the expected lines (:38-43) use spaces, so no output can satisfy both.",
+      "tests": {
+        "test_clean_directory_exists_and_is_dir": "presence",
+        "test_filtered_log_exists_and_contents_are_correct": "substantive",
+        "test_summary_csv_exists_and_contents_are_correct": "substantive",
+        "test_counts_match_between_log_and_summary": "substantive",
+        "test_filtered_lines_present_in_source_archive": "presence"
+      }
+    },
+    "task_000000_e36bb1fc": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "Two IPs tie at count 1. The test requires 172.16.0.3 before 203.0.113.55 (tests/test_final_state.py:34-35,108), but instruction.md:16,33 only says sort by count descending. The standard 'sort | uniq -c | sort -rn' puts 203.0.113.55 first (verified) and fails.",
+      "tests": {
+        "test_report_directory_exists_and_permissions": "presence",
+        "test_report_file_exists_and_permissions": "presence",
+        "test_report_file_content_exact_match": "substantive"
+      }
+    },
+    "task_000000_f1aae6e1": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The filtered JSON and CSV are checked against the raw data (tests/test_final_state.py:43-50,87,168-175) per instruction.md:12-25. Schema validation is not graded and can be done offline without jsonschema. The log text is a stated literal.",
+      "tests": {
+        "test_processed_directories_exist": "presence",
+        "test_high_spend_json_file_exists": "presence",
+        "test_high_spend_json_content_and_ordering": "substantive",
+        "test_high_spend_json_pretty_printing": "format",
+        "test_high_spend_csv_exists": "presence",
+        "test_high_spend_csv_header_and_rows": "substantive",
+        "test_validation_log_exists_and_content": "substantive"
+      }
+    },
+    "task_000000_fc398869": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Report format and sort order (tests/test_final_state.py:56-62) follow instruction.md:7-23. The tarball must hold exactly the 3 file members (:152), as the listing in instruction.md:28-33 states. The summary count follows instruction.md:35-42.",
+      "tests": {
+        "test_error_report_exists_with_correct_bytes": "substantive",
+        "test_error_summary_exists_and_is_correct": "substantive",
+        "test_summary_count_matches_report_line_count": "substantive",
+        "test_archive_directory_and_tarball_exist": "presence",
+        "test_tarball_is_valid_and_has_correct_members": "substantive",
+        "test_tarball_member_contents_match_original_files": "substantive",
+        "test_original_logs_still_exist": "presence"
+      }
+    }
+  }
+}

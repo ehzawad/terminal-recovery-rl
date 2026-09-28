@@ -1,0 +1,282 @@
+{
+ "reviewer": "batch_7",
+ "tasks": {
+  "task_000000_1734fd09": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Expected summary/peak logs (tests/test_final_state.py:36-53) follow from the CSV built in environment/Dockerfile:14-20 and the stated layout/rounding (instruction.md:18-60). 0644 mode check (test:81-88) is unstated but is the default umask result. Parallelism requirement is not tested.",
+   "tests": {
+    "test_reports_directory_exists_and_is_directory": "presence",
+    "test_log_files_exist_and_have_correct_permissions": "presence",
+    "test_log_file_content_exact": "substantive",
+    "test_input_csv_file_unchanged": "presence"
+   }
+  },
+  "task_000000_26eba2d8": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Archive member order and log path order (test:35-41,104,163) are stated verbatim in instruction.md:33-39; ls-like verbose fields stated at instruction.md:28-30. Needs --sort=name or explicit file list, but the order is given.",
+   "tests": {
+    "test_backups_directory_exists": "presence",
+    "test_archive_exists_and_is_valid_gzip": "presence",
+    "test_archive_member_list_and_order": "substantive",
+    "test_archive_extracts_to_exact_structure_and_contents": "substantive",
+    "test_log_file_exists_and_has_correct_content": "substantive"
+   }
+  },
+  "task_000000_2fe29bd4": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Totals, no-trailing-newline summary.txt, JSON-lines log order and 755/644 modes all stated (instruction.md:28-47) and checked (test:186-195,235-259,293-311). Reference solve.sh has junk debug lines after line 5 but line 5 alone produces the correct state.",
+   "tests": {
+    "test_directory_structure_and_permissions": "presence",
+    "test_costs_csv_and_summary_txt": "substantive",
+    "test_cost_summary_log": "substantive",
+    "test_no_extra_files_in_provider_directories": "presence",
+    "test_original_csvs_have_been_moved": "presence",
+    "test_permissions_recursive": "presence"
+   }
+  },
+  "task_000000_363eb497": {
+   "exclude": true,
+   "reasons": [
+    "contradiction",
+    "answer_exposed"
+   ],
+   "evidence": "instruction.md:37-38 says recent ERROR lines in 'chronological order as they appear in the log', but its own example (instruction.md:42-46) lists them newest-first (10:01:07, :06, :05, :03); test_final_state.py:92 takes error_lines[-5:], i.e. oldest-first, so following the example fails. The rest of the expected file is given verbatim: table example instruction.md:26-29 (ERR1001 2, ERR1002 1, ERR1003 1) is exactly the expected table from app.log (environment/Dockerfile:14-22), and the four recent lines are the same lines as the example, only reordered.",
+   "tests": {
+    "test_no_extra_files_created": "presence",
+    "test_summary_file_is_utf8_with_unix_newlines_only": "format",
+    "test_summary_content_matches_expected": "substantive",
+    "test_summary_file_permissions_owner_writable": "presence"
+   }
+  },
+  "task_000000_47882277": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Timestamp is recovered from the tarball name (test:67-82), so no timing race; manifest path style is fixed by the example 'docs/report1.txt' (instruction.md:43); CSV fields, verify-log template and backups-dir contents all stated (instruction.md:30-73).",
+   "tests": {
+    "test_only_expected_files_in_backups_directory": "presence",
+    "test_tarball_contents_are_correct": "substantive",
+    "test_manifest_plain_file_is_correct": "substantive",
+    "test_manifest_gz_matches_plain": "substantive",
+    "test_backup_history_csv": "substantive",
+    "test_verification_log": "substantive"
+   }
+  },
+  "task_000000_5d952feb": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "YAML layout and log format are given as templates (instruction.md:13-36); values come from the HTML pages (environment/Dockerfile:25-77). Only the alpha log line appears as an example (instruction.md:36), beta/gamma must be extracted. Trailing LF on the YAML (test:45) is a common default.",
+   "tests": {
+    "test_deploy_directory_exists_and_permissions": "presence",
+    "test_output_file_exists_is_regular_and_world_readable": "presence",
+    "test_release_summary_yaml_content_exact_match": "substantive",
+    "test_extraction_log_content_exact_match": "substantive",
+    "test_log_matches_yaml_values": "substantive"
+   }
+  },
+  "task_000000_658f04e0": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "tests/test_final_state.py:86-89 fails the script unless it has 5-10 non-blank, non-comment lines; instruction.md:2 and :34 only say 'write a Bourne-shell script ... make it executable' with no length limit (the '(5-10 commands long)' clause in environment/task.json was dropped from instruction.md). An ordinary multi-line for/do/done script easily exceeds 10 lines and fails. test:80 also demands mode exactly 0755.",
+   "tests": {
+    "test_script_exists_and_is_executable_and_short": "presence",
+    "test_processed_directory_structure": "presence",
+    "test_gzip_files_valid_and_reproducible": "substantive",
+    "test_manifest_file_content": "substantive"
+   }
+  },
+  "task_000000_6d85b683": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Log must list pip/setuptools (instruction.md:12), so plain 'pip freeze' (which hides them) is correctly rejected by test:108-113; format/sort stated (instruction.md:9-11). Weak: versions are never compared to the venv, so any 'pip==X/setuptools==Y' passes; venv validity checked via pyvenv.cfg (test:48-54). Offline venv creation works (python3-venv installed, environment/Dockerfile:8).",
+   "tests": {
+    "test_cm_venv_exists_and_is_directory": "presence",
+    "test_cm_venv_contains_canonical_structure": "presence",
+    "test_pyvenv_cfg_contains_home_line": "presence",
+    "test_config_track_directory_exists_and_is_readable": "presence",
+    "test_env_packages_log_exists_and_readable": "presence",
+    "test_log_format_and_content_rules": "substantive",
+    "test_world_readable_permissions": "presence",
+    "test_no_extra_files_in_projects_directory": "presence"
+   }
+  },
+  "task_000000_74eef614": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "tests/test_final_state.py:109-113 requires the archive's member list to be exactly the 4 file names (no directory entries), and :155 requires archive members == manifest lines. instruction.md:17-19 only says the archive holds the contents (the four files) with relative paths, alphabetical, no top-level folder. It never forbids directory entries, which tar adds by default when given 'reports'/'scripts' (e.g. tar --sort=name -C important_data README.md reports scripts fails). test:80-84 also demands exactly 0644 while instruction.md:44 says permissions 'only need to allow the current unprivileged user to read'. The manifest is also given verbatim (instruction.md:28-33 = test:69-74).",
+   "tests": {
+    "test_backup_directory_exists": "presence",
+    "test_tar_archive_exists_and_mode": "presence",
+    "test_tar_archive_contents_and_order": "substantive",
+    "test_manifest_file_exists_and_mode": "presence",
+    "test_manifest_file_content_matches_spec_and_archive": "substantive",
+    "test_backup_success_log_exists_and_content": "substantive"
+   }
+  },
+  "task_000000_81b93d86": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Inventory (test:42-55) lists every regular file after the move, excluding the inventory and cleanup.log, which don't exist yet when it is generated (instruction.md:18-33). Byte sizes follow from environment/Dockerfile:20-40. 0644 exact (test:122,154) matches '0644 is fine' (instruction.md:39) and the default umask.",
+   "tests": {
+    "test_ckpt_archive_structure_and_contents": "substantive",
+    "test_no_ckpt_files_outside_archive": "substantive",
+    "test_expected_files_still_present_with_correct_sizes": "presence",
+    "test_inventory_file_exists_and_permissions": "presence",
+    "test_inventory_file_contents_exact_match": "substantive",
+    "test_cleanup_log_exists_and_permissions": "presence",
+    "test_cleanup_log_contents_exact_match": "substantive"
+   }
+  },
+  "task_000000_8c253e57": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Hotspots filter/sort/key order stated (instruction.md:33-42) and checked against data from environment/Dockerfile:43-51 (test:43-46,119,128); validation.log literal and no-newline rule stated (instruction.md:25-28).",
+   "tests": {
+    "test_directory_contains_expected_files": "presence",
+    "test_validation_log_content_and_permissions": "substantive",
+    "test_hotspots_json_content_and_permissions": "substantive"
+   }
+  },
+  "task_000000_9a09c329": {
+   "exclude": true,
+   "reasons": [
+    "answer_exposed",
+    "contradiction"
+   ],
+   "evidence": "All three graded outputs appear verbatim in the instruction: users_export.csv (instruction.md:40-43 = test:26-31), db_operations.log (instruction.md:50-55 = test:33-40), and the exact CREATE/INSERT commands that yield the table/rows in test:42-53. No transformation is needed. Also inconsistent: log line 5 (instruction.md:54) says the CSV came from 'sqlite3 -header -csv', but sqlite's CSV mode quotes fields containing spaces ('\"Alice Smith\"', '\"2023-01-10 09:30:00\"'), so running it verbatim gives a CSV that fails test:132-133; reference solve.sh:14 has to re-export with -list -separator ','.",
+   "tests": {
+    "test_directory_exists": "presence",
+    "test_database_schema_and_data": "substantive",
+    "test_csv_export_content_exact": "substantive",
+    "test_log_file_content_exact": "substantive"
+   }
+  },
+  "task_000000_a101d59a": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "tests/test_final_state.py:201-206 requires the tarball's member names to be exactly the bare file names (['sales_2021_q2.csv'], with no 'big_csvs/' prefix, './' prefix or directory entry). instruction.md:44 only says it 'contains exactly the copied files (no leading \"/\")', and instruction.md:53 calls it the 'tarball of that dir', which points to 'tar -C /home/user/archive -czf big_csvs.tar.gz big_csvs' (members 'big_csvs', 'big_csvs/...'), and that fails. The dropped task.json wording 'From inside /home/user/archive/ create...' pointed the same way.",
+   "tests": {
+    "test_required_directories_exist": "presence",
+    "test_required_files_exist": "presence",
+    "test_csv_disk_summary_log_content": "substantive",
+    "test_big_csvs_copy_log_content": "substantive",
+    "test_big_csvs_directory_contents_and_integrity": "substantive",
+    "test_big_csvs_tarball_contents_and_integrity": "substantive"
+   }
+  },
+  "task_000000_a7d297b7": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "tests/test_final_state.py:223-228 fails workflow.log unless it contains all of the keywords directory/join/filter/json/csv/output. instruction.md:50-54 only asks for short free-form descriptions, e.g. 'Joined data', 'Filtered >70000', 'Wrote JSON', plus at least four lines '(directory creation, join, filter, outputs written)'. 'csv' is never requested, and a log following that suggested four-line list literally (e.g. '... Wrote outputs') fails, as the reference solve.sh:5 first attempt would.",
+   "tests": {
+    "test_output_directory_exists_and_is_writable": "presence",
+    "test_json_file_exists_and_valid": "substantive",
+    "test_summary_csv_exists_and_contents": "substantive",
+    "test_workflow_log_exists_and_format": "format"
+   }
+  },
+  "task_000000_b74a87c7": {
+   "exclude": true,
+   "reasons": [
+    "answer_exposed"
+   ],
+   "evidence": "The 'EXPECTED EXAMPLE' in instruction.md:74-83 gives migration_summary.csv and failed_migrations.log byte-for-byte identical to the grader's truth (tests/test_final_state.py:33-44: auth-service,5,3,2,412 / payment-service,5,3,2,822 and the 4 FAILED lines). The third artefact, analysis.log, is only regex-format-checked (test:134-164), so nothing has to be computed.",
+   "tests": {
+    "test_reports_directory_exists_and_is_dir": "presence",
+    "test_required_report_files_exist_and_are_regular_files": "presence",
+    "test_summary_csv_exact_bytes": "substantive",
+    "test_failed_migrations_log_exact_bytes": "substantive",
+    "test_analysis_log_format_and_length": "format",
+    "test_original_raw_logs_unchanged": "presence",
+    "test_no_unexpected_files_inside_reports": "presence"
+   }
+  },
+  "task_000000_c83b6024": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "findings.csv is given verbatim (instruction.md:40-46 = test:42-48), but the other graded artefacts still require real work: log copies, an archive with the files at its root (instruction.md:18-20, test:133-150), and a digest with bare filenames whose hashes are recomputed (instruction.md:29-36, test:153-193). Partial exposure only.",
+   "tests": {
+    "test_workspace_structure_exists": "presence",
+    "test_evidence_directory_contents_and_integrity": "substantive",
+    "test_evidence_archive": "substantive",
+    "test_digest_sha256_format_and_values": "substantive",
+    "test_findings_csv_exact_contents": "substantive",
+    "test_no_extraneous_files_in_subdirectories": "presence"
+   }
+  },
+  "task_000000_cf7541cd": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "CSV counts/sort and unique error list (test:28-43) follow from the two raw logs (environment/Dockerfile:35-48) under stated rules (instruction.md:12-32). The pre-existing summary/.gitkeep is whitelisted (test:91).",
+   "tests": {
+    "test_summary_directory_exists": "presence",
+    "test_required_files_exist": "presence",
+    "test_no_extra_files_in_summary_dir": "presence",
+    "test_csv_contents_exact": "substantive",
+    "test_csv_header_spelling": "format",
+    "test_csv_parses_with_standard_library": "format",
+    "test_unique_errors_contents_exact": "substantive",
+    "test_unique_errors_are_unique_and_sorted": "format"
+   }
+  },
+  "task_000000_de48a3cb": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Grader recomputes kept lines and exclusive-reason breakdown from raw data (test:39-105). On the 15 lines (environment/Dockerfile:17-33) that gives 10 kept, email 1, phone 1, ip 1, format 2, consistent with the stated rules (instruction.md:20-59). No leftover helper files rule stated (instruction.md:67-68,80).",
+   "tests": {
+    "test_only_expected_files_exist": "presence",
+    "test_cleaned_file_contents_are_correct": "substantive",
+    "test_processing_log_format_and_counts": "substantive"
+   }
+  },
+  "task_000000_ebbea6a6": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Report layout, including the fixed 'LOG_LEVEL:          was=' spacing, is given as the exact format (instruction.md:31-50) and matches test:52-66. Remediating DEBUG to INFO is the minimal compliant change (instruction.md:12-14). Backups and modes: test:89-129. The concurrency requirement is not tested.",
+   "tests": {
+    "test_app1_backup_exists_and_has_original_content": "substantive",
+    "test_app2_has_no_backup_file": "presence",
+    "test_app1_ini_is_compliant_after_remediation": "substantive",
+    "test_app2_ini_is_unchanged_and_compliant": "presence",
+    "test_remediation_log_exists_in_reports_directory": "presence",
+    "test_remediation_log_exact_content_and_format": "substantive",
+    "test_summary_numbers_are_correct": "substantive"
+   }
+  },
+  "task_000000_f4a4ca99": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "'ONLY the *.jpg/*.json files' and a two-file bundle are stated (instruction.md:11-13, 43-45), so the no-directory-entry checks (test:134-137,157-158,181-184) are inferable. Log sizes and hashes are recomputed from disk (test:217-296).",
+   "tests": {
+    "test_work_dir_exists": "presence",
+    "test_each_archive_exists_and_is_file": "presence",
+    "test_images_tar_is_valid_and_contents": "substantive",
+    "test_labels_zip_is_valid_and_contents": "substantive",
+    "test_bundle_tar_xz_contains_only_two_archives": "substantive",
+    "test_extracted_dataset_dir_contents": "presence",
+    "test_log_file_exists": "presence",
+    "test_log_format_and_content": "substantive"
+   }
+  },
+  "task_000000_fe98d2e6": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Nine filtered lines and total $2.07 (test:29-51) follow from environment/Dockerfile:16-50 under stated criteria and format (instruction.md:21-38). 644 mode is explicitly stated (instruction.md:57).",
+   "tests": {
+    "test_filtered_file_exists_and_contents": "substantive",
+    "test_summary_file_exists_and_content": "substantive",
+    "test_file_permissions": "presence"
+   }
+  }
+ }
+}

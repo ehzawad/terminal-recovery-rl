@@ -1,0 +1,292 @@
+{
+  "reviewer": "batch_0",
+  "tasks": {
+    "task_000000_03444611": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "CSV->JSON, schema, high-value filter and summary all derived from Dockerfile:36-48 and checked substantively (test:104-148, 214-225, 255-278). Minor: instruction.md:55 example '4447.14' equals the real TotalSales, and the validation-log line is a given literal (instruction.md:37); the rest still needs the transformation.",
+      "tests": {
+        "test_required_files_exist": "presence",
+        "test_salesdata_json_content_and_types": "substantive",
+        "test_sales_schema_json_structure": "substantive",
+        "test_sales_validation_log_exact_line": "format",
+        "test_high_value_sales_json_correct_subset": "substantive",
+        "test_sales_summary_log_format_and_values": "substantive"
+      }
+    },
+    "task_000000_176d0aa4": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The summary file content is printed verbatim at instruction.md:24-28 (== test:53-58), but the DB import is still checked against events.csv (test:149-166, 169-190), so work is required. Schema is stated at instruction.md:9-14.",
+      "tests": {
+        "test_database_exists": "presence",
+        "test_database_can_be_opened": "presence",
+        "test_event_log_table_schema_exact": "format",
+        "test_database_contains_exact_rows": "substantive",
+        "test_severity_aggregate_query_output": "substantive",
+        "test_severity_summary_log_file_content": "substantive",
+        "test_no_extra_files_in_logs_directory": "presence"
+      }
+    },
+    "task_000000_27030ede": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Tests re-parse the HTML (test:80-111) and check the CSV rows/order (test:123-170) and the log lines (test:173-211), matching instruction.md:26-41. Concurrency is not checked, and instruction.md:53 says so.",
+      "tests": {
+        "test_output_directory_exists_and_is_directory": "presence",
+        "test_csv_file_matches_expected_content": "substantive",
+        "test_scrape_log_lines_are_complete_and_unique": "substantive",
+        "test_no_stray_output_files_outside_scrape_output": "presence"
+      }
+    },
+    "task_000000_2fe381b3": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "new_creds.json is checked for version 2, the key regexes, an unchanged service/environment and a newer created_at (test:114-183), per instruction.md:10-15. The log phrases are given literally (instruction.md:30-36, test:203-212). Validation itself is not verifiable, but the content checks are real.",
+      "tests": {
+        "test_new_creds_file_exists": "presence",
+        "test_new_creds_schema_subset": "substantive",
+        "test_service_and_environment_unchanged": "substantive",
+        "test_created_at_is_newer": "substantive",
+        "test_rotation_log_exact_two_lines": "format",
+        "test_rotation_log_line_content_and_format": "format",
+        "test_old_creds_file_unchanged": "presence"
+      }
+    },
+    "task_000000_376ab767": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The migrated DB is checked for the new column, the UNIQUE index and identical rows (test:124-189), per instruction.md:22-31. The log values (5/5/SUCCESS) are effectively implied by instruction.md:31, but test:192-255 cross-checks them against the real DBs.",
+      "tests": {
+        "test_directories_and_files_exist": "presence",
+        "test_legacy_database_unmodified": "presence",
+        "test_hardened_database_schema_and_data": "substantive",
+        "test_validation_log_contents": "substantive"
+      }
+    },
+    "task_000000_4a76d37e": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The filtered log (test:33-40, 91-113) and the summary (test:42-46: Scanned 15, Errors 7) follow instruction.md:16-30. 'Errors' counts ERROR lines in the whole log, not only September (7, not 6); the literal wording at instruction.md:29 ('total_number_of_lines_containing_the_token_ERROR') supports this, but it is a trap. test_error_log_is_subset... only re-checks the source log (test:171-192).",
+      "tests": {
+        "test_curated_directory_exists_and_has_correct_permissions": "presence",
+        "test_error_log_matches_expected_lines_exactly": "substantive",
+        "test_summary_file_content_and_internal_consistency": "substantive",
+        "test_error_log_is_subset_of_source_log_and_in_original_order": "presence"
+      }
+    },
+    "task_000000_5e029c0f": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The CSV is compared byte-for-byte (test:35-42, 85-112) with a fully specified schema, window, direction rule and sort (instruction.md:13-30). The steps log is presence-only, and instruction.md:41 says so.",
+      "tests": {
+        "test_reports_directory_exists": "presence",
+        "test_csv_file_exists_and_is_regular": "presence",
+        "test_csv_content_is_exact": "substantive",
+        "test_transformation_log_exists_and_non_empty": "presence"
+      }
+    },
+    "task_000000_65b7bd46": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "The 'illustrative' example at instruction.md:28-31 (Widget,1250.00 / Doodad,212.50 / Gadget,195.00) IS the exact answer computed from Dockerfile:23-37 (Widget 50x25, Doodad 17x12.5, Gadget 13x15). The firewall lines are given verbatim (instruction.md:44-48 == test:42-48), and the log lines are verbatim templates (instruction.md:56-58 == test:223-227). No output requires a transformation. Also, instruction.md:41 limits DIRECTION to IN/OUT, yet line 48 requires 'LOG DROP ALL ALL'.",
+      "tests": {
+        "test_required_directories_exist": "presence",
+        "test_summary_file_exists": "presence",
+        "test_summary_file_header_and_line_count": "format",
+        "test_summary_file_content_and_ordering": "substantive",
+        "test_firewall_file_exists_and_has_five_lines": "format",
+        "test_firewall_file_exact_content_and_order": "format",
+        "test_log_file_exists": "presence",
+        "test_log_file_contains_final_three_lines_in_correct_format": "format"
+      }
+    },
+    "task_000000_6f94b757": {
+      "exclude": true,
+      "reasons": [
+        "contradiction",
+        "uninferable_requirement"
+      ],
+      "evidence": "instruction.md:49 says each state line ends with the Unicode arrow '→ /home/user/netconfigs/new/<file>.conf', but test:151-158 require the ASCII ' -> '. test:153,156 also require the absolute link path (' /home/user/etc/router.conf -> ...'), which instruction.md:49/62 never asks for; e.g. `ls -l /home/user/etc | grep ^l` prints bare names and fails. test:83-89 require backup dir mode 0755 and test:97-101 require .bak mode 0644, but neither mode is stated anywhere. Sources are 0666 (Dockerfile:51), so a natural `cp -p`/`cp -a` 'preserve' backup fails.",
+      "tests": {
+        "test_symlinks_repointed": "substantive",
+        "test_backup_directory_exists_and_mode": "presence",
+        "test_backup_files_contents_and_mode": "substantive",
+        "test_log_file_format_and_contents": "substantive",
+        "test_state_dump_file": "substantive"
+      }
+    },
+    "task_000000_75192ca3": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The instruction.md:22-24 'example' equals the expected error_summary.tsv (test:64-68), so that output is exposed. errors.log (grep) and errors_anon.log (IP masking) still need a transformation and are checked (test:126-186).",
+      "tests": {
+        "test_log_directory_has_exact_files": "presence",
+        "test_app_log_unchanged": "presence",
+        "test_errors_log_contents": "substantive",
+        "test_errors_anon_log_contents_and_structure": "substantive",
+        "test_error_summary_contents_and_format": "substantive"
+      }
+    },
+    "task_000000_81feb6c8": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:43 says of the .gitignore lines that 'a single TAB or a single space is fine, the grader ignores whitespace here', but test:117-119 compare the lines exactly, with no stripping, to test:48-53. An indented line the instruction explicitly allows fails. In addition, summary.csv is given verbatim (instruction.md:35,38-39 'these exact numbers will be correct' == test:25-29) and the .gitignore lines are verbatim (instruction.md:44-45), so only the FAILURE-line grep needs real work.",
+      "tests": {
+        "test_build_reports_directory_exists": "presence",
+        "test_summary_csv_exact_content": "substantive",
+        "test_failed_build_logs": "substantive",
+        "test_gitignore_updated_correctly": "format"
+      }
+    },
+    "task_000000_8c27b385": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Manifest hashes/verified flags (test:69-118), log records and summary (test:189-246) and the tarball (test:252-274) are all checked against real SHA-256 values; the requirements are stated at instruction.md:35-96. test_csv_matches_metadata only re-checks the inputs.",
+      "tests": {
+        "test_manifest_structure_and_hash_verification": "substantive",
+        "test_csv_matches_metadata": "presence",
+        "test_validation_log_exists_and_line_count_matches_manifest": "format",
+        "test_validation_log_records_are_correct": "substantive",
+        "test_validation_tarball_contents_and_integrity": "substantive",
+        "test_no_files_created_outside_home_user": "presence"
+      }
+    },
+    "task_000000_9b087c6d": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Aggregates from Dockerfile:23-29 are checked with tolerance against test:62-83 (e.g. avg 0.525, loss 10.0/5.0), with the key order stated at instruction.md:28-61. The execution log tags are given literally (instruction.md:66-74).",
+      "tests": {
+        "test_processed_directory_structure": "presence",
+        "test_created_files_exist_and_have_trailing_newline": "format",
+        "test_json_root_schema_and_key_order": "format",
+        "test_json_summary_content_and_order": "substantive",
+        "test_execution_log_format_and_content": "format",
+        "test_raw_csv_still_intact": "presence"
+      }
+    },
+    "task_000000_a22d6c57": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The cleaned CSVs are recomputed from the raw content (test:82-112, 152-180), and the benchmark counts/formula are checked (test:201-266), per instruction.md:12-60. The example numbers at instruction.md:55-56 differ from the real ones.",
+      "tests": {
+        "test_cleaned_files_exist": "presence",
+        "test_cleaned_files_content": "substantive",
+        "test_processed_directory_contains_only_cleaned_files": "presence",
+        "test_benchmark_log": "substantive",
+        "test_raw_files_unmodified": "presence"
+      }
+    },
+    "task_000000_ac644c33": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Exact rows of successful LOGIN events (test:209-228) derived from Dockerfile:28-36. Header, fields, order and LF are all stated at instruction.md:19-37.",
+      "tests": {
+        "test_original_log_unmodified": "presence",
+        "test_original_log_successful_logins": "presence",
+        "test_audit_directory_exists_and_is_clean": "presence",
+        "test_csv_header": "format",
+        "test_csv_number_of_lines": "format",
+        "test_csv_data_rows_content_and_order": "substantive"
+      }
+    },
+    "task_000000_b91df6b2": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The measured values are not validated (instruction.md:88, so fabricated timings would pass), but the avg/max aggregation and policy-violation classification are checked against the logged numbers and policy.conf (test:189-291). That is a real check of the summary transformation. The rounding tie cannot occur (sum/5).",
+      "tests": {
+        "test_log_file_exists_and_has_correct_format": "format",
+        "test_json_file_exists_and_base_schema_is_valid": "format",
+        "test_json_statistics_are_consistent_with_log": "substantive",
+        "test_policy_violations_are_correctly_reported": "substantive"
+      }
+    },
+    "task_000000_c9ab2dca": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Restored copies are hash-checked (test:83-100), and the report lines/order/TOTAL are rebuilt from the sources (test:63-72, 143-191), per instruction.md:18-41. solve.sh is a messy multi-attempt transcript (it may exit non-zero at line 91-92), but the state it leaves after lines 68-90 is correct.",
+      "tests": {
+        "test_restore_directory_exists": "presence",
+        "test_every_source_bak_file_was_restored_with_identical_content": "substantive",
+        "test_no_extraneous_files_copied": "presence",
+        "test_top_level_contents_of_restore_root": "presence",
+        "test_restore_report_log_exists": "presence",
+        "test_restore_report_log_content_exact": "substantive",
+        "test_no_bak_files_in_restored_tree": "presence"
+      }
+    },
+    "task_000000_d2312ab6": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Trivial, but valid: the DB insert is checked (test:80-120). The confirmation-file content is given verbatim (instruction.md:24 == test:138), and the 0644 mode is stated (instruction.md:29).",
+      "tests": {
+        "test_database_file_still_exists_and_is_valid_sqlite": "presence",
+        "test_releases_table_schema_intact": "presence",
+        "test_releases_table_contains_original_and_new_rows": "substantive",
+        "test_release_log_exists": "presence",
+        "test_release_log_exact_content_and_single_line": "format",
+        "test_release_log_permissions_default_0644": "presence"
+      }
+    },
+    "task_000000_e15329a0": {
+      "exclude": true,
+      "reasons": [
+        "contradiction",
+        "answer_exposed"
+      ],
+      "evidence": "instruction.md:9-12 asks for deploy.sh as 'a bash script that prints the single line Deploying to edge node...', but test:87-95 require the file's entire content to be 'Deploying to edge node...\\n'. A real script (`#!/bin/bash` + echo) fails. Every file content is also given verbatim: deploy.sh (instruction.md:11), config.json (instruction.md:16 == test:99) and the audit log (instruction.md:36-38 == test:130-134). The remaining checks are permission bits only (test:66-80).",
+      "tests": {
+        "test_directory_exists_and_is_dir": "presence",
+        "test_files_exist": "presence",
+        "test_permissions": "presence",
+        "test_deploy_sh_content": "format",
+        "test_config_json_content": "format",
+        "test_audit_log_exact_lines": "format"
+      }
+    },
+    "task_000000_edfab650": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Archive members (test:80-97), mode 600 (test:66-77) and log size == real archive size (test:156-161) are checked; all are stated at instruction.md:6-23. Caveats: instruction.md:21 claims the size is only checked as an integer, but the test enforces the stated requirement. test:32 wants the files at the archive root (no 'important_data/' prefix), which instruction.md:8 ('content of the directory ... not the directory's parent') supports.",
+      "tests": {
+        "test_archive_exists_and_permissions": "presence",
+        "test_archive_contents_exact": "substantive",
+        "test_backup_log_last_line_format_and_values": "substantive"
+      }
+    },
+    "task_000000_f5c45152": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Schema (test:31-45 == instruction.md:13-29), row counts, FK integrity and the report are regenerated from the agent's DB with the given queries (test:88-124, 204-215), plus a fixed check dist-sw1=66.67 (test:218-244). The template and blank-line rules are stated at instruction.md:71-93.",
+      "tests": {
+        "test_database_exists_and_is_valid": "presence",
+        "test_expected_tables_present_only": "presence",
+        "test_table_schema_exact": "format",
+        "test_row_counts": "substantive",
+        "test_foreign_key_integrity": "substantive",
+        "test_report_file_exists": "presence",
+        "test_report_content_matches_database": "substantive",
+        "test_sample_values_exact": "substantive",
+        "test_report_directory_permissions": "presence"
+      }
+    },
+    "task_000000_ffa6e96d": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:31-32 require the tarball to 'preserve their relative paths (the bundle/ sub-directory must appear inside the archive)', and instruction.md:44-45 give 'bundle/rootCA.crt' as a manifest path 'stored in the tarball'. test:117-134 require the tarball's regular files to be EXACTLY the five root-level artefacts, so any bundle/*.crt file fails. test:145,183-186 force the 5-line manifest to list exactly those five. The only passing layout is an empty bundle/ dir via --exclude, which the reference solution reached only on a second attempt (solve.sh:14 vs 16-17).",
+      "tests": {
+        "test_working_tree_exists_with_expected_files": "presence",
+        "test_archive_and_manifest_exist": "presence",
+        "test_tarball_contents_exact_and_only_primary_artifacts": "substantive",
+        "test_manifest_format_and_integrity_against_tarball": "substantive",
+        "test_copy_of_public_certs_is_byte_identical": "substantive"
+      }
+    }
+  }
+}

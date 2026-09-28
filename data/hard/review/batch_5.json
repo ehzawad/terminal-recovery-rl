@@ -1,0 +1,290 @@
+{
+  "reviewer": "batch_5",
+  "tasks": {
+    "task_000000_0fc28097": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Byte-exact report (tests/test_final_state.py:46-51,89-97) follows the stated <file>:<n>:<line> format and alphabetical-file order (instruction.md:25-38); 0644 check (tests:100-116) matches the default umask.",
+      "tests": {
+        "test_error_report_exists_and_is_regular_file": "presence",
+        "test_error_report_content_is_correct": "substantive",
+        "test_error_report_permissions_and_ownership": "presence",
+        "test_original_log_files_remain_unchanged": "presence",
+        "test_no_unexpected_log_files_present_in_api_tests_dir": "presence",
+        "test_error_report_trailing_newline_and_no_blank_lines": "format"
+      }
+    },
+    "task_000000_24968ee5": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests/test_final_state.py:88-106 require archive members named exactly test.txt/hello.txt/empty.dat with no './' prefix; instruction.md:15,20,33 only ask for 'everything inside' backup_source with files landing directly in restore_test, which the common `tar -C backup_source .` idiom satisfies (members './test.txt', extracts flat) yet fails the test.",
+      "tests": {
+        "test_backups_directory_exists": "presence",
+        "test_archive_exists": "presence",
+        "test_archive_contents": "substantive",
+        "test_source_directory_removed": "substantive",
+        "test_restore_directory_exists": "presence",
+        "test_restored_files_exist_and_match": "substantive",
+        "test_no_extra_items_in_restore_directory": "presence",
+        "test_verification_log_exists": "presence",
+        "test_verification_log_format_and_content": "substantive"
+      }
+    },
+    "task_000000_2e74f4dd": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Header/summary literals stated (instruction.md:34-46), timestamp form given by example (instruction.md:35), rows accepted in any order (tests/test_final_state.py:200-274), whole-day floor matches instruction.md:21-23. One example row (instruction.md:40) equals a real row, but the other two rows and the summary must still be derived.",
+      "tests": {
+        "test_header_lines": "format",
+        "test_certificate_data_block": "substantive",
+        "test_summary_block": "substantive"
+      }
+    },
+    "task_000000_33c48fc4": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:4-6 demands a manifest of EVERY regular file in /home/user/backups, one line per file, which includes the pre-existing reference-manifest.log (environment/Dockerfile:28-34); tests/test_final_state.py:96-100,112-125 require exactly 3 lines covering only the three archives, so a literal-compliant manifest (4+ lines, reference-manifest.log sorted third) fails.",
+      "tests": {
+        "test_manifest_current_exists_and_line_count": "format",
+        "test_manifest_line_content_and_order": "substantive",
+        "test_report_exists_and_line_count": "format",
+        "test_report_lines_format_and_semantics": "substantive",
+        "test_logs_permission_bits": "presence",
+        "test_no_absolute_paths_inside_logs": "format"
+      }
+    },
+    "task_000000_44c20928": {
+      "exclude": true,
+      "reasons": [
+        "contradiction",
+        "other"
+      ],
+      "evidence": "(1) project2 holds only archive.txt (moved) and temp2.bak (deleted) (environment/Dockerfile:21-22,26-27), so the rule 'delete every now-empty directory' (instruction.md:32-33) removes 2 dirs, but instruction.md:34,67 and tests/test_final_state.py:56-59,159 demand removed_dirs=1. (2) Time bomb: mtimes are set relative to image build (Dockerfile:23 keep.txt '3 days ago') and task images are built once and cached (termrl/tasks.py:1-5,70-74); about 8 days after the build keep.txt matches -mtime +10, so a rule-following solution moves 3 files and fails tests:90-110,126-163. The expected log is also given word for word (instruction.md:65-67).",
+      "tests": {
+        "test_deleted_bak_files": "substantive",
+        "test_txt_files_moved_to_archive": "substantive",
+        "test_emptydir_removed": "substantive",
+        "test_maintenance_log_structure_and_content": "substantive"
+      }
+    },
+    "task_000000_5a923222": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:44 says a blank line after each 'Top 3 Services' line is optional, but tests/test_final_state.py:35-54,119-136 byte-compare the whole file, requiring a blank line after September's Top-3 line and forbidding one after October's.",
+      "tests": {
+        "test_reports_directory_now_exists": "presence",
+        "test_report_file_exists": "presence",
+        "test_report_file_content_exact": "substantive",
+        "test_raw_csv_files_unchanged": "presence"
+      }
+    },
+    "task_000000_64c0ee72": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests/test_final_state.py:44-49,114-126 enforce file-then-line order (main.py:3, main.py:4, utils.py:2); instruction.md:15-36 states no ordering and its example lists somefile.py before api.py. A per-keyword grep loop, a natural way to fill the matched_keyword field, emits password/secret/todo order with correct content and fails. (Borderline: a single grep pass passes.)",
+      "tests": {
+        "test_source_files_still_exist": "presence",
+        "test_source_file_contents_unchanged": "presence",
+        "test_no_unexpected_subdirs_created_in_app": "presence",
+        "test_scan_directory_exists": "presence",
+        "test_report_file_exists": "presence",
+        "test_report_file_contents_exact": "substantive",
+        "test_summary_line_matches_number_of_findings": "substantive",
+        "test_no_extra_files_in_scan_directory": "presence"
+      }
+    },
+    "task_000000_686d09a1": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Absolute symlink targets implied (instruction.md:31,44); CREATED,CREATED,UPDATED log order and paths stated (instruction.md:33-50) and checked (tests/test_final_state.py:137-199); 0644/0755 checks (tests:202-219) match umask defaults.",
+      "tests": {
+        "test_required_directories_exist": "presence",
+        "test_unexpected_original_config2_absence": "substantive",
+        "test_regular_files_and_contents_unchanged": "substantive",
+        "test_linked_configs_contains_exact_two_symlinks_with_correct_targets": "substantive",
+        "test_audit_log_format_and_contents": "substantive",
+        "test_permissions": "presence"
+      }
+    },
+    "task_000000_74b01700": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Byte-exact log and CSV (tests/test_final_state.py:38-53,101-149) follow the stated October range, original order, username sort, header and trailing newline (instruction.md:6-29).",
+      "tests": {
+        "test_output_directory_exists_and_is_dir": "presence",
+        "test_oct_log_file_exists_and_is_regular": "presence",
+        "test_oct_log_file_contents_exact": "substantive",
+        "test_oct_csv_file_exists_and_is_regular": "presence",
+        "test_oct_csv_file_contents_exact": "substantive",
+        "test_no_extraneous_oct_files_outside_output": "presence",
+        "test_raw_log_file_still_intact": "presence"
+      }
+    },
+    "task_000000_7d3d9d33": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "CSV recomputed from the DB (tests/test_final_state.py:121-167) per the stated header/sort (instruction.md:14-22); the log-line regex (tests:174-217) matches the example format with no UTC offset (instruction.md:26-29).",
+      "tests": {
+        "test_required_directories_still_exist": "presence",
+        "test_database_still_exists_and_unmodified": "presence",
+        "test_csv_report_file_exists_and_is_regular": "presence",
+        "test_csv_report_exact_content": "substantive",
+        "test_log_file_contains_two_new_entries": "substantive"
+      }
+    },
+    "task_000000_8867cc8b": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests/test_final_state.py:186-201 require each system's issues list to be exactly the strings 'Antivirus Not Running'/'Disk Not Encrypted'/'Missing Patches'; instruction.md:24-29 defines issues only as '<string>' in alphabetical order and never gives the vocabulary. Values like 'patch_level'/'encrypted_disk' fit the spec equally well. (Borderline: the summary.csv labels at instruction.md:53-58 hint at it.)",
+      "tests": {
+        "test_reports_directory_exists_and_is_clean": "presence",
+        "test_compliance_report_json_structure_and_content": "substantive",
+        "test_summary_csv_contents_and_format": "substantive",
+        "test_generation_log_format_and_entries": "format",
+        "test_raw_csv_still_intact": "presence"
+      }
+    },
+    "task_000000_93478d3e": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Summary recomputed from the archived CSVs with the stated format/sort (tests/test_final_state.py:137-181, instruction.md:17-26); actions.log layout (MOVED lines then SUMMARY_GENERATED) as shown in instruction.md:27-31 and checked in tests:192-241; archive names/contents checked (tests:90-129).",
+      "tests": {
+        "test_required_directories_exist": "presence",
+        "test_raw_directory_is_empty_of_csvs": "substantive",
+        "test_archive_contains_done_files_with_original_content": "substantive",
+        "test_summary_file_exists_and_content_is_correct": "substantive",
+        "test_actions_log_exists_and_is_well_formed": "substantive"
+      }
+    },
+    "task_000000_9cfe99c4": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Log lines exact (tests/test_final_state.py:68-73,186-203) follow the stated format and lexicographic sort (instruction.md:19-29); 0700 dir and 0600/0640 log modes stated (instruction.md:17,42-43); mtime preservation stated (instruction.md:15) and checked (tests:155-160). rsync installed (environment/Dockerfile:16).",
+      "tests": {
+        "test_mirror_directories_exist_and_are_directories": "presence",
+        "test_no_unexpected_files_or_directories_in_mirror": "presence",
+        "test_file_size_hash_and_mtime_preserved": "substantive",
+        "test_log_directory_permissions": "presence",
+        "test_log_file_exists_and_permissions": "presence",
+        "test_log_file_contents_and_format": "substantive",
+        "test_log_file_sizes_and_hashes_match_mirror_files": "substantive"
+      }
+    },
+    "task_000000_a6164507": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Report byte-compared (tests/test_final_state.py:43-47,98-113) against the stated 3-line format (instruction.md:15-28), with counts derived from the JSON. Note: test_report_numbers_logically_consistent_with_json (tests:116-146) only checks hard-coded constants and never reads the agent's report.",
+      "tests": {
+        "test_deployment_directory_still_present_and_accessible": "presence",
+        "test_edge_device_config_json_unchanged_and_readable": "presence",
+        "test_report_file_exists_and_has_correct_permissions": "presence",
+        "test_report_file_content_exact_match": "substantive",
+        "test_report_numbers_logically_consistent_with_json": "presence"
+      }
+    },
+    "task_000000_b5e6181e": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests/test_final_state.py:40-45 hard-code 95th percentiles 130/165/210 (nearest-rank); instruction.md:23-33 never defines the percentile method, and numpy/pandas default linear interpolation (both installed, environment/Dockerfile:19) gives 128/164/209 (verified). Also tests:213-235 accept overlap evidence only on lines containing '.log.gz', 'Decompression' or 'Extracting', a keyword rule missing from instruction.md:65-66.",
+      "tests": {
+        "test_output_directory_exists_and_permissions": "presence",
+        "test_output_files_exist_and_permissions": "presence",
+        "test_latency_summary_csv_content_exact": "substantive",
+        "test_latency_cap_json_optimal_and_correct": "substantive",
+        "test_process_log_contains_milestones_and_parallelism": "format"
+      }
+    },
+    "task_000000_bfb0949a": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests/test_final_state.py:148-155,239-244 require the restored files directly at /home/user/restore_test/<name>. instruction.md:13,15 say to compress 'the /home/user/hardening directory' and extract it to restore_test; the natural `tar -C /home/user hardening` gives restore_test/hardening/<name> and fails. A flat layout is never stated, and the reference needs --strip-components=1 (solution/solve.sh:11).",
+      "tests": {
+        "test_archive_directory_exists": "presence",
+        "test_archive_file_exists_and_is_gzip": "presence",
+        "test_archive_contains_exactly_two_expected_files": "substantive",
+        "test_restore_directory_and_file_integrity": "substantive",
+        "test_log_file_exists_and_has_exact_content": "substantive",
+        "test_original_hardening_files_untouched": "presence"
+      }
+    },
+    "task_000000_ce8edbb1": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "combined_dataset.tsv byte-compared (tests/test_final_state.py:28-111) against the stated header, column picks and original row order (instruction.md:14-27); process.log checked only for >=4 lines (tests:114-129), exactly as stated (instruction.md:32).",
+      "tests": {
+        "test_results_directory_exists": "presence",
+        "test_combined_dataset_exists_and_is_correct": "substantive",
+        "test_process_log_exists_and_is_sensible": "presence"
+      }
+    },
+    "task_000000_dcdd53fb": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Member names exactly alpha.txt/beta.txt (tests/test_final_state.py:88-95) follow from 'the directory itself must not be included' and 'original relative names only' (instruction.md:15,39); the log's size and hash are checked against the real archive (tests:98-124); 644 is stated (instruction.md:35).",
+      "tests": {
+        "test_archive_exists_and_is_gzip_tar": "presence",
+        "test_archive_contains_exactly_alpha_and_beta": "substantive",
+        "test_log_entry_matches_size_and_sha256": "substantive",
+        "test_permissions_of_archive_and_log_are_644": "presence",
+        "test_original_source_files_unchanged_and_directory_still_exists": "presence"
+      }
+    },
+    "task_000000_e89f9b51": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests/test_final_state.py:26-30 expect directory totals equal to the sum of regular-file sizes only (app1 22280 = 1200+20480+600). instruction.md:6 asks for totals 'including every nested file and directory they own', and the standard `du -sb` (used first in solution/solve.sh:11-13) also counts directory entries (verified: 26376 for app1), so an answer that follows the instruction fails.",
+      "tests": {
+        "test_report_file_exists": "presence",
+        "test_report_root_keys_and_order": "format",
+        "test_generated_at_field": "format",
+        "test_directories_section_structure_and_values": "substantive",
+        "test_top_5_files_section_structure_and_values": "substantive",
+        "test_no_additional_root_fields": "format",
+        "test_json_indentation_and_pretty_printing": "format"
+      }
+    },
+    "task_000000_f37e6529": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:27 says optimised files must contain '(at minimum)' the three lines, and instruction.md:46 says to log the real line counts. But tests/test_final_state.py:146-148 require exactly 3 lines and tests:47-50,187-190 hard-code lines_optimized=3, so any extra line the instruction allows fails two tests. (Low practical impact.)",
+      "tests": {
+        "test_project_and_subdirectories_exist_and_are_dirs": "presence",
+        "test_queries_dir_contains_exact_copies_of_original_samples": "substantive",
+        "test_backup_tar_exists_and_is_valid": "substantive",
+        "test_optimized_sql_file_structure_and_content": "substantive",
+        "test_optimization_log_csv_exists_and_has_correct_rows": "substantive",
+        "test_permissions_readable_by_current_user": "presence"
+      }
+    },
+    "task_000000_fcebb9db": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Joined, sorted CSV byte-compared (tests/test_final_state.py:71-107) against the stated header, sort and no-spaces rule (instruction.md:33-41). process.log lines are given word for word (instruction.md:45-46), but the report still requires the join.",
+      "tests": {
+        "test_report_directory_exists_and_permissions": "presence",
+        "test_vuln_report_exists_and_permissions": "presence",
+        "test_vuln_report_content_exact": "substantive",
+        "test_process_log_exists_and_permissions": "presence",
+        "test_process_log_content_exact": "substantive"
+      }
+    }
+  }
+}

@@ -1,0 +1,298 @@
+{
+ "reviewer": "batch_3",
+ "tasks": {
+  "task_000000_0bc4623e": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Exact outputs (products_all.csv, compact JSONL, prep.log) all follow from instruction.md:9-38 (compact JSON shown by the example at :25, key: value format at :28-37) plus the two raw CSVs (Dockerfile:16-29). unique_categories is antiques,gadgets whether computed before or after the filter.",
+   "tests": {
+    "test_products_all_exists_and_correct": "substantive",
+    "test_products_clean_jsonl_exists_and_correct": "substantive",
+    "test_prep_log_exists_and_correct": "substantive"
+   }
+  },
+  "task_000000_20795c54": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Hardened config, compliance block and sorted report (test_final_state.py:56-99) follow from instruction.md:22-45. The blank line required before [compliance] (test:83-84) matches the blank-line section separator visible throughout config.ini (Dockerfile:20-45). Minor risk only.",
+   "tests": {
+    "test_backup_file_is_byte_identical_and_world_readable": "substantive",
+    "test_config_ini_final_content_is_correct_and_world_readable": "substantive",
+    "test_report_file_exists_and_matches_expected_format": "substantive",
+    "test_no_extra_files_removed": "presence"
+   }
+  },
+  "task_000000_2b1ca473": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement",
+    "contradiction"
+   ],
+   "evidence": "test_final_state.py:37-49,93 requires an exact text match with compact JSON (no space after ':' or ','), but instruction.md:24-25 only says one object per line with no pretty printing, which Python's default json.dumps output (with spaces) also satisfies. The instruction's own details template at instruction.md:19-22 shows spaces: { \"action\": \"<login|logout>\", \"source_ip\": ... }.",
+   "tests": {
+    "test_audit_directory_exists": "presence",
+    "test_unified_jsonl_exact_content_and_format": "substantive",
+    "test_summary_csv_exact_content": "substantive",
+    "test_generation_log_correct": "substantive",
+    "test_original_raw_csv_files_unchanged": "presence"
+   }
+  },
+  "task_000000_32af4c91": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Content test (test_final_state.py:150-173) decodes the source as latin-1, as instruction.md:19,41 directs, so iconv -f ISO-8859-1 passes. Caveat: es_ES.properties actually holds UTF-8 bytes for 'o-acute' (Dockerfile:31), so the expected output is mojibake. A solver who follows the instruction still passes. Log fields and permissions are stated at instruction.md:25-35.",
+   "tests": {
+    "test_target_directory_exists_and_permissions": "presence",
+    "test_target_directory_contains_exactly_three_files": "presence",
+    "test_each_converted_file_permissions_and_encoding": "format",
+    "test_converted_content_matches_source": "substantive",
+    "test_logfile_exists_and_permissions": "presence",
+    "test_logfile_has_exactly_three_correct_rows": "substantive",
+    "test_source_files_still_windows_encoded_and_unmodified": "presence",
+    "test_readme_unchanged": "presence"
+   }
+  },
+  "task_000000_3e5e79c6": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "audit.log has a tie for most failures: 192.168.1.45 and 203.0.113.8 each have 3 FAILs (Dockerfile:16-23). test_final_state.py:93 breaks the tie with max(key=(count, ip_string)), which picks 203.0.113.8, and :172-173 requires that exact line. instruction.md:11 asks for 'the IP address' with the most failures and gives no tie-break rule. First-seen order (e.g. Counter.most_common) gives 192.168.1.45 and fails.",
+   "tests": {
+    "test_reports_directory_exists": "presence",
+    "test_report_file_exists": "presence",
+    "test_report_contents_are_correct": "substantive",
+    "test_no_extra_files_in_reports_directory": "presence"
+   }
+  },
+  "task_000000_5904176b": {
+   "exclude": true,
+   "reasons": [
+    "contradiction",
+    "uninferable_requirement"
+   ],
+   "evidence": "(1) instruction.md:50 says 'Exactly four pipe characters per line', but test_final_state.py:183 requires exactly 3 (four columns). (2) instruction.md:38 says TARGET_PATH is an absolute path, but test:158 requires the relative text '../../shared/config' in line 5. (3) For the CREATED backup-directory line, test:155 requires TARGET_PATH to be the directory itself, which instruction.md:37-38,43 never defines. (4) test:198 requires strictly increasing timestamps at 1-second resolution, while instruction.md:52 says only 'monotonically increasing'.",
+   "tests": {
+    "test_symlinks_point_to_correct_targets": "substantive",
+    "test_config_link_is_relative_and_unchanged": "substantive",
+    "test_backup_directory_and_moved_libs": "substantive",
+    "test_shared_folders_are_not_symlinks": "presence",
+    "test_audit_log_exists_and_has_correct_line_count": "format",
+    "test_audit_log_line_pattern_and_order": "substantive",
+    "test_audit_log_pipe_count": "format",
+    "test_audit_log_monotonic_timestamps": "format"
+   }
+  },
+  "task_000000_612612d6": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "slow_requests.json is compared after parsing (test_final_state.py:98-105). Summary values are recomputed from performance.json (test:51-77). The ', ' separator in the slow-services list comes from the example at instruction.md:46. Schema validation passes with the installed python3-jsonschema (Dockerfile:15).",
+   "tests": {
+    "test_slow_requests_json_exists_and_valid": "substantive",
+    "test_summary_log_exists_and_has_unix_lf_only": "format",
+    "test_summary_log_no_validation_failure": "substantive",
+    "test_summary_log_content_and_values": "substantive"
+   }
+  },
+  "task_000000_67e8a015": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Expected .po is the template with the existing quoted header's value changed from 1.2 to 1.3 (test_final_state.py:38-57), per instruction.md:13-17 ('If the header already exists, replace its value'). The log line is stated verbatim at instruction.md:19-21, but the .po edit still requires a transformation. Modes 755/644 are umask defaults.",
+   "tests": {
+    "test_locale_directory_exists_and_is_only_item": "presence",
+    "test_locale_directory_permissions": "presence",
+    "test_messages_po_exists_and_has_exact_content": "substantive",
+    "test_messages_po_has_single_version_header": "substantive",
+    "test_log_file_exists_and_is_correct": "substantive",
+    "test_log_file_permissions": "presence",
+    "test_no_unexpected_files_or_directories": "presence"
+   }
+  },
+  "task_000000_73503a34": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "The filter rules (instruction.md:5-9) give ids 001, 004, 005 (test_final_state.py:38-42). The minified form required at test:121-130 matches instruction.md:10 and jq -c output. The log format is stated at instruction.md:11-19.",
+   "tests": {
+    "test_original_training_samples_unchanged": "presence",
+    "test_output_files_exist": "presence",
+    "test_valid_samples_json_content": "substantive",
+    "test_valid_samples_is_minified": "format",
+    "test_validation_log_content": "substantive"
+   }
+  },
+  "task_000000_7b043e22": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "test_final_state.py:50-57,121,172 requires tar member names relative to logs/ (e.g. 'auth-service/auth.log'), and :128-131 rejects any directory entries. instruction.md:12,19,36,40 never fixes the archive root and even says 'paths as stored in the tar'. Equally valid archives fail: tar -C /home/user/microservices logs (names 'logs/...'), tar of the absolute path (names 'home/user/...'), and tar -C logs . (includes dir entries).",
+   "tests": {
+    "test_tarball_exists_and_is_valid_gzip": "substantive",
+    "test_sha256_file_exists_and_matches": "substantive",
+    "test_contents_file_matches_tarball": "substantive",
+    "test_backup_report_is_correct": "substantive",
+    "test_no_unexpected_files_in_backups_dir": "presence"
+   }
+  },
+  "task_000000_880c0c6c": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "TBD replacement, TODO counts, TOC and change log are all derived from the drafts (test_final_state.py:69-73,136-157,173-190,226-253) and fully specified at instruction.md:23-62, including exact templates.",
+   "tests": {
+    "test_reports_directory_exists": "presence",
+    "test_draft_files_present_and_clean": "substantive",
+    "test_todo_summary_file_exists_and_permissions": "presence",
+    "test_todo_summary_content": "substantive",
+    "test_toc_md_exists_and_permissions": "presence",
+    "test_toc_md_content": "substantive",
+    "test_change_log_exists_and_permissions": "presence",
+    "test_change_log_content": "substantive"
+   }
+  },
+  "task_000000_927672b6": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "test_final_state.py:155 requires at least 5 non-empty lines in build_freq_commands.log. instruction.md:38-39,49 only asks to record every command actually executed and says the grader checks for 'plausible shell commands'. An honest log from a 2-4 command solution (e.g. one pipeline) fails. The reference solve.sh:8 pads its log with extra commands to reach 5.",
+   "tests": {
+    "test_required_files_exist": "presence",
+    "test_permissions": "presence",
+    "test_frequency_file_exact_content_and_format": "substantive",
+    "test_command_log_has_minimum_commands_and_plausible_content": "presence",
+    "test_raw_file_unchanged": "presence",
+    "test_no_unexpected_extra_files_in_datasets_dir": "presence"
+   }
+  },
+  "task_000000_9c3f78d1": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Checksums are verified against the real files (test_final_state.py:168-206). The exactly-3-lines rule (so the manifest excludes itself), './' paths and sort order are all stated at instruction.md:30-45,53. Step 3 says 'copy', but step 5 (instruction.md:46-47) makes it a move, which is consistent with test:93-104.",
+   "tests": {
+    "test_staging_area_contains_no_source_files": "presence",
+    "test_release_root_and_directory_layout_exist": "presence",
+    "test_expected_files_exist_and_no_extras": "presence",
+    "test_manifest_exists_and_has_correct_line_count": "format",
+    "test_manifest_lines_sorted_and_checksums_match": "substantive",
+    "test_no_extra_directories_created": "presence"
+   }
+  },
+  "task_000000_a3e7b923": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "The cleaned CSV (test_final_state.py:33-42) and the stats (:45-51) follow unambiguously from instruction.md:6-49 and tickets.csv (Dockerfile:15-26). The timestamp is checked only by pattern.",
+   "tests": {
+    "test_processed_directory_exists": "presence",
+    "test_clean_csv_exists": "presence",
+    "test_clean_csv_exact_content": "substantive",
+    "test_clean_csv_final_newline_no_extra_blank_lines": "format",
+    "test_clean_csv_no_duplicate_ticket_ids": "substantive",
+    "test_clean_csv_sorted_by_ticket_id": "substantive",
+    "test_clean_csv_dates_are_iso8601": "format",
+    "test_stats_log_exists": "presence",
+    "test_stats_log_format_and_content": "substantive",
+    "test_stats_log_no_trailing_blank_line": "format"
+   }
+  },
+  "task_000000_b2a561a2": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "instruction.md:34 asks to append 'a single line containing the word COMPLETED ... No other content is required', which allows a line such as '<timestamp> COMPLETED'. test_final_state.py:159-160 requires the whole file to be exactly 'COMPLETED'. The CSV and JSON checks (test:49-62) are otherwise inferable.",
+   "tests": {
+    "test_reports_directory_exists_and_mode_755": "presence",
+    "test_required_files_exist_with_mode_644": "presence",
+    "test_csv_header_and_rows_are_exact": "substantive",
+    "test_summary_json_exact_and_consistent_with_csv": "substantive",
+    "test_policy_audit_log_contains_completed_and_nothing_else": "substantive",
+    "test_access_log_unmodified_and_still_readable": "presence"
+   }
+  },
+  "task_000000_ba708fa7": {
+   "exclude": false,
+   "reasons": [],
+   "evidence": "Audit and stats are recomputed from the [thresholds] sections (test_final_state.py:104-155). Mild ambiguity: instruction.md:13 does not name the section, and [network] port values exceed 75. The 'threshold settings' framing (:1-2), the thresholds example (:17) and keys_over_75 being defined over [thresholds] (:28-29) make the intent inferable.",
+   "tests": {
+    "test_analysis_directory_exists_and_is_directory": "presence",
+    "test_analysis_directory_contains_only_expected_files": "presence",
+    "test_audit_log_content_exact_match": "substantive",
+    "test_stats_csv_content_exact_match": "substantive",
+    "test_legacy_ini_directory_unchanged": "presence",
+    "test_each_ini_file_content_unmodified": "presence",
+    "test_stats_csv_numeric_columns_parseable_and_correct": "substantive"
+   }
+  },
+  "task_000000_cae850ca": {
+   "exclude": true,
+   "reasons": [
+    "answer_exposed"
+   ],
+   "evidence": "Each visible input log ends with the answer as a comment: '# 404 count = 5', '= 3' and '= 8' (Dockerfile:36,53,70). These equal the expected summary (test_final_state.py:34-39), whose exact template is at instruction.md:38-41. The symlink names and targets are given verbatim at instruction.md:24-26,50, so no computation is needed.",
+   "tests": {
+    "test_working_and_links_directories_exist": "presence",
+    "test_symlinks_exist_and_resolve": "substantive",
+    "test_summary_file_exists_and_content_is_exact": "substantive",
+    "test_summary_counts_match_actual_log_data": "substantive"
+   }
+  },
+  "task_000000_d4bbcaba": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "test_final_state.py:160 requires at least 3 lines in process.log. instruction.md:27-30 only asks to log every command that affects the report's creation. An honest log from a 1-2 command solution (mkdir plus one join/awk pipeline) fails. The TSV check itself (test:54-60) is inferable.",
+   "tests": {
+    "test_output_directory_exists": "presence",
+    "test_report_file_exists_and_mode": "presence",
+    "test_report_file_contents_exact_match": "substantive",
+    "test_report_header_and_columns": "substantive",
+    "test_process_log_exists_and_mode": "presence",
+    "test_process_log_line_format_and_count": "format"
+   }
+  },
+  "task_000000_e33c6078": {
+   "exclude": true,
+   "reasons": [
+    "answer_exposed"
+   ],
+   "evidence": "The 'example' at instruction.md:37-39 (server01|57.67|6923.33|118.33 and server02|72.67|11916.67|249.00) is exactly the expected risk log computed from the data (Dockerfile:27-78; server03 is not at risk). The marker content 'OK' is also given (instruction.md:42). The expected output is verbatim in the instruction.",
+   "tests": {
+    "test_summary_directory_created": "presence",
+    "test_risk_log_exists": "presence",
+    "test_risk_log_header_and_newline_termination": "format",
+    "test_risk_log_content_exact": "substantive",
+    "test_marker_file": "substantive",
+    "test_no_extra_at_risk_servers_reported": "substantive"
+   }
+  },
+  "task_000000_f1459e23": {
+   "exclude": true,
+   "reasons": [
+    "answer_exposed"
+   ],
+   "evidence": "All three expected outputs appear verbatim in the instruction: top_products.json at instruction.md:25-36, summary.csv at :45-50 and process.log at :54-57. They equal test_final_state.py:32-43. Also, test_log_record_count_matches_csv_total_lines (test:236-246) checks only a constant, so it always passes.",
+   "tests": {
+    "test_output_directory_and_required_files_exist_and_no_extras": "presence",
+    "test_top_products_json_contents_and_structure": "substantive",
+    "test_summary_csv_structure_values_and_formatting": "substantive",
+    "test_process_log_exact_contents": "substantive",
+    "test_cross_consistency_between_json_and_csv": "substantive",
+    "test_log_record_count_matches_csv_total_lines": "presence"
+   }
+  },
+  "task_000000_faec5bd0": {
+   "exclude": true,
+   "reasons": [
+    "uninferable_requirement"
+   ],
+   "evidence": "test_final_state.py:47,118 requires the byte-exact text '\"price\": 14.0' for the CSV value '14.00' (Dockerfile:32). That is Python-float-specific output: jq (installed, Dockerfile:18) prints 14, and preserving the source text gives 14.00. instruction.md:8,15,35 says only 'price is a number' and pretty-printed with 2-space indent, never how to render numbers.",
+   "tests": {
+    "test_output_directory_exists": "presence",
+    "test_files_exist_and_world_readable": "presence",
+    "test_active_products_json_exact_content_and_parseable": "substantive",
+    "test_task_log_exact_content": "substantive"
+   }
+  }
+ }
+}

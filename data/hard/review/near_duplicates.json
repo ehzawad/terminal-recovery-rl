@@ -1,0 +1,502 @@
+{
+  "pairs": [
+    {
+      "a": "task_000000_2fa611c1",
+      "b": "task_000000_3672bebe",
+      "related": false,
+      "why": "Both touch gettext .po files, but a edits one file (fill empty msgstr with a marker, list untranslated msgids, 2-line summary) while b only counts msgid/translated entries across three .po files into a 6-line KEY=VALUE report."
+    },
+    {
+      "a": "task_000000_5622dcaf",
+      "b": "task_000000_8b547188",
+      "related": false,
+      "why": "a is an sqlite3 SELECT-to-CSV export of Alice's open tickets; b validates a JSON file against a schema and filters open+high tickets with jq into a pipe-delimited log - different data source, tooling and outputs."
+    },
+    {
+      "a": "task_000000_376ab767",
+      "b": "task_000000_dc44e3c8",
+      "related": true,
+      "why": "Both copy a legacy SQLite table/database to a new file, count rows in source and destination, and write a KEY=VALUE validation log ending in MIGRATION_STATUS=SUCCESS; a only adds an ALTER TABLE column and a unique index."
+    },
+    {
+      "a": "task_000000_74d1c770",
+      "b": "task_000000_4b1e8da3",
+      "related": false,
+      "why": "Both apply a unified diff, but a's patch does not apply cleanly to the file (requires manual reconciliation) plus a backup and a UTC-timestamped result log, whereas b is a clean patch apply with stdout captured to a log."
+    },
+    {
+      "a": "task_000000_59dd29f4",
+      "b": "task_000000_444821ac",
+      "related": true,
+      "why": "Both enumerate the .sif files in a directory and write their basenames one per line to a report file (find/ls | sort); a only adds a Markdown header line and '- ' prefixes."
+    },
+    {
+      "a": "task_000000_7d66dd84",
+      "b": "task_000000_83455158",
+      "related": true,
+      "why": "Same release-bump skeleton: bump a semantic version in the project's version file, prepend an exact new section to CHANGELOG.md above the old one, and write a small release/bump log - only the bump level, files and strings differ."
+    },
+    {
+      "a": "task_000000_2ce110bb",
+      "b": "task_000000_a6164507",
+      "related": true,
+      "why": "Both check each object of a device-config JSON array for required keys and report valid/invalid counts; b (TOTAL/VALID/INVALID report) is a sub-task of a, which also writes the invalid objects to a file."
+    },
+    {
+      "a": "task_000000_ca4ffb19",
+      "b": "task_000000_c308062e",
+      "related": true,
+      "why": "Both back up a localisation SQLite DB byte-for-byte, then INSERT new and UPDATE existing rows of the translations table with sqlite3 and write a report file; they differ only in the report (pipe CSV export plus SQL log vs per-language counts) and b's extra DELETE."
+    },
+    {
+      "a": "task_000000_e15329a0",
+      "b": "task_000000_929085c7",
+      "related": false,
+      "why": "a creates a directory with two files of exact literal content (deploy.sh must contain only the echoed line) and chmods them, while b hardens existing scripts including a setgid 2750 directory and a stat-derived report - shared chmod genre only."
+    },
+    {
+      "a": "task_000000_914cdb97",
+      "b": "task_000000_4c343407",
+      "related": false,
+      "why": "Both compute per-file total/INFO/WARN/ERROR counts into a CSV, but a also archives logs older than a date, logs the moves and adds a TOTAL row, while b instead extracts the latest ERROR timestamp/file/message - each has a major distinct half."
+    },
+    {
+      "a": "task_000000_67e8a015",
+      "b": "task_000000_904bd378",
+      "related": false,
+      "why": "a copies a .pot template to fr_FR/messages.po, rewrites the Project-Id-Version header and appends a fixed log line; b adds missing keys from a CSV into a sorted JSON with TODO values and logs ADDED keys - different operations."
+    },
+    {
+      "a": "task_000000_8b547188",
+      "b": "task_000000_56cd5535",
+      "related": false,
+      "why": "a validates JSON against a schema and filters open/high tickets with jq; b builds TAB-separated assignment/unassigned/resolution files from two ticket CSVs with custom priority sorting."
+    },
+    {
+      "a": "task_000000_930d1d79",
+      "b": "task_000000_adab787e",
+      "related": true,
+      "why": "Both tar.gz a set of files so they sit at the archive root, extract into a new directory with byte-identical contents, and write a fixed-timestamp log of the archive/extract steps; b just logs extra size/line-count fields."
+    },
+    {
+      "a": "task_000000_74d1c770",
+      "b": "task_000000_9d56c67e",
+      "related": false,
+      "why": "a must apply a supplied patch that does not apply cleanly plus a backup and UTC-timestamp log; b generates a diff -u between two files, applies it, and logs local time plus the final file's MD5."
+    },
+    {
+      "a": "task_000000_24968ee5",
+      "b": "task_000000_7ef80422",
+      "related": true,
+      "why": "Same backup-verify skeleton: tar.gz the files at the archive root (no parent dir), extract to a separate restore directory, and write a per-file integrity log (SHA-256 hashes vs MATCH lines); a additionally deletes the source."
+    },
+    {
+      "a": "task_000000_1f3fb454",
+      "b": "task_000000_c308062e",
+      "related": false,
+      "why": "a reorders columns of a translations CSV and writes COMPLETED; b backs up an SQLite DB, inserts/updates/deletes rows and writes per-language counts."
+    },
+    {
+      "a": "task_000000_686d09a1",
+      "b": "task_000000_e7fc701f",
+      "related": false,
+      "why": "Both involve config symlinks, but a creates links, then archives one target and repoints its link with a chronological timestamped CREATED/UPDATED log, while b bulk-moves every *.conf and leaves links behind with a sorted static audit."
+    },
+    {
+      "a": "task_000000_2a0a7cde",
+      "b": "task_000000_aa78464d",
+      "related": true,
+      "why": "Both convert ISO-8859-1 text to UTF-8 with iconv and write an audit log of the conversion; a loops in place over *.txt with a CSV log, b converts a single CSV to a new file with a fixed 3-line log."
+    },
+    {
+      "a": "task_000000_66cb08f7",
+      "b": "task_000000_631d58e0",
+      "related": true,
+      "why": "Both create a Python venv with python3 -m venv at a given path and write a trivial fixed log (the venv's top-level listing vs 'status: SUCCESS')."
+    },
+    {
+      "a": "task_000000_d3910f9d",
+      "b": "task_000000_a36951b5",
+      "related": false,
+      "why": "a gzips each .sql in place and must report original vs compressed sizes (compressed strictly smaller, with totals/savings), while b tars the dumps into one tar.gz, writes a sha256 file and a timestamped size block."
+    },
+    {
+      "a": "task_000000_66cb08f7",
+      "b": "task_000000_68703a5d",
+      "related": false,
+      "why": "Both start with python3 -m venv, but b's core requirement is pip-installing the pinned polib==1.2.0 and logging it, while a only lists the venv's top-level entries."
+    },
+    {
+      "a": "task_000000_6d85b683",
+      "b": "task_000000_68703a5d",
+      "related": false,
+      "why": "a captures the initial pip package list of a fresh venv as sorted name==version lines (pip and setuptools included), while b installs polib==1.2.0 into a venv and logs that one pin."
+    },
+    {
+      "a": "task_000000_376ab767",
+      "b": "task_000000_715a8e99",
+      "related": true,
+      "why": "Both migrate a single SQLite table/database to a new file, count rows in source and target, and write a 3-line row-count/MIGRATION_STATUS log; a adds a column and a unique index on top."
+    },
+    {
+      "a": "task_000000_5a923222",
+      "b": "task_000000_1e415d15",
+      "related": false,
+      "why": "Both sum cost per service from CSVs, but a builds a two-month text report with totals, per-service breakdown sorted by cost descending and a top-3 line, while b filters one month into an alphabetical JSON plus a CSV-style log - outputs differ substantially."
+    },
+    {
+      "a": "task_000000_83455158",
+      "b": "task_000000_93d5d513",
+      "related": true,
+      "why": "Same patch-release skeleton: bump PATCH in VERSION (b also in package.json), prepend an exact changelog section above the old one, and write a version_bump.log recording old/new versions."
+    },
+    {
+      "a": "task_000000_83455158",
+      "b": "task_000000_fffbc984",
+      "related": true,
+      "why": "Both bump a semantic version in a project file (VERSION vs config.yaml) and prepend an exact new section at the top of CHANGELOG.md leaving older sections intact; a additionally writes a 2-line bump log."
+    },
+    {
+      "a": "task_000000_7b368f5e",
+      "b": "task_000000_a79b87f9",
+      "related": true,
+      "why": "Both filter a build log down to 'critical' lines by level token (WARNING|ERROR vs FAIL|ERROR-but-not-WARNING) preserving order, write per-level counts, and record the commands used in a file."
+    },
+    {
+      "a": "task_000000_24968ee5",
+      "b": "task_000000_f97ab70d",
+      "related": true,
+      "why": "Same backup-drill skeleton: tar.gz the source files, delete the originals, extract into /home/user/restore_test, and write a SHA-256 verification log of the restored files; only paths and log layout differ."
+    },
+    {
+      "a": "task_000000_32af4c91",
+      "b": "task_000000_248cf61a",
+      "related": true,
+      "why": "Both convert ISO-8859-1 .properties files to UTF-8 copies with iconv and append CSV conversion records (source, encodings, status/date); a loops over three files with timestamps and permissions, b does one file plus a header comment."
+    },
+    {
+      "a": "task_000000_93478d3e",
+      "b": "task_000000_fe98d2e6",
+      "related": false,
+      "why": "a aggregates spend per service across sep*.csv files into a sorted summary and moves the raw files to archive with .done plus an action log; b regex-filters EC2/us-east-1 lines over a date range and writes a single total line."
+    },
+    {
+      "a": "task_000000_686d09a1",
+      "b": "task_000000_395e1e6a",
+      "related": false,
+      "why": "a creates absolute links in a separate directory, archives one target and repoints its link with a timestamped CREATED/UPDATED log; b copies files to a new tree, backs up originals and replaces them with relative symlinks with a sorted [OK] audit."
+    },
+    {
+      "a": "task_000000_d3910f9d",
+      "b": "task_000000_cfe1a54f",
+      "related": false,
+      "why": "a gzips dumps in place and reports original vs compressed byte sizes (compressed must be strictly smaller for tiny files) with totals; b gzips copies into another dir keeping originals and writes an MD5 plus compressed-size manifest."
+    },
+    {
+      "a": "task_000000_dcdd53fb",
+      "b": "task_000000_05af8ca3",
+      "related": true,
+      "why": "Both create a gzip tarball of the /home/user/data files and record the archive's SHA-256 (a: CSV line with size and hash plus chmod 644; b: sha256sum-format file); they differ only in member path layout and record format."
+    },
+    {
+      "a": "task_000000_6d85b683",
+      "b": "task_000000_0363c096",
+      "related": false,
+      "why": "a creates a fresh venv and records its initial packages as sorted name==version lines (pip/setuptools included), while b dumps the user environment's pip list in columns format under a custom header - different environment and output format."
+    },
+    {
+      "a": "task_000000_7d66dd84",
+      "b": "task_000000_fffbc984",
+      "related": true,
+      "why": "Same minor-release skeleton: bump the version field (package.json vs config.yaml) and prepend an exact new CHANGELOG.md section above the old ones; a additionally writes a one-line release log."
+    },
+    {
+      "a": "task_000000_d2312ab6",
+      "b": "task_000000_d8a20cc5",
+      "related": false,
+      "why": "a INSERTs a new release row into an SQLite table and writes a confirmation CSV line; b runs a read-only COUNT of pending rows into a KEY=VALUE log - different operation."
+    },
+    {
+      "a": "task_000000_5ae496c4",
+      "b": "task_000000_93d5d513",
+      "related": true,
+      "why": "Both bump the PATCH segment in VERSION and prepend an exact new section at the top of CHANGELOG.md; a also extracts ERROR lines whose messages become the bullets, b also updates package.json and writes a bump log."
+    },
+    {
+      "a": "task_000000_fffbc984",
+      "b": "task_000000_e3ba3225",
+      "related": true,
+      "why": "Same release skeleton: bump the version (config.yaml minor vs VERSION patch) and prepend an exact changelog section above the older entries; b adds an appended CSV audit line."
+    },
+    {
+      "a": "task_000000_e36bb1fc",
+      "b": "task_000000_13f9c582",
+      "related": false,
+      "why": "Both read 'Failed password' lines from auth.log, but a builds per-IP attempt counts sorted descending with a two-space header, while b writes a total count plus a de-duplicated ascending IP list - different aggregation and output."
+    },
+    {
+      "a": "task_000000_7b368f5e",
+      "b": "task_000000_c2bee4fa",
+      "related": true,
+      "why": "Both keep only WARNING/ERROR(/FATAL) level lines from logs in original order and write per-level counts; b first merges three logs by timestamp, a additionally records its commands."
+    },
+    {
+      "a": "task_000000_2a0a7cde",
+      "b": "task_000000_15369990",
+      "related": true,
+      "why": "Both convert every file of a directory in place from a legacy single-byte encoding to UTF-8 with iconv and write a sorted CSV conversion report; b adds CRLF-to-LF, .win1252 backups and byte-size columns."
+    },
+    {
+      "a": "task_000000_fffbc984",
+      "b": "task_000000_52c77beb",
+      "related": true,
+      "why": "Same minor-release skeleton: bump the version (config.yaml vs VERSION) and prepend an exact new CHANGELOG.md section above older ones; b adds a one-line bump log."
+    },
+    {
+      "a": "task_000000_376ab767",
+      "b": "task_000000_41eee653",
+      "related": true,
+      "why": "Both copy a SQLite database to a new file, count table rows in source and target, and write a 3-line row-count/status log (SUCCESS vs OK); a adds a column and a unique index."
+    },
+    {
+      "a": "task_000000_24968ee5",
+      "b": "task_000000_40deac2d",
+      "related": true,
+      "why": "Same backup-drill skeleton: tar.gz the data, delete the original directory, restore into a new directory, and write a SHA-256 log of the restored file(s); b needs a stripped path and a two-line log."
+    },
+    {
+      "a": "task_000000_612612d6",
+      "b": "task_000000_a1a0cf1e",
+      "related": true,
+      "why": "Both validate a JSON data file against a supplied JSON Schema and then compute summary statistics (total count, count of a filtered subset, average response time) into a summary file; a additionally writes the slow subset and max/service fields."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_4c810431",
+      "related": false,
+      "why": "a rewires release symlinks (replace a dangling link, turn a real libs dir into a link after moving it to a backup) with a 5-line timestamped action log; b moves every data/*/*.log to a dated backup, links them back and writes a manifest plus count."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_c501578d",
+      "related": false,
+      "why": "a is a multi-step release rewiring (dangling link replacement, dir-to-symlink conversion, relative config link, monotonic timestamped log); b just creates two ln -sf links to staging.json and appends one fixed audit line."
+    },
+    {
+      "a": "task_000000_2ce110bb",
+      "b": "task_000000_a1a0cf1e",
+      "related": false,
+      "why": "a partitions device objects by required-key presence (invalid objects file plus VALID/INVALID counts); b validates the whole file against a Draft-07 schema into VALID/INVALID and computes uptime stats as one-line JSON."
+    },
+    {
+      "a": "task_000000_744639f5",
+      "b": "task_000000_a1c78ac5",
+      "related": false,
+      "why": "a performs targeted YAML/TOML edits (alphabetical key reorder, value changes, new key), builds a combined YAML and logs six old->new changes; b backs up two files and overwrites them with given literal content plus a fixed 4-line log."
+    },
+    {
+      "a": "task_000000_faec5bd0",
+      "b": "task_000000_c02b5da5",
+      "related": true,
+      "why": "Both filter CSV rows whose status is 'active' and write them as a 2-space pretty-printed JSON array with a numeric id and a fixed key order; a also writes a total/active count log."
+    },
+    {
+      "a": "task_000000_5622dcaf",
+      "b": "task_000000_6d0aef24",
+      "related": false,
+      "why": "a exports matching ticket rows with a header as unquoted CSV via sqlite3; b writes a single COUNT of open unassigned tickets as KEY=VALUE."
+    },
+    {
+      "a": "task_000000_67e8a015",
+      "b": "task_000000_f3a4c4e2",
+      "related": false,
+      "why": "a copies a .pot to a new .po and sets the Project-Id-Version header plus a fixed log line; b fills empty VALUE fields in fr_FR.csv from a key=value file and logs the updated keys - different operations."
+    },
+    {
+      "a": "task_000000_9a09c329",
+      "b": "task_000000_11d81a33",
+      "related": true,
+      "why": "Both create a new SQLite database with a specified users table schema, insert three given rows, and write the output of a SELECT ... ORDER BY id to a file; a adds a CSV export and a verbatim command log."
+    },
+    {
+      "a": "task_000000_eadb3a61",
+      "b": "task_000000_c64da7ff",
+      "related": false,
+      "why": "a extracts the absolute paths of FAILED verify lines from one rsync log; b counts STATUS=FAILED lines across three logs into a single total line."
+    },
+    {
+      "a": "task_000000_1f3fb454",
+      "b": "task_000000_a9705fe3",
+      "related": false,
+      "why": "a reorders the columns of a translations CSV; b modifies rows of an SQLite translations table and writes a snapshot log."
+    },
+    {
+      "a": "task_000000_9a09c329",
+      "b": "task_000000_d7647438",
+      "related": false,
+      "why": "a creates and populates an SQLite DB, exports CSV and writes a verbatim command log; b converts a CSV into a single-line minified JSON array."
+    },
+    {
+      "a": "task_000000_7d3d9d33",
+      "b": "task_000000_997944e5",
+      "related": false,
+      "why": "a runs a GROUP BY failed-login query on SQLite into an alphabetical CSV plus a timestamped execution log; b counts successful logins per user from a text log with a count-desc/name-asc sort."
+    },
+    {
+      "a": "task_000000_9bbcde71",
+      "b": "task_000000_252b0a80",
+      "related": false,
+      "why": "a starts two background processes, renices both to 10 and leaves them running; b starts one background process, terminates it and logs RUNNING/TERMINATED - different process operations."
+    },
+    {
+      "a": "task_000000_376ab767",
+      "b": "task_000000_989491a4",
+      "related": true,
+      "why": "Both migrate a single-table SQLite database to a new file with a schema extension (added column) while copying all rows, and write a short row-count/SUCCESS validation log."
+    },
+    {
+      "a": "task_000000_83455158",
+      "b": "task_000000_e3ba3225",
+      "related": true,
+      "why": "Same patch-release skeleton: bump VERSION to the next PATCH, insert an exact new changelog section above the older entries, and write a version_bump.log recording old->new."
+    },
+    {
+      "a": "task_000000_9c465b6a",
+      "b": "task_000000_3780cf6f",
+      "related": false,
+      "why": "a cuts two columns from a TSV, de-duplicates, sorts and converts to CSV with a count log; b computes event_type frequencies from a CSV into a count-sorted TSV."
+    },
+    {
+      "a": "task_000000_5a923222",
+      "b": "task_000000_248b692f",
+      "related": false,
+      "why": "Both sum cost per service, but a is a two-month text report (monthly totals, cost-descending breakdown, top-3 line) while b writes a single alphabetical JSON array of service totals."
+    },
+    {
+      "a": "task_000000_7212f9c7",
+      "b": "task_000000_524a984e",
+      "related": false,
+      "why": "a recursively parses INI files into a sorted pipe summary, picks the best-accuracy run and creates a relative symlink to it; b extracts last-row metrics and learning_rate from CSV/YAML into a comma log with awk/sed."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_2129b0c0",
+      "related": false,
+      "why": "a rewires release links (dangling-link replacement, dir-to-link conversion) with a timestamped MOVED/CREATED/REPLACED log; b creates four new relative links in a workspace and writes a TSV VALID/BROKEN audit."
+    },
+    {
+      "a": "task_000000_fffbc984",
+      "b": "task_000000_9f315897",
+      "related": true,
+      "why": "Both bump a project version and prepend an exact new section at the top of CHANGELOG.md keeping older entries; b additionally takes its bullets from TODO.md, empties it and writes a timestamped bump log."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_686d09a1",
+      "related": false,
+      "why": "Both touch symlinks and write timestamped action logs, but a converts a real libs dir into a link after moving it to a backup, replaces a dangling link and adds a relative config link, while b creates two file links then archives one target and repoints it."
+    },
+    {
+      "a": "task_000000_5ae496c4",
+      "b": "task_000000_83455158",
+      "related": true,
+      "why": "Both bump the PATCH version in VERSION and prepend an exact new section to CHANGELOG.md; a derives the bullets from ERROR log lines (also saved to a file), b adds a fixed bump log."
+    },
+    {
+      "a": "task_000000_7b043e22",
+      "b": "task_000000_af066fb4",
+      "related": true,
+      "why": "Both create a gzip tarball of a set of files, write a sha256sum-format checksum file for it, and write a small report with the archive's byte size; a also lists the archived paths and their count."
+    },
+    {
+      "a": "task_000000_bfb0949a",
+      "b": "task_000000_7ef80422",
+      "related": true,
+      "why": "Both tar.gz a small set of config/text files, extract into a restore directory, verify each restored file's hash against the original, and write a short integrity log."
+    },
+    {
+      "a": "task_000000_dd9a29de",
+      "b": "task_000000_74b88965",
+      "related": false,
+      "why": "a parses multi-host ping output into a per-host CSV plus threshold alerts; b extracts a single ping's metrics plus a count of LISTEN TCP sockets from ss output into metric CSV and JSON."
+    },
+    {
+      "a": "task_000000_20795c54",
+      "b": "task_000000_9da7d327",
+      "related": false,
+      "why": "a hardens an INI file (backup, header comment, set enabled=false where secure=false, append a section) and reports sections; b audits services in two INI files for port range/collision errors into a pipe report."
+    },
+    {
+      "a": "task_000000_2a0a7cde",
+      "b": "task_000000_248cf61a",
+      "related": true,
+      "why": "Both convert ISO-8859-1 files to UTF-8 with iconv and record the conversion in a CSV log; a converts all docs/*.txt in place, b one .properties file to a new file with a header comment and an appended record."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_b0aa0d87",
+      "related": false,
+      "why": "a rewires release symlinks (dangling-link replacement, dir-to-link conversion) with a timestamped action log; b detects and removes broken links, recreates one relative link and writes BROKEN/OK status logs."
+    },
+    {
+      "a": "task_000000_0dbc0d6a",
+      "b": "task_000000_8f931580",
+      "related": false,
+      "why": "a builds an nmap-or-mock scan pipeline over targets with error handling, run/error logs and a CSV; b parses an existing nmap log for ports 21/23/445 into a CSV with a count line."
+    },
+    {
+      "a": "task_000000_2ce110bb",
+      "b": "task_000000_81fccd5b",
+      "related": true,
+      "why": "Both validate each object of a JSON array against required-key/field rules with jq, write one partition as a 2-space pretty-printed array, and record VALID/INVALID counts; b additionally writes the schema file and sorts by id."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_de51ded7",
+      "related": false,
+      "why": "Both wire release symlinks with an ordered UTC-timestamped action log, but a's decisive steps (replace a dangling link, move a real libs dir to a backup and turn it into a link) differ from b's (create a new release dir/README and relative config.yml links in every release)."
+    },
+    {
+      "a": "task_000000_f3a4c4e2",
+      "b": "task_000000_904bd378",
+      "related": false,
+      "why": "a fills empty values in fr_FR.csv from a key=value file and logs updated keys; b adds keys missing from fr_FR.json with 'TODO', re-sorts the JSON and logs ADDED keys - different formats and operations."
+    },
+    {
+      "a": "task_000000_5904176b",
+      "b": "task_000000_c3cd2604",
+      "related": false,
+      "why": "a rewires release symlinks with a timestamped action log; b creates three relative dataset links, deletes a directory of broken links and writes a TAB audit of canonical targets."
+    },
+    {
+      "a": "task_000000_d3910f9d",
+      "b": "task_000000_93e3dd9c",
+      "related": false,
+      "why": "a gzips dumps in place and reports original vs compressed sizes (compressed strictly smaller) with totals; b just lists existing CSV byte sizes plus a TOTAL line without compression."
+    },
+    {
+      "a": "task_000000_ffa6e96d",
+      "b": "task_000000_901b2ed3",
+      "related": false,
+      "why": "a generates a private PKI with openssl, tars it and writes a SHA-256/size manifest; b copies an existing cert/key pair under new names and writes a one-line JSON install log."
+    },
+    {
+      "a": "task_000000_74b01700",
+      "b": "task_000000_c63a8ed7",
+      "related": false,
+      "why": "a extracts October ADD/DEL user-management lines and builds a username-sorted CSV summary; b lists distinct usernames with a LOGIN action."
+    },
+    {
+      "a": "task_000000_7d66dd84",
+      "b": "task_000000_e3ba3225",
+      "related": true,
+      "why": "Same release skeleton: bump the version (package.json minor vs VERSION patch), prepend an exact new CHANGELOG.md section above the old ones, and write a one-line release/audit log."
+    },
+    {
+      "a": "task_000000_ac644c33",
+      "b": "task_000000_997944e5",
+      "related": false,
+      "why": "a extracts successful LOGIN events as timestamp,username rows in log order; b aggregates per-user login counts with count-desc/name-asc sorting."
+    }
+  ]
+}

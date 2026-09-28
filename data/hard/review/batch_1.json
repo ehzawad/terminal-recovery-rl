@@ -1,0 +1,287 @@
+{
+  "reviewer": "batch_1",
+  "tasks": {
+    "task_000000_0497c08a": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Regex 1 at instruction.md:23 literally reads \\[(ERROR|WARN)\\] but the same line's gloss (instruction.md:24) names \"[WARN ]\", matching the logs (Dockerfile:19,33,45); tests expect the WARN lines (tests/test_final_state.py:30,34,37). The plain-English wording settles it, and the example (instruction.md:43-44) plus the minified-JSON-with-final-newline rule (instruction.md:64-65) cover the checked format.",
+      "tests": {
+        "test_artifact_directory_exists": "presence",
+        "test_required_files_exist": "presence",
+        "test_filtered_build_issues_log_content_matches_exactly": "substantive",
+        "test_filtered_build_issues_log_line_format_and_sorting": "format",
+        "test_issue_summary_json_counts_and_format": "substantive"
+      }
+    },
+    "task_000000_1b95a2fc": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. All checked modes and the cleaning rule are stated (instruction.md:6-24). Minor: tests/test_final_state.py:151-155 require the audit log to be 644, which the instruction never says, but that is the default umask-022 result.",
+      "tests": {
+        "test_required_directories_exist_and_have_correct_permissions": "presence",
+        "test_raw_csv_files_are_intact_and_locked": "presence",
+        "test_clean_csv_files_content_and_permissions": "substantive",
+        "test_no_extra_clean_files": "presence",
+        "test_audit_log_exists_and_is_correct": "substantive"
+      }
+    },
+    "task_000000_28da0145": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Byte-exact outputs follow from the stated formats (instruction.md:31-60). The manifest JSON expected at tests/test_final_state.py:53-72 is standard 2-space pretty-printing with an integer port (YAML <integer-port>, instruction.md:17). The no-extra-files check (tests:228-245) matches the 'three artefacts' wording (instruction.md:27).",
+      "tests": {
+        "test_output_directory_exists_and_is_dir": "presence",
+        "test_line_based_files": "substantive",
+        "test_manifest_index_json_exists_and_matches_exactly": "substantive",
+        "test_no_extra_files_in_output_directory": "presence"
+      }
+    },
+    "task_000000_3144d75e": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Every checked format is stated: the error-report layout and example (instruction.md:27-35), the CSV header and no-quotes rule (instruction.md:42-49; the unquoted timestamps with commas at tests:116-117 follow that rule), and IPv4 masking (instruction.md:19,61).",
+      "tests": {
+        "test_processed_directory_exists": "presence",
+        "test_output_files_exist": "presence",
+        "test_error_app1_content": "substantive",
+        "test_error_app2_content": "substantive",
+        "test_error_report_content": "substantive",
+        "test_summary_csv_content": "substantive",
+        "test_sanitized_all_content": "substantive"
+      }
+    },
+    "task_000000_3968a6ec": {
+      "exclude": true,
+      "reasons": [
+        "contradiction",
+        "uninferable_requirement"
+      ],
+      "evidence": "Rule (b) copies every *.jpg older than 30 days 'from the moment your command runs' (instruction.md:10). projectB/recent.jpg has mtime 1627843200, which is 2021-08-01 (Dockerfile:34), so the rule requires copying it to jpg_old. The truth set leaves it out (tests/test_final_state.py:32-75), extra files are rejected (tests:142-152), and the log must have exactly 7 lines (tests:177). instruction.md:28 ('exactly eight files') contradicts rule (b), and solve.sh:15 deletes recent.jpg by hand. The expectation is also date-dependent. Separately, copied files must keep the source mtime (tests:137-140 via :99-108, and :194-204), which needs cp -p. The instruction never asks for that (instruction.md:10-11,14), so a plain cp fails.",
+      "tests": {
+        "test_organized_root_and_subdirs_exist_correctly": "presence",
+        "test_destinations_exist_with_correct_attributes": "substantive",
+        "test_no_extra_files_under_organized": "substantive",
+        "test_moved_sources_absent_and_copied_sources_still_present": "presence",
+        "test_log_file_contents_exact": "substantive",
+        "test_log_stats_match_actual_files": "substantive"
+      }
+    },
+    "task_000000_5622dcaf": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. The header, the no-quote/no-whitespace rule, LF endings and the trailing newline are all stated (instruction.md:24-29). The rows are compared order-insensitively against a live DB query (tests/test_final_state.py:175-197).",
+      "tests": {
+        "test_csv_file_exists_and_is_regular": "presence",
+        "test_csv_file_is_readable": "presence",
+        "test_database_unchanged": "presence",
+        "test_csv_content_format_and_values": "substantive"
+      }
+    },
+    "task_000000_600f7863": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Minor wording issues: the log template shows ' ; ' with spaces (instruction.md:39), but the explicitly 'valid' example uses bare ';' and 'Z' timestamps (instruction.md:43-50), and that is what tests/test_final_state.py:140,253-264 require. Also, 'exactly four files' (instruction.md:17) conflicts with collection.log living in the same dir (instruction.md:37), but no test counts directory entries.",
+      "tests": {
+        "test_required_directory_and_files_exist": "presence",
+        "test_individual_archives_contents_and_metadata": "substantive",
+        "test_sha256sums_txt_is_correct": "substantive",
+        "test_umbrella_archive_contents_exact_match": "substantive",
+        "test_collection_log_format_and_order": "substantive"
+      }
+    },
+    "task_000000_6697de51": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "The log format is '`YYYY-MM-DDTHH:MM:SS MESSAGE`' with 'one SP' between timestamp and message (instruction.md:53-54). The test instead splits on TWO spaces (tests/test_final_state.py:197-205) and looks for lines ending in '  <MSG>' (tests:217). A log written as instructed fails. Also, summary.json must be 'Minified single-line JSON (no unnecessary whitespace)' (instruction.md:35), yet tests:175 require a trailing newline, so json.dump output without one fails.",
+      "tests": {
+        "test_processed_directory_exists": "presence",
+        "test_required_files_exist_and_non_empty": "presence",
+        "test_training_csv_content": "substantive",
+        "test_summary_json_content_and_format": "substantive",
+        "test_execution_log_format_and_content": "substantive",
+        "test_raw_files_remain_unchanged": "presence"
+      }
+    },
+    "task_000000_707e607e": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "For suspicious_processes_found.json the instruction asks only for 'A valid JSON array' of the full objects, in source order, ending with a newline (instruction.md:15-18). It sets no whitespace or compactness rule; that rule is given only for incident_report.json (instruction.md:21). The test demands the byte-exact compact text '[{\"pid\":345,\"process_name\":\"nc\",\"user\":\"bob\"},{...}]\\n' (tests/test_final_state.py:53-56,143-145). Default json.dumps (', ' and ': ' separators), jq's default pretty-print, or copying the source lines all fail.",
+      "tests": {
+        "test_summary_directory_exists": "presence",
+        "test_only_expected_files_present": "presence",
+        "test_failed_login_counts_csv_contents": "substantive",
+        "test_blacklisted_connections_csv_contents": "substantive",
+        "test_suspicious_process_json_exact_text_and_semantics": "substantive",
+        "test_incident_report_json_exact_text_and_consistency": "substantive"
+      }
+    },
+    "task_000000_76096271": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Required member paths 'home/user/projects/data_cleaning/raw_datasets/*' (tests/test_final_state.py:119-134) follow from 'keeping the original path structure' (instruction.md:20-23), which is also GNU tar's default when given the absolute path. The timestamp format is given with an example (instruction.md:31-33). Line 3 = 3 is given (instruction.md:43-44), but the archive contents and checksum are still checked substantively.",
+      "tests": {
+        "test_raw_directory_removed": "presence",
+        "test_archive_file_exists_and_is_valid_gzip_tar": "presence",
+        "test_archive_contains_expected_files_with_correct_contents": "substantive",
+        "test_log_file_has_correct_format_and_contents": "format",
+        "test_checksum_in_log_matches_actual_archive_digest": "substantive",
+        "test_log_file_count_matches_archive_file_count": "substantive",
+        "test_archive_does_not_contain_absolute_symlinks_or_unexpected_entries": "format"
+      }
+    },
+    "task_000000_8309d13d": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. The CSV spec and example row fully determine the output (instruction.md:20-34). Minor: instruction.md:41 says the checker ignores the run log, yet tests/test_final_state.py:79-81 require it to exist. It is still an explicit requirement (instruction.md:39-40), so a compliant solver passes.",
+      "tests": {
+        "test_incident_reports_directory_and_files_exist": "presence",
+        "test_summary_csv_header_and_row_count": "format",
+        "test_summary_csv_row_contents_and_order": "substantive",
+        "test_summary_csv_field_validation": "format"
+      }
+    },
+    "task_000000_8d632927": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Flat archive, exact May files, the summary format and the cleanup are all stated (instruction.md:11-36). The final newline required by tests/test_final_state.py:177-182 is consistent with 'no trailing blank line' (instruction.md:31-32).",
+      "tests": {
+        "test_backup_directory_still_exists_and_is_dir": "presence",
+        "test_temporary_202305_directory_has_been_deleted": "presence",
+        "test_backup_directory_contains_only_expected_final_files": "presence",
+        "test_archive_exists_and_is_regular_file": "presence",
+        "test_archive_contents_are_exact_and_flat": "substantive",
+        "test_archive_file_contents_match_originals_byte_for_byte": "substantive",
+        "test_error_summary_file_exists_and_is_regular_file": "presence",
+        "test_error_summary_format_and_contents": "substantive",
+        "test_error_summary_lines_reference_only_files_in_archive": "format",
+        "test_error_summary_line_numbers_are_numeric_and_positive": "format"
+      }
+    },
+    "task_000000_9bbcde71": {
+      "exclude": true,
+      "reasons": [
+        "needs_network_or_service",
+        "uninferable_requirement"
+      ],
+      "evidence": "Grading needs two live background processes (instruction.md:12,45-46). tests/test_final_state.py:121-146,150-180 scan /proc for running db_long_query.sh instances and read their niceness. That is running-process state, not filesystem state: it cannot survive a snapshot-based grade (the harness grades a committed image in a fresh container), so the grade is meaningless. Also, the tests match /proc cmdline exactly 'bash\\0/home/user/db_long_query.sh\\0' (tests:66,165). Launching './db_long_query.sh' 'from the current working directory' (instruction.md:12) or 'bash db_long_query.sh' gives a different argv and fails, and the instruction never says the script must be invoked by its absolute path.",
+      "tests": {
+        "test_log_file_exists_and_has_correct_permissions_and_line_count": "format",
+        "test_exactly_two_long_query_processes_running_and_logged_pids_match": "substantive",
+        "test_both_logged_processes_have_nice_10": "substantive"
+      }
+    },
+    "task_000000_a33ccd7f": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. The report format, order and final newline are stated (instruction.md:19-23), and the JSON key structure too (instruction.md:26-36). Minor: tests/test_final_state.py:130 require a trailing newline on the one-line JSON and tests:79-101 require modes 755/644. Neither is stated, but both are common defaults (umask 022).",
+      "tests": {
+        "test_output_directory_exists_and_permissions": "presence",
+        "test_deliverable_files_exist_and_permissions": "presence",
+        "test_violation_report_exact_content": "substantive",
+        "test_summary_json_exact_content_and_format": "substantive",
+        "test_summary_counts_match_report": "substantive"
+      }
+    },
+    "task_000000_aeb8b2b7": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. The CSV join, header, row count and LF rule are stated (instruction.md:17-25). verification.log content is given verbatim (instruction.md:30-34), but the main CSV output is computed. The trailing newline in tests/test_final_state.py:133 is covered by rule c (instruction.md:24).",
+      "tests": {
+        "test_dashboard_csv_exists": "presence",
+        "test_dashboard_csv_content_and_format": "substantive",
+        "test_verification_log": "substantive"
+      }
+    },
+    "task_000000_b95b8b04": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Extract order, report format, TOTAL line, timestamp format and archive layout are all stated (instruction.md:18-62). The timestamp only has to be within 24h of grading (tests/test_final_state.py:126-132), which a normal run satisfies.",
+      "tests": {
+        "test_backup_directory_exists_and_has_correct_contents": "presence",
+        "test_filtered_errors_file_content_and_order": "substantive",
+        "test_backup_report_format_and_data": "substantive",
+        "test_archive_exists_and_is_valid_tar_gz": "substantive"
+      }
+    },
+    "task_000000_ca1e3c27": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. The cleaning rules and exact JSON template with 2-decimal floats are stated (instruction.md:15-43). tests/test_final_state.py:35-37 accept either 200 or 200.00. The cleaning.log is given verbatim (instruction.md:52-57), but the CSV and stats must be computed.",
+      "tests": {
+        "test_required_directories_exist_and_permissions": "presence",
+        "test_cleaned_csv_exists_and_permissions": "presence",
+        "test_cleaned_csv_content": "substantive",
+        "test_summary_stats_json_exists_and_permissions": "presence",
+        "test_summary_stats_json_content": "substantive",
+        "test_cleaning_log_exists_and_permissions": "presence",
+        "test_cleaning_log_content": "substantive",
+        "test_raw_sales_file_still_intact": "presence"
+      }
+    },
+    "task_000000_d32c5973": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. The compact JSON example with no trailing newline (instruction.md:17-20) and the double-spaced log line with no newline (instruction.md:27-33) exactly match tests/test_final_state.py:88-105,115-155.",
+      "tests": {
+        "test_deployment_directory_exists": "presence",
+        "test_deploy_json_exact_content_and_format": "substantive",
+        "test_process_log_single_line_and_correct_metrics": "substantive"
+      }
+    },
+    "task_000000_e160b6f7": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Filtering and the 4-space pretty-print are stated (instruction.md:11-22), and the expected text (tests/test_final_state.py:37-60) is standard indent=4 output plus a trailing newline. Minor risk: the markdown example carries trailing double spaces on each line (instruction.md:25-37) and the JSON file's trailing newline is never stated. Both are treated as markdown artifacts and a common default.",
+      "tests": {
+        "test_errors_csv_exact_contents": "substantive",
+        "test_errors_json_exact_contents": "substantive",
+        "test_summary_log_exact_contents": "substantive",
+        "test_internal_consistency_between_outputs": "substantive"
+      }
+    },
+    "task_000000_ee44550b": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Line format and order are stated (instruction.md:11-18). File mode 0600 or 0644 (tests/test_final_state.py:66-70) is satisfied by the default umask.",
+      "tests": {
+        "test_output_directory_exists": "presence",
+        "test_report_file_exists": "presence",
+        "test_report_file_permissions": "presence",
+        "test_report_is_newline_terminated": "format",
+        "test_report_content_exact": "substantive"
+      }
+    },
+    "task_000000_f5cb6bce": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Kept. Schema, view, summary table and log layout are stated (instruction.md:17-38). 'treatment,1.200' (tests/test_final_state.py:51) follows from 'show avg_value rounded to three decimal places' (instruction.md:31). The directory mode and owner checks (tests:123-134) are umask defaults.",
+      "tests": {
+        "test_research_directory_exists_with_correct_permissions_and_ownership": "presence",
+        "test_table_schemas": "format",
+        "test_experiment_a_content": "substantive",
+        "test_experiment_b_content": "substantive",
+        "test_combined_results_view_content": "substantive",
+        "test_condition_summary_content": "substantive",
+        "test_summary_report_csv_exact_content": "substantive",
+        "test_import_log_file_exact_content": "substantive"
+      }
+    },
+    "task_000000_ffeaac82": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "The instruction dictates every expected byte, so nothing has to be derived. It shows the full current en.yaml and config.toml (instruction.md:6-14,19-27), gives the exact new line 'logout: \"Log out\"' and the new values supported = 6 and last_updated = \"2023-10-31\" (instruction.md:28-29,33-36), and gives update_log.txt verbatim (instruction.md:40-43). The expected outputs in tests/test_final_state.py:47-69 are exactly that text. (The tests also pin logout to the end of the file, while instruction.md:33 does not say where it goes.)",
+      "tests": {
+        "test_files_exist_and_permissions": "presence",
+        "test_en_yaml_content_exact": "substantive",
+        "test_config_toml_content_exact": "substantive",
+        "test_update_log_content": "substantive"
+      }
+    }
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "reviewer": "batch_6",
+  "tasks": {
+    "task_000000_155368e9": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed",
+        "contradiction",
+        "uninferable_requirement"
+      ],
+      "evidence": "instruction.md:12-20,29-35 give every script line and the log lines verbatim (tests/test_final_state.py:22-56 expect exactly these), so it is copy-paste. instruction.md:28 gives 'RESULT&nbsp;:&nbsp;PENDING' (one space) but the example at :31 and :47 show 'RESULT  : PENDING'; tests:53 require two spaces. tests:23 require exactly '#!/bin/bash' though instruction.md:10 only asks for a she-bang (#!/usr/bin/env bash fails); tests:21,36,141-147 require exact modes 755/644 while instruction.md:22 only says 'marked executable' (chmod u+x gives 744 and fails).",
+      "tests": {
+        "test_bundle_directory_exists_and_is_directory": "presence",
+        "test_bundle_directory_contains_only_expected_files": "presence",
+        "test_file_permissions": "presence",
+        "test_apply_script_is_executable": "presence",
+        "test_apply_script_contents_exact": "substantive",
+        "test_log_file_contents_exact": "substantive"
+      }
+    },
+    "task_000000_249b5651": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "environment/Dockerfile:18-42 already creates /home/user/cicd_db_work/ci_cd_metrics.db (schema + 3 rows), cicd_sql_audit.log (the exact statements tests/test_final_state.py:45-50 require), build_time_average.txt (348.33) and metrics_export.csv. A simulation of that initial state passes all 7 final tests, so an agent that does nothing passes. solution/solve.sh:17 only works because its failing sqlite3 call short-circuits and leaves the pre-made audit log in place.",
+      "tests": {
+        "test_required_directory_exists": "presence",
+        "test_sqlite_file_exists": "presence",
+        "test_db_integrity_and_schema": "substantive",
+        "test_seed_rows_present_and_correct": "substantive",
+        "test_build_time_average_file_exists_and_correct": "substantive",
+        "test_metrics_export_csv_is_exact_and_valid": "substantive",
+        "test_sql_audit_log_exists_and_contains_required_statements": "substantive"
+      }
+    },
+    "task_000000_2fa611c1": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed",
+        "contradiction"
+      ],
+      "evidence": "instruction.md:29-32 state the exact contents of untranslated.txt (File/Edit/Help) and update_summary.log (Total 4 / Untranslated 3), matching tests:159,187-194. instruction.md:18 defines Total as <total_number_of_msgid_lines>, which is 5 counting the header msgid (Dockerfile:15), and :9-10 say to replace every empty msgstr, including the header's (Dockerfile:16). But tests:187 require 4, and tests:200-214 plus :93-102 require the header msgstr to stay empty.",
+      "tests": {
+        "test_marker_occurrence_exactly_three": "substantive",
+        "test_msgids_and_msgstr_values": "substantive",
+        "test_untranslated_file_exists_and_contents": "substantive",
+        "test_summary_log_exists_and_format": "substantive",
+        "test_no_remaining_empty_msgstrs": "substantive"
+      }
+    },
+    "task_000000_361f3d63": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "rsync is installed (Dockerfile:13). The sync result (old.conf deleted, content + mtime preserved), the log header, blank line, itemize lines and EXIT STATUS checks (tests:45-155) all follow instruction.md:12-24,45-50. Extra rsync output lines are tolerated.",
+      "tests": {
+        "test_remote_directory_has_exactly_two_files": "substantive",
+        "test_files_match_in_content_and_timestamp": "substantive",
+        "test_log_file_exists_and_is_regular": "presence",
+        "test_log_file_content_structure": "substantive",
+        "test_log_directory_exists": "presence"
+      }
+    },
+    "task_000000_461f140f": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:26-41 gives the mandatory summary block with 'accounts.txt' before 'budget/2024_budget.xlsx', and :45 requires strict ASCIIbetical order. tests/test_final_state.py:52-66 (compared at :138) require 'budget/2024_budget.xlsx' first, so copying the specified block verbatim fails test_summary_log_exists_and_is_correct. bzip2 may be absent, but Python tarfile works offline.",
+      "tests": {
+        "test_directories_created_with_correct_permissions": "presence",
+        "test_summary_log_exists_and_is_correct": "substantive",
+        "test_archives_exist_and_have_exact_contents": "substantive",
+        "test_archive_contents_match_original_files": "substantive",
+        "test_restore_hr_is_exact_copy_of_original": "substantive"
+      }
+    },
+    "task_000000_5ae496c4": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:28-33,41 define a 4-line section that ends with a single trailing newline, and CHANGELOG.md does not pre-exist (Dockerfile:16-32). tests:45-51,132 require a 5th, blank line after the bullets, so the specified file ('...Connection timed out\\n') makes next(f) raise StopIteration and test_changelog_prefix fails. instruction.md:55 even calls it a '7-line block'.",
+      "tests": {
+        "test_version_file_bumped_and_format_correct": "substantive",
+        "test_error_summary_log_contents": "substantive",
+        "test_changelog_prefix": "substantive",
+        "test_app_log_unchanged": "presence"
+      }
+    },
+    "task_000000_6512ac67": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The report layout (instruction.md:24-36), averages 51.12 and 977.7, and the high-resource list are computed from Dockerfile:31-39. tests:41-54 match the stated layout with no hidden conventions.",
+      "tests": {
+        "test_reports_directory_created": "presence",
+        "test_report_file_exists": "presence",
+        "test_log_file_still_exists": "presence",
+        "test_report_file_contents_exact": "substantive",
+        "test_log_file_unchanged": "presence"
+      }
+    },
+    "task_000000_68e81dcd": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:50 says the archive must reproduce the hierarchy under './home/user/data' when extracted (e.g. tar czf ... /home/user/data). tests:218-227 require a single top-level entry 'data', and tests:230-247 look for files under <tmp>/data, so an archive built as the instruction describes fails test_tarball_contents_exactly_match_source_tree.",
+      "tests": {
+        "test_backup_directory_exists_with_correct_permissions": "presence",
+        "test_expected_files_exist_and_have_correct_permissions": "presence",
+        "test_no_extra_files_inside_backup_directory": "presence",
+        "test_manifest_has_correct_format_and_content": "substantive",
+        "test_tarball_contents_exactly_match_source_tree": "substantive"
+      }
+    },
+    "task_000000_74d1c770": {
+      "exclude": true,
+      "reasons": [
+        "other",
+        "uninferable_requirement"
+      ],
+      "evidence": "The supplied patch (Dockerfile:29-41) is malformed: its hunk header says -1,5 but it has 4 old lines. GNU patch 2.7.6 aborts with 'malformed patch at line 11' and leaves the file unchanged (verified). instruction.md:38-39 then require 'failure', yet tests:182 always demand 'RESULT: success'. Fixing the count and applying the patch inserts a second '# WebApp configuration' line (verified), which tests:38-45,108 reject. Passing needs hand-writing the hunk's post-image, not applying the patch.",
+      "tests": {
+        "test_directories_exist": "presence",
+        "test_backup_exists_and_is_identical_to_original": "substantive",
+        "test_settings_conf_is_properly_patched": "substantive",
+        "test_patch_file_still_intact": "presence",
+        "test_log_file_format_and_content": "substantive",
+        "test_everything_together": "presence"
+      }
+    },
+    "task_000000_7d66dd84": {
+      "exclude": true,
+      "reasons": [
+        "contradiction",
+        "answer_exposed"
+      ],
+      "evidence": "instruction.md:31 says 'include the trailing period in the message', but the line at :34 has none and tests:64 require no period. All graded content is also given verbatim: version 1.3.0 (:15), the changelog section (:19-24) and the release line (:34), matching tests:25-64.",
+      "tests": {
+        "test_package_json_exact_contents": "substantive",
+        "test_changelog_exact_contents": "substantive",
+        "test_release_log_exists_and_correct_content": "substantive"
+      }
+    },
+    "task_000000_8b547188": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "VALID follows from checking Dockerfile:18-42 against the schema at Dockerfile:44-60. The filtered lines use the format at instruction.md:33-38 and are rebuilt from the JSON in tests:87-104. jq is installed (Dockerfile:9).",
+      "tests": {
+        "test_output_directory_exists": "presence",
+        "test_schema_validation_file_exists_and_is_readable": "presence",
+        "test_schema_validation_file_content_is_correct": "substantive",
+        "test_filtered_log_exists_and_is_readable": "presence",
+        "test_filtered_log_contents_exactly_match_expected_lines": "substantive",
+        "test_no_extra_whitespace_in_filtered_log": "format"
+      }
+    },
+    "task_000000_9439ccd0": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The cleaned CSV rows (tests:55-65) follow from dropping the four named columns (instruction.md:19-24). The scan-log and README checks follow instruction.md:32-47,68-69. Minor risk: README sentences are counted by splitting on '.' (tests:174), so a README naming a '.csv' file miscounts. Parallelism is not tested.",
+      "tests": {
+        "test_required_directories_exist_and_perms": "presence",
+        "test_clean_csv_contents_and_no_pii": "substantive",
+        "test_security_scan_log_format_and_content": "substantive",
+        "test_readme_constraints": "format"
+      }
+    },
+    "task_000000_9fd868fd": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "instruction.md:8 says 'third pipeline-separated field', but the level is field 2 (Dockerfile:23-31). The literal reading selects nothing, while :32-33 and the visible data make the intent (the WARN/ERROR lines) clear. tests:47-56,102-159 check exactly those 4 lines, a blank line and 'SUMMARY: WARN=2 ERROR=2'.",
+      "tests": {
+        "test_alert_file_exists_and_perms": "presence",
+        "test_alert_file_is_utf8_and_has_unix_line_endings": "format",
+        "test_alert_file_content_exact": "substantive"
+      }
+    },
+    "task_000000_a79b87f9": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "instruction.md:26-30 ask for every command actually executed, with no count limit, but tests/test_final_state.py:182-187 require commands_used.txt to have 2-3 non-empty lines. An agent that honestly records its inspection and verification commands (cat build.log, mkdir, cat critical.log, ...) fails.",
+      "tests": {
+        "test_build_log_was_not_modified": "presence",
+        "test_critical_log_exists_and_is_correct": "substantive",
+        "test_summary_file_exists_and_is_correct": "substantive",
+        "test_commands_file_exists_and_has_reasonable_content": "presence"
+      }
+    },
+    "task_000000_b6d23170": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The three findings (db.ini port 1234, webapp secret_key abc123, enable_debug=true) follow from Dockerfile:15-44 and rules instruction.md:19-30. Line grammar and sort order follow :47-66, and tests:29-34 byte-match. Minor risk: 'no trimming' (:53) could tempt keeping the space after '='.",
+      "tests": {
+        "test_incident_logs_dir_exists_and_is_directory": "presence",
+        "test_incident_logs_dir_contains_only_one_file": "presence",
+        "test_audit_log_is_regular_file": "presence",
+        "test_audit_log_permissions": "presence",
+        "test_audit_log_content_exact_match": "substantive",
+        "test_audit_log_semantic_correctness": "substantive"
+      }
+    },
+    "task_000000_c5175c6e": {
+      "exclude": true,
+      "reasons": [
+        "answer_exposed"
+      ],
+      "evidence": "instruction.md:19-29 show the exact final file ('ABORTED 2', 'FAILED 4', 'SUCCESS 5' plus a final newline), identical to tests/test_final_state.py:59-63, so no counting of the log is needed.",
+      "tests": {
+        "test_reports_directory_exists_and_has_sane_permissions": "presence",
+        "test_report_file_exists_and_has_correct_permissions": "presence",
+        "test_report_file_has_exact_expected_content": "substantive",
+        "test_no_unexpected_entries_in_ci_cd_directory": "presence"
+      }
+    },
+    "task_000000_cefb845c": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The report values (4 scanned, 1 moved, 535040, 524288, actual tarball size) follow from Dockerfile:24-39 and instruction.md:13-51, and tests:156-266 cross-check them against the filesystem. Minor risk: computing POST_MOVE_TOTAL with 'du -sb' would include directory sizes.",
+      "tests": {
+        "test_archive_tarball_exists_and_non_empty": "presence",
+        "test_archive_directory_has_been_removed": "presence",
+        "test_no_files_above_1_mib_remain_in_data_tree": "substantive",
+        "test_expected_remaining_files_still_present_with_correct_size": "presence",
+        "test_big_dataset_has_been_removed_from_data_tree": "substantive",
+        "test_tarball_contains_big_dataset": "substantive",
+        "test_report_format_and_static_values": "substantive",
+        "test_report_tarball_size_matches_actual_file": "substantive",
+        "test_report_moved_files_count_consistent_with_tarball": "substantive",
+        "test_post_move_total_size_correct": "substantive",
+        "test_largest_remaining_file_size_correct": "substantive"
+      }
+    },
+    "task_000000_dd9a29de": {
+      "exclude": true,
+      "reasons": [
+        "contradiction"
+      ],
+      "evidence": "instruction.md:45-47 mandate 'exactly this template' 'loss=<LOSS>% , avg_rtt=<AVG>ms' (a space before the comma), while the example at :55 has 'loss=75%, avg_rtt'. tests:36-37 require no space. Also, test_summary_is_sorted_alphabetically and test_alerts_sorted_consistently_with_summary (tests:109-131) only check the EXPECTED constants, so they always pass.",
+      "tests": {
+        "test_output_directory_exists": "presence",
+        "test_file_exists_and_content_matches": "substantive",
+        "test_files_are_world_readable": "presence",
+        "test_summary_is_sorted_alphabetically": "format",
+        "test_alerts_sorted_consistently_with_summary": "format"
+      }
+    },
+    "task_000000_eadb3a61": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "The three FAILED paths, in log order (Dockerfile:28-36), match tests:24-30. instruction.md:7 wrongly says there are two spaces before FAILED (the log has one), but the visible log resolves it.",
+      "tests": {
+        "test_failed_files_list_exists_and_mode": "presence",
+        "test_failed_files_list_content": "substantive"
+      }
+    },
+    "task_000000_f3a4c4e2": {
+      "exclude": false,
+      "reasons": [],
+      "evidence": "Filling farewell and ask_name from to_add_fr.txt (Dockerfile:28-40) as instruction.md:36-42 describe yields tests:48-59 exactly. instruction.md:46 says 'exactly as shown below' but shows nothing, yet the result is fully derivable.",
+      "tests": {
+        "test_locales_directory_exists": "presence",
+        "test_final_file_content_and_format": "substantive"
+      }
+    },
+    "task_000000_fdd8bbf2": {
+      "exclude": true,
+      "reasons": [
+        "uninferable_requirement"
+      ],
+      "evidence": "tests:53-55,142-144 require the JSON text to equal Python json.dumps(indent=2) output, i.e. used_percent written as 96.0/90.0/87.5. instruction.md:29-32,48 only say 'number' (and the CSV uses two decimals), so a valid 96.00 or 96 fails. The order of the two 90.00 rows (server_a before server_c, tests:47-48) is not specified by instruction.md:33; a non-stable descending sort (e.g. jq sort_by|reverse) puts server_c first.",
+      "tests": {
+        "test_generated_files_exist": "presence",
+        "test_file_permissions_and_ownership": "presence",
+        "test_combined_usage_csv_exact_contents": "substantive",
+        "test_combined_usage_row_count_in_log": "substantive",
+        "test_high_usage_json_exact_contents_and_format": "substantive",
+        "test_high_usage_row_count_in_log": "substantive",
+        "test_process_log_exact_content_and_newline": "substantive"
+      }
+    }
+  }
+}
