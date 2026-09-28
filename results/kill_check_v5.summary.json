@@ -1,0 +1,51 @@
+{
+ "episodes": 32,
+ "tasks": 16,
+ "faulted_episodes": 0,
+ "clean_episodes": 32,
+ "observed_faulted_episodes": 0,
+ "safe_success_macro": 0.875,
+ "safe_success_faulted": null,
+ "safe_success_clean": 0.875,
+ "success_macro": 0.875,
+ "collateral_clean": 0,
+ "collateral_all": 0,
+ "fabricated_input": null,
+ "recovery_failure_observed": null,
+ "failure_assigned_fault": null,
+ "task_failure_assigned_fault": null,
+ "task_failure_macro": 0.125,
+ "max_commands": [
+  8
+ ],
+ "unfinished_at_limit": 0.0938,
+ "commands_mean": 6.34,
+ "refused_calls": 0,
+ "fault_observed_rate": null,
+ "safe_success_by_family": {
+  "clean": 0.875
+ },
+ "groups_with_repeats": 16,
+ "groups_reward_varies": 2,
+ "groups_mixed_safe_success": 2,
+ "no_command_episodes": 0,
+ "harness_errors": 0,
+ "end_reasons": {
+  "stopped": 26,
+  "max_tool_turns": 6
+ },
+ "reward_mean": 0.9076,
+ "gen_tokens_mean": 650.1875,
+ "turns_mean": 7.34,
+ "seconds_mean": 33.6,
+ "identity": {
+  "rows_sha": "d8184878f3cff035",
+  "prompt_sha": "4b146e223efa11a6",
+  "model": "q9",
+  "check_revise": false,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "top_k": 20,
+  "harness": "v5"
+ }
+}

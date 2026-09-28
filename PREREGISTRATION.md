@@ -340,3 +340,10 @@ commands, collateral and exact-format failures are reported beside success.
 *Compute ceiling:* 45 A6000 GPU-hours for Study 2 (P selection and P gates 2.5, variance 1.5, systems
 probes 1, S 14, R 14, D 2, selection and S gate 2, final evaluation 7, contingency 1), one card, ≤ 8
 sandboxes. An arm that cannot finish within its allocation is reported incomplete, never dropped.
+
+**Outcome of Study 2 — 2026-09-27.** The registered kill pre-check (`prompts/b0_env_aware_budget.txt`, 16
+dev_search tasks × 2, 8 commands; `results/kill_check_v5.summary.json`) reached **28/32 safe successes**
+(≥ 27), so Study 2 **stopped before P re-selection**, as registered. The prompt used 6.3 commands on
+average, with no collateral and no harness errors. Told the budget and asked to batch, the instruct model
+already completes most tasks within 8 commands; the retrospective counterfactual (0.231 for a model unaware
+of any cap) did not predict budget-aware behaviour. No training was run.
