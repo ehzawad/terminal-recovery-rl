@@ -1,0 +1,30 @@
+{
+ "max_model_len": 32768,
+ "gpu_memory_utilization": 0.8,
+ "levels": {
+  "1": {
+   "wall_seconds": 30.0,
+   "prompt_tokens_each": 20000,
+   "completion_tokens_total": 1024,
+   "tokens_per_second_total": 701.5,
+   "decode_tokens_per_second": 34.2,
+   "peak_gpu_mib": 37410
+  },
+  "6": {
+   "wall_seconds": 52.2,
+   "prompt_tokens_each": 20000,
+   "completion_tokens_total": 6144,
+   "tokens_per_second_total": 2417.8,
+   "decode_tokens_per_second": 117.8,
+   "peak_gpu_mib": 37588
+  },
+  "8": {
+   "wall_seconds": 61.6,
+   "prompt_tokens_each": 20000,
+   "completion_tokens_total": 8192,
+   "tokens_per_second_total": 2732.4,
+   "decode_tokens_per_second": 133.1,
+   "peak_gpu_mib": 37588
+  }
+ }
+}
