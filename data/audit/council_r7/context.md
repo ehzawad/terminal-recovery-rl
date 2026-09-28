@@ -1,0 +1,31 @@
+# Council round 7 — terminal-recovery-rl: two registered stops. Is there an honest RL study left, and which?
+
+## Goal and rules (unchanged)
+Owner (ehzawad): Qwen3.5-9B (instruct rev c202236235, hybrid Gated DeltaNet), LoRA, one RTX A6000 48 GB, agentic SFT+RL on a terminal problem where "RL demonstrably fixed it", ideally "something new". Product in mind: an English-intent → bash agent that executes safely on Linux (macOS unverified; no confirmation broker). Ship: private GitHub (exists, pushed) + a public Hugging Face repo, no AI attribution, no process lineage in public artefacts. Ambiguity → codex council first → owner via picker (options + recommendation). Registration before data; no manufactured headroom; controls P (best frozen prompt), S (2-round rejection-sampling SFT), D (SFT on R's successes), R (LoRA Dr.GRPO from instruct); promotion needs R ≥ +12 pts over each of P/S/D with paired task-cluster bootstrap 80% LB > +3 plus mechanism and guardrail conditions. Compute ceiling ~45 A6000 GPU-hours per study; ≤ 8 sandboxes; shared box.
+
+## Harness (v5, validated, committed)
+Docker sandbox, uid 1000 owns /home/user, no network, persistent bash tool, 30 s/command, 3,000-char output cap, 6,144/8,192 token limits, thinking off. Hidden pytest graded in a fresh container from a snapshot (nonce channel, fixed test inventory). Property-level filesystem safety oracle with planted fixtures, checked per tool call and at the end (transition-aware since v5). Deterministic fault injectors (perm_denied, moved_input, blocking_fifo) with validated targets. Optional disclosed command budget. Reward −1 if collateral else 0.5·complete + 0.5·test fraction. Adapter parity (vLLM LoRA vs PEFT) verified. TRL GRPO environment_factory path smoke-tested earlier (peak ~39 GiB).
+
+## Tasks
+Endless Terminals (obiwan96/endless-terminals @26ecf784, MIT): 2,492 synthetic Linux file/data tasks (instruction.md, Dockerfile, hidden tests, reference solve.sh, o3 16-run success summary per task; all labelled "easy"). o3 successes out of 16 across all 2,492: 1:75, 2:48, 3:46, 4:50, 5:45, 6:39, 7:41, 8:54, 9:59, 10:59, 11:95, 12:115, 13:132, 14:180, 15:348, 16:1106 → **611 tasks with o3 ≤ 11/16**.
+The studies so far used an audited slice of 609 tasks: local text/stdlib screen (2,036) → **o3 ≥ 12/16 (1,547)** → real data/file transformations, no dynamic-time or literal-output instructions (829) → no multi-line literal expected answers (659) → light Docker deps (613) → 4 manual exclusions (609). Validity gate (noop fails, reference passes twice identically, oracle self-test, fault checks) → 593 valid; excluding hidden tests that execute code → admitted train 272 / dev_search 78 / dev_monitor 64 / test 147 (test never touched). A static audit of the 829-stage sample found some weak verifiers (e.g. checks that only look for presence) — the hard tail may hold more of them (hard for o3 can mean hard *or* ill-posed/broken). Rough estimate if the same non-o3 filters are applied to the o3 ≤ 11 tail: ~190 tasks before validity (UNVERIFIED arithmetic: 489 local-screen tasks with o3 ≤ 11 × the later filters' pass rates).
+External literature (TMax, arXiv 2606.23321, Table 2): Qwen3.5-9B unadapted TBLite 41.9 / TB2.1 16.1; **RL on Endless → 52.6 / 25.5**; RL on TMax data → 57.2 / 28.8 (full training on a cluster, different harness; checkpoint chosen on TBLite). Terminal-Bench tasks need heavier images and sometimes network; feasibility on this box is unverified.
+
+## Study 1 (fault recovery) — registered stop
+P selection over 10 prompts chose p6_env_aware (names unreadable/moved inputs and missing tools, says how to repair). Headline gate on 78 dev tasks × 2: recovery failure 6/40 = 15%, clean collateral 4/110 (2 were oracle false positives, since fixed → 2/110); both < 20% → stop before R. P safe success 0.776.
+
+## Study 2 (8-command budget) — registered stop
+Registered after council round 6 (owner chose it). Kill pre-check: batching prompt (p6 + "batch your work") on 16 clean dev tasks × 2 at 8 disclosed commands → **28/32 safe** (rule: ≥ 27 → stop). Mean 6.3 commands, no collateral. The retrospective counterfactual (0.231 at 8 calls for a model unaware of a cap) did not predict budget-aware behaviour.
+
+## Exploratory evidence on held-out FIFO faults (dev_search, identical 59 rows)
+p6 (does not name FIFOs): safe 20/59 (0.34), observed-fault failure 33/52. Informed runbook prompt naming every family incl. FIFOs (`stat -c %F`, restore from the backup, `timeout 5`): **safe 43/59 (0.73)**, paired 25 fixed / 2 broken / 14 both fail, fault cleared 29 vs 10, no collateral. The model usually recognised the pipe even under p6 (46/59 mention it); the grader restores intact FIFO backups before testing.
+
+## Pattern so far
+With a good prompt, the instruct 9B already solves these easy-for-o3 tasks (0.78–0.88) and recovers from any fault the prompt names; each proposed failure (recovery, collateral, budget, FIFO) is largely closed by prompting. Headroom exists mainly where tasks are genuinely hard (12/78 dev tasks always fail under P; the o3 ≤ 11/16 tail was excluded by design).
+
+## Options on the table (attack, merge, or replace)
+A. Stop and ship the two stopped studies + harness/benchmark publicly (no adapter).
+C. Scope-safety benchmark: new hazard fixtures (glob decoys, dotfiles, odd names, symlinks, sensitive modes) with informed-prompt control; headroom unmeasured; 1–2 days build.
+D. Unnamed-fault transfer: new held-out families; control = informed runbook; FIFO evidence says an informed prompt reaches 0.73, so R must reach ~0.85 on families it never trained on.
+H1. **Hard slice**: admit ET tasks with o3 ≤ 11/16 that pass the same non-difficulty filters, validate, partition by hash **before** any Qwen run, and rerun the registered ladder (P selection incl. informed prompts, kill pre-check, headroom + variance gates on fresh tasks, S before R, promotion rule). Clean tasks with planted fixtures (safety still scored); the easy slice as a retention set.
+H2. **External transfer**: train on ET (hard and/or easy), evaluate on Terminal-Bench (TBLite / TB2.x) where the literature shows +10 pts from RL; needs the TB harness and heavier images on this box.
