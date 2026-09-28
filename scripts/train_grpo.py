@@ -178,7 +178,7 @@ def main() -> None:
     ap.add_argument("--groups-per-step", type=int, default=4)
     ap.add_argument("--lr", type=float, default=1e-5)
     ap.add_argument("--lora-r", type=int, default=16)
-    ap.add_argument("--vllm-util", type=float, default=0.40)
+    ap.add_argument("--vllm-util", type=float, default=0.45)  # 0.40 leaves no KV room beside the policy weights
     ap.add_argument("--max-completion", type=int, default=MAX_COMPLETION)
     ap.add_argument("--max-model-len", type=int, default=MAX_MODEL_LEN)
     ap.add_argument("--max-tool-turns", type=int, default=MAX_TOOL_TURNS)

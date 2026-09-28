@@ -7,8 +7,8 @@ tests/test.sh (+ test files) and solution/solve.sh. Differences from the Endless
   chowned; a start-up service named by the image's ENTRYPOINT/CMD (anything but a bare shell) is started in
   the background, and the container is kept alive with `sleep infinity`;
 - network is off for the agent and for grading (images are built with network beforehand);
-- the shell runs as its own session, and a timed-out command kills only that session, so services the agent
-  detached keep running;
+- the shell runs as its own session; a timed-out command kills the shell and the processes that command
+  started, while background services left by earlier commands keep running;
 - grading happens in the same container after the agent's session is stopped, as the benchmark does:
   tests/ is copied to /tests, /logs/verifier is emptied, `bash /tests/test.sh` runs in WORKDIR, and the score
   is the native reward the grader writes to /logs/verifier/reward.txt (fractional credit is kept; a missing or
@@ -135,7 +135,7 @@ class TBSandbox(Sandbox):
 
     def _start_shell(self) -> None:
         cmd = " ".join(["docker", "exec", "-i", "-u", _q(self.user), "-w", _q(self.workdir), "-e", "TERM=dumb",
-                        "-e", "PAGER=cat", "-e", "GIT_PAGER=cat", self.name, "setsid", "bash", "--noprofile", "--norc"])
+                        "-e", "PAGER=cat", "-e", "GIT_PAGER=cat", self.name, "setsid", "-w", "bash", "--noprofile", "--norc"])
         self._shell = subprocess.Popen([*DOCKER, cmd], stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                        stderr=subprocess.STDOUT, bufsize=0, start_new_session=True)
         self._sid = None
@@ -143,8 +143,24 @@ class TBSandbox(Sandbox):
         m = re.search(r"(\d+)", r.output or "")
         self._sid = int(m.group(1)) if m else None
 
+    _PIDS = ("for d in /proc/[0-9]*; do read -r l < $d/stat 2>/dev/null || continue; set -- ${l##*) }; "
+             '[ "$4" = "SID" ] && echo ${d#/proc/}; done; true')
+
+    def _session_pids(self) -> set[int]:
+        if not self._sid:
+            return set()
+        r = docker(["exec", "-u", "0:0", self.name, "sh", "-c", self._PIDS.replace("SID", str(self._sid))],
+                   check=False, timeout=30)
+        return {int(x) for x in (r.stdout or b"").split()}
+
+    def run(self, command: str, timeout: float | None = None):
+        """As Sandbox.run; the session's processes are noted first, so a timeout kills only what this command started."""
+        self._before = self._session_pids()
+        return Sandbox.run(self, command, timeout)
+
     def _kill_container_processes(self) -> None:
-        """Stop the agent's shell session only; services the agent detached into their own session survive."""
+        """Timeout: stop the shell and every process the timed-out command started; background services that
+        earlier commands left running survive (as in the benchmark's tmux-based harness)."""
         if self._shell is not None:
             for f in (self._shell.stdin, self._shell.stdout):
                 try:
@@ -157,14 +173,22 @@ class TBSandbox(Sandbox):
             except subprocess.TimeoutExpired:
                 pass
         if self._sid:
-            # /proc only (slim images have no ps/awk): field 4 after the ") " of /proc/PID/stat is the session id.
-            script = ("for d in /proc/[0-9]*; do read -r l < $d/stat 2>/dev/null || continue; set -- ${l##*) }; "
-                      f'[ "$4" = "{self._sid}" ] && kill -9 ${{d#/proc/}} 2>/dev/null; done; true')
-            docker(["exec", "-u", "0:0", self.name, "sh", "-c", script], check=False, timeout=30)
+            new = (self._session_pids() - getattr(self, "_before", set())) | {self._sid}
+            if new:
+                docker(["exec", "-u", "0:0", self.name, "sh", "-c", "kill -9 " + " ".join(map(str, sorted(new))) + " 2>/dev/null; true"],
+                       check=False, timeout=30)
 
     def stop_agent(self) -> None:
-        """End the agent's session before grading (its detached services keep running)."""
-        self._kill_container_processes()
+        """End the agent's shell before grading by closing its input; its background processes keep running."""
+        if self._shell is not None:
+            try:
+                self._shell.stdin.close()
+            except Exception:
+                pass
+            try:
+                self._shell.wait(timeout=30)
+            except subprocess.TimeoutExpired:
+                _killpg(self._shell)
         self._shell = None
 
 
