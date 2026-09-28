@@ -440,3 +440,8 @@ stop or a failure to promote is not evidence that RL cannot help.
 *Compute ceiling:* 45 A6000 GPU-hours (kill/P selection/gates 3, variance 1.5, systems 1, S 14, R 14,
 D 2, checkpoints and S gate 2, final 6.5, contingency 1), one card, ≤ 8 sandboxes; an arm that cannot
 finish is reported incomplete, never dropped.
+
+**A8.1 — 2026-09-27, before any admission run.** Verifier discrimination applies to the regular files the
+reference created or changed **whose path or file name appears in the hidden test file** (the graded
+outputs); helper files the grader never names are not mutated. The admission rule is otherwise unchanged:
+m1 must fail, and at least one applicable of m2/m3 must fail, for every graded output.
