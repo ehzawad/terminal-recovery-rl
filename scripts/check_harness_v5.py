@@ -18,11 +18,10 @@ import os
 import shlex
 import sys
 
-from termrl.config import user_content
+from termrl.config import POOL, user_content
 from termrl.env import TerminalEnv, contract_for
 from termrl.tasks import load_task
 
-POOL = "/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals"
 TASKS = ["task_000000_395e1e6a", "task_000000_4c810431", "task_000000_4fee1147", "task_000000_e7fc701f"]
 
 

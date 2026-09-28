@@ -7,6 +7,11 @@ REVISION = "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
 # Trainer, colocated vLLM, evaluation server and tokenizer all read this one pinned snapshot.
 MODEL_PATH = os.path.expanduser(f"~/.cache/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/{REVISION}")
 
+# Local checkout of the task pool (git clone of obiwan96/endless-terminals at 26ecf784) and other host paths;
+# the defaults sit next to this repository and each can be overridden from the environment.
+_HERE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+POOL = os.environ.get("TERMRL_POOL", os.path.normpath(os.path.join(_HERE, "..", ".pools", "endless-terminals")))
+
 SYSTEM_DEFAULT = (
     "You are an agent operating a Linux terminal through the `bash` tool. Complete the user's task. "
     "When you are finished, reply with a brief summary and no tool call."

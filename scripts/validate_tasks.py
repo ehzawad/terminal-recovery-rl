@@ -32,8 +32,8 @@ import traceback
 from termrl import faults, manifest
 from termrl.env import TerminalEnv
 from termrl.tasks import load_task
+from termrl.config import POOL
 
-POOL = "/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals"
 FAMILIES = faults.TRAIN_FAMILIES + faults.HELDOUT_FAMILIES
 
 

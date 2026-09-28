@@ -31,8 +31,8 @@ import os
 
 from termrl import faults
 from termrl.tasks import load_task, tests_execute_code
+from termrl.config import POOL
 
-POOL = "/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals"
 
 
 def h(*parts) -> int:

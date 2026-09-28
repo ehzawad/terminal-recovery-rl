@@ -48,7 +48,8 @@ def _h(*parts) -> int:
 
 def initial_files(task: Task) -> list[str]:
     """Regular files under /home/user in the pristine task image (cached next to the task)."""
-    cache_dir = os.environ.get("TERMRL_CACHE", "/mnt/sdb/arafat/ehz/llm/.pools/.cache")
+    cache_dir = os.environ.get("TERMRL_CACHE", os.path.normpath(
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", ".pools", ".cache")))
     os.makedirs(cache_dir, exist_ok=True)
     cache = os.path.join(cache_dir, f"{task.task_id}.{task.env_hash()}.files")
     if os.path.exists(cache):

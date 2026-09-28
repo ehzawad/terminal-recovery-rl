@@ -25,7 +25,8 @@ from dataclasses import dataclass, field
 
 from .sandbox import docker
 
-TOOLCHAIN = os.environ.get("TERMRL_VERIFIER_TOOLCHAIN", "/mnt/sdb/arafat/ehz/llm/.venvs/vt")
+TOOLCHAIN = os.environ.get("TERMRL_VERIFIER_TOOLCHAIN",
+                           os.path.normpath(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "..", ".venvs", "vt")))
 
 _RUNNER = r"""
 import json, os, sys

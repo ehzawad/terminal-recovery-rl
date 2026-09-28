@@ -14,8 +14,8 @@ import argparse
 import hashlib
 import json
 import os
+from termrl.config import POOL
 
-POOL = "/mnt/sdb/arafat/ehz/llm/.pools/endless-terminals"
 
 
 def main() -> None:
