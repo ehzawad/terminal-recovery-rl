@@ -13,12 +13,13 @@ if os.path.exists(DST):
 os.makedirs(DST)
 
 CORE = ["__init__.py", "config.py", "env.py", "faults.py", "fixtures.py", "manifest.py", "rollout.py", "sandbox.py",
-        "server.py", "tasks.py", "verify.py"]
+        "server.py", "tasks.py", "tb.py", "verify.py"]
 SCRIPTS = {"make_rows.py": "make_rows.py", "evaluate.py": "evaluate.py", "run_eval_arms.py": "run_eval_arms.py",
            "validate_tasks.py": "validate_tasks.py", "freeze_contracts.py": "freeze_contracts.py",
            "check_harness_v5.py": "check_harness.py", "smoke_sandbox.py": "smoke_sandbox.py",
            "cleanup_orphans.py": "cleanup_orphans.py", "train_grpo.py": "train_grpo.py", "train_sft.py": "train_sft.py",
-           "adapter_parity.py": "adapter_parity.py"}
+           "adapter_parity.py": "adapter_parity.py", "tb_admission.py": "tb_admission.py",
+           "probe_longctx.py": "probe_longctx.py"}
 
 # (file, old, new): exact replacements; every one must apply.
 EDITS = [
@@ -138,6 +139,36 @@ for line in open(f"{SRC}/runs/gates_v4/headline_P.jsonl"):
         replays.append({"episode": len(replays), "commands": [tc["arguments"]["command"] for x in t["turns"]
                                                               for tc in (x.get("tool_calls") or [])]})
 json.dump(replays, open(f"{DST}/data/checks/replay_4fee1147.json", "w"), indent=1)
+
+# hard-task audit (tasks a strong model solved in only 1-11 of 16 attempts)
+os.makedirs(f"{DST}/data/hard/review")
+cands = json.load(open(f"{SRC}/data/hard/candidates.json"))
+cands["rule"] = ("Endless Terminals @26ecf784 tasks that o3 solved in 1-11 of 16 attempts and that pass the same static "
+                 "screens as the main slice (local text/stdlib, real data transformation, no dynamic time, no literal "
+                 "answers, no code-executing hidden tests, light dependencies): 173, minus 2 dropped for dependencies.")
+json.dump(cands, open(f"{DST}/data/hard/candidates.json", "w"), indent=1)
+for f in ("admission.json", "near_duplicate_pairs.json"):
+    shutil.copy(f"{SRC}/data/hard/{f}", f"{DST}/data/hard/{f}")
+for f in sorted(os.listdir(f"{SRC}/data/hard/review")):
+    if f.endswith(".json"):
+        shutil.copy(f"{SRC}/data/hard/review/{f}", f"{DST}/data/hard/review/{f}")
+with open(f"{DST}/data/hard/validity.jsonl", "w") as fh:
+    for line in open(f"{SRC}/data/hard/validity.jsonl"):
+        r = json.loads(line)
+        r["harness"] = "termrl-1"
+        line = re.sub(r"/mnt/sdb/[^\"\\ ]*terminal-recovery-rl", "<repo>", json.dumps(r))
+        assert "/mnt/sdb" not in line and "arafat" not in line
+        fh.write(line + "\n")
+os.makedirs(f"{DST}/results", exist_ok=True)
+rd = open(f"{SRC}/results/transfer_readiness.md").read()
+rd = rd.replace("# Transfer-study readiness audit (model-free; no Terminal-Bench outcome of any policy)",
+                "# Terminal-Bench readiness audit (model-free; no Terminal-Bench outcome of any policy)")
+rd = rd.replace("The council's transfer design needs at least 80 admitted, lineage-independent external task groups.",
+                "A transfer comparison with a 48-task final split plus development and gate splits needs at least 80 "
+                "admitted, lineage-independent external task groups.")
+assert "council" not in rd.lower()
+open(f"{DST}/results/terminal_bench_readiness.md", "w").write(rd)
+shutil.copy(f"{SRC}/results/probe_longctx.json", f"{DST}/results/probe_longctx.json")
 
 # prompts
 os.makedirs(f"{DST}/prompts")
