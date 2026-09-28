@@ -1,0 +1,1556 @@
+{
+ "candidates": 171,
+ "admitted_tasks": 84,
+ "groups": 83,
+ "min_groups": 144,
+ "decisions": {
+  "task_000000_03444611": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_0497c08a": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_08a3a999": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_0bc4623e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_0dbc0d6a": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_0fc28097": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_155368e9": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed",
+    "contradiction",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_1734fd09": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_176d0aa4": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_1b95a2fc": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_1f3fb454": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_20795c54": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_227b72ab": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_24968ee5": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_249b5651": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_26eba2d8": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_27030ede": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_28da0145": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_2a0a7cde": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_2b1ca473": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement",
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_2ce110bb": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_2e74f4dd": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_2fa611c1": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed",
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_2fe29bd4": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_2fe381b3": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_3144d75e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_31f2fb6d": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "presence_only"
+   ],
+   "admitted": false
+  },
+  "task_000000_32af4c91": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_333a2797": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_33c48fc4": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_361f3d63": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_363eb497": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_376ab767": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_3968a6ec": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_3cd7f4a7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_3e5e79c6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_44510e43": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_44c20928": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "other"
+   ],
+   "admitted": false
+  },
+  "task_000000_461f140f": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_47882277": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_4a76d37e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_5622dcaf": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_58efc061": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_5904176b": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_59dd29f4": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_5a923222": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_5ae496c4": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_5d952feb": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_5e029c0f": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_600f7863": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_609ebf49": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_612612d6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_61924df6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_64c0ee72": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_6512ac67": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_658f04e0": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_65b7bd46": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_6697de51": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_66cb08f7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed",
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_67e8a015": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_6812317c": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_686d09a1": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_68e81dcd": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_6d85b683": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_6f94b757": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_707e607e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_7212f9c7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_73503a34": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_744639f5": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_74b01700": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_74d1c770": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "other",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_74eef614": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_75192ca3": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_76096271": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_78a8665b": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_7b043e22": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_7b368f5e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_7d3d9d33": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_7d66dd84": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_81b93d86": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_81feb6c8": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_8309d13d": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_83455158": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_880c0c6c": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_8863b346": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_8867cc8b": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_8b547188": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_8c253e57": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_8c27b385": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_8d632927": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_914cdb97": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_927672b6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_930d1d79": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_93478d3e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_9439ccd0": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_9a09c329": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed",
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_9b087c6d": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_9bbcde71": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": true,
+   "review_reasons": [
+    "needs_network_or_service",
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_9bc5c5e6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_9c3f78d1": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_9c465b6a": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_9cfe99c4": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_9fd868fd": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a101d59a": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_a22d6c57": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a33ccd7f": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a34927e4": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a3e7b923": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a5d3bbae": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a6164507": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_a79b87f9": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_a7d297b7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_ac644c33": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_aeb8b2b7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_b20b6b19": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_b2a561a2": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_b49d20ff": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_b5e6181e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_b6d23170": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_b74a87c7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_b91df6b2": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_b95b8b04": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_ba620f3c": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_ba708fa7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_bcc53e4e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_bfb0949a": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_c5175c6e": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_c83b6024": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_c9ab2dca": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_ca1e3c27": {
+   "valid": false,
+   "harness_error": false,
+   "discrimination": null,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_ca4ffb19": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_cae850ca": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_cb1a129c": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_ce8edbb1": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_cefb845c": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_cf7541cd": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_d2312ab6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_d32c5973": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_d3910f9d": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "other"
+   ],
+   "admitted": false
+  },
+  "task_000000_d4bbcaba": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_daa1c073": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_dcdd53fb": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_dd9a29de": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_de48a3cb": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_e15329a0": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction",
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_e160b6f7": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_e1fb3207": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_e33c6078": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_e36bb1fc": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_e89f9b51": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_eadb3a61": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_ebbea6a6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_edfab650": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_ee44550b": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_f05cbcd8": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_f1459e23": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_f1aae6e1": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_f37e6529": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_f3a4c4e2": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_f4a4ca99": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": false
+  },
+  "task_000000_f5c45152": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_f5cb6bce": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_f6529d5b": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_faec5bd0": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_fc398869": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_fcebb9db": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_fdd8bbf2": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "uninferable_requirement"
+   ],
+   "admitted": false
+  },
+  "task_000000_fe98d2e6": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  },
+  "task_000000_ffa6e96d": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": false,
+   "review_exclude": true,
+   "review_reasons": [
+    "contradiction"
+   ],
+   "admitted": false
+  },
+  "task_000000_ffeaac82": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": true,
+   "review_reasons": [
+    "answer_exposed"
+   ],
+   "admitted": false
+  },
+  "task_000000_fffbc984": {
+   "valid": true,
+   "harness_error": false,
+   "discrimination": true,
+   "review_exclude": false,
+   "review_reasons": [],
+   "admitted": true
+  }
+ },
+ "related_to_easy_tasks": {
+  "task_000000_376ab767": [
+   "task_000000_dc44e3c8",
+   "task_000000_715a8e99",
+   "task_000000_41eee653",
+   "task_000000_989491a4"
+  ],
+  "task_000000_59dd29f4": [
+   "task_000000_444821ac"
+  ],
+  "task_000000_32af4c91": [
+   "task_000000_248cf61a"
+  ],
+  "task_000000_dcdd53fb": [
+   "task_000000_05af8ca3"
+  ],
+  "task_000000_fffbc984": [
+   "task_000000_e3ba3225",
+   "task_000000_52c77beb",
+   "task_000000_9f315897"
+  ],
+  "task_000000_612612d6": [
+   "task_000000_a1a0cf1e"
+  ],
+  "task_000000_2ce110bb": [
+   "task_000000_81fccd5b"
+  ]
+ }
+}

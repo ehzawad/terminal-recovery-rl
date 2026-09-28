@@ -457,3 +457,7 @@ verifier-discrimination runs are completed for the record only. The near-duplica
 hard–hard and 30 hard–easy variant pairs. Conclusion: the tail of Endless Terminals that a strong model
 fails is dominated by specification defects, not by genuinely harder, well-posed work; three registered
 designs failed their prerequisites and no RL comparison was run. This is not evidence that RL cannot help.
+*Admission record, completed for the record (`data/hard/admission.json`):* 159/171 valid under the clean
+validity gate (0 harness errors); verifier discrimination failed for 20 (graded outputs whose emptied or
+edited versions still pass); the review excluded 68, of which 55 had passed both automated checks — the
+review and the mutation test catch different defects. **84 tasks (83 groups) are admitted**, below 144.

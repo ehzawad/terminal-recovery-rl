@@ -1,0 +1,9 @@
+{
+  "test": "Publisher v2 original grader with /workdir paths redirected to temp directory only",
+  "input_csv": "wrong_header plus newline; zero rows",
+  "database_exists": false,
+  "score": 1.0,
+  "feedback": "WRONG: SQLite database /workdir/books.db was not created; CORRECT: CSV structure valid with 0 publishers analyzed; CORRECT: Expected 0 valid publishers from reference calculation; CORRECT: No missing publishers; CORRECT: Pricing strategies - Aggressive: 0, Moderate: 0, Conservative: 0; CORRECT: All publisher analyses correct; CORRECT: Publisher market analysis completed successfully; Failed constraints: 0",
+  "source": "/mnt/sdb/arafat/ehz/llm/.pools/tblite/publisher-market-analysis-v2/tests/grader.py",
+  "scope": "Isolated grader reproduction, not Docker oracle/no-op validation"
+}

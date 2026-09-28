@@ -1,0 +1,25 @@
+# Council round 8 — terminal-recovery-rl: the owner chose external transfer (Terminal-Bench). Design it, or show it cannot be done honestly here.
+
+## Goal and rules (unchanged)
+Owner (ehzawad): Qwen3.5-9B (instruct rev c202236235, hybrid Gated DeltaNet), LoRA r16, one RTX A6000 48 GB, agentic SFT+RL where "RL demonstrably fixed it". Product: English-intent → bash agent that executes safely on Linux. Registration before data; no manufactured headroom; arms P (best frozen prompt), S (2-round rejection-sampling SFT), D (SFT on R's successes), R (LoRA Dr.GRPO from instruct); promotion needs R ≥ +12 pts over each of P, S, D with paired task-cluster bootstrap 80% LB > +3 plus mechanism and guardrail conditions. ≤ 45 A6000 GPU-hours per study; ≤ 8 sandboxes; shared box (co-tenant services; never restart dockerd). Public artefacts: private GitHub + public HF dataset `ehzawad/terminal-recovery-bench` (already published: harness, 593 validated contracts, prompts, results; no adapter).
+
+## History (all registered stops, no RL trained)
+- Study 1 (fault recovery on the o3-easy Endless Terminals slice): best prompt leaves 15% recovery failure, ~2% real collateral → stop (needs ≥ 20%). P safe success 0.776.
+- Study 2 (8-command budget): kill pre-check, a batching prompt did 28/32 → stop.
+- Held-out FIFO fault: p6 20/59 safe; an informed runbook prompt 43/59.
+- Study 3 (hard slice, ET tasks o3 solved 1–11/16): 171 static candidates; eight independent reviewers excluded 68 (34 unstated tested requirements, 25 instruction/test contradictions, 20 exposed answers, 3 broken) → ≤ 103 < registered floor 144 → stop at admission, no Qwen run.
+- Owner's choice now (picker, against my recommendation to close): **Terminal-Bench transfer**. Council round 7 (both roles) had said H2 is plausible as a transfer check but costly; TMax (arXiv 2606.23321) reports Qwen3.5-9B RL on Endless → TBLite 41.9 → 52.6 (+10.7), TB2.1 16.1 → 25.5, full training on H100s, long contexts, checkpoint chosen on TBLite; our bar is +12 over P, S AND D.
+
+## Current harness (v5) and measured costs
+Docker sandbox, uid 1000 owning /home/user, `--network none`, persistent bash tool, 30 s per command, 3,000-char output cap, 16 tool calls, 6,144 generated / 8,192 total tokens, thinking off; hidden pytest graded in a fresh container from a snapshot, with a read-only trusted Python 3.12 + pytest 8.4.1 toolchain mounted in; property-level safety oracle over /home/user. TRL GRPO via environment_factory, colocated vLLM with sleep mode, LoRA; earlier 1-step smoke: 16 trajectories in 699 s, peak ~39–43 GiB at 6K completion; HF side uses PyTorch reference kernels for Gated DeltaNet (no fla/causal-conv1d: they segfault on this stack). vLLM on the A6000: weights 17 GiB, KV 18.7 GiB = 549K tokens at 0.80 util, 40 tok/s single stream, 532 tok/s at 16 streams. ET episodes average ~49 s. Adapter parity (vLLM LoRA vs PEFT) verified.
+
+## Terminal-Bench scouting (task files only, no runs)
+- **TB2.1** (harbor-framework/terminal-bench-2-1 @7131e43, Apache-2.0): 89 tasks; all `allow_internet = true`; all graders install deps from the network via `uvx` at grading time (pytest, numpy, scipy, …); prebuilt images on Docker Hub (e.g. alexgshaw/...:20251031); agent timeouts 600–12,000 s (48 at 900 s, 17 at 1,800 s, 13 at 3,600 s); cpus 1–4, memory 2–8 GB; difficulty 4 easy / 55 medium / 30 hard; expert-time median 60 min. Official 2.1 notes fixed 28 of 89 tasks (dependency drift, resource budgets, instruction/test disagreement).
+- **TBLite** (open-thoughts/OpenThoughts-TBLite @5c37b41, no licence file in the repo): 100 tasks with Dockerfiles (no prebuilt images): base images ubuntu:22.04 ×40, python:3.13-slim-bookworm ×28, ubuntu:24.04 ×5, python 3.11/3.12 slim ×13, t-bench python image ×5, miniconda ×2; `allow_internet` unset on 99; **44 graders need no network** (pytest preinstalled in the image), the rest install pytest (+ in a few: requests, pyjwt, cryptography, redis, Flask) at grading time; agent timeouts 300–3,600 s (40 at 3,600 s, 32 at 900 s); difficulty 24 easy / 43 medium / ~33 hard+; expert median 45 min; 9 instructions mention downloads, installs or URLs. TBLite describes itself as a development benchmark calibrated with another model's difficulty.
+- Working directories vary (e.g. /app), so the /home/user safety oracle does not apply to TB tasks as-is.
+
+## The owner's product and what they asked
+RL that demonstrably fixes a terminal-agent failure. The owner explicitly picked the external-transfer option after three stops.
+
+## Candidate shape (mine — attack or replace)
+Study 4: train on Endless Terminals (existing validated easy slice; maybe plus admitted hard tasks), evaluate transfer on an offline-admissible TBLite subset (and possibly TB2.1 as a secondary) with a long-horizon evaluation harness (e.g. 32K context, ~60–100 tool calls, per-command timeout of minutes, the task's own agent timeout, network off), all four arms, primary = TBLite task success; gates: P headroom on a TBLite dev split, variance on the ET training rows; registration before any TB run.
