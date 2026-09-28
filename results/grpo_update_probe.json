@@ -1,0 +1,14 @@
+{
+ "what": "3 GRPO updates (LoRA r16, Dr.GRPO, 4 groups x 4, colocated vLLM at 0.45 utilisation, 16 disclosed commands) on 12 clean train tasks with prompt p6_env_aware",
+ "seconds": 1655.4,
+ "trajectories": 48,
+ "seconds_per_trajectory": 34.5,
+ "peak_device_gib_sampled": 39.19,
+ "torch_max_allocated_gib": 48.34,
+ "note": "torch_max_allocated counts the colocated vLLM allocator in the same process; the sampled device figure is the physical peak",
+ "steps": [
+  {"step": 1, "grad_norm": 0.004686, "learning_rate": 0.0, "reward": 0.9609, "reward_std": 0.1563, "frac_reward_zero_std": 0.75, "completions/mean_length": 889.2, "step_time": 474.8},
+  {"step": 2, "grad_norm": 0.000479, "learning_rate": 5e-06, "reward": 0.7028, "reward_std": 0.3077, "frac_reward_zero_std": 0.5, "completions/mean_length": 898.7, "step_time": 525.3},
+  {"step": 3, "grad_norm": 0.002087, "learning_rate": 1e-05, "reward": 0.875, "reward_std": 0.2700, "frac_reward_zero_std": 0.75, "completions/mean_length": 1465.8, "step_time": 652.5}
+ ]
+}
