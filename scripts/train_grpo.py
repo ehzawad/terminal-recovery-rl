@@ -29,7 +29,7 @@ from peft import LoraConfig
 from transformers import TrainerCallback
 from trl import GRPOConfig, GRPOTrainer
 
-from termrl.config import COMMAND_TIMEOUT, MAX_COMPLETION, MAX_MODEL_LEN, MAX_TOOL_TURNS, OUTPUT_LIMIT
+from termrl.config import COMMAND_TIMEOUT, MAX_COMPLETION, MAX_MODEL_LEN, MAX_TOOL_TURNS, OUTPUT_LIMIT, user_content
 from termrl.config import MODEL_PATH as MODEL  # pinned local snapshot of Qwen/Qwen3.5-9B
 from termrl.env import TerminalEnv
 
@@ -128,16 +128,23 @@ class LivenessGate(TrainerCallback):
             control.should_training_stop = True
 
 
-def load_rows(path: str, system_prompt: str) -> Dataset:
-    rows = []
+def load_rows(path: str, system_prompt: str) -> tuple[Dataset, int | None]:
+    """Training rows as TRL prompts; every row must carry the same command budget (A7), which is returned."""
+    rows, budgets = [], set()
     for line in open(path):
         r = json.loads(line)
+        mc = r.get("max_commands")
+        budgets.add(mc)
+        instruction = open(os.path.join(r["task_root"], "instruction.md")).read().strip()
         rows.append({
             "prompt": [{"role": "system", "content": system_prompt},
-                       {"role": "user", "content": open(os.path.join(r["task_root"], "instruction.md")).read().strip()}],
+                       {"role": "user", "content": user_content(instruction, mc)}],
             "task_root": r["task_root"], "fault_family": r.get("fault_family") or "", "fault_seed": int(r.get("fault_seed", 0)),
+            "max_commands": int(mc or 0),
         })
-    return Dataset.from_list(rows)
+    if len(budgets) != 1:
+        raise SystemExit(f"rows mix command budgets: {sorted(budgets, key=str)}")
+    return Dataset.from_list(rows), budgets.pop()
 
 
 class MemoryProbe(threading.Thread):
@@ -180,7 +187,9 @@ def main() -> None:
     args = ap.parse_args()
 
     system_prompt = open(args.system_prompt_file).read().strip()
-    ds = load_rows(args.rows, system_prompt)
+    ds, max_commands = load_rows(args.rows, system_prompt)
+    if max_commands:  # the tool-round limit equals the command budget, exactly as in evaluation
+        args.max_tool_turns = max_commands
     completions_per_step = args.num_generations * args.groups_per_step
     cfg = GRPOConfig(
         output_dir=args.out,
@@ -233,7 +242,8 @@ def main() -> None:
     probe.stop()
     summary = {"seconds": round(time.time() - t0, 1), "peak_device_gib": round(probe.peak_gib, 2),
                "liveness_stop": gate.reason, "run_state": gate._save(),
-               "system_prompt_file": args.system_prompt_file,
+               "system_prompt_file": args.system_prompt_file, "max_commands": max_commands,
+               "max_tool_turns": args.max_tool_turns,
                "system_prompt_sha": hashlib.sha256(system_prompt.encode()).hexdigest()[:16],
                "torch_max_allocated_gib": round(torch.cuda.max_memory_allocated() / 2**30, 2),
                "log_history": trainer.state.log_history}

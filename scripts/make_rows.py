@@ -15,7 +15,9 @@ Fault state per configuration:
 Eligibility: `--require-faultable` keeps only tasks with a usable training family (A1 for P selection).
 The family is drawn per configuration from the task's usable families; the target is fixed by the
 contract. `--configs-per-task K` makes K configurations per task (config index c = 0..K-1, fault
-seed c); `--limit` keeps the first N configurations in sha256 order.
+seed c); `--limit` keeps the first N configurations in sha256 order. `--tasks FILE:KEY` keeps only the task
+ids listed under KEY in a JSON file (e.g. data/study2_partitions.json:gate). `--max-commands N` (A7) writes
+the command budget into every row and into its row id.
 
 Usage:
   python scripts/make_rows.py --partition train --families mix --fault-share 0.25 --limit 256 \
@@ -52,6 +54,8 @@ def main() -> None:
                          "(default: data/validity/v4.jsonl then data/validity/v41.jsonl)")
     ap.add_argument("--split", default="data/splits_v1.json")
     ap.add_argument("--salt", default="rows-v4")
+    ap.add_argument("--tasks", help="FILE:KEY, a JSON file whose KEY lists the task ids to keep")
+    ap.add_argument("--max-commands", type=int, help="command budget written into every row (A7)")
     ap.add_argument("--out", required=True)
     args = ap.parse_args()
 
@@ -65,9 +69,15 @@ def main() -> None:
     fams = {"train": faults.TRAIN_FAMILIES, "heldout": faults.HELDOUT_FAMILIES, "clean": (),
             "mix": faults.TRAIN_FAMILIES}[args.families]
 
+    keep = None
+    if args.tasks:
+        f, _, key = args.tasks.partition(":")
+        keep = set(json.load(open(f))[key])
     configs = []
     for tid, rec in validity.items():
         if split.get(tid) not in args.partition or not rec.get("valid"):
+            continue
+        if keep is not None and tid not in keep:
             continue
         if tests_execute_code(load_task(os.path.join(POOL, tid))):
             continue  # A6: hidden tests that run or import code are excluded everywhere
@@ -93,12 +103,16 @@ def main() -> None:
 
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     n_faulted = sum(1 for *_, fam in configs if fam)
+    budget = f":m{args.max_commands}" if args.max_commands else ""
     with open(args.out, "w") as f:
         for _, tid, c, fam in configs:
             for a in range(args.attempts):
-                f.write(json.dumps({"row_id": f"{args.salt}:{tid}:c{c}:a{a}", "task_id": tid, "task_root": os.path.join(POOL, tid),
-                                    "partition": split[tid], "fault_family": fam, "fault_seed": c, "config": c,
-                                    "attempt": a, "trial": a}) + "\n")
+                row = {"row_id": f"{args.salt}:{tid}:c{c}:a{a}{budget}", "task_id": tid, "task_root": os.path.join(POOL, tid),
+                       "partition": split[tid], "fault_family": fam, "fault_seed": c, "config": c,
+                       "attempt": a, "trial": a}
+                if args.max_commands:
+                    row["max_commands"] = args.max_commands
+                f.write(json.dumps(row) + "\n")
     print(f"{len(configs)} configurations ({n_faulted} faulted, {len(configs) - n_faulted} clean) x "
           f"{args.attempts} attempts = {len(configs) * args.attempts} rows -> {args.out}")
 

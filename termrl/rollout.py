@@ -24,7 +24,7 @@ from trl.chat_template_utils import (
 )
 from trl.data_utils import prepare_multimodal_messages
 
-from .config import COMMAND_TIMEOUT, MAX_COMPLETION, MAX_MODEL_LEN, MAX_TOOL_TURNS, OUTPUT_LIMIT, REVISE_NUDGE
+from .config import COMMAND_TIMEOUT, MAX_COMPLETION, MAX_MODEL_LEN, MAX_TOOL_TURNS, OUTPUT_LIMIT, REVISE_NUDGE, user_content
 from .env import TerminalEnv
 
 
@@ -89,16 +89,22 @@ def run_episode(
     output_limit: int = OUTPUT_LIMIT,
     check_revise: bool = False,
     revise_nudge: str | None = None,
+    max_commands: int | None = None,
 ) -> dict:
+    """One episode. With `max_commands` (A7) the environment runs at most that many commands, the user
+    message states the budget, and the tool-round limit equals the budget (TRL max_tool_calling_iterations)."""
+    if max_commands:
+        max_tool_turns = max_commands
     env = TerminalEnv(command_timeout=command_timeout, output_limit=output_limit)
     trace: dict = {"task_root": task_root, "model": model, "system_prompt": system_prompt, "seed": seed,
-                   "check_revise": check_revise, "turns": [], "end_reason": None, "harness": "v4.1"}
+                   "check_revise": check_revise, "max_commands": max_commands, "turns": [], "end_reason": None,
+                   "harness": "v5"}
     t_start = time.monotonic()
     try:
-        env.reset(task_root=task_root, fault_family=fault_family, fault_seed=fault_seed)
+        env.reset(task_root=task_root, fault_family=fault_family, fault_seed=fault_seed, max_commands=max_commands)
         trace["fault"] = env._fault.as_dict() if env._fault else None
         messages = [{"role": "system", "content": system_prompt},
-                    {"role": "user", "content": env._task.instruction}]
+                    {"role": "user", "content": user_content(env._task.instruction, max_commands)}]
         prompt_ids = renderer.prompt_ids(messages)
         completion_ids: list[int] = []
         tool_mask: list[int] = []
@@ -181,6 +187,7 @@ def run_episode(
     trace["safe_success"] = res["safe_success"]
     trace["harness_error"] = trace.get("harness_error") or res["error"]  # infra/verifier problems only
     trace["commands"] = env._log
+    trace["refused_calls"] = getattr(env, "_refused", 0)
     trace["fault_observed_call"] = getattr(env, "_fault_observed_call", None)
     trace["fault_cleared"] = getattr(env, "_fault_cleared", None)
     trace["collateral"] = getattr(env, "_collateral", None)

@@ -73,7 +73,15 @@ def summarize(rows: list[dict]) -> dict:
         "collateral_all": _rate(r.get("collateral") is not None for r in rows),
         "fabricated_input": _rate(bool(r.get("fabricated_input")) for r in faulted),
         "recovery_failure_observed": _rate(not (r.get("verdict") or {}).get("success") for r in observed),
-        "failure_assigned_fault": _rate(not r.get("safe_success") for r in faulted),
+        "failure_assigned_fault": _rate(not r.get("safe_success") for r in faulted),  # unsafe or failed
+        "task_failure_assigned_fault": _rate(not (r.get("verdict") or {}).get("success") for r in faulted),
+        "task_failure_macro": _macro(rows, lambda r: not (r.get("verdict") or {}).get("success")),
+        "max_commands": sorted({r.get("max_commands") for r in rows}, key=str),
+        # A7 H: used every budgeted command and did not pass all tests
+        "unfinished_at_limit": _rate(bool(r.get("max_commands")) and len(r.get("commands") or []) >= r["max_commands"]
+                                     and not (r.get("verdict") or {}).get("success") for r in rows),
+        "commands_mean": round(statistics.mean(len(r.get("commands") or []) for r in rows), 2) if rows else None,
+        "refused_calls": sum(r.get("refused_calls", 0) for r in rows),
         "fault_observed_rate": _rate(r.get("fault_observed_call") is not None for r in faulted),
         "safe_success_by_family": {k: round(statistics.mean(v), 3) for k, v in sorted(by_family.items())},
         "groups_with_repeats": len(multi),
@@ -111,7 +119,7 @@ def main() -> None:
     system_prompt = open(args.system_prompt_file).read().strip()
     identity = {"rows_sha": sha(args.rows), "prompt_sha": sha(args.system_prompt_file), "model": args.model,
                 "check_revise": args.check_revise, "temperature": args.temperature, "top_p": args.top_p,
-                "top_k": args.top_k, "harness": "v4.1"}
+                "top_k": args.top_k, "harness": "v5"}
     client = OpenAI(base_url=args.base_url, api_key="none", timeout=900)
     renderer = Renderer(MODEL_PATH)
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
@@ -130,7 +138,8 @@ def main() -> None:
         tr = run_episode(client, renderer, args.model, row["task_root"], system_prompt=system_prompt,
                          seed=seed_for(row["row_id"]), fault_family=row.get("fault_family"),
                          fault_seed=row.get("fault_seed", 0), check_revise=args.check_revise,
-                         temperature=args.temperature, top_p=args.top_p, top_k=args.top_k)
+                         temperature=args.temperature, top_p=args.top_p, top_k=args.top_k,
+                         max_commands=row.get("max_commands"))
         tr.update({k: row[k] for k in ("row_id", "task_id", "config", "attempt", "trial", "partition")},
                   identity=identity, assigned_fault=row.get("fault_family"))
         with lock:

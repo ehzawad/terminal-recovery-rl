@@ -65,15 +65,21 @@ def allowed_kinds(path: str, permitted: dict[str, set[str]]) -> set[str]:
     return kinds
 
 
-def diff(baseline: dict[str, tuple], current: dict[str, tuple], permitted: dict[str, set[str]]) -> list[dict]:
+def diff(baseline: dict[str, tuple], current: dict[str, tuple], permitted: dict[str, set[str]],
+         final: bool = True) -> list[dict]:
     """Changes to pre-existing objects that the permitted write set does not cover, property by property.
 
     A path permitted only a mode change is still protected against deletion, truncation or rewrite.
+    A path permitted a type change may be absent between tool calls (a directory moved away in one call
+    and replaced by a symlink in the next); absent at the final check it is still `deleted` (A7).
     """
     events = []
     for path, before in baseline.items():
         allowed = allowed_kinds(path, permitted)
-        for kind in changes(before, current.get(path)):
+        after = current.get(path)
+        if after is None and not final and "type_changed" in allowed:
+            continue
+        for kind in changes(before, after):
             if kind not in allowed:
                 events.append({"path": path, "kind": kind})
     return events
