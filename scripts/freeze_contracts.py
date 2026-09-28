@@ -22,8 +22,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--validity", action="append", required=True)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--ids", default="data/audit/endless_recommended_ids.json",
+                    help="JSON list of the task ids to consider (default: the audited easy set)")
     args = ap.parse_args()
-    audited = set(json.load(open("data/audit/endless_recommended_ids.json")))
+    audited = set(json.load(open(args.ids)))
     recs = {}
     for path in args.validity:
         for line in open(path):
@@ -36,6 +38,8 @@ def main() -> None:
         for tid, r in sorted(recs.items()):
             if not r.get("valid") or not r.get("tests"):
                 continue
+            if "discrimination" in r and not r["discrimination"].get("pass"):
+                continue  # A8: graded outputs must be discriminated
             tests_sha = hashlib.sha256(open(f"{POOL}/{tid}/tests/test_final_state.py", "rb").read()).hexdigest()[:16]
             usable = {k: v["target"] for k, v in r.get("faults", {}).items() if v.get("usable")}
             f.write(json.dumps({"task_id": tid, "fixture_level": r["fixture_level"], "permitted": r["permitted"],

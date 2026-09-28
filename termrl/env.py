@@ -34,8 +34,10 @@ from .sandbox import Sandbox, docker
 from .tasks import Task, load_task
 from .verify import Verdict, verify_image
 
-CONTRACTS = os.environ.get("TERMRL_CONTRACTS",
-                           os.path.join(os.path.dirname(__file__), "..", "data", "contracts_v4_frozen.jsonl"))
+_DATA = os.path.join(os.path.dirname(__file__), "..", "data")
+# One or more frozen contract files (os.pathsep-separated); the hard-task contracts (A8) are added when present.
+CONTRACTS = os.environ.get("TERMRL_CONTRACTS", os.pathsep.join(
+    [os.path.join(_DATA, "contracts_v4_frozen.jsonl"), os.path.join(_DATA, "hard", "contracts.jsonl")]))
 _contracts: dict[str, dict] | None = None
 _lock = threading.Lock()
 
@@ -46,10 +48,13 @@ def contract_for(task_id: str) -> dict | None:
     with _lock:
         if _contracts is None:
             loaded: dict[str, dict] = {}
-            if os.path.exists(CONTRACTS):
-                for line in open(CONTRACTS):
-                    r = json.loads(line)
-                    loaded[r["task_id"]] = r
+            for path in CONTRACTS.split(os.pathsep):
+                if os.path.exists(path):
+                    for line in open(path):
+                        r = json.loads(line)
+                        if r["task_id"] in loaded:
+                            raise ValueError(f"task {r['task_id']} has contracts in two files")
+                        loaded[r["task_id"]] = r
             _contracts = loaded
     return _contracts.get(task_id)
 
