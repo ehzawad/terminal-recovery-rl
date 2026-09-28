@@ -461,3 +461,13 @@ designs failed their prerequisites and no RL comparison was run. This is not evi
 validity gate (0 harness errors); verifier discrimination failed for 20 (graded outputs whose emptied or
 edited versions still pass); the review excluded 68, of which 55 had passed both automated checks — the
 review and the mutation test catch different defects. **84 tasks (83 groups) are admitted**, below 144.
+
+**Closure — 2026-09-28.** After Study 3's stop the owner chose an external-transfer study (Terminal-Bench); council
+round 8 (`data/audit/council_r8/`) required a model-free readiness audit first, with at least 80 admitted
+external task groups. The audit (`results/transfer_readiness.md`) found 29 of TBLite's 100 tasks without a
+reference solution, 40 TBLite graders that pass pytest whatever the score, every TB2.1 grader needing the
+network, at most 104 offline-feasible candidates across both suites before runtime checks, and 1 of 3
+admitted in the first runtime trial. Study 4 was **not registered or run**. On the owner's decision the
+project closes: no adapter is released; the public dataset card is updated with the hard-task audit and the
+readiness findings. Across four designs, no setting on these benchmarks passed the pre-specified checks
+needed for a fair RL comparison; this is not evidence that RL cannot help.
