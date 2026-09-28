@@ -39,3 +39,10 @@ them touches dev_monitor or test.
 - The same prompt recovers 85% of observed permission/moved faults, which it names explicitly. That
   prompt naming causes the gap is not shown: the families also differ in difficulty and in timeout
   cost.
+
+## Informed FIFO runbook (after Study 2 stopped; same 59 FIFO rows, exploratory)
+
+`prompts/x_fifo_runbook.txt` names each fault family and its repair, including named pipes (`stat -c %F`,
+restore from the backup copy, `timeout 5` on risky reads). On the identical rows: safe success 43/59
+(0.73) vs 20/59 for p6; paired 25 rows fixed, 2 broken, 14 still failed; fault cleared 29 vs 10; no
+collateral. An informed prompt closes most of the FIFO gap, as p6 did for the families it names.
