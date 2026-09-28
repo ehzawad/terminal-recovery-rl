@@ -1,0 +1,503 @@
+{
+ "method": "unigram TF-IDF (log tf, smoothed idf over the 171 candidates + 609 audited easy tasks) on the scout inventory's normalized_instruction; registered threshold 0.30 (14 pairs); pairs in [0.25, 0.30) are also adjudicated, which can only merge groups",
+ "pairs": [
+  {
+   "a": "task_000000_2fa611c1",
+   "b": "task_000000_3672bebe",
+   "cosine": 0.379,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5622dcaf",
+   "b": "task_000000_8b547188",
+   "cosine": 0.373,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_376ab767",
+   "b": "task_000000_dc44e3c8",
+   "cosine": 0.34,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_74d1c770",
+   "b": "task_000000_4b1e8da3",
+   "cosine": 0.336,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_59dd29f4",
+   "b": "task_000000_444821ac",
+   "cosine": 0.334,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_7d66dd84",
+   "b": "task_000000_83455158",
+   "cosine": 0.333,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_2ce110bb",
+   "b": "task_000000_a6164507",
+   "cosine": 0.328,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_ca4ffb19",
+   "b": "task_000000_c308062e",
+   "cosine": 0.327,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_e15329a0",
+   "b": "task_000000_929085c7",
+   "cosine": 0.322,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_914cdb97",
+   "b": "task_000000_4c343407",
+   "cosine": 0.317,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_67e8a015",
+   "b": "task_000000_904bd378",
+   "cosine": 0.315,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_8b547188",
+   "b": "task_000000_56cd5535",
+   "cosine": 0.315,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_930d1d79",
+   "b": "task_000000_adab787e",
+   "cosine": 0.311,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_74d1c770",
+   "b": "task_000000_9d56c67e",
+   "cosine": 0.306,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_24968ee5",
+   "b": "task_000000_7ef80422",
+   "cosine": 0.3,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_1f3fb454",
+   "b": "task_000000_c308062e",
+   "cosine": 0.299,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_686d09a1",
+   "b": "task_000000_e7fc701f",
+   "cosine": 0.297,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_2a0a7cde",
+   "b": "task_000000_aa78464d",
+   "cosine": 0.296,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_66cb08f7",
+   "b": "task_000000_631d58e0",
+   "cosine": 0.296,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_d3910f9d",
+   "b": "task_000000_a36951b5",
+   "cosine": 0.296,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_66cb08f7",
+   "b": "task_000000_68703a5d",
+   "cosine": 0.295,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_6d85b683",
+   "b": "task_000000_68703a5d",
+   "cosine": 0.294,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_376ab767",
+   "b": "task_000000_715a8e99",
+   "cosine": 0.293,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5a923222",
+   "b": "task_000000_1e415d15",
+   "cosine": 0.293,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_83455158",
+   "b": "task_000000_93d5d513",
+   "cosine": 0.293,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_83455158",
+   "b": "task_000000_fffbc984",
+   "cosine": 0.292,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_7b368f5e",
+   "b": "task_000000_a79b87f9",
+   "cosine": 0.289,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_24968ee5",
+   "b": "task_000000_f97ab70d",
+   "cosine": 0.288,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_32af4c91",
+   "b": "task_000000_248cf61a",
+   "cosine": 0.287,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_93478d3e",
+   "b": "task_000000_fe98d2e6",
+   "cosine": 0.287,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_686d09a1",
+   "b": "task_000000_395e1e6a",
+   "cosine": 0.285,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_d3910f9d",
+   "b": "task_000000_cfe1a54f",
+   "cosine": 0.285,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_dcdd53fb",
+   "b": "task_000000_05af8ca3",
+   "cosine": 0.285,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_6d85b683",
+   "b": "task_000000_0363c096",
+   "cosine": 0.283,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_7d66dd84",
+   "b": "task_000000_fffbc984",
+   "cosine": 0.283,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_d2312ab6",
+   "b": "task_000000_d8a20cc5",
+   "cosine": 0.283,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5ae496c4",
+   "b": "task_000000_93d5d513",
+   "cosine": 0.282,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_fffbc984",
+   "b": "task_000000_e3ba3225",
+   "cosine": 0.282,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_e36bb1fc",
+   "b": "task_000000_13f9c582",
+   "cosine": 0.281,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_7b368f5e",
+   "b": "task_000000_c2bee4fa",
+   "cosine": 0.28,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_2a0a7cde",
+   "b": "task_000000_15369990",
+   "cosine": 0.278,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_fffbc984",
+   "b": "task_000000_52c77beb",
+   "cosine": 0.278,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_376ab767",
+   "b": "task_000000_41eee653",
+   "cosine": 0.277,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_24968ee5",
+   "b": "task_000000_40deac2d",
+   "cosine": 0.276,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_612612d6",
+   "b": "task_000000_a1a0cf1e",
+   "cosine": 0.276,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_4c810431",
+   "cosine": 0.274,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_c501578d",
+   "cosine": 0.274,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_2ce110bb",
+   "b": "task_000000_a1a0cf1e",
+   "cosine": 0.273,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_744639f5",
+   "b": "task_000000_a1c78ac5",
+   "cosine": 0.272,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_faec5bd0",
+   "b": "task_000000_c02b5da5",
+   "cosine": 0.272,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5622dcaf",
+   "b": "task_000000_6d0aef24",
+   "cosine": 0.271,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_67e8a015",
+   "b": "task_000000_f3a4c4e2",
+   "cosine": 0.271,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_9a09c329",
+   "b": "task_000000_11d81a33",
+   "cosine": 0.27,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_eadb3a61",
+   "b": "task_000000_c64da7ff",
+   "cosine": 0.27,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_1f3fb454",
+   "b": "task_000000_a9705fe3",
+   "cosine": 0.269,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_9a09c329",
+   "b": "task_000000_d7647438",
+   "cosine": 0.269,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_7d3d9d33",
+   "b": "task_000000_997944e5",
+   "cosine": 0.268,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_9bbcde71",
+   "b": "task_000000_252b0a80",
+   "cosine": 0.267,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_376ab767",
+   "b": "task_000000_989491a4",
+   "cosine": 0.266,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_83455158",
+   "b": "task_000000_e3ba3225",
+   "cosine": 0.266,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_9c465b6a",
+   "b": "task_000000_3780cf6f",
+   "cosine": 0.265,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5a923222",
+   "b": "task_000000_248b692f",
+   "cosine": 0.263,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_7212f9c7",
+   "b": "task_000000_524a984e",
+   "cosine": 0.263,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_2129b0c0",
+   "cosine": 0.261,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_fffbc984",
+   "b": "task_000000_9f315897",
+   "cosine": 0.261,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_686d09a1",
+   "cosine": 0.26,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_5ae496c4",
+   "b": "task_000000_83455158",
+   "cosine": 0.26,
+   "b_is_easy": false
+  },
+  {
+   "a": "task_000000_7b043e22",
+   "b": "task_000000_af066fb4",
+   "cosine": 0.26,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_bfb0949a",
+   "b": "task_000000_7ef80422",
+   "cosine": 0.26,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_dd9a29de",
+   "b": "task_000000_74b88965",
+   "cosine": 0.26,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_20795c54",
+   "b": "task_000000_9da7d327",
+   "cosine": 0.259,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_2a0a7cde",
+   "b": "task_000000_248cf61a",
+   "cosine": 0.259,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_b0aa0d87",
+   "cosine": 0.259,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_0dbc0d6a",
+   "b": "task_000000_8f931580",
+   "cosine": 0.258,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_2ce110bb",
+   "b": "task_000000_81fccd5b",
+   "cosine": 0.257,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_de51ded7",
+   "cosine": 0.257,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_f3a4c4e2",
+   "b": "task_000000_904bd378",
+   "cosine": 0.257,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_5904176b",
+   "b": "task_000000_c3cd2604",
+   "cosine": 0.256,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_d3910f9d",
+   "b": "task_000000_93e3dd9c",
+   "cosine": 0.256,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_ffa6e96d",
+   "b": "task_000000_901b2ed3",
+   "cosine": 0.256,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_74b01700",
+   "b": "task_000000_c63a8ed7",
+   "cosine": 0.255,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_7d66dd84",
+   "b": "task_000000_e3ba3225",
+   "cosine": 0.255,
+   "b_is_easy": true
+  },
+  {
+   "a": "task_000000_ac644c33",
+   "b": "task_000000_997944e5",
+   "cosine": 0.253,
+   "b_is_easy": true
+  }
+ ]
+}
