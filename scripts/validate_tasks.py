@@ -13,6 +13,11 @@ inputs the task never edits and fixed per (task, family):
   repaired    fault, generic repair, reference                    -> must pass, no collateral,
               fault cleared byte-for-byte
   forged      fault, then the input path overwritten with other bytes -> must be flagged
+With --clean-only the fault families are skipped. With --discrimination (A8, A8.1) the graded outputs (regular
+files the reference created or changed whose path or name appears in the hidden tests) are mutated one at a
+time after a reference run and graded from their own snapshot: m1 emptied, m2 last line removed, m3 first
+digit changed, m4 first line duplicated. Pass: for every graded output, m1 fails and at least one applicable
+of m2/m3 fails (m4 is reported only).
 Usage:
   python scripts/validate_tasks.py --ids data/validity/v1_order.txt --out data/validity/v4.jsonl \
       --contracts data/contracts_v4.jsonl --workers 8
@@ -31,10 +36,39 @@ import traceback
 
 from termrl import faults, manifest
 from termrl.env import TerminalEnv
+from termrl.sandbox import docker
 from termrl.tasks import load_task
+from termrl.verify import verify_image
 from termrl.config import POOL
 
 FAMILIES = faults.TRAIN_FAMILIES + faults.HELDOUT_FAMILIES
+OPTIONS = {"clean_only": False, "discrimination": False}
+
+MUTATE = r"""
+import sys
+p, m = sys.argv[1], sys.argv[2]
+b = open(p, "rb").read()
+lines = b.splitlines(keepends=True)
+if m == "m1":
+    out = b""
+elif m == "m2":
+    out = b"".join(lines[:-1])
+elif m == "m3":
+    i = next((k for k, c in enumerate(b) if 48 <= c <= 57), None)
+    if i is None:
+        sys.exit(3)
+    out = b[:i] + bytes([48 + (b[i] - 47) % 10]) + b[i + 1:]
+else:
+    if not lines:
+        sys.exit(3)
+    out = lines[0] + b
+if out == b:
+    sys.exit(3)
+with open(p, "r+b") as f:
+    f.seek(0)
+    f.write(out)
+    f.truncate()
+"""
 
 
 def script_cmd(script: str) -> str:
@@ -71,6 +105,56 @@ def episode(root, *, contract, fault=None, script=None, repair=False, run_timeou
             "collateral": env._collateral, "fabricated_input": env._fabricated_input,
             "fault_cleared": env._fault_cleared, "fixtures": [p for p, _ in env._fixtures],
             "fault": env._fault.as_dict() if env._fault else None}, writes
+
+
+def discrimination(task, root: str, contract: dict) -> dict:
+    """Mutate each graded output of one reference run and grade every mutant from its own snapshot."""
+    tests_text = open(os.path.join(task.tests_dir, "test_final_state.py")).read()
+    env = TerminalEnv(command_timeout=180)
+    env.reset(task_root=root, contract={**contract, "provisional": True})
+    if env._broken:
+        raise RuntimeError(env._broken)
+    sb = env._sandbox
+    out = {"targets": {}, "reference_passes": None}
+    snaps = []
+    try:
+        sb.run(script_cmd(task.solution), timeout=180)
+        docker(["exec", "-u", "0:0", sb.name, "sh", "-c", "kill -9 -1"], check=False, timeout=30)
+        now, base = manifest.take(sb.name), env._baseline
+        changed = [p for p, v in sorted(now.items()) if v[0] == "f"
+                   and (p not in base or base[p][0] != "f" or base[p][4] != v[4])]
+        graded = [p for p in changed if p in tests_text or os.path.basename(p) in tests_text]
+
+        def grade() -> bool:
+            snap = sb.commit()
+            snaps.append(snap)
+            v = verify_image(snap, task.tests_dir, expected_tests=contract["tests"])
+            docker(["rmi", "-f", snap], check=False, timeout=120)
+            return bool(v.success)
+
+        out["reference_passes"] = grade()
+        for i, p in enumerate(graded):
+            q = shlex.quote(p)
+            sb.root_exec(f"cp -p {q} /tmp/.orig{i}")
+            res = {}
+            for m in ("m1", "m2", "m3", "m4"):
+                r = docker(["exec", "-u", "0:0", sb.name, "python3", "-c", MUTATE, p, m], check=False, timeout=60)
+                if r.returncode == 3:
+                    res[m] = "n/a"
+                    continue
+                if r.returncode != 0:
+                    res[m] = "mutation_error"
+                    continue
+                res[m] = "caught" if not grade() else "survived"
+                sb.root_exec(f"cp -p /tmp/.orig{i} {q}")
+            res["pass"] = res["m1"] == "caught" and any(res[m] == "caught" for m in ("m2", "m3")) \
+                if any(res[m] in ("caught", "survived") for m in ("m2", "m3")) else res["m1"] == "caught"
+            out["targets"][p] = res
+        out["changed_files"] = len(changed)
+        out["pass"] = bool(out["reference_passes"]) and all(t["pass"] for t in out["targets"].values())
+    finally:
+        env._teardown()
+    return out
 
 
 def validate(task_id: str) -> dict:
@@ -114,6 +198,10 @@ def _validate_into(task, root: str, rec: dict) -> None:
     rec["faults"] = {}
     if not rec["valid"]:
         return
+    if OPTIONS["discrimination"]:
+        rec["discrimination"] = discrimination(task, root, contract)
+    if OPTIONS["clean_only"]:
+        return
     exclude = set(rec["permitted"])
     for fam in FAMILIES:
         f = faults.choose(task, fam, 0, exclude=exclude)
@@ -145,7 +233,10 @@ def main() -> None:
     ap.add_argument("--contracts", required=True)
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--limit", type=int)
+    ap.add_argument("--clean-only", action="store_true", help="skip the fault families")
+    ap.add_argument("--discrimination", action="store_true", help="mutate graded outputs (A8)")
     args = ap.parse_args()
+    OPTIONS.update(clean_only=args.clean_only, discrimination=args.discrimination)
     if args.ids.endswith(".json"):
         ids = json.load(open(args.ids))
     else:
@@ -171,8 +262,10 @@ def main() -> None:
             n[0] += 1
             fam = {k: ("-" if not v.get("eligible") else ("U" if v.get("usable") else "x"))
                    for k, v in rec.get("faults", {}).items()}
+            disc = rec.get("discrimination") or {}
             print(f"[{n[0]}/{len(ids)}] {i} valid={rec['valid']} level={rec.get('fixture_level')} "
-                  f"selftest={rec.get('oracle_selftest')} faults={fam} {rec.get('seconds')}s"
+                  f"selftest={rec.get('oracle_selftest')} faults={fam} "
+                  f"disc={disc.get('pass')}/{len(disc.get('targets', {}))} {rec.get('seconds')}s"
                   + (" HARNESS_ERROR" if rec.get("harness_error") else ""), flush=True)
 
     with cf.ThreadPoolExecutor(args.workers) as ex:
