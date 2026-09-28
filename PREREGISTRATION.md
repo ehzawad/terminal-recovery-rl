@@ -352,3 +352,91 @@ of any cap) did not predict budget-aware behaviour. No training was run.
 stopped studies now, then run the hard-task pilot as a separate study. Public snapshot (no adapter):
 https://huggingface.co/datasets/ehzawad/terminal-recovery-bench, built by `scripts/build_public_release.py`
 and checked end to end from the public copy (`scripts/check_harness.py`: all checks pass).
+
+**A8 — 2026-09-27: Study 3, hard-task competence pilot. Registered after council round 7 and the owner's
+choice ("ship now, then the hard pilot"), before any Qwen run on a task admitted here.** A separate study
+with its own question; Studies 1–2 stand as reported.
+
+*Question.* On hard Endless Terminals tasks (o3 solved them in 1–11 of 16 attempts), does LoRA outcome RL
+(Dr.GRPO from instruct) raise Qwen3.5-9B's **safe complete success** beyond the best frozen prompt (P),
+two-round rejection-sampling SFT (S), and SFT on R's own successes (D)? Clean episodes with the task's
+planted fixtures, harness v5, a disclosed 16-command budget, unchanged limits, decoding and reward.
+Claim tier: single-seed pilot on an explicitly selected population, not a statement about terminal work
+in general.
+
+*Candidates (static, fixed now).* `data/hard/candidates.json`: the 173 static candidates of council round
+7 (o3 1–11/16; the original audit's non-difficulty screens; no code-executing hidden tests; reconstructed
+package exclusion) minus 2 dropped for dependencies (iptables, nodejs/npm) = **171**. Six were seen by
+Qwen in the first harness probe; they may only be used for training.
+
+*Model-free admission* (no Qwen output is used; every decision is recorded per task before any Qwen run
+on these tasks):
+1. **Validity** (clean only): the untouched environment fails; the reference passes twice with identical
+   property-level changes and test inventory, touching no planted fixture (placements full, then sibling);
+   the oracle catches a planted file's deletion and accepts the reference.
+2. **Verifier discrimination.** After a reference run, every regular file under `/home/user` that the
+   reference created or whose content it changed is mutated one at a time and graded from its own
+   snapshot: m1 emptied; m2 last line removed; m3 first digit changed (0→1, …, 9→0) where the file has a
+   digit; m4 first line duplicated. Admitted only if, for every such file, m1 fails and at least one
+   applicable of m2/m3 fails (m4 is reported only). Tasks whose reference writes no regular file are
+   judged on the other checks.
+3. **Instruction–verifier review** by independent reviewers (LLM agents that are not the policy model;
+   they see instruction, hidden tests, reference and environment files, never Qwen output). Exclude a task
+   if a tested requirement contradicts the instruction or cannot be inferred from it and the visible
+   environment; if the tests mostly check presence or permissions rather than the requested
+   transformation; if the answer is exposed to the agent; or if the task needs network or absent services.
+   Each hidden test is labelled *substantive* (checks the requested content), *format* or *presence*.
+   Near-duplicates (normalised-instruction TF-IDF cosine ≥ 0.30 within the candidates or against the 609
+   audited easy tasks) are adjudicated into groups; a group stays in one partition. Repairs are not made.
+4. Contracts for admitted tasks are frozen with hashes as in A6 (`data/hard/contracts.jsonl`).
+
+*Partition* (after admission, before any Qwen run on admitted tasks), written to
+`data/hard/partitions.json`: groups sorted by `sha256('hard1:'+group_id)` fill, in order, **test 48, gate
+16, checkpoint 16, prompt-search 16**, and the rest are **train**; groups containing an exposed task are
+placed in train and skipped by the sorted assignment. **Fewer than 144 admitted groups → Study 3 stops and
+nothing further is run.**
+
+*Kill pre-check.* `prompts/h0_informed.txt` on the 16 prompt-search tasks × 2 attempts: **≥ 27/32 safe
+successes → stop** (prompting already solves the slice).
+
+*P selection.* Ten frozen candidates: p3_termination, p6_env_aware, p8_preserve, b0_env_aware_budget,
+b4_batching, b5_conditional_script, h0_informed, h1_spec_checklist, h2_verify_exact, h3_python_first. The
+16 prompt-search tasks sorted by `sha256('hsel:'+id)`: stage 1 = all ten × the first 8 tasks × 1 attempt;
+the two best by macro safe success (ties → fewer generated tokens) × the other 8 × 2 attempts; the better
+is P for every arm.
+
+*Gates.* On the 16 gate tasks, P × 4: macro safe success in **[0.20, 0.80]** with task-cluster bootstrap
+95% upper bound **< 0.90**, and **H ≥ 0.20** (≥ 13 of 64), where H = share of episodes failing at least
+one test labelled substantive. *Variance:* every train task × 4 at the RL sampling distribution: Wilson
+95% lower bound of reward-varying groups **> 0.60** and **≥ 20%** mixed safe-success groups. *Systems,*
+before the full runs: one representative GRPO update with nonzero advantages and finite gradients, a
+verified adapter sync, peak device memory < 44 GiB, and a throughput projection of ≤ 49 s per trajectory
+amortised (the 14 h allocation for 1,024 trajectories); failing any → stop.
+
+*Arms.* S: 512 attempts of P on train tasks (cycled in hash order), SFT from instruct on safe successes;
+512 attempts of the round-1 epoch-2 actor; SFT from instruct on the union (LoRA r16, lr 1e-4, 2 epochs).
+R: Dr.GRPO from instruct, groups of 4, 4 groups per update, β 0, lr 1e-5, ≤ 64 updates / 1,024
+trajectories over the train tasks. D: SFT from instruct on every non-truncated safe success in R's log.
+**S first:** after its checkpoint is chosen, S is evaluated on the gate rows; the stronger of P and S must
+still meet the headroom and H conditions, or Study 3 stops before R. Checkpoints (S r1e1/r1e2/r2e1/r2e2,
+R steps 32/64, D e1/e2) are chosen on the 16 checkpoint tasks × 2 by macro safe success, ties earlier.
+
+*Final evaluation* (rows frozen and hashed before any arm sees them): primary = the 48 hard test tasks ×
+4 attempts; retention = the 147 untouched easy test tasks × 2 clean attempts; all at 16 disclosed
+commands, for P, S, D and R.
+
+*Promotion.* R beats the controls only if, on primary macro safe success, it exceeds each of P, S and D by
+≥ 12 points with every paired task-cluster bootstrap 80% lower bound > +3, reduces H by ≥ 10 points
+against each, loses ≤ 3 points of safe success against any control on retention, raises collateral by
+≤ 1 point, keeps success ignoring safety within −3 and the no-command rate within +2, and a blind audit of
+discordant pairs in both directions (plus samples of shared successes and failures) finds no verifier
+exploit, fabricated input, destructive self-test or oracle-boundary artefact. A defect found after
+evaluation triggers a symmetric, documented rescoring of all arms. Otherwise: negative or inconclusive.
+
+*Power, disclosed in advance.* With 48 test tasks × 4, a true 12-point gain clears the rule for one
+control about half the time (council round 7 sensitivity analysis); a true 20-point gain about 88%. A
+stop or a failure to promote is not evidence that RL cannot help.
+
+*Compute ceiling:* 45 A6000 GPU-hours (kill/P selection/gates 3, variance 1.5, systems 1, S 14, R 14,
+D 2, checkpoints and S gate 2, final 6.5, contingency 1), one card, ≤ 8 sandboxes; an arm that cannot
+finish is reported incomplete, never dropped.
