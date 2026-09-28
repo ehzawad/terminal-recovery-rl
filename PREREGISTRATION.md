@@ -347,3 +347,8 @@ dev_search tasks × 2, 8 commands; `results/kill_check_v5.summary.json`) reached
 average, with no collateral and no harness errors. Told the budget and asked to batch, the instruct model
 already completes most tasks within 8 commands; the retrospective counterfactual (0.231 for a model unaware
 of any cap) did not predict budget-aware behaviour. No training was run.
+
+**Release — 2026-09-27.** Owner's choice after council round 7 (`data/audit/council_r7/`): ship the two
+stopped studies now, then run the hard-task pilot as a separate study. Public snapshot (no adapter):
+https://huggingface.co/datasets/ehzawad/terminal-recovery-bench, built by `scripts/build_public_release.py`
+and checked end to end from the public copy (`scripts/check_harness.py`: all checks pass).
