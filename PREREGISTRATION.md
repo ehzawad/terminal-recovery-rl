@@ -471,3 +471,12 @@ admitted in the first runtime trial. Study 4 was **not registered or run**. On t
 project closes: no adapter is released; the public dataset card is updated with the hard-task audit and the
 readiness findings. Across four designs, no setting on these benchmarks passed the pre-specified checks
 needed for a fair RL comparison; this is not evidence that RL cannot help.
+
+**X1 — 2026-09-28: exploratory adapter (owner's request after closure; not a confirmatory study).** One LoRA
+Dr.GRPO run from instruct (r16, lr 1e-5, groups of 4, 4 groups per update, beta 0, 64 updates / 1,024
+trajectories) on 256 train configurations (salt `train-x1`, half of the faultable ones carrying a validated
+perm_denied or moved_input fault), prompt p6_env_aware, 16 disclosed commands. Checkpoint (steps 32, 64) chosen
+on dev_monitor (clean + faulted, 1 attempt each) by macro safe success, ties to the earlier. Then P (base +
+p6) and the chosen adapter are evaluated once on the untouched test partition (147 tasks: 1 clean + 1 faulted
+where eligible, same rows for both). Reported as measured, with no promotion claim and no S/D controls; the
+earlier stops predict little or no gain.
