@@ -445,3 +445,15 @@ finish is reported incomplete, never dropped.
 reference created or changed **whose path or file name appears in the hidden test file** (the graded
 outputs); helper files the grader never names are not mutated. The admission rule is otherwise unchanged:
 m1 must fail, and at least one applicable of m2/m3 must fail, for every graded output.
+
+**Outcome of Study 3 — 2026-09-27.** The instruction–verifier review (`data/hard/review/`, eight independent
+reviewers, file:line evidence per exclusion) excluded **68 of the 171 candidates**: 34 with a tested
+requirement the instruction does not state, 25 where instruction and tests contradict each other, 20 whose
+expected answer is exposed to the agent, 3 other (an impossible or self-destroying reference, a time bomb in
+the image's file ages, a patch that cannot apply), 1 presence-only, 1 needing live services (reasons
+overlap). At most **103** candidates can therefore be admitted, below the registered floor of **144 groups**,
+so Study 3 **stops at admission, before any Qwen run on these tasks**, as registered. The validity and
+verifier-discrimination runs are completed for the record only. The near-duplicate adjudication found 6
+hard–hard and 30 hard–easy variant pairs. Conclusion: the tail of Endless Terminals that a strong model
+fails is dominated by specification defects, not by genuinely harder, well-posed work; three registered
+designs failed their prerequisites and no RL comparison was run. This is not evidence that RL cannot help.
