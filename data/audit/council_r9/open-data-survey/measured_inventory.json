@@ -1,0 +1,227 @@
+{
+  "termigen": {
+    "sha": "03bddac74ada2fa344df0e93b4a3ace2034294d1",
+    "truncated": false,
+    "task_tomls": 3566,
+    "root_license": []
+  },
+  "lite": {
+    "rows": 602,
+    "sha": "6fe7e994ff12d678de9b803da5c9907c8394a89c",
+    "declared_internet_true": 602,
+    "gpu_requests": 0,
+    "categories": {
+      "system-administration": 215,
+      "machine-learning": 106,
+      "security": 79,
+      "data-processing": 74,
+      "software-engineering": 64,
+      "version-control": 48,
+      "build-tools": 8,
+      "networking": 7,
+      "build_tools": 1
+    },
+    "cpu": {
+      "2": 293,
+      "1": 285,
+      "4": 24
+    },
+    "ram_mb": {
+      "2048": 311,
+      "4096": 260,
+      "8192": 29,
+      "3072": 1,
+      "16384": 1
+    },
+    "sample": [
+      {
+        "task": "aes-cbc-padding-oracle",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1",
+          "uv add cryptography",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": [
+          "Create a local HTTP server that listens on `http://127.0.0.1:9000/oracle` and simulates a padding oracle:",
+          "  \"oracle_url\": \"http://127.0.0.1:9000/oracle\","
+        ]
+      },
+      {
+        "task": "c-library-compile-link-analysis",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": []
+      },
+      {
+        "task": "csv-etl-postgres-pipeline",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1 psycopg2-binary==2.9.10",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": []
+      },
+      {
+        "task": "fix-corrupt-git-repo",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": []
+      },
+      {
+        "task": "hls-streaming-server",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": [
+          "- Load master playlist from `http://localhost:8080/hls/master.m3u8`"
+        ]
+      },
+      {
+        "task": "nginx-consul-service-discovery",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1 requests==2.32.3",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": [
+          "1. Verifies Consul is running and healthy (HTTP API at `http://127.0.0.1:8500/v1/status/leader` returns a non-empty response).",
+          "3. Queries Consul's service catalog (`http://127.0.0.1:8500/v1/catalog/service/web-api`) and confirms 3 instances are registered.",
+          "4. Sends 6 HTTP requests to `http://localhost/api/` via Nginx and collects the responses."
+        ]
+      },
+      {
+        "task": "recover-deleted-branch-merge",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": []
+      },
+      {
+        "task": "setup-multi-lang-build-env",
+        "base": [
+          "FROM ubuntu:24.04"
+        ],
+        "test_network_lines": [
+          "# Install curl",
+          "apt-get update",
+          "apt-get install -y curl",
+          "curl -LsSf https://astral.sh/uv/0.7.13/install.sh | sh",
+          "uv init",
+          "uv add pytest==8.4.1",
+          "uv run pytest ../tests/test_outputs.py -rA"
+        ],
+        "instruction_network_lines": [
+          "## Install and Configure a Complete Build Environment for Multi-Language Development",
+          "   - Install gcc, g++, make, cmake, gdb, pkg-config, and build-essential (or equivalent).",
+          "   - Install OpenJDK 17 (JDK, not just JRE).",
+          "   - Install Maven (version 3.6+).",
+          "   - Install Gradle (version 7+).",
+          "   - Install Python 3.11 with development headers (e.g., `python3.11-dev` or equivalent).",
+          "   - Install pip, setuptools, and wheel for Python 3.11.",
+          "   - Install rustup, cargo, clippy, and rustfmt.",
+          "   - Both `stable` and `nightly` toolchains must be installed.",
+          "   - Create `/builds/versions.txt` containing the installed versions of at least: gcc, cmake, java, mvn, gradle, python3.11, rustc, and cargo."
+        ]
+      }
+    ]
+  },
+  "man_pages": {
+    "version": "6.19",
+    "compressed_bytes": 1908136,
+    "page_entries": 3132,
+    "so_aliases": 1590,
+    "source_bytes": 7916888,
+    "licenses": [
+      "man-pages-6.19/LICENSES/BSD-2-Clause.txt",
+      "man-pages-6.19/LICENSES/BSD-3-Clause.txt",
+      "man-pages-6.19/LICENSES/BSD-4-Clause-UC.txt",
+      "man-pages-6.19/LICENSES/GPL-1.0-or-later.txt",
+      "man-pages-6.19/LICENSES/GPL-2.0-only.txt",
+      "man-pages-6.19/LICENSES/GPL-2.0-or-later.txt",
+      "man-pages-6.19/LICENSES/GPL-3.0-or-later.txt",
+      "man-pages-6.19/LICENSES/LGPL-3.0-linking-exception.txt",
+      "man-pages-6.19/LICENSES/LGPL-3.0-or-later.txt",
+      "man-pages-6.19/LICENSES/Linux-man-pages-1-para.txt",
+      "man-pages-6.19/LICENSES/Linux-man-pages-copyleft-2-para.txt",
+      "man-pages-6.19/LICENSES/Linux-man-pages-copyleft-var.txt",
+      "man-pages-6.19/LICENSES/Linux-man-pages-copyleft.txt",
+      "man-pages-6.19/LICENSES/MIT.txt"
+    ]
+  },
+  "tldr": {
+    "sha": "c38c1b3e5a70e85cd3c7d2f8b85e6dec82982a00",
+    "truncated": false,
+    "english_pages": 7550,
+    "english_common_linux_pages": 6762,
+    "english_page_bytes": 4356122
+  },
+  "intercode": {
+    "sha": "c3e46d827cfc9d4c704ec078f7abf9f41e3191d8",
+    "rows_per_fs": [
+      60,
+      53,
+      60,
+      27
+    ]
+  }
+}

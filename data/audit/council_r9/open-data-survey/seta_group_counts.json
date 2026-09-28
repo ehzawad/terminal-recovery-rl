@@ -1,0 +1,6 @@
+{
+  "task_dirs": 4567,
+  "evolution_suffix_only_groups": 3474,
+  "question_prefix_groups": 3465,
+  "method": "Only top-level subset/task/task.toml. Strip __[a-z][0-9]+ evolution suffix; collapse Stack Overflow and Unix numeric-question-ID subvariants. Ask Ubuntu IDs are release identifiers, not independently verified post IDs. This is operational grouping, not semantic deduplication."
+}

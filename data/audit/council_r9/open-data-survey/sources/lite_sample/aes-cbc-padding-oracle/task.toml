@@ -1,0 +1,38 @@
+schema_version = "1.1"
+
+[task]
+name = "LiteCoder/aes-cbc-padding-oracle"
+description = ""
+authors = []
+keywords = []
+
+[metadata]
+author_name = "generated"
+author_email = "generated@harbor.ai"
+difficulty = "hard"
+category = "security"
+tags = [ "python", "cryptography", "aes-cbc", "padding-oracle", "security",]
+expert_time_estimate_min = 45.0
+junior_time_estimate_min = 120.0
+
+[verifier]
+timeout_sec = 360.0
+
+[agent]
+timeout_sec = 3600.0
+
+[environment]
+docker_image = "paraliine/aes-cbc-padding-oracle:latest"
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+mcp_servers = []
+
+[verifier.env]
+
+[environment.env]
+
+[solution.env]

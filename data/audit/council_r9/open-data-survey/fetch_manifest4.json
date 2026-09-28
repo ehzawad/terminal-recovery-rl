@@ -1,0 +1,275 @@
+[
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/aes-cbc-padding-oracle/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/aes-cbc-padding-oracle/environment/Dockerfile",
+    "status": 200,
+    "bytes": 906,
+    "sha256": "cfb13a48432913d120cfa45077e04100fd919afbf7879daee32ba52b99a2ab54"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/aes-cbc-padding-oracle/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/aes-cbc-padding-oracle/instruction.md",
+    "status": 200,
+    "bytes": 3189,
+    "sha256": "c1e4bde36d4f490e638c4c147486e61f4bfb5f2a7cf401b95fbf4dd719b1cc9f"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/aes-cbc-padding-oracle/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/aes-cbc-padding-oracle/task.toml",
+    "status": 200,
+    "bytes": 680,
+    "sha256": "6e8f592998fe58f4f386cfcd612e01e7a7d937a7fb9380a92551ced3c1a7a66f"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/aes-cbc-padding-oracle/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/aes-cbc-padding-oracle/tests/test.sh",
+    "status": 200,
+    "bytes": 678,
+    "sha256": "941f48c5ff809d97bda92a3b50a7bfcd5dccb1796f59be5031734e8b77a6ebc0"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/c-library-compile-link-analysis/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/c-library-compile-link-analysis/environment/Dockerfile",
+    "status": 200,
+    "bytes": 881,
+    "sha256": "946871aa780a8f0a4610ae74ea4686d1a12752aaa87dde8cec69ec24c1e6ebfd"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/c-library-compile-link-analysis/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/c-library-compile-link-analysis/instruction.md",
+    "status": 200,
+    "bytes": 5120,
+    "sha256": "e6a980dd1eebedd0a2e3e480dcc73fe54cb80326910d6e284303487a3a5990b4"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/c-library-compile-link-analysis/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/c-library-compile-link-analysis/task.toml",
+    "status": 200,
+    "bytes": 696,
+    "sha256": "5574a64d43e77407b218de2d308e41233a18e74072c73953bd674e2a28ca6504"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/c-library-compile-link-analysis/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/c-library-compile-link-analysis/tests/test.sh",
+    "status": 200,
+    "bytes": 658,
+    "sha256": "57600a8dad84ba7670a509e0213849ff15cfdba5a737ce58ec111f237fb8e5ef"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/csv-etl-postgres-pipeline/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/csv-etl-postgres-pipeline/environment/Dockerfile",
+    "status": 200,
+    "bytes": 1192,
+    "sha256": "7491308fb7d61a7640fee00d42f35850c5d6de32f68873bf600033a1a1f2966e"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/csv-etl-postgres-pipeline/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/csv-etl-postgres-pipeline/instruction.md",
+    "status": 200,
+    "bytes": 4707,
+    "sha256": "77f6b41204bbf236a78f9dc124484a500e0fe9583d091b4732c7cfa46c788672"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/csv-etl-postgres-pipeline/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/csv-etl-postgres-pipeline/task.toml",
+    "status": 200,
+    "bytes": 684,
+    "sha256": "d38028efddc11ce7aeb55303e295ed55ff200251a645c2b7993a8744a81dcdb3"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/csv-etl-postgres-pipeline/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/csv-etl-postgres-pipeline/tests/test.sh",
+    "status": 200,
+    "bytes": 682,
+    "sha256": "0d7e9364104dceb0c395dece6617e8c5f8a5fe6d0377876d3f3933d1fad09c46"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/fix-corrupt-git-repo/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/fix-corrupt-git-repo/environment/Dockerfile",
+    "status": 200,
+    "bytes": 1231,
+    "sha256": "17cf2b1b2124af1ae1701e174ddcbcee06d7c8b7ffa658792a6f1f2cf7eec5aa"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/fix-corrupt-git-repo/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/fix-corrupt-git-repo/instruction.md",
+    "status": 200,
+    "bytes": 2551,
+    "sha256": "b00f94448936ed68a5e6804b5f81bfffc87109f98618aa413d59058be172654f"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/fix-corrupt-git-repo/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/fix-corrupt-git-repo/task.toml",
+    "status": 200,
+    "bytes": 687,
+    "sha256": "a36d550bd3d317d63bbc4f023703897fa2b61e2d78ceefa563244a7975318565"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/fix-corrupt-git-repo/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/fix-corrupt-git-repo/tests/test.sh",
+    "status": 200,
+    "bytes": 658,
+    "sha256": "57600a8dad84ba7670a509e0213849ff15cfdba5a737ce58ec111f237fb8e5ef"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/hls-streaming-server/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/hls-streaming-server/environment/Dockerfile",
+    "status": 200,
+    "bytes": 905,
+    "sha256": "9c55687ffd0db53563fc09ca2d043ed4c4c80ae49d9bc91797f252fb37d71011"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/hls-streaming-server/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/hls-streaming-server/instruction.md",
+    "status": 200,
+    "bytes": 2821,
+    "sha256": "a3155c10d3d919d7c39489fa7b0a6b5deb8c6bd6712f124b6e012bb3da9509e6"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/hls-streaming-server/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/hls-streaming-server/task.toml",
+    "status": 200,
+    "bytes": 676,
+    "sha256": "71dd99d576a638f6b37f76232f883a13032cf9f909db5b582fa2f612933d672f"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/hls-streaming-server/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/hls-streaming-server/tests/test.sh",
+    "status": 200,
+    "bytes": 658,
+    "sha256": "57600a8dad84ba7670a509e0213849ff15cfdba5a737ce58ec111f237fb8e5ef"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/nginx-consul-service-discovery/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/nginx-consul-service-discovery/environment/Dockerfile",
+    "status": 200,
+    "bytes": 1327,
+    "sha256": "dd4e454791be4cf5f394679613e624e44df80c69d9cc306fabff3b724bc9a905"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/nginx-consul-service-discovery/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/nginx-consul-service-discovery/instruction.md",
+    "status": 200,
+    "bytes": 3997,
+    "sha256": "77a676a2e708227105337c08fa4e8ccd70e84b9d741c8e3e23edf419a995e49b"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/nginx-consul-service-discovery/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/nginx-consul-service-discovery/task.toml",
+    "status": 200,
+    "bytes": 712,
+    "sha256": "acd1f46ae3a18f6d7bd8bc390de4c01d20c014e8090b1fd8db0c543cacf6843d"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/nginx-consul-service-discovery/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/nginx-consul-service-discovery/tests/test.sh",
+    "status": 200,
+    "bytes": 675,
+    "sha256": "4cd3bc615adf80ecb02a9b304787de3d2267c8014a568aac8132a0d3245c7aaa"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/recover-deleted-branch-merge/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/recover-deleted-branch-merge/environment/Dockerfile",
+    "status": 200,
+    "bytes": 926,
+    "sha256": "33221f24014c10f1b052a38882614bd43eb9bf9475884f796a9c415b9e2b9bee"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/recover-deleted-branch-merge/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/recover-deleted-branch-merge/instruction.md",
+    "status": 200,
+    "bytes": 2456,
+    "sha256": "b27521264e80b5f1816ee917cb31ab2137f0e170635fd3237c50abe73cb0ab53"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/recover-deleted-branch-merge/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/recover-deleted-branch-merge/task.toml",
+    "status": 200,
+    "bytes": 684,
+    "sha256": "ca4ebbca96cfa9a899b2483645bdd4383ff2e861802d9910ce739d080bc9cba2"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/recover-deleted-branch-merge/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/recover-deleted-branch-merge/tests/test.sh",
+    "status": 200,
+    "bytes": 658,
+    "sha256": "57600a8dad84ba7670a509e0213849ff15cfdba5a737ce58ec111f237fb8e5ef"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/setup-multi-lang-build-env/environment/Dockerfile",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/setup-multi-lang-build-env/environment/Dockerfile",
+    "status": 200,
+    "bytes": 906,
+    "sha256": "2f73533841915c32d8b5d0c46a399797a892f0ad24b220186f16230c831ad073"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/setup-multi-lang-build-env/instruction.md",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/setup-multi-lang-build-env/instruction.md",
+    "status": 200,
+    "bytes": 3341,
+    "sha256": "9cd182fa75e96a9fef02d970a772cadc0a88b3a4d5702a06b4cb7987713eeefd"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/setup-multi-lang-build-env/task.toml",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/setup-multi-lang-build-env/task.toml",
+    "status": 200,
+    "bytes": 693,
+    "sha256": "6f702973a2fc95889fbd1213e3cfbb0763fdc75689b270e0180bcc2d5214d86f"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sample/setup-multi-lang-build-env/tests/test.sh",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/setup-multi-lang-build-env/tests/test.sh",
+    "status": 200,
+    "bytes": 658,
+    "sha256": "57600a8dad84ba7670a509e0213849ff15cfdba5a737ce58ec111f237fb8e5ef"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/termigen_tree.json",
+    "url": "https://api.github.com/repos/ucsb-mlsec/terminal-bench-env/git/trees/main?recursive=1",
+    "status": 200,
+    "bytes": 13957105,
+    "sha256": "66efa469bce5aed1b3aecf9f4036c356d05469db712f078376042d85607896e4"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/termigen_repo.json",
+    "url": "https://api.github.com/repos/ucsb-mlsec/terminal-bench-env",
+    "status": 200,
+    "bytes": 6531,
+    "sha256": "1aa8e7064517241382f1320e2e4eb2e5ffc09886aaba4c522e31a7a7898a44d3"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/open_thoughts_repo.json",
+    "url": "https://api.github.com/repos/open-thoughts/OpenThoughts-Agent",
+    "status": 200,
+    "bytes": 6944,
+    "sha256": "25ef1ea977d7f11ab8c788b55fb668d5ec4829a3faccbaa62e883395c0b07779"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/termigen_mirror_api.json",
+    "url": "https://huggingface.co/api/datasets/allenai/open-instruct-termigen?blobs=true",
+    "status": 200,
+    "bytes": 2136,
+    "sha256": "1388687a12e4a5d3f433a6edd34f31c9e8fb4bb9d2e9d3ee35639b99e2a833cd"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/stack_dump_help.html",
+    "url": "https://stackoverflow.com/help/data-dumps",
+    "status": 200,
+    "bytes": 84164,
+    "sha256": "94a7fa6c6700a57bd94eec0a3380c66f1144af4b01d25db02235e39fb0b3903d"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/stack_licensing.html",
+    "url": "https://stackoverflow.com/help/licensing",
+    "status": 200,
+    "bytes": 84120,
+    "sha256": "28dd6c30ad0ad8c5c5d5d92033b486f7e6735032c328f59a0725a146f99768b6"
+  },
+  {
+    "path": "data/audit/council_r9/open-data-survey/sources/tldr_license.txt",
+    "url": "https://raw.githubusercontent.com/tldr-pages/tldr/c38c1b3e5a70e85cd3c7d2f8b85e6dec82982a00/LICENSE.md",
+    "status": 200,
+    "bytes": 1572,
+    "sha256": "826498c9793c53709035760c33bd6681e48380d34031320447febe675420ef4d"
+  }
+]

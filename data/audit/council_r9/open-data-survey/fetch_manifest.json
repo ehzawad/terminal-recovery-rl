@@ -1,0 +1,172 @@
+[
+  {
+    "name": "lite_rl_api",
+    "url": "https://huggingface.co/api/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview?blobs=true",
+    "status": 200,
+    "bytes": 554593,
+    "sha256": "05514f4fe73fee6d0c97be3c6c0faea2c2f36fe3be62fc8efa26aa6ff7c7c168",
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_rl_api.json",
+    "sha": "6fe7e994ff12d678de9b803da5c9907c8394a89c",
+    "createdAt": "2026-04-12T08:22:52.000Z",
+    "lastModified": "2026-06-26T04:45:34.000Z",
+    "usedStorage": 116773334,
+    "license": "mit",
+    "files": 4312,
+    "file_bytes": 155126136
+  },
+  {
+    "name": "lite_sft_api",
+    "url": "https://huggingface.co/api/datasets/Lite-Coder/LiteCoder-Terminal-SFT?blobs=true",
+    "status": 200,
+    "bytes": 1821,
+    "sha256": "459ccb6018d64dc026bbc516e01a3a5767dd144bef42c9519abdfa08b2c2f3af",
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sft_api.json",
+    "sha": "6acdbbdb29979e4b8ea717b12accc8214606d087",
+    "createdAt": "2026-03-30T02:38:10.000Z",
+    "lastModified": "2026-06-01T13:08:20.000Z",
+    "usedStorage": 2326961584,
+    "license": "mit",
+    "files": 3,
+    "file_bytes": 1204058263
+  },
+  {
+    "name": "seta_api",
+    "url": "https://huggingface.co/api/datasets/camel-ai/SETA-Env?blobs=true",
+    "status": 200,
+    "bytes": 7052369,
+    "sha256": "9cbd5801d74d7aca6c62812a156f5cae709071261aa5f842321298abe41faed3",
+    "path": "data/audit/council_r9/open-data-survey/sources/seta_api.json",
+    "sha": "3c3bc8975b05826bf41769bd6b2da76ad1b6dd42",
+    "createdAt": "2026-05-25T12:41:59.000Z",
+    "lastModified": "2026-07-01T14:33:10.000Z",
+    "usedStorage": 988532446,
+    "license": "apache-2.0",
+    "files": 49273,
+    "file_bytes": 2112080686
+  },
+  {
+    "name": "endless_api",
+    "url": "https://huggingface.co/api/datasets/obiwan96/endless-terminals?blobs=true",
+    "status": 200,
+    "bytes": 3070715,
+    "sha256": "5e6972f559501cd7cd6cfa0c8e7794fb43a3cbb68a3219cc3f020fce9714caad",
+    "path": "data/audit/council_r9/open-data-survey/sources/endless_api.json",
+    "sha": "26ecf78458e7f756e4d06780d5fbf3dd78e91815",
+    "createdAt": "2026-01-24T01:14:12.000Z",
+    "lastModified": "2026-01-24T01:33:29.000Z",
+    "usedStorage": 0,
+    "license": null,
+    "files": 25090,
+    "file_bytes": 405939997
+  },
+  {
+    "name": "tmax_api",
+    "url": "https://huggingface.co/api/datasets/allenai/TMax-15K?blobs=true",
+    "status": 200,
+    "bytes": 1866,
+    "sha256": "dc92200d95e9a3705a5b3a19aaf86673032debb8a9138a01ab93b641953abee2",
+    "path": "data/audit/council_r9/open-data-survey/sources/tmax_api.json",
+    "sha": "e3ded940596cc611c9815684ba51a7e8ee0cffc9",
+    "createdAt": "2026-06-17T00:45:06.000Z",
+    "lastModified": "2026-06-23T03:28:44.000Z",
+    "usedStorage": 513270267,
+    "license": "odc-by",
+    "files": 4,
+    "file_bytes": 513274601
+  },
+  {
+    "name": "terminal_world_search",
+    "url": "https://huggingface.co/api/datasets?search=Terminal-World",
+    "status": 200,
+    "bytes": 5438,
+    "sha256": "e6dff5bea538804529dee426c376e011d10b6b35af34ec71b19fd3b30cb30a92",
+    "path": "data/audit/council_r9/open-data-survey/sources/terminal_world_search.json",
+    "results": [
+      "Lite-Coder/LiteCoder-Terminal-World-Model-SFT",
+      "EuniAI/TerminalWorld",
+      "andylizf/TerminalWorld-Seeds",
+      "andylizf/TerminalWorld-Seeds-Clean",
+      "FineEnvs/repo2rlenv-terminalworld"
+    ]
+  },
+  {
+    "name": "nl2bash_tree",
+    "url": "https://api.github.com/repos/TellinaTool/nl2bash/git/trees/master?recursive=1",
+    "status": 200,
+    "bytes": 36642,
+    "sha256": "80d141dc5472f537ab8a71d4711f7dddbfdbde350f393c51a0ba2cad702d1091",
+    "path": "data/audit/council_r9/open-data-survey/sources/nl2bash_tree.json"
+  },
+  {
+    "name": "intercode_tree",
+    "url": "https://api.github.com/repos/princeton-nlp/intercode/git/trees/master?recursive=1",
+    "status": 200,
+    "bytes": 157905,
+    "sha256": "c28a354d2a46711c5815953b5306e32dac005d2b0b1a186980017c1e394fe5cc",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_tree.json"
+  },
+  {
+    "name": "nlc2cmd_tree",
+    "url": "https://api.github.com/repos/IBM/clai/git/trees/master?recursive=1",
+    "status": 200,
+    "bytes": 96790,
+    "sha256": "19718f50998287cf7a3fba31fe44691e58f84d8e548403dd79aab355c52911eb",
+    "path": "data/audit/council_r9/open-data-survey/sources/nlc2cmd_tree.json"
+  },
+  {
+    "name": "tldr_tree",
+    "url": "https://api.github.com/repos/tldr-pages/tldr/git/trees/main?recursive=1",
+    "status": 200,
+    "bytes": 9331862,
+    "sha256": "ad4bc9b1ca47f08c5e42c2a48b7b49b9a099feffe7702a0222b4e3519ddfe2cc",
+    "path": "data/audit/council_r9/open-data-survey/sources/tldr_tree.json"
+  },
+  {
+    "name": "seta_paper",
+    "url": "https://arxiv.org/html/2607.10891v1",
+    "status": 200,
+    "bytes": 1734244,
+    "sha256": "e218e8c20003eff9fa9b675e1c0261308e171cda13128a639089cf5f317e2355",
+    "path": "data/audit/council_r9/open-data-survey/sources/seta_paper.html"
+  },
+  {
+    "name": "lite_paper",
+    "url": "https://arxiv.org/html/2605.29559v1",
+    "status": 200,
+    "bytes": 260176,
+    "sha256": "d8d2f9b3397ff12000529c7a760ffcf6e41ecd161ce6cf15bad61a06cd9ab962",
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_paper.html"
+  },
+  {
+    "name": "world_paper",
+    "url": "https://arxiv.org/html/2605.20876v1",
+    "status": 200,
+    "bytes": 2065183,
+    "sha256": "97dcaba420a58049e7879c5d2cdeb0283091ba4ecda5fdfc254d6941f41560cc",
+    "path": "data/audit/council_r9/open-data-survey/sources/world_paper.html"
+  },
+  {
+    "name": "skill_graph_paper",
+    "url": "https://arxiv.org/html/2604.25727v1",
+    "status": 200,
+    "bytes": 246045,
+    "sha256": "475cffb45ecb8666ef27bbf8837329242a6bff143c3a0a76123b9445b552522f",
+    "path": "data/audit/council_r9/open-data-survey/sources/skill_graph_paper.html"
+  },
+  {
+    "name": "evolution_paper",
+    "url": "https://arxiv.org/html/2609.04128v1",
+    "status": 200,
+    "bytes": 179958,
+    "sha256": "2934f19ca21df0870b5219257710be2777e99ff4ae31d4b29af0ab7818a6d3c8",
+    "path": "data/audit/council_r9/open-data-survey/sources/evolution_paper.html"
+  },
+  {
+    "name": "stackexchange_metadata",
+    "url": "https://archive.org/metadata/stackexchange",
+    "status": 200,
+    "bytes": 116027,
+    "sha256": "de59dbc944f5cfefc6beda93cca09b2a7e7b505bb91206f3827a9805ef5f0317",
+    "path": "data/audit/council_r9/open-data-survey/sources/stackexchange_metadata.json"
+  }
+]

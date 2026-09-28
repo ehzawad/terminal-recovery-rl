@@ -1,0 +1,285 @@
+[
+  {
+    "name": "nl2bash_data_license",
+    "url": "https://raw.githubusercontent.com/TellinaTool/nl2bash/d6b9f5bdff45621d190134e31ab63b7bf7002190/data/bash/LICENSE",
+    "status": 200,
+    "bytes": 1075,
+    "sha256": "4ac5c8b7fb1d1fccfa52916749674d67b2024c76616fed89db7f67a976056750",
+    "path": "data/audit/council_r9/open-data-survey/sources/nl2bash_data_license.txt"
+  },
+  {
+    "name": "intercode_bash",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/c3e46d827cfc9d4c704ec078f7abf9f41e3191d8/intercode/envs/bash/bash_env.py",
+    "status": 200,
+    "bytes": 7592,
+    "sha256": "f7b4fa1bc49e1b585f1004ec50feaba37183c730d6849d9e260127e1964a1654",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_bash.txt"
+  },
+  {
+    "name": "intercode_data_readme",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/data/nl2bash/README.md",
+    "status": 200,
+    "bytes": 1049,
+    "sha256": "c796ac8e6c633eceaf102e1cbfecb133e293a3ed5db620d22df3641536513667",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_data_readme.txt"
+  },
+  {
+    "name": "intercode_docker",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/docker/nl2bash.Dockerfile",
+    "status": 200,
+    "bytes": 775,
+    "sha256": "c8b52b44cc276921f1b139d49562152792872c7b013261b748305a78d4230189",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_docker.txt"
+  },
+  {
+    "name": "nlc2cmd_branch_tree",
+    "url": "https://api.github.com/repos/IBM/clai/git/trees/nlc2cmd?recursive=1",
+    "status": 200,
+    "bytes": 111899,
+    "sha256": "ab180bc72041065b84aa41db3e7485c08dd383821e2032041ca801da233ab42b",
+    "path": "data/audit/council_r9/open-data-survey/sources/nlc2cmd_branch_tree.json"
+  },
+  {
+    "name": "nlc2cmd_paper",
+    "url": "https://proceedings.mlr.press/v133/agarwal21b/agarwal21b.pdf",
+    "status": 200,
+    "bytes": 703399,
+    "sha256": "511d0348fe92e1d9279ab31a1f0b6f0ba4485e1a5a7c9772d9352ff168a00628",
+    "path": "data/audit/council_r9/open-data-survey/sources/nlc2cmd_paper.pdf"
+  },
+  {
+    "name": "cli_gym_api",
+    "url": "https://huggingface.co/api/datasets/LiberCoders/CLI-Gym?blobs=true",
+    "status": 200,
+    "bytes": 1972,
+    "sha256": "c8d129894d3c0da53810cd6fee1afcd5f5b77657f95ad7fb25dbceb458983c0f",
+    "path": "data/audit/council_r9/open-data-survey/sources/cli_gym_api.json",
+    "sha": "552945c5aaf07d9715549a798c98ee13bb5b7f06",
+    "createdAt": "2026-02-11T02:37:24.000Z",
+    "lastModified": "2026-02-28T08:59:48.000Z",
+    "license": "apache-2.0",
+    "file_bytes": 3974605,
+    "files": [
+      ".gitattributes",
+      "README.md",
+      "dataset_dict.json",
+      "train.parquet"
+    ]
+  },
+  {
+    "name": "nemotron_api",
+    "url": "https://huggingface.co/api/datasets/nvidia/Nemotron-Terminal-Corpus?blobs=true",
+    "status": 200,
+    "bytes": 9942,
+    "sha256": "84c30c33255831486543ad0b3c0427a8fe897745fa3ddc8b4a853e28dde6432e",
+    "path": "data/audit/council_r9/open-data-survey/sources/nemotron_api.json",
+    "sha": "a1667c4ffdadea02a89bffe4f1bb7ca2ff19f8d9",
+    "createdAt": "2026-02-19T02:10:28.000Z",
+    "lastModified": "2026-02-27T22:37:57.000Z",
+    "license": "cc-by-4.0",
+    "file_bytes": 8198603791,
+    "files": [
+      ".gitattributes",
+      "README.md",
+      "dataset_adapters/code.parquet",
+      "dataset_adapters/math.parquet",
+      "dataset_adapters/swe.parquet",
+      "synthetic_tasks/skill_based/easy/data_processing/data_filtered.parquet",
+      "synthetic_tasks/skill_based/easy/data_querying/data_filtered.parquet",
+      "synthetic_tasks/skill_based/easy/data_science/data_filtered.parquet",
+      "synthetic_tasks/skill_based/easy/debugging/data_filtered.parquet",
+      "synthetic_tasks/skill_based/easy/dependency_management/data_filtered.parquet",
+      "synthetic_tasks/skill_based/easy/file_operations/data_filtered.parquet",
+      "synthetic_tasks/skill_based/easy/scientific_computing/data_filtered.parquet"
+    ]
+  },
+  {
+    "name": "open_thoughts_api",
+    "url": "https://huggingface.co/api/datasets/open-thoughts/OpenThoughts-Agent-v1-RL?blobs=true",
+    "status": 200,
+    "bytes": 1920,
+    "sha256": "80f0b1bd6b4c9ab6911d1f89f599aeffe924d70e5461ad1e671f8b8a5405defd",
+    "path": "data/audit/council_r9/open-data-survey/sources/open_thoughts_api.json",
+    "sha": "39ab71434e90d8f87d2cd69c13b6d8a0cb2c238f",
+    "createdAt": "2025-12-05T00:17:59.000Z",
+    "lastModified": "2026-01-27T22:58:53.000Z",
+    "license": null,
+    "file_bytes": 10211384,
+    "files": [
+      ".gitattributes",
+      "README.md",
+      "extract_parquet_tasks.py",
+      "tasks.parquet"
+    ]
+  },
+  {
+    "name": "euniai_api",
+    "url": "https://huggingface.co/api/datasets/EuniAI/TerminalWorld?blobs=true",
+    "status": 200,
+    "bytes": 341991,
+    "sha256": "f76e503bb8f7e53c08417d7d58a6878f8cbd759925b6c4c7b0a737e8b3878534",
+    "path": "data/audit/council_r9/open-data-survey/sources/euniai_api.json",
+    "sha": "dda7c099cc076735aef28c03bf8d3624dc0564e1",
+    "createdAt": "2026-05-04T10:06:50.000Z",
+    "lastModified": "2026-06-15T16:57:51.000Z",
+    "license": "cc-by-4.0",
+    "file_bytes": 928748181,
+    "files": [
+      ".gitattributes",
+      "LICENSE",
+      "README.md",
+      "artifacts/tw_100135.tar.gz",
+      "artifacts/tw_100278.tar.gz",
+      "artifacts/tw_100297.tar.gz",
+      "artifacts/tw_100459.tar.gz",
+      "artifacts/tw_100525.tar.gz",
+      "artifacts/tw_100579.tar.gz",
+      "artifacts/tw_100905.tar.gz",
+      "artifacts/tw_101033.tar.gz",
+      "artifacts/tw_101115.tar.gz"
+    ]
+  },
+  {
+    "name": "termigen_search",
+    "url": "https://huggingface.co/api/datasets?search=TermiGen",
+    "status": 200,
+    "bytes": 1364,
+    "sha256": "74f0a0bc05be0e92eb0c6295c7610065ad79de3942f54f0ece1487727a3266ae",
+    "path": "data/audit/council_r9/open-data-survey/sources/termigen_search.json",
+    "results": [
+      "hamishivi/agent-task-termigen",
+      "allenai/open-instruct-termigen"
+    ]
+  },
+  {
+    "name": "terminaltraj_api",
+    "url": "https://huggingface.co/api/datasets/m-a-p/TerminalTraj?blobs=true",
+    "status": 200,
+    "bytes": 2198,
+    "sha256": "92bf2260d7a3729b9ac1894bd44eb9128191685daa915753acfe6ed009d63762",
+    "path": "data/audit/council_r9/open-data-survey/sources/terminaltraj_api.json",
+    "sha": "5c1823f4a8b9ca0cf02c27d2db52c5b35b53a308",
+    "createdAt": "2026-02-10T03:48:17.000Z",
+    "lastModified": "2026-02-11T14:10:57.000Z",
+    "license": null,
+    "file_bytes": 164391755,
+    "files": [
+      ".gitattributes",
+      "README.md",
+      "data/train-00000-of-00002.parquet",
+      "data/train-00001-of-00002.parquet"
+    ]
+  },
+  {
+    "name": "man_pages_readme",
+    "url": "https://raw.githubusercontent.com/alejandro-colomar/man-pages/master/README",
+    "status": 404,
+    "bytes": 14,
+    "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+    "path": "data/audit/council_r9/open-data-survey/sources/man_pages_readme.txt"
+  },
+  {
+    "name": "man_pages_copying",
+    "url": "https://raw.githubusercontent.com/alejandro-colomar/man-pages/master/COPYING",
+    "status": 404,
+    "bytes": 14,
+    "sha256": "d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed",
+    "path": "data/audit/council_r9/open-data-survey/sources/man_pages_copying.txt"
+  },
+  {
+    "name": "cli_gym_readme",
+    "url": "https://huggingface.co/datasets/LiberCoders/CLI-Gym/raw/main/README.md",
+    "status": 200,
+    "bytes": 3532,
+    "sha256": "065155af3c8d7dd991694b0bb1afcb1a7a455422d74d1d34225ce8312cb135e7",
+    "path": "data/audit/council_r9/open-data-survey/sources/cli_gym_readme.txt"
+  },
+  {
+    "name": "nemotron_readme",
+    "url": "https://huggingface.co/datasets/nvidia/Nemotron-Terminal-Corpus/raw/main/README.md",
+    "status": 200,
+    "bytes": 3255,
+    "sha256": "ab2e781e4dc4cf7db8931078b5dfa72f5e02629937775d518bf88ed5e6e153e7",
+    "path": "data/audit/council_r9/open-data-survey/sources/nemotron_readme.txt"
+  },
+  {
+    "name": "open_thoughts_readme",
+    "url": "https://huggingface.co/datasets/open-thoughts/OpenThoughts-Agent-v1-RL/raw/main/README.md",
+    "status": 200,
+    "bytes": 7419,
+    "sha256": "89a5aff5593fe351a30c18d3bc18177008108c5f88287976167ccfd4bd3a6768",
+    "path": "data/audit/council_r9/open-data-survey/sources/open_thoughts_readme.txt"
+  },
+  {
+    "name": "euniai_readme",
+    "url": "https://huggingface.co/datasets/EuniAI/TerminalWorld/raw/main/README.md",
+    "status": 200,
+    "bytes": 10300,
+    "sha256": "264c7191bad8af869de02dd8eefe510213c51e39a85bf93395acbb2ee808da96",
+    "path": "data/audit/council_r9/open-data-survey/sources/euniai_readme.txt"
+  },
+  {
+    "name": "lite_rl_readme",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/raw/6fe7e994ff12d678de9b803da5c9907c8394a89c/README.md",
+    "status": 200,
+    "bytes": 2542,
+    "sha256": "756853907112256f8a046a067c4a474f7b6ccd1dc59aa63d3b4c092892c0ee1e",
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_rl_readme.txt"
+  },
+  {
+    "name": "lite_sft_readme",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-SFT/raw/6acdbbdb29979e4b8ea717b12accc8214606d087/README.md",
+    "status": 200,
+    "bytes": 5614,
+    "sha256": "b4fe983290d18619e0799a0de6f3b8a9014d143391a966d6b4c6d1f1e702abb4",
+    "path": "data/audit/council_r9/open-data-survey/sources/lite_sft_readme.txt"
+  },
+  {
+    "name": "seta_readme",
+    "url": "https://huggingface.co/datasets/camel-ai/SETA-Env/raw/3c3bc8975b05826bf41769bd6b2da76ad1b6dd42/README.md",
+    "status": 200,
+    "bytes": 2880,
+    "sha256": "b89c72b597f3f73a8fe6a55b7ad94f0c2c97014794bb141bcea07d38f971f39d",
+    "path": "data/audit/council_r9/open-data-survey/sources/seta_readme.txt"
+  },
+  {
+    "name": "tmax_readme",
+    "url": "https://huggingface.co/datasets/allenai/TMax-15K/raw/e3ded940596cc611c9815684ba51a7e8ee0cffc9/README.md",
+    "status": 200,
+    "bytes": 1830,
+    "sha256": "0e66e8816b8f2b4a17d37ec7abc5b8ca5708bae9d71d2c5323d8666d7e7ffa1d",
+    "path": "data/audit/council_r9/open-data-survey/sources/tmax_readme.txt"
+  },
+  {
+    "name": "intercode_fs_1",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/data/nl2bash/nl2bash_fs_1.json",
+    "status": 200,
+    "bytes": 13588,
+    "sha256": "60f88e1aacc7ebba535093f9890c5c33203f4e5f32958e0e94fbe90ec4f01c82",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_fs_1.json"
+  },
+  {
+    "name": "intercode_fs_2",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/data/nl2bash/nl2bash_fs_2.json",
+    "status": 200,
+    "bytes": 11158,
+    "sha256": "8f4ce24e535fab782fda607e37db2ae1d6c5f99993c638d1ac0a7e0b542f633e",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_fs_2.json"
+  },
+  {
+    "name": "intercode_fs_3",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/data/nl2bash/nl2bash_fs_3.json",
+    "status": 200,
+    "bytes": 11264,
+    "sha256": "a2d4ec8bc7ad69a4e2fb3eb84033994cf65ee9cfb355e3e63099df67a339b2e1",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_fs_3.json"
+  },
+  {
+    "name": "intercode_fs_4",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/data/nl2bash/nl2bash_fs_4.json",
+    "status": 200,
+    "bytes": 4028,
+    "sha256": "ce41b89450f87765a02a51df259ca0c1762e8249185c022adb089147e2c16200",
+    "path": "data/audit/council_r9/open-data-survey/sources/intercode_fs_4.json"
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "lite_metadata.parquet",
+    "url": "https://huggingface.co/datasets/Lite-Coder/LiteCoder-Terminal-RL-preview/resolve/6fe7e994ff12d678de9b803da5c9907c8394a89c/data/train.parquet",
+    "status": 200,
+    "bytes": 1099533
+  },
+  {
+    "name": "man-pages-6.19.tar.xz",
+    "url": "https://www.kernel.org/pub/linux/docs/man-pages/man-pages-6.19.tar.xz",
+    "status": 200,
+    "bytes": 1908136
+  },
+  {
+    "name": "nlc2cmd_data_doc.txt",
+    "url": "https://raw.githubusercontent.com/IBM/clai/nlc2cmd/docs/nl2bash-data.md",
+    "status": 200,
+    "bytes": 1288
+  },
+  {
+    "name": "nlc2cmd_man_doc.txt",
+    "url": "https://raw.githubusercontent.com/IBM/clai/nlc2cmd/docs/manpage-data.md",
+    "status": 200,
+    "bytes": 1821
+  },
+  {
+    "name": "intercode_license.txt",
+    "url": "https://raw.githubusercontent.com/princeton-nlp/intercode/master/LICENSE.md",
+    "status": 200,
+    "bytes": 1093
+  },
+  {
+    "name": "nl2bash_all.nl",
+    "url": "https://raw.githubusercontent.com/TellinaTool/nl2bash/master/data/bash/all.nl",
+    "status": 200,
+    "bytes": 1032340
+  },
+  {
+    "name": "euniai_license.txt",
+    "url": "https://huggingface.co/datasets/EuniAI/TerminalWorld/raw/dda7c099cc076735aef28c03bf8d3624dc0564e1/LICENSE",
+    "status": 200,
+    "bytes": 722
+  }
+]

@@ -1,0 +1,38 @@
+schema_version = "1.1"
+
+[task]
+name = "LiteCoder/c-library-compile-link-analysis"
+description = ""
+authors = []
+keywords = []
+
+[metadata]
+author_name = "generated"
+author_email = "generated@harbor.ai"
+difficulty = "medium"
+category = "software-engineering"
+tags = [ "c", "gcc", "makefile", "linking", "build-systems",]
+expert_time_estimate_min = 30.0
+junior_time_estimate_min = 60.0
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 2700.0
+
+[environment]
+docker_image = "paraliine/c-library-compile-link-analysis:latest"
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+allow_internet = true
+mcp_servers = []
+
+[verifier.env]
+
+[environment.env]
+
+[solution.env]

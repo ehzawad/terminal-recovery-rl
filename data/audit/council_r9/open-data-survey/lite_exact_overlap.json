@@ -1,0 +1,14 @@
+{
+  "method": "Exact equality after removing HTML comments, case-folding, and collapsing whitespace. No semantic or lineage clearance implied.",
+  "lite_rows": 602,
+  "base_instruction_files": {
+    "endless": 2492,
+    "tb21": 89,
+    "tblite": 100
+  },
+  "matches": {
+    "endless": [],
+    "tb21": [],
+    "tblite": []
+  }
+}

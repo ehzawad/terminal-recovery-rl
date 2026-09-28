@@ -1,0 +1,2262 @@
+Environment Evolution for Terminal Agents
+Report GitHub Issue
+×
+Title:
+Content selection saved. Describe the issue below:
+Description:
+Submit without GitHub
+Submit in GitHub
+arXiv is now an independent nonprofit!
+Learn more
+×
+Back to arXiv
+Why HTML?
+Report Issue
+Back to Abstract
+Download PDF
+Abstract
+1
+Introduction
+2
+Related Work
+Terminal agents.
+Environment Scaling.
+3
+Preliminaries
+4
+Approach
+4.1
+Sequence-Guided Environment Evolution.
+Loop 1: Plan Refinement
+Loop 2: Environment Refinement
+Evolution effort.
+4.2
+Evolution-Lineage Scheduler.
+5
+Experiments
+5.1
+Experimental Setup
+Harness.
+Benchmark.
+Training Algorithm.
+Monitoring Metrics.
+Seed Environment Selection.
+5.2
+Evolution Effort
+5.3
+Evolution Direction
+5.4
+RL Training Dynamics
+EL Scheduler.
+Turns and Tokens.
+5.5
+Comparison
+Environment Ensemble.
+Agent–Environment Co-Evolution.
+Environment Evolution.
+6
+Conclusion
+References
+A
+Version Note
+License: CC BY 4.0
+arXiv:2609.04128v1 [cs.AI] 03 Sep 2026
+Environment Evolution for Terminal Agents
+Zhiyuan Fan   Tinghao Yu   Yuanjun Cai   Jiang Zhou   Jiangtao Guan   Jincheng Liu
+Affiliation:
+Yun Yang   Dingxin Hu   Zhuo Han   Xing Wu   Feng Zhang   Lilin Wang
+Affiliation:
+Hunyuan Team, Tencent
+Affiliation:
+🖂  zhiyuan.fan@connect.ust.hk, {maxwellyu, lilinwang}@tencent.com
+Abstract
+Scaling interactive and verifiable environments is critical for training terminal agents.
+As frontier models become more capable, environments synthesized from scratch become less challenging and thus provide limited learning signals. Recent co-evolution methods iteratively synthesize environments near the model’s learnable frontier based on weaknesses exposed during rollouts.
+However, their dependence on on-policy rollouts limits generalization and the continuous provision of learning signals as the model becomes stronger. In this paper, we propose
+environment evolution
+, which incrementally increases environment difficulty off-policy and schedules the evolved environments generation by generation during training to provide continuous learning signals. We derive three evolution directions that influence environment difficulty from the multi-turn learning objective and then implement evolution along these directions through a loop-engineered multi-agent harness.
+Quantitative rollout experiments with Hy4 preview, Claude Opus 5, and GPT-5.6 Sol show that environment evolution consistently produces more difficult environments.
+We validate its effectiveness on Qwen3.6-27B and Qwen3.6-35B-A3B through simple long-horizon RL training, improving their performance by 14.4 and 18.0 percentage points on Terminal-Bench 2.1, respectively.
+1
+Introduction
+Reinforcement learning environments are emerging as the next scalable direction for training capable agents
+(
+Bellemare et al., 2013
+;
+Brockman et al., 2016
+)
+. With industrial-scale agentic RL algorithms stabilizing and asynchronous infrastructure maturing
+(
+Fu et al., 2026
+;
+Cao et al., 2025
+;
+Tan et al., 2025
+)
+, the focus of further scaling is shifting toward the environments.
+For general-purpose terminal agents, the difficulty and diversity of environments are therefore the central levers that determine what agents can learn through verifiable feedback: adaptive difficulty preserves continual learning potential, while diversity supports generality
+(
+Dennis et al., 2021
+;
+Jiang et al., 2021
+;
+Parker-Holder et al., 2023
+;
+Garcin et al., 2024
+;
+Cobbe et al., 2020
+;
+Team et al., 2021
+;
+Merrill et al., 2026
+)
+.
+Recent work has focused on synthesizing large-scale terminal environments from scratch through human-designed pipelines that transform diverse resources (e.g., GitHub repositories, skills, and webpages) into executable terminal environments, each with a corresponding instruction (what to do) and a verification system (how completion is assessed)
+(
+Gandhi et al., 2026
+;
+Wu et al., 2026
+;
+Fan et al., 2026
+;
+Pi et al., 2026
+;
+Hua et al., 2026
+;
+Zhao et al., 2026
+;
+Yao et al., 2026
+)
+.
+However, these environments are often insufficiently challenging for current frontier models, which consistently solve them across repeated rollouts.
+When used for RL training, such environments are discarded because they fail to provide effective learning signals that distinguish between better and worse trajectories, wasting environment construction costs and reducing diversity in the retained training distribution.
+To provide useful learning signals, existing co-evolution methods couple model training with environment synthesis by using on-policy rollouts on seed environments to expose weaknesses that guide the synthesis of new environments that remain challenging yet learnable
+(
+Zala et al., 2024
+;
+Hu et al., 2025
+;
+Guo et al., 2025
+;
+Sygkounas et al., 2026
+)
+.
+However, the resulting environments are constrained by the rollout model and initial environment distribution, limiting generalization and their ability to continuously provide learning signals as training saturates and model failures become sparse.
+Figure 1:
+Comparison of paradigms for environment scaling.
+(a)
+Environment ensemble obtains a new environment by composing several difficult primitive environments.
+(b)
+Agent–environment co-evolution rolls out the target agent on primitive environments to populate a weakness bank, which guides
+the construction of new environments.
+(c)
+Environment evolution, our proposed paradigm, evolves the environment itself: an evolver uses
+a derived difficulty signal to produce successive environments along the lineage.
+In this paper, we propose
+environment evolution
+, which increases environment difficulty generation by generation without relying on rollout models, as shown in Figure
+1
+.
+From the multi-turn learning objective, we derive an off-policy formulation of environment difficulty, which identifies
+scenario
+novelty,
+skill
+rarity, and execution
+length
+as three factors that influence difficulty.
+We then implement environment evolution with a loop-engineered multi-agent harness that incrementally modifies an existing environment along one selected from these three directions, which constructs lineages of increasing difficulty while introducing diverse variations around the original environment distribution.
+Rollout-based difficulty estimates with Hy4 preview, Claude Opus 5, and GPT-5.6 Sol show that the evolved environments are challenging across different models despite being synthesised off-policy.
+During model development, we find evolved environments continue to provide challenging RL signals even when their seed environments have already been used for SFT.
+Experiments on Qwen3.6-27B and Qwen3.6-35B-A3B demonstrate that environment evolution improves Terminal-Bench 2.1 performance by 14.4 and 18.0 percentage points, respectively.
+Compared with agent environment co-evolution, off-policy environment evolution provides longer-lasting learning signals and achieves better performance.
+In summary, our contributions are as follows:
+1. We derive a model-agnostic formulation of environment difficulty from the multi-turn learning objective, showing that environment evolution provides a more general approach to increasing environment difficulty.
+2. We propose
+environment evolution
+and implement it as a loop-engineered multi-agent harness that incrementally evolves existing environments to construct verified lineages of increasing difficulty.
+3. We validate the approach through 200-step long-horizon RL experiments on Qwen3.6-27B and Qwen3.6-35B-A3B, demonstrating longer-lasting learning signals than co-evolution and ensemble baselines and improvements of 14.4 and 18.0 percentage points on Terminal-Bench 2.1, respectively.
+2
+Related Work
+Terminal agents.
+Terminal agents interact with computing systems through command-line tools
+(
+Chen et al., 2021
+;
+Yang et al., 2024
+;
+Merrill et al., 2026
+)
+, granting them open-ended access to explore and exploit computational resources and iteratively use environment feedback to complete long-horizon tasks
+(
+Yao et al., 2023
+)
+.
+A line of work on harness design aims to strengthen agents’ planning, navigation, and exploration while constraining undesirable behaviors, with a focus on observation-space design, context compression, and tool routing
+(
+Lee et al., 2026
+;
+Wang et al., 2025
+;
+Bui, 2026
+)
+.
+The community has recently turned to synthesizing large-scale terminal environments from scratch for agent training
+(
+Gandhi et al., 2026
+;
+Wu et al., 2026
+;
+Fan et al., 2026
+;
+Pi et al., 2026
+;
+Hua et al., 2026
+;
+Zhao et al., 2026
+;
+Yao et al., 2026
+)
+.
+Despite their abundance and broad domain coverage, our large-scale rollout and quality assessment experiments reveal that these open-source environments suffer from low-quality reward signals (e.g., misalignment between task instructions and verification systems, corrupted environments)
+(
+Bercovich, 2026
+)
+and are insufficiently challenging to provide meaningful learning signals for frontier models.
+Environment Scaling.
+Open-ended reinforcement learning requires a continual stream of solvable yet challenging environments that retain learning potential
+(
+Wang et al., 2019
+;
+Dennis et al., 2021
+;
+Jiang et al., 2021
+;
+Parker-Holder et al., 2023
+)
+.
+Paired Open-Ended Trailblazer (POET) co-evolves a population of environment–agent pairs, generating new challenges through environment mutation and transferring agents across environments to exploit stepping stones
+(
+Wang et al., 2019
+;
+Wang et al., 2020
+)
+.
+Unsupervised Environment Design (UED) formalizes the automatic construction and curation of valid and solvable environments from underspecified environment parameters, encompassing regret-based generation, prioritized replay, and incremental level editing
+(
+Dennis et al., 2021
+;
+Jiang et al., 2021
+;
+Jiang et al., 2022
+;
+Parker-Holder et al., 2023
+)
+.
+Recent work has begun to bring these ideas to LLM agents: through feedback-conditioned generation
+(
+Chen et al., 2026
+;
+Yang et al., 2026
+)
+, online curricula
+(
+Qi et al., 2025
+)
+, and agent–environment co-evolution
+(
+Guo et al., 2025
+;
+Liu et al., 2026
+)
+, these methods adapt the environment distribution as the agent improves, keeping environments near its capability frontier.
+However, they require a designated agent to estimate environment difficulty through on-policy rollouts, and the resulting environments are related to both the rollout agent and the initial environment distribution.
+Instead, environment evolution constructs increasingly difficult lineages independently of the target policy and schedules successive generations during training to provide continual learning signals.
+3
+Preliminaries
+Instead of estimating difficulty on-policy, e.g., by rolling out a model and using its pass rate as the difficulty metrics, we need an off-policy metric that measures the difficulty of the environment itself, derived from the multi-turn learning objective. Since models are trained on different data distributions, a difficulty estimate tied to one model
+θ
+\theta
+is model-specific weakness rather than environment difficulty.
+We first view agent-environment interaction as a Markov process
+(
+Kaelbling et al., 1998
+)
+with interleaved observations and actions.
+Let
+h
+t
+=
+(
+o
+≤
+t
+,
+a
+<
+t
+)
+h_{t}=(o_{\leq t},a_{<t})
+.
+Then
+o
+t
+∼
+O
+ℰ
+(
+⋅
+∣
+s
+t
+)
+o_{t}\sim O_{\mathcal{E}}(\cdot\mid s_{t})
+,
+a
+t
+∼
+π
+θ
+(
+⋅
+∣
+h
+t
+,
+g
+)
+a_{t}\sim\pi_{\theta}(\cdot\mid h_{t},g)
+, and
+s
+t
++
+1
+∼
+P
+ℰ
+(
+⋅
+∣
+s
+t
+,
+a
+t
+)
+s_{t+1}\sim P_{\mathcal{E}}(\cdot\mid s_{t},a_{t})
+, which induces a low-level execution trajectory
+ζ
+=
+(
+o
+0
+,
+a
+0
+,
+o
+1
+,
+a
+1
+,
+…
+,
+o
+T
+)
+\zeta=(o_{0},a_{0},o_{1},a_{1},\ldots,o_{T})
+.
+Following prior definitions from hierarchical agent execution
+(
+Sutton et al., 1999
+)
+, we treat agent execution trajectory at a higher level as an interleaving of scenarios and skill executions:
+ξ
+=
+(
+σ
+0
+,
+κ
+1
+,
+σ
+1
+,
+…
+,
+κ
+L
+,
+σ
+L
+)
+,
+\xi=(\sigma_{0},\kappa_{1},\sigma_{1},\ldots,\kappa_{L},\sigma_{L}),
+where
+σ
+t
+\sigma_{t}
+is the high-level scenario at step
+t
+t
+, and
+κ
+t
+\kappa_{t}
+is the skill applied under that scenario.
+Under model
+θ
+\theta
+, the likelihood of a high-level trajectory decomposes over the scenarios it reaches and the skills it applies.
+Taking the negative log-likelihood gives the model-specific difficulty:
+D
+θ
+​
+(
+ξ
+)
+\displaystyle D_{\theta}(\xi)
+=
+−
+log
+⁡
+p
+θ
+​
+(
+ξ
+∣
+g
+)
+\displaystyle=-\log p_{\theta}(\xi\mid g)
+=
+∑
+t
+=
+1
+L
+(
+−
+log
+⁡
+p
+θ
+​
+(
+σ
+t
+−
+1
+∣
+g
+)
+−
+log
+⁡
+p
+θ
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+)
+.
+\displaystyle=\sum_{t=1}^{L}\Bigl(-\log p_{\theta}(\sigma_{t-1}\mid g)-\log p_{\theta}(\kappa_{t}\mid\sigma_{t-1},g)\Bigr).
+This quantity has three contributors.
+First,
+L
+L
+is the number of meaningful solver turns required by the trajectory.
+Second,
+−
+log
+⁡
+p
+θ
+​
+(
+σ
+t
+−
+1
+∣
+g
+)
+-\log p_{\theta}(\sigma_{t-1}\mid g)
+measures scenario novelty under the model.
+Third,
+−
+log
+⁡
+p
+θ
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+-\log p_{\theta}(\kappa_{t}\mid\sigma_{t-1},g)
+measures the rarity of applying the required skill in that scenario.
+The last two terms are policy-dependent: they depend on the model’s training-data distribution and learned policy.
+To obtain a policy-independent difficulty measure, we replace the model-dependent probabilities with those under a reference distribution
+𝒯
+\mathcal{T}
+grounded in broad world knowledge:
+D
+𝒯
+​
+(
+ξ
+)
+=
+∑
+t
+=
+1
+L
+(
+−
+log
+⁡
+p
+𝒯
+​
+(
+σ
+t
+−
+1
+∣
+g
+)
+−
+log
+⁡
+p
+𝒯
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+)
+.
+D_{\mathcal{T}}(\xi)=\sum_{t=1}^{L}\Bigl(-\log p_{\mathcal{T}}(\sigma_{t-1}\mid g)-\log p_{\mathcal{T}}(\kappa_{t}\mid\sigma_{t-1},g)\Bigr).
+Here
+p
+𝒯
+​
+(
+σ
+∣
+g
+)
+p_{\mathcal{T}}(\sigma\mid g)
+measures how common a scenario is within the environment family, and
+p
+𝒯
+​
+(
+κ
+∣
+σ
+,
+g
+)
+p_{\mathcal{T}}(\kappa\mid\sigma,g)
+measures how common the required skill is under that scenario.
+This converts the estimate from model-specific weakness into model-agnostic environment difficulty.
+In particular, a deep-research agent can estimate both distributions through broad web search, grounding them in world knowledge, by providing the relative context of
+g
+g
+and
+ξ
+\xi
+.
+This also gives a direct way to relate environment difficulty to agent weakness.
+Let
+z
+t
+=
+(
+σ
+t
+−
+1
+,
+κ
+t
+)
+z_{t}=(\sigma_{t-1},\kappa_{t})
+denote the scenario-skill requirement at step
+t
+t
+, and define the per-step difficulties
+d
+θ
+​
+(
+z
+t
+∣
+g
+)
+=
+−
+log
+⁡
+p
+θ
+​
+(
+σ
+t
+−
+1
+∣
+g
+)
+−
+log
+⁡
+p
+θ
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+,
+d_{\theta}(z_{t}\mid g)=-\log p_{\theta}(\sigma_{t-1}\mid g)-\log p_{\theta}(\kappa_{t}\mid\sigma_{t-1},g),
+and
+d
+𝒯
+​
+(
+z
+t
+∣
+g
+)
+d_{\mathcal{T}}(z_{t}\mid g)
+analogously under
+p
+𝒯
+p_{\mathcal{T}}
+.
+Agent weakness is the excess difficulty that remains after subtracting the environment-family difficulty:
+δ
+θ
+​
+(
+z
+t
+∣
+g
+)
+=
+[
+d
+θ
+​
+(
+z
+t
+∣
+g
+)
+−
+d
+𝒯
+​
+(
+z
+t
+∣
+g
+)
+]
++
+.
+\delta_{\theta}(z_{t}\mid g)=\left[d_{\theta}(z_{t}\mid g)-d_{\mathcal{T}}(z_{t}\mid g)\right]_{+}.
+where
+[
+x
+]
++
+=
+max
+⁡
+(
+x
+,
+0
+)
+[x]_{+}=\max(x,0)
+.
+Equivalently,
+δ
+θ
+​
+(
+z
+t
+∣
+g
+)
+=
+[
+log
+⁡
+p
+𝒯
+​
+(
+σ
+t
+−
+1
+∣
+g
+)
+p
+θ
+​
+(
+σ
+t
+−
+1
+∣
+g
+)
++
+log
+⁡
+p
+𝒯
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+p
+θ
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+]
++
+.
+\delta_{\theta}(z_{t}\mid g)=\Bigl[\log\frac{p_{\mathcal{T}}(\sigma_{t-1}\mid g)}{p_{\theta}(\sigma_{t-1}\mid g)}+\log\frac{p_{\mathcal{T}}(\kappa_{t}\mid\sigma_{t-1},g)}{p_{\theta}(\kappa_{t}\mid\sigma_{t-1},g)}\Bigr]_{+}.
+For the full high-level trajectory,
+Δ
+θ
+​
+(
+ξ
+)
+=
+∑
+t
+=
+1
+L
+[
+d
+θ
+​
+(
+z
+t
+∣
+g
+)
+−
+d
+𝒯
+​
+(
+z
+t
+∣
+g
+)
+]
++
+.
+\Delta_{\theta}(\xi)=\sum_{t=1}^{L}\left[d_{\theta}(z_{t}\mid g)-d_{\mathcal{T}}(z_{t}\mid g)\right]_{+}.
+Thus, weakness is not the difficulty of the environment itself; it is the portion of that trajectory that is unusually difficult for a particular model relative to the environment family.
+This distinction clarifies the scope of on-policy co-evolution of agent and environment.
+Such methods collect rollouts from a model
+θ
+\theta
+, identify the model’s failure modes, and generate new environments around those failures.
+If
+e
+t
+θ
+e_{t}^{\theta}
+indicates a failure at step
+t
+t
+, the induced signal is mainly
+∑
+t
+=
+1
+L
+e
+t
+θ
+​
+[
+−
+log
+⁡
+p
+θ
+​
+(
+κ
+t
+∣
+σ
+t
+−
+1
+,
+g
+)
+]
+\sum_{t=1}^{L}e_{t}^{\theta}[-\log p_{\theta}(\kappa_{t}\mid\sigma_{t-1},g)]
+.
+That is, on-policy co-evolution of agent and environment primarily targets skill-selection errors under scenarios contained in the seed environments and reached by the current model during rollouts.
+It does not explicitly control the number of required solver steps
+L
+L
+, nor does it systematically increase scenario novelty under
+p
+𝒯
+​
+(
+σ
+∣
+g
+)
+p_{\mathcal{T}}(\sigma\mid g)
+.
+In contrast, the environment evolution directly operates on the full difficulty space:
+(
+L
+,
+−
+log
+⁡
+p
+𝒯
+​
+(
+σ
+∣
+g
+)
+,
+−
+log
+⁡
+p
+𝒯
+​
+(
+κ
+∣
+σ
+,
+g
+)
+)
+\left(L,\;-\log p_{\mathcal{T}}(\sigma\mid g),\;-\log p_{\mathcal{T}}(\kappa\mid\sigma,g)\right)
+which shows that environment evolution offers a more general paradigm for providing continuous learning signals.
+4
+Approach
+4.1
+Sequence-Guided Environment Evolution.
+Figure 2:
+Loop-engineered multi-agent harness for environment evolution. It decomposes each generation into two gated feedback loops: (1) sequence-guided plan refinement, which generates and revises an evolution plan until it passes rubric-based review; and (2) plan-conditioned environment refinement, which evolves and repairs the candidate until strict solvability and quality checks pass.
+Environment evolution is implemented as a loop-engineered multi-agent harness,
+as illustrated in Figure
+2
+. It takes the
+latest accepted environment as input and produces the next-generation
+environment through an incremental modification guided by the expected
+execution trajectory at the scenario and skill levels.
+Loop 1: Plan Refinement
+The Proposer first extracts an execution sequence of interleaved scenarios and
+skills from
+E
+E
+:
+ξ
+E
+=
+(
+σ
+1
+,
+κ
+1
+)
+,
+…
+,
+(
+σ
+L
+,
+κ
+L
+)
+.
+\xi_{E}=(\sigma_{1},\kappa_{1}),\ldots,(\sigma_{L},\kappa_{L}).
+(1)
+It then updates the sequence according to the evolution direction selected at
+the current generation. For
+length
+, it inserts scenario–skill pairs
+into the sequence to introduce additional dependencies along the expected
+execution trajectory. For
+scenario
+, it replaces one scenario while preserving
+its paired skill; for
+skill
+, it replaces one skill.
+A plan is generated from the difference between the updated and
+original sequences, and a rubric-based reviewer iteratively reviews it until it
+is accepted or the current evolution direction fails.
+Loop 2: Environment Refinement
+The reviewed plan is then passed to the Modifier, which creates a residual
+Δ
+​
+E
+\Delta E
+and applies it to the current environment. Each candidate must pass
+three verifiers run in parallel: (i) an Oracle verifier checks that the reference
+solution succeeds in the sandbox; (ii) an Invalid-test verifier confirms that an
+empty or no-op solution fails, ensuring that the verification system is reliable;
+and (iii) an adaptive general-rubrics verifier checks environment quality.
+During development, accepted environments undergo human-in-the-loop review.
+Issues that bypass the rubric-based checks are converted into new rubrics
+for the plan reviewer and environment verifier until the loop reliably produces
+environments with no issues identified by human reviewers.
+Evolution effort.
+To control the mutation between adjacent generations, we introduce a
+prompt-controlled mutation parameter called
+evolution effort
+, analogous
+in spirit to thinking effort, with three levels: low, high, and max. While the
+evolution direction determines what type of sequence-level edit is performed,
+evolution effort controls its scope. The three effort levels restrict the edit
+to one pair
+(
+σ
+ℓ
+,
+κ
+ℓ
+)
+(\sigma_{\ell},\kappa_{\ell})
+, one contiguous span, or an unrestricted portion of
+the sequence, respectively.
+Section
+5
+quantitatively validates the effectiveness of
+this design.
+At each generation, we randomly order the three evolution directions. If the
+Plan Reviewer rejects a plan or the repair budget for the current direction
+is exhausted, we fall back to the next direction, construct a new target
+sequence from the same environment, and repeat the process. The branch
+terminates only when all three directions fail.
+4.2
+Evolution-Lineage Scheduler.
+As evolution proceeds, later generations become increasingly difficult.
+Sampling randomly from the full lineage can therefore expose the policy to
+environments it cannot yet solve, yielding all-failure rollout groups that
+provide no effective learning signal. We therefore propose the
+Evolution-Lineage (EL) Scheduler, which starts from the earliest generation and
+schedules its environments in order. Let
+E
+i
+,
+g
+,
+k
+E_{i,g,k}
+be the
+k
+k
+-th
+environment in generation
+g
+g
+of lineage
+i
+i
+, with
+N
+i
+,
+g
+N_{i,g}
+environments
+in that generation. At update
+u
+u
+, the scheduler updates the active indices as
+follows:
+(
+g
+u
++
+1
+,
+k
+u
++
+1
+)
+=
+{
+(
+g
+u
+,
+k
+u
+)
+,
+p
+^
+u
+​
+(
+E
+i
+,
+g
+u
+,
+k
+u
+)
+≤
+τ
+,
+(
+g
+u
+,
+k
+u
++
+1
+)
+,
+p
+^
+u
+​
+(
+E
+i
+,
+g
+u
+,
+k
+u
+)
+>
+τ
+∧
+k
+u
+<
+N
+i
+,
+g
+u
+,
+(
+g
+u
++
+1
+,
+1
+)
+,
+p
+^
+u
+​
+(
+E
+i
+,
+g
+u
+,
+k
+u
+)
+>
+τ
+∧
+k
+u
+=
+N
+i
+,
+g
+u
+,
+p
+^
+u
+​
+(
+E
+)
+=
+1
+B
+​
+∑
+b
+=
+1
+B
+r
+u
+,
+b
+.
+(g_{u+1},k_{u+1})=\begin{cases}(g_{u},k_{u}),&\widehat{p}_{u}(E_{i,g_{u},k_{u}})\leq\tau,\\
+(g_{u},k_{u}+1),&\widehat{p}_{u}(E_{i,g_{u},k_{u}})>\tau\ \land\ k_{u}<N_{i,g_{u}},\\
+(g_{u}+1,1),&\widehat{p}_{u}(E_{i,g_{u},k_{u}})>\tau\ \land\ k_{u}=N_{i,g_{u}},\end{cases}\qquad\widehat{p}_{u}(E)=\frac{1}{B}\sum_{b=1}^{B}r_{u,b}.
+(2)
+We use
+B
+=
+8
+B=8
+and
+τ
+=
+6
+/
+8
+\tau=6/8
+. Once the current environment exceeds this
+threshold, the scheduler moves to the next environment in the same generation.
+It advances to the next generation only when no environments remain in the
+current one.
+5
+Experiments
+5.1
+Experimental Setup
+Harness.
+In this paper, evaluation and RL training use the Claude Code harness
+(
+Anthropic, 2025
+)
+.
+It fixes the tool protocol across models while improving execution efficiency by running multiple tool calls in parallel within a single assistant turn.
+For RL training, the harness operates with a 256K context window and automatically compacts the trajectory when the remaining usable context reaches 16K, providing stable context management for long-horizon execution.
+Benchmark.
+Terminal-Bench 2.1 Verified
+(
+Merrill et al., 2026
+)
+is the primary held-out benchmark for terminal agent capability.
+It fixes instabilities in Terminal-Bench 2.0 that hinder reproducible evaluation and incorrectly underestimate benchmark performance.
+Each task is configured with 32 CPU cores and 48 GB of memory, with a timeout of 4 hours.
+Sampling uses temperature
+1.0
+1.0
+, top-
+p
+p
+0.95
+0.95
+, and top-
+k
+k
+20
+20
+, with a dynamic output budget,
+256
+​
+K
+−
+L
+used
+256\mathrm{K}-L_{\mathrm{used}}
+, at each assistant turn, to avoid truncation errors caused by an overly long turn.
+We report the average over five runs.
+Training Algorithm.
+We use GRPO
+(
+Shao et al., 2024
+)
+for agentic RL training with partial rollouts, fully asynchronous GPU location, and a staleness bound of 5 to reduce GPU bubble time.
+When auto compact of Claude Code harness is triggered, its summary is retained in the complete trajectory and treated as a regular action turn for multi-turn credit assignment.
+We train Qwen3.6-27B, a 27B-parameter dense model, and Qwen3.6-35B-A3B, a mixture-of-experts model with 35B total and 3B activated parameters.
+Both checkpoints provide a native context length of 262,144 tokens. For the MoE model, we additionally use R3
+(
+Ma et al., 2025
+)
+to stabilize training process.
+Monitoring Metrics.
+Environment Difficulty
+is estimated by the pass rate over 8 independent rollouts.
+We also record the average number of assistant turns as a measure of long-horizon execution; assistant turns typically account for nearly half of the total turns.
+Rollouts use Claude Opus 5 and GPT-5.6 Sol with
+xhigh
+effort and Hy4 preview
+(
+Tencent Hunyuan, 2026
+)
+with
+high
+effort, all with a 1M context window.
+Environment Mutation.
+For each generation, structural change relative to the seed is measured across instruction, environment, and verification system, with their mutations measured at the token, file, and test-unit levels, respectively.
+Seed Environment Selection.
+We collect 47,678 non-benchmark terminal environments from Hugging Face and GitHub and retain 127 through strict rubric-based filtering for environment quality and solvability.
+Each candidate must include an executable Oracle solution that passes the verifier, satisfy rubric-based quality checks (we find environment quality critical to successful RL training), and meet the difficulty threshold under Claude Opus 5: a pass rate of at most
+4
+/
+8
+4/8
+and average turns of at least 30.
+SkillSynth
+(
+Fan et al., 2026
+)
+is then used to supplement the pool with newly synthesized environments, which are subject to the same quality and difficulty filters.
+Finally, uniform sampling across domains yields a balanced and diverse seed pool of 500 environments.
+5.2
+Evolution Effort
+Figure 3:
+Environment difficulty across 15 evolution generations under
+low
+,
+high
+, and
+max
+evolution effort, evaluated independently by Hy4 preview, Claude Opus 5, and GPT-5.6 Sol.
+Starting from the same seed environments, the randomized cross-mode strategy independently constructs 15-generation lineages under
+low
+,
+high
+, and
+max
+evolution effort.
+We use a common cap of 15 generations because pass rate provides no further resolution once a lineage enters the zero-pass regime; beyond that point, the effectiveness of additional evolution cannot be assessed reliably from rollout outcomes.
+As shown in Figure
+3
+,
+low
+effort progressively extends long horizon execution, as avg turns increase across generations, but its pass rate fluctuates and remains above zero.
+Because
+low
+modifies only one local pair
+(
+σ
+ℓ
+,
+κ
+ℓ
+)
+(\sigma_{\ell},\kappa_{\ell})
+, successive generations may repeatedly edit the same pair and partially return to an earlier configuration.
+In contrast,
+high
+and
+max
+monotonically reduce pass rate to zero and increase avg turns, with
+max
+reaching zero earlier and producing the larger change in difficulty.
+Figure 4:
+Instruction, environment, and verification system mutation rates across generations G1–G15 under
+low
+,
+high
+, and
+max
+evolution effort.
+Figure
+4
+separates generation-level mutation rates into instruction, environment, and verification system components.
+Instruction mutation remains high under
+high
+and
+max
+, with both fluctuating between 95% and 100% while trending downward, whereas environment and verification system changes remain more selective.
+Balancing effective and stable evolution against the controllability of each generation,
+high
+is used as the default evolution effort.
+5.3
+Evolution Direction
+Direction
+Difficulty Change
+Component Mutation (%)
+Δ
+\Delta
+Pass Rate
+Δ
+\Delta
+Avg Turns
+Instruction
+Environment
+Verification
+Total
+1-step effect
+scenario
+−
+4.7
+​
+pp
+-4.7\,\mathrm{pp}
++
+13.5
++13.5
+99.8
+%
+99.8\%
+59.6
+%
+59.6\%
+53.8
+%
+53.8\%
+71.1
+%
+71.1\%
+skill
+−
+4.0
+​
+pp
+-4.0\,\mathrm{pp}
++
+12.5
++12.5
+99.1
+%
+99.1\%
+50.3
+%
+50.3\%
+58.4
+%
+58.4\%
+69.3
+%
+69.3\%
+length
+−
+7.1
+​
+pp
+-7.1\,\mathrm{pp}
++
+9.4
++9.4
+87.5
+%
+87.5\%
+45.2
+%
+45.2\%
+58.6
+%
+58.6\%
+63.8
+%
+63.8\%
+15-step mean effect
+scenario
+−
+2.9
+​
+pp
+-2.9\,\mathrm{pp}
++
+9.5
++9.5
+97.1
+%
+97.1\%
+34.6
+%
+34.6\%
+43.7
+%
+43.7\%
+58.5
+%
+58.5\%
+skill
+−
+2.7
+​
+pp
+-2.7\,\mathrm{pp}
++
+10.6
++10.6
+96.5
+%
+96.5\%
+27.8
+%
+27.8\%
+45.8
+%
+45.8\%
+56.7
+%
+56.7\%
+length
+−
+4.8
+​
+pp
+-4.8\,\mathrm{pp}
++
+7.4
++7.4
+85.5
+%
+85.5\%
+34.3
+%
+34.3\%
+48.9
+%
+48.9\%
+56.2
+%
+56.2\%
+Table 1:
+Single-step consistency of evolution-direction effects under
+high
+evolution effort. The two difficulty-change columns are measured by Claude Opus 5 with
+xhigh
+thinking effort. The first block applies each direction once to the same seed environments. The second evolves each direction for 15 consecutive steps and averages the metrics over the 15 generation transitions. Agreement between the two blocks tests whether each direction preserves a stable, direction-specific change profile along longer lineages. Difficulty changes are computed as the later generation minus the previous generation, component columns report generation-level mutation rates, and Total is their unweighted mean.
+To isolate the effect of evolution direction, we fix
+high
+evolution effort and apply
+scenario
+,
+skill
+, and
+length
+to the same seed environments.
+At each generation, we measure changes in pass rate and avg turns together with instruction, environment, and verification system mutation.
+The 1-step effect captures the immediate change induced by each direction, while the 15-step mean averages the same metrics over adjacent transitions in a direction-specific lineage to test whether that effect persists.
+All three directions consistently reduce pass rate and increase avg turns.
+length
+produces the largest pass-rate decrease, whereas
+scenario
+and
+skill
+produce larger increases in avg turns.
+scenario
+yields the largest total mutation, while
+length
+achieves the strongest pass-rate reduction with the smallest total mutation.
+The agreement between the 1-step and 15-step results indicates that these direction-specific profiles persist beyond a single edit.
+In the full evolution procedure, the directions are therefore randomly ordered at each generation to diversify the resulting lineages, with cross-mode fallback whenever the current direction fails.
+5.4
+RL Training Dynamics
+Before RL training, each base model generates trajectories for rejection sampling fine-tuning (RFT)
+(
+Touvron and others, 2023
+)
+.
+Only trajectories that pass the verification system and conform to the Claude Code protocol are retained.
+The filtered set is rebalanced for trajectory diversity in order to increase policy entropy for better RL training.
+Starting from the resulting RFT checkpoint, denoted step 0, we train each model with GRPO for 200 steps.
+EL Scheduler.
+The EL Scheduler advances through each environment lineage in order, exposing generation
+g
++
+1
+g+1
+only after generation
+g
+g
+reaches the pass-rate threshold in Equation
+2
+.
+Figure
+5
+compares it with random scheduling under matched rollout budgets during the first 50 RL steps.
+By avoiding premature exposure to generations that the policy cannot yet solve, the scheduler uses the rollout budget more efficiently and provides GRPO with more informative learning signals, as more rollout groups remain partially solved and retain non-zero within-group advantage.
+The EL Scheduler is used by default throughout the full 200-step RL training run.
+Figure 5:
+Early training dynamics over the first 50 training steps. Solid curves show the fraction of rollout groups that are partially solved, with one to seven successful trajectories among eight rollouts; dashed curves show mean training reward.
+Turns and Tokens.
+During training, the scheduler progressively admits harder environments, which tend to require longer interaction horizons.
+As shown in Figure
+6
+, this progression is accompanied by increases in both turns and tokens per trajectory.
+Tokens per turn also increase, suggesting that the policy allocates greater thinking effort to each interaction.
+Figure 6:
+Trajectory length over 200 RL training steps for Qwen3.6-27B (left) and Qwen3.6-35B-A3B (right); the left and right y-axes report average turns and tokens per trajectory, respectively, with annotations at step 200. Tokens per turn increase from approximately 951 to 1,221 for Qwen3.6-27B and from 947 to 1,103 for Qwen3.6-35B-A3B.
+5.5
+Comparison
+To ensure a fair comparison across environment-scaling paradigms, Claude Opus 5 is fixed as the environment synthesis model, and the total number of training environments is held constant.
+Figure 7:
+Checkpoint performance for Qwen3.6-27B (left) and Qwen3.6-35B-A3B (right) over 200 RL training steps, with offline evaluation every 10 steps; annotations mark each method’s peak accuracy and corresponding training step. Step 0 denotes the shared checkpoint after RFT used to increase policy entropy before RL training.
+Environment Ensemble.
+The target agent is first evaluated on the seed environments, and the environments it fails to solve are selected.
+All two- and three-environment combinations are then enumerated, with each combination merged into one harder environment.
+This procedure is applied recursively as a tree, with the outputs of one level becoming the inputs to the next.
+Agent–Environment Co-Evolution.
+The target agent first rolls out on the seed environments to generate trajectories.
+Its failed trajectories are analyzed to construct a weakness bank, from which combinations are sampled to synthesize new, harder environments.
+After the agent trains for 50 RL steps, the procedure is repeated.
+Environment Evolution.
+Environment Evolution randomly orders the three modes at each generation and follows the cross-mode fallback, producing a verified 15-generation lineage from each seed without target-agent rollouts.
+Figure
+7
+reports offline Terminal-Bench 2.1 evaluation every 10 RL steps.
+Environment evolution reaches peak accuracies of 71.5% and 64.9% on Qwen3.6-27B and Qwen3.6-35B-A3B, compared with 62.9% and 55.1% for Co-evolution and 60.0% and 52.8% for Ensemble.
+6
+Conclusion
+In this paper, we propose
+environment evolution
+, which incrementally synthesizes environments of increasing difficulty for RL training.
+It serves as a more general paradigm for scaling environments for terminal agents, built on the derived off-policy formulation of environment difficulty.
+Across different models, evolved environments show a consistent increase in difficulty generation by generation despite being synthesized off-policy.
+By scheduling these environments along lineages, long-horizon RL training on Qwen3.6-27B and Qwen3.6-35B-A3B receives continuously effective learning signals and achieves higher performance than co-evolution and ensemble baselines.
+Future work will explore the potential of environment evolution for SWE agents and Computer-Use Agents.
+References
+Anthropic (2025)
+Anthropic
+Claude Code
+.
+Note:
+https://code.claude.com/docs/en/overview
+Cited by:
+§5.1
+.
+Bellemare
+et al.
+(2013)
+M. G. Bellemare, Y. Naddaf, J. Veness, and M. Bowling
+The arcade learning environment: an evaluation platform for general agents
+.
+External Links:
+1207.4708
+,
+Document
+,
+Link
+Cited by:
+§1
+.
+Bercovich (2026)
+I. Bercovich
+What makes a good terminal-agent benchmark task: a guideline for adversarial, difficult, and legible evaluation design
+.
+External Links:
+2604.28093
+,
+Link
+Cited by:
+§2
+.
+Brockman
+et al.
+(2016)
+G. Brockman, V. Cheung, L. Pettersson, J. Schneider, J. Schulman, J. Tang, and W. Zaremba
+OpenAI gym
+.
+External Links:
+1606.01540
+,
+Link
+Cited by:
+§1
+.
+Bui (2026)
+N. D. Q. Bui
+Building effective ai coding agents for the terminal: scaffolding, harness, context engineering, and lessons learned
+.
+External Links:
+2603.05344
+,
+Link
+Cited by:
+§2
+.
+Cao
+et al.
+(2025)
+S. Cao, D. Li, F. Zhao, S. Yuan, S. R. Hegde, C. Chen, C. Ruan, T. Griggs, S. Liu, E. Tang, R. Liaw, P. Moritz, M. Zaharia, J. E. Gonzalez, and I. Stoica
+SkyRL-agent: efficient rl training for multi-turn llm agent
+.
+External Links:
+2511.16108
+,
+Link
+Cited by:
+§1
+.
+Chen
+et al.
+(2021)
+M. Chen, J. Tworek, H. Jun, Q. Yuan, H. P. de Oliveira Pinto, J. Kaplan, H. Edwards, Y. Burda, N. Joseph, G. Brockman, A. Ray, R. Puri, G. Krueger, M. Petrov, H. Khlaaf, G. Sastry, P. Mishkin, B. Chan, S. Gray, N. Ryder, M. Pavlov, A. Power, L. Kaiser, M. Bavarian, C. Winter, P. Tillet, F. P. Such, D. Cummings, M. Plappert, F. Chantzis, E. Barnes, A. Herbert-Voss, W. H. Guss, A. Nichol, A. Paino, N. Tezak, J. Tang, I. Babuschkin, S. Balaji, S. Jain, W. Saunders, C. Hesse, A. N. Carr, J. Leike, J. Achiam, V. Misra, E. Morikawa, A. Radford, M. Knight, M. Brundage, M. Murati, K. Mayer, P. Welinder, B. McGrew, D. Amodei, S. McCandlish, I. Sutskever, and W. Zaremba
+Evaluating large language models trained on code
+.
+External Links:
+2107.03374
+,
+Link
+Cited by:
+§2
+.
+Chen
+et al.
+(2026)
+Z. Chen, Z. Zhao, K. Zhang, B. Liu, Q. Qi, Y. Wu, T. Kalluri, S. Cao, Y. Xiong, H. Tong, H. Yao, H. Li, J. Zhu, X. Li, D. Song, B. Li, J. Weston, and D. Huynh
+Scaling agent learning via experience synthesis
+.
+In
+The Fourteenth International Conference on Learning Representations
+,
+External Links:
+Link
+Cited by:
+§2
+.
+Cobbe
+et al.
+(2020)
+K. Cobbe, C. Hesse, J. Hilton, and J. Schulman
+Leveraging procedural generation to benchmark reinforcement learning
+.
+External Links:
+1912.01588
+,
+Link
+Cited by:
+§1
+.
+Dennis
+et al.
+(2021)
+M. Dennis, N. Jaques, E. Vinitsky, A. Bayen, S. Russell, A. Critch, and S. Levine
+Emergent complexity and zero-shot transfer via unsupervised environment design
+.
+External Links:
+2012.02096
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Fan
+et al.
+(2026)
+Z. Fan, T. Yu, Y. Cai, J. Guan, Y. Yang, D. Hu, J. Zhou, X. Wu, Z. Han, F. Zhang, and L. Wang
+Toward scalable terminal task synthesis via skill graphs
+.
+External Links:
+2604.25727
+,
+Link
+Cited by:
+§1
+,
+§2
+,
+§5.1
+.
+Fu
+et al.
+(2026)
+W. Fu, J. Gao, X. Shen, C. Zhu, Z. Mei, C. He, S. Xu, G. Wei, J. Mei, J. Wang, T. Yang, B. Yuan, and Y. Wu
+AReaL: a large-scale asynchronous reinforcement learning system for language reasoning
+.
+External Links:
+2505.24298
+,
+Link
+Cited by:
+§1
+.
+Gandhi
+et al.
+(2026)
+K. Gandhi, S. Garg, N. D. Goodman, and D. Papailiopoulos
+Endless terminals: scaling rl environments for terminal agents
+.
+External Links:
+2601.16443
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Garcin
+et al.
+(2024)
+S. Garcin, J. Doran, S. Guo, C. G. Lucas, and S. V. Albrecht
+DRED: zero-shot transfer in reinforcement learning via data-regularised environment design
+.
+External Links:
+2402.03479
+,
+Link
+Cited by:
+§1
+.
+Guo
+et al.
+(2025)
+J. Guo, L. Yang, P. Chen, Q. Xiao, Y. Wang, X. Juan, J. Qiu, K. Shen, and M. Wang
+GenEnv: difficulty-aligned co-evolution between llm agents and environment simulators
+.
+External Links:
+2512.19682
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Hu
+et al.
+(2025)
+M. Hu, P. Zhao, C. Xu, Q. Sun, J. Lou, Q. Lin, P. Luo, and S. Rajmohan
+AgentGen: enhancing planning abilities for large language model based agent via environment and task generation
+.
+External Links:
+2408.00764
+,
+Link
+Cited by:
+§1
+.
+Hua
+et al.
+(2026)
+Z. Hua, Y. Yao, W. Xie, Y. Zhao, M. Liu, R. Qiu, Z. Huang, Z. Wang, Y. Ji, Y. Ye, L. Zhu, X. Lei, H. Li, Z. Ma, Z. Wang, Z. Zhang, and J. Liu
+CLI-Universe: towards verifiable task synthesis engine for terminal agents
+.
+External Links:
+2606.22883
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Jiang
+et al.
+(2022)
+M. Jiang, M. Dennis, J. Parker-Holder, J. Foerster, E. Grefenstette, and T. Rocktäschel
+Replay-guided adversarial environment design
+.
+External Links:
+2110.02439
+,
+Link
+Cited by:
+§2
+.
+Jiang
+et al.
+(2021)
+M. Jiang, E. Grefenstette, and T. Rocktäschel
+Prioritized level replay
+.
+External Links:
+2010.03934
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Kaelbling
+et al.
+(1998)
+L. P. Kaelbling, M. L. Littman, and A. R. Cassandra
+Planning and acting in partially observable stochastic domains
+.
+Artificial Intelligence
+101
+(
+1-2
+),
+pp. 99–134
+.
+Cited by:
+§3
+.
+Lee
+et al.
+(2026)
+Y. Lee, R. Nair, Q. Zhang, K. Lee, O. Khattab, and C. Finn
+Meta-harness: end-to-end optimization of model harnesses
+.
+External Links:
+2603.28052
+,
+Link
+Cited by:
+§2
+.
+Liu
+et al.
+(2026)
+B. Liu, S. Yu, Y. Jiang, A. Qu, A. Zhao, Z. Liu, J. Kim, Z. Zhou, S. Kim, T. Ren, M. Liu, H. Yu, Z. Chen, W. Shi, P. P. Liang, L. Zettlemoyer, Y. Choi, and N. Jaques
+SPADE: self-play in adaptive synthetic executable environments
+.
+External Links:
+2608.19197
+,
+Link
+Cited by:
+§2
+.
+Ma
+et al.
+(2025)
+W. Ma, H. Zhang, L. Zhao, Y. Song, Y. Wang, Z. Sui, and F. Luo
+Stabilizing MoE reinforcement learning by aligning training and inference routers
+.
+External Links:
+2510.11370
+,
+Link
+Cited by:
+§5.1
+.
+Merrill
+et al.
+(2026)
+M. A. Merrill, A. G. Shaw, N. Carlini, B. Li, H. Raj, I. Bercovich, L. Shi, J. Y. Shin, T. Walshe, E. K. Buchanan, J. Shen, G. Ye, H. Lin, J. Poulos, M. Wang, M. Nezhurina, J. Jitsev, D. Lu, O. M. Mastromichalakis, Z. Xu, Z. Chen, Y. Liu, R. Zhang, L. L. Chen, A. Kashyap, J. Uslu, J. Li, J. Wu, M. Yan, S. Bian, V. Sharma, K. Sun, S. Dillmann, A. Anand, A. Lanpouthakoun, B. Koopah, C. Hu, E. Guha, G. H. S. Dreiman, J. Zhu, K. Krauth, L. Zhong, N. Muennighoff, R. Amanfu, S. Tan, S. Pimpalgaonkar, T. Aggarwal, X. Lin, X. Lan, X. Zhao, Y. Liang, Y. Wang, Z. Wang, C. Zhou, D. Heineman, H. Liu, H. Trivedi, J. Yang, J. Lin, M. Shetty, M. Yang, N. Omi, N. Raoof, S. Li, T. Y. Zhuo, W. Lin, Y. Dai, Y. Wang, W. Chai, S. Zhou, D. Wahdany, Z. She, J. Hu, Z. Dong, Y. Zhu, S. Cui, A. Saiyed, A. Kolbeinsson, J. Hu, C. M. Rytting, R. Marten, Y. Wang, A. Dimakis, A. Konwinski, and L. Schmidt
+Terminal-bench: benchmarking agents on hard, realistic tasks in command line interfaces
+.
+External Links:
+2601.11868
+,
+Link
+Cited by:
+§1
+,
+§2
+,
+§5.1
+.
+Parker-Holder
+et al.
+(2023)
+J. Parker-Holder, M. Jiang, M. Dennis, M. Samvelyan, J. Foerster, E. Grefenstette, and T. Rocktäschel
+Evolving curricula with regret-based environment design
+.
+External Links:
+2203.01302
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Pi
+et al.
+(2026)
+R. Pi, G. Lam, M. Shoeybi, P. Jannaty, B. Catanzaro, and W. Ping
+On data engineering for scaling llm terminal capabilities
+.
+External Links:
+2602.21193
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Qi
+et al.
+(2025)
+Z. Qi, X. Liu, I. L. Iong, H. Lai, X. Sun, J. Sun, X. Yang, Y. Yang, S. Yao, W. Xu, J. Tang, and Y. Dong
+WebRL: training llm web agents via self-evolving online curriculum reinforcement learning
+.
+In
+The Thirteenth International Conference on Learning Representations
+,
+External Links:
+Link
+Cited by:
+§2
+.
+Shao
+et al.
+(2024)
+Z. Shao, P. Wang, Q. Zhu, R. Xu, J. Song, X. Bi, H. Zhang, M. Zhang, Y. K. Li, Y. Wu, and D. Guo
+DeepSeekMath: pushing the limits of mathematical reasoning in open language models
+.
+External Links:
+2402.03300
+,
+Link
+Cited by:
+§5.1
+.
+Sutton
+et al.
+(1999)
+R. S. Sutton, D. Precup, and S. Singh
+Between mdps and semi-mdps: a framework for temporal abstraction in reinforcement learning
+.
+Artificial Intelligence
+112
+(
+1–2
+),
+pp. 181–211
+.
+External Links:
+Document
+Cited by:
+§3
+.
+Sygkounas
+et al.
+(2026)
+A. Sygkounas, R. Hazra, A. Persson, P. Z. D. Martires, and A. Loutfi
+COvolve: adversarial co-evolution of large-language-model-generated policies and environments via two-player zero-sum game
+.
+External Links:
+2603.28386
+,
+Link
+Cited by:
+§1
+.
+Tan
+et al.
+(2025)
+Z. Tan, M. Abdullahi, T. Shi, H. Yuan, Z. Xu, C. Yu, B. Li, and B. Zhao
+EARL: efficient agentic reinforcement learning systems for large language models
+.
+External Links:
+2510.05943
+,
+Link
+Cited by:
+§1
+.
+Team
+et al.
+(2021)
+O. E. L. Team, A. Stooke, A. Mahajan, C. Barros, C. Deck, J. Bauer, J. Sygnowski, M. Trebacz, M. Jaderberg, M. Mathieu, N. McAleese, N. Bradley-Schmieg, N. Wong, N. Porcel, R. Raileanu, S. Hughes-Fitt, V. Dalibard, and W. M. Czarnecki
+Open-ended learning leads to generally capable agents
+.
+External Links:
+2107.12808
+,
+Link
+Cited by:
+§1
+.
+Tencent Hunyuan (2026)
+Tencent Hunyuan
+Hy4 preview
+.
+Note:
+https://hy.tencent.com/research/hy4-preview
+Cited by:
+§5.1
+.
+Touvron
+et al.
+(2023)
+H. Touvron
+et al.
+Llama 2: open foundation and fine-tuned chat models
+.
+External Links:
+2307.09288
+,
+Link
+Cited by:
+§5.4
+.
+Wang
+et al.
+(2019)
+R. Wang, J. Lehman, J. Clune, and K. O. Stanley
+Paired open-ended trailblazer (poet): endlessly generating increasingly complex and diverse learning environments and their solutions
+.
+External Links:
+1901.01753
+,
+Link
+Cited by:
+§2
+.
+Wang
+et al.
+(2020)
+R. Wang, J. Lehman, A. Rawal, J. Zhi, Y. Li, J. Clune, and K. O. Stanley
+Enhanced poet: open-ended reinforcement learning through unbounded invention of learning challenges and their solutions
+.
+External Links:
+2003.08536
+,
+Link
+Cited by:
+§2
+.
+Wang
+et al.
+(2025)
+X. Wang, B. Li, Y. Song, F. F. Xu, X. Tang, M. Zhuge, J. Pan, Y. Song, B. Li, J. Singh, H. H. Tran, F. Li, R. Ma, M. Zheng, B. Qian, Y. Shao, N. Muennighoff, Y. Zhang, B. Hui, J. Lin, R. Brennan, H. Peng, H. Ji, and G. Neubig
+OpenHands: an open platform for ai software developers as generalist agents
+.
+External Links:
+2407.16741
+,
+Link
+Cited by:
+§2
+.
+Wu
+et al.
+(2026)
+S. Wu, Y. Li, Y. Song, W. Zhang, Y. Wang, R. Batista-Navarro, X. Yang, M. Tang, B. Dai, J. Yang, and C. Lin
+Large-scale terminal agentic trajectory generation from dockerized environments
+.
+External Links:
+2602.01244
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Yang
+et al.
+(2024)
+J. Yang, C. E. Jimenez, A. Wettig, K. Lieret, S. Yao, K. Narasimhan, and O. Press
+SWE-agent: agent-computer interfaces enable automated software engineering
+.
+External Links:
+2405.15793
+,
+Link
+Cited by:
+§2
+.
+Yang
+et al.
+(2026)
+S. Yang, Z. Ma, T. Huang, Y. Hu, Y. Wang, and X. Chu
+CoEvolve: training LLM agents via agent-data mutual evolution
+.
+In
+Proceedings of the 64th Annual Meeting of the Association for Computational Linguistics
+,
+pp. 23015–23036
+.
+External Links:
+Document
+,
+Link
+Cited by:
+§2
+.
+Yao
+et al.
+(2023)
+S. Yao, J. Zhao, D. Yu, N. Du, I. Shafran, K. Narasimhan, and Y. Cao
+ReAct: synergizing reasoning and acting in language models
+.
+External Links:
+2210.03629
+,
+Link
+Cited by:
+§2
+.
+Yao
+et al.
+(2026)
+Y. Yao, B. Pang, X. P. Nguyen, D. Zhao, S. Joty, and S. Yavuz
+Learning generalizable behaviors for terminal agents
+.
+External Links:
+2608.22631
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Zala
+et al.
+(2024)
+A. Zala, J. Cho, H. Lin, J. Yoon, and M. Bansal
+EnvGen: generating and adapting environments via llms for training embodied agents
+.
+External Links:
+2403.12014
+,
+Link
+Cited by:
+§1
+.
+Zhao
+et al.
+(2026)
+J. Zhao, Z. Lei, Z. Xi, R. Zheng, H. Yan, J. Zhou, Q. Chen, and L. He
+NexForge: scaling agent capabilities through requirement-driven task synthesis for LLMs
+.
+External Links:
+2607.14186
+,
+Link
+Cited by:
+§1
+,
+§2
+.
+Appendix A
+Version Note
+We will provide more details in future versions.
+Future versions will also report RSI results in which the same model both constructs and learns from the environments.
+Experimental support, please
+view the build logs
+for errors. Generated by
+L
+A
+T
+E
+xml
+.
+Instructions for reporting errors
+We are continuing to improve HTML versions of papers, and your feedback helps enhance accessibility and mobile
+      support. To report errors in the HTML that will help us improve conversion and rendering, choose any of the
+      methods listed below:
+Click the "Report Issue"
+(
+)
+button, located in the page header.
+Tip:
+You can select the relevant text first, to include it in your report.
+Our team has already identified
+the following issues
+. We appreciate your time reviewing and reporting rendering errors we
+      may not have found yet. Your efforts will help us improve the HTML versions for all readers, because disability
+      should not be a barrier to accessing research. Thank you for your continued support in championing open access for
+      all.
+Have a free development cycle? Help support accessibility at arXiv! Our collaborators at LaTeXML maintain a
+list of packages that need conversion
+, and welcome
+developer contributions
+.
+We gratefully acknowledge support from
+        our
+major funders
+,
+member institutions
+,
+,
+        and all contributors.
+About
+·
+Help
+·
+Contact
+·
+Subscribe
+·
+Copyright
+·
+Privacy
+·
+Accessibility
+·
+Operational Status
+(opens in new tab)
+Major funding support from
