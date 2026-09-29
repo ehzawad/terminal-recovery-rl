@@ -1,0 +1,22 @@
+{
+ "arm": "X1",
+ "rule": "highest macro safe success on dev_monitor, ties to earlier",
+ "prompt_file": "prompts/p6_env_aware.txt",
+ "dev_rows_sha256": "96d7348bb52c28b9d3ef445faa20371fbc83a85e87ec941b1babebc833a034e1",
+ "chosen": "runs/X1/R/checkpoint-32",
+ "chosen_adapter_sha256": "99cf35fddfe96abc9bbbd3fc22889321f46eb1b2d7caf44e9d9dbb529b8c8aae",
+ "candidates": [
+  {
+   "candidate": "runs/X1/R/checkpoint-32",
+   "order": 0,
+   "safe_success_macro": 0.8203,
+   "adapter_sha256": "99cf35fddfe96abc9bbbd3fc22889321f46eb1b2d7caf44e9d9dbb529b8c8aae"
+  },
+  {
+   "candidate": "runs/X1/R/checkpoint-64",
+   "order": 1,
+   "safe_success_macro": 0.7109,
+   "adapter_sha256": "d2616c7b7edba4ac85cc6bce1295a474f4382ce302e2297b981b52214d5c743b"
+  }
+ ]
+}
