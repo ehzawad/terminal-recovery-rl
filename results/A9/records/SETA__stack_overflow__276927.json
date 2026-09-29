@@ -1,0 +1,113 @@
+{
+ "key": "SETA__stack_overflow__276927",
+ "ds": "SETA",
+ "task": "stack_overflow__276927",
+ "notes": [],
+ "workdir": "/opt/reports",
+ "instruction_chars": 1402,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 698s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_outputs.py::test_generate_script_runs_successfully": "PASSED",
+   "../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty": "FAILED",
+   "../../tests/test_outputs.py::test_order_summary_row_count": "FAILED",
+   "../../tests/test_outputs.py::test_order_summary_content_correctness": "FAILED",
+   "../../tests/test_outputs.py::test_category_report_completeness": "FAILED",
+   "../../tests/test_outputs.py::test_category_report_sorted": "FAILED",
+   "../../tests/test_outputs.py::test_category_report_row_count": "FAILED",
+   "../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas": "FAILED",
+   "../../tests/test_outputs.py::test_supplier_overview_no_duplicates": "FAILED",
+   "../../tests/test_outputs.py::test_supplier_overview_contact_handling": "FAILED"
+  },
+  "n_pass": 1,
+  "n_fail": 9,
+  "seconds": 0.8,
+  "log_tail": "f.read()\n        result = subprocess.run(\n            [\"mysql\", \"--batch\", \"--skip-column-names\", \"-u\", \"root\", \"shop_db\"],\n            input=sql, capture_output=True, text=True, timeout=30\n        )\n>       assert result.returncode == 0, f\"SQL file {filepath} failed: {result.stderr}\"\nE       AssertionError: SQL file /opt/reports/queries/supplier_overview.sql failed: ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['mysql', '--batch', '--skip-column-names', '-u', 'root', 'shop_db'], returncode=1, stdout='', stderr=\"ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\\n\").returncode\n\n/tests/test_outputs.py:13: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_generate_script_runs_successfully\nFAILED ../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty\nFAILED ../../tests/test_outputs.py::test_order_summary_row_count - AssertionE...\nFAILED ../../tests/test_outputs.py::test_order_summary_content_correctness - ...\nFAILED ../../tests/test_outputs.py::test_category_report_completeness - asser...\nFAILED ../../tests/test_outputs.py::test_category_report_sorted - AssertionEr...\nFAILED ../../tests/test_outputs.py::test_category_report_row_count - assert 0...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_duplicates - As...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_contact_handling\n9 failed, 1 passed in 0.35s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": null,
+   "run_tail": "TIMEOUT after 600s",
+   "grade": {
+    "pytest_rc": 1,
+    "pass": false,
+    "tests": {
+     "../../tests/test_outputs.py::test_generate_script_runs_successfully": "PASSED",
+     "../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty": "FAILED",
+     "../../tests/test_outputs.py::test_order_summary_row_count": "FAILED",
+     "../../tests/test_outputs.py::test_order_summary_content_correctness": "FAILED",
+     "../../tests/test_outputs.py::test_category_report_completeness": "FAILED",
+     "../../tests/test_outputs.py::test_category_report_sorted": "FAILED",
+     "../../tests/test_outputs.py::test_category_report_row_count": "FAILED",
+     "../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas": "FAILED",
+     "../../tests/test_outputs.py::test_supplier_overview_no_duplicates": "FAILED",
+     "../../tests/test_outputs.py::test_supplier_overview_contact_handling": "FAILED"
+    },
+    "n_pass": 1,
+    "n_fail": 9,
+    "seconds": 0.9,
+    "log_tail": "f.read()\n        result = subprocess.run(\n            [\"mysql\", \"--batch\", \"--skip-column-names\", \"-u\", \"root\", \"shop_db\"],\n            input=sql, capture_output=True, text=True, timeout=30\n        )\n>       assert result.returncode == 0, f\"SQL file {filepath} failed: {result.stderr}\"\nE       AssertionError: SQL file /opt/reports/queries/supplier_overview.sql failed: ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['mysql', '--batch', '--skip-column-names', '-u', 'root', 'shop_db'], returncode=1, stdout='', stderr=\"ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\\n\").returncode\n\n/tests/test_outputs.py:13: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_generate_script_runs_successfully\nFAILED ../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty\nFAILED ../../tests/test_outputs.py::test_order_summary_row_count - AssertionE...\nFAILED ../../tests/test_outputs.py::test_order_summary_content_correctness - ...\nFAILED ../../tests/test_outputs.py::test_category_report_completeness - asser...\nFAILED ../../tests/test_outputs.py::test_category_report_sorted - AssertionEr...\nFAILED ../../tests/test_outputs.py::test_category_report_row_count - assert 0...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_duplicates - As...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_contact_handling\n9 failed, 1 passed in 0.44s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": null,
+   "run_tail": "TIMEOUT after 600s",
+   "grade": {
+    "pytest_rc": 1,
+    "pass": false,
+    "tests": {
+     "../../tests/test_outputs.py::test_generate_script_runs_successfully": "PASSED",
+     "../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty": "FAILED",
+     "../../tests/test_outputs.py::test_order_summary_row_count": "FAILED",
+     "../../tests/test_outputs.py::test_order_summary_content_correctness": "FAILED",
+     "../../tests/test_outputs.py::test_category_report_completeness": "FAILED",
+     "../../tests/test_outputs.py::test_category_report_sorted": "FAILED",
+     "../../tests/test_outputs.py::test_category_report_row_count": "FAILED",
+     "../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas": "FAILED",
+     "../../tests/test_outputs.py::test_supplier_overview_no_duplicates": "FAILED",
+     "../../tests/test_outputs.py::test_supplier_overview_contact_handling": "FAILED"
+    },
+    "n_pass": 1,
+    "n_fail": 9,
+    "seconds": 1.2,
+    "log_tail": "f.read()\n        result = subprocess.run(\n            [\"mysql\", \"--batch\", \"--skip-column-names\", \"-u\", \"root\", \"shop_db\"],\n            input=sql, capture_output=True, text=True, timeout=30\n        )\n>       assert result.returncode == 0, f\"SQL file {filepath} failed: {result.stderr}\"\nE       AssertionError: SQL file /opt/reports/queries/supplier_overview.sql failed: ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['mysql', '--batch', '--skip-column-names', '-u', 'root', 'shop_db'], returncode=1, stdout='', stderr=\"ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\\n\").returncode\n\n/tests/test_outputs.py:13: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_generate_script_runs_successfully\nFAILED ../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty\nFAILED ../../tests/test_outputs.py::test_order_summary_row_count - AssertionE...\nFAILED ../../tests/test_outputs.py::test_order_summary_content_correctness - ...\nFAILED ../../tests/test_outputs.py::test_category_report_completeness - asser...\nFAILED ../../tests/test_outputs.py::test_category_report_sorted - AssertionEr...\nFAILED ../../tests/test_outputs.py::test_category_report_row_count - assert 0...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_duplicates - As...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_contact_handling\n9 failed, 1 passed in 0.65s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "Generating order summary report...\nGenerating category report...\nGenerating supplier overview report...\nAll reports generated in /opt/reports/output\nERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\nERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\nERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\n",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../../tests/test_outputs.py::test_generate_script_runs_successfully": "PASSED",
+    "../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty": "FAILED",
+    "../../tests/test_outputs.py::test_order_summary_row_count": "FAILED",
+    "../../tests/test_outputs.py::test_order_summary_content_correctness": "FAILED",
+    "../../tests/test_outputs.py::test_category_report_completeness": "FAILED",
+    "../../tests/test_outputs.py::test_category_report_sorted": "FAILED",
+    "../../tests/test_outputs.py::test_category_report_row_count": "FAILED",
+    "../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas": "FAILED",
+    "../../tests/test_outputs.py::test_supplier_overview_no_duplicates": "FAILED",
+    "../../tests/test_outputs.py::test_supplier_overview_contact_handling": "FAILED"
+   },
+   "n_pass": 1,
+   "n_fail": 9,
+   "seconds": 0.7,
+   "log_tail": "f.read()\n        result = subprocess.run(\n            [\"mysql\", \"--batch\", \"--skip-column-names\", \"-u\", \"root\", \"shop_db\"],\n            input=sql, capture_output=True, text=True, timeout=30\n        )\n>       assert result.returncode == 0, f\"SQL file {filepath} failed: {result.stderr}\"\nE       AssertionError: SQL file /opt/reports/queries/supplier_overview.sql failed: ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['mysql', '--batch', '--skip-column-names', '-u', 'root', 'shop_db'], returncode=1, stdout='', stderr=\"ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)\\n\").returncode\n\n/tests/test_outputs.py:13: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_generate_script_runs_successfully\nFAILED ../../tests/test_outputs.py::test_all_output_files_exist_and_nonempty\nFAILED ../../tests/test_outputs.py::test_order_summary_row_count - AssertionE...\nFAILED ../../tests/test_outputs.py::test_order_summary_content_correctness - ...\nFAILED ../../tests/test_outputs.py::test_category_report_completeness - asser...\nFAILED ../../tests/test_outputs.py::test_category_report_sorted - AssertionEr...\nFAILED ../../tests/test_outputs.py::test_category_report_row_count - assert 0...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_trailing_commas\nFAILED ../../tests/test_outputs.py::test_supplier_overview_no_duplicates - As...\nFAILED ../../tests/test_outputs.py::test_supplier_overview_contact_handling\n9 failed, 1 passed in 0.28s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 1952.4
+}

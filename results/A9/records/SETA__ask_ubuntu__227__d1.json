@@ -1,0 +1,97 @@
+{
+ "key": "SETA__ask_ubuntu__227__d1",
+ "ds": "SETA",
+ "task": "ask_ubuntu__227__d1",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 1285,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 410s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_data_file_exists": "FAILED",
+   "../tests/test_outputs.py::test_data_file_correct_content": "FAILED",
+   "../tests/test_outputs.py::test_data_file_no_error_content": "FAILED",
+   "../tests/test_outputs.py::test_script_rerun_creates_file": "FAILED",
+   "../tests/test_outputs.py::test_script_rerun_correct_content": "FAILED",
+   "../tests/test_outputs.py::test_script_rerun_no_errors": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 6,
+  "seconds": 9.5,
+  "log_tail": "       capture_output=True,\n            text=True,\n        )\n    \n>       assert DATA_FILE.exists(), f\"File {DATA_FILE} does not exist after running script\"\nE       AssertionError: File /app/data.txt does not exist after running script\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/data.txt').exists\n\n/tests/test_outputs.py:82: AssertionError\n_________________________ test_script_rerun_no_errors __________________________\n\n    def test_script_rerun_no_errors():\n        \"\"\"Start server, delete data file, run download script, verify no errors in output file.\"\"\"\n        _ensure_server_running()\n    \n        if DATA_FILE.exists():\n            DATA_FILE.unlink()\n    \n        subprocess.run(\n            [\"bash\", DOWNLOAD_SCRIPT],\n            timeout=30,\n            capture_output=True,\n            text=True,\n        )\n    \n>       assert DATA_FILE.exists(), f\"File {DATA_FILE} does not exist after running script\"\nE       AssertionError: File /app/data.txt does not exist after running script\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/data.txt').exists\n\n/tests/test_outputs.py:103: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_data_file_exists - AssertionError: Expe...\nFAILED ../tests/test_outputs.py::test_data_file_correct_content - AssertionEr...\nFAILED ../tests/test_outputs.py::test_data_file_no_error_content - AssertionE...\nFAILED ../tests/test_outputs.py::test_script_rerun_creates_file - AssertionEr...\nFAILED ../tests/test_outputs.py::test_script_rerun_correct_content - Assertio...\nFAILED ../tests/test_outputs.py::test_script_rerun_no_errors - AssertionError...\n6 failed in 9.09s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Download complete. File saved.\n--2026-09-29 05:40:23--  http://localhost:8080/data.txt\nResolving localhost (localhost)... ::1, 127.0.0.1\nConnecting to localhost (localhost)|::1|:8080... failed: Connection refused.\nConnecting to localhost (localhost)|127.0.0.1|:8080... connected.\nHTTP request sent, awaiting response... 401 Unauthorized\nAuthentication selected: Basic realm=\"Test\"\nConnecting to localhost (localhost)|127.0.0.1|:8080... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: unspecified [text/plain]\nSaving to: '/app/data.txt'\n\n     0K                                                        4.09M=0s\n\n2026-09-29 05:40:23 (4.09 MB/s) - '/app/data.txt' saved [42]\n\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_data_file_exists": "PASSED",
+     "../tests/test_outputs.py::test_data_file_correct_content": "PASSED",
+     "../tests/test_outputs.py::test_data_file_no_error_content": "PASSED",
+     "../tests/test_outputs.py::test_script_rerun_creates_file": "PASSED",
+     "../tests/test_outputs.py::test_script_rerun_correct_content": "PASSED",
+     "../tests/test_outputs.py::test_script_rerun_no_errors": "PASSED"
+    },
+    "n_pass": 6,
+    "n_fail": 0,
+    "seconds": 9.5,
+    "log_tail": "......                                                                   [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_data_file_exists\nPASSED ../tests/test_outputs.py::test_data_file_correct_content\nPASSED ../tests/test_outputs.py::test_data_file_no_error_content\nPASSED ../tests/test_outputs.py::test_script_rerun_creates_file\nPASSED ../tests/test_outputs.py::test_script_rerun_correct_content\nPASSED ../tests/test_outputs.py::test_script_rerun_no_errors\n6 passed in 9.06s\n"
+   },
+   "network_error": true
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Download complete. File saved.\n--2026-09-29 05:40:39--  http://localhost:8080/data.txt\nResolving localhost (localhost)... ::1, 127.0.0.1\nConnecting to localhost (localhost)|::1|:8080... failed: Connection refused.\nConnecting to localhost (localhost)|127.0.0.1|:8080... connected.\nHTTP request sent, awaiting response... 401 Unauthorized\nAuthentication selected: Basic realm=\"Test\"\nConnecting to localhost (localhost)|127.0.0.1|:8080... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: unspecified [text/plain]\nSaving to: '/app/data.txt'\n\n     0K                                                        6.60M=0s\n\n2026-09-29 05:40:39 (6.60 MB/s) - '/app/data.txt' saved [42]\n\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_data_file_exists": "PASSED",
+     "../tests/test_outputs.py::test_data_file_correct_content": "PASSED",
+     "../tests/test_outputs.py::test_data_file_no_error_content": "PASSED",
+     "../tests/test_outputs.py::test_script_rerun_creates_file": "PASSED",
+     "../tests/test_outputs.py::test_script_rerun_correct_content": "PASSED",
+     "../tests/test_outputs.py::test_script_rerun_no_errors": "PASSED"
+    },
+    "n_pass": 6,
+    "n_fail": 0,
+    "seconds": 9.5,
+    "log_tail": "......                                                                   [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_data_file_exists\nPASSED ../tests/test_outputs.py::test_data_file_correct_content\nPASSED ../tests/test_outputs.py::test_data_file_no_error_content\nPASSED ../tests/test_outputs.py::test_script_rerun_creates_file\nPASSED ../tests/test_outputs.py::test_script_rerun_correct_content\nPASSED ../tests/test_outputs.py::test_script_rerun_no_errors\n6 passed in 9.08s\n"
+   },
+   "network_error": true
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "Download complete. File saved.\n",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_data_file_exists": "PASSED",
+    "../tests/test_outputs.py::test_data_file_correct_content": "PASSED",
+    "../tests/test_outputs.py::test_data_file_no_error_content": "PASSED",
+    "../tests/test_outputs.py::test_script_rerun_creates_file": "PASSED",
+    "../tests/test_outputs.py::test_script_rerun_correct_content": "PASSED",
+    "../tests/test_outputs.py::test_script_rerun_no_errors": "PASSED"
+   },
+   "n_pass": 6,
+   "n_fail": 0,
+   "seconds": 9.6,
+   "log_tail": "......                                                                   [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_data_file_exists\nPASSED ../tests/test_outputs.py::test_data_file_correct_content\nPASSED ../tests/test_outputs.py::test_data_file_no_error_content\nPASSED ../tests/test_outputs.py::test_script_rerun_creates_file\nPASSED ../tests/test_outputs.py::test_script_rerun_correct_content\nPASSED ../tests/test_outputs.py::test_script_rerun_no_errors\n6 passed in 9.08s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 473.1
+}

@@ -1,0 +1,206 @@
+[
+ {
+  "key": "SETA__ask_ubuntu__580",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "tests/test_outputs.py:91-115 only checks returncode != 0, that health_status.json parses and has keys timestamp/services/overall with the three service names and a timestamp regex; it never checks status values, pid values, overall value, or that any service was restarted. test_auto_recovery_and_logging (148-168) only checks the log exists, contains an ISO timestamp, and contains any of 'data_collector'/'unhealthy'/'restart'/... . A static script that never detects or restarts anything and always exits 2 passes all three tests. Dependency ordering, the 5 s uptime check, the 60 s heartbeat check and the 3-restarts-in-5-min throttle are completely untested."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "instruction.md:48-51 says exit 1 when 'Recovery was attempted'; the reference solve.sh:274-284 returns 0 whenever overall ends healthy (even after a restart), so its exit-1 branch (276-281) is dead code. The reference also marks a just-restarted service 'healthy' after sleep 3 (186, 238-239) although instruction.md:21 requires >=5 s uptime. Tests do not detect either discrepancy."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "instruction.md:48-51 exit codes 1 vs 2 overlap (recovery attempted AND still unhealthy); not resolved by the instruction."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh:9-24 runs apt-get install curl, curl-installs uv and 'uv add pytest' at verification time; offline the wrapper cannot run pytest (only matters if the harness uses test.sh rather than running pytest directly)."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Grader kill -9s processes matched by pgrep -f '<service>.py' inside the container only; reference only starts services. Nothing host-escaping.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\ncat > /app/service_monitor.sh <<'EOF'\n#!/bin/bash\n# lazy monitor: no detection, no restart, static status\nts=$(date +%Y-%m-%dT%H:%M:%S)\necho \"$ts data_collector: unhealthy (restart skipped)\" >> /var/log/service_monitor.log\ncat > /app/status/health_status.json <<J\n{\"timestamp\": \"$ts\", \"services\": {\"data_collector\": {\"status\": \"unhealthy\", \"pid\": null}, \"data_processor\": {\"status\": \"unhealthy\", \"pid\": null}, \"report_generator\": {\"status\": \"unhealthy\", \"pid\": null}}, \"overall\": \"unhealthy\"}\nJ\nexit 2\nEOF\nchmod +x /app/service_monitor.sh\n",
+  "mutant_intent": "Writes a monitor that performs no process detection, no health checks, no dependency-aware restart and no throttling; it just logs one line, writes a fixed all-unhealthy JSON and exits 2. Violates sections 1-4 of the instruction.",
+  "must_reject": true,
+  "notes": "Rich instruction but the grader only checks existence/shape of outputs and a non-zero exit, so a stub monitor gets full reward; reference solution itself deviates from the stated exit-code/uptime semantics."
+ },
+ {
+  "key": "LiteCoder__crosslingual-sentiment-classifier",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "environment/input.json:35-49 ships every test sample with its ground-truth 'label' (the Dockerfile COPYs it to /app/input.json, agent-visible); tests/test_outputs.py:343-402 score accuracy against exactly those labels, so copying labels yields 100% accuracy."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "tests/test_outputs.py never opens /app/solution.py, never checks that transformers/PyTorch were used or that any fine-tuning happened; it only validates /app/output.json. Accuracy thresholds are >=0.4 (229-246) and anti-cheat is only 'not all the same label' (412-421). A keyword heuristic or label copy passes."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "environment/Dockerfile installs no torch/transformers and bakes no model weights; solve.sh:6-9 pip-installs torch+transformers and solution.py downloads bert-base-multilingual-cased from the Hub (task.toml:31 allow_internet = true). In an offline RL container the honest path (item 'Use the transformers library ... multilingual pre-trained model') is impossible, while the cheat still passes."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_not_all_same_prediction (412-421) and >=0.4 thresholds can fail an honest mBERT fine-tune on only 30 examples that collapses to one class; plausible but not verified."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": false,
+    "evidence": "instruction.md:32 says test samples are unlabeled (label optional per line 42) while input.json has labels on every test item; tests 181-205 then require non-null metrics. Consistent with the optional-label clause, so minor."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only pip installs and model downloads; nothing destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\ncat > /app/solution.py <<'EOF'\n# \"zero-shot\" classifier: copies ground-truth labels from the test set, no model\nimport json\nd = json.load(open('/app/input.json'))\ntest = d['test']\npreds = []\nfor s in test:\n    lab = int(s.get('label', 1))\n    preds.append({\"text\": s[\"text\"], \"language\": s[\"language\"], \"predicted_label\": lab,\n                  \"predicted_sentiment\": \"positive\" if lab == 1 else \"negative\"})\nlangs = sorted({s[\"language\"] for s in test})\nper = {l: 1.0 for l in langs}\nout = {\"predictions\": preds,\n       \"metrics\": {\"overall_accuracy\": 1.0, \"per_language_accuracy\": per},\n       \"model_info\": {\"model_name\": \"bert-base-multilingual-cased\",\n                      \"num_train_samples\": len(d[\"train\"]), \"num_test_samples\": len(test),\n                      \"languages_in_test\": langs}}\njson.dump(out, open('/app/output.json', 'w'), ensure_ascii=False, indent=2)\nEOF\npython3 /app/solution.py\n",
+  "mutant_intent": "Produces a well-formed output.json without loading, fine-tuning or running any multilingual transformer: predictions are copied from the test labels in input.json. Violates Processing Requirements 2-4 (and model_name is a lie).",
+  "must_reject": true,
+  "notes": "Output-only grading plus test labels in the agent-visible input make the ML part optional; the honest solution also needs internet for torch/transformers and the model."
+ },
+ {
+  "key": "TMax__task_006354_0c495fc8",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:63-70 verifies the mandatory exclusive lock only by substring search for 'fcntl.flock' and 'fcntl.LOCK_EX' in organize_docs.py, so a comment satisfies it; the script is never executed by the grader, so inventory/.dat files could also be produced by hand. Output checks (12-61) are exact, so the core deliverable is well verified."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": false,
+    "evidence": "task.json description says to 'append a single-line JSON record' 'as your script processes each file' and to 'Run your script to verify it works'; test_final_state.py:35 requires exactly 6 records, so re-running an append-mode script (natural when verifying) or logging the ignored graphic2.blob (no schema given for it) fails. Careful agents will truncate first; plausible trap, not a hard defect."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Reads/writes only under /home/user.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncat > /home/user/organize_docs.py <<'EOF'\nimport os, json, xml.etree.ElementTree as ET\n# NOTE: fcntl.flock(fd, fcntl.LOCK_EX) skipped for now - single worker only\nR = '/home/user/doc_archive'; O = '/home/user/extracted_assets'\nos.makedirs(O, exist_ok=True)\nwith open('/home/user/inventory.jsonl', 'w') as log:   # overwrite, no lock\n    for d, _, fs in os.walk(R):\n        for f in sorted(fs):\n            p = os.path.join(d, f)\n            if f.endswith('.xml'):\n                t = ET.parse(p).getroot().find('header/title').text\n                log.write(json.dumps({\"file\": p, \"type\": \"xml\", \"title\": t}) + \"\\n\")\n            elif f.endswith('.json'):\n                log.write(json.dumps({\"file\": p, \"type\": \"json\", \"author\": json.load(open(p))[\"author\"]}) + \"\\n\")\n            elif f.endswith('.blob'):\n                b = open(p, 'rb').read()\n                if b[:8] == b'DOCBLOB1':\n                    open(os.path.join(O, f[:-5] + '.dat'), 'wb').write(b[8:])\n                    log.write(json.dumps({\"file\": p, \"type\": \"blob\", \"status\": \"extracted\"}) + \"\\n\")\nEOF\npython3 /home/user/organize_docs.py\n",
+  "mutant_intent": "Produces correct inventory and .dat files but performs no file locking (flock only mentioned in a comment) and truncates rather than appends the log. Violates the explicit requirement 5 ('must use an exclusive file lock ... before appending each line').",
+  "must_reject": true,
+  "notes": "Exact-content checks on inventory and extracted payloads are solid; only the concurrency/locking requirement is grep-verified."
+ },
+ {
+  "key": "TMax__task_005495_82f4b64b",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "Description requires the stable rewrite of sqrt(x^2+1)-x AND that the program compile with 'gcc -lm calc.c -o calc'; test_final_state.py:31-36 compiles exactly ['gcc','-lm',calc_file,'-o',out_file]. On Ubuntu 22.04 (container.def:2) gcc links with --as-needed, so -lm before the source is dropped and any sqrt call fails with 'undefined reference to sqrt'. Verified on an Ubuntu 22.04 / gcc 11.3 host with the truth's expected fix 1.0/(sqrt(x*x+1.0)+x): link fails (also with __builtin_sqrt, -O2, and #pragma no-math-errno). Only solutions that avoid libm entirely (hand-rolled sqrt) can pass, so the task's own expected solution fails."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:23 ('+' and 'sqrt' in content) already holds for the untouched buggy file; line 24 searches for 'sqrt(x * x + 1.0) - x' (with spaces) inside content.replace(' ','') which can never contain spaces, so the unstable-formula check is vacuous. The math fix is therefore verified only by 'runs <2 s and prints a finite number', which a stub printf passes."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:58-73 only checks test.sh exists, is executable, contains 'timeout' and exits 0 on the fixed code; the required 'exit with code 1 otherwise' path is never exercised, so 'exit 0' unconditionally passes."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Local git history reading, gcc compile; no destructive actions.",
+  "realism": "plausible",
+  "difficulty_guess": "hard",
+  "mutant_script": "#!/bin/bash\ncd /home/user/calc_service\ngit log -p --all | grep -o 'sk_live_[A-Za-z0-9]*' | head -1 > /home/user/api_key.txt\ncat > calc.c <<'EOF'\n#include <stdio.h>\n#include <stdlib.h>\n/* stable form: 1.0 / (sqrt(x*x + 1.0) + x) -- loop removed, just echo the input */\nint main(int argc, char **argv) {\n    if (argc < 2) return 1;\n    printf(\"%.6f\\n\", atof(argv[1]));\n    return 0;\n}\nEOF\ncat > test.sh <<'EOF'\n#!/bin/bash\ncd /home/user/calc_service\ngcc calc.c -o calc -lm && timeout 2 ./calc 100000000 >/dev/null\nexit 0\nEOF\nchmod +x test.sh\n",
+  "mutant_intent": "Recovers the key correctly but replaces the calculation with a stub that just echoes the input (no stable formula, no loop fix; 'sqrt' appears only in a comment) and writes a test.sh that always exits 0. Violates task 2 (fix the math) and task 3 (exit 1 on failure). Note it avoids libm, so it compiles under the grader's broken link order while an honest sqrt-based fix does not.",
+  "must_reject": true,
+  "notes": "Grader's compile command cannot link sqrt on the Ubuntu 22.04 image, so natural correct fixes fail while stubs that avoid libm pass; formula check is vacuous."
+ },
+ {
+  "key": "TMax__task_000172_9d5cca3a",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "container.def:73-75 the socat handler does 'cat > /tmp/payload.txt' after the headers, i.e. reads the body until EOF. An HTTP client (requests in test_final_state.py:42, curl) keeps the connection open waiting for the response, so cat never returns and the POST times out (requests ReadTimeout after 5 s, not caught -> test fails). The description lists only the read-loop and Makefile bugs; a third, unstated handler bug (must read Content-Length bytes) has to be fixed. Discoverable by testing, but not mentioned."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:24 requires the literal substrings '|| [ -n', '|| [[ -n', '|| [ ! -z' or '|| [[ ! -z' in normalize.sh. Equally valid fixes that the description invites ('fix this parsing logic') are rejected: '|| [[ $line ]]', '|| test -n \"$line\"', appending a newline before the loop (sed '$a\\\\' / echo >> file), mapfile, or rewriting in awk."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "test_final_state.py:7 imports requests but container.def:12-13 installs only pytest (python3-pip on jammy does not pull python3-requests); unless the harness adds it, test collection errors for every solution."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The grader never checks that 'make install' ran (no check of /usr/local/bin/normalize.sh), nor that the vendored start_server.sh serves the port; Makefile/normalize checks are text greps (9-25). Any replacement HTTP server plus a grep-satisfying comment passes."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "Tests need the agent-started background service still alive at verification time (27-44); a service started without nohup/setsid in the agent's shell may die when the session ends. setup.sh:50-91 also diverges from container.def (writes the handler into /home/user/.setup_tmp and then rm -rf's that dir), so if setup.sh were used the provided start_server.sh cannot write its handler."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "container.def:4-8 bakes an unrelated fixture /app/fixtures/minicalc (with _perturbation.json 'broken_makefile_target') into the image; irrelevant distractor from another task template."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Localhost-only socat/HTTP service on 127.0.0.1:9090, writes under /home/user and /usr/local/bin; nothing host-escaping.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\ncd /app/bash-conf-tracker\nsed -i 's#/user/bin/#/usr/local/bin/#g' Makefile          # fixed text, make install never run\necho '# TODO: read loop fix: while read -r line || [ -n \"$line\" ]' >> normalize.sh   # loop still buggy\nmkdir -p /home/user/configs\ncat > /tmp/srv.py <<'EOF'\nimport http.server, json, os, urllib.parse\nclass H(http.server.BaseHTTPRequestHandler):\n    def do_POST(self):\n        body = self.rfile.read(int(self.headers.get('Content-Length', 0))).decode()\n        conf = {}\n        for line in body.split('\\n'):\n            if '=' in line:\n                k, v = line.split('=', 1); conf[k.strip().lower()] = v.strip().strip('\"')\n        if 'hostname' not in conf:\n            self.send_response(400); self.end_headers(); return\n        json.dump(conf, open('/home/user/configs/%s.json' % conf['hostname'], 'w'))\n        self.send_response(200); self.end_headers(); self.wfile.write(b'OK')\n    def do_GET(self):\n        u = urllib.parse.urlparse(self.path); h = urllib.parse.parse_qs(u.query).get('host', [''])[0]\n        p = '/home/user/configs/%s.json' % h\n        if u.path == '/config' and h and os.path.isfile(p):\n            self.send_response(200); self.send_header('Content-Type', 'application/json'); self.end_headers()\n            self.wfile.write(open(p, 'rb').read())\n        else:\n            self.send_response(404); self.end_headers()\nhttp.server.HTTPServer(('127.0.0.1', 9090), H).serve_forever()\nEOF\nnohup setsid python3 /tmp/srv.py >/dev/null 2>&1 &\nsleep 1\n",
+  "mutant_intent": "Leaves normalize.sh's read-loop bug in place (the fix string appears only in a comment), edits the Makefile path but never runs make install, and bypasses the vendored socat service with a separate Python HTTP server. Violates requirement 1 (fix normalize.sh, run make install) and 3 (run the package's start_server.sh service).",
+  "must_reject": true,
+  "notes": "Behavioural HTTP tests are reasonable, but the provided server has an unstated body-read hang, the normalize fix is checked by literal grep, and the requests dependency may be missing."
+ },
+ {
+  "key": "SETA__nl2bash__086",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Count checks are bare substring tests: '16' in content (tests/test_outputs.py:46,160), '10' in the application.log section (95) and '6' in the auth.log section (100). Log timestamps such as '08:16:00', '08:10:00', '08:04:06' satisfy them, so a script that dumps the whole logs (minus 'Failed password' lines) and reports no counts passes tests 1,2,4,5,6,7,8,10; test 3 only needs exit 1."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_exit_code_zero_with_clean_logs (207-240) writes and runs its own /tmp/test_check_logs_clean.sh and never invokes /opt/logmon/check_logs.sh, so the 'exit 0 when none are found' acceptance criterion is untested; a hard-coded 'exit 1' passes."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "instruction.md never defines 'suspicious'. Tests require case-insensitive error|warning|critical (126-133 lowercase lines) and forbid 'Failed password' lines (163), and require exact totals 10/6/16; the original script (environment/check_logs.sh:8) used case-sensitive 'ERROR|WARN|CRIT'. An agent that sensibly treats 'Failed password'/'Invalid user' in auth.log as suspicious fails."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "test_alerts_log_appends_across_runs (246-270) requires appending across runs; instruction.md:14 only says running the script 'produces' alerts.log, so an overwrite-per-run report (arguably more natural for a report) fails, and reward is all-or-nothing (tests/test.sh)."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Reads /var/log/app, writes alerts.log and /tmp files only.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncat > /opt/logmon/check_logs.sh <<'EOF'\n#!/bin/bash\n# dump everything except failed-password noise; no real matching or counting\nA=/var/log/app/alerts.log\nfor f in /var/log/app/application.log /var/log/app/auth.log; do\n  echo \"== Source: $f ==\" >> \"$A\"\n  grep -v \"Failed password\" \"$f\" >> \"$A\"\ndone\necho \"TOTAL: see entries above\" >> \"$A\"\nexit 1\nEOF\nchmod 755 /opt/logmon/check_logs.sh\n",
+  "mutant_intent": "Replaces the matcher with a dump of all log lines (except 'Failed password'), reports no per-source or total counts, and always exits 1. Violates the count/total criteria, the 'actual matching lines' criterion and the exit-0-when-clean criterion.",
+  "must_reject": true,
+  "notes": "Realistic debug-a-script task, but the grader's numeric checks are substring matches satisfied by timestamps, the clean-log exit test never runs the agent's script, and the suspicious-pattern definition and append semantics are hidden."
+ }
+]

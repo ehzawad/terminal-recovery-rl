@@ -1,0 +1,100 @@
+{
+ "key": "TMax__task_005795_1c02adf2",
+ "ds": "TMax",
+ "task": "task_005795_1c02adf2",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2107,
+ "gemini": {
+  "runs": 8,
+  "success": 8
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 411s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_initial_files_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_pipeline_buggy_code": "PASSED"
+  },
+  "n_pass": 2,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "..                                                                       [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_initial_files_exist\nPASSED ../../tests/test_initial_state.py::test_pipeline_buggy_code\n2 passed in 0.01s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_c_code_modifications": "PASSED",
+   "../../tests/test_final_state.py::test_predictions_file_exists": "FAILED",
+   "../../tests/test_final_state.py::test_predictions_content": "FAILED"
+  },
+  "n_pass": 1,
+  "n_fail": 2,
+  "seconds": 0.4,
+  "log_tail": "# Expected ETL statistics\n        mean = sum(train_features) / len(train_features)\n        variance = sum((x - mean) ** 2 for x in train_features) / len(train_features)\n        stddev = math.sqrt(variance)\n    \n        # Calculate expected z-scores for test set\n        expected_z_scores = {id_: (feat - mean) / stddev for id_, feat in test_features}\n    \n        # Calculate expected Naive Bayes parameters\n        train_z_scores = [(x - mean) / stddev for x in train_features]\n        z_0 = train_z_scores[:3] # Labels are 0 for first 3\n        z_1 = train_z_scores[3:] # Labels are 1 for next 3\n    \n        mu_0 = sum(z_0) / len(z_0)\n        var_0 = sum((x - mu_0) ** 2 for x in z_0) / len(z_0)\n    \n        mu_1 = sum(z_1) / len(z_1)\n        var_1 = sum((x - mu_1) ** 2 for x in z_1) / len(z_1)\n    \n        # Calculate expected predictions\n        expected_preds = {}\n        for id_, z in expected_z_scores.items():\n            p0 = math.exp(-((z - mu_0) ** 2) / (2 * var_0)) / math.sqrt(2 * math.pi * var_0)\n            p1 = math.exp(-((z - mu_1) ** 2) / (2 * var_1)) / math.sqrt(2 * math.pi * var_1)\n            expected_preds[id_] = 1 if p1 > p0 else 0\n    \n>       with open(\"/home/user/fixed_predictions.csv\", \"r\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/fixed_predictions.csv'\n\n/tests/test_final_state.py:40: FileNotFoundError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_c_code_modifications\nFAILED ../../tests/test_final_state.py::test_predictions_file_exists - Assert...\nFAILED ../../tests/test_final_state.py::test_predictions_content - FileNotFou...\n2 failed, 1 passed in 0.03s\n"
+ },
+ "ref": [
+  {
+   "how": "replay of 4 commands",
+   "rc": 0,
+   "run_tail": "for (int i = 0; i < TRAIN_SIZE; i++) {\n        data[i].z_score = (data[i].feature - mean) / stddev;\n    }\n\n    // --- NAIVE BAYES CLASSIFIER ---\n    // Train on TRAIN_SIZE\n    double sum_0 = 0, sum_sq_0 = 0; int count_0 = 0;\n    double sum_1 = 0, sum_sq_1 = 0; int count_1 = 0;\n    for (int i = 0; i < TRAIN_SIZE; i++) {\n        if (data[i].label == 0) {\n            sum_0 += data[i].z_score; count_0++;\n        } else {\n            sum_1 += data[i].z_score; count_1++;\n        }\n    }\n    double mu_0 = sum_0 / count_0;\n    double var_0 = 0;\n    for (int i = 0; i < TRAIN_SIZE; i++) {\n        if (data[i].label == 0) var_0 += pow(data[i].z_score - mu_0, 2);\n    }\n    var_0 /= count_0;\n\n    double mu_1 = sum_1 / count_1;\n    double var_1 = 0;\n    for (int i = 0; i < TRAIN_SIZE; i++) {\n        if (data[i].label == 1) var_1 += pow(data[i].z_score - mu_1, 2);\n    }\n    var_1 /= count_1;\n\n    // Predict on TEST_SIZE\n    FILE *out = fopen(\"predictions.csv\", \"w\");\n    fprintf(out, \"id,z_score,predicted_label\\n\");\n    for (int i = TRAIN_SIZE; i < TOTAL_SIZE; i++) {\n        double x = data[i].z_score;\n        double p0 = exp(-pow(x - mu_0, 2) / (2 * var_0)) / sqrt(2 * M_PI * var_0);\n        double p1 = exp(-pow(x - mu_1, 2) / (2 * var_1)) / sqrt(2 * M_PI * var_1);\n        int pred = (p1 > p0) ? 1 : 0;\n        fprintf(out, \"%d,%.6f,%d\\n\", data[i].id, data[i].z_score, pred);\n    }\n    fclose(out);\n    return 0;\n}\nid,z_score,predicted_label\n6,-1.089954,0\n7,1.089954,1\n8,-0.165145,0\n9,0.033029,1\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_final_state.py::test_predictions_file_exists": "PASSED",
+     "../../tests/test_final_state.py::test_predictions_content": "PASSED",
+     "../../tests/test_final_state.py::test_c_code_modifications": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_predictions_file_exists\nPASSED ../../tests/test_final_state.py::test_predictions_content\nPASSED ../../tests/test_final_state.py::test_c_code_modifications\n3 passed in 0.01s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "replay of 4 commands",
+   "rc": 0,
+   "run_tail": "for (int i = 0; i < TRAIN_SIZE; i++) {\n        data[i].z_score = (data[i].feature - mean) / stddev;\n    }\n\n    // --- NAIVE BAYES CLASSIFIER ---\n    // Train on TRAIN_SIZE\n    double sum_0 = 0, sum_sq_0 = 0; int count_0 = 0;\n    double sum_1 = 0, sum_sq_1 = 0; int count_1 = 0;\n    for (int i = 0; i < TRAIN_SIZE; i++) {\n        if (data[i].label == 0) {\n            sum_0 += data[i].z_score; count_0++;\n        } else {\n            sum_1 += data[i].z_score; count_1++;\n        }\n    }\n    double mu_0 = sum_0 / count_0;\n    double var_0 = 0;\n    for (int i = 0; i < TRAIN_SIZE; i++) {\n        if (data[i].label == 0) var_0 += pow(data[i].z_score - mu_0, 2);\n    }\n    var_0 /= count_0;\n\n    double mu_1 = sum_1 / count_1;\n    double var_1 = 0;\n    for (int i = 0; i < TRAIN_SIZE; i++) {\n        if (data[i].label == 1) var_1 += pow(data[i].z_score - mu_1, 2);\n    }\n    var_1 /= count_1;\n\n    // Predict on TEST_SIZE\n    FILE *out = fopen(\"predictions.csv\", \"w\");\n    fprintf(out, \"id,z_score,predicted_label\\n\");\n    for (int i = TRAIN_SIZE; i < TOTAL_SIZE; i++) {\n        double x = data[i].z_score;\n        double p0 = exp(-pow(x - mu_0, 2) / (2 * var_0)) / sqrt(2 * M_PI * var_0);\n        double p1 = exp(-pow(x - mu_1, 2) / (2 * var_1)) / sqrt(2 * M_PI * var_1);\n        int pred = (p1 > p0) ? 1 : 0;\n        fprintf(out, \"%d,%.6f,%d\\n\", data[i].id, data[i].z_score, pred);\n    }\n    fclose(out);\n    return 0;\n}\nid,z_score,predicted_label\n6,-1.089954,0\n7,1.089954,1\n8,-0.165145,0\n9,0.033029,1\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_final_state.py::test_predictions_file_exists": "PASSED",
+     "../../tests/test_final_state.py::test_predictions_content": "PASSED",
+     "../../tests/test_final_state.py::test_c_code_modifications": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_predictions_file_exists\nPASSED ../../tests/test_final_state.py::test_predictions_content\nPASSED ../../tests/test_final_state.py::test_c_code_modifications\n3 passed in 0.01s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../../tests/test_final_state.py::test_c_code_modifications": "PASSED",
+    "../../tests/test_final_state.py::test_predictions_file_exists": "FAILED",
+    "../../tests/test_final_state.py::test_predictions_content": "FAILED"
+   },
+   "n_pass": 1,
+   "n_fail": 2,
+   "seconds": 0.4,
+   "log_tail": "# Expected ETL statistics\n        mean = sum(train_features) / len(train_features)\n        variance = sum((x - mean) ** 2 for x in train_features) / len(train_features)\n        stddev = math.sqrt(variance)\n    \n        # Calculate expected z-scores for test set\n        expected_z_scores = {id_: (feat - mean) / stddev for id_, feat in test_features}\n    \n        # Calculate expected Naive Bayes parameters\n        train_z_scores = [(x - mean) / stddev for x in train_features]\n        z_0 = train_z_scores[:3] # Labels are 0 for first 3\n        z_1 = train_z_scores[3:] # Labels are 1 for next 3\n    \n        mu_0 = sum(z_0) / len(z_0)\n        var_0 = sum((x - mu_0) ** 2 for x in z_0) / len(z_0)\n    \n        mu_1 = sum(z_1) / len(z_1)\n        var_1 = sum((x - mu_1) ** 2 for x in z_1) / len(z_1)\n    \n        # Calculate expected predictions\n        expected_preds = {}\n        for id_, z in expected_z_scores.items():\n            p0 = math.exp(-((z - mu_0) ** 2) / (2 * var_0)) / math.sqrt(2 * math.pi * var_0)\n            p1 = math.exp(-((z - mu_1) ** 2) / (2 * var_1)) / math.sqrt(2 * math.pi * var_1)\n            expected_preds[id_] = 1 if p1 > p0 else 0\n    \n>       with open(\"/home/user/fixed_predictions.csv\", \"r\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/fixed_predictions.csv'\n\n/tests/test_final_state.py:40: FileNotFoundError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_c_code_modifications\nFAILED ../../tests/test_final_state.py::test_predictions_file_exists - Assert...\nFAILED ../../tests/test_final_state.py::test_predictions_content - FileNotFou...\n2 failed, 1 passed in 0.03s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 436.6
+}

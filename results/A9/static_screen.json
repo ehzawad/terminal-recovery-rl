@@ -1,0 +1,1454 @@
+{
+ "per_task": {
+  "SETA__ask_ubuntu__1050": {
+   "key": "SETA__ask_ubuntu__1050",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 62,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 263,
+   "tests_lines": 215
+  },
+  "SETA__ask_ubuntu__391__d1": {
+   "key": "SETA__ask_ubuntu__391__d1",
+   "n_visible_files": 1,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 21,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 155,
+   "tests_lines": 110
+  },
+  "SETA__ask_ubuntu__580": {
+   "key": "SETA__ask_ubuntu__580",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 15,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 336,
+   "tests_lines": 170
+  },
+  "SETA__ask_ubuntu__927": {
+   "key": "SETA__ask_ubuntu__927",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 33,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 339,
+   "tests_lines": 118
+  },
+  "SETA__ask_ubuntu__711": {
+   "key": "SETA__ask_ubuntu__711",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 16,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [
+    "Mount",
+    "mount"
+   ],
+   "danger": [
+    "mkfs"
+   ],
+   "instruction_words": 275,
+   "tests_lines": 116
+  },
+  "SETA__ask_ubuntu__1228": {
+   "key": "SETA__ask_ubuntu__1228",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 12,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 277,
+   "tests_lines": 117
+  },
+  "SETA__ask_ubuntu__1276__b1": {
+   "key": "SETA__ask_ubuntu__1276__b1",
+   "n_visible_files": 7,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 45,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 283,
+   "tests_lines": 206
+  },
+  "SETA__ask_ubuntu__227__d1": {
+   "key": "SETA__ask_ubuntu__227__d1",
+   "n_visible_files": 4,
+   "exposure_literal_hits": [
+    {
+     "literal": "Authentication required",
+     "file": "auth_server.py"
+    },
+    {
+     "literal": "Success! This is the protected data file.",
+     "file": "auth_server.py"
+    }
+   ],
+   "n_exposure_literal_hits": 2,
+   "n_test_literals": 15,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [
+    "wget"
+   ],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 189,
+   "tests_lines": 107
+  },
+  "SETA__stack_overflow__6637135": {
+   "key": "SETA__stack_overflow__6637135",
+   "n_visible_files": 6,
+   "exposure_literal_hits": [
+    {
+     "literal": "Greetings from DSL",
+     "file": "expected_outputs.txt"
+    }
+   ],
+   "n_exposure_literal_hits": 1,
+   "n_test_literals": 29,
+   "exposure_named_files": [
+    "expected_outputs.txt"
+   ],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 234,
+   "tests_lines": 184
+  },
+  "SETA__stack_overflow__11563963": {
+   "key": "SETA__stack_overflow__11563963",
+   "n_visible_files": 7,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 26,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv pip"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 239,
+   "tests_lines": 147
+  },
+  "SETA__stack_overflow__2885173": {
+   "key": "SETA__stack_overflow__2885173",
+   "n_visible_files": 8,
+   "exposure_literal_hits": [
+    {
+     "literal": "department_stats.csv",
+     "file": "README.txt"
+    },
+    {
+     "literal": "filtered_report.txt",
+     "file": "README.txt"
+    }
+   ],
+   "n_exposure_literal_hits": 2,
+   "n_test_literals": 39,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 156,
+   "tests_lines": 181
+  },
+  "SETA__stack_overflow__74892964": {
+   "key": "SETA__stack_overflow__74892964",
+   "n_visible_files": 11,
+   "exposure_literal_hits": [
+    {
+     "literal": "No date column found. Columns:",
+     "file": "pipeline/query_stats.py"
+    },
+    {
+     "literal": "avg_revenue_per_distinct_customer",
+     "file": "pipeline/generate_data.py"
+    },
+    {
+     "literal": "cumulative_revenue",
+     "file": "pipeline/query_stats.py"
+    },
+    {
+     "literal": "distinct_customers",
+     "file": "pipeline/generate_data.py"
+    },
+    {
+     "literal": "top_streak_customers",
+     "file": "pipeline/compute_expected_streaks.py"
+    },
+    {
+     "literal": "validation_queries",
+     "file": "pipeline/generate_data.py"
+    }
+   ],
+   "n_exposure_literal_hits": 6,
+   "n_test_literals": 40,
+   "exposure_named_files": [
+    "pipeline/compute_expected_streaks.py"
+   ],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 326,
+   "tests_lines": 304
+  },
+  "SETA__stack_overflow__58859092": {
+   "key": "SETA__stack_overflow__58859092",
+   "n_visible_files": 9,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 22,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 256,
+   "tests_lines": 188
+  },
+  "SETA__stack_overflow__276927": {
+   "key": "SETA__stack_overflow__276927",
+   "n_visible_files": 7,
+   "exposure_literal_hits": [
+    {
+     "literal": "alice@techdirect.com",
+     "file": "init_db.sql"
+    },
+    {
+     "literal": "bob@techdirect.com",
+     "file": "init_db.sql"
+    }
+   ],
+   "n_exposure_literal_hits": 2,
+   "n_test_literals": 53,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 181,
+   "tests_lines": 261
+  },
+  "SETA__kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression": {
+   "key": "SETA__kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 62,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv pip"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 365,
+   "tests_lines": 217
+  },
+  "SETA__kaggle_notebook__mathchi_churn-problem-for-bank-customer": {
+   "key": "SETA__kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+   "n_visible_files": 1,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 82,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv pip"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 286,
+   "tests_lines": 253
+  },
+  "SETA__kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques": {
+   "key": "SETA__kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 49,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv pip"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 327,
+   "tests_lines": 313
+  },
+  "SETA__kaggle_notebook__nasirmeh_prediction-of-rainfall": {
+   "key": "SETA__kaggle_notebook__nasirmeh_prediction-of-rainfall",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 39,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv pip"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 334,
+   "tests_lines": 185
+  },
+  "SETA__unix_linux_se__49272": {
+   "key": "SETA__unix_linux_se__49272",
+   "n_visible_files": 6,
+   "exposure_literal_hits": [
+    {
+     "literal": "RUN+=\"/usr/local/bin/usb-hid-recover.sh\"",
+     "file": "99-usb-hid-recover.rules"
+    },
+    {
+     "literal": "SUBSYSTEM==\"block\"",
+     "file": "99-usb-hid-recover.rules"
+    }
+   ],
+   "n_exposure_literal_hits": 2,
+   "n_test_literals": 76,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [
+    "modprobe",
+    "systemctl"
+   ],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 326,
+   "tests_lines": 414
+  },
+  "SETA__unix_linux_se__202383": {
+   "key": "SETA__unix_linux_se__202383",
+   "n_visible_files": 9,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 28,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 160,
+   "tests_lines": 165
+  },
+  "SETA__unix_linux_se__82598": {
+   "key": "SETA__unix_linux_se__82598",
+   "n_visible_files": 5,
+   "exposure_literal_hits": [
+    {
+     "literal": "COUNTER_FILE=\"/tmp/monitor_probe_count\"",
+     "file": "bin/service_probe.sh"
+    },
+    {
+     "literal": "Invalid environment type",
+     "file": "check_service.sh"
+    },
+    {
+     "literal": "count=$((count + 1))",
+     "file": "bin/service_probe.sh"
+    },
+    {
+     "literal": "count=$(cat \"$COUNTER_FILE\" 2>/dev/null || echo 0)",
+     "file": "bin/service_probe.sh"
+    },
+    {
+     "literal": "echo \"$count\" > \"$COUNTER_FILE\"",
+     "file": "bin/service_probe.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 5,
+   "n_test_literals": 35,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 217,
+   "tests_lines": 186
+  },
+  "SETA__unix_linux_se__336776": {
+   "key": "SETA__unix_linux_se__336776",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "PASSWORD_STORE_DIR",
+     "file": "setup.sh"
+    },
+    {
+     "literal": "gpg --list-keys --with-colons admin@company.local",
+     "file": "setup.sh"
+    },
+    {
+     "literal": "pass show api/github-token",
+     "file": "setup.sh"
+    },
+    {
+     "literal": "pass show email/corporate",
+     "file": "setup.sh"
+    },
+    {
+     "literal": "pass show servers/db-root",
+     "file": "setup.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 5,
+   "n_test_literals": 54,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 219,
+   "tests_lines": 152
+  },
+  "SETA__nl2bash__966": {
+   "key": "SETA__nl2bash__966",
+   "n_visible_files": 6,
+   "exposure_literal_hits": [
+    {
+     "literal": "./assets/optional/decoration.png",
+     "file": "wrong_manifest.txt"
+    },
+    {
+     "literal": "./assets/required/",
+     "file": "build_manifest.sh"
+    },
+    {
+     "literal": "./assets/required/logo.png",
+     "file": "wrong_manifest.txt"
+    },
+    {
+     "literal": "./assets/required/sprite.class",
+     "file": "wrong_manifest.txt"
+    },
+    {
+     "literal": "./config/app.conf.bak",
+     "file": "wrong_manifest.txt"
+    },
+    {
+     "literal": "./config/backup_strategy.conf",
+     "file": "validate.sh"
+    },
+    {
+     "literal": "./config/imaging.pngresize.conf",
+     "file": "wrong_manifest.txt"
+    },
+    {
+     "literal": "./config/logging.conf.tmp",
+     "file": "wrong_manifest.txt"
+    }
+   ],
+   "n_exposure_literal_hits": 20,
+   "n_test_literals": 61,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 146,
+   "tests_lines": 191
+  },
+  "SETA__nl2bash__086": {
+   "key": "SETA__nl2bash__086",
+   "n_visible_files": 4,
+   "exposure_literal_hits": [
+    {
+     "literal": "CRITICAL: disk usage at 94% on /dev/sda1",
+     "file": "application.log"
+    },
+    {
+     "literal": "CRITICAL: root command executed by non-root user bob - audit required",
+     "file": "auth.log"
+    },
+    {
+     "literal": "Mar 15 08:00:01 webserver sshd[2001]: Server listening on 0.0.0.0 port 22",
+     "file": "auth.log"
+    },
+    {
+     "literal": "Mar 15 08:01:03 webserver nginx[1234]: Starting nginx web server",
+     "file": "application.log"
+    },
+    {
+     "literal": "Mar 15 08:01:04 webserver nginx[1234]: Configuration loaded",
+     "file": "application.log"
+    },
+    {
+     "literal": "Mar 15 08:02:05 webserver sshd[2001]: Accepted password for alice",
+     "file": "auth.log"
+    },
+    {
+     "literal": "WARNING: session token near expiry for user alice",
+     "file": "application.log"
+    },
+    {
+     "literal": "error: Could not get shadow information for NOUSER",
+     "file": "auth.log"
+    }
+   ],
+   "n_exposure_literal_hits": 9,
+   "n_test_literals": 53,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv pip"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [
+    "curl -LsSf https://astral.sh/uv/0.10.11/"
+   ],
+   "instruction_words": 245,
+   "tests_lines": 270
+  },
+  "TMax__task_001789_538b3fed": {
+   "key": "TMax__task_001789_538b3fed",
+   "n_visible_files": 4,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 11,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 293,
+   "tests_lines": 94
+  },
+  "TMax__task_002018_b907f747": {
+   "key": "TMax__task_002018_b907f747",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 19,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 244,
+   "tests_lines": 84
+  },
+  "TMax__task_009712_63ae0579": {
+   "key": "TMax__task_009712_63ae0579",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 2,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 282,
+   "tests_lines": 70
+  },
+  "TMax__task_005510_9a7eea6f": {
+   "key": "TMax__task_005510_9a7eea6f",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "async with websockets.connect(uri) as websocket:",
+     "file": "post.sh"
+    },
+    {
+     "literal": "asyncio.run(test())",
+     "file": "post.sh"
+    },
+    {
+     "literal": "except Exception as e:",
+     "file": "post.sh"
+    },
+    {
+     "literal": "res = await websocket.recv()",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 4,
+   "n_test_literals": 19,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 340,
+   "tests_lines": 95
+  },
+  "TMax__task_005328_d31b8a1e": {
+   "key": "TMax__task_005328_d31b8a1e",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 16,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 233,
+   "tests_lines": 74
+  },
+  "TMax__task_000667_61fefcb4": {
+   "key": "TMax__task_000667_61fefcb4",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "INFO: Received incoming API request",
+     "file": "post.sh"
+    },
+    {
+     "literal": "Received incoming API request",
+     "file": "post.sh"
+    },
+    {
+     "literal": "Starting processing for",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 3,
+   "n_test_literals": 17,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 323,
+   "tests_lines": 108
+  },
+  "TMax__task_003160_4040000e": {
+   "key": "TMax__task_003160_4040000e",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "SUCCESS: Pipeline finished",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 1,
+   "n_test_literals": 6,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 223,
+   "tests_lines": 42
+  },
+  "TMax__task_006354_0c495fc8": {
+   "key": "TMax__task_006354_0c495fc8",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "Advanced Configuration",
+     "file": "post.sh"
+    },
+    {
+     "literal": "Introduction to System",
+     "file": "post.sh"
+    },
+    {
+     "literal": "module1/textdata.blob",
+     "file": "post.sh"
+    },
+    {
+     "literal": "module2/advanced.xml",
+     "file": "post.sh"
+    },
+    {
+     "literal": "module2/assets/graphic1.blob",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 5,
+   "n_test_literals": 10,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 352,
+   "tests_lines": 69
+  },
+  "TMax__task_007751_66925dbb": {
+   "key": "TMax__task_007751_66925dbb",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "privilege_escalation_risk",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 1,
+   "n_test_literals": 16,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [
+    "pip install"
+   ],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [
+    "systemctl"
+   ],
+   "danger": [],
+   "instruction_words": 380,
+   "tests_lines": 50
+  },
+  "TMax__task_005795_1c02adf2": {
+   "key": "TMax__task_005795_1c02adf2",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "data[i].z_score = (data[i].feature - mean) / stddev;",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 1,
+   "n_test_literals": 6,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 317,
+   "tests_lines": 64
+  },
+  "TMax__task_005524_bb885478": {
+   "key": "TMax__task_005524_bb885478",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "Hello from the backend!",
+     "file": "post.sh"
+    },
+    {
+     "literal": "proxy_pass http://127.0.0.1:",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 2,
+   "n_test_literals": 14,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 250,
+   "tests_lines": 73
+  },
+  "TMax__task_005495_82f4b64b": {
+   "key": "TMax__task_005495_82f4b64b",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [
+    {
+     "literal": "sk_live_9f8e7d6c5b4a3f2e1d0c",
+     "file": "post.sh"
+    },
+    {
+     "literal": "sqrt(x * x + 1.0) - x",
+     "file": "post.sh"
+    }
+   ],
+   "n_exposure_literal_hits": 2,
+   "n_test_literals": 13,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 326,
+   "tests_lines": 72
+  },
+  "TMax__task_002330_880601ad": {
+   "key": "TMax__task_002330_880601ad",
+   "n_visible_files": 7,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 1,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 311,
+   "tests_lines": 68
+  },
+  "TMax__task_004748_961e3610": {
+   "key": "TMax__task_004748_961e3610",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 12,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 311,
+   "tests_lines": 60
+  },
+  "TMax__task_009840_d53065f3": {
+   "key": "TMax__task_009840_d53065f3",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 8,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 355,
+   "tests_lines": 55
+  },
+  "TMax__task_000172_9d5cca3a": {
+   "key": "TMax__task_000172_9d5cca3a",
+   "n_visible_files": 7,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 19,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "pip3 install"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 330,
+   "tests_lines": 84
+  },
+  "LiteCoder__git-workflow-conflict-sim": {
+   "key": "LiteCoder__git-workflow-conflict-sim",
+   "n_visible_files": 1,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 71,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 454,
+   "tests_lines": 328
+  },
+  "LiteCoder__automated-offsite-backup-system": {
+   "key": "LiteCoder__automated-offsite-backup-system",
+   "n_visible_files": 6,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 125,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 666,
+   "tests_lines": 507
+  },
+  "LiteCoder__pytorch-rnn-stock-prediction": {
+   "key": "LiteCoder__pytorch-rnn-stock-prediction",
+   "n_visible_files": 1,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 67,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add",
+    "uv pip"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 488,
+   "tests_lines": 359
+  },
+  "LiteCoder__rsa-encrypt-decrypt-demo": {
+   "key": "LiteCoder__rsa-encrypt-decrypt-demo",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [
+    {
+     "literal": "Top-Secret-Data-2024!",
+     "file": "plaintext.txt"
+    }
+   ],
+   "n_exposure_literal_hits": 1,
+   "n_test_literals": 47,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 247,
+   "tests_lines": 199
+  },
+  "LiteCoder__news-topic-classification-sklearn": {
+   "key": "LiteCoder__news-topic-classification-sklearn",
+   "n_visible_files": 1,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 71,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [
+    "pip install",
+    "uv pip"
+   ],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 479,
+   "tests_lines": 391
+  },
+  "LiteCoder__crosslingual-sentiment-classifier": {
+   "key": "LiteCoder__crosslingual-sentiment-classifier",
+   "n_visible_files": 2,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 79,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [
+    "pip install"
+   ],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": true,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 531,
+   "tests_lines": 430
+  },
+  "LiteCoder__brute-force-key-recovery": {
+   "key": "LiteCoder__brute-force-key-recovery",
+   "n_visible_files": 3,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 37,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 444,
+   "tests_lines": 248
+  },
+  "LiteCoder__fashion-mnist-cnn-pipeline": {
+   "key": "LiteCoder__fashion-mnist-cnn-pipeline",
+   "n_visible_files": 1,
+   "exposure_literal_hits": [],
+   "n_exposure_literal_hits": 0,
+   "n_test_literals": 48,
+   "exposure_named_files": [],
+   "build_network": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "wget"
+   ],
+   "runtime_network_in_reference_or_tests": [],
+   "wrapper_fetches": [
+    "apt-get install",
+    "apt-get update",
+    "curl",
+    "uv add"
+   ],
+   "gpu": false,
+   "privilege": [],
+   "danger": [],
+   "instruction_words": 275,
+   "tests_lines": 214
+  }
+ },
+ "tmax_corpus": {
+  "tasks": 14601,
+  "with_gemini_rollouts": 8843,
+  "with_ge1_success": 6174,
+  "reference_solutions_nonempty": 0,
+  "container_def_with_gpfs_paths": 5136,
+  "post_with_network_commands": 14601,
+  "gemini_success_hist_of_8": {
+   "0": 2669,
+   "1": 494,
+   "2": 303,
+   "3": 292,
+   "4": 269,
+   "5": 253,
+   "6": 280,
+   "7": 455,
+   "8": 3828
+  }
+ }
+}

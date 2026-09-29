@@ -1,0 +1,85 @@
+{
+ "key": "SETA__ask_ubuntu__927",
+ "ds": "SETA",
+ "task": "ask_ubuntu__927",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 2332,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 437s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_ssh_config_and_directory": "FAILED",
+   "../tests/test_outputs.py::test_helper_script_exists_and_executable": "FAILED",
+   "../tests/test_outputs.py::test_end_to_end_transfer": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.5,
+  "log_tail": "ssert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/root/bin/ssh-transfer.sh').exists\n\n/tests/test_outputs.py:46: AssertionError\n___________________________ test_end_to_end_transfer ___________________________\n\n    def test_end_to_end_transfer():\n        \"\"\"\n        Test end-to-end workflow: establish master connection and transfer files\n        using the helper script.\n        \"\"\"\n        script_path = Path(\"/root/bin/ssh-transfer.sh\")\n    \n        # First establish a master SSH connection\n        # Use -f to fork to background, -N for no command, -o StrictHostKeyChecking=no for first connection\n        ssh_result = subprocess.run(\n            [\"ssh\", \"-f\", \"-N\", \"-o\", \"StrictHostKeyChecking=no\", \"-o\", \"BatchMode=yes\", \"fileserver\"],\n            capture_output=True,\n            timeout=30\n        )\n    \n        # Check master connection is established\n        check_result = subprocess.run(\n            [\"ssh\", \"-O\", \"check\", \"fileserver\"],\n            capture_output=True,\n            timeout=10\n        )\n>       assert check_result.returncode == 0, \"Failed to establish master SSH connection\"\nE       AssertionError: Failed to establish master SSH connection\nE       assert 255 == 0\nE        +  where 255 = CompletedProcess(args=['ssh', '-O', 'check', 'fileserver'], returncode=255, stdout=b'', stderr=b'No ControlPath specified for \"-O\" command\\r\\n').returncode\n\n/tests/test_outputs.py:82: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_ssh_config_and_directory - AssertionErr...\nFAILED ../tests/test_outputs.py::test_helper_script_exists_and_executable - A...\nFAILED ../tests/test_outputs.py::test_end_to_end_transfer - AssertionError: F...\n3 failed in 0.06s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "SSH ControlMaster configuration complete!\n- SSH config created at ~/.ssh/config\n- Sockets directory created at ~/.ssh/sockets/ with mode 700\n- Helper script created at ~/bin/ssh-transfer.sh\n",
+   "grade": {
+    "pytest_rc": 1,
+    "pass": false,
+    "tests": {
+     "../tests/test_outputs.py::test_ssh_config_and_directory": "PASSED",
+     "../tests/test_outputs.py::test_helper_script_exists_and_executable": "PASSED",
+     "../tests/test_outputs.py::test_end_to_end_transfer": "FAILED"
+    },
+    "n_pass": 2,
+    "n_fail": 1,
+    "seconds": 0.5,
+    "log_tail": "= FAILURES ===================================\n___________________________ test_end_to_end_transfer ___________________________\n\n    def test_end_to_end_transfer():\n        \"\"\"\n        Test end-to-end workflow: establish master connection and transfer files\n        using the helper script.\n        \"\"\"\n        script_path = Path(\"/root/bin/ssh-transfer.sh\")\n    \n        # First establish a master SSH connection\n        # Use -f to fork to background, -N for no command, -o StrictHostKeyChecking=no for first connection\n        ssh_result = subprocess.run(\n            [\"ssh\", \"-f\", \"-N\", \"-o\", \"StrictHostKeyChecking=no\", \"-o\", \"BatchMode=yes\", \"fileserver\"],\n            capture_output=True,\n            timeout=30\n        )\n    \n        # Check master connection is established\n        check_result = subprocess.run(\n            [\"ssh\", \"-O\", \"check\", \"fileserver\"],\n            capture_output=True,\n            timeout=10\n        )\n>       assert check_result.returncode == 0, \"Failed to establish master SSH connection\"\nE       AssertionError: Failed to establish master SSH connection\nE       assert 255 == 0\nE        +  where 255 = CompletedProcess(args=['ssh', '-O', 'check', 'fileserver'], returncode=255, stdout=b'', stderr=b'Control socket connect(/root/.ssh/sockets/testuser@localhost:2222): No such file or directory\\r\\n').returncode\n\n/tests/test_outputs.py:82: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_ssh_config_and_directory\nPASSED ../tests/test_outputs.py::test_helper_script_exists_and_executable\nFAILED ../tests/test_outputs.py::test_end_to_end_transfer - AssertionError: F...\n1 failed, 2 passed in 0.08s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "SSH ControlMaster configuration complete!\n- SSH config created at ~/.ssh/config\n- Sockets directory created at ~/.ssh/sockets/ with mode 700\n- Helper script created at ~/bin/ssh-transfer.sh\n",
+   "grade": {
+    "pytest_rc": 1,
+    "pass": false,
+    "tests": {
+     "../tests/test_outputs.py::test_ssh_config_and_directory": "PASSED",
+     "../tests/test_outputs.py::test_helper_script_exists_and_executable": "PASSED",
+     "../tests/test_outputs.py::test_end_to_end_transfer": "FAILED"
+    },
+    "n_pass": 2,
+    "n_fail": 1,
+    "seconds": 0.5,
+    "log_tail": "= FAILURES ===================================\n___________________________ test_end_to_end_transfer ___________________________\n\n    def test_end_to_end_transfer():\n        \"\"\"\n        Test end-to-end workflow: establish master connection and transfer files\n        using the helper script.\n        \"\"\"\n        script_path = Path(\"/root/bin/ssh-transfer.sh\")\n    \n        # First establish a master SSH connection\n        # Use -f to fork to background, -N for no command, -o StrictHostKeyChecking=no for first connection\n        ssh_result = subprocess.run(\n            [\"ssh\", \"-f\", \"-N\", \"-o\", \"StrictHostKeyChecking=no\", \"-o\", \"BatchMode=yes\", \"fileserver\"],\n            capture_output=True,\n            timeout=30\n        )\n    \n        # Check master connection is established\n        check_result = subprocess.run(\n            [\"ssh\", \"-O\", \"check\", \"fileserver\"],\n            capture_output=True,\n            timeout=10\n        )\n>       assert check_result.returncode == 0, \"Failed to establish master SSH connection\"\nE       AssertionError: Failed to establish master SSH connection\nE       assert 255 == 0\nE        +  where 255 = CompletedProcess(args=['ssh', '-O', 'check', 'fileserver'], returncode=255, stdout=b'', stderr=b'Control socket connect(/root/.ssh/sockets/testuser@localhost:2222): No such file or directory\\r\\n').returncode\n\n/tests/test_outputs.py:82: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_ssh_config_and_directory\nPASSED ../tests/test_outputs.py::test_helper_script_exists_and_executable\nFAILED ../tests/test_outputs.py::test_end_to_end_transfer - AssertionError: F...\n1 failed, 2 passed in 0.07s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py::test_ssh_config_and_directory": "PASSED",
+    "../tests/test_outputs.py::test_helper_script_exists_and_executable": "PASSED",
+    "../tests/test_outputs.py::test_end_to_end_transfer": "FAILED"
+   },
+   "n_pass": 2,
+   "n_fail": 1,
+   "seconds": 0.5,
+   "log_tail": "================================== FAILURES ===================================\n___________________________ test_end_to_end_transfer ___________________________\n\n    def test_end_to_end_transfer():\n        \"\"\"\n        Test end-to-end workflow: establish master connection and transfer files\n        using the helper script.\n        \"\"\"\n        script_path = Path(\"/root/bin/ssh-transfer.sh\")\n    \n        # First establish a master SSH connection\n        # Use -f to fork to background, -N for no command, -o StrictHostKeyChecking=no for first connection\n        ssh_result = subprocess.run(\n            [\"ssh\", \"-f\", \"-N\", \"-o\", \"StrictHostKeyChecking=no\", \"-o\", \"BatchMode=yes\", \"fileserver\"],\n            capture_output=True,\n            timeout=30\n        )\n    \n        # Check master connection is established\n        check_result = subprocess.run(\n            [\"ssh\", \"-O\", \"check\", \"fileserver\"],\n            capture_output=True,\n            timeout=10\n        )\n>       assert check_result.returncode == 0, \"Failed to establish master SSH connection\"\nE       AssertionError: Failed to establish master SSH connection\nE       assert 255 == 0\nE        +  where 255 = CompletedProcess(args=['ssh', '-O', 'check', 'fileserver'], returncode=255, stdout=b'', stderr=b'ssh: connect to host localhost port 2222: Connection refused\\r\\n').returncode\n\n/tests/test_outputs.py:82: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_ssh_config_and_directory\nPASSED ../tests/test_outputs.py::test_helper_script_exists_and_executable\nFAILED ../tests/test_outputs.py::test_end_to_end_transfer - AssertionError: F...\n1 failed, 2 passed in 0.08s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 465.2
+}

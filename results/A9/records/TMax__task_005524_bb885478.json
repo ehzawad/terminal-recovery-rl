@@ -1,0 +1,78 @@
+{
+ "key": "TMax__task_005524_bb885478",
+ "ds": "TMax",
+ "task": "task_005524_bb885478",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 1637,
+ "gemini": {
+  "runs": 8,
+  "success": 0
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 470s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_nginx_directories_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_backend_directory_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_bash_profile_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_nginx_config_exists_and_content": "PASSED",
+   "../../tests/test_initial_state.py::test_backend_run_script_exists_and_executable": "PASSED",
+   "../../tests/test_initial_state.py::test_nginx_is_running": "PASSED",
+   "../../tests/test_initial_state.py::test_python3_installed": "PASSED"
+  },
+  "n_pass": 7,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": ".......                                                                  [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_nginx_directories_exist\nPASSED ../../tests/test_initial_state.py::test_backend_directory_exists\nPASSED ../../tests/test_initial_state.py::test_bash_profile_exists\nPASSED ../../tests/test_initial_state.py::test_nginx_config_exists_and_content\nPASSED ../../tests/test_initial_state.py::test_backend_run_script_exists_and_executable\nPASSED ../../tests/test_initial_state.py::test_nginx_is_running\nPASSED ../../tests/test_initial_state.py::test_python3_installed\n7 passed in 0.07s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_success_log_content": "FAILED",
+   "../../tests/test_final_state.py::test_backend_cache_directory_exists": "FAILED",
+   "../../tests/test_final_state.py::test_bash_profile_contains_backend_port": "FAILED",
+   "../../tests/test_final_state.py::test_nginx_config_updated_with_correct_port": "FAILED",
+   "../../tests/test_final_state.py::test_backend_process_running": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 5,
+  "seconds": 0.4,
+  "log_tail": " BACKEND_PORT environment variable is not exported in .bash_profile.\nE       assert None is not None\n\n/tests/test_final_state.py:32: AssertionError\n_________________ test_nginx_config_updated_with_correct_port __________________\n\n    def test_nginx_config_updated_with_correct_port():\n        profile_path = \"/home/user/.bash_profile\"\n        with open(profile_path, \"r\") as f:\n            content = f.read()\n        match = re.search(r'export\\s+BACKEND_PORT=(\\d+)', content)\n        if not match:\n>           pytest.fail(\"Cannot verify nginx config because BACKEND_PORT is not in .bash_profile\")\nE           Failed: Cannot verify nginx config because BACKEND_PORT is not in .bash_profile\n\n/tests/test_final_state.py:43: Failed\n_________________________ test_backend_process_running _________________________\n\n    def test_backend_process_running():\n        profile_path = \"/home/user/.bash_profile\"\n        with open(profile_path, \"r\") as f:\n            content = f.read()\n        match = re.search(r'export\\s+BACKEND_PORT=(\\d+)', content)\n        if not match:\n>           pytest.fail(\"Cannot verify backend process because BACKEND_PORT is not in .bash_profile\")\nE           Failed: Cannot verify backend process because BACKEND_PORT is not in .bash_profile\n\n/tests/test_final_state.py:64: Failed\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_success_log_content - AssertionE...\nFAILED ../../tests/test_final_state.py::test_backend_cache_directory_exists\nFAILED ../../tests/test_final_state.py::test_bash_profile_contains_backend_port\nFAILED ../../tests/test_final_state.py::test_nginx_config_updated_with_correct_port\nFAILED ../../tests/test_final_state.py::test_backend_process_running - Failed...\n5 failed in 0.04s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../../tests/test_final_state.py::test_success_log_content": "PASSED",
+    "../../tests/test_final_state.py::test_backend_cache_directory_exists": "PASSED",
+    "../../tests/test_final_state.py::test_bash_profile_contains_backend_port": "PASSED",
+    "../../tests/test_final_state.py::test_nginx_config_updated_with_correct_port": "PASSED",
+    "../../tests/test_final_state.py::test_backend_process_running": "FAILED"
+   },
+   "n_pass": 4,
+   "n_fail": 1,
+   "seconds": 0.5,
+   "log_tail": " ===================================\n_________________________ test_backend_process_running _________________________\n\n    def test_backend_process_running():\n        profile_path = \"/home/user/.bash_profile\"\n        with open(profile_path, \"r\") as f:\n            content = f.read()\n        match = re.search(r'export\\s+BACKEND_PORT=(\\d+)', content)\n        if not match:\n            pytest.fail(\"Cannot verify backend process because BACKEND_PORT is not in .bash_profile\")\n    \n        backend_port = match.group(1)\n    \n        try:\n            output = subprocess.check_output([\"ps\", \"aux\"]).decode(\"utf-8\")\n>           assert backend_port in output and \"python3\" in output, (\n                f\"Backend process (python3 -m http.server {backend_port}) does not appear to be running.\"\n            )\nE           AssertionError: Backend process (python3 -m http.server 8081) does not appear to be running.\nE           assert ('8081' in 'USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND\\nroot           1  1.5  0.0   2792  1096 ?... ?        S    06:47   0:00 python3 -m py\\nroot          55  0.0  0.0   7440  1576 ?        R    06:47   0:00 ps aux\\n')\n\n/tests/test_final_state.py:70: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_success_log_content\nPASSED ../../tests/test_final_state.py::test_backend_cache_directory_exists\nPASSED ../../tests/test_final_state.py::test_bash_profile_contains_backend_port\nPASSED ../../tests/test_final_state.py::test_nginx_config_updated_with_correct_port\nFAILED ../../tests/test_final_state.py::test_backend_process_running - Assert...\n1 failed, 4 passed in 0.12s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 501.6
+}

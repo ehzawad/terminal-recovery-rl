@@ -1,0 +1,79 @@
+{
+ "key": "LiteCoder__pytorch-rnn-stock-prediction",
+ "ds": "LiteCoder",
+ "task": "pytorch-rnn-stock-prediction",
+ "notes": [
+  "removed 7 agent-harness Dockerfile blocks"
+ ],
+ "workdir": "/app",
+ "instruction_chars": 3401,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 179s"
+ },
+ "noop": {
+  "pytest_rc": 2,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py": "ERROR"
+  },
+  "n_pass": 0,
+  "n_fail": 1,
+  "seconds": 0.7,
+  "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.19s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 1,
+   "run_tail": "/solution/solve.sh: line 6: /opt/openhands-venv/bin/activate: No such file or directory\nTraceback (most recent call last):\n  File \"/tmp/solution.py\", line 8, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n",
+   "grade": {
+    "pytest_rc": 2,
+    "pass": false,
+    "tests": {
+     "../tests/test_outputs.py": "ERROR"
+    },
+    "n_pass": 0,
+    "n_fail": 1,
+    "seconds": 0.6,
+    "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 1,
+   "run_tail": "/solution/solve.sh: line 6: /opt/openhands-venv/bin/activate: No such file or directory\nTraceback (most recent call last):\n  File \"/tmp/solution.py\", line 8, in <module>\n    import numpy as np\nModuleNotFoundError: No module named 'numpy'\n",
+   "grade": {
+    "pytest_rc": 2,
+    "pass": false,
+    "tests": {
+     "../tests/test_outputs.py": "ERROR"
+    },
+    "n_pass": 0,
+    "n_fail": 1,
+    "seconds": 0.5,
+    "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 1,
+  "run_tail": "Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nModuleNotFoundError: No module named 'numpy'\n",
+  "grade": {
+   "pytest_rc": 2,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py": "ERROR"
+   },
+   "n_pass": 0,
+   "n_fail": 1,
+   "seconds": 0.6,
+   "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import numpy as np\nE   ModuleNotFoundError: No module named 'numpy'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.14s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 207.6
+}

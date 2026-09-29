@@ -1,0 +1,380 @@
+{
+ "per_task": {
+  "SETA__nl2bash__086": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "LiteCoder__news-topic-classification-sklearn": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective"
+   ]
+  },
+  "SETA__stack_overflow__74892964": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "SETA__unix_linux_se__82598": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted"
+   ]
+  },
+  "SETA__ask_ubuntu__391__d1": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__unix_linux_se__202383": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective",
+    "safety_concern"
+   ]
+  },
+  "TMax__task_005524_bb885478": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "TMax__task_009840_d53065f3": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__ask_ubuntu__227__d1": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "SETA__ask_ubuntu__1276__b1": {
+   "admissible": false,
+   "reasons": [
+    "review_defective"
+   ]
+  },
+  "SETA__stack_overflow__11563963": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted"
+   ]
+  },
+  "TMax__task_001789_538b3fed": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "review_defective"
+   ]
+  },
+  "SETA__stack_overflow__2885173": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted"
+   ]
+  },
+  "SETA__ask_ubuntu__927": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective"
+   ]
+  },
+  "TMax__task_003160_4040000e": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "LiteCoder__pytorch-rnn-stock-prediction": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective"
+   ]
+  },
+  "LiteCoder__automated-offsite-backup-system": {
+   "admissible": false,
+   "reasons": [
+    "review_defective"
+   ]
+  },
+  "TMax__task_005795_1c02adf2": {
+   "admissible": false,
+   "reasons": [
+    "review_defective"
+   ]
+  },
+  "SETA__kaggle_notebook__nasirmeh_prediction-of-rainfall": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "LiteCoder__git-workflow-conflict-sim": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__stack_overflow__58859092": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__unix_linux_se__49272": {
+   "admissible": false,
+   "reasons": [
+    "review_defective",
+    "safety_concern"
+   ]
+  },
+  "TMax__task_000172_9d5cca3a": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "review_defective"
+   ]
+  },
+  "TMax__task_006354_0c495fc8": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted"
+   ]
+  },
+  "TMax__task_002330_880601ad": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "SETA__ask_ubuntu__1228": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective",
+    "safety_concern"
+   ]
+  },
+  "LiteCoder__fashion-mnist-cnn-pipeline": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective"
+   ]
+  },
+  "TMax__task_002018_b907f747": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__stack_overflow__6637135": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__kaggle_notebook__mathchi_churn-problem-for-bank-customer": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective"
+   ]
+  },
+  "TMax__task_000667_61fefcb4": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__unix_linux_se__336776": {
+   "admissible": true,
+   "reasons": []
+  },
+  "TMax__task_007751_66925dbb": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__ask_ubuntu__1050": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "TMax__task_009712_63ae0579": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__nl2bash__966": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "SETA__ask_ubuntu__711": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "TMax__task_005495_82f4b64b": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "TMax__task_004748_961e3610": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "SETA__stack_overflow__276927": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "review_defective"
+   ]
+  },
+  "SETA__kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "LiteCoder__crosslingual-sentiment-classifier": {
+   "admissible": false,
+   "reasons": [
+    "ref_fail",
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "LiteCoder__rsa-encrypt-decrypt-demo": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted"
+   ]
+  },
+  "SETA__ask_ubuntu__580": {
+   "admissible": false,
+   "reasons": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "LiteCoder__brute-force-key-recovery": {
+   "admissible": true,
+   "reasons": []
+  },
+  "TMax__task_005510_9a7eea6f": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "review_defective"
+   ]
+  },
+  "TMax__task_005328_d31b8a1e": {
+   "admissible": false,
+   "reasons": [
+    "UNVERIFIED",
+    "mutant_accepted",
+    "review_defective"
+   ]
+  }
+ },
+ "per_dataset": {
+  "SETA": {
+   "n": 24,
+   "admissible": 1,
+   "exposure": 2,
+   "unverified": 0,
+   "reviewer_valid": 4,
+   "ref_pass_2x": 20,
+   "mutant_accepted": 17,
+   "noop_passes": 0,
+   "admissible_frac": 0.042
+  },
+  "LiteCoder": {
+   "n": 8,
+   "admissible": 1,
+   "exposure": 1,
+   "unverified": 0,
+   "reviewer_valid": 2,
+   "ref_pass_2x": 4,
+   "mutant_accepted": 3,
+   "noop_passes": 0,
+   "admissible_frac": 0.125
+  },
+  "TMax": {
+   "n": 16,
+   "admissible": 0,
+   "exposure": 4,
+   "unverified": 11,
+   "reviewer_valid": 1,
+   "ref_pass_2x": 4,
+   "mutant_accepted": 10,
+   "noop_passes": 0,
+   "verifiable_n": 5,
+   "admissible_frac_all": 0.0,
+   "admissible_frac_verifiable": 0.0
+  }
+ }
+}

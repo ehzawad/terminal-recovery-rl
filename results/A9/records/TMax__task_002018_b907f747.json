@@ -1,0 +1,78 @@
+{
+ "key": "TMax__task_002018_b907f747",
+ "ds": "TMax",
+ "task": "task_002018_b907f747",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 1725,
+ "gemini": {
+  "runs": 8,
+  "success": 0
+ },
+ "build": {
+  "ok": true,
+  "msg": "cached"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_home_directory_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_cargo_installed": "PASSED",
+   "../../tests/test_initial_state.py::test_crontab_available": "PASSED",
+   "../../tests/test_initial_state.py::test_logrotate_available": "PASSED",
+   "../../tests/test_initial_state.py::test_no_existing_latency_monitor": "PASSED",
+   "../../tests/test_initial_state.py::test_no_existing_logrotate_conf": "PASSED",
+   "../../tests/test_initial_state.py::test_no_existing_latency_log": "PASSED"
+  },
+  "n_pass": 7,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": ".......                                                                  [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_home_directory_exists\nPASSED ../../tests/test_initial_state.py::test_cargo_installed\nPASSED ../../tests/test_initial_state.py::test_crontab_available\nPASSED ../../tests/test_initial_state.py::test_logrotate_available\nPASSED ../../tests/test_initial_state.py::test_no_existing_latency_monitor\nPASSED ../../tests/test_initial_state.py::test_no_existing_logrotate_conf\nPASSED ../../tests/test_initial_state.py::test_no_existing_latency_log\n7 passed in 0.02s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_rust_project_exists": "FAILED",
+   "../../tests/test_final_state.py::test_rust_binary_exists_and_executable": "FAILED",
+   "../../tests/test_final_state.py::test_binary_execution_and_log_format": "FAILED",
+   "../../tests/test_final_state.py::test_crontab_configuration": "FAILED",
+   "../../tests/test_final_state.py::test_logrotate_configuration": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 5,
+  "seconds": 0.5,
+  "log_tail": "_____________________ test_crontab_configuration __________________________\n\n    def test_crontab_configuration():\n        result = subprocess.run([\"crontab\", \"-l\"], capture_output=True, text=True)\n        # It's possible crontab is not set for the user, but it should be\n>       assert result.returncode == 0, \"Failed to read crontab.\"\nE       AssertionError: Failed to read crontab.\nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['crontab', '-l'], returncode=1, stdout='', stderr='no crontab for root\\n').returncode\n\n/tests/test_final_state.py:59: AssertionError\n_________________________ test_logrotate_configuration _________________________\n\n    def test_logrotate_configuration():\n        conf_path = \"/home/user/logrotate.conf\"\n>       assert os.path.isfile(conf_path), f\"Logrotate config not found at {conf_path}.\"\nE       AssertionError: Logrotate config not found at /home/user/logrotate.conf.\nE       assert False\nE        +  where False = <function isfile at 0x7fc65a919f30>('/home/user/logrotate.conf')\nE        +    where <function isfile at 0x7fc65a919f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:73: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_rust_project_exists - AssertionE...\nFAILED ../../tests/test_final_state.py::test_rust_binary_exists_and_executable\nFAILED ../../tests/test_final_state.py::test_binary_execution_and_log_format\nFAILED ../../tests/test_final_state.py::test_crontab_configuration - Assertio...\nFAILED ../../tests/test_final_state.py::test_logrotate_configuration - Assert...\n5 failed in 0.12s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_rust_project_exists": "PASSED",
+    "../../tests/test_final_state.py::test_rust_binary_exists_and_executable": "PASSED",
+    "../../tests/test_final_state.py::test_binary_execution_and_log_format": "PASSED",
+    "../../tests/test_final_state.py::test_crontab_configuration": "PASSED",
+    "../../tests/test_final_state.py::test_logrotate_configuration": "PASSED"
+   },
+   "n_pass": 5,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": ".....                                                                    [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_rust_project_exists\nPASSED ../../tests/test_final_state.py::test_rust_binary_exists_and_executable\nPASSED ../../tests/test_final_state.py::test_binary_execution_and_log_format\nPASSED ../../tests/test_final_state.py::test_crontab_configuration\nPASSED ../../tests/test_final_state.py::test_logrotate_configuration\n5 passed in 0.02s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 5.5
+}

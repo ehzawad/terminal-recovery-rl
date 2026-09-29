@@ -1,0 +1,76 @@
+{
+ "key": "TMax__task_005510_9a7eea6f",
+ "ds": "TMax",
+ "task": "task_005510_9a7eea6f",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2311,
+ "gemini": {
+  "runs": 8,
+  "success": 0
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 439s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_rust_installed": "PASSED",
+   "../../tests/test_initial_state.py::test_socat_installed": "PASSED",
+   "../../tests/test_initial_state.py::test_python3_and_websockets_installed": "PASSED",
+   "../../tests/test_initial_state.py::test_py2_evaluator_project_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_benchmark_script_exists_and_executable": "PASSED"
+  },
+  "n_pass": 5,
+  "n_fail": 0,
+  "seconds": 0.5,
+  "log_tail": ".....                                                                    [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_rust_installed\nPASSED ../../tests/test_initial_state.py::test_socat_installed\nPASSED ../../tests/test_initial_state.py::test_python3_and_websockets_installed\nPASSED ../../tests/test_initial_state.py::test_py2_evaluator_project_exists\nPASSED ../../tests/test_initial_state.py::test_benchmark_script_exists_and_executable\n5 passed in 0.09s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_rust_server_running": "FAILED",
+   "../../tests/test_final_state.py::test_proxy_running": "FAILED",
+   "../../tests/test_final_state.py::test_proxy_pid_file": "FAILED",
+   "../../tests/test_final_state.py::test_websocket_behavior": "FAILED",
+   "../../tests/test_final_state.py::test_sorted_results": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 5,
+  "seconds": 0.6,
+  "log_tail": "hon3\", \"/tmp/test_ws.py\"], capture_output=True, text=True)\n>       assert result.returncode == 0, f\"WebSocket test failed: {result.stdout}\\n{result.stderr}\"\nE       AssertionError: WebSocket test failed: Connection failed: [Errno 111] Connect call failed ('127.0.0.1', 8080)\nE         \nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['python3', '/tmp/test_ws.py'], returncode=1, stdout=\"Connection failed: [Errno 111] Connect call failed ('127.0.0.1', 8080)\\n\", stderr='').returncode\n\n/tests/test_final_state.py:66: AssertionError\n_____________________________ test_sorted_results ______________________________\n\n    def test_sorted_results():\n        raw_file = \"/home/user/raw_results.txt\"\n        sorted_file = \"/home/user/sorted_results.txt\"\n    \n>       assert os.path.isfile(raw_file), f\"{raw_file} does not exist\"\nE       AssertionError: /home/user/raw_results.txt does not exist\nE       assert False\nE        +  where False = <function isfile at 0x7fa628371f30>('/home/user/raw_results.txt')\nE        +    where <function isfile at 0x7fa628371f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:72: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_rust_server_running - AssertionE...\nFAILED ../../tests/test_final_state.py::test_proxy_running - AssertionError: ...\nFAILED ../../tests/test_final_state.py::test_proxy_pid_file - AssertionError:...\nFAILED ../../tests/test_final_state.py::test_websocket_behavior - AssertionEr...\nFAILED ../../tests/test_final_state.py::test_sorted_results - AssertionError:...\n5 failed in 0.19s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 1,
+  "run_tail": "bash: line 3: cd: /home/user/risk_app: No such file or directory\nbash: line 4: git: command not found\nTraceback (most recent call last):\n  File \"<stdin>\", line 2, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: '/home/user/risk_app/pipeline.py'\n",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../../tests/test_final_state.py::test_rust_server_running": "FAILED",
+    "../../tests/test_final_state.py::test_proxy_running": "FAILED",
+    "../../tests/test_final_state.py::test_proxy_pid_file": "FAILED",
+    "../../tests/test_final_state.py::test_websocket_behavior": "FAILED",
+    "../../tests/test_final_state.py::test_sorted_results": "FAILED"
+   },
+   "n_pass": 0,
+   "n_fail": 5,
+   "seconds": 0.6,
+   "log_tail": "hon3\", \"/tmp/test_ws.py\"], capture_output=True, text=True)\n>       assert result.returncode == 0, f\"WebSocket test failed: {result.stdout}\\n{result.stderr}\"\nE       AssertionError: WebSocket test failed: Connection failed: [Errno 111] Connect call failed ('127.0.0.1', 8080)\nE         \nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['python3', '/tmp/test_ws.py'], returncode=1, stdout=\"Connection failed: [Errno 111] Connect call failed ('127.0.0.1', 8080)\\n\", stderr='').returncode\n\n/tests/test_final_state.py:66: AssertionError\n_____________________________ test_sorted_results ______________________________\n\n    def test_sorted_results():\n        raw_file = \"/home/user/raw_results.txt\"\n        sorted_file = \"/home/user/sorted_results.txt\"\n    \n>       assert os.path.isfile(raw_file), f\"{raw_file} does not exist\"\nE       AssertionError: /home/user/raw_results.txt does not exist\nE       assert False\nE        +  where False = <function isfile at 0x7f89b245df30>('/home/user/raw_results.txt')\nE        +    where <function isfile at 0x7f89b245df30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:72: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_rust_server_running - AssertionE...\nFAILED ../../tests/test_final_state.py::test_proxy_running - AssertionError: ...\nFAILED ../../tests/test_final_state.py::test_proxy_pid_file - AssertionError:...\nFAILED ../../tests/test_final_state.py::test_websocket_behavior - AssertionEr...\nFAILED ../../tests/test_final_state.py::test_sorted_results - AssertionError:...\n5 failed in 0.19s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 464.3
+}

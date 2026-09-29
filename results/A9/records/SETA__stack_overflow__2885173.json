@@ -1,0 +1,105 @@
+{
+ "key": "SETA__stack_overflow__2885173",
+ "ds": "SETA",
+ "task": "stack_overflow__2885173",
+ "notes": [],
+ "workdir": "/opt/csvreporter",
+ "instruction_chars": 1167,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 321s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty": "FAILED",
+   "../../tests/test_outputs.py::test_summary_row_count": "FAILED",
+   "../../tests/test_outputs.py::test_summary_utf8_encoding": "FAILED",
+   "../../tests/test_outputs.py::test_summary_na_salary_handled": "FAILED",
+   "../../tests/test_outputs.py::test_department_stats_correct_after_rerun": "FAILED",
+   "../../tests/test_outputs.py::test_filtered_report_count": "FAILED",
+   "../../tests/test_outputs.py::test_filtered_report_specific_employees": "FAILED",
+   "../../tests/test_outputs.py::test_summary_employee_data_correct": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 8,
+  "seconds": 13.6,
+  "log_tail": "         \"Bj\u00f6rn Eriksson (120000) missing from filtered report\"\n        )\nE       AssertionError: Bj\u00f6rn Eriksson (120000) missing from filtered report\nE       assert 'Eriksson' in '25 | Adri\u00e1n Varga | Finance | 76000.00\\n'\n\n/tests/test_outputs.py:145: AssertionError\n______________________ test_summary_employee_data_correct ______________________\n\n    def test_summary_employee_data_correct():\n        \"\"\"summary.txt must contain correct employee data for specific rows.\"\"\"\n        clean_and_run()\n        fpath = os.path.join(OUTPUT_DIR, \"summary.txt\")\n        with open(fpath, \"r\", encoding=\"utf-8\") as f:\n            content = f.read()\n    \n        # Check specific employees exist with correct salary values\n        lines = content.split(\"\\n\")\n        muller_lines = [l for l in lines if \"M\u00fcller\" in l or \"Muller\" in l]\n>       assert len(muller_lines) >= 1, \"Fran\u00e7ois M\u00fcller not found in summary\"\nE       AssertionError: Fran\u00e7ois M\u00fcller not found in summary\nE       assert 0 >= 1\nE        +  where 0 = len([])\n\n/tests/test_outputs.py:166: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty - Ass...\nFAILED ../../tests/test_outputs.py::test_summary_row_count - AssertionError: ...\nFAILED ../../tests/test_outputs.py::test_summary_utf8_encoding - AssertionErr...\nFAILED ../../tests/test_outputs.py::test_summary_na_salary_handled - Assertio...\nFAILED ../../tests/test_outputs.py::test_department_stats_correct_after_rerun\nFAILED ../../tests/test_outputs.py::test_filtered_report_count - AssertionErr...\nFAILED ../../tests/test_outputs.py::test_filtered_report_specific_employees\nFAILED ../../tests/test_outputs.py::test_summary_employee_data_correct - Asse...\n8 failed in 13.14s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Report generation complete.\nReport generation complete.\nPicked up JAVA_TOOL_OPTIONS: -Dfile.encoding=US-ASCII\nPicked up JAVA_TOOL_OPTIONS: -Dfile.encoding=US-ASCII\nPicked up JAVA_TOOL_OPTIONS: -Dfile.encoding=US-ASCII\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty": "PASSED",
+     "../../tests/test_outputs.py::test_summary_row_count": "PASSED",
+     "../../tests/test_outputs.py::test_summary_utf8_encoding": "PASSED",
+     "../../tests/test_outputs.py::test_summary_na_salary_handled": "PASSED",
+     "../../tests/test_outputs.py::test_department_stats_correct_after_rerun": "PASSED",
+     "../../tests/test_outputs.py::test_filtered_report_count": "PASSED",
+     "../../tests/test_outputs.py::test_filtered_report_specific_employees": "PASSED",
+     "../../tests/test_outputs.py::test_summary_employee_data_correct": "PASSED"
+    },
+    "n_pass": 8,
+    "n_fail": 0,
+    "seconds": 10.1,
+    "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty\nPASSED ../../tests/test_outputs.py::test_summary_row_count\nPASSED ../../tests/test_outputs.py::test_summary_utf8_encoding\nPASSED ../../tests/test_outputs.py::test_summary_na_salary_handled\nPASSED ../../tests/test_outputs.py::test_department_stats_correct_after_rerun\nPASSED ../../tests/test_outputs.py::test_filtered_report_count\nPASSED ../../tests/test_outputs.py::test_filtered_report_specific_employees\nPASSED ../../tests/test_outputs.py::test_summary_employee_data_correct\n8 passed in 9.58s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Report generation complete.\nReport generation complete.\nPicked up JAVA_TOOL_OPTIONS: -Dfile.encoding=US-ASCII\nPicked up JAVA_TOOL_OPTIONS: -Dfile.encoding=US-ASCII\nPicked up JAVA_TOOL_OPTIONS: -Dfile.encoding=US-ASCII\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty": "PASSED",
+     "../../tests/test_outputs.py::test_summary_row_count": "PASSED",
+     "../../tests/test_outputs.py::test_summary_utf8_encoding": "PASSED",
+     "../../tests/test_outputs.py::test_summary_na_salary_handled": "PASSED",
+     "../../tests/test_outputs.py::test_department_stats_correct_after_rerun": "PASSED",
+     "../../tests/test_outputs.py::test_filtered_report_count": "PASSED",
+     "../../tests/test_outputs.py::test_filtered_report_specific_employees": "PASSED",
+     "../../tests/test_outputs.py::test_summary_employee_data_correct": "PASSED"
+    },
+    "n_pass": 8,
+    "n_fail": 0,
+    "seconds": 9.6,
+    "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty\nPASSED ../../tests/test_outputs.py::test_summary_row_count\nPASSED ../../tests/test_outputs.py::test_summary_utf8_encoding\nPASSED ../../tests/test_outputs.py::test_summary_na_salary_handled\nPASSED ../../tests/test_outputs.py::test_department_stats_correct_after_rerun\nPASSED ../../tests/test_outputs.py::test_filtered_report_count\nPASSED ../../tests/test_outputs.py::test_filtered_report_specific_employees\nPASSED ../../tests/test_outputs.py::test_summary_employee_data_correct\n8 passed in 9.17s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty": "PASSED",
+    "../../tests/test_outputs.py::test_summary_row_count": "PASSED",
+    "../../tests/test_outputs.py::test_summary_utf8_encoding": "PASSED",
+    "../../tests/test_outputs.py::test_summary_na_salary_handled": "PASSED",
+    "../../tests/test_outputs.py::test_department_stats_correct_after_rerun": "PASSED",
+    "../../tests/test_outputs.py::test_filtered_report_count": "PASSED",
+    "../../tests/test_outputs.py::test_filtered_report_specific_employees": "PASSED",
+    "../../tests/test_outputs.py::test_summary_employee_data_correct": "PASSED"
+   },
+   "n_pass": 8,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_all_outputs_exist_and_nonempty\nPASSED ../../tests/test_outputs.py::test_summary_row_count\nPASSED ../../tests/test_outputs.py::test_summary_utf8_encoding\nPASSED ../../tests/test_outputs.py::test_summary_na_salary_handled\nPASSED ../../tests/test_outputs.py::test_department_stats_correct_after_rerun\nPASSED ../../tests/test_outputs.py::test_filtered_report_count\nPASSED ../../tests/test_outputs.py::test_filtered_report_specific_employees\nPASSED ../../tests/test_outputs.py::test_summary_employee_data_correct\n8 passed in 0.11s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 380.6
+}

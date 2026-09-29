@@ -1,0 +1,85 @@
+{
+ "key": "SETA__ask_ubuntu__580",
+ "ds": "SETA",
+ "task": "ask_ubuntu__580",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 2633,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 467s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_script_exists_and_executable": "FAILED",
+   "../tests/test_outputs.py::test_status_json_and_process_detection": "FAILED",
+   "../tests/test_outputs.py::test_auto_recovery_and_logging": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.5,
+  "log_tail": "        +    where exists = PosixPath('/app/service_monitor.sh').exists\n\n/tests/test_outputs.py:61: AssertionError\n____________________ test_status_json_and_process_detection ____________________\n\n    def test_status_json_and_process_detection():\n        \"\"\"Test that the script creates valid status JSON and detects running/stopped services.\"\"\"\n        cleanup()\n        script_path = Path(\"/app/service_monitor.sh\")\n        status_file = Path(\"/app/status/health_status.json\")\n    \n>       assert script_path.exists(), f\"Script {script_path} does not exist\"\nE       AssertionError: Script /app/service_monitor.sh does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/service_monitor.sh').exists\n\n/tests/test_outputs.py:71: AssertionError\n________________________ test_auto_recovery_and_logging ________________________\n\n    def test_auto_recovery_and_logging():\n        \"\"\"Test that the script attempts recovery and logs actions properly.\"\"\"\n        cleanup()\n        script_path = Path(\"/app/service_monitor.sh\")\n        log_file = Path(\"/var/log/service_monitor.log\")\n    \n>       assert script_path.exists(), f\"Script {script_path} does not exist\"\nE       AssertionError: Script /app/service_monitor.sh does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/service_monitor.sh').exists\n\n/tests/test_outputs.py:126: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_script_exists_and_executable - Assertio...\nFAILED ../tests/test_outputs.py::test_status_json_and_process_detection - Ass...\nFAILED ../tests/test_outputs.py::test_auto_recovery_and_logging - AssertionEr...\n3 failed in 0.07s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_script_exists_and_executable": "PASSED",
+     "../tests/test_outputs.py::test_status_json_and_process_detection": "PASSED",
+     "../tests/test_outputs.py::test_auto_recovery_and_logging": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 19.8,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_script_exists_and_executable\nPASSED ../tests/test_outputs.py::test_status_json_and_process_detection\nPASSED ../tests/test_outputs.py::test_auto_recovery_and_logging\n3 passed in 19.34s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_script_exists_and_executable": "PASSED",
+     "../tests/test_outputs.py::test_status_json_and_process_detection": "PASSED",
+     "../tests/test_outputs.py::test_auto_recovery_and_logging": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 19.8,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_script_exists_and_executable\nPASSED ../tests/test_outputs.py::test_status_json_and_process_detection\nPASSED ../tests/test_outputs.py::test_auto_recovery_and_logging\n3 passed in 19.33s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_script_exists_and_executable": "PASSED",
+    "../tests/test_outputs.py::test_status_json_and_process_detection": "PASSED",
+    "../tests/test_outputs.py::test_auto_recovery_and_logging": "PASSED"
+   },
+   "n_pass": 3,
+   "n_fail": 0,
+   "seconds": 13.6,
+   "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_script_exists_and_executable\nPASSED ../tests/test_outputs.py::test_status_json_and_process_detection\nPASSED ../tests/test_outputs.py::test_auto_recovery_and_logging\n3 passed in 13.12s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 542.2
+}

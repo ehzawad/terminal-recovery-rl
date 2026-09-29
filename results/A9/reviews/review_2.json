@@ -1,0 +1,206 @@
+[
+ {
+  "key": "TMax__task_001789_538b3fed",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "test_final_state.py:51-52 runs [\"strace\", \"-f\", \"-e\", \"trace=rename,renameat,renameat2\", AGENT_PATH, ...] but container.def:10 installs only `python3 python3-pip binutils` (ubuntu:22.04 base has no strace) and pip installs only pytest/pyinstaller; subprocess.run raises FileNotFoundError, so test_atomic_write_pattern fails for every submission and the task is unpassable offline. An agent could only pass by planting a fake `strace` wrapper."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:56 only requires the substrings '.tmp' and '.bin' somewhere in strace stderr; the exact temp name `.<id>.bin.tmp` the instruction demands ('identical atomic write pattern') is never checked, and 'file metadata' promised in the description is not compared (get_dir_state lines 24-35 compares only names, symlink targets and contents)."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "container.def:5-6 copies fixtures/oracle and fixtures/binary.algo.txt into /app/fixtures/, but those belong to a different template: binary.algo.txt contains 'xor_const' and fixtures/oracle is a stripped C program using fgets/printf '%02x'. That is an unrelated distractor binary next to /app/dataset_packager. The %files sources are absolute /gpfs/... host paths, so the image only builds on the original cluster."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "setup.sh:8 writes packager.py to /home/user/.setup_tmp but setup.sh:54-55 runs `cd /tmp; pyinstaller --onefile packager.py`, so the alternative setup path cannot build /app/dataset_packager (container.def path is consistent)."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": false,
+    "evidence": "Oracle only creates the symlink `if not os.path.exists(symlink_path)` (container.def:53-54), and the instruction says 'thousands' of fuzz cases vs NUM_FUZZ_TESTS = 100 (test_final_state.py:13); these are harmless because the grader always uses a fresh empty output dir."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Image build and grader only touch /app, /home/user and pytest tempdirs; nothing destructive.",
+  "realism": "contrived",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# Lazy replacement: correct payload/symlink but writes the .bin directly (no temp file + rename)\nmkdir -p /home/user\ncat > /home/user/my_packager <<'EOF'\n#!/usr/bin/env python3\nimport sys, json, struct, os\nd = json.load(open(sys.argv[1])); out = sys.argv[2]\nos.makedirs(os.path.join(out, d['category']), exist_ok=True)\np = b'PACK' + struct.pack('<I', len(d['id'])) + d['id'].encode() + struct.pack('<I', len(d['data'])) + b''.join(struct.pack('<i', v) for v in d['data'])\nwith open(os.path.join(out, d['id'] + '.bin'), 'wb') as f:\n    f.write(p)\nl = os.path.join(out, d['category'], d['id'] + '.bin')\nif not os.path.lexists(l):\n    os.symlink('../' + d['id'] + '.bin', l)\nEOF\nchmod +x /home/user/my_packager\n",
+  "mutant_intent": "Produces bit-identical .bin files and symlinks but writes the final file directly, with no temp-file-then-rename. That violates the instruction's explicit atomic-write requirement. With strace present, test_atomic_write_pattern would reject it. Without strace, which is the case in this image, every submission fails anyway.",
+  "must_reject": true,
+  "notes": "The oracle is a PyInstaller build of a trivial Python script, so black-box probing (or pyi-archive_viewer, since pyinstaller is installed) gives the format quickly. The only real blocker is the missing strace, which makes the task unpassable as built."
+ },
+ {
+  "key": "SETA__ask_ubuntu__927",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "nondeterminism",
+    "confirmed": true,
+    "evidence": "test_outputs.py:51-58 requires the helper to return exit code 1 ('no master connection'), but the instruction requires ControlPersist 10m. Any agent that verifies its work (e.g. `ssh fileserver true` or running the helper) leaves a live master socket for 10 minutes. If the verifier runs in the same container within that window, `ssh -O check` succeeds, scp of 'dummy_source' fails, and the script returns 2, failing a correct solution. The result depends on agent behaviour and timing."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_outputs.py:24 `\"auto\" in config_content.lower()` and :28 `\"10m\" in config_content or \"600\" in config_content` are whole-file substring checks, so `ControlMaster yes` / `ControlPersist 1m` plus a comment containing 'auto 10m' passes. The end-to-end test (lines 70-82) still passes with ControlMaster yes, because `ssh -f -N` becomes master and later scp falls back to a fresh key-authenticated connection."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "Nothing checks that the transfer actually reused the multiplexed connection. Because key auth is passwordless, a helper that does `ssh -O check` then plain `scp` with multiplexing disabled also passes lines 84-115."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": false,
+    "evidence": "tests/test.sh:9-13 runs apt-get install curl and `curl ... uv/0.7.13/install.sh | sh`, then `uv add pytest` (needs PyPI). The Dockerfile does not preinstall uv or pytest, so the stock wrapper fails offline (runner-dependent)."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "sshd is only started by the ENTRYPOINT /start.sh (Dockerfile:57,62). If the harness overrides the entrypoint, nothing on port 2222 is listening and the end-to-end test depends on the agent having started sshd."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Everything is local ssh to localhost:2222 inside the container.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# Config games the substring checks: ControlMaster yes (not auto), ControlPersist 1m (not 10 min); 'auto'/'10m' only in a comment\nmkdir -p /root/.ssh/sockets && chmod 700 /root/.ssh/sockets\ncat > /root/.ssh/config <<'EOF'\nHost fileserver\n    # auto 10m\n    HostName localhost\n    Port 2222\n    User testuser\n    IdentityFile ~/.ssh/id_rsa\n    ControlMaster yes\n    ControlPath ~/.ssh/sockets/%r@%h:%p\n    ControlPersist 1m\n    StrictHostKeyChecking no\nEOF\nchmod 600 /root/.ssh/config\nmkdir -p /root/bin\ncat > /root/bin/ssh-transfer.sh <<'EOF'\n#!/bin/bash\nssh -O check fileserver 2>/dev/null || exit 1\nscp \"$1\" \"$2\" || exit 2\nexit 0\nEOF\nchmod +x /root/bin/ssh-transfer.sh\n",
+  "mutant_intent": "Sets ControlMaster yes instead of 'auto' and ControlPersist 1m instead of 10 minutes, hiding the required strings in a comment. This violates two explicitly stated config requirements, so a correct grader must reject it. The hidden grader's substring checks and the functional test both appear to accept it.",
+  "must_reject": true,
+  "notes": "The task is solvable, but the grader checks config values as whole-file substrings, and the 'exit 1 when no master' test can fail correct solutions if the agent leaves a master socket alive."
+ },
+ {
+  "key": "LiteCoder__brute-force-key-recovery",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "The instruction's noun list contains duplicates ('face', 'story' appear twice), and 'Python standard library only' is unenforced. Both are harmless. I checked offline with the grader's own inline derive_key/decrypt: EXPECTED_KEY equals derive_key('river') and decrypts vault.crypt to printable ASCII starting with 'VAULT CONTENTS UNLOCKED', so grader, data and instruction are consistent."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Pure local computation over /app files; no destructive actions.",
+  "realism": "artificial",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# Skips the brute-force/decryption check: just derives the key for the first candidate word\ncd /app\npython3 -c \"import sys; sys.path.insert(0,'/app'); import recover; print(recover.derive_key('time'))\" > /app/solution.txt\n",
+  "mutant_intent": "Writes the derived key for the first candidate ('time') without checking decryption, i.e. skips the brute-force step and gives the wrong key. A correct grader must reject it, and test_solution_exact_key / test_key_decrypts_vault will.",
+  "must_reject": true,
+  "notes": "A CTF-style task with a strong grader: exact key match plus a functional decrypt check. The answer is not exposed in agent-visible files (the key is only in tests/)."
+ },
+ {
+  "key": "SETA__stack_overflow__11563963",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Record contents are only checked through test_round_trip (test_outputs.py:69-90), which always uses the fixed INPUT_CSV=/opt/binpack/data/input.csv (line 9). The other tests check only the header and file size (lines 29-66, 103-147). So a writer that emits zero-filled records of the right size, plus a reader that ignores the .bin and copies data/input.csv, passes every test."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "test_pipeline_exits_zero (lines 93-100) only checks exit status. A lazy 'fix' that deletes or neuters the `diff -q` verify line in scripts/pipeline.sh passes, even though the instruction describes pipeline.sh as pack -> unpack -> verify. Round-trip correctness is still tested separately by test_round_trip."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "solution/solve.sh Fix 3 (CHUNK_SIZE uint32_t -> size_t) is a non-bug: 64 MiB fits in uint32_t. Harmless."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Builds and runs local binaries in /opt/binpack and /tmp only.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# Fixes build/header/flush, but the writer emits zero-filled records and the reader ignores the .bin and copies data/input.csv\ncd /opt/binpack\nsed -i 's/-std=c++11/-std=c++17/' Makefile\nsed -i 's/std::ios::out)/std::ios::out | std::ios::binary)/' src/writer.cpp\nsed -i \"s/hdr.magic\\[2\\] = 'K';/hdr.magic[2] = 'A';/; s/hdr.magic\\[3\\] = 0x01;/hdr.magic[3] = 'K';/\" src/writer.cpp\nsed -i 's/buffer.insert(buffer.end(), data, data + sizeof(Record));/(void)data; buffer.insert(buffer.end(), sizeof(Record), 0);/' src/writer.cpp\nsed -i '/out\\.close/i\\    if (!buffer.empty()) { out.write(buffer.data(), buffer.size()); }' src/writer.cpp\ncat > src/reader.cpp <<'EOF'\n#include <fstream>\nint main(int argc, char** argv) {\n    if (argc != 3) return 1;\n    std::ifstream in(\"/opt/binpack/data/input.csv\", std::ios::binary);\n    std::ofstream out(argv[2], std::ios::binary);\n    out << in.rdbuf();\n    return 0;\n}\nEOF\nsed -i 's|diff -q unpacked.csv input.csv|diff -q output/unpacked.csv data/input.csv|' scripts/pipeline.sh\nmake clean && make\n",
+  "mutant_intent": "Makes the build, magic, header and flush correct, but the writer serialises zero bytes instead of records and the reader just copies the known input CSV. There is no real pack/unpack, which violates the core requirement that the round-trip works, so a correct grader must reject it. This grader appears to accept it, because round-trip is only tested on data/input.csv.",
+  "must_reject": true,
+  "notes": "Natural mistakes (missing flush, off-by-one, wrong magic, C++17, diff path) are all caught. The weakness only admits deliberate reward hacking through the fixed input path."
+ },
+ {
+  "key": "SETA__stack_overflow__276927",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "test_category_report_sorted (test_outputs.py:139-163) requires product names within each category in alphabetical order (`products == sorted(products)`), but the instruction only asks for 'a complete list of all products in that category' (instruction.md:5). Sorting is never mentioned, so a solution that only raises group_concat_max_len (the real truncation bug) fails. The reward is all-or-nothing (test.sh writes 1 only if pytest passes)."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The instruction says outputs 'do not match the expected format' but never specifies the columns or format. The tests hard-code the layout: info field at column index 2 and primary_contact at index 3 (lines 198, 258), product_list at column index 3 (lines 123, 149), secondary contact included inside product_and_contact_info (line 253), separator ', ' or ','. An agent must infer all of this from the existing query column order."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": false,
+    "evidence": "The instruction demands CSVs 'properly formatted ... with no formatting artifacts', but generate_reports.sh:9-15 turns tabs into commas with sed and never quotes fields. Comma-joined product lists therefore always yield malformed CSV, and the agent is told to change only the SQL files. The grader sidesteps this by testing only the SQL output (run_sql_file), not the CSV content."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Duplicate-freeness is checked only for supplier 5 (lines 213-215), even though suppliers 3 and 9 also have duplicate batch mappings (init_db.sql: '(75,3),(76,3),(77,3)' and '(61,9),(62,9),(63,9)'). Order totals/quantities are never checked (only row count and product names for order 6)."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": false,
+    "evidence": "tests/test.sh uses `uvx -p 3.13 -w pytest==8.4.1 ...`, but the Dockerfile only installs uv, not Python 3.13 or pytest, so the stock wrapper needs network (runner-dependent)."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only edits SQL files and runs queries against the local MySQL.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# Fixes order summary and category report, but de-duplicates supplier products ONLY for supplier 5 (the one the grader inspects)\nfor i in $(seq 1 30); do mysqladmin ping --silent 2>/dev/null && break; sleep 1; done\ncat > /opt/reports/queries/order_summary.sql <<'EOF'\nSELECT o.order_id, o.customer_name, o.order_date, o.status,\n  GROUP_CONCAT(oi.product_name ORDER BY oi.product_name SEPARATOR ', ') AS products,\n  SUM(oi.quantity) AS total_items, SUM(oi.quantity * oi.unit_price) AS total_amount\nFROM orders o JOIN order_items oi ON o.order_id = oi.order_id\nGROUP BY o.order_id, o.customer_name, o.order_date, o.status ORDER BY o.order_id;\nEOF\ncat > /opt/reports/queries/category_report.sql <<'EOF'\nSET group_concat_max_len = 65536;\nSELECT c.category_id, c.category_name, COUNT(p.product_id) AS product_count,\n  GROUP_CONCAT(p.product_name ORDER BY p.product_name SEPARATOR ', ') AS product_list\nFROM categories c LEFT JOIN products p ON c.category_id = p.category_id\nGROUP BY c.category_id, c.category_name ORDER BY c.category_name;\nEOF\ncat > /opt/reports/queries/supplier_overview.sql <<'EOF'\nSET group_concat_max_len = 65536;\nSELECT s.supplier_id, s.supplier_name,\n  CONCAT_WS(', ',\n    CASE WHEN s.supplier_id = 5\n         THEN GROUP_CONCAT(DISTINCT p.product_name ORDER BY p.product_name SEPARATOR ', ')\n         ELSE GROUP_CONCAT(p.product_name ORDER BY p.product_name SEPARATOR ', ') END,\n    s.secondary_contact) AS product_and_contact_info,\n  s.primary_contact, s.secondary_contact\nFROM suppliers s\nLEFT JOIN product_suppliers ps ON s.supplier_id = ps.supplier_id\nLEFT JOIN products p ON ps.product_id = p.product_id\nGROUP BY s.supplier_id, s.supplier_name, s.primary_contact, s.secondary_contact\nORDER BY s.supplier_id;\nEOF\nbash /opt/reports/generate_reports.sh || true\n",
+  "mutant_intent": "Fixes order summary, category truncation/sorting and trailing commas, but applies DISTINCT only for supplier_id=5 (the one supplier the grader inspects), so suppliers 3 and 9 still list duplicated products. That violates 'no duplicate entries', so a correct grader must reject it. This grader appears to accept it.",
+  "must_reject": true,
+  "notes": "A realistic GROUP_CONCAT debugging task (truncation, NULL-in-CONCAT, DISTINCT). The hidden alphabetical-order requirement can fail correct fixes, and the duplicate check covers only one supplier."
+ },
+ {
+  "key": "SETA__unix_linux_se__49272",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_recovery_script_unloads_before_reloads requires len(unload_indices) >= 2 and len(reload_indices) >= 2 separate modprobe invocations (test_outputs.py:179-186), and test_recovery_script_exits_successfully requires >= 4 calls (lines 230-233). A valid script using `modprobe -r usbhid psmouse` then `modprobe -a usbhid psmouse` (2 calls, correct order) fails. So does using `rmmod`."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "The script is exercised only through a PATH-injected mock modprobe (lines 14-44). A script that calls /sbin/modprobe or /usr/sbin/modprobe by absolute path (common for udev RUN+= scripts, where PATH is minimal) bypasses the mock, so the mock log is never written, and the real modprobe fails in the container under `set -e`. Tests 3/4/5/10 then fail although the script is correct."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": false,
+    "evidence": "test_recovery_script_exits_successfully (lines 222-224) requires the word 'recovery' in /var/log/usb-hid-recover.log. This is only implicitly satisfied by keeping the original echo lines, and a rewrite with different log text fails."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_service_execstart_path requires ExecStart to equal exactly '/usr/local/bin/usb-hid-recover.sh' (line 260), so a valid `ExecStart=/bin/bash /usr/local/bin/usb-hid-recover.sh` is rejected. The instruction only says 'a valid ExecStart pointing to the actual recovery script'."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Every script test only inspects the argv lines the mock receives ('-r' substring and module name). Dry-run calls such as `modprobe -n -r usbhid` / `modprobe -n usbhid` pass all script tests without ever unloading or reloading anything."
+   }
+  ],
+  "safety": "concern",
+  "safety_note": "A natural solution or test run of the recovery script unloads real kernel modules (modprobe -r usbhid/psmouse). In an unprivileged container this just fails, but with a privileged container or CAP_SYS_MODULE it would act on the host kernel and could drop the host's input devices.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# Recovery script only does modprobe dry-runs (-n): logs look right, nothing is actually unloaded/reloaded\nsed -i 's/mousepoll=200/mousepoll=8/' /etc/modprobe.d/usbhid.conf\ncat > /usr/local/bin/usb-hid-recover.sh <<'EOF'\n#!/bin/bash\nLOG=/var/log/usb-hid-recover.log\necho \"$(date): Starting USB HID module recovery\" >> \"$LOG\"\nmodprobe -n -r usbhid\nmodprobe -n -r psmouse\nmodprobe -n usbhid\nmodprobe -n psmouse\necho \"$(date): Module recovery complete\" >> \"$LOG\"\nexit 0\nEOF\nchmod 0755 /usr/local/bin/usb-hid-recover.sh\nsed -i 's|ExecStart=/usr/bin/usb-hid-recover.sh|ExecStart=/usr/local/bin/usb-hid-recover.sh|' /etc/systemd/system/usb-hid-recover.service\nmkdir -p /etc/systemd/system/multi-user.target.wants\nln -sf /etc/systemd/system/usb-hid-recover.service /etc/systemd/system/multi-user.target.wants/usb-hid-recover.service\nsed -i 's/SUBSYSTEM==\"block\"/SUBSYSTEM==\"usb\"/' /etc/udev/rules.d/99-usb-hid-recover.rules\n",
+  "mutant_intent": "Fixes the config, service and udev rule, but the recovery script only issues dry-run (`-n`) modprobe calls, so no module is actually unloaded or reloaded. That violates 'resets all affected kernel modules', so a correct grader must reject it. This grader appears to accept it, because it only pattern-matches mock argv.",
+  "must_reject": true,
+  "notes": "The four planted bugs are clear and match the acceptance criteria, but the mock-based script checks both reject valid variants (combined calls, absolute paths) and accept no-op dry runs."
+ }
+]

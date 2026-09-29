@@ -1,0 +1,32 @@
+[
+ {
+  "key": "SETA__ask_ubuntu__1050",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/ask_ubuntu__1050"
+ },
+ {
+  "key": "LiteCoder__rsa-encrypt-decrypt-demo",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/rsa-encrypt-decrypt-demo"
+ },
+ {
+  "key": "TMax__task_000667_61fefcb4",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_000667_61fefcb4"
+ },
+ {
+  "key": "TMax__task_007751_66925dbb",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_007751_66925dbb"
+ },
+ {
+  "key": "TMax__task_002330_880601ad",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_002330_880601ad"
+ },
+ {
+  "key": "SETA__kaggle_notebook__nasirmeh_prediction-of-rainfall",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/kaggle_notebook__nasirmeh_prediction-of-rainfall"
+ }
+]

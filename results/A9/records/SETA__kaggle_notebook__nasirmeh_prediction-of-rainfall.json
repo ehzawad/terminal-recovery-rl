@@ -1,0 +1,113 @@
+{
+ "key": "SETA__kaggle_notebook__nasirmeh_prediction-of-rainfall",
+ "ds": "SETA",
+ "task": "kaggle_notebook__nasirmeh_prediction-of-rainfall",
+ "notes": [],
+ "workdir": "/home/agent/workspace",
+ "instruction_chars": 2453,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 94s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../../tests/test_outputs.py::test_data_analysis_content": "FAILED",
+   "../../../tests/test_outputs.py::test_feature_engineering_content": "FAILED",
+   "../../../tests/test_outputs.py::test_model_results_structure": "FAILED",
+   "../../../tests/test_outputs.py::test_multiple_model_types": "FAILED",
+   "../../../tests/test_outputs.py::test_multiple_strategies": "FAILED",
+   "../../../tests/test_outputs.py::test_cross_validation_performed": "FAILED",
+   "../../../tests/test_outputs.py::test_predictions_file": "FAILED",
+   "../../../tests/test_outputs.py::test_predictions_mae_consistency": "FAILED",
+   "../../../tests/test_outputs.py::test_best_model_threshold": "FAILED",
+   "../../../tests/test_outputs.py::test_final_report_quality": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 10,
+  "seconds": 0.5,
+  "log_tail": "_____\n\n    def test_final_report_quality():\n        \"\"\"Verify final_report.txt is comprehensive.\"\"\"\n>       content = read_file(\"final_report.txt\")\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:170: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nname = 'final_report.txt'\n\n    def read_file(name):\n        path = os.path.join(WORKSPACE, name)\n>       assert os.path.isfile(path), f\"{name} not found at {path}\"\nE       AssertionError: final_report.txt not found at /home/agent/workspace/final_report.txt\nE       assert False\nE        +  where False = <function isfile at 0x7f5fdb1bc2c0>('/home/agent/workspace/final_report.txt')\nE        +    where <function isfile at 0x7f5fdb1bc2c0> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:10: AssertionError\n=========================== short test summary info ============================\nFAILED ../../../tests/test_outputs.py::test_data_analysis_content - Assertion...\nFAILED ../../../tests/test_outputs.py::test_feature_engineering_content - Ass...\nFAILED ../../../tests/test_outputs.py::test_model_results_structure - Asserti...\nFAILED ../../../tests/test_outputs.py::test_multiple_model_types - AssertionE...\nFAILED ../../../tests/test_outputs.py::test_multiple_strategies - AssertionEr...\nFAILED ../../../tests/test_outputs.py::test_cross_validation_performed - Asse...\nFAILED ../../../tests/test_outputs.py::test_predictions_file - AssertionError...\nFAILED ../../../tests/test_outputs.py::test_predictions_mae_consistency - Ass...\nFAILED ../../../tests/test_outputs.py::test_best_model_threshold - AssertionE...\nFAILED ../../../tests/test_outputs.py::test_final_report_quality - AssertionE...\n10 failed in 0.09s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Solution complete. All output files written to /home/agent/workspace\n  LinearRegression     global               test_mae=94.5399\n  LinearRegression     subdivision-aware    test_mae=88.9336\n  Ridge                global               test_mae=94.5399\n  Ridge                subdivision-aware    test_mae=88.9317\n  RandomForest         global               test_mae=72.8211\n  RandomForest         subdivision-aware    test_mae=55.0799\n  GradientBoosting     global               test_mae=70.6543\n  GradientBoosting     subdivision-aware    test_mae=57.1621\nBest: RandomForest (subdivision-aware) with test MAE = 55.0799\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../../tests/test_outputs.py::test_data_analysis_content": "PASSED",
+     "../../../tests/test_outputs.py::test_feature_engineering_content": "PASSED",
+     "../../../tests/test_outputs.py::test_model_results_structure": "PASSED",
+     "../../../tests/test_outputs.py::test_multiple_model_types": "PASSED",
+     "../../../tests/test_outputs.py::test_multiple_strategies": "PASSED",
+     "../../../tests/test_outputs.py::test_cross_validation_performed": "PASSED",
+     "../../../tests/test_outputs.py::test_predictions_file": "PASSED",
+     "../../../tests/test_outputs.py::test_predictions_mae_consistency": "PASSED",
+     "../../../tests/test_outputs.py::test_best_model_threshold": "PASSED",
+     "../../../tests/test_outputs.py::test_final_report_quality": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_data_analysis_content\nPASSED ../../../tests/test_outputs.py::test_feature_engineering_content\nPASSED ../../../tests/test_outputs.py::test_model_results_structure\nPASSED ../../../tests/test_outputs.py::test_multiple_model_types\nPASSED ../../../tests/test_outputs.py::test_multiple_strategies\nPASSED ../../../tests/test_outputs.py::test_cross_validation_performed\nPASSED ../../../tests/test_outputs.py::test_predictions_file\nPASSED ../../../tests/test_outputs.py::test_predictions_mae_consistency\nPASSED ../../../tests/test_outputs.py::test_best_model_threshold\nPASSED ../../../tests/test_outputs.py::test_final_report_quality\n10 passed in 0.06s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Solution complete. All output files written to /home/agent/workspace\n  LinearRegression     global               test_mae=94.5399\n  LinearRegression     subdivision-aware    test_mae=88.9336\n  Ridge                global               test_mae=94.5399\n  Ridge                subdivision-aware    test_mae=88.9317\n  RandomForest         global               test_mae=72.8211\n  RandomForest         subdivision-aware    test_mae=55.0799\n  GradientBoosting     global               test_mae=70.6543\n  GradientBoosting     subdivision-aware    test_mae=57.1621\nBest: RandomForest (subdivision-aware) with test MAE = 55.0799\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../../tests/test_outputs.py::test_data_analysis_content": "PASSED",
+     "../../../tests/test_outputs.py::test_feature_engineering_content": "PASSED",
+     "../../../tests/test_outputs.py::test_model_results_structure": "PASSED",
+     "../../../tests/test_outputs.py::test_multiple_model_types": "PASSED",
+     "../../../tests/test_outputs.py::test_multiple_strategies": "PASSED",
+     "../../../tests/test_outputs.py::test_cross_validation_performed": "PASSED",
+     "../../../tests/test_outputs.py::test_predictions_file": "PASSED",
+     "../../../tests/test_outputs.py::test_predictions_mae_consistency": "PASSED",
+     "../../../tests/test_outputs.py::test_best_model_threshold": "PASSED",
+     "../../../tests/test_outputs.py::test_final_report_quality": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_data_analysis_content\nPASSED ../../../tests/test_outputs.py::test_feature_engineering_content\nPASSED ../../../tests/test_outputs.py::test_model_results_structure\nPASSED ../../../tests/test_outputs.py::test_multiple_model_types\nPASSED ../../../tests/test_outputs.py::test_multiple_strategies\nPASSED ../../../tests/test_outputs.py::test_cross_validation_performed\nPASSED ../../../tests/test_outputs.py::test_predictions_file\nPASSED ../../../tests/test_outputs.py::test_predictions_mae_consistency\nPASSED ../../../tests/test_outputs.py::test_best_model_threshold\nPASSED ../../../tests/test_outputs.py::test_final_report_quality\n10 passed in 0.06s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../../tests/test_outputs.py::test_data_analysis_content": "PASSED",
+    "../../../tests/test_outputs.py::test_feature_engineering_content": "PASSED",
+    "../../../tests/test_outputs.py::test_model_results_structure": "PASSED",
+    "../../../tests/test_outputs.py::test_multiple_model_types": "PASSED",
+    "../../../tests/test_outputs.py::test_multiple_strategies": "PASSED",
+    "../../../tests/test_outputs.py::test_cross_validation_performed": "PASSED",
+    "../../../tests/test_outputs.py::test_predictions_file": "PASSED",
+    "../../../tests/test_outputs.py::test_predictions_mae_consistency": "PASSED",
+    "../../../tests/test_outputs.py::test_best_model_threshold": "PASSED",
+    "../../../tests/test_outputs.py::test_final_report_quality": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_data_analysis_content\nPASSED ../../../tests/test_outputs.py::test_feature_engineering_content\nPASSED ../../../tests/test_outputs.py::test_model_results_structure\nPASSED ../../../tests/test_outputs.py::test_multiple_model_types\nPASSED ../../../tests/test_outputs.py::test_multiple_strategies\nPASSED ../../../tests/test_outputs.py::test_cross_validation_performed\nPASSED ../../../tests/test_outputs.py::test_predictions_file\nPASSED ../../../tests/test_outputs.py::test_predictions_mae_consistency\nPASSED ../../../tests/test_outputs.py::test_best_model_threshold\nPASSED ../../../tests/test_outputs.py::test_final_report_quality\n10 passed in 0.04s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 814.3
+}

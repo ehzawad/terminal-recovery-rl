@@ -1,0 +1,85 @@
+{
+ "key": "SETA__ask_ubuntu__711",
+ "ds": "SETA",
+ "task": "ask_ubuntu__711",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 1779,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 104s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_ext4_filesystem_created": "FAILED",
+   "../tests/test_outputs.py::test_fstab_entry_configured": "FAILED",
+   "../tests/test_outputs.py::test_mount_script_exists": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.6,
+  "log_tail": "torage, got {mount_point}\"\n                    )\n                    assert fs_type == 'ext4', (\n                        f\"Filesystem type should be ext4, got {fs_type}\"\n                    )\n                    assert 'loop' in options, (\n                        f\"Mount options should include 'loop', got {options}\"\n                    )\n    \n                    entry_valid = True\n                break\n    \n>       assert found_entry, (\n            \"No fstab entry found for /storage/data_disk.img. \"\n            f\"Current fstab content:\\n{fstab_content}\"\n        )\nE       AssertionError: No fstab entry found for /storage/data_disk.img. Current fstab content:\nE         # UNCONFIGURED FSTAB FOR BASE SYSTEM\nE         \nE       assert False\n\n/tests/test_outputs.py:83: AssertionError\n___________________________ test_mount_script_exists ___________________________\n\n    def test_mount_script_exists():\n        \"\"\"\n        Test that the mount script exists and is properly configured.\n        Checks for executable permissions and correct content.\n        \"\"\"\n        script_path = Path(\"/storage/mount_storage.sh\")\n    \n>       assert script_path.exists(), f\"Mount script {script_path} does not exist\"\nE       AssertionError: Mount script /storage/mount_storage.sh does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/storage/mount_storage.sh').exists\n\n/tests/test_outputs.py:97: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_ext4_filesystem_created - AssertionErro...\nFAILED ../tests/test_outputs.py::test_fstab_entry_configured - AssertionError...\nFAILED ../tests/test_outputs.py::test_mount_script_exists - AssertionError: M...\n3 failed in 0.13s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Discarding device blocks:     0/25600\b\b\b\b\b\b\b\b\b\b\b           \b\b\b\b\b\b\b\b\b\b\bdone                            \nCreating filesystem with 25600 4k blocks and 25600 inodes\n\nAllocating group tables: 0/1\b\b\b   \b\b\bdone                            \nWriting inode tables: 0/1\b\b\b   \b\b\bdone                            \nCreating journal (1024 blocks): done\nWriting superblocks and filesystem accounting information: 0/1\b\b\b   \b\b\bdone\n\nmke2fs 1.47.0 (5-Feb-2023)\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_ext4_filesystem_created": "PASSED",
+     "../tests/test_outputs.py::test_fstab_entry_configured": "PASSED",
+     "../tests/test_outputs.py::test_mount_script_exists": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_ext4_filesystem_created\nPASSED ../tests/test_outputs.py::test_fstab_entry_configured\nPASSED ../tests/test_outputs.py::test_mount_script_exists\n3 passed in 0.04s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Discarding device blocks:     0/25600\b\b\b\b\b\b\b\b\b\b\b           \b\b\b\b\b\b\b\b\b\b\bdone                            \nCreating filesystem with 25600 4k blocks and 25600 inodes\n\nAllocating group tables: 0/1\b\b\b   \b\b\bdone                            \nWriting inode tables: 0/1\b\b\b   \b\b\bdone                            \nCreating journal (1024 blocks): done\nWriting superblocks and filesystem accounting information: 0/1\b\b\b   \b\b\bdone\n\nmke2fs 1.47.0 (5-Feb-2023)\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_ext4_filesystem_created": "PASSED",
+     "../tests/test_outputs.py::test_fstab_entry_configured": "PASSED",
+     "../tests/test_outputs.py::test_mount_script_exists": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_ext4_filesystem_created\nPASSED ../tests/test_outputs.py::test_fstab_entry_configured\nPASSED ../tests/test_outputs.py::test_mount_script_exists\n3 passed in 0.04s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_ext4_filesystem_created": "PASSED",
+    "../tests/test_outputs.py::test_fstab_entry_configured": "PASSED",
+    "../tests/test_outputs.py::test_mount_script_exists": "PASSED"
+   },
+   "n_pass": 3,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_ext4_filesystem_created\nPASSED ../tests/test_outputs.py::test_fstab_entry_configured\nPASSED ../tests/test_outputs.py::test_mount_script_exists\n3 passed in 0.04s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 130.2
+}

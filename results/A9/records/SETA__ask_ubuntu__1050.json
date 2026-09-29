@@ -1,0 +1,85 @@
+{
+ "key": "SETA__ask_ubuntu__1050",
+ "ds": "SETA",
+ "task": "ask_ubuntu__1050",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 1853,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "cached"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_healthy_system_with_low_free_high_available": "FAILED",
+   "../tests/test_outputs.py::test_critical_when_available_low": "FAILED",
+   "../tests/test_outputs.py::test_json_output_structure_and_calculations": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.5,
+  "log_tail": "t calculations.\n    \n        Uses predictable values for easy verification:\n        - Total: 10 GB\n        - Free: 2 GB (20%)\n        - Available: 4 GB (40%)\n        - Buffers: 1 GB\n        - Cached: 3 GB\n        - Buffer/Cache total: 4 GB (40%)\n        - Memory pressure: 60% (100 - 40)\n        \"\"\"\n        total_kb = 10 * 1024 * 1024       # 10 GB\n        free_kb = 2 * 1024 * 1024         # 2 GB (20%)\n        available_kb = 4 * 1024 * 1024    # 4 GB (40%)\n        buffers_kb = 1 * 1024 * 1024      # 1 GB\n        cached_kb = 3 * 1024 * 1024       # 3 GB\n    \n        with tempfile.NamedTemporaryFile(mode='w', suffix='_meminfo', delete=False) as f:\n            f.write(create_mock_meminfo(total_kb, free_kb, available_kb, buffers_kb, cached_kb))\n            mock_path = f.name\n    \n        try:\n>           result = run_analyzer(mock_path)\n                     ^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:175: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nmock_meminfo_path = '/tmp/tmpqrjtae5h_meminfo'\n\n    def run_analyzer(mock_meminfo_path=None):\n        \"\"\"Run the memory analyzer script and return the parsed JSON output.\"\"\"\n        script_path = Path(\"/app/memory_analyzer.sh\")\n        if not script_path.exists():\n>           raise FileNotFoundError(f\"Script not found at {script_path}\")\nE           FileNotFoundError: Script not found at /app/memory_analyzer.sh\n\n/tests/test_outputs.py:55: FileNotFoundError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_healthy_system_with_low_free_high_available\nFAILED ../tests/test_outputs.py::test_critical_when_available_low - FileNotFo...\nFAILED ../tests/test_outputs.py::test_json_output_structure_and_calculations\n3 failed in 0.04s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_healthy_system_with_low_free_high_available": "PASSED",
+     "../tests/test_outputs.py::test_critical_when_available_low": "PASSED",
+     "../tests/test_outputs.py::test_json_output_structure_and_calculations": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.6,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_healthy_system_with_low_free_high_available\nPASSED ../tests/test_outputs.py::test_critical_when_available_low\nPASSED ../tests/test_outputs.py::test_json_output_structure_and_calculations\n3 passed in 0.15s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_healthy_system_with_low_free_high_available": "PASSED",
+     "../tests/test_outputs.py::test_critical_when_available_low": "PASSED",
+     "../tests/test_outputs.py::test_json_output_structure_and_calculations": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.6,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_healthy_system_with_low_free_high_available\nPASSED ../tests/test_outputs.py::test_critical_when_available_low\nPASSED ../tests/test_outputs.py::test_json_output_structure_and_calculations\n3 passed in 0.15s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "status": "done",
+ "wall_s": 5.5,
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_healthy_system_with_low_free_high_available": "PASSED",
+    "../tests/test_outputs.py::test_critical_when_available_low": "PASSED",
+    "../tests/test_outputs.py::test_json_output_structure_and_calculations": "PASSED"
+   },
+   "n_pass": 3,
+   "n_fail": 0,
+   "seconds": 0.6,
+   "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_healthy_system_with_low_free_high_available\nPASSED ../tests/test_outputs.py::test_critical_when_available_low\nPASSED ../tests/test_outputs.py::test_json_output_structure_and_calculations\n3 passed in 0.10s\n"
+  }
+ }
+}

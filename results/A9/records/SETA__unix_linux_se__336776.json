@@ -1,0 +1,109 @@
+{
+ "key": "SETA__unix_linux_se__336776",
+ "ds": "SETA",
+ "task": "unix_linux_se__336776",
+ "notes": [],
+ "workdir": "/root",
+ "instruction_chars": 1401,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 641s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_decrypt_email_corporate": "FAILED",
+   "../tests/test_outputs.py::test_decrypt_servers_db_root": "FAILED",
+   "../tests/test_outputs.py::test_decrypt_api_github_token": "FAILED",
+   "../tests/test_outputs.py::test_gpg_secret_key_present": "FAILED",
+   "../tests/test_outputs.py::test_ultimate_trust_set": "FAILED",
+   "../tests/test_outputs.py::test_new_entry_insertion": "FAILED",
+   "../tests/test_outputs.py::test_git_repository_exists": "FAILED",
+   "../tests/test_outputs.py::test_git_has_commit": "FAILED",
+   "../tests/test_outputs.py::test_all_entries_intact": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 9,
+  "seconds": 0.8,
+  "log_tail": "E       AssertionError: git log failed (rc=128): fatal: not a git repository (or any of the parent directories): .git\nE       assert 128 == 0\n\n/tests/test_outputs.py:129: AssertionError\n___________________________ test_all_entries_intact ____________________________\n\n    def test_all_entries_intact():\n        \"\"\"All three original password entries must be tracked by git.\"\"\"\n        # If git is not initialized, ls-files fails \u2014 ensuring this tests the full solution\n        rc, out, err = run(\"git -C /root/.password-store ls-files\")\n>       assert rc == 0, (\n            f\"git ls-files failed (rc={rc}): {err}\\n\"\n            \"Is the password store a git repository with at least one commit?\"\n        )\nE       AssertionError: git ls-files failed (rc=128): fatal: not a git repository (or any of the parent directories): .git\nE         Is the password store a git repository with at least one commit?\nE       assert 128 == 0\n\n/tests/test_outputs.py:140: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_decrypt_email_corporate - AssertionErro...\nFAILED ../tests/test_outputs.py::test_decrypt_servers_db_root - AssertionErro...\nFAILED ../tests/test_outputs.py::test_decrypt_api_github_token - AssertionErr...\nFAILED ../tests/test_outputs.py::test_gpg_secret_key_present - AssertionError...\nFAILED ../tests/test_outputs.py::test_ultimate_trust_set - AssertionError: Ke...\nFAILED ../tests/test_outputs.py::test_new_entry_insertion - AssertionError: p...\nFAILED ../tests/test_outputs.py::test_git_repository_exists - AssertionError:...\nFAILED ../tests/test_outputs.py::test_git_has_commit - AssertionError: git lo...\nFAILED ../tests/test_outputs.py::test_all_entries_intact - AssertionError: gi...\n9 failed in 0.36s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Initialized empty Git repository in /root/.password-store/.git/\n[master (root-commit) 092d1dc] Recover password store after GPG key re-import\n 4 files changed, 3 insertions(+)\n create mode 100644 .gpg-id\n create mode 100644 api/github-token.gpg\n create mode 100644 email/corporate.gpg\n create mode 100644 servers/db-root.gpg\ngpg: key DC044DB52649C273: \"Corp Admin <admin@company.local>\" not changed\ngpg: key DC044DB52649C273: secret key imported\ngpg: Total number processed: 1\ngpg:              unchanged: 1\ngpg:       secret keys read: 1\ngpg:   secret keys imported: 1\ngpg: checking the trustdb\ngpg: no ultimately trusted keys found\ngpg: changing ownertrust from 2 to 6\nhint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint: \nhint: \tgit config --global init.defaultBranch <name>\nhint: \nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint: \nhint: \tgit branch -m <name>\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_decrypt_email_corporate": "PASSED",
+     "../tests/test_outputs.py::test_decrypt_servers_db_root": "PASSED",
+     "../tests/test_outputs.py::test_decrypt_api_github_token": "PASSED",
+     "../tests/test_outputs.py::test_gpg_secret_key_present": "PASSED",
+     "../tests/test_outputs.py::test_ultimate_trust_set": "PASSED",
+     "../tests/test_outputs.py::test_new_entry_insertion": "PASSED",
+     "../tests/test_outputs.py::test_git_repository_exists": "PASSED",
+     "../tests/test_outputs.py::test_git_has_commit": "PASSED",
+     "../tests/test_outputs.py::test_all_entries_intact": "PASSED"
+    },
+    "n_pass": 9,
+    "n_fail": 0,
+    "seconds": 1.0,
+    "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_decrypt_email_corporate\nPASSED ../tests/test_outputs.py::test_decrypt_servers_db_root\nPASSED ../tests/test_outputs.py::test_decrypt_api_github_token\nPASSED ../tests/test_outputs.py::test_gpg_secret_key_present\nPASSED ../tests/test_outputs.py::test_ultimate_trust_set\nPASSED ../tests/test_outputs.py::test_new_entry_insertion\nPASSED ../tests/test_outputs.py::test_git_repository_exists\nPASSED ../tests/test_outputs.py::test_git_has_commit\nPASSED ../tests/test_outputs.py::test_all_entries_intact\n9 passed in 0.60s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Initialized empty Git repository in /root/.password-store/.git/\n[master (root-commit) 66e563d] Recover password store after GPG key re-import\n 4 files changed, 3 insertions(+)\n create mode 100644 .gpg-id\n create mode 100644 api/github-token.gpg\n create mode 100644 email/corporate.gpg\n create mode 100644 servers/db-root.gpg\ngpg: key DC044DB52649C273: \"Corp Admin <admin@company.local>\" not changed\ngpg: key DC044DB52649C273: secret key imported\ngpg: Total number processed: 1\ngpg:              unchanged: 1\ngpg:       secret keys read: 1\ngpg:   secret keys imported: 1\ngpg: checking the trustdb\ngpg: no ultimately trusted keys found\ngpg: changing ownertrust from 2 to 6\nhint: Using 'master' as the name for the initial branch. This default branch name\nhint: is subject to change. To configure the initial branch name to use in all\nhint: of your new repositories, which will suppress this warning, call:\nhint: \nhint: \tgit config --global init.defaultBranch <name>\nhint: \nhint: Names commonly chosen instead of 'master' are 'main', 'trunk' and\nhint: 'development'. The just-created branch can be renamed via this command:\nhint: \nhint: \tgit branch -m <name>\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_decrypt_email_corporate": "PASSED",
+     "../tests/test_outputs.py::test_decrypt_servers_db_root": "PASSED",
+     "../tests/test_outputs.py::test_decrypt_api_github_token": "PASSED",
+     "../tests/test_outputs.py::test_gpg_secret_key_present": "PASSED",
+     "../tests/test_outputs.py::test_ultimate_trust_set": "PASSED",
+     "../tests/test_outputs.py::test_new_entry_insertion": "PASSED",
+     "../tests/test_outputs.py::test_git_repository_exists": "PASSED",
+     "../tests/test_outputs.py::test_git_has_commit": "PASSED",
+     "../tests/test_outputs.py::test_all_entries_intact": "PASSED"
+    },
+    "n_pass": 9,
+    "n_fail": 0,
+    "seconds": 1.0,
+    "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_decrypt_email_corporate\nPASSED ../tests/test_outputs.py::test_decrypt_servers_db_root\nPASSED ../tests/test_outputs.py::test_decrypt_api_github_token\nPASSED ../tests/test_outputs.py::test_gpg_secret_key_present\nPASSED ../tests/test_outputs.py::test_ultimate_trust_set\nPASSED ../tests/test_outputs.py::test_new_entry_insertion\nPASSED ../tests/test_outputs.py::test_git_repository_exists\nPASSED ../tests/test_outputs.py::test_git_has_commit\nPASSED ../tests/test_outputs.py::test_all_entries_intact\n9 passed in 0.57s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "ompany.local>\" already exists\ngpg: creating anyway\ngpg: revocation certificate stored as '/root/.gnupg/openpgp-revocs.d/F62BBFADA7EA4375D49E2E5D6BDBA212CDA3CA2B.rev'\ngpg: checking the trustdb\ngpg: marginals needed: 3  completes needed: 1  trust model: pgp\ngpg: depth: 0  valid:   1  signed:   0  trust: 0-, 0q, 0n, 0m, 0f, 1u\ngpg: F62BBFADA7EA4375D49E2E5D6BDBA212CDA3CA2B: skipped: Unusable public key\ngpg: [stdin]: encryption failed: Unusable public key\nPassword encryption aborted.\ngpg: F62BBFADA7EA4375D49E2E5D6BDBA212CDA3CA2B: skipped: Unusable public key\ngpg: [stdin]: encryption failed: Unusable public key\nPassword encryption aborted.\ngpg: F62BBFADA7EA4375D49E2E5D6BDBA212CDA3CA2B: skipped: Unusable public key\ngpg: [stdin]: encryption failed: Unusable public key\nPassword encryption aborted.\n",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py::test_gpg_secret_key_present": "PASSED",
+    "../tests/test_outputs.py::test_ultimate_trust_set": "PASSED",
+    "../tests/test_outputs.py::test_git_repository_exists": "PASSED",
+    "../tests/test_outputs.py::test_git_has_commit": "PASSED",
+    "../tests/test_outputs.py::test_all_entries_intact": "PASSED",
+    "../tests/test_outputs.py::test_decrypt_email_corporate": "FAILED",
+    "../tests/test_outputs.py::test_decrypt_servers_db_root": "FAILED",
+    "../tests/test_outputs.py::test_decrypt_api_github_token": "FAILED",
+    "../tests/test_outputs.py::test_new_entry_insertion": "FAILED"
+   },
+   "n_pass": 5,
+   "n_fail": 4,
+   "seconds": 0.7,
+   "log_tail": "____________________ test_new_entry_insertion ___________________________\n\n    def test_new_entry_insertion():\n        \"\"\"Inserting and retrieving a new entry confirms encryption to the key works.\"\"\"\n        # Remove any leftover entry from a previous run (ignore errors)\n        subprocess.run(\n            \"pass rm -f test/recovery-check\",\n            shell=True,\n            capture_output=True,\n            env=get_env(),\n        )\n        # Insert a new entry\n        rc_insert, out_insert, err_insert = run(\n            \"echo 'newpass42' | pass insert -e -f test/recovery-check\"\n        )\n>       assert rc_insert == 0, (\n            f\"pass insert failed (rc={rc_insert}): {err_insert}\"\n        )\nE       AssertionError: pass insert failed (rc=1): gpg: F62BBFADA7EA4375D49E2E5D6BDBA212CDA3CA2B: skipped: Unusable public key\nE         gpg: [stdin]: encryption failed: Unusable public key\nE         Password encryption aborted.\nE       assert 1 == 0\n\n/tests/test_outputs.py:105: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_gpg_secret_key_present\nPASSED ../tests/test_outputs.py::test_ultimate_trust_set\nPASSED ../tests/test_outputs.py::test_git_repository_exists\nPASSED ../tests/test_outputs.py::test_git_has_commit\nPASSED ../tests/test_outputs.py::test_all_entries_intact\nFAILED ../tests/test_outputs.py::test_decrypt_email_corporate - AssertionErro...\nFAILED ../tests/test_outputs.py::test_decrypt_servers_db_root - AssertionErro...\nFAILED ../tests/test_outputs.py::test_decrypt_api_github_token - AssertionErr...\nFAILED ../tests/test_outputs.py::test_new_entry_insertion - AssertionError: p...\n4 failed, 5 passed in 0.25s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 666.9
+}

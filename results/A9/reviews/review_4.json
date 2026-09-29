@@ -1,0 +1,181 @@
+[
+ {
+  "key": "SETA__ask_ubuntu__391__d1",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Step 3 (run fc-cache) is never verified from agent state: test_font_cache_updated (tests/test_outputs.py:80-85) and test_fc_cache_scans_user_font_dir (:101-109) RUN fc-cache themselves and only check its return code/output, so an agent that never runs fc-cache passes. The instruction's '~/.cache/fontconfig should contain cache files' (instruction.md:17) is never checked."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Only file names/extensions are counted via rglob (tests:21-25, 56-65); file contents are never compared to the sources, so empty placeholder files named font_N.ttf etc. pass as 'copied fonts'."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "Environment/Dockerfile:10-19 creates text files ('Mock font file: ...') not real fonts, so the stated goal 'fonts are recognized by the system's fontconfig' (instruction.md:11) cannot actually be achieved; fc-cache just ignores them. Harmless for grading but makes the fc-cache step meaningless."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Copies into ~/.local/share/fonts and runs fc-cache; nothing destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "trivial",
+  "mutant_script": "#!/bin/bash\n# lazy: create placeholder files with the right names instead of copying content; skip fc-cache\nmkdir -p ~/.local/share/fonts\nfor f in /tmp/font_collection/*; do\n  : > ~/.local/share/fonts/\"$(basename \"$f\")\"\ndone\n",
+  "mutant_intent": "Violates requirement 2 (copy the font files) by creating empty placeholders with the same names, and skips requirement 3 (fc-cache). The grader counts names only and runs fc-cache itself, so it should accept this.",
+  "must_reject": true,
+  "notes": "Trivial Ask-Ubuntu style font install; grader verifies only names/counts and performs the fc-cache step itself, so two of three requirements are unverified."
+ },
+ {
+  "key": "LiteCoder__news-topic-classification-sklearn",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "No test checks that tuning, splitting or evaluation actually happened: best_params only needs clf__C>0 and a 2-int list (tests:126-137); cv_best_score/validation metrics only need to be floats in [0,1] (:139-158); the model only needs isinstance(Pipeline) (:318-324) with valid-label predictions; the confusion matrix only needs sorted labels, total 200-300 and accuracy consistent with metrics (:205-252, 379-390). Hard-coded metrics and a hand-written diagonal CM pass. Step names tfidf/clf, LinearSVC, 5-fold CV, 70/15/15 split and random_state=42 are all unverified."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "classify.py is only checked for existence and size>100 bytes (tests:36-44); the graders never run `python /app/classify.py`, so the 'single command' requirement (instruction.md:77-85) is unverified."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": false,
+    "evidence": "environment/Dockerfile:1-34 installs no scikit-learn/pandas/nltk/joblib into any system Python (only openhands-ai into /opt/openhands-venv and uv); solution/solve.sh:6-8 pip-installs them, which needs network. `python` (instruction.md:79) is also not guaranteed on PATH in ubuntu:24.04 (no python-is-python3). In an offline RL container the task may be unsolvable unless openhands-venv happens to carry sklearn (unverified). tests/test.sh:4-19 also needs apt/curl/uv network."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Writes under /app only; pip installs packages.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# stub: no split, no GridSearchCV; train one default pipeline on all data and fabricate metrics/CM\nPY=\"\"\nfor p in /opt/openhands-venv/bin/python python3 python; do\n  if command -v \"$p\" >/dev/null 2>&1 && \"$p\" -c 'import sklearn,pandas,joblib' 2>/dev/null; then PY=\"$p\"; break; fi\ndone\nmkdir -p /app/data /app/results\ncat > /app/classify.py <<'EOF'\n# news classifier (stub: no tuning, no held-out evaluation; numbers below are made up)\nimport os, json, joblib, pandas as pd\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.svm import LinearSVC\nL = [\"Sports\", \"Technology\", \"Politics\", \"Business\", \"Health\"]\nos.makedirs(\"/app/data\", exist_ok=True); os.makedirs(\"/app/results\", exist_ok=True)\ndf = pd.DataFrame([{\"id\": i, \"text\": f\"{L[i%5].lower()} story number {i}\", \"label\": L[i%5]} for i in range(1500)])\ndf.to_csv(\"/app/data/news_articles.csv\", index=False)\nm = Pipeline([(\"tfidf\", TfidfVectorizer()), (\"clf\", LinearSVC())]).fit(df.text, df.label)\njoblib.dump(m, \"/app/results/model.joblib\")\njson.dump({\"best_params\": {\"clf__C\": 1.0, \"tfidf__ngram_range\": [1, 2]}, \"cv_best_score\": 0.9876,\n           \"validation\": {\"accuracy\": 0.9911, \"macro_f1\": 0.9911}, \"test\": {\"accuracy\": 1.0, \"macro_f1\": 1.0}},\n          open(\"/app/results/metrics.json\", \"w\"))\nS = sorted(L)\npd.DataFrame([[45 if r == c else 0 for c in range(5)] for r in range(5)], index=S, columns=S).to_csv(\"/app/results/confusion_matrix.csv\")\nopen(\"/app/results/summary.txt\", \"w\").write(\"Model reached perfect accuracy on synthetic news data. Next steps: gather real articles and retrain.\")\nEOF\n[ -n \"$PY\" ] && \"$PY\" /app/classify.py\n",
+  "mutant_intent": "Skips the stratified 70/15/15 split, GridSearchCV and real evaluation: trains one default Pipeline on all rows of a trivially separable dataset and writes fabricated best_params, cv score, val/test metrics and a hand-made diagonal confusion matrix. A correct grader must reject it; the hidden tests check only formats/ranges and internal consistency.",
+  "must_reject": true,
+  "notes": "Output-format grader with no check of the ML procedure; fabricated metrics pass. Needs network to install sklearn stack, so offline solvability is doubtful."
+ },
+ {
+  "key": "TMax__task_003160_4040000e",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "container.def:83 `echo \"$BAD_COMMIT\" > /tmp/expected_bad_commit.txt` bakes the expected answer into the image as a root-created, world-readable file (default umask 644); test_initial_state.py:30-32 even asserts it exists. The agent can `cat /tmp/expected_bad_commit.txt > /home/user/bad_commit.txt` without bisecting."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:42-43 only checks that the substring '1e-9'/'1e-09'/'0.000000001' appears anywhere in pipeline.py, so a comment satisfies it while the actual fix is something else (e.g. skipping zeros, try/except, max(v,1e-12)). The instruction (task.json description step 3) requires adding 1e-9 inside the logarithm."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "Instruction says 'Multiple commits were merged into the `main` branch' and 'Fix pipeline.py on the `main` branch', but container.def:12 runs plain `git init` on ubuntu:22.04 (git 2.34, no init.defaultBranch), so the only branch is `master`. Tests ignore the branch, so it is confusing rather than blocking."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "The grader's reference lives in /tmp (container.def:83, test_final_state.py:9). Apptainer bind-mounts host /tmp by default, which would hide the baked file and make test_bad_commit_hash_correct always fail. setup.sh:73-74 writes the expected file to /home/user/.setup_tmp and then deletes it, so if setup.sh is used instead of container.def the reference never exists. Depends on the runtime."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "The repo is created by root in %post (container.def:9-80), and only chmod -R 777 is applied (:86). If the agent runs as `user`, git >= 2.34.1-ubuntu security patch raises 'dubious ownership' until safe.directory is set. Solvable, but an extra hurdle."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "chmod -R 777 /home/user in the image recipe is sloppy but confined; no destructive agent actions required.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# plausible-but-wrong fix: correct bisect answer, but \"fix\" by skipping zero values; epsilon only mentioned in a comment\ncd /home/user/risk_app\ngit -c safe.directory='*' log -S'math.log(v)' --format=%H | tail -1 > /home/user/bad_commit.txt\npython3 - <<'EOF'\np = \"/home/user/risk_app/pipeline.py\"\ns = open(p).read()\ns = s.replace(\"        score += math.log(v)\\n\",\n              \"        # skip zeros instead of adding a 1e-9 epsilon\\n        if v > 0:\\n            score += math.log(v)\\n\")\nopen(p, \"w\").write(s)\nEOF\n",
+  "mutant_intent": "Finds the correct bad commit but does not do step 3 as instructed (no 1e-9 epsilon inside the log); it silently drops zero values, which changes the risk score, and mentions 1e-9 only in a comment. A correct grader must reject it, but the substring check at test_final_state.py:43 accepts it.",
+  "must_reject": true,
+  "notes": "Easy bisect-and-fix task; the answer is baked into /tmp in the image and the epsilon check is a substring match. main/master mismatch in the instruction."
+ },
+ {
+  "key": "SETA__stack_overflow__2885173",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Tests only run `bash run.sh` and inspect output files (tests/test_outputs.py:9-30); nothing checks that run.sh still compiles/runs the Java sources or that src/*.java were fixed. Replacing run.sh with a copy of pre-computed reports passes all tests. The instruction says 'Fix the Java source code' (instruction.md:3). Low severity: a real solver would not normally do this."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "test_summary_na_salary_handled accepts '0' anywhere in Tom Brown's line (tests:81), and the ID '16' has no 0, but e.g. '0.00' would also pass, so the README's 'raw value displayed' is only loosely enforced. Idempotency is only tested for department_stats.csv (tests:86-90); clean_and_run rmtrees output before the other checks."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only edits Java files under /opt/csvreporter; tests rmtree /opt/csvreporter/output only.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# cheat: freeze the expected reports as static files and make run.sh copy them; Java bugs left unfixed\ncd /opt/csvreporter\nmkdir -p golden\n{ echo \"Employee Summary Report\"; echo \"=======================\"; tail -n +2 data/employees.csv | awk -F, '{print $1\" | \"$2\" | \"$3\" | \"$4}'; } > golden/summary.txt\nprintf 'department,total_salary\\nEngineering,598000\\nMarketing,293000\\nSales,320000\\nFinance,465000\\nHR,115000\\n' > golden/department_stats.csv\ntail -n +2 data/employees.csv | awk -F, '$4+0>50000{print $1\" | \"$2\" | \"$3\" | \"$4}' > golden/filtered_report.txt\ncat > run.sh <<'EOF'\n#!/bin/bash\ncd /opt/csvreporter\nmkdir -p output\ncp golden/* output/\nEOF\nchmod +x run.sh\n",
+  "mutant_intent": "Leaves all three Java bugs in place and rewrites run.sh to copy frozen report files. This violates 'Fix the Java source code', and the tool no longer processes its input. A correct grader must reject it; these tests would accept it.",
+  "must_reject": true,
+  "notes": "Well-constructed debug task (UTF-8 default charset via JAVA_TOOL_OPTIONS, append mode, writer-in-loop, N/A parse). Expected totals and the 19-row count match employees.csv exactly; only weakness is not pinning run.sh/Java."
+ },
+ {
+  "key": "SETA__kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "best_model_summary.txt must match r\"[Aa]djusted\\s+[Rr].squared[:\\s]+(0\\.\\d+)\" and r\"p.value|pvalue|p_value\" (tests:144-151). The instruction asks for the 'full summary of the best OLS model' (instruction.md:25), but statsmodels' own .summary() prints 'Adj. R-squared:' and 'P>|t|', so writing the genuine statsmodels summary fails both checks."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "Exact text formats are required but never stated: 'Pearson r = <num>' and 'p-value = <num>' for >=3 features and on the Rating line (tests:25-29, 211-214); the zero-balance count must be immediately followed by 'out of'/'of 400'/'observations'/'zero' (tests:43), so 'Zero-balance observations: 90' fails; the Limit-Rating correlation must be written as 'r = 0.9x' in feature_analysis.txt (tests:66); CV RMSE must match 'RMSE[:\\s]+<num>' ('RMSE = 98.7' fails, tests:198); OLS rows need 'ols' or 'regression' in model_name and the logistic row needs 'logistic'/'logit' (tests:87-95); non-linear terms must match a fixed pattern list (tests:109-119, e.g. 'Limit:Student' or 'np.power(Income,2)' fails); predictions.csv needs a column named exactly 'Balance' (tests:164) while the instruction says 'predicted Balance'; logistic_report must contain 'Income' (tests:182) though the instruction only says 'identify significant predictors'."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Every check is a regex over free text or a range check on self-reported numbers (e.g. r_squared>0.74 read from the agent's own CSV, tests:90-91; adj R2 from text, :148-151; Balance in [-2000,5000], :170). Nothing recomputes any statistic from /data/Credit.csv, so fabricated reports with invented numbers pass."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Read-only data analysis writing to /workspace/results.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# fabricated report files: no data loaded, no models fitted, numbers invented\nR=/workspace/results; mkdir -p $R\ncat > $R/eda_summary.txt <<'EOF'\nDataset shape: 400 rows x 11 columns\nMissing values: none\nZero-balance observations: 90 out of 400\nIncome vs Balance: Pearson r = 0.3100, p-value = 1.0e-10\nLimit vs Balance: Pearson r = 0.7000, p-value = 1.0e-50\nRating vs Balance: Pearson r = 0.7100, p-value = 1.0e-52\nEOF\ncat > $R/feature_analysis.txt <<'EOF'\nSignificant features: Income, Limit, Student.\nLimit and Rating are collinear (multicollinearity), r = 0.96; Rating dropped.\nZero-balance cardholders: 90 observations.\nEOF\ncat > $R/model_comparison.csv <<'EOF'\nmodel_name,formula_or_features,r_squared,adj_r_squared,aic,num_significant_vars\nOLS_base,Income + Limit,0.8000,0.7990,5000.00,2\nOLS_student,Income + Limit + Student,0.9000,0.8990,4800.00,3\nOLS_poly,Income + I(Income**2) + Limit + Student,0.9500,0.9490,4700.00,4\nLogistic_active,Income + Limit,0.5000,N/A,200.00,2\nEOF\ncat > $R/best_model_summary.txt <<'EOF'\nBest model: OLS_poly\nAdjusted R-squared: 0.9490\nCoefficients: Income -7.8000 (p-value 0.001), Limit 0.2600 (p-value 0.001), Student 425.1000 (p-value 0.001)\n5-fold cross-validation RMSE: 99.50\nEOF\n{ echo \"Income,Limit,Rating,Cards,Age,Education,Gender,Student,Married,Ethnicity,Balance\"\n  for i in $(seq 1 40); do echo \"50.0,5000,350,3,45,13,Male,No,Yes,Caucasian,500.00\"; done; } > $R/predictions.csv\ncat > $R/logistic_report.txt <<'EOF'\nSignificant predictors: Income coefficient 0.0123, Limit coefficient 0.0045\nEOF\n",
+  "mutant_intent": "Never loads the data or fits any model: every correlation, R-squared, coefficient, CV RMSE and prediction is invented (the Limit-Rating r of 0.96 and Balance correlations are wrong) and all 40 predictions are a constant. This violates all four 'What You Need To Do' steps. A correct grader must reject it; the regex grader accepts it.",
+  "must_reject": true,
+  "notes": "Regex-over-prose grader that is both over-strict (rejects the literal statsmodels summary and many natural phrasings) and weak (accepts fabricated numbers)."
+ },
+ {
+  "key": "SETA__unix_linux_se__82598",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "PROBE_ATTEMPTS and RECORDS_PROCESSED are only tested against the one fixed probe behaviour (fails twice) and the one fixed services.csv (tests:78-84, 109-117). No test varies the data file or the success attempt, so hard-coding RECORD_COUNT=5 / PROBE_ATTEMPTS=3 passes. The env-validation and retry-exhaustion tests (tests:120-186) do vary inputs, which is good. Low severity."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": false,
+    "evidence": "test_validation_rejects_invalid_env requires the literal stderr text 'Invalid environment type' (tests:137). This string comes from the original script (check_service.sh:15), so keeping the existing message passes; a solver who rewrites the message would fail."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "test_expiry_date_value compares the script's `date` with Python date.today()+7 (tests:103) across separate processes; it could flake if a run crosses local midnight. Negligible."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Edits one script under /opt/monitor; the probe writes /tmp/monitor_probe_count only.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# partial fix: repair validation, retry loop and date, but hard-code the counts instead of computing them\ncd /opt/monitor\nsed -i 's/\\] || \\[ \"\\$ENV_TYPE\"/] \\&\\& [ \"$ENV_TYPE\"/g' check_service.sh\nsed -i 's/\"\\$PROBE_SCRIPT\" || break/\"$PROBE_SCRIPT\" \\&\\& break/' check_service.sh\nsed -i 's/date \"+7 days\"/date -d \"+7 days\" +%F/' check_service.sh\nsed -i 's/^RECORD_COUNT=.*/RECORD_COUNT=5/' check_service.sh\nsed -i 's/^PROBE_ATTEMPTS=.*/PROBE_ATTEMPTS=3/' check_service.sh\nSLEEP_INTERVAL=0 ./check_service.sh\n",
+  "mutant_intent": "Fixes the env check, retry loop and date, but replaces the CSV record counting and probe-attempt reading with hard-coded 5 and 3. This violates 'Count data records in a CSV file' and reporting the real probe attempts. A correct grader should reject it; these tests would accept it because the inputs are fixed.",
+  "must_reject": true,
+  "notes": "Clean four-bug shell debugging task, and the tests exercise invalid-env and retry-exhaustion behaviour. The only gap is fixed inputs for the two count values."
+ }
+]

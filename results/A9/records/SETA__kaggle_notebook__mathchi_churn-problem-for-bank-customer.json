@@ -1,0 +1,77 @@
+{
+ "key": "SETA__kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+ "ds": "SETA",
+ "task": "kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+ "notes": [],
+ "workdir": "/home/user/workspace",
+ "instruction_chars": 2151,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 242s"
+ },
+ "noop": {
+  "pytest_rc": 2,
+  "pass": false,
+  "tests": {
+   "../../../tests/test_outputs.py": "ERROR"
+  },
+  "n_pass": 0,
+  "n_fail": 1,
+  "seconds": 0.7,
+  "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:3: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../../../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.12s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "n3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n",
+   "grade": {
+    "pytest_rc": 2,
+    "pass": false,
+    "tests": {
+     "../../../tests/test_outputs.py": "ERROR"
+    },
+    "n_pass": 0,
+    "n_fail": 1,
+    "seconds": 0.6,
+    "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:3: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../../../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "n3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n/usr/local/lib/python3.13/site-packages/sklearn/utils/validation.py:2739: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\n",
+   "grade": {
+    "pytest_rc": 2,
+    "pass": false,
+    "tests": {
+     "../../../tests/test_outputs.py": "ERROR"
+    },
+    "n_pass": 0,
+    "n_fail": 1,
+    "seconds": 0.5,
+    "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:3: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../../../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.12s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 2,
+   "pass": false,
+   "tests": {
+    "../../../tests/test_outputs.py": "ERROR"
+   },
+   "n_pass": 0,
+   "n_fail": 1,
+   "seconds": 0.6,
+   "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:3: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../../../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.15s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 668.7
+}

@@ -1,0 +1,115 @@
+{
+ "key": "LiteCoder__rsa-encrypt-decrypt-demo",
+ "ds": "LiteCoder",
+ "task": "rsa-encrypt-decrypt-demo",
+ "notes": [
+  "removed 6 agent-harness Dockerfile blocks"
+ ],
+ "workdir": "/app",
+ "instruction_chars": 1848,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 181s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_plaintext_content": "PASSED",
+   "../tests/test_outputs.py::test_all_files_exist": "FAILED",
+   "../tests/test_outputs.py::test_private_key_format_and_encryption": "FAILED",
+   "../tests/test_outputs.py::test_public_key_format": "FAILED",
+   "../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty": "FAILED",
+   "../tests/test_outputs.py::test_recovered_message_matches_original": "FAILED",
+   "../tests/test_outputs.py::test_sha256_hashes_match": "FAILED",
+   "../tests/test_outputs.py::test_encryption_decryption_round_trip": "FAILED",
+   "../tests/test_outputs.py::test_public_key_matches_private_key": "FAILED",
+   "../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key": "FAILED"
+  },
+  "n_pass": 1,
+  "n_fail": 9,
+  "seconds": 0.5,
+  "log_tail": " 0x7fa84ddb3600> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:157: AssertionError\n________________ test_ciphertext_was_encrypted_with_public_key _________________\n\n    def test_ciphertext_was_encrypted_with_public_key():\n        \"\"\"Verify ciphertext can only be decrypted with the private key (not plaintext copy).\"\"\"\n>       assert os.path.exists(CIPHERTEXT_PATH), \"Ciphertext file missing\"\nE       AssertionError: Ciphertext file missing\nE       assert False\nE        +  where False = <function exists at 0x7fa84ddb3600>('/app/ciphertext.bin')\nE        +    where <function exists at 0x7fa84ddb3600> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:181: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_plaintext_content\nFAILED ../tests/test_outputs.py::test_all_files_exist - AssertionError: Missi...\nFAILED ../tests/test_outputs.py::test_private_key_format_and_encryption - Ass...\nFAILED ../tests/test_outputs.py::test_public_key_format - AssertionError: Pub...\nFAILED ../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty - As...\nFAILED ../tests/test_outputs.py::test_recovered_message_matches_original - As...\nFAILED ../tests/test_outputs.py::test_sha256_hashes_match - AssertionError: R...\nFAILED ../tests/test_outputs.py::test_encryption_decryption_round_trip - Asse...\nFAILED ../tests/test_outputs.py::test_public_key_matches_private_key - Assert...\nFAILED ../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key\n9 failed, 1 passed in 0.07s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "t\nSHA-256 hash of recovered plaintext:\n02db852d38e471df4967bf4b8164888215cbc822b38524df927fdfabe06d4a90  /app/recovered.txt\n\n=== RSA Parameters ===\nModulus (n):\n9719859B41CDB4F33F7848A92576B9E9B0DEB22A1FF8EDE310B7D7924FBEB81EEBDCB0E8379F4A4289606C7B5FA5D0718B181F45C2D67C870C038DFA2CFC34B36A7445CE9296ECE7E7EF40B1633C2170FA2BECC5486F85DC0A57A892420D9F9A4192D857BE7228BC2C73CDFA5030557A63DDF62837B436CAF66D857F29106CF9CAD4A8881747B41DE9259D37457E5304954881FCB0CA7B0A0C2B34BF27D17F499300CEF841FE947A3EF609E450DAC84A368EBF5F7E383CF195A89FE10E3138FD12F5BDE98594233ED99F09FEB22108B995282BD8C64815B5429174ABDA5E9F3FC654CA016EB05E6644D4E1EED9C53BF0D042A6876C825A5A7C356C9C7A05E45D\n\nPublic Exponent (e):\n65537\n\nPrivate Exponent (d):\n0343ea322b219bf7317c794ad70205496fd37586bb8559184fe582c57e665872aa15a8f9d7737a0e0471fd884bf09675a63a86f49d6215c07008b17f6ed05f210d2f59cd821577d019067fa83391dc8e9cbb8b129b8ddc5b38f8a95075293c13110c81796e9e097a412766fa42a0d591a7cba35c4ede4331ef1eb5b7d53cade6b4da135497c64599abc210827732d87f454f19b005c49f4f3f1b8d474725caf1ea5bd6d6472cfcb8656688e1d8e1f3d9659d75dc20d7db49d6ca9dc3e3e46612d70d8654d19d51ea26655fa3f8637d6dfd882c95abbea4a449e433a16c788399d21b00d872202aa7d7f9bf219e4d2ad93ae537f9f230b6eea13e0f6661790e71\n\n=== Success ===\nAll files created successfully at /app/\nMessage recovery validated - hashes match!\nwriting RSA key\nThe command rsautl was deprecated in version 3.0. Use 'pkeyutl' instead.\nThe command rsautl was deprecated in version 3.0. Use 'pkeyutl' instead.\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_all_files_exist": "PASSED",
+     "../tests/test_outputs.py::test_private_key_format_and_encryption": "PASSED",
+     "../tests/test_outputs.py::test_public_key_format": "PASSED",
+     "../tests/test_outputs.py::test_plaintext_content": "PASSED",
+     "../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty": "PASSED",
+     "../tests/test_outputs.py::test_recovered_message_matches_original": "PASSED",
+     "../tests/test_outputs.py::test_sha256_hashes_match": "PASSED",
+     "../tests/test_outputs.py::test_encryption_decryption_round_trip": "PASSED",
+     "../tests/test_outputs.py::test_public_key_matches_private_key": "PASSED",
+     "../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_all_files_exist\nPASSED ../tests/test_outputs.py::test_private_key_format_and_encryption\nPASSED ../tests/test_outputs.py::test_public_key_format\nPASSED ../tests/test_outputs.py::test_plaintext_content\nPASSED ../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty\nPASSED ../tests/test_outputs.py::test_recovered_message_matches_original\nPASSED ../tests/test_outputs.py::test_sha256_hashes_match\nPASSED ../tests/test_outputs.py::test_encryption_decryption_round_trip\nPASSED ../tests/test_outputs.py::test_public_key_matches_private_key\nPASSED ../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key\n10 passed in 0.13s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "t\nSHA-256 hash of recovered plaintext:\n02db852d38e471df4967bf4b8164888215cbc822b38524df927fdfabe06d4a90  /app/recovered.txt\n\n=== RSA Parameters ===\nModulus (n):\nB67C62DE84ACAAA4BD28BF9AD794653AE8968C804D691517D7301818669C8E0238A5BF552798397C19E963AD3AE6981B23919AB78410FDE45901A3EEDD9D34C79B00F1ADD4F798BF502B38F60157F4E794C175D691780682418077AD3BE91D1D096D1F6281840E054774BB51C274F92B5D334435854C09B843A3C9599CC03ADF359F4C1A8084B0B808E8A266AE93EB06F7B8B487DD61A24D5E181AF432D2539B4EA4D9C38C36C121589B93D1ED3ECACB7F443C73F8917039A9A190B14B1AD93787A12B0D8DD1A96E2185984B70C97EB6B27715A43076D21B53E397F650779D069E58F9B85A7B55E8C1E4291B7AED1342803E0D189C96388B7D88C9CDBF6EFD83\n\nPublic Exponent (e):\n65537\n\nPrivate Exponent (d):\n07bc954a7ed07d3997c572fe2316a9060ad75b249363999fd5a135dc4ef96331e7e9eb0736b306f8e2765921fe85c93c19517280464a9c2102bf058eba799043c8280d970398edb26ab9326487a10d8285f57fc3f58de3a4c1172bbbbdf6ffa37c0352d9cfc8e3f94852c4204ec0bbd1a1556b96634cda7aa3ef7d395de26e7c76b32b05b54c1b4d15338c3a85aa6c5e292b406001062aafc4d9c7747c71b3c6dca1743f9aadfabb3097f1803984dd31b6763fd3df068bca07281140fe0ebb9f6684b8fff5071a79a81aea3da88f180bf4c416e2ccfd1e14269b60bc0ed00742d63be841f44fa7cc82291a36f98a9ff32b6d4425bc8df548ed4f9084c4bd1141\n\n=== Success ===\nAll files created successfully at /app/\nMessage recovery validated - hashes match!\nwriting RSA key\nThe command rsautl was deprecated in version 3.0. Use 'pkeyutl' instead.\nThe command rsautl was deprecated in version 3.0. Use 'pkeyutl' instead.\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_all_files_exist": "PASSED",
+     "../tests/test_outputs.py::test_private_key_format_and_encryption": "PASSED",
+     "../tests/test_outputs.py::test_public_key_format": "PASSED",
+     "../tests/test_outputs.py::test_plaintext_content": "PASSED",
+     "../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty": "PASSED",
+     "../tests/test_outputs.py::test_recovered_message_matches_original": "PASSED",
+     "../tests/test_outputs.py::test_sha256_hashes_match": "PASSED",
+     "../tests/test_outputs.py::test_encryption_decryption_round_trip": "PASSED",
+     "../tests/test_outputs.py::test_public_key_matches_private_key": "PASSED",
+     "../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.6,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_all_files_exist\nPASSED ../tests/test_outputs.py::test_private_key_format_and_encryption\nPASSED ../tests/test_outputs.py::test_public_key_format\nPASSED ../tests/test_outputs.py::test_plaintext_content\nPASSED ../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty\nPASSED ../tests/test_outputs.py::test_recovered_message_matches_original\nPASSED ../tests/test_outputs.py::test_sha256_hashes_match\nPASSED ../tests/test_outputs.py::test_encryption_decryption_round_trip\nPASSED ../tests/test_outputs.py::test_public_key_matches_private_key\nPASSED ../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key\n10 passed in 0.13s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "writing RSA key\n",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_all_files_exist": "PASSED",
+    "../tests/test_outputs.py::test_private_key_format_and_encryption": "PASSED",
+    "../tests/test_outputs.py::test_public_key_format": "PASSED",
+    "../tests/test_outputs.py::test_plaintext_content": "PASSED",
+    "../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty": "PASSED",
+    "../tests/test_outputs.py::test_recovered_message_matches_original": "PASSED",
+    "../tests/test_outputs.py::test_sha256_hashes_match": "PASSED",
+    "../tests/test_outputs.py::test_encryption_decryption_round_trip": "PASSED",
+    "../tests/test_outputs.py::test_public_key_matches_private_key": "PASSED",
+    "../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.6,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_all_files_exist\nPASSED ../tests/test_outputs.py::test_private_key_format_and_encryption\nPASSED ../tests/test_outputs.py::test_public_key_format\nPASSED ../tests/test_outputs.py::test_plaintext_content\nPASSED ../tests/test_outputs.py::test_ciphertext_is_binary_and_non_empty\nPASSED ../tests/test_outputs.py::test_recovered_message_matches_original\nPASSED ../tests/test_outputs.py::test_sha256_hashes_match\nPASSED ../tests/test_outputs.py::test_encryption_decryption_round_trip\nPASSED ../tests/test_outputs.py::test_public_key_matches_private_key\nPASSED ../tests/test_outputs.py::test_ciphertext_was_encrypted_with_public_key\n10 passed in 0.18s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 209.3
+}

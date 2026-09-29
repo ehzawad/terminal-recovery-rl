@@ -1,0 +1,102 @@
+{
+ "key": "TMax__task_006354_0c495fc8",
+ "ds": "TMax",
+ "task": "task_006354_0c495fc8",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2594,
+ "gemini": {
+  "runs": 8,
+  "success": 3
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 391s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_directories_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_xml_files": "PASSED",
+   "../../tests/test_initial_state.py::test_json_files": "PASSED",
+   "../../tests/test_initial_state.py::test_blob_files": "PASSED"
+  },
+  "n_pass": 4,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_directories_exist\nPASSED ../../tests/test_initial_state.py::test_xml_files\nPASSED ../../tests/test_initial_state.py::test_json_files\nPASSED ../../tests/test_initial_state.py::test_blob_files\n4 passed in 0.02s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_inventory_file_exists_and_contents": "FAILED",
+   "../../tests/test_final_state.py::test_extracted_assets": "FAILED",
+   "../../tests/test_final_state.py::test_script_uses_file_locking": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.4,
+  "log_tail": "   where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:13: AssertionError\n____________________________ test_extracted_assets _____________________________\n\n    def test_extracted_assets():\n>       assert os.path.isdir(EXTRACTED_DIR), f\"Directory {EXTRACTED_DIR} does not exist.\"\nE       AssertionError: Directory /home/user/extracted_assets does not exist.\nE       assert False\nE        +  where False = <function isdir at 0x7ff810bd5fc0>('/home/user/extracted_assets')\nE        +    where <function isdir at 0x7ff810bd5fc0> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isdir\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:45: AssertionError\n________________________ test_script_uses_file_locking _________________________\n\n    def test_script_uses_file_locking():\n>       assert os.path.isfile(SCRIPT_FILE), f\"Script file {SCRIPT_FILE} does not exist.\"\nE       AssertionError: Script file /home/user/organize_docs.py does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x7ff810bd5f30>('/home/user/organize_docs.py')\nE        +    where <function isfile at 0x7ff810bd5f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:64: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_inventory_file_exists_and_contents\nFAILED ../../tests/test_final_state.py::test_extracted_assets - AssertionErro...\nFAILED ../../tests/test_final_state.py::test_script_uses_file_locking - Asser...\n3 failed in 0.03s\n"
+ },
+ "ref": [
+  {
+   "how": "replay of 3 commands",
+   "rc": 0,
+   "run_tail": "/home/user/doc_archive/:\nmodule1\nmodule2\n\n/home/user/doc_archive/module1:\nintro.xml\nmeta.json\ntextdata.blob\n\n/home/user/doc_archive/module2:\nadvanced.xml\nassets\ninfo.json\n\n/home/user/doc_archive/module2/assets:\ngraphic1.blob\ngraphic2.blob\n-rw-r--r-- 1 root root 592 Sep 29 06:39 /home/user/inventory.jsonl\n{\"file\": \"/home/user/doc_archive/module1/textdata.blob\", \"type\": \"blob\", \"status\": \"extracted\"}\n{\"file\": \"/home/user/doc_archive/module1/meta.json\", \"type\": \"json\", \"author\": \"Jane Doe\"}\n{\"file\": \"/home/user/doc_archive/module1/intro.xml\", \"type\": \"xml\", \"title\": \"Introduction to System\"}\n{\"file\": \"/home/user/doc_archive/module2/advanced.xml\", \"type\": \"xml\", \"title\": \"Advanced Configuration\"}\n{\"file\": \"/home/user/doc_archive/module2/info.json\", \"type\": \"json\", \"author\": \"John Smith\"}\n{\"file\": \"/home/user/doc_archive/module2/assets/graphic1.blob\", \"type\": \"blob\", \"status\": \"extracted\"}\ntotal 8\n-rw-r--r-- 1 root root  4 Sep 29 06:39 graphic1.dat\n-rw-r--r-- 1 root root 17 Sep 29 06:39 textdata.dat\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_final_state.py::test_inventory_file_exists_and_contents": "PASSED",
+     "../../tests/test_final_state.py::test_extracted_assets": "PASSED",
+     "../../tests/test_final_state.py::test_script_uses_file_locking": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_inventory_file_exists_and_contents\nPASSED ../../tests/test_final_state.py::test_extracted_assets\nPASSED ../../tests/test_final_state.py::test_script_uses_file_locking\n3 passed in 0.01s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "replay of 3 commands",
+   "rc": 0,
+   "run_tail": "/home/user/doc_archive/:\nmodule1\nmodule2\n\n/home/user/doc_archive/module1:\nintro.xml\nmeta.json\ntextdata.blob\n\n/home/user/doc_archive/module2:\nadvanced.xml\nassets\ninfo.json\n\n/home/user/doc_archive/module2/assets:\ngraphic1.blob\ngraphic2.blob\n-rw-r--r-- 1 root root 592 Sep 29 06:39 /home/user/inventory.jsonl\n{\"file\": \"/home/user/doc_archive/module1/textdata.blob\", \"type\": \"blob\", \"status\": \"extracted\"}\n{\"file\": \"/home/user/doc_archive/module1/meta.json\", \"type\": \"json\", \"author\": \"Jane Doe\"}\n{\"file\": \"/home/user/doc_archive/module1/intro.xml\", \"type\": \"xml\", \"title\": \"Introduction to System\"}\n{\"file\": \"/home/user/doc_archive/module2/advanced.xml\", \"type\": \"xml\", \"title\": \"Advanced Configuration\"}\n{\"file\": \"/home/user/doc_archive/module2/info.json\", \"type\": \"json\", \"author\": \"John Smith\"}\n{\"file\": \"/home/user/doc_archive/module2/assets/graphic1.blob\", \"type\": \"blob\", \"status\": \"extracted\"}\ntotal 8\n-rw-r--r-- 1 root root  4 Sep 29 06:39 graphic1.dat\n-rw-r--r-- 1 root root 17 Sep 29 06:39 textdata.dat\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_final_state.py::test_inventory_file_exists_and_contents": "PASSED",
+     "../../tests/test_final_state.py::test_extracted_assets": "PASSED",
+     "../../tests/test_final_state.py::test_script_uses_file_locking": "PASSED"
+    },
+    "n_pass": 3,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_inventory_file_exists_and_contents\nPASSED ../../tests/test_final_state.py::test_extracted_assets\nPASSED ../../tests/test_final_state.py::test_script_uses_file_locking\n3 passed in 0.02s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_inventory_file_exists_and_contents": "PASSED",
+    "../../tests/test_final_state.py::test_extracted_assets": "PASSED",
+    "../../tests/test_final_state.py::test_script_uses_file_locking": "PASSED"
+   },
+   "n_pass": 3,
+   "n_fail": 0,
+   "seconds": 0.4,
+   "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_inventory_file_exists_and_contents\nPASSED ../../tests/test_final_state.py::test_extracted_assets\nPASSED ../../tests/test_final_state.py::test_script_uses_file_locking\n3 passed in 0.02s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 418.2
+}

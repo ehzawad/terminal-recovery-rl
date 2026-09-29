@@ -1,0 +1,105 @@
+{
+ "key": "SETA__stack_overflow__11563963",
+ "ds": "SETA",
+ "task": "stack_overflow__11563963",
+ "notes": [],
+ "workdir": "/opt/binpack",
+ "instruction_chars": 1587,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 396s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_outputs.py::test_build_succeeds": "FAILED",
+   "../../tests/test_outputs.py::test_magic_bytes": "FAILED",
+   "../../tests/test_outputs.py::test_header_record_count": "FAILED",
+   "../../tests/test_outputs.py::test_header_data_size": "FAILED",
+   "../../tests/test_outputs.py::test_round_trip": "FAILED",
+   "../../tests/test_outputs.py::test_pipeline_exits_zero": "FAILED",
+   "../../tests/test_outputs.py::test_binary_file_size": "FAILED",
+   "../../tests/test_outputs.py::test_final_buffer_flush": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 8,
+  "seconds": 3.8,
+  "log_tail": "                        bytes(errpipe_data))\n            child_exception_type = getattr(\n                    builtins, exception_name.decode('ascii'),\n                    SubprocessError)\n            if issubclass(child_exception_type, OSError) and hex_errno:\n                errno_num = int(hex_errno, 16)\n                if err_msg == \"noexec:chdir\":\n                    err_msg = \"\"\n                    # The error must be from chdir(cwd).\n                    err_filename = cwd\n                elif err_msg == \"noexec\":\n                    err_msg = \"\"\n                    err_filename = None\n                else:\n                    err_filename = orig_executable\n                if errno_num != 0:\n                    err_msg = os.strerror(errno_num)\n                if err_filename is not None:\n>                   raise child_exception_type(errno_num, err_msg, err_filename)\nE                   FileNotFoundError: [Errno 2] No such file or directory: '/opt/binpack/bin/writer'\n\n../vt/python/lib/python3.12/subprocess.py:1955: FileNotFoundError\n=========================== short test summary info ============================\nFAILED ../../tests/test_outputs.py::test_build_succeeds - AssertionError: Bui...\nFAILED ../../tests/test_outputs.py::test_magic_bytes - FileNotFoundError: [Er...\nFAILED ../../tests/test_outputs.py::test_header_record_count - FileNotFoundEr...\nFAILED ../../tests/test_outputs.py::test_header_data_size - FileNotFoundError...\nFAILED ../../tests/test_outputs.py::test_round_trip - FileNotFoundError: [Err...\nFAILED ../../tests/test_outputs.py::test_pipeline_exits_zero - AssertionError...\nFAILED ../../tests/test_outputs.py::test_binary_file_size - FileNotFoundError...\nFAILED ../../tests/test_outputs.py::test_final_buffer_flush - FileNotFoundErr...\n8 failed in 3.36s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "rm -rf bin\ng++ -std=c++17 -Wall -O2 -Iinclude -o bin/writer src/writer.cpp\ng++ -std=c++17 -Wall -O2 -Iinclude -o bin/reader src/reader.cpp\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_build_succeeds": "PASSED",
+     "../../tests/test_outputs.py::test_magic_bytes": "PASSED",
+     "../../tests/test_outputs.py::test_header_record_count": "PASSED",
+     "../../tests/test_outputs.py::test_header_data_size": "PASSED",
+     "../../tests/test_outputs.py::test_round_trip": "PASSED",
+     "../../tests/test_outputs.py::test_pipeline_exits_zero": "PASSED",
+     "../../tests/test_outputs.py::test_binary_file_size": "PASSED",
+     "../../tests/test_outputs.py::test_final_buffer_flush": "PASSED"
+    },
+    "n_pass": 8,
+    "n_fail": 0,
+    "seconds": 2.1,
+    "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_build_succeeds\nPASSED ../../tests/test_outputs.py::test_magic_bytes\nPASSED ../../tests/test_outputs.py::test_header_record_count\nPASSED ../../tests/test_outputs.py::test_header_data_size\nPASSED ../../tests/test_outputs.py::test_round_trip\nPASSED ../../tests/test_outputs.py::test_pipeline_exits_zero\nPASSED ../../tests/test_outputs.py::test_binary_file_size\nPASSED ../../tests/test_outputs.py::test_final_buffer_flush\n8 passed in 1.68s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "rm -rf bin\ng++ -std=c++17 -Wall -O2 -Iinclude -o bin/writer src/writer.cpp\ng++ -std=c++17 -Wall -O2 -Iinclude -o bin/reader src/reader.cpp\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_build_succeeds": "PASSED",
+     "../../tests/test_outputs.py::test_magic_bytes": "PASSED",
+     "../../tests/test_outputs.py::test_header_record_count": "PASSED",
+     "../../tests/test_outputs.py::test_header_data_size": "PASSED",
+     "../../tests/test_outputs.py::test_round_trip": "PASSED",
+     "../../tests/test_outputs.py::test_pipeline_exits_zero": "PASSED",
+     "../../tests/test_outputs.py::test_binary_file_size": "PASSED",
+     "../../tests/test_outputs.py::test_final_buffer_flush": "PASSED"
+    },
+    "n_pass": 8,
+    "n_fail": 0,
+    "seconds": 2.1,
+    "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_build_succeeds\nPASSED ../../tests/test_outputs.py::test_magic_bytes\nPASSED ../../tests/test_outputs.py::test_header_record_count\nPASSED ../../tests/test_outputs.py::test_header_data_size\nPASSED ../../tests/test_outputs.py::test_round_trip\nPASSED ../../tests/test_outputs.py::test_pipeline_exits_zero\nPASSED ../../tests/test_outputs.py::test_binary_file_size\nPASSED ../../tests/test_outputs.py::test_final_buffer_flush\n8 passed in 1.63s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "rm -rf bin\ng++ -std=c++17 -Wall -O2 -Iinclude -o bin/writer src/writer.cpp\ng++ -std=c++17 -Wall -O2 -Iinclude -o bin/reader src/reader.cpp\n",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_outputs.py::test_build_succeeds": "PASSED",
+    "../../tests/test_outputs.py::test_magic_bytes": "PASSED",
+    "../../tests/test_outputs.py::test_header_record_count": "PASSED",
+    "../../tests/test_outputs.py::test_header_data_size": "PASSED",
+    "../../tests/test_outputs.py::test_round_trip": "PASSED",
+    "../../tests/test_outputs.py::test_pipeline_exits_zero": "PASSED",
+    "../../tests/test_outputs.py::test_binary_file_size": "PASSED",
+    "../../tests/test_outputs.py::test_final_buffer_flush": "PASSED"
+   },
+   "n_pass": 8,
+   "n_fail": 0,
+   "seconds": 1.9,
+   "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_build_succeeds\nPASSED ../../tests/test_outputs.py::test_magic_bytes\nPASSED ../../tests/test_outputs.py::test_header_record_count\nPASSED ../../tests/test_outputs.py::test_header_data_size\nPASSED ../../tests/test_outputs.py::test_round_trip\nPASSED ../../tests/test_outputs.py::test_pipeline_exits_zero\nPASSED ../../tests/test_outputs.py::test_binary_file_size\nPASSED ../../tests/test_outputs.py::test_final_buffer_flush\n8 passed in 1.52s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 430.9
+}

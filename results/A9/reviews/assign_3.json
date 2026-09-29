@@ -1,0 +1,32 @@
+[
+ {
+  "key": "LiteCoder__automated-offsite-backup-system",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/automated-offsite-backup-system"
+ },
+ {
+  "key": "TMax__task_005510_9a7eea6f",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_005510_9a7eea6f"
+ },
+ {
+  "key": "SETA__ask_ubuntu__1276__b1",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Evolve/ask_ubuntu__1276__b1"
+ },
+ {
+  "key": "TMax__task_005795_1c02adf2",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_005795_1c02adf2"
+ },
+ {
+  "key": "TMax__task_004748_961e3610",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_004748_961e3610"
+ },
+ {
+  "key": "SETA__unix_linux_se__202383",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/unix_linux_se__202383"
+ }
+]

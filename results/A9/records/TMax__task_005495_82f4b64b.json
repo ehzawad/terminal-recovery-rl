@@ -1,0 +1,70 @@
+{
+ "key": "TMax__task_005495_82f4b64b",
+ "ds": "TMax",
+ "task": "task_005495_82f4b64b",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2106,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 434s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_calc_service_directory_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_git_repository_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_calc_c_file_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_git_history_has_commits": "PASSED"
+  },
+  "n_pass": 4,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_calc_service_directory_exists\nPASSED ../../tests/test_initial_state.py::test_git_repository_exists\nPASSED ../../tests/test_initial_state.py::test_calc_c_file_exists\nPASSED ../../tests/test_initial_state.py::test_git_history_has_commits\n4 passed in 0.01s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_calc_c_fixed_math": "PASSED",
+   "../../tests/test_final_state.py::test_api_key_recovered": "FAILED",
+   "../../tests/test_final_state.py::test_calc_compiles_and_runs": "FAILED",
+   "../../tests/test_final_state.py::test_test_script": "FAILED"
+  },
+  "n_pass": 1,
+  "n_fail": 3,
+  "seconds": 0.5,
+  "log_tail": "mpile_res.stderr}\"\nE       AssertionError: Compilation failed:\nE         /usr/bin/ld: /tmp/ccaSNamO.o: in function `main':\nE         calc.c:(.text+0x7c): undefined reference to `sqrt'\nE         collect2: error: ld returned 1 exit status\nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['gcc', '-lm', '/home/user/calc_service/calc.c', '-o', '/home/user/calc_service/calc'], returnco...in function `main':\\ncalc.c:(.text+0x7c): undefined reference to `sqrt'\\ncollect2: error: ld returned 1 exit status\\n\").returncode\n\n/tests/test_final_state.py:36: AssertionError\n_______________________________ test_test_script _______________________________\n\n    def test_test_script():\n        script_file = \"/home/user/calc_service/test.sh\"\n>       assert os.path.isfile(script_file), f\"Script {script_file} does not exist.\"\nE       AssertionError: Script /home/user/calc_service/test.sh does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x7f25cf411f30>('/home/user/calc_service/test.sh')\nE        +    where <function isfile at 0x7f25cf411f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:60: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_calc_c_fixed_math\nFAILED ../../tests/test_final_state.py::test_api_key_recovered - AssertionErr...\nFAILED ../../tests/test_final_state.py::test_calc_compiles_and_runs - Asserti...\nFAILED ../../tests/test_final_state.py::test_test_script - AssertionError: Sc...\n3 failed, 1 passed in 0.14s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_api_key_recovered": "PASSED",
+    "../../tests/test_final_state.py::test_calc_c_fixed_math": "PASSED",
+    "../../tests/test_final_state.py::test_calc_compiles_and_runs": "PASSED",
+    "../../tests/test_final_state.py::test_test_script": "PASSED"
+   },
+   "n_pass": 4,
+   "n_fail": 0,
+   "seconds": 0.6,
+   "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_api_key_recovered\nPASSED ../../tests/test_final_state.py::test_calc_c_fixed_math\nPASSED ../../tests/test_final_state.py::test_calc_compiles_and_runs\nPASSED ../../tests/test_final_state.py::test_test_script\n4 passed in 0.22s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 464.7
+}

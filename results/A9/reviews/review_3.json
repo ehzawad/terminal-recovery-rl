@@ -1,0 +1,181 @@
+[
+ {
+  "key": "LiteCoder__automated-offsite-backup-system",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "backup.sh and restore.sh are never executed; every backup.sh/restore.sh test is a substring/regex grep over file text (test_outputs.py:132-192, 253-293), e.g. test_backup_sh_rsync_flags only checks that 'rsync', '-avz', '--delete', 'StrictHostKeyChecking=no' appear anywhere (lines 170-176) and test_backup_sh_captures_rsync_exit accepts any '$?' (line 190). A script with these tokens in comments that does nothing passes. verify_backup.sh post is only tested on the pass path (lines 432-442), so 'post) exit 0' passes; pre-mode 'SOURCE_DIR not found'/'SSH key not found' error paths are never exercised (only greps at 212-225)."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_backup_sh_timestamp_logging (line 150) requires regex date\\s+['\\\"].*%Y.*%M.*%S, i.e. a quote immediately after 'date '. The very common idioms date +\"%Y-%m-%d %H:%M:%S\", date +'%F %T' or printf '%(%Y-%m-%d %H:%M:%S)T' produce the required [YYYY-MM-DD HH:MM:SS] format but fail the test. Similarly the source regex (line 135) rejects '. \"$(dirname \"$0\")/backup.conf\"'-style sourcing only if no '/backup.conf' path is present (minor)."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "rsync is not installed in the image (Dockerfile installs tmux asciinema curl wget git build-essential only), so an agent cannot exercise backup.sh/restore.sh locally; harmless for grading since those scripts are never run. tests/test.sh also apt-gets curl and downloads uv/pytest at grading time (network needed by the wrapper)."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Everything under /app; rsync targets a fictitious example.com host and is never run by the grader. Fake SSH key only.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# stub: no split, no GridSearchCV; train one default pipeline on all data and fabricate metrics/CM\nPY=\"\"\nfor p in /opt/openhands-venv/bin/python python3 python; do\n  if command -v \"$p\" >/dev/null 2>&1 && \"$p\" -c 'import sklearn,pandas,joblib' 2>/dev/null; then PY=\"$p\"; break; fi\ndone\nmkdir -p /app/data /app/results\ncat > /app/classify.py <<'EOF'\n# news classifier (stub: no tuning, no held-out evaluation; numbers below are made up)\nimport os, json, joblib, pandas as pd\nfrom sklearn.pipeline import Pipeline\nfrom sklearn.feature_extraction.text import TfidfVectorizer\nfrom sklearn.svm import LinearSVC\nL = [\"Sports\", \"Technology\", \"Politics\", \"Business\", \"Health\"]\nos.makedirs(\"/app/data\", exist_ok=True); os.makedirs(\"/app/results\", exist_ok=True)\ndf = pd.DataFrame([{\"id\": i, \"text\": f\"{L[i%5].lower()} story number {i}\", \"label\": L[i%5]} for i in range(1500)])\ndf.to_csv(\"/app/data/news_articles.csv\", index=False)\nm = Pipeline([(\"tfidf\", TfidfVectorizer()), (\"clf\", LinearSVC())]).fit(df.text, df.label)\njoblib.dump(m, \"/app/results/model.joblib\")\njson.dump({\"best_params\": {\"clf__C\": 1.0, \"tfidf__ngram_range\": [1, 2]}, \"cv_best_score\": 0.9876,\n           \"validation\": {\"accuracy\": 0.9911, \"macro_f1\": 0.9911}, \"test\": {\"accuracy\": 1.0, \"macro_f1\": 1.0}},\n          open(\"/app/results/metrics.json\", \"w\"))\nS = sorted(L)\npd.DataFrame([[45 if r == c else 0 for c in range(5)] for r in range(5)], index=S, columns=S).to_csv(\"/app/results/confusion_matrix.csv\")\nopen(\"/app/results/summary.txt\", \"w\").write(\"Model reached perfect accuracy on synthetic news data. Next steps: gather real articles and retrain.\")\nEOF\n[ -n \"$PY\" ] && \"$PY\" /app/classify.py\n",
+  "mutant_intent": "Produces all six files with exact config values, correct crontab/logrotate and a verify_backup.sh that passes the functional tests, but backup.sh and restore.sh are stubs that never run rsync, never call verify, never log (keywords only in comments), and verify 'post' always exits 0 without checking checksums. Violates essentially every backup.sh/restore.sh requirement and the post-verification requirement.",
+  "must_reject": true,
+  "notes": "Pure spec-conformance task whose grader is mostly grep-based; a keyword-stuffed stub should pass every test while a correct solution using date +\"...\" fails one."
+ },
+ {
+  "key": "TMax__task_005510_9a7eea6f",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "Cargo.toml (container.def:19-22) depends on tokio, tokio-tungstenite, futures-util but no crates are vendored or pre-fetched (no ~/.cargo registry, no vendor dir, no cargo fetch in %post). In an offline container 'cargo build' cannot resolve crates.io, so the mandated Rust server cannot be built. Gemini-3-flash solved 0/8 runs (solutions/gemini_..._summary.json)."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_sorted_results (test_final_state.py:91-92) compares against Python's stable sorted(key=latency, reverse=True), which keeps raw order on ties. benchmark latencies are int((end-start)*1000) on loopback, so all four are almost surely 0. The natural answer, and the one the truth field names ('e.g., via sort -rn'), breaks ties by whole-line comparison reversed: '0 hello','0 ERROR','0 3','0 2' vs expected raw order '0 hello','0 2','0 3','0 ERROR' -> fails. Only a stable sort (sort -s -k1,1nr) passes; the instruction never mentions tie handling."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Nothing checks that the 8081 server is Rust (test_rust_server_running only checks a port is open, line 14-15; behaviour tested over WS only) or that proxy.pid is socat (test_proxy_pid_file only checks the PID is alive, lines 20-31). A Python websockets server (pip websockets is installed, container.def:7) satisfies all tests."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "Instruction says benchmark.sh will 'append' to raw_results.txt, but benchmark.sh uses '>' (container.def:56), overwriting. Minor."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "Tests require the background server/proxy to still be alive at grading time (lines 14-31); depends on the harness not killing the agent's session processes."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Loopback-only services; container.def does chmod -R 777 /home/user inside the image only.",
+  "realism": "contrived",
+  "difficulty_guess": "hard",
+  "mutant_script": "#!/bin/bash\n# plausible-but-wrong fix: correct bisect answer, but \"fix\" by skipping zero values; epsilon only mentioned in a comment\ncd /home/user/risk_app\ngit -c safe.directory='*' log -S'math.log(v)' --format=%H | tail -1 > /home/user/bad_commit.txt\npython3 - <<'EOF'\np = \"/home/user/risk_app/pipeline.py\"\ns = open(p).read()\ns = s.replace(\"        score += math.log(v)\\n\",\n              \"        # skip zeros instead of adding a 1e-9 epsilon\\n        if v > 0:\\n            score += math.log(v)\\n\")\nopen(p, \"w\").write(s)\nEOF\n",
+  "mutant_intent": "Implements the evaluator as a Python websockets server instead of the required Rust application (src/main.rs left as fn main(){}), then socat proxy, benchmark and a stable sort. Violates the explicit 'Implement the Python 2 Emulator in Rust' requirement.",
+  "must_reject": true,
+  "notes": "The required Rust path is likely unbuildable offline, the tie-order check rejects the natural sort -rn, and the language requirement goes unchecked, so shortcut solutions are rewarded over faithful ones."
+ },
+ {
+  "key": "SETA__ask_ubuntu__1276__b1",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Instruction: 'Only fix the /app/Makefile. Do NOT modify the worker scripts...' and 'using GNU Make's export directive (one export VARNAME line per variable)'. test_outputs.py only runs make and inspects logs (lines 6-205); it never checks Makefile content, never checks that worker scripts/app.mk are unmodified, never checks the export-directive form. Hard-coding the four values into worker1-3.sh passes every test while leaving the Makefile broken."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "Instruction bullets say the .ONESHELL recipe must 'correctly track per-worker failures' and TEMP_PROCESSING_PATH must 'correctly resolve the shell PID (escape $ as $$)'. In the shipped Makefile these are already correct (Makefile:17 uses $(shell echo $$$$); lines 25-32 use $$? and $$FAILED under .ONESHELL with only the first line prefixed), and solution/solve.sh changes neither. Phrased as fixes, they invite needless edits; untested."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only /app files and a 'clean' target limited to /app/logs/*.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# cheat: freeze the expected reports as static files and make run.sh copy them; Java bugs left unfixed\ncd /opt/csvreporter\nmkdir -p golden\n{ echo \"Employee Summary Report\"; echo \"=======================\"; tail -n +2 data/employees.csv | awk -F, '{print $1\" | \"$2\" | \"$3\" | \"$4}'; } > golden/summary.txt\nprintf 'department,total_salary\\nEngineering,598000\\nMarketing,293000\\nSales,320000\\nFinance,465000\\nHR,115000\\n' > golden/department_stats.csv\ntail -n +2 data/employees.csv | awk -F, '$4+0>50000{print $1\" | \"$2\" | \"$3\" | \"$4}' > golden/filtered_report.txt\ncat > run.sh <<'EOF'\n#!/bin/bash\ncd /opt/csvreporter\nmkdir -p output\ncp golden/* output/\nEOF\nchmod +x run.sh\n",
+  "mutant_intent": "Leaves /app/Makefile unchanged and instead injects the four config variables as exports into worker1.sh/worker2.sh/worker3.sh (sub_worker inherits via worker3). Directly violates 'Only fix the /app/Makefile. Do NOT modify the worker scripts' and the export-directive requirement.",
+  "must_reject": true,
+  "notes": "Real Make export pitfall; outcome-only grader does not enforce the stated file-scope constraint."
+ },
+ {
+  "key": "TMax__task_005795_1c02adf2",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py only checks fixed_predictions.csv values (lines 9-57) and that the normalization line text is unchanged (line 65). It never checks that pipeline.c's mean/stddev now use TRAIN_SIZE, that /home/user/pipeline was compiled, or that the CSV came from the program. A hand-computed CSV with pipeline.c left buggy passes. Instruction step 2/4/5 ('Edit pipeline.c to fix...', compile, run) are unenforced."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "Instruction step 1 says gcc/make 'might be missing', but container.def:6 installs gcc make libc6-dev; step is a no-op (harmless). Gemini solved 8/8."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Local C compile and file move only.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# fabricated report files: no data loaded, no models fitted, numbers invented\nR=/workspace/results; mkdir -p $R\ncat > $R/eda_summary.txt <<'EOF'\nDataset shape: 400 rows x 11 columns\nMissing values: none\nZero-balance observations: 90 out of 400\nIncome vs Balance: Pearson r = 0.3100, p-value = 1.0e-10\nLimit vs Balance: Pearson r = 0.7000, p-value = 1.0e-50\nRating vs Balance: Pearson r = 0.7100, p-value = 1.0e-52\nEOF\ncat > $R/feature_analysis.txt <<'EOF'\nSignificant features: Income, Limit, Student.\nLimit and Rating are collinear (multicollinearity), r = 0.96; Rating dropped.\nZero-balance cardholders: 90 observations.\nEOF\ncat > $R/model_comparison.csv <<'EOF'\nmodel_name,formula_or_features,r_squared,adj_r_squared,aic,num_significant_vars\nOLS_base,Income + Limit,0.8000,0.7990,5000.00,2\nOLS_student,Income + Limit + Student,0.9000,0.8990,4800.00,3\nOLS_poly,Income + I(Income**2) + Limit + Student,0.9500,0.9490,4700.00,4\nLogistic_active,Income + Limit,0.5000,N/A,200.00,2\nEOF\ncat > $R/best_model_summary.txt <<'EOF'\nBest model: OLS_poly\nAdjusted R-squared: 0.9490\nCoefficients: Income -7.8000 (p-value 0.001), Limit 0.2600 (p-value 0.001), Student 425.1000 (p-value 0.001)\n5-fold cross-validation RMSE: 99.50\nEOF\n{ echo \"Income,Limit,Rating,Cards,Age,Education,Gender,Student,Married,Ethnicity,Balance\"\n  for i in $(seq 1 40); do echo \"50.0,5000,350,3,45,13,Male,No,Yes,Caucasian,500.00\"; done; } > $R/predictions.csv\ncat > $R/logistic_report.txt <<'EOF'\nSignificant predictors: Income coefficient 0.0123, Limit coefficient 0.0045\nEOF\n",
+  "mutant_intent": "Does not edit, compile or run pipeline.c; writes /home/user/fixed_predictions.csv from values computed in Python (the numbers are derivable from the instruction). Violates the requirement to fix the leakage bug in pipeline.c and produce the file by running the program.",
+  "must_reject": true,
+  "notes": "Clean, well-specified bug-fix task with correct expected values; only defect is that the grader checks the output file, not the fix."
+ },
+ {
+  "key": "TMax__task_004748_961e3610",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "Instruction requires a Rust web service 'using a framework like axum or actix-web'; container.def:9-19 installs distro cargo/rustc but no crates are vendored/pre-fetched, so an offline agent cannot build any axum/actix (or even serde_json/csv) project. The Rust requirement is unsatisfiable offline without hand-writing HTTP on std::net."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "container.def:23-53 writes /tmp/setup_data.py into the image and never deletes it; it contains the plaintext 'API_TOKEN=SuperSecret123!' and 'MIN_TX_THRESHOLD=100.0' (lines 48-49) plus the full data generator, bypassing the OCR step. (Under Apptainer the host /tmp bind may hide it; in a Docker conversion it is visible.)"
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:52-61 checks one hard-coded query (dept D1 -> E1 1550, E2 900, E3 650) plus two 401 checks; nothing verifies the service is Rust, reads the CSVs, or aggregates recursively. A hard-coded Python http.server stub passes."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "The token image is drawn with PIL's default tiny font (~10-11 px) on a 400x100 canvas (container.def:46-50). Tesseract at that scale often misreads characters such as '!' / '1' / 'S', so honest OCR may yield a wrong token; the agent cannot confirm it except by guessing or upscaling."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "test_final_state.py imports 'requests' (line 3), but container.def only pip-installs pytest pandas Pillow (line 21); requests is likely absent in the image unless the harness adds it, which would error every test. fixtures/image.png (copied to /app/fixtures/image.png) is an unrelated random-rectangles image labelled 'EXPECTED' and is never referenced; %files uses a host /gpfs path."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Loopback HTTP service only; chmod -R 777 on /home/user and /app inside the image.",
+  "realism": "contrived",
+  "difficulty_guess": "hard",
+  "mutant_script": "#!/bin/bash\n# partial fix: repair validation, retry loop and date, but hard-code the counts instead of computing them\ncd /opt/monitor\nsed -i 's/\\] || \\[ \"\\$ENV_TYPE\"/] \\&\\& [ \"$ENV_TYPE\"/g' check_service.sh\nsed -i 's/\"\\$PROBE_SCRIPT\" || break/\"$PROBE_SCRIPT\" \\&\\& break/' check_service.sh\nsed -i 's/date \"+7 days\"/date -d \"+7 days\" +%F/' check_service.sh\nsed -i 's/^RECORD_COUNT=.*/RECORD_COUNT=5/' check_service.sh\nsed -i 's/^PROBE_ATTEMPTS=.*/PROBE_ATTEMPTS=3/' check_service.sh\nSLEEP_INTERVAL=0 ./check_service.sh\n",
+  "mutant_intent": "Runs a Python http.server on 127.0.0.1:8080 that returns the hard-coded D1 answer for the right bearer token and 401 otherwise; no Rust, no CSV reading, no OCR, no recursive aggregation, and wrong for any other dept_id. Violates requirements 1-3, 6 and the Rust requirement.",
+  "must_reject": true,
+  "notes": "The Rust path needs crates.io, the token is exposed in /tmp/setup_data.py, and one hard-coded query is all the grader checks, so the task rewards stubs."
+ },
+ {
+  "key": "SETA__unix_linux_se__202383",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Acceptance criterion: sudoers 'not weakened to NOPASSWD: ALL or similar blanket overrides'. test_sudoers_not_overly_permissive (test_outputs.py:103-119) only rejects lines containing both the literal 'ALL=(ALL)' or 'ALL=(ALL:ALL)' AND the literal 'NOPASSWD: ALL' (with a space). 'deployer ALL=(ALL) NOPASSWD:ALL', 'deployer ALL=(root) NOPASSWD: ALL', 'deployer ALL=(appuser) NOPASSWD: ALL' or a Cmnd_Alias/%group rule all pass. Also the pre-existing 'deployer ALL=(root) NOPASSWD: /usr/bin/su' (sudoers_deploy:4) is already root-equivalent, so the criterion is largely moot."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": false,
+    "evidence": "Criterion 'files created by the script are owned by appuser', yet the script writes /opt/myapp/var/last_maintenance.log itself as deployer (maintain.sh:12, solve.sh:15), so the reference leaves that file owned by deployer; tests only check stamp ownership (lines 45-95). Minor wording inconsistency."
+   }
+  ],
+  "safety": "concern",
+  "safety_note": "Task is about sudoers; a natural or lazy solution may grant deployer blanket root (the grader does not reliably catch it). Confined to the container, no host escape.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "# Working script, but grant deployer blanket root (no space in NOPASSWD:ALL evades the grader's string check)\ncat > /etc/sudoers.d/deploy <<'E'\nDefaults:deployer env_reset\nDefaults:deployer secure_path=\"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"\n\ndeployer ALL=(ALL) NOPASSWD:ALL\nE\nchmod 0440 /etc/sudoers.d/deploy\ncat > /opt/deploy/maintain.sh <<'E'\n#!/bin/bash\nsource /opt/deploy/env.conf\nLOGFILE=\"$APP_HOME/var/last_maintenance.log\"\necho \"Starting maintenance run at $(date)\" > \"$LOGFILE\"\nE=0\nrun() { name=$1; shift; if sudo -u appuser \"$@\"; then echo \"$name: OK\" >> \"$LOGFILE\"; else echo \"$name: FAIL\" >> \"$LOGFILE\"; E=1; fi; }\nrun healthcheck /opt/myapp/bin/healthcheck --app-home \"$APP_HOME\"\nrun validate-config /opt/myapp/bin/validate-config --config \"$APP_CONFIG\" --env \"$APP_ENV\"\nrun rotate-logs /opt/myapp/bin/rotate-logs --app-home \"$APP_HOME\"\nrun clear-cache /opt/myapp/bin/clear-cache --app-home \"$APP_HOME\" --db-host \"$DB_HOST\"\nexit $E\nE\nchmod 755 /opt/deploy/maintain.sh\n",
+  "mutant_intent": "Rewrites maintain.sh correctly (sudo -u appuser with full paths) but replaces the deployer sudoers rule with 'deployer ALL=(ALL) NOPASSWD:ALL' (no space, so it evades the grader's literal-string check). Violates the explicit 'sudoers rules are not weakened to NOPASSWD: ALL or similar blanket overrides' criterion.",
+  "must_reject": true,
+  "notes": "Realistic sudo/su-login-environment bug with a good functional grader (ownership, values, idempotency), but the security constraint check is a brittle string match."
+ }
+]

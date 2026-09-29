@@ -1,0 +1,109 @@
+{
+ "key": "SETA__ask_ubuntu__1276__b1",
+ "ds": "SETA",
+ "task": "ask_ubuntu__1276__b1",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 2161,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 411s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_makefile_runs_successfully": "FAILED",
+   "../tests/test_outputs.py::test_workers_receive_database_url": "FAILED",
+   "../tests/test_outputs.py::test_workers_receive_api_endpoint": "FAILED",
+   "../tests/test_outputs.py::test_workers_receive_log_level": "FAILED",
+   "../tests/test_outputs.py::test_workers_receive_worker_count": "FAILED",
+   "../tests/test_outputs.py::test_internal_counter_not_exported": "FAILED",
+   "../tests/test_outputs.py::test_temp_processing_path_not_exported": "FAILED",
+   "../tests/test_outputs.py::test_admin_secret_key_not_exported": "FAILED",
+   "../tests/test_outputs.py::test_nested_subprocess_inherits_env": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 9,
+  "seconds": 0.8,
+  "log_tail": "/ f\"{worker}.log\"\n>           assert log_file.exists(), f\"{worker}.log does not exist\"\nE           AssertionError: sub_worker.log does not exist\nE           assert False\nE            +  where False = exists()\nE            +    where exists = PosixPath('/app/logs/sub_worker.log').exists\n\n/tests/test_outputs.py:165: AssertionError\n_____________________ test_nested_subprocess_inherits_env ______________________\n\n    def test_nested_subprocess_inherits_env():\n        \"\"\"\n        Test 9: The sub_worker.log specifically has all 4 config vars set\n        AND all 3 secret vars as UNSET.\n        \"\"\"\n        run_makefile()\n    \n        log_file = Path(\"/app/logs/sub_worker.log\")\n>       assert log_file.exists(), \"sub_worker.log does not exist\"\nE       AssertionError: sub_worker.log does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/logs/sub_worker.log').exists\n\n/tests/test_outputs.py:180: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_makefile_runs_successfully - AssertionE...\nFAILED ../tests/test_outputs.py::test_workers_receive_database_url - Assertio...\nFAILED ../tests/test_outputs.py::test_workers_receive_api_endpoint - Assertio...\nFAILED ../tests/test_outputs.py::test_workers_receive_log_level - AssertionEr...\nFAILED ../tests/test_outputs.py::test_workers_receive_worker_count - Assertio...\nFAILED ../tests/test_outputs.py::test_internal_counter_not_exported - Asserti...\nFAILED ../tests/test_outputs.py::test_temp_processing_path_not_exported - Ass...\nFAILED ../tests/test_outputs.py::test_admin_secret_key_not_exported - Asserti...\nFAILED ../tests/test_outputs.py::test_nested_subprocess_inherits_env - Assert...\n9 failed in 0.32s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Starting orchestrator...\nLaunching 3 workers...\nOrchestrator completed successfully\nDone!\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_makefile_runs_successfully": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_database_url": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_api_endpoint": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_log_level": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_worker_count": "PASSED",
+     "../tests/test_outputs.py::test_internal_counter_not_exported": "PASSED",
+     "../tests/test_outputs.py::test_temp_processing_path_not_exported": "PASSED",
+     "../tests/test_outputs.py::test_admin_secret_key_not_exported": "PASSED",
+     "../tests/test_outputs.py::test_nested_subprocess_inherits_env": "PASSED"
+    },
+    "n_pass": 9,
+    "n_fail": 0,
+    "seconds": 0.8,
+    "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_makefile_runs_successfully\nPASSED ../tests/test_outputs.py::test_workers_receive_database_url\nPASSED ../tests/test_outputs.py::test_workers_receive_api_endpoint\nPASSED ../tests/test_outputs.py::test_workers_receive_log_level\nPASSED ../tests/test_outputs.py::test_workers_receive_worker_count\nPASSED ../tests/test_outputs.py::test_internal_counter_not_exported\nPASSED ../tests/test_outputs.py::test_temp_processing_path_not_exported\nPASSED ../tests/test_outputs.py::test_admin_secret_key_not_exported\nPASSED ../tests/test_outputs.py::test_nested_subprocess_inherits_env\n9 passed in 0.31s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Starting orchestrator...\nLaunching 3 workers...\nOrchestrator completed successfully\nDone!\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_makefile_runs_successfully": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_database_url": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_api_endpoint": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_log_level": "PASSED",
+     "../tests/test_outputs.py::test_workers_receive_worker_count": "PASSED",
+     "../tests/test_outputs.py::test_internal_counter_not_exported": "PASSED",
+     "../tests/test_outputs.py::test_temp_processing_path_not_exported": "PASSED",
+     "../tests/test_outputs.py::test_admin_secret_key_not_exported": "PASSED",
+     "../tests/test_outputs.py::test_nested_subprocess_inherits_env": "PASSED"
+    },
+    "n_pass": 9,
+    "n_fail": 0,
+    "seconds": 0.8,
+    "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_makefile_runs_successfully\nPASSED ../tests/test_outputs.py::test_workers_receive_database_url\nPASSED ../tests/test_outputs.py::test_workers_receive_api_endpoint\nPASSED ../tests/test_outputs.py::test_workers_receive_log_level\nPASSED ../tests/test_outputs.py::test_workers_receive_worker_count\nPASSED ../tests/test_outputs.py::test_internal_counter_not_exported\nPASSED ../tests/test_outputs.py::test_temp_processing_path_not_exported\nPASSED ../tests/test_outputs.py::test_admin_secret_key_not_exported\nPASSED ../tests/test_outputs.py::test_nested_subprocess_inherits_env\n9 passed in 0.29s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "bash: line 3: cd: /opt/csvreporter: No such file or directory\ntail: cannot open 'data/employees.csv' for reading: No such file or directory\ntail: cannot open 'data/employees.csv' for reading: No such file or directory\n",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py::test_makefile_runs_successfully": "FAILED",
+    "../tests/test_outputs.py::test_workers_receive_database_url": "FAILED",
+    "../tests/test_outputs.py::test_workers_receive_api_endpoint": "FAILED",
+    "../tests/test_outputs.py::test_workers_receive_log_level": "FAILED",
+    "../tests/test_outputs.py::test_workers_receive_worker_count": "FAILED",
+    "../tests/test_outputs.py::test_internal_counter_not_exported": "FAILED",
+    "../tests/test_outputs.py::test_temp_processing_path_not_exported": "FAILED",
+    "../tests/test_outputs.py::test_admin_secret_key_not_exported": "FAILED",
+    "../tests/test_outputs.py::test_nested_subprocess_inherits_env": "FAILED"
+   },
+   "n_pass": 0,
+   "n_fail": 9,
+   "seconds": 0.8,
+   "log_tail": "/ f\"{worker}.log\"\n>           assert log_file.exists(), f\"{worker}.log does not exist\"\nE           AssertionError: sub_worker.log does not exist\nE           assert False\nE            +  where False = exists()\nE            +    where exists = PosixPath('/app/logs/sub_worker.log').exists\n\n/tests/test_outputs.py:165: AssertionError\n_____________________ test_nested_subprocess_inherits_env ______________________\n\n    def test_nested_subprocess_inherits_env():\n        \"\"\"\n        Test 9: The sub_worker.log specifically has all 4 config vars set\n        AND all 3 secret vars as UNSET.\n        \"\"\"\n        run_makefile()\n    \n        log_file = Path(\"/app/logs/sub_worker.log\")\n>       assert log_file.exists(), \"sub_worker.log does not exist\"\nE       AssertionError: sub_worker.log does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/app/logs/sub_worker.log').exists\n\n/tests/test_outputs.py:180: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_makefile_runs_successfully - AssertionE...\nFAILED ../tests/test_outputs.py::test_workers_receive_database_url - Assertio...\nFAILED ../tests/test_outputs.py::test_workers_receive_api_endpoint - Assertio...\nFAILED ../tests/test_outputs.py::test_workers_receive_log_level - AssertionEr...\nFAILED ../tests/test_outputs.py::test_workers_receive_worker_count - Assertio...\nFAILED ../tests/test_outputs.py::test_internal_counter_not_exported - Asserti...\nFAILED ../tests/test_outputs.py::test_temp_processing_path_not_exported - Ass...\nFAILED ../tests/test_outputs.py::test_admin_secret_key_not_exported - Asserti...\nFAILED ../tests/test_outputs.py::test_nested_subprocess_inherits_env - Assert...\n9 failed in 0.33s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 438.1
+}

@@ -1,0 +1,113 @@
+{
+ "key": "TMax__task_007751_66925dbb",
+ "ds": "TMax",
+ "task": "task_007751_66925dbb",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2834,
+ "gemini": {
+  "runs": 8,
+  "success": 8
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 414s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_platform_pub_pem_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_private_key_and_generator_removed": "PASSED",
+   "../../tests/test_initial_state.py::test_project_directories_exist[project_alpha]": "PASSED",
+   "../../tests/test_initial_state.py::test_project_directories_exist[project_beta]": "PASSED",
+   "../../tests/test_initial_state.py::test_project_directories_exist[project_gamma]": "PASSED",
+   "../../tests/test_initial_state.py::test_project_files_exist[project_alpha]": "PASSED",
+   "../../tests/test_initial_state.py::test_project_files_exist[project_beta]": "PASSED",
+   "../../tests/test_initial_state.py::test_project_files_exist[project_gamma]": "PASSED",
+   "../../tests/test_initial_state.py::test_project_alpha_source_code": "PASSED",
+   "../../tests/test_initial_state.py::test_project_beta_source_code": "PASSED",
+   "../../tests/test_initial_state.py::test_project_gamma_source_code": "PASSED"
+  },
+  "n_pass": 11,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "...........                                                              [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_platform_pub_pem_exists\nPASSED ../../tests/test_initial_state.py::test_private_key_and_generator_removed\nPASSED ../../tests/test_initial_state.py::test_project_directories_exist[project_alpha]\nPASSED ../../tests/test_initial_state.py::test_project_directories_exist[project_beta]\nPASSED ../../tests/test_initial_state.py::test_project_directories_exist[project_gamma]\nPASSED ../../tests/test_initial_state.py::test_project_files_exist[project_alpha]\nPASSED ../../tests/test_initial_state.py::test_project_files_exist[project_beta]\nPASSED ../../tests/test_initial_state.py::test_project_files_exist[project_gamma]\nPASSED ../../tests/test_initial_state.py::test_project_alpha_source_code\nPASSED ../../tests/test_initial_state.py::test_project_beta_source_code\nPASSED ../../tests/test_initial_state.py::test_project_gamma_source_code\n11 passed in 0.02s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_results_file_exists": "FAILED",
+   "../../tests/test_final_state.py::test_project_alpha_results": "FAILED",
+   "../../tests/test_final_state.py::test_project_beta_results": "FAILED",
+   "../../tests/test_final_state.py::test_project_gamma_results": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 4,
+  "seconds": 0.4,
+  "log_tail": "___\n\n    def test_project_alpha_results():\n>       results = get_results()\n\n/tests/test_final_state.py:19: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def get_results():\n>       with open(RESULTS_FILE, \"r\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/enforcement_results.json'\n\n/tests/test_final_state.py:12: FileNotFoundError\n__________________________ test_project_beta_results ___________________________\n\n    def test_project_beta_results():\n>       results = get_results()\n\n/tests/test_final_state.py:30: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def get_results():\n>       with open(RESULTS_FILE, \"r\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/enforcement_results.json'\n\n/tests/test_final_state.py:12: FileNotFoundError\n__________________________ test_project_gamma_results __________________________\n\n    def test_project_gamma_results():\n>       results = get_results()\n\n/tests/test_final_state.py:42: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\n    def get_results():\n>       with open(RESULTS_FILE, \"r\") as f:\nE       FileNotFoundError: [Errno 2] No such file or directory: '/home/user/enforcement_results.json'\n\n/tests/test_final_state.py:12: FileNotFoundError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_results_file_exists - AssertionE...\nFAILED ../../tests/test_final_state.py::test_project_alpha_results - FileNotF...\nFAILED ../../tests/test_final_state.py::test_project_beta_results - FileNotFo...\nFAILED ../../tests/test_final_state.py::test_project_gamma_results - FileNotF...\n4 failed in 0.04s\n"
+ },
+ "ref": [
+  {
+   "how": "replay of 6 commands",
+   "rc": 0,
+   "run_tail": "l5Qu672BwrehNT1NZEdoh/aMkP+Vm+DFxoTPHFrQXX1COtXDnRT923DIISG/pTNO\n5PHBmYMhsE9zvhZee2G9l7ZP7HQiQ7WaMQz52dIe9zZ5fGvaEMASWxkqYoL2+feG\nrnCdvXSccvkbKt+z1+TrjTGtT+fl2ySmS7fwL2N8O51/68lhPUQQJnR/Z+99EH8x\nT/13O4qBcDY3bkpsbsZYB92+dWKoADCBrGBbd2Yo1ebcQ2RQn3z0Dvw9Ofd774XH\nbwIDAQAB\n-----END PUBLIC KEY-----\nRequirement already satisfied: PyJWT in /usr/local/lib/python3.10/dist-packages (2.15.1)\nRequirement already satisfied: cryptography in /usr/local/lib/python3.10/dist-packages (50.0.1)\nRequirement already satisfied: typing_extensions>=4.0 in /usr/local/lib/python3.10/dist-packages (from PyJWT) (4.16.0)\nRequirement already satisfied: cffi>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from cryptography) (2.1.1)\nRequirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi>=2.0.0->cryptography) (3.0)\n{\n  \"project_alpha\": {\n    \"status\": \"pass\",\n    \"reasons\": []\n  },\n  \"project_beta\": {\n    \"status\": \"fail\",\n    \"reasons\": [\"hardcoded_secrets_found\",\"invalid_token\"]\n  },\n  \"project_gamma\": {\n    \"status\": \"fail\",\n    \"reasons\": [\"privilege_escalation_risk\"]\n  }\n}\nconst API_KEY = \"MOCK_SEC_aB3dE5fG7hI9jK1l\"; // Hardcoded secret\nconsole.log(\"Starting API\");\n#!/bin/bash\nchmod 777 /var/www/html/uploads\nsudo su -c \"systemctl restart nginx\"\nWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_final_state.py::test_results_file_exists": "PASSED",
+     "../../tests/test_final_state.py::test_project_alpha_results": "PASSED",
+     "../../tests/test_final_state.py::test_project_beta_results": "PASSED",
+     "../../tests/test_final_state.py::test_project_gamma_results": "PASSED"
+    },
+    "n_pass": 4,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_results_file_exists\nPASSED ../../tests/test_final_state.py::test_project_alpha_results\nPASSED ../../tests/test_final_state.py::test_project_beta_results\nPASSED ../../tests/test_final_state.py::test_project_gamma_results\n4 passed in 0.02s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "replay of 6 commands",
+   "rc": 0,
+   "run_tail": "l5Qu672BwrehNT1NZEdoh/aMkP+Vm+DFxoTPHFrQXX1COtXDnRT923DIISG/pTNO\n5PHBmYMhsE9zvhZee2G9l7ZP7HQiQ7WaMQz52dIe9zZ5fGvaEMASWxkqYoL2+feG\nrnCdvXSccvkbKt+z1+TrjTGtT+fl2ySmS7fwL2N8O51/68lhPUQQJnR/Z+99EH8x\nT/13O4qBcDY3bkpsbsZYB92+dWKoADCBrGBbd2Yo1ebcQ2RQn3z0Dvw9Ofd774XH\nbwIDAQAB\n-----END PUBLIC KEY-----\nRequirement already satisfied: PyJWT in /usr/local/lib/python3.10/dist-packages (2.15.1)\nRequirement already satisfied: cryptography in /usr/local/lib/python3.10/dist-packages (50.0.1)\nRequirement already satisfied: typing_extensions>=4.0 in /usr/local/lib/python3.10/dist-packages (from PyJWT) (4.16.0)\nRequirement already satisfied: cffi>=2.0.0 in /usr/local/lib/python3.10/dist-packages (from cryptography) (2.1.1)\nRequirement already satisfied: pycparser in /usr/local/lib/python3.10/dist-packages (from cffi>=2.0.0->cryptography) (3.0)\n{\n  \"project_alpha\": {\n    \"status\": \"pass\",\n    \"reasons\": []\n  },\n  \"project_beta\": {\n    \"status\": \"fail\",\n    \"reasons\": [\"hardcoded_secrets_found\",\"invalid_token\"]\n  },\n  \"project_gamma\": {\n    \"status\": \"fail\",\n    \"reasons\": [\"privilege_escalation_risk\"]\n  }\n}\nconst API_KEY = \"MOCK_SEC_aB3dE5fG7hI9jK1l\"; // Hardcoded secret\nconsole.log(\"Starting API\");\n#!/bin/bash\nchmod 777 /var/www/html/uploads\nsudo su -c \"systemctl restart nginx\"\nWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_final_state.py::test_results_file_exists": "PASSED",
+     "../../tests/test_final_state.py::test_project_alpha_results": "PASSED",
+     "../../tests/test_final_state.py::test_project_beta_results": "PASSED",
+     "../../tests/test_final_state.py::test_project_gamma_results": "PASSED"
+    },
+    "n_pass": 4,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_results_file_exists\nPASSED ../../tests/test_final_state.py::test_project_alpha_results\nPASSED ../../tests/test_final_state.py::test_project_beta_results\nPASSED ../../tests/test_final_state.py::test_project_gamma_results\n4 passed in 0.02s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_results_file_exists": "PASSED",
+    "../../tests/test_final_state.py::test_project_alpha_results": "PASSED",
+    "../../tests/test_final_state.py::test_project_beta_results": "PASSED",
+    "../../tests/test_final_state.py::test_project_gamma_results": "PASSED"
+   },
+   "n_pass": 4,
+   "n_fail": 0,
+   "seconds": 0.4,
+   "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_results_file_exists\nPASSED ../../tests/test_final_state.py::test_project_alpha_results\nPASSED ../../tests/test_final_state.py::test_project_beta_results\nPASSED ../../tests/test_final_state.py::test_project_gamma_results\n4 passed in 0.02s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 441.9
+}

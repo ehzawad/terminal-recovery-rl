@@ -1,0 +1,89 @@
+{
+ "key": "SETA__ask_ubuntu__1228",
+ "ds": "SETA",
+ "task": "ask_ubuntu__1228",
+ "notes": [],
+ "workdir": "/workspace",
+ "instruction_chars": 1940,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 99s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_source_files_preserved": "PASSED",
+   "../tests/test_outputs.py::test_cleanup_report_exists_with_content": "FAILED",
+   "../tests/test_outputs.py::test_orphaned_files_deleted": "FAILED",
+   "../tests/test_outputs.py::test_cleanup_log_exists": "FAILED"
+  },
+  "n_pass": 1,
+  "n_fail": 3,
+  "seconds": 0.4,
+  "log_tail": "hon-flask-app/debug.tmp', '/workspace/projects/nodejs-express-app/.temp', '/workspace/projects/rust-cli-tool/src/main.rs~', '/workspace/projects/go-microservice/cmd/.main.go.swp', '/workspace/projects/python-flask-app/src/.app.py.swo', '/workspace/projects/python-flask-app/app.sock', '/workspace/projects/logs/old_app.log', '/workspace/projects/logs/old_error.log']\nE       assert 18 == 0\nE        +  where 18 = len(['/workspace/projects/python-flask-app/__pycache__/app.cpython-310.pyc', '/workspace/projects/python-flask-app/__pycac...ce/projects/nodejs-express-app/.npm/_cacache/tmp/cache2.tmp', '/workspace/projects/nodejs-express-app/stale.lock', ...])\n\n/tests/test_outputs.py:64: AssertionError\n___________________________ test_cleanup_log_exists ____________________________\n\n    def test_cleanup_log_exists():\n        \"\"\"Test that the cleanup log exists and contains deletion records.\"\"\"\n        log_path = Path(\"/workspace/cleanup_log.txt\")\n    \n>       assert log_path.exists(), \"Cleanup log at /workspace/cleanup_log.txt does not exist\"\nE       AssertionError: Cleanup log at /workspace/cleanup_log.txt does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/workspace/cleanup_log.txt').exists\n\n/tests/test_outputs.py:106: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_source_files_preserved\nFAILED ../tests/test_outputs.py::test_cleanup_report_exists_with_content - As...\nFAILED ../tests/test_outputs.py::test_orphaned_files_deleted - AssertionError...\nFAILED ../tests/test_outputs.py::test_cleanup_log_exists - AssertionError: Cl...\n3 failed, 1 passed in 0.03s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_cleanup_report_exists_with_content": "PASSED",
+     "../tests/test_outputs.py::test_orphaned_files_deleted": "PASSED",
+     "../tests/test_outputs.py::test_source_files_preserved": "PASSED",
+     "../tests/test_outputs.py::test_cleanup_log_exists": "PASSED"
+    },
+    "n_pass": 4,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_cleanup_report_exists_with_content\nPASSED ../tests/test_outputs.py::test_orphaned_files_deleted\nPASSED ../tests/test_outputs.py::test_source_files_preserved\nPASSED ../tests/test_outputs.py::test_cleanup_log_exists\n4 passed in 0.01s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_cleanup_report_exists_with_content": "PASSED",
+     "../tests/test_outputs.py::test_orphaned_files_deleted": "PASSED",
+     "../tests/test_outputs.py::test_source_files_preserved": "PASSED",
+     "../tests/test_outputs.py::test_cleanup_log_exists": "PASSED"
+    },
+    "n_pass": 4,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_cleanup_report_exists_with_content\nPASSED ../tests/test_outputs.py::test_orphaned_files_deleted\nPASSED ../tests/test_outputs.py::test_source_files_preserved\nPASSED ../tests/test_outputs.py::test_cleanup_log_exists\n4 passed in 0.01s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_cleanup_report_exists_with_content": "PASSED",
+    "../tests/test_outputs.py::test_orphaned_files_deleted": "PASSED",
+    "../tests/test_outputs.py::test_source_files_preserved": "PASSED",
+    "../tests/test_outputs.py::test_cleanup_log_exists": "PASSED"
+   },
+   "n_pass": 4,
+   "n_fail": 0,
+   "seconds": 0.4,
+   "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_cleanup_report_exists_with_content\nPASSED ../tests/test_outputs.py::test_orphaned_files_deleted\nPASSED ../tests/test_outputs.py::test_source_files_preserved\nPASSED ../tests/test_outputs.py::test_cleanup_log_exists\n4 passed in 0.01s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 120.4
+}

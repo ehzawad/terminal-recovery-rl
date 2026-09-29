@@ -1,0 +1,69 @@
+{
+ "key": "TMax__task_009840_d53065f3",
+ "ds": "TMax",
+ "task": "task_009840_d53065f3",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2591,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 515s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_intercepted_directory_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_payload_files_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_threat_intel_db_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_threat_intel_db_contents": "PASSED",
+   "../../tests/test_initial_state.py::test_payload_02_encryption": "PASSED"
+  },
+  "n_pass": 5,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": ".....                                                                    [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_intercepted_directory_exists\nPASSED ../../tests/test_initial_state.py::test_payload_files_exist\nPASSED ../../tests/test_initial_state.py::test_threat_intel_db_exists\nPASSED ../../tests/test_initial_state.py::test_threat_intel_db_contents\nPASSED ../../tests/test_initial_state.py::test_payload_02_encryption\n5 passed in 0.02s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_firewall_policy_log": "FAILED",
+   "../../tests/test_final_state.py::test_safe_token_file": "FAILED",
+   "../../tests/test_final_state.py::test_final_report_json": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.4,
+  "log_tail": "\n\n/tests/test_final_state.py:10: AssertionError\n_____________________________ test_safe_token_file _____________________________\n\n    def test_safe_token_file():\n        token_path = '/home/user/safe_token.txt'\n>       assert os.path.isfile(token_path), f\"Token file {token_path} is missing.\"\nE       AssertionError: Token file /home/user/safe_token.txt is missing.\nE       assert False\nE        +  where False = <function isfile at 0x7f415c4f5f30>('/home/user/safe_token.txt')\nE        +    where <function isfile at 0x7f415c4f5f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:26: AssertionError\n____________________________ test_final_report_json ____________________________\n\n    def test_final_report_json():\n        report_path = '/home/user/final_report.json'\n>       assert os.path.isfile(report_path), f\"Final report {report_path} is missing.\"\nE       AssertionError: Final report /home/user/final_report.json is missing.\nE       assert False\nE        +  where False = <function isfile at 0x7f415c4f5f30>('/home/user/final_report.json')\nE        +    where <function isfile at 0x7f415c4f5f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:41: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_firewall_policy_log - AssertionE...\nFAILED ../../tests/test_final_state.py::test_safe_token_file - AssertionError...\nFAILED ../../tests/test_final_state.py::test_final_report_json - AssertionErr...\n3 failed in 0.03s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_firewall_policy_log": "PASSED",
+    "../../tests/test_final_state.py::test_safe_token_file": "PASSED",
+    "../../tests/test_final_state.py::test_final_report_json": "PASSED"
+   },
+   "n_pass": 3,
+   "n_fail": 0,
+   "seconds": 0.6,
+   "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_firewall_policy_log\nPASSED ../../tests/test_final_state.py::test_safe_token_file\nPASSED ../../tests/test_final_state.py::test_final_report_json\n3 passed in 0.09s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 535.4
+}

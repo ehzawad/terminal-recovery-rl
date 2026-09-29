@@ -1,0 +1,32 @@
+[
+ {
+  "key": "SETA__ask_ubuntu__580",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/ask_ubuntu__580"
+ },
+ {
+  "key": "LiteCoder__crosslingual-sentiment-classifier",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/crosslingual-sentiment-classifier"
+ },
+ {
+  "key": "TMax__task_006354_0c495fc8",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_006354_0c495fc8"
+ },
+ {
+  "key": "TMax__task_005495_82f4b64b",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_005495_82f4b64b"
+ },
+ {
+  "key": "TMax__task_000172_9d5cca3a",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_000172_9d5cca3a"
+ },
+ {
+  "key": "SETA__nl2bash__086",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/nl2bash__086"
+ }
+]

@@ -1,0 +1,113 @@
+{
+ "key": "SETA__unix_linux_se__202383",
+ "ds": "SETA",
+ "task": "unix_linux_se__202383",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 1169,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 68s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_sudoers_not_overly_permissive": "PASSED",
+   "../tests/test_outputs.py::test_sudoers_syntax_valid": "PASSED",
+   "../tests/test_outputs.py::test_script_exits_successfully": "FAILED",
+   "../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines": "FAILED",
+   "../tests/test_outputs.py::test_healthcheck_artifact": "FAILED",
+   "../tests/test_outputs.py::test_config_validation_artifact": "FAILED",
+   "../tests/test_outputs.py::test_log_rotation_artifact": "FAILED",
+   "../tests/test_outputs.py::test_cache_cleanup_artifact": "FAILED",
+   "../tests/test_outputs.py::test_idempotent_rerun": "FAILED",
+   "../tests/test_outputs.py::test_env_variables_reached_tools": "FAILED"
+  },
+  "n_pass": 2,
+  "n_fail": 8,
+  "seconds": 1.5,
+  "log_tail": "dProcess(args=['sudo', '-u', 'deployer', '/opt/deploy/maintain.sh'], returncode=1, stdout='Running health chec...e to resolve host 5477fe7c3079: Temporary failure in name resolution\\n-bash: line 1: clear-cache: command not found\\n').returncode\n\n/tests/test_outputs.py:136: AssertionError\n_______________________ test_env_variables_reached_tools _______________________\n\n    def test_env_variables_reached_tools():\n        \"\"\"Stamp files must prove correct variable values were received.\"\"\"\n        run_maintenance()\n        # Check healthcheck got correct APP_HOME\n>       with open(\"/opt/myapp/var/healthcheck.stamp\", \"r\") as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/opt/myapp/var/healthcheck.stamp'\n\n/tests/test_outputs.py:152: FileNotFoundError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_sudoers_not_overly_permissive\nPASSED ../tests/test_outputs.py::test_sudoers_syntax_valid\nFAILED ../tests/test_outputs.py::test_script_exits_successfully - AssertionEr...\nFAILED ../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines - Ass...\nFAILED ../tests/test_outputs.py::test_healthcheck_artifact - AssertionError: ...\nFAILED ../tests/test_outputs.py::test_config_validation_artifact - AssertionE...\nFAILED ../tests/test_outputs.py::test_log_rotation_artifact - AssertionError:...\nFAILED ../tests/test_outputs.py::test_cache_cleanup_artifact - AssertionError...\nFAILED ../tests/test_outputs.py::test_idempotent_rerun - AssertionError: Firs...\nFAILED ../tests/test_outputs.py::test_env_variables_reached_tools - FileNotFo...\n8 failed, 2 passed in 1.08s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "/etc/sudoers.d/deploy: parsed OK\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_script_exits_successfully": "PASSED",
+     "../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines": "PASSED",
+     "../tests/test_outputs.py::test_healthcheck_artifact": "PASSED",
+     "../tests/test_outputs.py::test_config_validation_artifact": "PASSED",
+     "../tests/test_outputs.py::test_log_rotation_artifact": "PASSED",
+     "../tests/test_outputs.py::test_cache_cleanup_artifact": "PASSED",
+     "../tests/test_outputs.py::test_sudoers_not_overly_permissive": "PASSED",
+     "../tests/test_outputs.py::test_sudoers_syntax_valid": "PASSED",
+     "../tests/test_outputs.py::test_idempotent_rerun": "PASSED",
+     "../tests/test_outputs.py::test_env_variables_reached_tools": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 1.3,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_script_exits_successfully\nPASSED ../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines\nPASSED ../tests/test_outputs.py::test_healthcheck_artifact\nPASSED ../tests/test_outputs.py::test_config_validation_artifact\nPASSED ../tests/test_outputs.py::test_log_rotation_artifact\nPASSED ../tests/test_outputs.py::test_cache_cleanup_artifact\nPASSED ../tests/test_outputs.py::test_sudoers_not_overly_permissive\nPASSED ../tests/test_outputs.py::test_sudoers_syntax_valid\nPASSED ../tests/test_outputs.py::test_idempotent_rerun\nPASSED ../tests/test_outputs.py::test_env_variables_reached_tools\n10 passed in 0.85s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "/etc/sudoers.d/deploy: parsed OK\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_script_exits_successfully": "PASSED",
+     "../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines": "PASSED",
+     "../tests/test_outputs.py::test_healthcheck_artifact": "PASSED",
+     "../tests/test_outputs.py::test_config_validation_artifact": "PASSED",
+     "../tests/test_outputs.py::test_log_rotation_artifact": "PASSED",
+     "../tests/test_outputs.py::test_cache_cleanup_artifact": "PASSED",
+     "../tests/test_outputs.py::test_sudoers_not_overly_permissive": "PASSED",
+     "../tests/test_outputs.py::test_sudoers_syntax_valid": "PASSED",
+     "../tests/test_outputs.py::test_idempotent_rerun": "PASSED",
+     "../tests/test_outputs.py::test_env_variables_reached_tools": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 1.3,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_script_exits_successfully\nPASSED ../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines\nPASSED ../tests/test_outputs.py::test_healthcheck_artifact\nPASSED ../tests/test_outputs.py::test_config_validation_artifact\nPASSED ../tests/test_outputs.py::test_log_rotation_artifact\nPASSED ../tests/test_outputs.py::test_cache_cleanup_artifact\nPASSED ../tests/test_outputs.py::test_sudoers_not_overly_permissive\nPASSED ../tests/test_outputs.py::test_sudoers_syntax_valid\nPASSED ../tests/test_outputs.py::test_idempotent_rerun\nPASSED ../tests/test_outputs.py::test_env_variables_reached_tools\n10 passed in 0.87s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_script_exits_successfully": "PASSED",
+    "../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines": "PASSED",
+    "../tests/test_outputs.py::test_healthcheck_artifact": "PASSED",
+    "../tests/test_outputs.py::test_config_validation_artifact": "PASSED",
+    "../tests/test_outputs.py::test_log_rotation_artifact": "PASSED",
+    "../tests/test_outputs.py::test_cache_cleanup_artifact": "PASSED",
+    "../tests/test_outputs.py::test_sudoers_not_overly_permissive": "PASSED",
+    "../tests/test_outputs.py::test_sudoers_syntax_valid": "PASSED",
+    "../tests/test_outputs.py::test_idempotent_rerun": "PASSED",
+    "../tests/test_outputs.py::test_env_variables_reached_tools": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 1.2,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_script_exits_successfully\nPASSED ../tests/test_outputs.py::test_maintenance_log_has_four_ok_lines\nPASSED ../tests/test_outputs.py::test_healthcheck_artifact\nPASSED ../tests/test_outputs.py::test_config_validation_artifact\nPASSED ../tests/test_outputs.py::test_log_rotation_artifact\nPASSED ../tests/test_outputs.py::test_cache_cleanup_artifact\nPASSED ../tests/test_outputs.py::test_sudoers_not_overly_permissive\nPASSED ../tests/test_outputs.py::test_sudoers_syntax_valid\nPASSED ../tests/test_outputs.py::test_idempotent_rerun\nPASSED ../tests/test_outputs.py::test_env_variables_reached_tools\n10 passed in 0.81s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 85.4
+}

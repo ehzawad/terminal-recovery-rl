@@ -1,0 +1,63 @@
+{
+ "key": "TMax__task_004748_961e3610",
+ "ds": "TMax",
+ "task": "task_004748_961e3610",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2236,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 613s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_employees_csv_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_transactions_csv_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_system_config_png_exists": "PASSED"
+  },
+  "n_pass": 3,
+  "n_fail": 0,
+  "seconds": 0.5,
+  "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_employees_csv_exists\nPASSED ../../tests/test_initial_state.py::test_transactions_csv_exists\nPASSED ../../tests/test_initial_state.py::test_system_config_png_exists\n3 passed in 0.01s\n"
+ },
+ "noop": {
+  "pytest_rc": 2,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py": "ERROR"
+  },
+  "n_pass": 0,
+  "n_fail": 1,
+  "seconds": 0.5,
+  "log_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test_final_state.py _____________________\nImportError while importing test module '/tests/test_final_state.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n/tests/test_final_state.py:3: in <module>\n    import requests\nE   ModuleNotFoundError: No module named 'requests'\n=========================== short test summary info ============================\nERROR ../../tests/test_final_state.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.12s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 127,
+  "run_tail": "bash: line 3: cd: /opt/monitor: No such file or directory\nsed: can't read check_service.sh: No such file or directory\nsed: can't read check_service.sh: No such file or directory\nsed: can't read check_service.sh: No such file or directory\nsed: can't read check_service.sh: No such file or directory\nsed: can't read check_service.sh: No such file or directory\nbash: line 9: ./check_service.sh: No such file or directory\n",
+  "grade": {
+   "pytest_rc": 2,
+   "pass": false,
+   "tests": {
+    "../../tests/test_final_state.py": "ERROR"
+   },
+   "n_pass": 0,
+   "n_fail": 1,
+   "seconds": 0.5,
+   "log_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test_final_state.py _____________________\nImportError while importing test module '/tests/test_final_state.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n/tests/test_final_state.py:3: in <module>\n    import requests\nE   ModuleNotFoundError: No module named 'requests'\n=========================== short test summary info ============================\nERROR ../../tests/test_final_state.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 633.6
+}

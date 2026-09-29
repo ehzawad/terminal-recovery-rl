@@ -1,0 +1,98 @@
+{
+ "key": "TMax__task_000667_61fefcb4",
+ "ds": "TMax",
+ "task": "task_000667_61fefcb4",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2419,
+ "gemini": {
+  "runs": 8,
+  "success": 3
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 422s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_ingestion_system_directories": "PASSED",
+   "../../tests/test_initial_state.py::test_log_files_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_raw_data_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_process_script_exists_and_executable": "PASSED"
+  },
+  "n_pass": 4,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_ingestion_system_directories\nPASSED ../../tests/test_initial_state.py::test_log_files_exist\nPASSED ../../tests/test_initial_state.py::test_raw_data_exists\nPASSED ../../tests/test_initial_state.py::test_process_script_exists_and_executable\n4 passed in 0.01s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_crash_timeline_csv": "FAILED",
+   "../../tests/test_final_state.py::test_regression_test_script": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 2,
+  "seconds": 0.4,
+  "log_tail": "                                                        [100%]\n=================================== FAILURES ===================================\n___________________________ test_crash_timeline_csv ____________________________\n\n    def test_crash_timeline_csv():\n        csv_path = \"/home/user/crash_timeline.csv\"\n>       assert os.path.isfile(csv_path), f\"{csv_path} does not exist.\"\nE       AssertionError: /home/user/crash_timeline.csv does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x7f8010475f30>('/home/user/crash_timeline.csv')\nE        +    where <function isfile at 0x7f8010475f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:70: AssertionError\n_________________________ test_regression_test_script __________________________\n\n    def test_regression_test_script():\n        script_path = \"/home/user/regression_test.sh\"\n>       assert os.path.isfile(script_path), f\"{script_path} does not exist.\"\nE       AssertionError: /home/user/regression_test.sh does not exist.\nE       assert False\nE        +  where False = <function isfile at 0x7f8010475f30>('/home/user/regression_test.sh')\nE        +    where <function isfile at 0x7f8010475f30> = <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'>.isfile\nE        +      where <module 'posixpath' from '/usr/lib/python3.10/posixpath.py'> = os.path\n\n/tests/test_final_state.py:94: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_crash_timeline_csv - AssertionEr...\nFAILED ../../tests/test_final_state.py::test_regression_test_script - Asserti...\n2 failed in 0.04s\n"
+ },
+ "ref": [
+  {
+   "how": "replay of 9 commands",
+   "rc": 0,
+   "run_tail": "ed on negative metric. Traceback: main.rs:42\n--\n[2023-10-01 10:30:32] INFO: Starting processing for req-10122\n[2023-10-01 10:30:32] ERROR: Panic: unwrap() failed on negative metric. Traceback: main.rs:42\n--\n[2023-10-01 11:16:17] INFO: Starting processing for req-10305\n[2023-10-01 11:16:17] ERROR: Panic: unwrap() failed on negative metric. Traceback: main.rs:42\n--\n[2023-10-01 11:42:32] INFO: Starting processing for req-10410\n[2023-10-01 11:42:32] ERROR: Panic: unwrap() failed on negative metric. Traceback: main.rs:42\n[2023-10-01 10:11:15] INFO: Received incoming API request req-10045 from 192.168.1.189\n[2023-10-01 10:30:30] INFO: Received incoming API request req-10122 from 192.168.1.10\n[2023-10-01 11:16:15] INFO: Received incoming API request req-10305 from 192.168.1.106\n[2023-10-01 11:42:30] INFO: Received incoming API request req-10410 from 192.168.1.182\n{\"req_id\": \"req-10045\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -50, \"cpu\": 62}}\n{\"req_id\": \"req-10122\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -14, \"cpu\": 56}}\n{\"req_id\": \"req-10305\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -12, \"cpu\": 50}}\n{\"req_id\": \"req-10410\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -37, \"cpu\": 41}}\nTest Failed: No Crash\ntimestamp,req_id,client_version,duration\n2023-10-01 10:11:15,req-10045,1.0.4-beta,-22\n2023-10-01 10:30:30,req-10122,1.0.4-beta,-29\n2023-10-01 11:16:15,req-10305,1.0.4-beta,-28\n2023-10-01 11:42:30,req-10410,1.0.4-beta,-47\n",
+   "grade": {
+    "pytest_rc": 1,
+    "pass": false,
+    "tests": {
+     "../../tests/test_final_state.py::test_crash_timeline_csv": "FAILED",
+     "../../tests/test_final_state.py::test_regression_test_script": "FAILED"
+    },
+    "n_pass": 0,
+    "n_fail": 2,
+    "seconds": 0.4,
+    "log_tail": "], f\"Row {i+1} client_version mismatch: expected {expected['client_version']}, got {actual['client_version']}\"\n            assert int(actual[\"duration\"]) < 0, f\"Row {i+1} duration must be negative, got {actual['duration']}\"\n>           assert actual[\"duration\"] == expected[\"duration\"], f\"Row {i+1} duration mismatch: expected {expected['duration']}, got {actual['duration']}\"\nE           AssertionError: Row 1 duration mismatch: expected -50, got -22\nE           assert '-22' == '-50'\nE             \nE             - -50\nE             + -22\n\n/tests/test_final_state.py:90: AssertionError\n_________________________ test_regression_test_script __________________________\n\n    def test_regression_test_script():\n        script_path = \"/home/user/regression_test.sh\"\n        assert os.path.isfile(script_path), f\"{script_path} does not exist.\"\n        assert os.access(script_path, os.X_OK), f\"{script_path} is not executable.\"\n    \n        # Run the regression test\n        result = subprocess.run([script_path], capture_output=True, text=True)\n    \n>       assert result.returncode == 0, f\"Regression test script failed with exit code {result.returncode}. Output: {result.stdout}\\n{result.stderr}\"\nE       AssertionError: Regression test script failed with exit code 1. Output: Test Failed: No Crash\nE         \nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/user/regression_test.sh'], returncode=1, stdout='Test Failed: No Crash\\n', stderr='').returncode\n\n/tests/test_final_state.py:100: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_crash_timeline_csv - AssertionEr...\nFAILED ../../tests/test_final_state.py::test_regression_test_script - Asserti...\n2 failed in 0.05s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "replay of 9 commands",
+   "rc": 0,
+   "run_tail": "ed on negative metric. Traceback: main.rs:42\n--\n[2023-10-01 10:30:32] INFO: Starting processing for req-10122\n[2023-10-01 10:30:32] ERROR: Panic: unwrap() failed on negative metric. Traceback: main.rs:42\n--\n[2023-10-01 11:16:17] INFO: Starting processing for req-10305\n[2023-10-01 11:16:17] ERROR: Panic: unwrap() failed on negative metric. Traceback: main.rs:42\n--\n[2023-10-01 11:42:32] INFO: Starting processing for req-10410\n[2023-10-01 11:42:32] ERROR: Panic: unwrap() failed on negative metric. Traceback: main.rs:42\n[2023-10-01 10:11:15] INFO: Received incoming API request req-10045 from 192.168.1.189\n[2023-10-01 10:30:30] INFO: Received incoming API request req-10122 from 192.168.1.10\n[2023-10-01 11:16:15] INFO: Received incoming API request req-10305 from 192.168.1.106\n[2023-10-01 11:42:30] INFO: Received incoming API request req-10410 from 192.168.1.182\n{\"req_id\": \"req-10045\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -50, \"cpu\": 62}}\n{\"req_id\": \"req-10122\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -14, \"cpu\": 56}}\n{\"req_id\": \"req-10305\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -12, \"cpu\": 50}}\n{\"req_id\": \"req-10410\", \"client_version\": \"1.0.4-beta\", \"metrics\": {\"duration\": -37, \"cpu\": 41}}\nTest Failed: No Crash\ntimestamp,req_id,client_version,duration\n2023-10-01 10:11:15,req-10045,1.0.4-beta,-22\n2023-10-01 10:30:30,req-10122,1.0.4-beta,-29\n2023-10-01 11:16:15,req-10305,1.0.4-beta,-28\n2023-10-01 11:42:30,req-10410,1.0.4-beta,-47\n",
+   "grade": {
+    "pytest_rc": 1,
+    "pass": false,
+    "tests": {
+     "../../tests/test_final_state.py::test_crash_timeline_csv": "FAILED",
+     "../../tests/test_final_state.py::test_regression_test_script": "FAILED"
+    },
+    "n_pass": 0,
+    "n_fail": 2,
+    "seconds": 0.4,
+    "log_tail": "], f\"Row {i+1} client_version mismatch: expected {expected['client_version']}, got {actual['client_version']}\"\n            assert int(actual[\"duration\"]) < 0, f\"Row {i+1} duration must be negative, got {actual['duration']}\"\n>           assert actual[\"duration\"] == expected[\"duration\"], f\"Row {i+1} duration mismatch: expected {expected['duration']}, got {actual['duration']}\"\nE           AssertionError: Row 1 duration mismatch: expected -50, got -22\nE           assert '-22' == '-50'\nE             \nE             - -50\nE             + -22\n\n/tests/test_final_state.py:90: AssertionError\n_________________________ test_regression_test_script __________________________\n\n    def test_regression_test_script():\n        script_path = \"/home/user/regression_test.sh\"\n        assert os.path.isfile(script_path), f\"{script_path} does not exist.\"\n        assert os.access(script_path, os.X_OK), f\"{script_path} is not executable.\"\n    \n        # Run the regression test\n        result = subprocess.run([script_path], capture_output=True, text=True)\n    \n>       assert result.returncode == 0, f\"Regression test script failed with exit code {result.returncode}. Output: {result.stdout}\\n{result.stderr}\"\nE       AssertionError: Regression test script failed with exit code 1. Output: Test Failed: No Crash\nE         \nE         \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['/home/user/regression_test.sh'], returncode=1, stdout='Test Failed: No Crash\\n', stderr='').returncode\n\n/tests/test_final_state.py:100: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_crash_timeline_csv - AssertionEr...\nFAILED ../../tests/test_final_state.py::test_regression_test_script - Asserti...\n2 failed in 0.05s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_crash_timeline_csv": "PASSED",
+    "../../tests/test_final_state.py::test_regression_test_script": "PASSED"
+   },
+   "n_pass": 2,
+   "n_fail": 0,
+   "seconds": 0.4,
+   "log_tail": "..                                                                       [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_crash_timeline_csv\nPASSED ../../tests/test_final_state.py::test_regression_test_script\n2 passed in 0.02s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 445.8
+}

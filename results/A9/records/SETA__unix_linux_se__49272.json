@@ -1,0 +1,113 @@
+{
+ "key": "SETA__unix_linux_se__49272",
+ "ds": "SETA",
+ "task": "unix_linux_se__49272",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 2444,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 142s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_mousepoll_sane_value": "FAILED",
+   "../tests/test_outputs.py::test_modprobe_config_reflects_fix": "FAILED",
+   "../tests/test_outputs.py::test_recovery_script_reloads_both_modules": "FAILED",
+   "../tests/test_outputs.py::test_recovery_script_unloads_before_reloads": "FAILED",
+   "../tests/test_outputs.py::test_recovery_script_exits_successfully": "FAILED",
+   "../tests/test_outputs.py::test_service_execstart_path": "FAILED",
+   "../tests/test_outputs.py::test_service_is_enabled": "FAILED",
+   "../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem": "FAILED",
+   "../tests/test_outputs.py::test_udev_rule_syntax_valid": "FAILED",
+   "../tests/test_outputs.py::test_end_to_end_module_cycle": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 10,
+  "seconds": 4.6,
+  "log_tail": " required operations in the global call list\n        unload_usbhid = next(\n            (i for i, c in enumerate(calls) if \"-r\" in c and \"usbhid\" in c), None\n        )\n        unload_psmouse = next(\n            (i for i, c in enumerate(calls) if \"-r\" in c and \"psmouse\" in c), None\n        )\n        reload_usbhid = next(\n            (i for i, c in enumerate(calls) if \"-r\" not in c and \"usbhid\" in c), None\n        )\n        reload_psmouse = next(\n            (i for i, c in enumerate(calls) if \"-r\" not in c and \"psmouse\" in c), None\n        )\n    \n        assert unload_usbhid is not None, f\"modprobe -r usbhid not found; calls: {calls}\"\n>       assert unload_psmouse is not None, f\"modprobe -r psmouse not found; calls: {calls}\"\nE       AssertionError: modprobe -r psmouse not found; calls: ['-r usbhid', 'usbhid']\nE       assert None is not None\n\n/tests/test_outputs.py:399: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_mousepoll_sane_value - AssertionError: ...\nFAILED ../tests/test_outputs.py::test_modprobe_config_reflects_fix - Assertio...\nFAILED ../tests/test_outputs.py::test_recovery_script_reloads_both_modules - ...\nFAILED ../tests/test_outputs.py::test_recovery_script_unloads_before_reloads\nFAILED ../tests/test_outputs.py::test_recovery_script_exits_successfully - As...\nFAILED ../tests/test_outputs.py::test_service_execstart_path - AssertionError...\nFAILED ../tests/test_outputs.py::test_service_is_enabled - AssertionError: Se...\nFAILED ../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem - Asser...\nFAILED ../tests/test_outputs.py::test_udev_rule_syntax_valid - AssertionError...\nFAILED ../tests/test_outputs.py::test_end_to_end_module_cycle - AssertionErro...\n10 failed in 4.21s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "System has not been booted with systemd as init system (PID 1). Can't operate.\nFailed to connect to bus: Host is down\nCreated symlink /etc/systemd/system/multi-user.target.wants/usb-hid-recover.service \u2192 /etc/systemd/system/usb-hid-recover.service.\nFailed to send reload request: No such file or directory\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_mousepoll_sane_value": "PASSED",
+     "../tests/test_outputs.py::test_modprobe_config_reflects_fix": "PASSED",
+     "../tests/test_outputs.py::test_recovery_script_reloads_both_modules": "PASSED",
+     "../tests/test_outputs.py::test_recovery_script_unloads_before_reloads": "PASSED",
+     "../tests/test_outputs.py::test_recovery_script_exits_successfully": "PASSED",
+     "../tests/test_outputs.py::test_service_execstart_path": "PASSED",
+     "../tests/test_outputs.py::test_service_is_enabled": "PASSED",
+     "../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem": "PASSED",
+     "../tests/test_outputs.py::test_udev_rule_syntax_valid": "PASSED",
+     "../tests/test_outputs.py::test_end_to_end_module_cycle": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 4.6,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_mousepoll_sane_value\nPASSED ../tests/test_outputs.py::test_modprobe_config_reflects_fix\nPASSED ../tests/test_outputs.py::test_recovery_script_reloads_both_modules\nPASSED ../tests/test_outputs.py::test_recovery_script_unloads_before_reloads\nPASSED ../tests/test_outputs.py::test_recovery_script_exits_successfully\nPASSED ../tests/test_outputs.py::test_service_execstart_path\nPASSED ../tests/test_outputs.py::test_service_is_enabled\nPASSED ../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem\nPASSED ../tests/test_outputs.py::test_udev_rule_syntax_valid\nPASSED ../tests/test_outputs.py::test_end_to_end_module_cycle\n10 passed in 4.14s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "System has not been booted with systemd as init system (PID 1). Can't operate.\nFailed to connect to bus: Host is down\nCreated symlink /etc/systemd/system/multi-user.target.wants/usb-hid-recover.service \u2192 /etc/systemd/system/usb-hid-recover.service.\nFailed to send reload request: No such file or directory\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_mousepoll_sane_value": "PASSED",
+     "../tests/test_outputs.py::test_modprobe_config_reflects_fix": "PASSED",
+     "../tests/test_outputs.py::test_recovery_script_reloads_both_modules": "PASSED",
+     "../tests/test_outputs.py::test_recovery_script_unloads_before_reloads": "PASSED",
+     "../tests/test_outputs.py::test_recovery_script_exits_successfully": "PASSED",
+     "../tests/test_outputs.py::test_service_execstart_path": "PASSED",
+     "../tests/test_outputs.py::test_service_is_enabled": "PASSED",
+     "../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem": "PASSED",
+     "../tests/test_outputs.py::test_udev_rule_syntax_valid": "PASSED",
+     "../tests/test_outputs.py::test_end_to_end_module_cycle": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 4.6,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_mousepoll_sane_value\nPASSED ../tests/test_outputs.py::test_modprobe_config_reflects_fix\nPASSED ../tests/test_outputs.py::test_recovery_script_reloads_both_modules\nPASSED ../tests/test_outputs.py::test_recovery_script_unloads_before_reloads\nPASSED ../tests/test_outputs.py::test_recovery_script_exits_successfully\nPASSED ../tests/test_outputs.py::test_service_execstart_path\nPASSED ../tests/test_outputs.py::test_service_is_enabled\nPASSED ../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem\nPASSED ../tests/test_outputs.py::test_udev_rule_syntax_valid\nPASSED ../tests/test_outputs.py::test_end_to_end_module_cycle\n10 passed in 4.14s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py::test_mousepoll_sane_value": "PASSED",
+    "../tests/test_outputs.py::test_modprobe_config_reflects_fix": "PASSED",
+    "../tests/test_outputs.py::test_service_execstart_path": "PASSED",
+    "../tests/test_outputs.py::test_service_is_enabled": "PASSED",
+    "../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem": "PASSED",
+    "../tests/test_outputs.py::test_udev_rule_syntax_valid": "PASSED",
+    "../tests/test_outputs.py::test_recovery_script_reloads_both_modules": "FAILED",
+    "../tests/test_outputs.py::test_recovery_script_unloads_before_reloads": "FAILED",
+    "../tests/test_outputs.py::test_recovery_script_exits_successfully": "FAILED",
+    "../tests/test_outputs.py::test_end_to_end_module_cycle": "FAILED"
+   },
+   "n_pass": 6,
+   "n_fail": 4,
+   "seconds": 0.6,
+   "log_tail": ") if \"-r\" in c and \"usbhid\" in c), None\n        )\n        unload_psmouse = next(\n            (i for i, c in enumerate(calls) if \"-r\" in c and \"psmouse\" in c), None\n        )\n        reload_usbhid = next(\n            (i for i, c in enumerate(calls) if \"-r\" not in c and \"usbhid\" in c), None\n        )\n        reload_psmouse = next(\n            (i for i, c in enumerate(calls) if \"-r\" not in c and \"psmouse\" in c), None\n        )\n    \n        assert unload_usbhid is not None, f\"modprobe -r usbhid not found; calls: {calls}\"\n        assert unload_psmouse is not None, f\"modprobe -r psmouse not found; calls: {calls}\"\n>       assert reload_usbhid is not None, (\n            f\"modprobe usbhid (reload) not found; calls: {calls}\"\n        )\nE       AssertionError: modprobe usbhid (reload) not found; calls: ['-r usbhid-r psmouseusbhidpsmouse']\nE       assert None is not None\n\n/tests/test_outputs.py:400: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_mousepoll_sane_value\nPASSED ../tests/test_outputs.py::test_modprobe_config_reflects_fix\nPASSED ../tests/test_outputs.py::test_service_execstart_path\nPASSED ../tests/test_outputs.py::test_service_is_enabled\nPASSED ../tests/test_outputs.py::test_udev_rule_targets_usb_subsystem\nPASSED ../tests/test_outputs.py::test_udev_rule_syntax_valid\nFAILED ../tests/test_outputs.py::test_recovery_script_reloads_both_modules - ...\nFAILED ../tests/test_outputs.py::test_recovery_script_unloads_before_reloads\nFAILED ../tests/test_outputs.py::test_recovery_script_exits_successfully - As...\nFAILED ../tests/test_outputs.py::test_end_to_end_module_cycle - AssertionErro...\n4 failed, 6 passed in 0.19s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 167.3
+}

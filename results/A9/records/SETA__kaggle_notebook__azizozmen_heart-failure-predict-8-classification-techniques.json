@@ -1,0 +1,113 @@
+{
+ "key": "SETA__kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+ "ds": "SETA",
+ "task": "kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+ "notes": [],
+ "workdir": "/workspace",
+ "instruction_chars": 2400,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 138s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_data_quality_report": "FAILED",
+   "../tests/test_outputs.py::test_preprocessing_summary": "FAILED",
+   "../tests/test_outputs.py::test_model_results_structure": "FAILED",
+   "../tests/test_outputs.py::test_model_diversity": "FAILED",
+   "../tests/test_outputs.py::test_best_model_accuracy": "FAILED",
+   "../tests/test_outputs.py::test_predictions_file": "FAILED",
+   "../tests/test_outputs.py::test_metric_consistency": "FAILED",
+   "../tests/test_outputs.py::test_cv_sanity": "FAILED",
+   "../tests/test_outputs.py::test_feature_importance": "FAILED",
+   "../tests/test_outputs.py::test_comparison_summary": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 10,
+  "seconds": 0.6,
+  "log_tail": " <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:12: AssertionError\n___________________________ test_comparison_summary ____________________________\n\n    def test_comparison_summary():\n        \"\"\"Verify comparison_summary.txt exists, has substance, and references actual models.\"\"\"\n        path = os.path.join(OUTPUT_DIR, \"comparison_summary.txt\")\n>       assert os.path.isfile(path), \"comparison_summary.txt does not exist\"\nE       AssertionError: comparison_summary.txt does not exist\nE       assert False\nE        +  where False = <function isfile at 0x7f4084ce42c0>('/workspace/output/comparison_summary.txt')\nE        +    where <function isfile at 0x7f4084ce42c0> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:294: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_data_quality_report - AssertionError: /...\nFAILED ../tests/test_outputs.py::test_preprocessing_summary - AssertionError:...\nFAILED ../tests/test_outputs.py::test_model_results_structure - AssertionErro...\nFAILED ../tests/test_outputs.py::test_model_diversity - AssertionError: /work...\nFAILED ../tests/test_outputs.py::test_best_model_accuracy - AssertionError: /...\nFAILED ../tests/test_outputs.py::test_predictions_file - AssertionError: pred...\nFAILED ../tests/test_outputs.py::test_metric_consistency - AssertionError: /w...\nFAILED ../tests/test_outputs.py::test_cv_sanity - AssertionError: /workspace/...\nFAILED ../tests/test_outputs.py::test_feature_importance - AssertionError: /w...\nFAILED ../tests/test_outputs.py::test_comparison_summary - AssertionError: co...\n10 failed in 0.14s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "ype is deprecated and will raise an error in a future version of pandas. Value '231.5' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.\n  df.loc[mask, \"Cholesterol\"] = group_medians[hd_val]\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:26] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:26] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:26] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:26] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:27] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:27] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_data_quality_report": "PASSED",
+     "../tests/test_outputs.py::test_preprocessing_summary": "PASSED",
+     "../tests/test_outputs.py::test_model_results_structure": "PASSED",
+     "../tests/test_outputs.py::test_model_diversity": "PASSED",
+     "../tests/test_outputs.py::test_best_model_accuracy": "PASSED",
+     "../tests/test_outputs.py::test_predictions_file": "PASSED",
+     "../tests/test_outputs.py::test_metric_consistency": "PASSED",
+     "../tests/test_outputs.py::test_cv_sanity": "PASSED",
+     "../tests/test_outputs.py::test_feature_importance": "PASSED",
+     "../tests/test_outputs.py::test_comparison_summary": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_data_quality_report\nPASSED ../tests/test_outputs.py::test_preprocessing_summary\nPASSED ../tests/test_outputs.py::test_model_results_structure\nPASSED ../tests/test_outputs.py::test_model_diversity\nPASSED ../tests/test_outputs.py::test_best_model_accuracy\nPASSED ../tests/test_outputs.py::test_predictions_file\nPASSED ../tests/test_outputs.py::test_metric_consistency\nPASSED ../tests/test_outputs.py::test_cv_sanity\nPASSED ../tests/test_outputs.py::test_feature_importance\nPASSED ../tests/test_outputs.py::test_comparison_summary\n10 passed in 0.04s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "ype is deprecated and will raise an error in a future version of pandas. Value '231.5' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.\n  df.loc[mask, \"Cholesterol\"] = group_medians[hd_val]\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:45] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:45] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:45] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:45] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:45] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n/usr/local/lib/python3.11/site-packages/xgboost/core.py:158: UserWarning: [05:59:45] WARNING: /workspace/src/learner.cc:740: \nParameters: { \"use_label_encoder\" } are not used.\n\n  warnings.warn(smsg, UserWarning)\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_data_quality_report": "PASSED",
+     "../tests/test_outputs.py::test_preprocessing_summary": "PASSED",
+     "../tests/test_outputs.py::test_model_results_structure": "PASSED",
+     "../tests/test_outputs.py::test_model_diversity": "PASSED",
+     "../tests/test_outputs.py::test_best_model_accuracy": "PASSED",
+     "../tests/test_outputs.py::test_predictions_file": "PASSED",
+     "../tests/test_outputs.py::test_metric_consistency": "PASSED",
+     "../tests/test_outputs.py::test_cv_sanity": "PASSED",
+     "../tests/test_outputs.py::test_feature_importance": "PASSED",
+     "../tests/test_outputs.py::test_comparison_summary": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_data_quality_report\nPASSED ../tests/test_outputs.py::test_preprocessing_summary\nPASSED ../tests/test_outputs.py::test_model_results_structure\nPASSED ../tests/test_outputs.py::test_model_diversity\nPASSED ../tests/test_outputs.py::test_best_model_accuracy\nPASSED ../tests/test_outputs.py::test_predictions_file\nPASSED ../tests/test_outputs.py::test_metric_consistency\nPASSED ../tests/test_outputs.py::test_cv_sanity\nPASSED ../tests/test_outputs.py::test_feature_importance\nPASSED ../tests/test_outputs.py::test_comparison_summary\n10 passed in 0.04s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_data_quality_report": "PASSED",
+    "../tests/test_outputs.py::test_preprocessing_summary": "PASSED",
+    "../tests/test_outputs.py::test_model_results_structure": "PASSED",
+    "../tests/test_outputs.py::test_model_diversity": "PASSED",
+    "../tests/test_outputs.py::test_best_model_accuracy": "PASSED",
+    "../tests/test_outputs.py::test_predictions_file": "PASSED",
+    "../tests/test_outputs.py::test_metric_consistency": "PASSED",
+    "../tests/test_outputs.py::test_cv_sanity": "PASSED",
+    "../tests/test_outputs.py::test_feature_importance": "PASSED",
+    "../tests/test_outputs.py::test_comparison_summary": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_data_quality_report\nPASSED ../tests/test_outputs.py::test_preprocessing_summary\nPASSED ../tests/test_outputs.py::test_model_results_structure\nPASSED ../tests/test_outputs.py::test_model_diversity\nPASSED ../tests/test_outputs.py::test_best_model_accuracy\nPASSED ../tests/test_outputs.py::test_predictions_file\nPASSED ../tests/test_outputs.py::test_metric_consistency\nPASSED ../tests/test_outputs.py::test_cv_sanity\nPASSED ../tests/test_outputs.py::test_feature_importance\nPASSED ../tests/test_outputs.py::test_comparison_summary\n10 passed in 0.04s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 184.4
+}

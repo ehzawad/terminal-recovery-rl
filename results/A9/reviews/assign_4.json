@@ -1,0 +1,32 @@
+[
+ {
+  "key": "SETA__ask_ubuntu__391__d1",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Evolve/ask_ubuntu__391__d1"
+ },
+ {
+  "key": "LiteCoder__news-topic-classification-sklearn",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/news-topic-classification-sklearn"
+ },
+ {
+  "key": "TMax__task_003160_4040000e",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_003160_4040000e"
+ },
+ {
+  "key": "SETA__stack_overflow__2885173",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/stack_overflow__2885173"
+ },
+ {
+  "key": "SETA__kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression"
+ },
+ {
+  "key": "SETA__unix_linux_se__82598",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/unix_linux_se__82598"
+ }
+]

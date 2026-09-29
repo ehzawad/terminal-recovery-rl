@@ -1,0 +1,73 @@
+{
+ "key": "TMax__task_003160_4040000e",
+ "ds": "TMax",
+ "task": "task_003160_4040000e",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 1546,
+ "gemini": {
+  "runs": 8,
+  "success": 0
+ },
+ "build": {
+  "ok": true,
+  "msg": "built in 436s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_risk_app_directory_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_git_repo_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_pipeline_script_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_pipeline_fails_initially": "PASSED",
+   "../../tests/test_initial_state.py::test_bad_commit_file_does_not_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_expected_bad_commit_file_exists": "PASSED"
+  },
+  "n_pass": 6,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "......                                                                   [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_risk_app_directory_exists\nPASSED ../../tests/test_initial_state.py::test_git_repo_exists\nPASSED ../../tests/test_initial_state.py::test_pipeline_script_exists\nPASSED ../../tests/test_initial_state.py::test_pipeline_fails_initially\nPASSED ../../tests/test_initial_state.py::test_bad_commit_file_does_not_exist\nPASSED ../../tests/test_initial_state.py::test_expected_bad_commit_file_exists\n6 passed in 0.06s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_bad_commit_hash_correct": "FAILED",
+   "../../tests/test_final_state.py::test_pipeline_execution_succeeds": "FAILED",
+   "../../tests/test_final_state.py::test_pipeline_code_fixed": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.4,
+  "log_tail": "____________ test_pipeline_code_fixed ___________________________\n\n    def test_pipeline_code_fixed():\n        pipeline_script = \"/home/user/risk_app/pipeline.py\"\n        assert os.path.exists(pipeline_script), f\"{pipeline_script} does not exist\"\n    \n        with open(pipeline_script, \"r\") as f:\n            code = f.read()\n    \n        # The fix should add 1e-9 or similar to avoid log(0)\n>       assert \"1e-9\" in code or \"1e-09\" in code or \"0.000000001\" in code, \"Could not find the epsilon value (1e-9) in the pipeline.py script.\"\nE       AssertionError: Could not find the epsilon value (1e-9) in the pipeline.py script.\nE       assert ('1e-9' in 'import math\\nimport logging\\n\\nlogging.basicConfig(level=logging.INFO)\\n\\ndef compute_risk_score(metrics):\\n    score...)\\n    print(f\"SUCCESS: Pipeline finished. Final Risk Score: {final_score:.4f}\")\\n# Another harmless comment {7..10}\\n' or '1e-09' in 'import math\\nimport logging\\n\\nlogging.basicConfig(level=logging.INFO)\\n\\ndef compute_risk_score(metrics):\\n    score...)\\n    print(f\"SUCCESS: Pipeline finished. Final Risk Score: {final_score:.4f}\")\\n# Another harmless comment {7..10}\\n' or '0.000000001' in 'import math\\nimport logging\\n\\nlogging.basicConfig(level=logging.INFO)\\n\\ndef compute_risk_score(metrics):\\n    score...)\\n    print(f\"SUCCESS: Pipeline finished. Final Risk Score: {final_score:.4f}\")\\n# Another harmless comment {7..10}\\n')\n\n/tests/test_final_state.py:43: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_bad_commit_hash_correct - Assert...\nFAILED ../../tests/test_final_state.py::test_pipeline_execution_succeeds - As...\nFAILED ../../tests/test_final_state.py::test_pipeline_code_fixed - AssertionE...\n3 failed in 0.08s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_bad_commit_hash_correct": "PASSED",
+    "../../tests/test_final_state.py::test_pipeline_execution_succeeds": "PASSED",
+    "../../tests/test_final_state.py::test_pipeline_code_fixed": "PASSED"
+   },
+   "n_pass": 3,
+   "n_fail": 0,
+   "seconds": 0.4,
+   "log_tail": "...                                                                      [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_bad_commit_hash_correct\nPASSED ../../tests/test_final_state.py::test_pipeline_execution_succeeds\nPASSED ../../tests/test_final_state.py::test_pipeline_code_fixed\n3 passed in 0.06s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 458.1
+}

@@ -1,0 +1,113 @@
+{
+ "key": "SETA__stack_overflow__58859092",
+ "ds": "SETA",
+ "task": "stack_overflow__58859092",
+ "notes": [],
+ "workdir": "/home/ubuntu/hostname-project",
+ "instruction_chars": 1824,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 563s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../../tests/test_outputs.py::test_ansible_inventory_host_vars": "PASSED",
+   "../../../tests/test_outputs.py::test_playbook_syntax_valid": "PASSED",
+   "../../../tests/test_outputs.py::test_all_output_files_exist": "FAILED",
+   "../../../tests/test_outputs.py::test_app01_correct_hostname": "FAILED",
+   "../../../tests/test_outputs.py::test_app02_app03_correct_hostnames": "FAILED",
+   "../../../tests/test_outputs.py::test_db01_db02_correct_hostnames": "FAILED",
+   "../../../tests/test_outputs.py::test_no_default_server_in_files": "FAILED",
+   "../../../tests/test_outputs.py::test_all_files_distinct_content": "FAILED",
+   "../../../tests/test_outputs.py::test_playbook_runs_without_errors": "FAILED",
+   "../../../tests/test_outputs.py::test_no_cross_contamination": "FAILED"
+  },
+  "n_pass": 2,
+  "n_fail": 8,
+  "seconds": 21.4,
+  "log_tail": "_______________ test_no_cross_contamination __________________________\n\n    def test_no_cross_contamination():\n        for app_host in (\"app01\", \"app02\", \"app03\"):\n            content = read_host_file(app_host)\n>           assert not content.startswith(\"db-\"), (\n                f\"{app_host}.txt starts with 'db-': '{content}'. \"\n                \"An app server should not be assigned a db hostname.\"\n            )\nE           AssertionError: app01.txt starts with 'db-': 'db-replica-01'. An app server should not be assigned a db hostname.\nE           assert not True\nE            +  where True = <built-in method startswith of str object at 0x7faf28ce5ff0>('db-')\nE            +    where <built-in method startswith of str object at 0x7faf28ce5ff0> = 'db-replica-01'.startswith\n\n/tests/test_outputs.py:178: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_ansible_inventory_host_vars\nPASSED ../../../tests/test_outputs.py::test_playbook_syntax_valid\nFAILED ../../../tests/test_outputs.py::test_all_output_files_exist - Assertio...\nFAILED ../../../tests/test_outputs.py::test_app01_correct_hostname - FileNotF...\nFAILED ../../../tests/test_outputs.py::test_app02_app03_correct_hostnames - F...\nFAILED ../../../tests/test_outputs.py::test_db01_db02_correct_hostnames - Fil...\nFAILED ../../../tests/test_outputs.py::test_no_default_server_in_files - File...\nFAILED ../../../tests/test_outputs.py::test_all_files_distinct_content - File...\nFAILED ../../../tests/test_outputs.py::test_playbook_runs_without_errors - As...\nFAILED ../../../tests/test_outputs.py::test_no_cross_contamination - Assertio...\n8 failed, 2 passed in 20.89s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "\nPLAY [all] *********************************************************************\n\nTASK [Ensure output directory exists] ******************************************\nchanged: [app01]\nok: [db01]\nok: [app02]\nok: [db02]\nok: [app03]\n\nTASK [Set server hostname] *****************************************************\nchanged: [db02]\nchanged: [app02]\nchanged: [app03]\nchanged: [db01]\nchanged: [app01]\n\nTASK [Record hostname assignment] **********************************************\nchanged: [app01]\nchanged: [app03]\nchanged: [db02]\nchanged: [db01]\nchanged: [app02]\n\nPLAY RECAP *********************************************************************\napp01                      : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \napp02                      : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \napp03                      : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \ndb01                       : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \ndb02                       : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../../tests/test_outputs.py::test_all_output_files_exist": "PASSED",
+     "../../../tests/test_outputs.py::test_app01_correct_hostname": "PASSED",
+     "../../../tests/test_outputs.py::test_app02_app03_correct_hostnames": "PASSED",
+     "../../../tests/test_outputs.py::test_db01_db02_correct_hostnames": "PASSED",
+     "../../../tests/test_outputs.py::test_no_default_server_in_files": "PASSED",
+     "../../../tests/test_outputs.py::test_all_files_distinct_content": "PASSED",
+     "../../../tests/test_outputs.py::test_ansible_inventory_host_vars": "PASSED",
+     "../../../tests/test_outputs.py::test_playbook_syntax_valid": "PASSED",
+     "../../../tests/test_outputs.py::test_playbook_runs_without_errors": "PASSED",
+     "../../../tests/test_outputs.py::test_no_cross_contamination": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 7.6,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_all_output_files_exist\nPASSED ../../../tests/test_outputs.py::test_app01_correct_hostname\nPASSED ../../../tests/test_outputs.py::test_app02_app03_correct_hostnames\nPASSED ../../../tests/test_outputs.py::test_db01_db02_correct_hostnames\nPASSED ../../../tests/test_outputs.py::test_no_default_server_in_files\nPASSED ../../../tests/test_outputs.py::test_all_files_distinct_content\nPASSED ../../../tests/test_outputs.py::test_ansible_inventory_host_vars\nPASSED ../../../tests/test_outputs.py::test_playbook_syntax_valid\nPASSED ../../../tests/test_outputs.py::test_playbook_runs_without_errors\nPASSED ../../../tests/test_outputs.py::test_no_cross_contamination\n10 passed in 7.00s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "\nPLAY [all] *********************************************************************\n\nTASK [Ensure output directory exists] ******************************************\nchanged: [db02]\nok: [app03]\nok: [app01]\nok: [app02]\nok: [db01]\n\nTASK [Set server hostname] *****************************************************\nchanged: [app03]\nchanged: [db01]\nchanged: [app01]\nchanged: [app02]\nchanged: [db02]\n\nTASK [Record hostname assignment] **********************************************\nchanged: [db01]\nchanged: [app01]\nchanged: [app02]\nchanged: [db02]\nchanged: [app03]\n\nPLAY RECAP *********************************************************************\napp01                      : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \napp02                      : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \napp03                      : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \ndb01                       : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \ndb02                       : ok=3    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../../tests/test_outputs.py::test_all_output_files_exist": "PASSED",
+     "../../../tests/test_outputs.py::test_app01_correct_hostname": "PASSED",
+     "../../../tests/test_outputs.py::test_app02_app03_correct_hostnames": "PASSED",
+     "../../../tests/test_outputs.py::test_db01_db02_correct_hostnames": "PASSED",
+     "../../../tests/test_outputs.py::test_no_default_server_in_files": "PASSED",
+     "../../../tests/test_outputs.py::test_all_files_distinct_content": "PASSED",
+     "../../../tests/test_outputs.py::test_ansible_inventory_host_vars": "PASSED",
+     "../../../tests/test_outputs.py::test_playbook_syntax_valid": "PASSED",
+     "../../../tests/test_outputs.py::test_playbook_runs_without_errors": "PASSED",
+     "../../../tests/test_outputs.py::test_no_cross_contamination": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 7.4,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_all_output_files_exist\nPASSED ../../../tests/test_outputs.py::test_app01_correct_hostname\nPASSED ../../../tests/test_outputs.py::test_app02_app03_correct_hostnames\nPASSED ../../../tests/test_outputs.py::test_db01_db02_correct_hostnames\nPASSED ../../../tests/test_outputs.py::test_no_default_server_in_files\nPASSED ../../../tests/test_outputs.py::test_all_files_distinct_content\nPASSED ../../../tests/test_outputs.py::test_ansible_inventory_host_vars\nPASSED ../../../tests/test_outputs.py::test_playbook_syntax_valid\nPASSED ../../../tests/test_outputs.py::test_playbook_runs_without_errors\nPASSED ../../../tests/test_outputs.py::test_no_cross_contamination\n10 passed in 6.85s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "*******************************************\nchanged: [app01]\nchanged: [app02]\nchanged: [db01]\nchanged: [app03]\nchanged: [db02]\n\nPLAY RECAP *********************************************************************\napp01                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \napp02                      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \napp03                      : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \ndb01                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \ndb02                       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   \n\n",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../../tests/test_outputs.py::test_all_output_files_exist": "PASSED",
+    "../../../tests/test_outputs.py::test_app01_correct_hostname": "PASSED",
+    "../../../tests/test_outputs.py::test_app02_app03_correct_hostnames": "PASSED",
+    "../../../tests/test_outputs.py::test_db01_db02_correct_hostnames": "PASSED",
+    "../../../tests/test_outputs.py::test_no_default_server_in_files": "PASSED",
+    "../../../tests/test_outputs.py::test_all_files_distinct_content": "PASSED",
+    "../../../tests/test_outputs.py::test_ansible_inventory_host_vars": "PASSED",
+    "../../../tests/test_outputs.py::test_playbook_syntax_valid": "PASSED",
+    "../../../tests/test_outputs.py::test_playbook_runs_without_errors": "PASSED",
+    "../../../tests/test_outputs.py::test_no_cross_contamination": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 5.4,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_all_output_files_exist\nPASSED ../../../tests/test_outputs.py::test_app01_correct_hostname\nPASSED ../../../tests/test_outputs.py::test_app02_app03_correct_hostnames\nPASSED ../../../tests/test_outputs.py::test_db01_db02_correct_hostnames\nPASSED ../../../tests/test_outputs.py::test_no_default_server_in_files\nPASSED ../../../tests/test_outputs.py::test_all_files_distinct_content\nPASSED ../../../tests/test_outputs.py::test_ansible_inventory_host_vars\nPASSED ../../../tests/test_outputs.py::test_playbook_syntax_valid\nPASSED ../../../tests/test_outputs.py::test_playbook_runs_without_errors\nPASSED ../../../tests/test_outputs.py::test_no_cross_contamination\n10 passed in 4.94s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 639.0
+}

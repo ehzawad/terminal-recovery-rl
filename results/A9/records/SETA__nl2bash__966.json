@@ -1,0 +1,113 @@
+{
+ "key": "SETA__nl2bash__966",
+ "ds": "SETA",
+ "task": "nl2bash__966",
+ "notes": [],
+ "workdir": "/opt/webapp",
+ "instruction_chars": 1186,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 115s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count": "PASSED",
+   "../../tests/test_outputs.py::test_exception_files_included": "PASSED",
+   "../../tests/test_outputs.py::test_build_manifest_idempotent": "PASSED",
+   "../../tests/test_outputs.py::test_binary_artifacts_excluded": "FAILED",
+   "../../tests/test_outputs.py::test_image_files_excluded": "FAILED",
+   "../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded": "FAILED",
+   "../../tests/test_outputs.py::test_substring_false_positives_prevented": "FAILED",
+   "../../tests/test_outputs.py::test_manifest_sorted": "FAILED",
+   "../../tests/test_outputs.py::test_manifest_no_duplicates": "FAILED",
+   "../../tests/test_outputs.py::test_validate_script_passes": "FAILED"
+  },
+  "n_pass": 3,
+  "n_fail": 7,
+  "seconds": 0.6,
+  "log_tail": "atic/images/thumbnail.png\nE         FAIL: excluded file in manifest: ./tests/__pycache__/test_auth.cpython-313.pyc\nE         FAIL: file incorrectly excluded from manifest: ./src/utils/tmpdir_helper.py\nE         FAIL: file incorrectly excluded from manifest: ./config/backup_strategy.conf\nE         FAIL: manifest has duplicates (52 total lines, 50 unique)\nE         FAIL: manifest is not sorted (LC_ALL=C byte order)\nE         Validation FAILED: 15 error(s) found\nE         \nE         stdout: \nE       assert 1 == 0\nE        +  where 1 = CompletedProcess(args=['bash', '/opt/webapp/deploy/validate.sh'], returncode=1, stdout='', stderr='FAIL: excluded file...2 total lines, 50 unique)\\nFAIL: manifest is not sorted (LC_ALL=C byte order)\\nValidation FAILED: 15 error(s) found\\n').returncode\n\n/tests/test_outputs.py:145: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count\nPASSED ../../tests/test_outputs.py::test_exception_files_included\nPASSED ../../tests/test_outputs.py::test_build_manifest_idempotent\nFAILED ../../tests/test_outputs.py::test_binary_artifacts_excluded - Assertio...\nFAILED ../../tests/test_outputs.py::test_image_files_excluded - AssertionErro...\nFAILED ../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded - Assertion...\nFAILED ../../tests/test_outputs.py::test_substring_false_positives_prevented\nFAILED ../../tests/test_outputs.py::test_manifest_sorted - AssertionError: ma...\nFAILED ../../tests/test_outputs.py::test_manifest_no_duplicates - AssertionEr...\nFAILED ../../tests/test_outputs.py::test_validate_script_passes - AssertionEr...\n7 failed, 3 passed in 0.14s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Manifest generated at deploy/manifest.txt with 41 files\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count": "PASSED",
+     "../../tests/test_outputs.py::test_binary_artifacts_excluded": "PASSED",
+     "../../tests/test_outputs.py::test_image_files_excluded": "PASSED",
+     "../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded": "PASSED",
+     "../../tests/test_outputs.py::test_exception_files_included": "PASSED",
+     "../../tests/test_outputs.py::test_substring_false_positives_prevented": "PASSED",
+     "../../tests/test_outputs.py::test_manifest_sorted": "PASSED",
+     "../../tests/test_outputs.py::test_manifest_no_duplicates": "PASSED",
+     "../../tests/test_outputs.py::test_validate_script_passes": "PASSED",
+     "../../tests/test_outputs.py::test_build_manifest_idempotent": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count\nPASSED ../../tests/test_outputs.py::test_binary_artifacts_excluded\nPASSED ../../tests/test_outputs.py::test_image_files_excluded\nPASSED ../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded\nPASSED ../../tests/test_outputs.py::test_exception_files_included\nPASSED ../../tests/test_outputs.py::test_substring_false_positives_prevented\nPASSED ../../tests/test_outputs.py::test_manifest_sorted\nPASSED ../../tests/test_outputs.py::test_manifest_no_duplicates\nPASSED ../../tests/test_outputs.py::test_validate_script_passes\nPASSED ../../tests/test_outputs.py::test_build_manifest_idempotent\n10 passed in 0.11s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Manifest generated at deploy/manifest.txt with 41 files\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count": "PASSED",
+     "../../tests/test_outputs.py::test_binary_artifacts_excluded": "PASSED",
+     "../../tests/test_outputs.py::test_image_files_excluded": "PASSED",
+     "../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded": "PASSED",
+     "../../tests/test_outputs.py::test_exception_files_included": "PASSED",
+     "../../tests/test_outputs.py::test_substring_false_positives_prevented": "PASSED",
+     "../../tests/test_outputs.py::test_manifest_sorted": "PASSED",
+     "../../tests/test_outputs.py::test_manifest_no_duplicates": "PASSED",
+     "../../tests/test_outputs.py::test_validate_script_passes": "PASSED",
+     "../../tests/test_outputs.py::test_build_manifest_idempotent": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.6,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count\nPASSED ../../tests/test_outputs.py::test_binary_artifacts_excluded\nPASSED ../../tests/test_outputs.py::test_image_files_excluded\nPASSED ../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded\nPASSED ../../tests/test_outputs.py::test_exception_files_included\nPASSED ../../tests/test_outputs.py::test_substring_false_positives_prevented\nPASSED ../../tests/test_outputs.py::test_manifest_sorted\nPASSED ../../tests/test_outputs.py::test_manifest_no_duplicates\nPASSED ../../tests/test_outputs.py::test_validate_script_passes\nPASSED ../../tests/test_outputs.py::test_build_manifest_idempotent\n10 passed in 0.12s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "Validation PASSED: all checks OK\n",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count": "PASSED",
+    "../../tests/test_outputs.py::test_binary_artifacts_excluded": "PASSED",
+    "../../tests/test_outputs.py::test_image_files_excluded": "PASSED",
+    "../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded": "PASSED",
+    "../../tests/test_outputs.py::test_exception_files_included": "PASSED",
+    "../../tests/test_outputs.py::test_substring_false_positives_prevented": "PASSED",
+    "../../tests/test_outputs.py::test_manifest_sorted": "PASSED",
+    "../../tests/test_outputs.py::test_manifest_no_duplicates": "PASSED",
+    "../../tests/test_outputs.py::test_validate_script_passes": "PASSED",
+    "../../tests/test_outputs.py::test_build_manifest_idempotent": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.6,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_manifest_exists_and_has_expected_count\nPASSED ../../tests/test_outputs.py::test_binary_artifacts_excluded\nPASSED ../../tests/test_outputs.py::test_image_files_excluded\nPASSED ../../tests/test_outputs.py::test_pyc_tmp_bak_swp_excluded\nPASSED ../../tests/test_outputs.py::test_exception_files_included\nPASSED ../../tests/test_outputs.py::test_substring_false_positives_prevented\nPASSED ../../tests/test_outputs.py::test_manifest_sorted\nPASSED ../../tests/test_outputs.py::test_manifest_no_duplicates\nPASSED ../../tests/test_outputs.py::test_validate_script_passes\nPASSED ../../tests/test_outputs.py::test_build_manifest_idempotent\n10 passed in 0.10s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 134.8
+}

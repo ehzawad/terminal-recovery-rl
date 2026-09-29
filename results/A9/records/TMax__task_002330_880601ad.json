@@ -1,0 +1,64 @@
+{
+ "key": "TMax__task_002330_880601ad",
+ "ds": "TMax",
+ "task": "task_002330_880601ad",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2124,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 314s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_start_services_script_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_detector_script_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_corpora_directories_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_corpora_files_exist": "PASSED"
+  },
+  "n_pass": 4,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_start_services_script_exists\nPASSED ../../tests/test_initial_state.py::test_detector_script_exists\nPASSED ../../tests/test_initial_state.py::test_corpora_directories_exist\nPASSED ../../tests/test_initial_state.py::test_corpora_files_exist\n4 passed in 0.01s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_detector_adversarial_corpus": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 1,
+  "seconds": 0.9,
+  "log_tail": "e_file in evil_files:\n                out_file = os.path.join(tmpdir, os.path.basename(e_file))\n                result = subprocess.run([\"python3\", detector_script, e_file, out_file], capture_output=True, text=True)\n                if result.returncode != 0:\n                    evil_bypassed.append(f\"{os.path.basename(e_file)} (script crashed)\")\n                    continue\n    \n                if not os.path.exists(out_file):\n                    # Empty output is acceptable for evil (rejected all)\n                    continue\n    \n                with open(out_file, 'r') as f:\n                    out_lines = f.readlines()\n                    # Output should be completely empty or contain exactly one header line\n                    if len(out_lines) > 1:\n                        evil_bypassed.append(os.path.basename(e_file))\n                    elif len(out_lines) == 1:\n                        with open(e_file, 'r') as in_f:\n                            in_header = in_f.readline()\n                            if out_lines[0] != in_header:\n                                evil_bypassed.append(os.path.basename(e_file))\n    \n        errors = []\n        if evil_bypassed:\n            errors.append(f\"{len(evil_bypassed)} of {len(evil_files)} evil bypassed: {', '.join(evil_bypassed)}\")\n        if clean_modified:\n            errors.append(f\"{len(clean_modified)} of {len(clean_files)} clean modified: {', '.join(clean_modified)}\")\n    \n        if errors:\n>           pytest.fail(\" | \".join(errors))\nE           Failed: 1 of 1 clean modified: clean_1.csv (no output file)\n\n/tests/test_final_state.py:69: Failed\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_detector_adversarial_corpus - Fa...\n1 failed in 0.51s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_final_state.py::test_detector_adversarial_corpus": "PASSED"
+   },
+   "n_pass": 1,
+   "n_fail": 0,
+   "seconds": 0.4,
+   "log_tail": ".                                                                        [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_detector_adversarial_corpus\n1 passed in 0.06s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 337.5
+}

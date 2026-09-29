@@ -1,0 +1,206 @@
+[
+ {
+  "key": "TMax__task_002018_b907f747",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:9-15 only checks that Cargo.toml exists and that target/release/latency_monitor is an executable file; :17-54 only checks key presence, int/bool types and endpoint strings. Nothing verifies the binary is a compiled Rust program, that a TCP connect was attempted, the 2 s timeout, or that latency_ms/success reflect reality. A shell script at the release path that echoes hard-coded JSON (latency_ms 0, success true) passes every test."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": false,
+    "evidence": "Description says 'Configure the user's crontab' while the grader (test_final_state.py:57) runs plain `crontab -l`, i.e. the crontab of whatever uid runs pytest. If the agent runs as root and installs `crontab -u user`, or vice versa, the test fails. Depends on harness uid."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "container.def:10 installs Ubuntu 22.04 apt rustc/cargo with no vendored crates; offline, any use of serde/serde_json (natural for JSON output) fails `cargo build`, so the agent must hand-format JSON. Not stated but discoverable. Endpoints 8.8.8.8/1.1.1.1 are unreachable offline, but the grader does not check success values, so this does not break validity."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Writes only under /home/user and installs a crontab; cron is not run.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\nP=/home/user/latency_monitor\nmkdir -p $P/src $P/target/release\nprintf '[package]\\nname = \"latency_monitor\"\\nversion = \"0.1.0\"\\nedition = \"2021\"\\n' > $P/Cargo.toml\necho 'fn main() {}' > $P/src/main.rs\ncat > $P/target/release/latency_monitor <<'EOF'\n#!/bin/sh\nfor e in 8.8.8.8:53 1.1.1.1:53; do\n  echo \"{\\\"endpoint\\\": \\\"$e\\\", \\\"latency_ms\\\": 0, \\\"success\\\": true}\" >> /home/user/latency.log\ndone\nexit 0\nEOF\nchmod +x $P/target/release/latency_monitor\n( crontab -l 2>/dev/null; echo \"* * * * * /home/user/latency_monitor/target/release/latency_monitor\" ) | crontab -\ncat > /home/user/logrotate.conf <<'EOF'\n/home/user/latency.log {\n    size 10k\n    rotate 5\n    compress\n    missingok\n    notifempty\n}\nEOF\n",
+  "mutant_intent": "No Rust program is written or compiled (src/main.rs is an empty stub). The 'release binary' is a shell script that makes no TCP connections and logs fabricated latency_ms=0/success=true. Violates 'Write a Rust program that measures the TCP connection time' and 'Compile this project in release mode'. Crontab and logrotate parts are correct.",
+  "must_reject": true,
+  "notes": "The crontab and logrotate checks are adequate. The Rust/measurement core is essentially ungraded: a fake executable at the right path passes."
+ },
+ {
+  "key": "SETA__ask_ubuntu__711",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_outputs.py:105-116: the mount-script test only checks that the text contains '/storage/data_disk.img', '/mnt/data_storage' and 'mount' (case-insensitive). A script whose only 'mount' is in a comment passes. There is no check that it runs `mount -o loop` or creates the mount point (instruction.md:20-22)."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_outputs.py:76 only asserts `'loop' in options`. Instruction.md:15-16 require exactly `loop,defaults` and dump/pass `0 0`, but fields 5 and 6 are never checked (len(parts)>=4 at :60), so `loop,noauto,ro 1 2` passes."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Step 4 (mount point exists) is already satisfied by environment/Dockerfile:38 `mkdir -p /mnt/data_storage`, and it is not tested anyway."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "test_outputs.py:81 `break`s at the first non-comment line mentioning the image. If an agent keeps an earlier commented or partial line, only the first match counts. Minor."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Edits /etc/fstab and formats a 100 MB file inside the container. Nothing is mounted (loopback unavailable). Harmless in a sandbox.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\nmkfs.ext4 -F -q /storage/data_disk.img\necho \"/storage/data_disk.img /mnt/data_storage ext4 loop,noauto,ro 1 2\" >> /etc/fstab\ncat > /storage/mount_storage.sh <<'EOF'\n#!/bin/bash\n# TODO: mount /storage/data_disk.img on /mnt/data_storage\necho \"not implemented\"\nEOF\nchmod +x /storage/mount_storage.sh\n",
+  "mutant_intent": "Formats ext4 correctly but writes the wrong fstab options/dump-pass (loop,noauto,ro 1 2 instead of loop,defaults 0 0), and the mount script is a stub that mounts nothing and does not create the mount point. Violates instruction steps 2 and 3.",
+  "must_reject": true,
+  "notes": "The mkfs check is real (file -s must report ext4). The fstab options and the mount script are graded by substring only. tests/test.sh downloads uv at verify time, a harness-level network need."
+ },
+ {
+  "key": "LiteCoder__fashion-mnist-cnn-pipeline",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "environment/Dockerfile:3-31 installs no TensorFlow, numpy, matplotlib or even system python3 packages (only uv, OpenHands and Claude Code), and the dataset must be fetched by keras.datasets.fashion_mnist.load_data() (instruction.md:11). task.toml sets allow_internet = true. Offline, the task cannot be completed. The reference solve.sh:16-17 also imports sklearn and seaborn, which are not installed."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "test_outputs.py:16 requires npz keys exactly 'x_train','y_train','x_test','y_test'. instruction.md:12 only says 'Save downloaded data as numpy arrays to /app/fashion_mnist_data.npz'; np.savez(path, *arrays) (arr_0..) or other key names would fail."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "test_outputs.py:67-69,78-79,194-200 feed x/255 with an expanded channel dim and require softmax outputs summing to 1. The instruction specifies neither [0,1] normalisation, (28,28,1) input shape nor softmax activation. A model with Input(28,28) + Reshape, an in-model Rescaling layer (double-scaled input), or logits trained with from_logits=True would be rejected."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "'exactly 5 epochs' (instruction.md:25) is not checked: test_model_training_history_length (:185-200) only requires accuracy > 0.6, which 1 epoch on a subset reaches. history.png/cm.png are only checked to be PNGs >1000 bytes and >100x100 px (:82-117), so any image passes. 'Test set accuracy must be printed to stdout' is unverifiable and untested."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_outputs.py:140-146 requires tar member names exactly {'fashion_mnist_cnn.h5','history.png','cm.png'}. A tarball made with `tar czf ... -C /app ./fashion_mnist_cnn.h5 ...` or with absolute paths gives './x' or 'app/x' members and fails, although it is 'extractable with standard tar utilities'."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only downloads packages and data and writes under /app.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\ncd /app\nPY=/opt/openhands-venv/bin/python\nuv pip install --python $PY -q tensorflow-cpu matplotlib 2>/dev/null || $PY -m pip install -q tensorflow-cpu matplotlib\n$PY - <<'EOF'\nimport numpy as np, tensorflow as tf, matplotlib\nmatplotlib.use(\"Agg\"); import matplotlib.pyplot as plt\n(xt,yt),(xs,ys) = tf.keras.datasets.fashion_mnist.load_data()\nnp.savez(\"/app/fashion_mnist_data.npz\", x_train=xt, y_train=yt, x_test=xs, y_test=ys)\nL = tf.keras.layers\nm = tf.keras.Sequential([L.Input((28,28,1)), L.Conv2D(8,3,activation=\"relu\"), L.MaxPooling2D(),\n    L.Conv2D(8,3,activation=\"relu\"), L.MaxPooling2D(), L.Flatten(), L.Dense(10, activation=\"softmax\")])\nm.compile(\"adam\", \"sparse_categorical_crossentropy\", metrics=[\"accuracy\"])\nm.fit(xt[:5000,...,None]/255.0, yt[:5000], epochs=1, verbose=0)   # 1 epoch, not 5\nm.save(\"/app/fashion_mnist_cnn.h5\")\nfor f in (\"history.png\", \"cm.png\"):                                # fake plots: random noise\n    plt.figure(figsize=(4,4)); plt.imshow(np.random.rand(60,60)); plt.savefig(\"/app/\"+f); plt.close()\nEOF\ntar czf deliverables.tar.gz fashion_mnist_cnn.h5 history.png cm.png\n",
+  "mutant_intent": "Trains for 1 epoch on 5,000 samples instead of exactly 5 epochs on the full training set, and writes random-noise images as history.png and cm.png (no history curves, no confusion matrix). Violates 'Training: exactly 5 epochs' and output requirements 2-3. Offline, the pip install and dataset download fail, so it cannot even run without network. With network it would pass all tests (accuracy is about 0.75 > 0.6).",
+  "must_reject": true,
+  "notes": "Infeasible in an offline sandbox: no TF in the image and the dataset needs a download. With network, the grader still ignores the epoch count and the plot contents and has several unstated format requirements."
+ },
+ {
+  "key": "TMax__task_005524_bb885478",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "The only functional check, test_final_state.py:14 (`'Hello from the backend!' in content`), uses a string hard-coded in agent-visible /home/user/backend/run.sh (container.def:62 `echo \"Hello from the backend!\" > .../index.html`). `echo 'Hello from the backend!' > /home/user/success.log` satisfies it without curl, nginx reload or a running backend."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_backend_process_running (:68-72) only checks that the port digits and the substring 'python3' appear anywhere in `ps aux`. The pytest process itself is python3, and any process whose argv contains '8081' satisfies it. No test curls :8080 or checks that nginx was reloaded or is proxying."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:31 regex `export\\s+BACKEND_PORT=(\\d+)` rejects the common quoted form `export BACKEND_PORT=\"8081\"`. :53-54 require the literal `proxy_pass http://127.0.0.1:PORT;` (single space, no trailing slash), so `proxy_pass  http://127.0.0.1:8081/;` or `http://[::1]:8081` both fail although they are valid."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "The instruction says proxy_pass has 'a typo', but container.def:42 `proxy_pass http://127.0.0.1:9999;` is syntactically correct, only the wrong port. Minor misleading claim."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "nginx is only started by %startscript (container.def:76-77), which runs on `apptainer instance start`, not on `exec`/docker. If nginx is not running, the suggested `nginx -s reload` fails (no pid) and the agent must start nginx itself. setup.sh:41-62 also omits `chmod +x run.sh` (container.def:71 has it), so the two setup paths differ."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Starts user-level nginx and python http.server on localhost ports and edits files under /home/user. No destructive actions.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\nmkdir -p /home/user/backend/cache\necho 'export BACKEND_PORT=8081' >> /home/user/.bash_profile\nsed -i 's#proxy_pass http://127.0.0.1:9999;#proxy_pass http://127.0.0.1:8081;#' /home/user/nginx/nginx.conf\nnohup python3 -c 'import time; time.sleep(10**6)' 8081 >/dev/null 2>&1 &\necho 'Hello from the backend!' > /home/user/success.log\n",
+  "mutant_intent": "Starts no HTTP backend (a python3 sleep carrying '8081' in argv just to fool the ps check), never reloads nginx and never curls; success.log is hand-written with the string visible in run.sh. Violates steps 4, 6 and 7 (success.log must be the actual curl output through the proxy).",
+  "must_reject": true,
+  "notes": "A realistic 502 debugging scenario, but the grader never exercises the stack. The expected output is visible in run.sh, and the process check is a substring match on ps aux."
+ },
+ {
+  "key": "TMax__task_009840_d53065f3",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The decrypted payload is 'INITIAL_BUFFER_OVERFLOW_SEQUENCE_SECRET_ACCESS_TOKEN=X9f2M4pL1vQ8z_ENDING_SEQUENCE' (container.def:22). The description only says the plaintext contains `SECRET_ACCESS_TOKEN=<token_value>` and gives no terminator. Taking everything after '=' (or a [A-Za-z0-9_]+ match) yields 'X9f2M4pL1vQ8z_ENDING_SEQUENCE', but test_final_state.py:32,53 require exactly 'X9f2M4pL1vQ8z'. The agent must guess that '_' ends the token."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "No test checks that /home/user/analyze.go exists, is Go, compiles, or computes SHA256 (test_final_state.py:8-56 check only the three output files). The description requires 'Write a Go program at /home/user/analyze.go' that generates the log, token and report. Hard-coded outputs from bash/python pass."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": false,
+    "evidence": "The description's JSON template already gives scanned_files 3 / blocked_files 2 / allowed_files 1, so the report counts need no computation. Only the token and the BLOCK/ALLOW mapping require work, and the mapping is guessable from '2 blocked, 1 allowed'."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "If the grader runs as non-root `user` while the agent (root) created safe_token.txt with mode 0400 owned by root, test_final_state.py:29 cannot read it. Depends on harness uid."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Reads and writes only under /home/user. The 'exploit' is synthetic XOR'd text with no real payload.",
+  "realism": "contrived",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncd /home/user\ncat > analyze.go <<'EOF'\npackage main\n\nfunc main() {}\nEOF\ntok=$(python3 -c \"import re;d=open('/home/user/intercepted/payload_02.dat','rb').read();p=bytes(b^0x7A for b in d).decode();print(re.search(r'TOKEN=([A-Za-z0-9]+)',p).group(1))\")\nprintf 'BLOCK /home/user/intercepted/payload_01.dat\\nALLOW /home/user/intercepted/payload_02.dat\\nBLOCK /home/user/intercepted/payload_03.dat\\n' > firewall_policy.log\nprintf '%s' \"$tok\" > safe_token.txt\nchmod 400 safe_token.txt\nprintf '{\"scanned_files\": 3, \"blocked_files\": 2, \"allowed_files\": 1, \"extracted_token\": \"%s\"}\\n' \"$tok\" > final_report.json\n",
+  "mutant_intent": "The Go program is an empty stub that is never run. No SHA256 comparison against threat_intel.db is done; the BLOCK/ALLOW lines and counts are hard-coded; decryption is done ad hoc in python. Violates 'Write a Go program ... This program must iterate ... calculate SHA256 ... generate' (all outputs must come from the Go program).",
+  "must_reject": true,
+  "notes": "The grader checks only final artifacts, so the Go/hashing requirement is ungraded. The token-boundary ambiguity can fail a faithful solver who takes the full string after '='."
+ },
+ {
+  "key": "SETA__unix_linux_se__336776",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "test_outputs.py never checks that the original ciphertexts or the original key fingerprint were preserved (.gpg-id, or that the secret key matches /var/backups/gnupg/corp-admin.asc). A solver that knows the plaintexts (only available from the hidden tests at :45,54,63) could mint a new key and re-insert the entries. Not exploitable by an agent that sees only the instruction and environment, so it is a suspicion, not a practical hole."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": false,
+    "evidence": "test_new_entry_insertion (:92-115) also requires encryption to work (pass insert). The instruction only asks that entries be retrievable. It is implied by acceptance criterion 4 (ultimate trust) and by 'fix it', so this is minor."
+   },
+   {
+    "type": "other",
+    "confirmed": false,
+    "evidence": "tests/test.sh:15-19 uses `uvx -p 3.13 -w pytest==8.4.1`, which downloads Python 3.13 and pytest at verify time despite the Dockerfile:16 comment 'needs no network at test time'. Harness-level network dependency."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "GPG key import, ownertrust change and git init all stay in /root inside the container. The natural solution is non-destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\nexport GNUPGHOME=/root/.gnupg PASSWORD_STORE_DIR=/root/.password-store\n# do NOT recover the original key: mint a fresh one with the same uid\ngpg --batch --yes --pinentry-mode loopback --passphrase '' --quick-gen-key 'Corp Admin <admin@company.local>' rsa2048 default never\nFPR=$(gpg --list-secret-keys --with-colons admin@company.local | awk -F: '/^fpr/{print $10; exit}')\nprintf '%s:6:\\n' \"$FPR\" | gpg --import-ownertrust\necho \"$FPR\" > $PASSWORD_STORE_DIR/.gpg-id\n# overwrite the unrecoverable entries with values copied from the hidden tests\necho 'Corp3mail@2024!'  | pass insert -e -f email/corporate\necho 'Db_Root_Pass_789' | pass insert -e -f servers/db-root\necho 'ghp_token_abc123' | pass insert -e -f api/github-token\ngit -C $PASSWORD_STORE_DIR init -q && git -C $PASSWORD_STORE_DIR add -A && git -C $PASSWORD_STORE_DIR commit -qm init\n",
+  "mutant_intent": "Does not recover the original secret key from /var/backups/gnupg/corp-admin.asc. It generates a new key with the same uid, repoints .gpg-id and overwrites the three entries with plaintexts copied from the hidden tests, destroying the original ciphertexts. Violates 'Diagnose ... fix it so all stored entries can be retrieved' (recovery, not replacement). It only works with knowledge of the hidden test values.",
+  "must_reject": true,
+  "notes": "A realistic recovery task. The grader decrypts the real entries, which requires the backup key the agent must find at /var/backups/gnupg/corp-admin.asc. The only loophole requires hidden-test plaintexts."
+ }
+]

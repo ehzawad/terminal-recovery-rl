@@ -1,0 +1,32 @@
+[
+ {
+  "key": "TMax__task_002018_b907f747",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_002018_b907f747"
+ },
+ {
+  "key": "SETA__ask_ubuntu__711",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/ask_ubuntu__711"
+ },
+ {
+  "key": "LiteCoder__fashion-mnist-cnn-pipeline",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/fashion-mnist-cnn-pipeline"
+ },
+ {
+  "key": "TMax__task_005524_bb885478",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_005524_bb885478"
+ },
+ {
+  "key": "TMax__task_009840_d53065f3",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_009840_d53065f3"
+ },
+ {
+  "key": "SETA__unix_linux_se__336776",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/unix_linux_se__336776"
+ }
+]

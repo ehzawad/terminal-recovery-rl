@@ -1,0 +1,113 @@
+{
+ "key": "SETA__stack_overflow__6637135",
+ "ds": "SETA",
+ "task": "stack_overflow__6637135",
+ "notes": [],
+ "workdir": "/opt/dslproject/scripts",
+ "instruction_chars": 1811,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 414s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../../tests/test_outputs.py::test_execute_permission": "PASSED",
+   "../../../tests/test_outputs.py::test_unknown_command_still_errors": "PASSED",
+   "../../../tests/test_outputs.py::test_empty_line_tolerance": "PASSED",
+   "../../../tests/test_outputs.py::test_greet_output": "FAILED",
+   "../../../tests/test_outputs.py::test_math_output": "FAILED",
+   "../../../tests/test_outputs.py::test_transform_output": "FAILED",
+   "../../../tests/test_outputs.py::test_comment_skip_direct": "FAILED",
+   "../../../tests/test_outputs.py::test_direct_matches_executable": "FAILED",
+   "../../../tests/test_outputs.py::test_shebang_syntax": "FAILED",
+   "../../../tests/test_outputs.py::test_all_expected_outputs": "FAILED"
+  },
+  "n_pass": 3,
+  "n_fail": 7,
+  "seconds": 0.5,
+  "log_tail": "s in {EXPECTED_FILE}, got {len(expected)}\"\n    \n        for script_name, expected_out in expected.items():\n            script_path = os.path.join(SCRIPTS_DIR, script_name)\n            result = subprocess.run(\n                [f'./{script_name}'],\n                cwd=SCRIPTS_DIR,\n                capture_output=True,\n                text=True\n            )\n>           assert result.returncode == 0, (\n                f\"{script_name}: exit {result.returncode}; stderr: {result.stderr!r}\"\n            )\nE           AssertionError: greet.dsl: exit 1; stderr: \"ERROR: Unknown command '#!/usr/local/bin/dslrun'\\n\"\nE           assert 1 == 0\nE            +  where 1 = CompletedProcess(args=['./greet.dsl'], returncode=1, stdout='', stderr=\"ERROR: Unknown command '#!/usr/local/bin/dslrun'\\n\").returncode\n\n/tests/test_outputs.py:179: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_execute_permission\nPASSED ../../../tests/test_outputs.py::test_unknown_command_still_errors\nPASSED ../../../tests/test_outputs.py::test_empty_line_tolerance\nFAILED ../../../tests/test_outputs.py::test_greet_output - AssertionError: gr...\nFAILED ../../../tests/test_outputs.py::test_math_output - AssertionError: mat...\nFAILED ../../../tests/test_outputs.py::test_transform_output - AssertionError...\nFAILED ../../../tests/test_outputs.py::test_comment_skip_direct - AssertionEr...\nFAILED ../../../tests/test_outputs.py::test_direct_matches_executable - Asser...\nFAILED ../../../tests/test_outputs.py::test_shebang_syntax - AssertionError: ...\nFAILED ../../../tests/test_outputs.py::test_all_expected_outputs - AssertionE...\n7 failed, 3 passed in 0.09s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../../tests/test_outputs.py::test_greet_output": "PASSED",
+     "../../../tests/test_outputs.py::test_math_output": "PASSED",
+     "../../../tests/test_outputs.py::test_transform_output": "PASSED",
+     "../../../tests/test_outputs.py::test_comment_skip_direct": "PASSED",
+     "../../../tests/test_outputs.py::test_direct_matches_executable": "PASSED",
+     "../../../tests/test_outputs.py::test_shebang_syntax": "PASSED",
+     "../../../tests/test_outputs.py::test_execute_permission": "PASSED",
+     "../../../tests/test_outputs.py::test_unknown_command_still_errors": "PASSED",
+     "../../../tests/test_outputs.py::test_empty_line_tolerance": "PASSED",
+     "../../../tests/test_outputs.py::test_all_expected_outputs": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_greet_output\nPASSED ../../../tests/test_outputs.py::test_math_output\nPASSED ../../../tests/test_outputs.py::test_transform_output\nPASSED ../../../tests/test_outputs.py::test_comment_skip_direct\nPASSED ../../../tests/test_outputs.py::test_direct_matches_executable\nPASSED ../../../tests/test_outputs.py::test_shebang_syntax\nPASSED ../../../tests/test_outputs.py::test_execute_permission\nPASSED ../../../tests/test_outputs.py::test_unknown_command_still_errors\nPASSED ../../../tests/test_outputs.py::test_empty_line_tolerance\nPASSED ../../../tests/test_outputs.py::test_all_expected_outputs\n10 passed in 0.07s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../../tests/test_outputs.py::test_greet_output": "PASSED",
+     "../../../tests/test_outputs.py::test_math_output": "PASSED",
+     "../../../tests/test_outputs.py::test_transform_output": "PASSED",
+     "../../../tests/test_outputs.py::test_comment_skip_direct": "PASSED",
+     "../../../tests/test_outputs.py::test_direct_matches_executable": "PASSED",
+     "../../../tests/test_outputs.py::test_shebang_syntax": "PASSED",
+     "../../../tests/test_outputs.py::test_execute_permission": "PASSED",
+     "../../../tests/test_outputs.py::test_unknown_command_still_errors": "PASSED",
+     "../../../tests/test_outputs.py::test_empty_line_tolerance": "PASSED",
+     "../../../tests/test_outputs.py::test_all_expected_outputs": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.6,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_greet_output\nPASSED ../../../tests/test_outputs.py::test_math_output\nPASSED ../../../tests/test_outputs.py::test_transform_output\nPASSED ../../../tests/test_outputs.py::test_comment_skip_direct\nPASSED ../../../tests/test_outputs.py::test_direct_matches_executable\nPASSED ../../../tests/test_outputs.py::test_shebang_syntax\nPASSED ../../../tests/test_outputs.py::test_execute_permission\nPASSED ../../../tests/test_outputs.py::test_unknown_command_still_errors\nPASSED ../../../tests/test_outputs.py::test_empty_line_tolerance\nPASSED ../../../tests/test_outputs.py::test_all_expected_outputs\n10 passed in 0.08s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../../tests/test_outputs.py::test_greet_output": "PASSED",
+    "../../../tests/test_outputs.py::test_math_output": "PASSED",
+    "../../../tests/test_outputs.py::test_transform_output": "PASSED",
+    "../../../tests/test_outputs.py::test_comment_skip_direct": "PASSED",
+    "../../../tests/test_outputs.py::test_direct_matches_executable": "PASSED",
+    "../../../tests/test_outputs.py::test_shebang_syntax": "PASSED",
+    "../../../tests/test_outputs.py::test_execute_permission": "PASSED",
+    "../../../tests/test_outputs.py::test_unknown_command_still_errors": "PASSED",
+    "../../../tests/test_outputs.py::test_empty_line_tolerance": "PASSED",
+    "../../../tests/test_outputs.py::test_all_expected_outputs": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../../tests/test_outputs.py::test_greet_output\nPASSED ../../../tests/test_outputs.py::test_math_output\nPASSED ../../../tests/test_outputs.py::test_transform_output\nPASSED ../../../tests/test_outputs.py::test_comment_skip_direct\nPASSED ../../../tests/test_outputs.py::test_direct_matches_executable\nPASSED ../../../tests/test_outputs.py::test_shebang_syntax\nPASSED ../../../tests/test_outputs.py::test_execute_permission\nPASSED ../../../tests/test_outputs.py::test_unknown_command_still_errors\nPASSED ../../../tests/test_outputs.py::test_empty_line_tolerance\nPASSED ../../../tests/test_outputs.py::test_all_expected_outputs\n10 passed in 0.08s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 437.2
+}

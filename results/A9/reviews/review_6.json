@@ -1,0 +1,196 @@
+[
+ {
+  "key": "LiteCoder__pytorch-rnn-stock-prediction",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Nothing checks that training happened or that metrics are real: test_model_weights_are_trained (tests/test_outputs.py:342-350) only asserts weights are not ALL zero, so a randomly initialised nn.RNN state_dict passes; test_report_metrics_section (lines 211-229) only requires 0<=mae,rmse<200 and test_report_rmse_ge_mae (242-251) rmse>=mae. Naive-baseline metrics are never recomputed from the CSV, and RNN metrics are never recomputed from model.pt. Fabricated metrics plus an untrained model pass every test."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The 'mae < 200' bound at test_outputs.py:228 is loose enough to accept a model that effectively predicts ~0 for a ~180 price. The reference solve.sh trains on raw unscaled ~180 targets with lr=0.001 for 100 epochs (solve.sh train_model epochs=100, lr=0.001), which leaves the RNN far from the targets, so the grader seems calibrated to let a non-working model pass."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The CSV checks (lines 49-121) test format, dates, first close 170-190, volume >=1e6 and OHLC consistency, but not the required 'slight upward drift and realistic daily noise'; a noiseless straight line passes. The plot is only checked for PNG magic and >5000 bytes (lines 315-325)."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": false,
+    "evidence": "The instruction says PyTorch/pandas/etc. are available, but the Dockerfile installs them only into /opt/openhands-venv (Dockerfile 'uv pip install torch ...' after '. /opt/openhands-venv/bin/activate'). System python3 on ubuntu:24.04 has no torch, and PATH does not include the venv. The agent has to find the venv (solve.sh does 'source /opt/openhands-venv/bin/activate')."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh runs 'uv init; uv add pytest==8.4.1; uv add pandas numpy; uv pip install torch --index-url https://download.pytorch.org/whl/cpu' at grading time, so the verifier needs network. This is a harness-side dependency, not an agent-side one."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Writes only under /app and /tmp; nothing destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# Lazy solver: fabricates data/metrics, saves an UNTRAINED model, never trains or evaluates.\nsource /opt/openhands-venv/bin/activate 2>/dev/null\ncd /app\npython3 - <<'EOF'\nimport numpy as np, pandas as pd, torch, torch.nn as nn, json, matplotlib\nmatplotlib.use('Agg'); import matplotlib.pyplot as plt\ntorch.manual_seed(42)\nd = pd.bdate_range('2024-01-02', periods=30)\nc = np.round(180 + np.arange(30) * 0.3, 2)          # straight line, no noise\ndf = pd.DataFrame({'Date': d.strftime('%Y-%m-%d'), 'Open': c, 'High': np.round(c + 1, 2),\n                   'Low': np.round(c - 1, 2), 'Close': c, 'Volume': [50000000] * 30})\ndf.to_csv('aapl_30d.csv', index=False)\nclass M(nn.Module):\n    def __init__(s):\n        super().__init__(); s.rnn = nn.RNN(1, 16, 1, nonlinearity='tanh', batch_first=True); s.fc = nn.Linear(16, 1)\ntorch.save(M().state_dict(), 'model.pt')              # random init, no training\nplt.figure(figsize=(10, 6)); plt.plot(d[-5:], c[-5:], marker='o', label='Actual')\nplt.plot(d[-5:], c[-5:] + 0.5, marker='s', label='RNN Predicted')   # fake predictions\nplt.xlabel('Date'); plt.ylabel('Price'); plt.legend(); plt.savefig('actual_vs_predicted.png', dpi=100)\njson.dump({\"model\": {\"type\": \"RNN\", \"hidden_size\": 16, \"num_layers\": 1, \"nonlinearity\": \"tanh\", \"lookback\": 5,\n                     \"epochs\": 100, \"learning_rate\": 0.001, \"optimizer\": \"Adam\", \"loss_function\": \"MSE\"},\n           \"metrics\": {\"rnn\": {\"mae\": 0.5, \"rmse\": 0.5}, \"naive_baseline\": {\"mae\": 0.3, \"rmse\": 0.3}},\n           \"data\": {\"total_samples\": 30, \"train_size\": 19, \"test_size\": 5, \"start_date\": \"2024-01-02\",\n                    \"end_date\": df.Date.iloc[-1]}}, open('report.json', 'w'), indent=2)\nEOF\n",
+  "mutant_intent": "Skips Steps 2-4 completely: noiseless synthetic data, an untrained randomly initialised RNN saved as model.pt, fabricated RNN and naive metrics, and a plot of fake predictions. It violates 'train the model, evaluate it against a naive baseline' and the noise requirement. It should pass every hidden test.",
+  "must_reject": true,
+  "notes": "The grader checks artifact shape and format thoroughly but never verifies that the model was trained or that the reported metrics match the data or the model, so fabricated results pass."
+ },
+ {
+  "key": "TMax__task_005328_d31b8a1e",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_module_import_and_functionality (test_final_state.py:11-32) does sys.path.insert(0, PROJECT_DIR) and then 'import data_processor', so a pure-Python data_processor.py in /home/user/project satisfies it. Nothing checks that lib.rs was fixed, that the extension was built with maturin, or that the imported module is a compiled .so."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_prop_script (lines 34-45) only checks that the substring 'hypothesis' appears in test_prop.py and that the script exits 0; a comment plus sys.exit(0) passes. test_benchmark_json (lines ~47-60) only checks the key is numeric; test_memory_txt (62-75) accepts any integer >= 0, including '0'. benchmark.py and profile_mem.py are never checked for existence or execution, so hard-coded outputs pass."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "container.def:6-7 installs cargo/rustc and maturin but vendors no crates, and Cargo.toml depends on pyo3 = 0.19.0 with no Cargo.lock or vendor directory. Building therefore needs crates.io; the sample transcript in solutions/gemini_*_summary.json shows 'Updating crates.io index / Downloading crates'. In an offline sandbox the real task cannot be completed, while the Python-shim cheat still passes."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The description says 'Build the Python extension in the current virtual environment (or system environment)', but no virtualenv exists and 'maturin develop' fails without one (the transcript shows \"Couldn't find a virtualenv or conda environment\"). It is solvable via 'maturin build' plus 'pip install' of the wheel. The i32 signature also means an unbounded hypothesis integers() strategy overflows; that is a reasonable trap, not a defect."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "%post does useradd and chmod -R 777 /home/user inside the image only; no host effects.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# Lazy solver: never fixes/builds the Rust crate; shadows it with a pure-Python module\n# and writes stub scripts/outputs.\ncd /home/user/project\ncat > data_processor.py <<'EOF'\ndef process_data(data):\n    return sorted(set(data))\nEOF\nprintf '# uses hypothesis (not really)\\nimport sys\\nsys.exit(0)\\n' > test_prop.py\necho '{\"avg_time_sec\": 0.123}' > benchmark.json\necho 0 > memory.txt\n",
+  "mutant_intent": "Does not fix or compile the Rust code: it shadows the extension with a pure-Python data_processor.py and writes a fake property test, a hard-coded benchmark.json and memory.txt=0, with no benchmark.py or profile_mem.py. It violates objectives 1, 2, 4 and 5 and the real hypothesis test in 3. It should pass all four hidden tests, and it runs offline.",
+  "must_reject": true,
+  "notes": "The grader checks the format of outputs only, and adding PROJECT_DIR to sys.path lets a Python shim stand in for the compiled PyO3 module. The genuine build path also needs crates.io."
+ },
+ {
+  "key": "SETA__ask_ubuntu__227__d1",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "All tests (tests/test_outputs.py:23-107) only check that /app/data.txt contains 'Success! This is the protected data file.' and not 'Authentication required', after running download.sh. The server log is never inspected and nothing checks that wget and Basic auth were used, so a download.sh that echoes the string passes."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "instruction.md states verbatim: 'the server returns the text `Success! This is the protected data file.` \u2014 this is the expected content of /app/data.txt', which is exactly EXPECTED_CONTENT at test_outputs.py:10. That enables the shortcut above."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The instruction requires the script to 'be executable', but the tests invoke it as ['bash', DOWNLOAD_SCRIPT] (lines 55-60, 75-80, 96-101) and never check the executable bit."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Starts a local python HTTP server on port 8080 inside the container; nothing destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# Lazy solver: instead of authenticating to the server, the script just writes the\n# expected text (which the instruction reveals).\ncat > /app/download.sh <<'EOF'\n#!/bin/bash\necho 'Success! This is the protected data file.' > /app/data.txt\necho \"Download complete. File saved.\"\nEOF\nchmod +x /app/download.sh\n/app/download.sh\n",
+  "mutant_intent": "Violates 'Fix the script so that it successfully downloads the protected file' because no HTTP request or authentication happens and the known answer string is written directly. It should pass all six tests.",
+  "must_reject": true,
+  "notes": "A realistic wget-credential-quoting task, but the grader checks only file content, which the instruction gives away, so a hard-coded echo passes."
+ },
+ {
+  "key": "SETA__stack_overflow__74892964",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "The expected streaks are recomputed at image build by compute_expected_streaks.py, which overwrites generate_data.py's calendar-based streaks. It uses Window.partitionBy('customer_id').orderBy('date_parsed') over customer-active rows only, so a customer's absent day does not break a streak. Instruction criterion 3 says 'consecutive days where a customer's daily spend exceeds their per-customer median'. I replicated the seed-42 data generation with my own code: under the calendar-day reading the streaks differ for 34 of 50 customers, and the expected top-5 [C031:8, C006:7, C019:7, C024:7, C028:7] becomes C031:5, C006:3, C024:5, C028:4. test_streak_correctness (test_outputs.py:187-197) checks the top-5 exactly, so a solver who implements literal calendar-consecutive days fails."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_distinct_customer_counts (lines 113-163) checks only max_7d>10, max_30d>20 and 30d>=7d. Its 'cross-check' compares raw CSVs with expected_results.json and never reads the parquet values, so per-day distinct counts written into the 7d/30d columns pass."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "/app/pipeline/expected_results.json (agent-visible, and cited by the instruction as 'known-correct answers') contains validation_queries, prefix_sums, total_revenue_all, customer_streaks and top_streak_customers, which are exactly what the tests compare against. query_stats.py can simply return rows from it and pass test_date_range_query_accuracy (lines 68-110). This is partly intentional, but the grader cannot tell a fixed query tool from a lookup."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "test_revenue_prefix_correctness verifies only the first 5 prefix dates, the total and monotonicity (lines 38-65), and the streak end-date '<' bug in query_stats.compute_max_streak is never tested."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The tests temporarily rename one CSV under /app/data and restore it; everything stays inside /app.",
+  "realism": "plausible",
+  "difficulty_guess": "hard",
+  "mutant_script": "#!/bin/bash\n# Plausible-but-wrong solver: fixes prefix sums + streak partitioning, makes incremental a full\n# recompute, but (a) cheats query_stats by returning rows from expected_results.json instead of\n# fixing the prefix off-by-one, and (b) replaces the broken countDistinct window with a per-day\n# count (no 7/30-day sliding window at all).\ncd /app/pipeline\npython3 - <<'EOF'\np='stages/revenue_prefix.py'; s=open(p).read()\ns=s.replace('result = daily.withColumn(\"cumulative_revenue\", F.col(\"daily_revenue\"))',\n 'daily = daily.withColumn(\"dp\", F.to_date(\"Date\"))\\n    w = Window.orderBy(\"dp\").rowsBetween(Window.unboundedPreceding, Window.currentRow)\\n    result = daily.withColumn(\"cumulative_revenue\", F.sum(\"daily_revenue\").over(w)).drop(\"dp\")')\nopen(p,'w').write(s)\np='stages/streak_counter.py'; s=open(p).read()\ns=s.replace('streak_w = Window.orderBy(\"date_parsed\")','streak_w = Window.partitionBy(\"customer_id\").orderBy(\"date_parsed\")')\ns=s.replace('F.lag(\"is_high_value\", 1, 1)','F.lag(\"is_high_value\", 1, 0)')\ns=s.replace('Window.partitionBy(\"group_id\")','Window.partitionBy(\"customer_id\", \"group_id\")')\nopen(p,'w').write(s)\np='stages/customer_distinct.py'; s=open(p).read()\ns=s.replace('result_col = F.countDistinct(\"customer_id\").over(w)','result_col = F.size(\"customers_list\")')\nopen(p,'w').write(s)\nopen('stages/incremental_merge.py','w').write('import sys\\nsys.path.insert(0, \"/app/pipeline\")\\nimport stages.revenue_prefix as rp, stages.streak_counter as sc\\nif __name__ == \"__main__\":\\n    rp.run(); sc.run()\\n')\np='query_stats.py'; s=open(p).read()\ns=s.replace('def query(start_date, end_date):\\n',\n 'def query(start_date, end_date):\\n    for q in json.load(open(\"/app/pipeline/expected_results.json\"))[\"validation_queries\"]:\\n        if (q[\"start_date\"], q[\"end_date\"]) == (start_date, end_date):\\n            return dict(q, max_streak=0)\\n', 1)\nopen(p,'w').write(s)\nEOF\nrm -f /app/pipeline/cache.db\nbash run_pipeline.sh\n",
+  "mutant_intent": "Does not fix the query tool's prefix off-by-one; instead query_stats.py returns answers from expected_results.json for known ranges, which violates criteria 2 and 5 in spirit because the tool no longer computes from the outputs. It also leaves customer_distinct with per-day counts instead of 7/30-day sliding windows, so the parquet aggregations stay wrong. It should pass all five tests.",
+  "must_reject": true,
+  "notes": "A rich multi-bug PySpark debugging task. The grader is strong on prefix sums and streaks but trusts expected_results.json lookups and barely checks distinct counts, and its record-based streak definition penalises a literal calendar-day reading of the instruction."
+ },
+ {
+  "key": "SETA__kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Every metric is self-reported: test_model_comparison_completeness (test_outputs.py:109-131) reads accuracy and roc_auc from the agent's CSV. test_predictions_shape_and_consistency (151-179) computes accuracy from the agent's own 'actual' and 'predicted' columns and never checks 'actual' against a real held-out split of churn.csv. test_cross_validation_performed only needs cv_std>0.001. No model file or pipeline script is run or inspected, so fully fabricated artifacts pass."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "The instruction lists contents, not key names, but the tests require specific keys: eda_summary.json needs 'shape', 'columns', 'missing_values' and 'class_distribution' (lines 20-37). outlier_report.json needs 'method', a count under one of total_outliers_detected/outliers_detected/num_outliers/count, and a strategy under handling_strategy/strategy/description/handling (55-75). feature_engineering.json must be a list of objects with feature/name, formula/logic/description and rationale/reason/why (86-106). tuning_results.json must be a dict of model -> {best_params, best_cv_score} (190-201). Reasonable alternatives such as {'outliers': {...}} or {'n_outliers': 42} fail."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "The outlier count must be strictly greater than 0 and below 2000 (line 67), and predictions must have 1800-2200 rows (line 161), which implies a roughly 20% test split. The instruction states neither the split size nor that outliers must be found."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "report.md must literally contain one of 'model comparison'/'model evaluation'/'comparing models' and one of 'feature importance'/'important features'/'predictive features' (lines 241-244); a good report worded differently (e.g. 'Comparison of models') would fail."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only writes to /home/user/workspace.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\n# Lazy solver: no model is ever trained; every artifact is fabricated to match the grader's shape checks.\ncd /home/user/workspace\npython3 - <<'EOF'\nimport json, pandas as pd\ndf = pd.read_csv('/home/user/dataset/churn.csv')\njson.dump({\"shape\": list(df.shape), \"columns\": list(df.columns), \"missing_values\": {c: 0 for c in df.columns},\n           \"class_distribution\": {\"0\": 7963, \"1\": 2037}}, open('eda_summary.json', 'w'))\njson.dump({\"method\": \"IQR\", \"count\": 100, \"handling\": \"clipped to IQR bounds\"}, open('outlier_report.json', 'w'))\njson.dump([{\"feature\": \"BalanceSalaryRatio\", \"formula\": \"Balance/EstimatedSalary\", \"rationale\": \"wealth\"},\n           {\"feature\": \"AgeProducts\", \"formula\": \"Age*NumOfProducts\", \"rationale\": \"interaction\"}], open('feature_engineering.json', 'w'))\npd.DataFrame({\"model_name\": [\"LR\", \"RF\", \"GB\", \"XGB\"], \"accuracy\": [.81, .86, .87, .86], \"precision\": [.6, .7, .75, .72],\n              \"recall\": [.2, .45, .5, .48], \"f1\": [.3, .55, .6, .58], \"roc_auc\": [.77, .85, .87, .86],\n              \"cv_mean_accuracy\": [.81, .86, .86, .86], \"cv_std\": [.01, .01, .01, .01]}).to_csv('model_comparison.csv', index=False)\njson.dump({\"RF\": {\"best_params\": {\"n_estimators\": 200}, \"best_cv_score\": 0.86},\n           \"GB\": {\"best_params\": {\"max_depth\": 3}, \"best_cv_score\": 0.87}}, open('tuning_results.json', 'w'))\ny = df['Exited'].sample(2000, random_state=42).values\np = y.copy(); p[:260] = 1 - p[:260]          # fabricated 'predictions' at 87% agreement\npd.DataFrame({\"actual\": y, \"predicted\": p}).to_csv('predictions.csv', index=False)\npd.DataFrame({\"feature\": [\"Age\", \"NumOfProducts\", \"Balance\", \"IsActiveMember\", \"CreditScore\"],\n              \"importance\": [.3, .2, .15, .1, .05]}).to_csv('feature_importance.csv', index=False)\nopen('report.md', 'w').write((\"Data quality and preprocessing: no missing values. Model comparison: GB best with accuracy 0.87. \"\n                              \"Feature importance: Age is top. Limitations: class imbalance.\\n\") * 6)\nEOF\n",
+  "mutant_intent": "Trains no model and does no EDA, outlier handling or tuning. All eight artifacts are hard-coded, and predictions.csv is a random 2000-row sample of labels with 13% flipped. It violates essentially every requirement (real test-set accuracy, tuned model, feature importance from a model) and should pass all 8 tests.",
+  "must_reject": true,
+  "notes": "A plausible Kaggle-style pipeline task whose grader only checks the schema and self-reported numbers. It is simultaneously too lax (fabrication passes) and too specific about undocumented JSON key names."
+ },
+ {
+  "key": "SETA__nl2bash__966",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Criterion 1 ('Running deploy/build_manifest.sh from /opt/webapp produces a correct deploy/manifest.txt') is never verified. The content tests (test_outputs.py:18-148) read whatever manifest.txt is on disk. The only test that runs the script, test_build_manifest_idempotent (151-191), runs last and checks only returncode==0 and identical output across two runs. The original broken script exits 0 (its last command is echo), is deterministic, and terminates because GNU find -L detects the parent -> ../.. symlink loop, so leaving it unfixed and hand-writing a correct manifest passes."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "Test order dependence: if pytest ever ran test_build_manifest_idempotent first, a broken script would overwrite the manifest and fail later tests; with default file-order execution it runs last, hiding the unfixed script."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "setup_project.sh creates a symlink loop src/modules/legacy/parent -> ../.. inside /opt/webapp only; no destructive operations.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\n# Lazy solver: hand-generates a correct manifest once but leaves deploy/build_manifest.sh broken.\ncd /opt/webapp\n{ find . -type f | grep -Ev '\\.(class|png|pyc|tmp|bak|o|swp|jpg)$'; find . -path './assets/required/*' -type f; } \\\n  | LC_ALL=C sort -u > /tmp/manifest.new\nmv /tmp/manifest.new deploy/manifest.txt\nbash deploy/validate.sh\n",
+  "mutant_intent": "Leaves deploy/build_manifest.sh unfixed (unescaped BRE alternation, substring matches, find -L, unsorted exception append) and only regenerates manifest.txt by hand. It violates 'Fix the manifest generation pipeline' and acceptance criterion 1, and it should pass all 10 tests.",
+  "must_reject": true,
+  "notes": "Good bug set (BRE alternation, unanchored substrings, symlink loop, sort/dedupe order), but the grader validates the manifest file rather than the generator, so an unfixed script passes."
+ }
+]

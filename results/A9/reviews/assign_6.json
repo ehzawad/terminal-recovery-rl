@@ -1,0 +1,32 @@
+[
+ {
+  "key": "LiteCoder__pytorch-rnn-stock-prediction",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/pytorch-rnn-stock-prediction"
+ },
+ {
+  "key": "TMax__task_005328_d31b8a1e",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_005328_d31b8a1e"
+ },
+ {
+  "key": "SETA__ask_ubuntu__227__d1",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Evolve/ask_ubuntu__227__d1"
+ },
+ {
+  "key": "SETA__stack_overflow__74892964",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/stack_overflow__74892964"
+ },
+ {
+  "key": "SETA__kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/kaggle_notebook__mathchi_churn-problem-for-bank-customer"
+ },
+ {
+  "key": "SETA__nl2bash__966",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/nl2bash__966"
+ }
+]

@@ -1,0 +1,113 @@
+{
+ "key": "SETA__kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+ "ds": "SETA",
+ "task": "kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+ "notes": [],
+ "workdir": "/workspace",
+ "instruction_chars": 2723,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 121s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_eda_summary_dataset_shape": "FAILED",
+   "../tests/test_outputs.py::test_zero_balance_identified": "FAILED",
+   "../tests/test_outputs.py::test_multicollinearity_detected": "FAILED",
+   "../tests/test_outputs.py::test_model_comparison_sufficient": "FAILED",
+   "../tests/test_outputs.py::test_nonlinear_term_explored": "FAILED",
+   "../tests/test_outputs.py::test_best_model_quality": "FAILED",
+   "../tests/test_outputs.py::test_predictions_generated": "FAILED",
+   "../tests/test_outputs.py::test_logistic_regression_completed": "FAILED",
+   "../tests/test_outputs.py::test_cross_validation_performed": "FAILED",
+   "../tests/test_outputs.py::test_correlation_analysis_present": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 10,
+  "seconds": 0.5,
+  "log_tail": " test_correlation_analysis_present():\n        \"\"\"Test 10: EDA has Pearson correlations for Balance-Rating > 0.50.\"\"\"\n>       content = read_file(\"eda_summary.txt\")\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\n/tests/test_outputs.py:207: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nfilename = 'eda_summary.txt'\n\n    def read_file(filename):\n        path = os.path.join(RESULTS_DIR, filename)\n>       assert os.path.isfile(path), f\"{path} does not exist\"\nE       AssertionError: /workspace/results/eda_summary.txt does not exist\nE       assert False\nE        +  where False = <function isfile at 0x7fcf31c702c0>('/workspace/results/eda_summary.txt')\nE        +    where <function isfile at 0x7fcf31c702c0> = <module 'posixpath' (frozen)>.isfile\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:10: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_eda_summary_dataset_shape - AssertionEr...\nFAILED ../tests/test_outputs.py::test_zero_balance_identified - AssertionErro...\nFAILED ../tests/test_outputs.py::test_multicollinearity_detected - AssertionE...\nFAILED ../tests/test_outputs.py::test_model_comparison_sufficient - Assertion...\nFAILED ../tests/test_outputs.py::test_nonlinear_term_explored - AssertionErro...\nFAILED ../tests/test_outputs.py::test_best_model_quality - AssertionError: /w...\nFAILED ../tests/test_outputs.py::test_predictions_generated - AssertionError:...\nFAILED ../tests/test_outputs.py::test_logistic_regression_completed - Asserti...\nFAILED ../tests/test_outputs.py::test_cross_validation_performed - AssertionE...\nFAILED ../tests/test_outputs.py::test_correlation_analysis_present - Assertio...\n10 failed in 0.08s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Pipeline complete. All results saved to /workspace/results/\nBest model: OLS_Interaction with adj_r2 = 0.9607\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_eda_summary_dataset_shape": "PASSED",
+     "../tests/test_outputs.py::test_zero_balance_identified": "PASSED",
+     "../tests/test_outputs.py::test_multicollinearity_detected": "PASSED",
+     "../tests/test_outputs.py::test_model_comparison_sufficient": "PASSED",
+     "../tests/test_outputs.py::test_nonlinear_term_explored": "PASSED",
+     "../tests/test_outputs.py::test_best_model_quality": "PASSED",
+     "../tests/test_outputs.py::test_predictions_generated": "PASSED",
+     "../tests/test_outputs.py::test_logistic_regression_completed": "PASSED",
+     "../tests/test_outputs.py::test_cross_validation_performed": "PASSED",
+     "../tests/test_outputs.py::test_correlation_analysis_present": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_eda_summary_dataset_shape\nPASSED ../tests/test_outputs.py::test_zero_balance_identified\nPASSED ../tests/test_outputs.py::test_multicollinearity_detected\nPASSED ../tests/test_outputs.py::test_model_comparison_sufficient\nPASSED ../tests/test_outputs.py::test_nonlinear_term_explored\nPASSED ../tests/test_outputs.py::test_best_model_quality\nPASSED ../tests/test_outputs.py::test_predictions_generated\nPASSED ../tests/test_outputs.py::test_logistic_regression_completed\nPASSED ../tests/test_outputs.py::test_cross_validation_performed\nPASSED ../tests/test_outputs.py::test_correlation_analysis_present\n10 passed in 0.03s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Pipeline complete. All results saved to /workspace/results/\nBest model: OLS_Interaction with adj_r2 = 0.9607\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_eda_summary_dataset_shape": "PASSED",
+     "../tests/test_outputs.py::test_zero_balance_identified": "PASSED",
+     "../tests/test_outputs.py::test_multicollinearity_detected": "PASSED",
+     "../tests/test_outputs.py::test_model_comparison_sufficient": "PASSED",
+     "../tests/test_outputs.py::test_nonlinear_term_explored": "PASSED",
+     "../tests/test_outputs.py::test_best_model_quality": "PASSED",
+     "../tests/test_outputs.py::test_predictions_generated": "PASSED",
+     "../tests/test_outputs.py::test_logistic_regression_completed": "PASSED",
+     "../tests/test_outputs.py::test_cross_validation_performed": "PASSED",
+     "../tests/test_outputs.py::test_correlation_analysis_present": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.4,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_eda_summary_dataset_shape\nPASSED ../tests/test_outputs.py::test_zero_balance_identified\nPASSED ../tests/test_outputs.py::test_multicollinearity_detected\nPASSED ../tests/test_outputs.py::test_model_comparison_sufficient\nPASSED ../tests/test_outputs.py::test_nonlinear_term_explored\nPASSED ../tests/test_outputs.py::test_best_model_quality\nPASSED ../tests/test_outputs.py::test_predictions_generated\nPASSED ../tests/test_outputs.py::test_logistic_regression_completed\nPASSED ../tests/test_outputs.py::test_cross_validation_performed\nPASSED ../tests/test_outputs.py::test_correlation_analysis_present\n10 passed in 0.03s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_eda_summary_dataset_shape": "PASSED",
+    "../tests/test_outputs.py::test_zero_balance_identified": "PASSED",
+    "../tests/test_outputs.py::test_multicollinearity_detected": "PASSED",
+    "../tests/test_outputs.py::test_model_comparison_sufficient": "PASSED",
+    "../tests/test_outputs.py::test_nonlinear_term_explored": "PASSED",
+    "../tests/test_outputs.py::test_best_model_quality": "PASSED",
+    "../tests/test_outputs.py::test_predictions_generated": "PASSED",
+    "../tests/test_outputs.py::test_logistic_regression_completed": "PASSED",
+    "../tests/test_outputs.py::test_cross_validation_performed": "PASSED",
+    "../tests/test_outputs.py::test_correlation_analysis_present": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.5,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_eda_summary_dataset_shape\nPASSED ../tests/test_outputs.py::test_zero_balance_identified\nPASSED ../tests/test_outputs.py::test_multicollinearity_detected\nPASSED ../tests/test_outputs.py::test_model_comparison_sufficient\nPASSED ../tests/test_outputs.py::test_nonlinear_term_explored\nPASSED ../tests/test_outputs.py::test_best_model_quality\nPASSED ../tests/test_outputs.py::test_predictions_generated\nPASSED ../tests/test_outputs.py::test_logistic_regression_completed\nPASSED ../tests/test_outputs.py::test_cross_validation_performed\nPASSED ../tests/test_outputs.py::test_correlation_analysis_present\n10 passed in 0.03s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 161.2
+}

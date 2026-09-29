@@ -1,0 +1,66 @@
+{
+ "key": "TMax__task_001789_538b3fed",
+ "ds": "TMax",
+ "task": "task_001789_538b3fed",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 1956,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "cached"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_dataset_packager_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_dataset_packager_is_executable": "PASSED"
+  },
+  "n_pass": 2,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "..                                                                       [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_dataset_packager_exists\nPASSED ../../tests/test_initial_state.py::test_dataset_packager_is_executable\n2 passed in 0.02s\n"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py::test_agent_executable_exists": "FAILED",
+   "../../tests/test_final_state.py::test_atomic_write_pattern": "FAILED",
+   "../../tests/test_final_state.py::test_fuzz_equivalence": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 3,
+  "seconds": 0.7,
+  "log_tail": "     try:\n                exception_name, hex_errno, err_msg = (\n                        errpipe_data.split(b':', 2))\n                # The encoding here should match the encoding\n                # written in by the subprocess implementations\n                # like _posixsubprocess\n                err_msg = err_msg.decode()\n            except ValueError:\n                exception_name = b'SubprocessError'\n                hex_errno = b'0'\n                err_msg = 'Bad exception data from child: {!r}'.format(\n                              bytes(errpipe_data))\n            child_exception_type = getattr(\n                    builtins, exception_name.decode('ascii'),\n                    SubprocessError)\n            if issubclass(child_exception_type, OSError) and hex_errno:\n                errno_num = int(hex_errno, 16)\n                child_exec_never_called = (err_msg == \"noexec\")\n                if child_exec_never_called:\n                    err_msg = \"\"\n                    # The error must be from chdir(cwd).\n                    err_filename = cwd\n                else:\n                    err_filename = orig_executable\n                if errno_num != 0:\n                    err_msg = os.strerror(errno_num)\n>               raise child_exception_type(errno_num, err_msg, err_filename)\nE               FileNotFoundError: [Errno 2] No such file or directory: '/home/user/my_packager'\n\n/usr/lib/python3.10/subprocess.py:1863: FileNotFoundError\n=========================== short test summary info ============================\nFAILED ../../tests/test_final_state.py::test_agent_executable_exists - Assert...\nFAILED ../../tests/test_final_state.py::test_atomic_write_pattern - FileNotFo...\nFAILED ../../tests/test_final_state.py::test_fuzz_equivalence - FileNotFoundE...\n3 failed in 0.35s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "status": "done",
+ "wall_s": 25.7,
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../../tests/test_final_state.py::test_agent_executable_exists": "PASSED",
+    "../../tests/test_final_state.py::test_fuzz_equivalence": "PASSED",
+    "../../tests/test_final_state.py::test_atomic_write_pattern": "FAILED"
+   },
+   "n_pass": 2,
+   "n_fail": 1,
+   "seconds": 21.3,
+   "log_tail": "_errno, err_msg = (\n                        errpipe_data.split(b':', 2))\n                # The encoding here should match the encoding\n                # written in by the subprocess implementations\n                # like _posixsubprocess\n                err_msg = err_msg.decode()\n            except ValueError:\n                exception_name = b'SubprocessError'\n                hex_errno = b'0'\n                err_msg = 'Bad exception data from child: {!r}'.format(\n                              bytes(errpipe_data))\n            child_exception_type = getattr(\n                    builtins, exception_name.decode('ascii'),\n                    SubprocessError)\n            if issubclass(child_exception_type, OSError) and hex_errno:\n                errno_num = int(hex_errno, 16)\n                child_exec_never_called = (err_msg == \"noexec\")\n                if child_exec_never_called:\n                    err_msg = \"\"\n                    # The error must be from chdir(cwd).\n                    err_filename = cwd\n                else:\n                    err_filename = orig_executable\n                if errno_num != 0:\n                    err_msg = os.strerror(errno_num)\n>               raise child_exception_type(errno_num, err_msg, err_filename)\nE               FileNotFoundError: [Errno 2] No such file or directory: 'strace'\n\n/usr/lib/python3.10/subprocess.py:1863: FileNotFoundError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_final_state.py::test_agent_executable_exists\nPASSED ../../tests/test_final_state.py::test_fuzz_equivalence\nFAILED ../../tests/test_final_state.py::test_atomic_write_pattern - FileNotFo...\n1 failed, 2 passed in 20.81s\n"
+  }
+ }
+}

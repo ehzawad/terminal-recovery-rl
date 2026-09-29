@@ -1,0 +1,77 @@
+{
+ "key": "SETA__stack_overflow__74892964",
+ "ds": "SETA",
+ "task": "stack_overflow__74892964",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 2641,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 690s"
+ },
+ "noop": {
+  "pytest_rc": 2,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py": "ERROR"
+  },
+  "n_pass": 0,
+  "n_fail": 1,
+  "seconds": 0.7,
+  "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.11s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "ava.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)\n\tat java.base/java.net.InetAddress.getLocalHost(InetAddress.java:1665)\n\t... 18 more\nTraceback (most recent call last):\n  File \"/app/pipeline/stages/streak_counter.py\", line 75, in <module>\n    run()\n  File \"/app/pipeline/stages/streak_counter.py\", line 11, in run\n    .getOrCreate()\n     ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/sql/session.py\", line 497, in getOrCreate\n    sc = SparkContext.getOrCreate(sparkConf)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 515, in getOrCreate\n    SparkContext(conf=conf or SparkConf())\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 201, in __init__\n    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 436, in _ensure_initialized\n    SparkContext._gateway = gateway or launch_gateway(conf)\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/java_gateway.py\", line 107, in launch_gateway\n    raise PySparkRuntimeError(\npyspark.errors.exceptions.base.PySparkRuntimeError: [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.\nPipeline completed at: Tue Sep 29 05:53:36 UTC 2026\nOutput written to /app/output/\n",
+   "grade": {
+    "pytest_rc": 2,
+    "pass": false,
+    "tests": {
+     "../tests/test_outputs.py": "ERROR"
+    },
+    "n_pass": 0,
+    "n_fail": 1,
+    "seconds": 0.5,
+    "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.11s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "ava.net.InetAddress$NameServiceAddresses.get(InetAddress.java:848)\n\tat java.base/java.net.InetAddress.getAllByName0(InetAddress.java:1533)\n\tat java.base/java.net.InetAddress.getLocalHost(InetAddress.java:1665)\n\t... 18 more\nTraceback (most recent call last):\n  File \"/app/pipeline/stages/streak_counter.py\", line 75, in <module>\n    run()\n  File \"/app/pipeline/stages/streak_counter.py\", line 11, in run\n    .getOrCreate()\n     ^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/sql/session.py\", line 497, in getOrCreate\n    sc = SparkContext.getOrCreate(sparkConf)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 515, in getOrCreate\n    SparkContext(conf=conf or SparkConf())\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 201, in __init__\n    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 436, in _ensure_initialized\n    SparkContext._gateway = gateway or launch_gateway(conf)\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/java_gateway.py\", line 107, in launch_gateway\n    raise PySparkRuntimeError(\npyspark.errors.exceptions.base.PySparkRuntimeError: [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.\nPipeline completed at: Tue Sep 29 05:53:49 UTC 2026\nOutput written to /app/output/\n",
+   "grade": {
+    "pytest_rc": 2,
+    "pass": false,
+    "tests": {
+     "../tests/test_outputs.py": "ERROR"
+    },
+    "n_pass": 0,
+    "n_fail": 1,
+    "seconds": 0.5,
+    "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.11s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "ne 515, in getOrCreate\n    SparkContext(conf=conf or SparkConf())\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 201, in __init__\n    SparkContext._ensure_initialized(self, gateway=gateway, conf=conf)\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/context.py\", line 436, in _ensure_initialized\n    SparkContext._gateway = gateway or launch_gateway(conf)\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/dist-packages/pyspark/java_gateway.py\", line 107, in launch_gateway\n    raise PySparkRuntimeError(\npyspark.errors.exceptions.base.PySparkRuntimeError: [JAVA_GATEWAY_EXITED] Java gateway process exited before sending its port number.\nPipeline completed at: Tue Sep 29 05:54:03 UTC 2026\nOutput written to /app/output/\n",
+  "grade": {
+   "pytest_rc": 2,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py": "ERROR"
+   },
+   "n_pass": 0,
+   "n_fail": 1,
+   "seconds": 0.6,
+   "log_tail": "\n==================================== ERRORS ====================================\n_______________________ ERROR collecting test_outputs.py _______________________\nImportError while importing test module '/tests/test_outputs.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/vt/python/lib/python3.12/importlib/__init__.py:90: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n/tests/test_outputs.py:8: in <module>\n    import pandas as pd\nE   ModuleNotFoundError: No module named 'pandas'\n=========================== short test summary info ============================\nERROR ../tests/test_outputs.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.11s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 738.1
+}

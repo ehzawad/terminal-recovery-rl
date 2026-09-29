@@ -1,0 +1,109 @@
+{
+ "key": "SETA__unix_linux_se__82598",
+ "ds": "SETA",
+ "task": "unix_linux_se__82598",
+ "notes": [],
+ "workdir": "/opt/monitor",
+ "instruction_chars": 1754,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 185s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../../tests/test_outputs.py::test_exit_code_zero": "FAILED",
+   "../../tests/test_outputs.py::test_report_all_keys_present": "FAILED",
+   "../../tests/test_outputs.py::test_environment_and_status_values": "FAILED",
+   "../../tests/test_outputs.py::test_probe_attempt_count": "FAILED",
+   "../../tests/test_outputs.py::test_expiry_date_format": "FAILED",
+   "../../tests/test_outputs.py::test_expiry_date_value": "FAILED",
+   "../../tests/test_outputs.py::test_records_processed_count": "FAILED",
+   "../../tests/test_outputs.py::test_validation_rejects_invalid_env": "FAILED",
+   "../../tests/test_outputs.py::test_retry_exhaustion": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 9,
+  "seconds": 0.6,
+  "log_tail": "(count + 1))\\n\"\n                'echo \"$count\" > \"$COUNTER_FILE\"\\n'\n                \"exit 1\\n\"\n            )\n            with open(PROBE_SCRIPT, \"w\") as fh:\n                fh.write(always_fail)\n            os.chmod(PROBE_SCRIPT, 0o755)\n    \n            result = run_script()\n            assert result.returncode != 0, (\n                f\"Expected non-zero exit when probe always fails, got {result.returncode}\"\n            )\n>           assert os.path.exists(PROBE_COUNTER), (\n                \"Probe counter file not found after exhausted retries\"\n            )\nE           AssertionError: Probe counter file not found after exhausted retries\nE           assert False\nE            +  where False = <function exists at 0x7fa580c63600>('/tmp/monitor_probe_count')\nE            +    where <function exists at 0x7fa580c63600> = <module 'posixpath' (frozen)>.exists\nE            +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:175: AssertionError\n=========================== short test summary info ============================\nFAILED ../../tests/test_outputs.py::test_exit_code_zero - AssertionError: Exp...\nFAILED ../../tests/test_outputs.py::test_report_all_keys_present - AssertionE...\nFAILED ../../tests/test_outputs.py::test_environment_and_status_values - File...\nFAILED ../../tests/test_outputs.py::test_probe_attempt_count - FileNotFoundEr...\nFAILED ../../tests/test_outputs.py::test_expiry_date_format - FileNotFoundErr...\nFAILED ../../tests/test_outputs.py::test_expiry_date_value - FileNotFoundErro...\nFAILED ../../tests/test_outputs.py::test_records_processed_count - FileNotFou...\nFAILED ../../tests/test_outputs.py::test_validation_rejects_invalid_env - Ass...\nFAILED ../../tests/test_outputs.py::test_retry_exhaustion - AssertionError: P...\n9 failed in 0.18s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "All four bugs fixed in /opt/monitor/check_service.sh\nHealth check complete. Report written to /opt/monitor/output/report.txt\nsolve.sh complete \u2014 script exited 0\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_exit_code_zero": "PASSED",
+     "../../tests/test_outputs.py::test_report_all_keys_present": "PASSED",
+     "../../tests/test_outputs.py::test_environment_and_status_values": "PASSED",
+     "../../tests/test_outputs.py::test_probe_attempt_count": "PASSED",
+     "../../tests/test_outputs.py::test_expiry_date_format": "PASSED",
+     "../../tests/test_outputs.py::test_expiry_date_value": "PASSED",
+     "../../tests/test_outputs.py::test_records_processed_count": "PASSED",
+     "../../tests/test_outputs.py::test_validation_rejects_invalid_env": "PASSED",
+     "../../tests/test_outputs.py::test_retry_exhaustion": "PASSED"
+    },
+    "n_pass": 9,
+    "n_fail": 0,
+    "seconds": 0.9,
+    "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_exit_code_zero\nPASSED ../../tests/test_outputs.py::test_report_all_keys_present\nPASSED ../../tests/test_outputs.py::test_environment_and_status_values\nPASSED ../../tests/test_outputs.py::test_probe_attempt_count\nPASSED ../../tests/test_outputs.py::test_expiry_date_format\nPASSED ../../tests/test_outputs.py::test_expiry_date_value\nPASSED ../../tests/test_outputs.py::test_records_processed_count\nPASSED ../../tests/test_outputs.py::test_validation_rejects_invalid_env\nPASSED ../../tests/test_outputs.py::test_retry_exhaustion\n9 passed in 0.47s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "All four bugs fixed in /opt/monitor/check_service.sh\nHealth check complete. Report written to /opt/monitor/output/report.txt\nsolve.sh complete \u2014 script exited 0\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../../tests/test_outputs.py::test_exit_code_zero": "PASSED",
+     "../../tests/test_outputs.py::test_report_all_keys_present": "PASSED",
+     "../../tests/test_outputs.py::test_environment_and_status_values": "PASSED",
+     "../../tests/test_outputs.py::test_probe_attempt_count": "PASSED",
+     "../../tests/test_outputs.py::test_expiry_date_format": "PASSED",
+     "../../tests/test_outputs.py::test_expiry_date_value": "PASSED",
+     "../../tests/test_outputs.py::test_records_processed_count": "PASSED",
+     "../../tests/test_outputs.py::test_validation_rejects_invalid_env": "PASSED",
+     "../../tests/test_outputs.py::test_retry_exhaustion": "PASSED"
+    },
+    "n_pass": 9,
+    "n_fail": 0,
+    "seconds": 0.9,
+    "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_exit_code_zero\nPASSED ../../tests/test_outputs.py::test_report_all_keys_present\nPASSED ../../tests/test_outputs.py::test_environment_and_status_values\nPASSED ../../tests/test_outputs.py::test_probe_attempt_count\nPASSED ../../tests/test_outputs.py::test_expiry_date_format\nPASSED ../../tests/test_outputs.py::test_expiry_date_value\nPASSED ../../tests/test_outputs.py::test_records_processed_count\nPASSED ../../tests/test_outputs.py::test_validation_rejects_invalid_env\nPASSED ../../tests/test_outputs.py::test_retry_exhaustion\n9 passed in 0.49s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "Health check complete. Report written to /opt/monitor/output/report.txt\n",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../../tests/test_outputs.py::test_exit_code_zero": "PASSED",
+    "../../tests/test_outputs.py::test_report_all_keys_present": "PASSED",
+    "../../tests/test_outputs.py::test_environment_and_status_values": "PASSED",
+    "../../tests/test_outputs.py::test_probe_attempt_count": "PASSED",
+    "../../tests/test_outputs.py::test_expiry_date_format": "PASSED",
+    "../../tests/test_outputs.py::test_expiry_date_value": "PASSED",
+    "../../tests/test_outputs.py::test_records_processed_count": "PASSED",
+    "../../tests/test_outputs.py::test_validation_rejects_invalid_env": "PASSED",
+    "../../tests/test_outputs.py::test_retry_exhaustion": "PASSED"
+   },
+   "n_pass": 9,
+   "n_fail": 0,
+   "seconds": 1.0,
+   "log_tail": ".........                                                                [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_outputs.py::test_exit_code_zero\nPASSED ../../tests/test_outputs.py::test_report_all_keys_present\nPASSED ../../tests/test_outputs.py::test_environment_and_status_values\nPASSED ../../tests/test_outputs.py::test_probe_attempt_count\nPASSED ../../tests/test_outputs.py::test_expiry_date_format\nPASSED ../../tests/test_outputs.py::test_expiry_date_value\nPASSED ../../tests/test_outputs.py::test_records_processed_count\nPASSED ../../tests/test_outputs.py::test_validation_rejects_invalid_env\nPASSED ../../tests/test_outputs.py::test_retry_exhaustion\n9 passed in 0.53s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 203.9
+}

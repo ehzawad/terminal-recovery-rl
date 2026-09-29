@@ -1,0 +1,32 @@
+[
+ {
+  "key": "LiteCoder__git-workflow-conflict-sim",
+  "dataset": "LiteCoder",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/LiteCoder-Terminal-RL-preview/git-workflow-conflict-sim"
+ },
+ {
+  "key": "TMax__task_009712_63ae0579",
+  "dataset": "TMax",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/TMax-sample/task_009712_63ae0579"
+ },
+ {
+  "key": "SETA__ask_ubuntu__1228",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/ask_ubuntu__1228"
+ },
+ {
+  "key": "SETA__stack_overflow__6637135",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/stack_overflow__6637135"
+ },
+ {
+  "key": "SETA__stack_overflow__58859092",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/stack_overflow__58859092"
+ },
+ {
+  "key": "SETA__kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+  "dataset": "SETA",
+  "dir": "/mnt/sdb/arafat/ehz/llm/.pools/audit9/SETA-sample/SETA_Synth/kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques"
+ }
+]

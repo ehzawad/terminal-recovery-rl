@@ -1,0 +1,113 @@
+{
+ "key": "SETA__nl2bash__086",
+ "ds": "SETA",
+ "task": "nl2bash__086",
+ "notes": [],
+ "workdir": "/root",
+ "instruction_chars": 1687,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 356s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_exit_code_zero_with_clean_logs": "PASSED",
+   "../tests/test_outputs.py::test_alerts_log_total_count": "FAILED",
+   "../tests/test_outputs.py::test_per_source_counts": "FAILED",
+   "../tests/test_outputs.py::test_exit_code_nonzero_when_findings": "FAILED",
+   "../tests/test_outputs.py::test_case_insensitive_matching": "FAILED",
+   "../tests/test_outputs.py::test_tail_n_10_includes_first_match": "FAILED",
+   "../tests/test_outputs.py::test_failed_password_not_counted": "FAILED",
+   "../tests/test_outputs.py::test_both_sources_in_output": "FAILED",
+   "../tests/test_outputs.py::test_critical_entries_from_both_sources": "FAILED",
+   "../tests/test_outputs.py::test_alerts_log_appends_across_runs": "FAILED"
+  },
+  "n_pass": 1,
+  "n_fail": 9,
+  "seconds": 0.7,
+  "log_tail": "ss_runs ______________________\n\n    def test_alerts_log_appends_across_runs():\n        \"\"\"Running the script twice should append two report sections, not overwrite.\"\"\"\n        # Clean start\n        if os.path.exists(ALERTS_LOG):\n            os.remove(ALERTS_LOG)\n    \n        # Run once\n        subprocess.run([\"bash\", SCRIPT], capture_output=True, text=True)\n>       assert os.path.exists(ALERTS_LOG), \"alerts.log not created on first run\"\nE       AssertionError: alerts.log not created on first run\nE       assert False\nE        +  where False = <function exists at 0x7fbbbdf87600>('/var/log/app/alerts.log')\nE        +    where <function exists at 0x7fbbbdf87600> = <module 'posixpath' (frozen)>.exists\nE        +      where <module 'posixpath' (frozen)> = os.path\n\n/tests/test_outputs.py:254: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_exit_code_zero_with_clean_logs\nFAILED ../tests/test_outputs.py::test_alerts_log_total_count - AssertionError...\nFAILED ../tests/test_outputs.py::test_per_source_counts - AssertionError: ale...\nFAILED ../tests/test_outputs.py::test_exit_code_nonzero_when_findings - Asser...\nFAILED ../tests/test_outputs.py::test_case_insensitive_matching - AssertionEr...\nFAILED ../tests/test_outputs.py::test_tail_n_10_includes_first_match - Assert...\nFAILED ../tests/test_outputs.py::test_failed_password_not_counted - Assertion...\nFAILED ../tests/test_outputs.py::test_both_sources_in_output - AssertionError...\nFAILED ../tests/test_outputs.py::test_critical_entries_from_both_sources - As...\nFAILED ../tests/test_outputs.py::test_alerts_log_appends_across_runs - Assert...\n9 failed, 1 passed in 0.23s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_alerts_log_total_count": "PASSED",
+     "../tests/test_outputs.py::test_per_source_counts": "PASSED",
+     "../tests/test_outputs.py::test_exit_code_nonzero_when_findings": "PASSED",
+     "../tests/test_outputs.py::test_case_insensitive_matching": "PASSED",
+     "../tests/test_outputs.py::test_tail_n_10_includes_first_match": "PASSED",
+     "../tests/test_outputs.py::test_failed_password_not_counted": "PASSED",
+     "../tests/test_outputs.py::test_both_sources_in_output": "PASSED",
+     "../tests/test_outputs.py::test_critical_entries_from_both_sources": "PASSED",
+     "../tests/test_outputs.py::test_exit_code_zero_with_clean_logs": "PASSED",
+     "../tests/test_outputs.py::test_alerts_log_appends_across_runs": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.7,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_alerts_log_total_count\nPASSED ../tests/test_outputs.py::test_per_source_counts\nPASSED ../tests/test_outputs.py::test_exit_code_nonzero_when_findings\nPASSED ../tests/test_outputs.py::test_case_insensitive_matching\nPASSED ../tests/test_outputs.py::test_tail_n_10_includes_first_match\nPASSED ../tests/test_outputs.py::test_failed_password_not_counted\nPASSED ../tests/test_outputs.py::test_both_sources_in_output\nPASSED ../tests/test_outputs.py::test_critical_entries_from_both_sources\nPASSED ../tests/test_outputs.py::test_exit_code_zero_with_clean_logs\nPASSED ../tests/test_outputs.py::test_alerts_log_appends_across_runs\n10 passed in 0.26s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_alerts_log_total_count": "PASSED",
+     "../tests/test_outputs.py::test_per_source_counts": "PASSED",
+     "../tests/test_outputs.py::test_exit_code_nonzero_when_findings": "PASSED",
+     "../tests/test_outputs.py::test_case_insensitive_matching": "PASSED",
+     "../tests/test_outputs.py::test_tail_n_10_includes_first_match": "PASSED",
+     "../tests/test_outputs.py::test_failed_password_not_counted": "PASSED",
+     "../tests/test_outputs.py::test_both_sources_in_output": "PASSED",
+     "../tests/test_outputs.py::test_critical_entries_from_both_sources": "PASSED",
+     "../tests/test_outputs.py::test_exit_code_zero_with_clean_logs": "PASSED",
+     "../tests/test_outputs.py::test_alerts_log_appends_across_runs": "PASSED"
+    },
+    "n_pass": 10,
+    "n_fail": 0,
+    "seconds": 0.7,
+    "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_alerts_log_total_count\nPASSED ../tests/test_outputs.py::test_per_source_counts\nPASSED ../tests/test_outputs.py::test_exit_code_nonzero_when_findings\nPASSED ../tests/test_outputs.py::test_case_insensitive_matching\nPASSED ../tests/test_outputs.py::test_tail_n_10_includes_first_match\nPASSED ../tests/test_outputs.py::test_failed_password_not_counted\nPASSED ../tests/test_outputs.py::test_both_sources_in_output\nPASSED ../tests/test_outputs.py::test_critical_entries_from_both_sources\nPASSED ../tests/test_outputs.py::test_exit_code_zero_with_clean_logs\nPASSED ../tests/test_outputs.py::test_alerts_log_appends_across_runs\n10 passed in 0.25s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_alerts_log_total_count": "PASSED",
+    "../tests/test_outputs.py::test_per_source_counts": "PASSED",
+    "../tests/test_outputs.py::test_exit_code_nonzero_when_findings": "PASSED",
+    "../tests/test_outputs.py::test_case_insensitive_matching": "PASSED",
+    "../tests/test_outputs.py::test_tail_n_10_includes_first_match": "PASSED",
+    "../tests/test_outputs.py::test_failed_password_not_counted": "PASSED",
+    "../tests/test_outputs.py::test_both_sources_in_output": "PASSED",
+    "../tests/test_outputs.py::test_critical_entries_from_both_sources": "PASSED",
+    "../tests/test_outputs.py::test_exit_code_zero_with_clean_logs": "PASSED",
+    "../tests/test_outputs.py::test_alerts_log_appends_across_runs": "PASSED"
+   },
+   "n_pass": 10,
+   "n_fail": 0,
+   "seconds": 0.6,
+   "log_tail": "..........                                                               [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_alerts_log_total_count\nPASSED ../tests/test_outputs.py::test_per_source_counts\nPASSED ../tests/test_outputs.py::test_exit_code_nonzero_when_findings\nPASSED ../tests/test_outputs.py::test_case_insensitive_matching\nPASSED ../tests/test_outputs.py::test_tail_n_10_includes_first_match\nPASSED ../tests/test_outputs.py::test_failed_password_not_counted\nPASSED ../tests/test_outputs.py::test_both_sources_in_output\nPASSED ../tests/test_outputs.py::test_critical_entries_from_both_sources\nPASSED ../tests/test_outputs.py::test_exit_code_zero_with_clean_logs\nPASSED ../tests/test_outputs.py::test_alerts_log_appends_across_runs\n10 passed in 0.13s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 379.5
+}

@@ -1,0 +1,105 @@
+{
+ "key": "SETA__ask_ubuntu__391__d1",
+ "ds": "SETA",
+ "task": "ask_ubuntu__391__d1",
+ "notes": [],
+ "workdir": "/app",
+ "instruction_chars": 1038,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "cached"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_font_directory_exists": "FAILED",
+   "../tests/test_outputs.py::test_font_files_count": "FAILED",
+   "../tests/test_outputs.py::test_ttf_files_present": "FAILED",
+   "../tests/test_outputs.py::test_otf_files_present": "FAILED",
+   "../tests/test_outputs.py::test_woff_files_present": "FAILED",
+   "../tests/test_outputs.py::test_source_files_preserved_after_copy": "FAILED",
+   "../tests/test_outputs.py::test_font_cache_updated": "FAILED",
+   "../tests/test_outputs.py::test_fc_cache_scans_user_font_dir": "FAILED"
+  },
+  "n_pass": 0,
+  "n_fail": 8,
+  "seconds": 0.5,
+  "log_tail": "nts\"\n        # First verify fonts are installed (prevents vacuous pass)\n>       assert font_dir.exists(), f\"{font_dir} does not exist - fonts not installed\"\nE       AssertionError: /root/.local/share/fonts does not exist - fonts not installed\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/root/.local/share/fonts').exists\n\n/tests/test_outputs.py:72: AssertionError\n______________________ test_fc_cache_scans_user_font_dir _______________________\n\n    def test_fc_cache_scans_user_font_dir():\n        \"\"\"Running fc-cache -v on user font directory must show it is scanned.\"\"\"\n        font_dir = get_home() / \".local\" / \"share\" / \"fonts\"\n        # First verify fonts are installed (prevents vacuous pass)\n>       assert font_dir.exists(), f\"{font_dir} does not exist\"\nE       AssertionError: /root/.local/share/fonts does not exist\nE       assert False\nE        +  where False = exists()\nE        +    where exists = PosixPath('/root/.local/share/fonts').exists\n\n/tests/test_outputs.py:92: AssertionError\n=========================== short test summary info ============================\nFAILED ../tests/test_outputs.py::test_font_directory_exists - AssertionError:...\nFAILED ../tests/test_outputs.py::test_font_files_count - AssertionError: Expe...\nFAILED ../tests/test_outputs.py::test_ttf_files_present - AssertionError: No ...\nFAILED ../tests/test_outputs.py::test_otf_files_present - AssertionError: No ...\nFAILED ../tests/test_outputs.py::test_woff_files_present - AssertionError: No...\nFAILED ../tests/test_outputs.py::test_source_files_preserved_after_copy - Ass...\nFAILED ../tests/test_outputs.py::test_font_cache_updated - AssertionError: /r...\nFAILED ../tests/test_outputs.py::test_fc_cache_scans_user_font_dir - Assertio...\n8 failed in 0.12s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Font installation completed successfully.\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_font_directory_exists": "PASSED",
+     "../tests/test_outputs.py::test_font_files_count": "PASSED",
+     "../tests/test_outputs.py::test_ttf_files_present": "PASSED",
+     "../tests/test_outputs.py::test_otf_files_present": "PASSED",
+     "../tests/test_outputs.py::test_woff_files_present": "PASSED",
+     "../tests/test_outputs.py::test_source_files_preserved_after_copy": "PASSED",
+     "../tests/test_outputs.py::test_font_cache_updated": "PASSED",
+     "../tests/test_outputs.py::test_fc_cache_scans_user_font_dir": "PASSED"
+    },
+    "n_pass": 8,
+    "n_fail": 0,
+    "seconds": 2.6,
+    "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_font_directory_exists\nPASSED ../tests/test_outputs.py::test_font_files_count\nPASSED ../tests/test_outputs.py::test_ttf_files_present\nPASSED ../tests/test_outputs.py::test_otf_files_present\nPASSED ../tests/test_outputs.py::test_woff_files_present\nPASSED ../tests/test_outputs.py::test_source_files_preserved_after_copy\nPASSED ../tests/test_outputs.py::test_font_cache_updated\nPASSED ../tests/test_outputs.py::test_fc_cache_scans_user_font_dir\n8 passed in 2.07s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Font installation completed successfully.\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_font_directory_exists": "PASSED",
+     "../tests/test_outputs.py::test_font_files_count": "PASSED",
+     "../tests/test_outputs.py::test_ttf_files_present": "PASSED",
+     "../tests/test_outputs.py::test_otf_files_present": "PASSED",
+     "../tests/test_outputs.py::test_woff_files_present": "PASSED",
+     "../tests/test_outputs.py::test_source_files_preserved_after_copy": "PASSED",
+     "../tests/test_outputs.py::test_font_cache_updated": "PASSED",
+     "../tests/test_outputs.py::test_fc_cache_scans_user_font_dir": "PASSED"
+    },
+    "n_pass": 8,
+    "n_fail": 0,
+    "seconds": 2.6,
+    "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_font_directory_exists\nPASSED ../tests/test_outputs.py::test_font_files_count\nPASSED ../tests/test_outputs.py::test_ttf_files_present\nPASSED ../tests/test_outputs.py::test_otf_files_present\nPASSED ../tests/test_outputs.py::test_woff_files_present\nPASSED ../tests/test_outputs.py::test_source_files_preserved_after_copy\nPASSED ../tests/test_outputs.py::test_font_cache_updated\nPASSED ../tests/test_outputs.py::test_fc_cache_scans_user_font_dir\n8 passed in 2.15s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "status": "done",
+ "wall_s": 7.3,
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 0,
+   "pass": true,
+   "tests": {
+    "../tests/test_outputs.py::test_font_directory_exists": "PASSED",
+    "../tests/test_outputs.py::test_font_files_count": "PASSED",
+    "../tests/test_outputs.py::test_ttf_files_present": "PASSED",
+    "../tests/test_outputs.py::test_otf_files_present": "PASSED",
+    "../tests/test_outputs.py::test_woff_files_present": "PASSED",
+    "../tests/test_outputs.py::test_source_files_preserved_after_copy": "PASSED",
+    "../tests/test_outputs.py::test_font_cache_updated": "PASSED",
+    "../tests/test_outputs.py::test_fc_cache_scans_user_font_dir": "PASSED"
+   },
+   "n_pass": 8,
+   "n_fail": 0,
+   "seconds": 2.5,
+   "log_tail": "........                                                                 [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_font_directory_exists\nPASSED ../tests/test_outputs.py::test_font_files_count\nPASSED ../tests/test_outputs.py::test_ttf_files_present\nPASSED ../tests/test_outputs.py::test_otf_files_present\nPASSED ../tests/test_outputs.py::test_woff_files_present\nPASSED ../tests/test_outputs.py::test_source_files_preserved_after_copy\nPASSED ../tests/test_outputs.py::test_font_cache_updated\nPASSED ../tests/test_outputs.py::test_fc_cache_scans_user_font_dir\n8 passed in 2.07s\n"
+  }
+ }
+}

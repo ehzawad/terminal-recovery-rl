@@ -1,0 +1,221 @@
+[
+ {
+  "key": "LiteCoder__git-workflow-conflict-sim",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "No test checks that a merge conflict ever occurred: conflict_files/merge_count in output.json are just compared to constants (test_output_conflict_files L81-87, test_output_merge_count L100-105) and test_merge_commit_for_login_exists (L243-250) only needs a merge commit whose message contains 'merge' or 'login'. A --no-ff merge with no conflict (main's 'Update greeting on main' commit empty) passes; commit count still 5 (L213-218). The central step 7-8 (produce and resolve a conflict) is unverified."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Step 2 (user.name 'Dev Team', email 'dev@example.com') is never checked: test_git_user_config L264-270 only asserts the author string is non-empty (its own comment admits this). Commit messages are checked by loose substrings over --all ('login', 'greet'/'update', 'multiply'), and src/app.py / src/utils.py by substring, not the 'contains exactly' content the instruction demands."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "instruction.md says branches must be 'sorted alphabetically' but its own JSON example lists [\"main\", \"feature/login\", \"feature/math\"] (unsorted). Harmless because the grader sorts before comparing (L67)."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh (grader wrapper, not task logic) installs curl/uv from the internet (apt-get + curl astral.sh/uv, then uv/uvx fetch pytest, and uvx -p 3.13 may fetch an interpreter); an offline verifier cannot run it unless the harness pre-provisions these. Harness-level, applies to all Harbor tasks."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Work confined to /app/repo and /app/output.json; the reference does rm -rf /app/repo (sandbox path only).",
+  "realism": "contrived",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\nset -e\nmkdir -p /app/repo && cd /app/repo\ngit init -q -b main\ngit config user.name \"root\"; git config user.email \"root@localhost\"\nmkdir -p src\necho '# Project Alpha' > README.md\nprintf 'def greet(name):\\n    return f\"Hello, {name}\"\\n' > src/app.py\nprintf 'def add(a, b):\\n    return a + b\\n' > src/utils.py\ngit add -A && git commit -qm \"Initial commit\"\ngit checkout -qb feature/login\nprintf 'def greet(name):\\n    return f\"Welcome, {name}! Welcome to Project Alpha.\"\\n\\ndef login(user):\\n    return f\"{user} logged in\"\\n' > src/app.py\ngit commit -qam \"Add login feature\"\ngit checkout -q main\ngit commit -q --allow-empty -m \"Update greeting on main\"\ngit merge -q --no-ff feature/login -m \"Merge feature/login into main with resolved conflict\"\ngit checkout -qb feature/math\nprintf 'def add(a, b):\\n    return a + b\\n\\ndef multiply(a, b):\\n    return a * b\\n' > src/utils.py\ngit commit -qam \"Add multiply function\"\ngit checkout -q main && git merge -q feature/math\ncat > /app/output.json <<'EOF'\n{\"branches\": [\"feature/login\", \"feature/math\", \"main\"], \"total_commits_on_main\": 5, \"conflict_files\": [\"src/app.py\"], \"final_files\": [\"README.md\", \"src/app.py\", \"src/utils.py\"], \"merge_count\": 2}\nEOF\n",
+  "mutant_intent": "Never creates a merge conflict (main's 'Update greeting on main' is an empty commit and feature/login already carries the final text, merged --no-ff), uses author root@localhost instead of Dev Team/dev@example.com, and hard-codes conflict_files/merge_count. Violates steps 2, 6, 7-8.",
+  "must_reject": true,
+  "notes": "Solvable and unambiguous for a competent agent, but the grader verifies the end state loosely and never checks the conflict workflow or the git identity, so the fake above should pass every test."
+ },
+ {
+  "key": "TMax__task_009712_63ae0579",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py L66/L71 requires the exact string f\"{alpha:.4f},{beta:.4f},{iterations}\". Computed from the real FASTA the answer is alpha=-0.5380 (trailing zero), beta=0.7181, 136 iterations. The instruction says only 'Round alpha and beta to 4 decimal places'; the natural round(alpha,4) printed with str() gives '-0.538,0.7181,136', which is correctly rounded but rejected."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The grader only checks that /home/user/fit_model.py exists (L11-12) and never runs or inspects it, so a stub script plus a hard-coded result.csv passes. Gradient clipping (the 'Numerical stability testing' requirement) is also untested: on this data the largest |gradient| is about 0.68 < 1.0, so leaving clipping out gives the identical output."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "The task.json 'truth' metadata (not agent-visible) is wrong: it lists w0 GC=0.9 and w1=0.5 and expects '-0.3662,0.6416,58', but the real windows are [1.0,0.4,0.0,1.0,0.0,0.8,0.6,0.2]. The grader recomputes from the file dynamically, so grading is unaffected, but anyone who trusts the metadata is misled."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only reads the FASTA and writes files under /home/user; the image recipe's chmod -R 777 /home/user is limited to the sandbox home.",
+  "realism": "contrived",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncat > /home/user/fit_model.py <<'EOF'\n# TODO: implement FASTA parsing + AR(1) gradient descent\nprint(\"model fitted\")\nEOF\npython3 /home/user/fit_model.py\necho \"-0.5380,0.7181,136\" > /home/user/result.csv\n",
+  "mutant_intent": "fit_model.py is a stub that implements none of the steps; result.csv is hard-coded with the value the (hidden) grader logic produces. It violates 'write a Python script that performs the following steps ... Run your script'.",
+  "must_reject": true,
+  "notes": "The spec is precise, and the convergence margin is comfortable (the diff crosses 1e-5 at 9.6e-6, one step after 1.006e-5), but the output-only grader cannot tell a real script from a stub, and the unstated fixed-width formatting fails a natural round()-based answer on this data."
+ },
+ {
+  "key": "SETA__ask_ubuntu__1228",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_cleanup_report_exists_with_content (L9-24) only needs more than 100 chars plus one keyword such as 'log'. It never checks the per-category counts, per-category reclaimed sizes, or the largest-first sort order the instruction requires. test_cleanup_log_exists (L102-117) only needs more than 50 chars plus an extension or 'deleted'; the required timestamps are never checked. Only 18 hard-coded paths are tested for deletion, so name-based rm (e.g. deleting 'stale.lock' by name, not by age) passes."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "The instruction scopes the job to 'The workspace at /workspace/projects/', but the Go cache files the grader requires deleted live OUTSIDE it (/workspace/go/pkg/mod/cache/download/github.com/example/tmp/download{1,2}.tmp, test L44-45; Dockerfile creates /workspace/go/...). An agent that restricts find to /workspace/projects fails."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The instruction lists backup files as the pattern '~*' (a leading tilde), but the planted and tested file is /workspace/projects/rust-cli-tool/src/main.rs~ (a trailing tilde, test L49). Following the stated glob literally misses it."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "All ages come from build-time 'touch -d \"N days ago\"'. If the image is more than 5 days old at run time, recent.lock ('2 days ago') becomes older than 7 days and the age rule says to delete it, contradicting the explicit 'MUST be preserved' constraint (the explicit constraint still lets a careful agent pass). The 1-day socket and 7/14/30-day thresholds are unaffected by aging, since those files only get older."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh (grader wrapper, not task logic) installs curl/uv from the internet (apt-get + curl astral.sh/uv, then uv/uvx fetch pytest, and uvx -p 3.13 may fetch an interpreter); an offline verifier cannot run it unless the harness pre-provisions these. Harness-level, applies to all Harbor tasks."
+   }
+  ],
+  "safety": "concern",
+  "safety_note": "Bulk deletion task: the reference is scoped to /workspace, but a natural solution using broad find ... -delete / rm -rf patterns (e.g. '*~*' or '.temp' matched loosely) could delete legitimate files. It stays inside the container, with no host escape.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncd /workspace\nfind /workspace -type f \\( -name '*.pyc' -o -name '*.tmp' -o -name '.temp' -o -name '*~' -o -name '*.sw[po]' -o -name '*.sock' -o -name 'stale.lock' -o -name '*.bin' -o -name 'old_*.log' \\) > /tmp/victims\nxargs -a /tmp/victims rm -f\nprintf 'Cleanup report\\nCategories handled: python pyc, npm tmp, rust incremental, go tmp, swap files, sock, lock and log files.\\nCounts and sizes: not computed.\\n' > cleanup_report.txt\n{ echo \"removed files:\"; cat /tmp/victims; } > cleanup_log.txt\n",
+  "mutant_intent": "Deletes files by hard-coded name patterns (stale.lock by name, not age; all *.bin), and writes a report with no per-category counts, no sizes and no largest-first list, plus a log with no timestamps. Violates report requirement 2 and the timestamped-log requirement.",
+  "must_reject": true,
+  "notes": "Realistic cleanup chore, but the grader checks only file presence/absence plus trivial report/log length, and the instruction misstates both the scan root and the backup-file glob."
+ },
+ {
+  "key": "SETA__stack_overflow__6637135",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_shebang_syntax (L96-105) demands the exact first line '#!/bin/bash /usr/local/bin/dslrun'. On Linux the original '#!/usr/local/bin/dslrun' works (the kernel supports interpreter scripts that have their own shebang; I verified this on this host's 5.15 kernel with a scratch script). The only real failure is that dslrun treats the shebang line as an unknown command. Adding the '#' comment-skip branch alone makes all three scripts run correctly, yet that solution is rejected; '#!/usr/bin/env dslrun' would be rejected too."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "instruction.md asserts 'A secondary failure appears once the first is resolved' and the Dockerfile comment says 'broken: shebang points to script, not binary'. Both assume a kernel limitation that Linux does not have, so the task premise (two independent bugs) is false inside the actual container."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Comment skipping is only tested on math.dsl (test_comment_skip_direct L58-71, test_math_output). No temp script with a '#' comment is tested (test_empty_line_tolerance L131-145 has none), so skipping only '#!' lines and deleting math.dsl's comment line passes."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": false,
+    "evidence": "/opt/dslproject/expected_outputs.txt exposes the exact expected stdout. This is intended as a reference and the outputs are trivial, so it is minor."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh (grader wrapper, not task logic) installs curl/uv from the internet (apt-get + curl astral.sh/uv, then uv/uvx fetch pytest, and uvx -p 3.13 may fetch an interpreter); an offline verifier cannot run it unless the harness pre-provisions these. Harness-level, applies to all Harbor tasks."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Edits one bash script in /usr/local/bin and three files in /opt; nothing destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncd /opt/dslproject/scripts\nsed -i '1s|.*|#!/bin/bash /usr/local/bin/dslrun|' greet.dsl math.dsl transform.dsl\nsed -i '/^# This script/d' math.dsl\nsed -i \"s|^        \\\"\\\")     continue ;;|        \\\"\\\")     continue ;;\\n        '#!'*)  continue ;;|\" /usr/local/bin/dslrun\n",
+  "mutant_intent": "Rewrites the shebangs to the exact expected string, adds a skip branch only for '#!' lines (not general '#' comments), and deletes the comment line from math.dsl so it no longer errors. Violates acceptance criterion 4 (comment lines silently skipped) and 'fix the existing files' (it removes script content).",
+  "must_reject": true,
+  "notes": "Built on a macOS/old-kernel premise. On Linux the one-bug fix is fully functional but fails the literal-shebang test, while a cheat that removes the comment passes."
+ },
+ {
+  "key": "SETA__stack_overflow__58859092",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "test_playbook_runs_without_errors (L156-163) fails if 'FAILED!' appears anywhere in the playbook output. The playbook's 'Set server hostname' task (hostname module, ignore_errors: true) runs in an unprivileged Docker container without systemd: the module falls back to calling `hostname <name>`, which needs CAP_SYS_ADMIN and normally fails. Ansible then prints 'fatal: [app01]: FAILED! => ... ...ignoring' even with ignore_errors, so the reference solve.sh (which keeps that task) likely fails this test. The task passes only if the container can set the hostname, or if the agent drops the hostname task or uses failed_when: false, which contradicts the stated purpose. Not executed (read-only review)."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The grader checks only /tmp/hostnames/*.txt contents and that host_vars resolve (L104-122). It never checks that site.yml uses host_vars/new_hostname, so a playbook that hard-codes an inventory_hostname->name dict passes. Nothing checks that the hostname task still exists either."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The instruction says all five files end up with 'identical, incorrect content'. With the original with_items loop every file gets 'db-replica-01', which is correct for db02. Minor."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh (grader wrapper, not task logic) installs curl/uv from the internet (apt-get + curl astral.sh/uv, then uv/uvx fetch pytest, and uvx -p 3.13 may fetch an interpreter); an offline verifier cannot run it unless the harness pre-provisions these. Harness-level, applies to all Harbor tasks."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The playbook tries to change the container hostname (ansible_connection=local). Without CAP_SYS_ADMIN it cannot, and it never reaches the host under default Docker; no deletion outside /tmp/hostnames.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "#!/bin/bash\ncd /home/ubuntu/hostname-project\ncat > site.yml <<'EOF'\n---\n- hosts: all\n  gather_facts: false\n  vars:\n    names: {app01: app-server-01, app02: app-server-02, app03: app-server-03, db01: db-primary-01, db02: db-replica-01}\n  tasks:\n    - name: out dir\n      file: {path: /tmp/hostnames, state: directory}\n    - name: record\n      copy:\n        content: \"{{ names[inventory_hostname] }}\\n\"\n        dest: \"/tmp/hostnames/{{ inventory_hostname }}.txt\"\nEOF\nrm -rf /tmp/hostnames\nansible-playbook -i inventory site.yml\n",
+  "mutant_intent": "Drops the hostname-configuration task entirely and ignores host_vars, hard-coding the name mapping in site.yml. The playbook no longer 'configures a unique hostname for each server'; it only writes the record files.",
+  "must_reject": true,
+  "notes": "The fix itself is simple (drop vars_files and with_items), but the 'FAILED!' output check probably penalizes solutions that keep the ignore_errors hostname task, including the reference, while a hard-coded shortcut passes."
+ },
+ {
+  "key": "SETA__kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Every number is self-reported and never re-derived. model_results.json metrics are range-checked only (L141-143, L246-247); predictions.csv 'actual' values are never compared with the true test labels of /data/heart.csv (L178-182); test_metric_consistency (L185-221) only compares fabricated predictions with the fabricated accuracy. No script or model is required to exist. Fully fabricated outputs pass."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "test_predictions_file L155-156 requires 100-250 prediction rows. The instruction never fixes the split ratio, and a common test_size=0.3 gives 276 rows, so it is rejected."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "test_metric_consistency requires predictions.csv to come from the model with the highest test accuracy (within 0.02). The instruction only says 'Test set predictions', without saying which model."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_feature_importance L286-288 rejects negative importances. If the best model is logistic regression and the agent reports signed coefficients (a common 'importance' choice), it fails; the instruction never says importances must be non-negative. It also requires at least 5 features in one of a few accepted JSON shapes (L255-283); other reasonable shapes (e.g. {\"best_model\":..., \"importances\":{...}}) yield 0 features."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_best_model_accuracy caps the best accuracy at 0.98 and test_cv_sanity caps CV mean at 0.98. Unstated, but unlikely to bind on this dataset."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": true,
+    "evidence": "tests/test.sh (grader wrapper, not task logic) installs curl/uv from the internet (apt-get + curl astral.sh/uv, then uv/uvx fetch pytest, and uvx -p 3.13 may fetch an interpreter); an offline verifier cannot run it unless the harness pre-provisions these. Harness-level, applies to all Harbor tasks."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Pure local ML on a CSV; writes only under /workspace.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "#!/bin/bash\nmkdir -p /workspace/output && cd /workspace/output\npython3 - <<'EOF'\nimport json, random\nrandom.seed(0)\njson.dump({\"Cholesterol\": {\"zero_count\": 172, \"strategy\": \"median imputation\"}}, open(\"data_quality_report.json\", \"w\"))\njson.dump({\"encoding\": \"one-hot\", \"scaling\": \"standard\", \"test_split\": 0.2, \"random_seed\": 42}, open(\"preprocessing_summary.json\", \"w\"))\nnames = [\"logistic regression\", \"random forest\", \"svm\", \"knn\", \"xgboost\"]\njson.dump([{\"model_name\": n, \"test_accuracy\": 0.85, \"test_f1\": 0.86, \"test_recall\": 0.87, \"test_precision\": 0.85, \"cv_mean_accuracy\": 0.84, \"cv_std\": 0.02} for n in names], open(\"model_results.json\", \"w\"))\njson.dump({f: 0.1 for f in [\"Age\", \"Sex\", \"ChestPainType\", \"RestingBP\", \"Cholesterol\", \"MaxHR\"]}, open(\"best_model_feature_importance.json\", \"w\"))\nwith open(\"predictions.csv\", \"w\") as f:\n    f.write(\"actual,predicted\\n\")\n    for i in range(184):\n        a = random.randint(0, 1)\n        f.write(f\"{a},{a if i % 20 > 2 else 1 - a}\\n\")\nopen(\"comparison_summary.txt\", \"w\").write(\"Model comparison of \" + \", \".join(names) + \". \" + \"Random forest performs best because ensembles reduce variance. \" * 4)\nEOF\n",
+  "mutant_intent": "Trains no model and reads no data: it writes hard-coded metrics for 5 names, a random 'actual' column with about 84% agreeing 'predicted', and boilerplate summary/importance files. Violates every substantive requirement (analysis, preprocessing, training, CV).",
+  "must_reject": true,
+  "notes": "Realistic Kaggle-style pipeline, but the grader validates only shapes and self-consistency, so fabricated outputs pass, while an unstated row-count window and the best-model coupling can reject honest work. The reference also imputes cholesterol with target-grouped medians (label leakage)."
+ }
+]

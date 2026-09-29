@@ -1,0 +1,131 @@
+{
+ "key": "LiteCoder__brute-force-key-recovery",
+ "ds": "LiteCoder",
+ "task": "brute-force-key-recovery",
+ "notes": [
+  "removed 6 agent-harness Dockerfile blocks"
+ ],
+ "workdir": "/app",
+ "instruction_chars": 3495,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 20s"
+ },
+ "noop": {
+  "pytest_rc": 1,
+  "pass": false,
+  "tests": {
+   "../tests/test_outputs.py::test_independent_derivation": "PASSED",
+   "../tests/test_outputs.py::test_recover_py_exists": "PASSED",
+   "../tests/test_outputs.py::test_recover_py_produces_same_key": "PASSED",
+   "../tests/test_outputs.py::test_solution_file_exists": "FAILED",
+   "../tests/test_outputs.py::test_solution_file_not_empty": "FAILED",
+   "../tests/test_outputs.py::test_solution_format_length": "FAILED",
+   "../tests/test_outputs.py::test_solution_format_hex": "FAILED",
+   "../tests/test_outputs.py::test_solution_format_lowercase": "FAILED",
+   "../tests/test_outputs.py::test_solution_single_line": "FAILED",
+   "../tests/test_outputs.py::test_solution_exact_key": "FAILED",
+   "../tests/test_outputs.py::test_key_decrypts_vault": "FAILED",
+   "../tests/test_outputs.py::test_decrypted_plaintext_is_ascii": "FAILED",
+   "../tests/test_outputs.py::test_key_is_not_all_zeros": "FAILED",
+   "../tests/test_outputs.py::test_key_is_not_all_same_char": "FAILED"
+  },
+  "n_pass": 3,
+  "n_fail": 11,
+  "seconds": 0.6,
+  "log_tail": "^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/solution.txt'\n\n/tests/test_outputs.py:207: FileNotFoundError\n________________________ test_key_is_not_all_same_char _________________________\n\n    def test_key_is_not_all_same_char():\n        \"\"\"Reject a key that is just one repeated character.\"\"\"\n>       with open(SOLUTION_PATH, \"r\") as f:\n             ^^^^^^^^^^^^^^^^^^^^^^^^\nE       FileNotFoundError: [Errno 2] No such file or directory: '/app/solution.txt'\n\n/tests/test_outputs.py:214: FileNotFoundError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_independent_derivation\nPASSED ../tests/test_outputs.py::test_recover_py_exists\nPASSED ../tests/test_outputs.py::test_recover_py_produces_same_key\nFAILED ../tests/test_outputs.py::test_solution_file_exists - AssertionError: ...\nFAILED ../tests/test_outputs.py::test_solution_file_not_empty - FileNotFoundE...\nFAILED ../tests/test_outputs.py::test_solution_format_length - FileNotFoundEr...\nFAILED ../tests/test_outputs.py::test_solution_format_hex - FileNotFoundError...\nFAILED ../tests/test_outputs.py::test_solution_format_lowercase - FileNotFoun...\nFAILED ../tests/test_outputs.py::test_solution_single_line - FileNotFoundErro...\nFAILED ../tests/test_outputs.py::test_solution_exact_key - FileNotFoundError:...\nFAILED ../tests/test_outputs.py::test_key_decrypts_vault - FileNotFoundError:...\nFAILED ../tests/test_outputs.py::test_decrypted_plaintext_is_ascii - FileNotF...\nFAILED ../tests/test_outputs.py::test_key_is_not_all_zeros - FileNotFoundErro...\nFAILED ../tests/test_outputs.py::test_key_is_not_all_same_char - FileNotFound...\n11 failed, 3 passed in 0.08s\n"
+ },
+ "ref": [
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Found service code: river\nMaster key: 2d01615ded465b6e2485ca4cd2c1ec6e8c6cabc7c3d47679227e410d0154fc9e\nKey written to /app/solution.txt\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_solution_file_exists": "PASSED",
+     "../tests/test_outputs.py::test_solution_file_not_empty": "PASSED",
+     "../tests/test_outputs.py::test_solution_format_length": "PASSED",
+     "../tests/test_outputs.py::test_solution_format_hex": "PASSED",
+     "../tests/test_outputs.py::test_solution_format_lowercase": "PASSED",
+     "../tests/test_outputs.py::test_solution_single_line": "PASSED",
+     "../tests/test_outputs.py::test_solution_exact_key": "PASSED",
+     "../tests/test_outputs.py::test_key_decrypts_vault": "PASSED",
+     "../tests/test_outputs.py::test_decrypted_plaintext_is_ascii": "PASSED",
+     "../tests/test_outputs.py::test_independent_derivation": "PASSED",
+     "../tests/test_outputs.py::test_key_is_not_all_zeros": "PASSED",
+     "../tests/test_outputs.py::test_key_is_not_all_same_char": "PASSED",
+     "../tests/test_outputs.py::test_recover_py_exists": "PASSED",
+     "../tests/test_outputs.py::test_recover_py_produces_same_key": "PASSED"
+    },
+    "n_pass": 14,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..............                                                           [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_solution_file_exists\nPASSED ../tests/test_outputs.py::test_solution_file_not_empty\nPASSED ../tests/test_outputs.py::test_solution_format_length\nPASSED ../tests/test_outputs.py::test_solution_format_hex\nPASSED ../tests/test_outputs.py::test_solution_format_lowercase\nPASSED ../tests/test_outputs.py::test_solution_single_line\nPASSED ../tests/test_outputs.py::test_solution_exact_key\nPASSED ../tests/test_outputs.py::test_key_decrypts_vault\nPASSED ../tests/test_outputs.py::test_decrypted_plaintext_is_ascii\nPASSED ../tests/test_outputs.py::test_independent_derivation\nPASSED ../tests/test_outputs.py::test_key_is_not_all_zeros\nPASSED ../tests/test_outputs.py::test_key_is_not_all_same_char\nPASSED ../tests/test_outputs.py::test_recover_py_exists\nPASSED ../tests/test_outputs.py::test_recover_py_produces_same_key\n14 passed in 0.03s\n"
+   },
+   "network_error": false
+  },
+  {
+   "how": "solve.sh",
+   "rc": 0,
+   "run_tail": "Found service code: river\nMaster key: 2d01615ded465b6e2485ca4cd2c1ec6e8c6cabc7c3d47679227e410d0154fc9e\nKey written to /app/solution.txt\n",
+   "grade": {
+    "pytest_rc": 0,
+    "pass": true,
+    "tests": {
+     "../tests/test_outputs.py::test_solution_file_exists": "PASSED",
+     "../tests/test_outputs.py::test_solution_file_not_empty": "PASSED",
+     "../tests/test_outputs.py::test_solution_format_length": "PASSED",
+     "../tests/test_outputs.py::test_solution_format_hex": "PASSED",
+     "../tests/test_outputs.py::test_solution_format_lowercase": "PASSED",
+     "../tests/test_outputs.py::test_solution_single_line": "PASSED",
+     "../tests/test_outputs.py::test_solution_exact_key": "PASSED",
+     "../tests/test_outputs.py::test_key_decrypts_vault": "PASSED",
+     "../tests/test_outputs.py::test_decrypted_plaintext_is_ascii": "PASSED",
+     "../tests/test_outputs.py::test_independent_derivation": "PASSED",
+     "../tests/test_outputs.py::test_key_is_not_all_zeros": "PASSED",
+     "../tests/test_outputs.py::test_key_is_not_all_same_char": "PASSED",
+     "../tests/test_outputs.py::test_recover_py_exists": "PASSED",
+     "../tests/test_outputs.py::test_recover_py_produces_same_key": "PASSED"
+    },
+    "n_pass": 14,
+    "n_fail": 0,
+    "seconds": 0.5,
+    "log_tail": "..............                                                           [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_solution_file_exists\nPASSED ../tests/test_outputs.py::test_solution_file_not_empty\nPASSED ../tests/test_outputs.py::test_solution_format_length\nPASSED ../tests/test_outputs.py::test_solution_format_hex\nPASSED ../tests/test_outputs.py::test_solution_format_lowercase\nPASSED ../tests/test_outputs.py::test_solution_single_line\nPASSED ../tests/test_outputs.py::test_solution_exact_key\nPASSED ../tests/test_outputs.py::test_key_decrypts_vault\nPASSED ../tests/test_outputs.py::test_decrypted_plaintext_is_ascii\nPASSED ../tests/test_outputs.py::test_independent_derivation\nPASSED ../tests/test_outputs.py::test_key_is_not_all_zeros\nPASSED ../tests/test_outputs.py::test_key_is_not_all_same_char\nPASSED ../tests/test_outputs.py::test_recover_py_exists\nPASSED ../tests/test_outputs.py::test_recover_py_produces_same_key\n14 passed in 0.03s\n"
+   },
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 1,
+   "pass": false,
+   "tests": {
+    "../tests/test_outputs.py::test_solution_file_exists": "PASSED",
+    "../tests/test_outputs.py::test_solution_file_not_empty": "PASSED",
+    "../tests/test_outputs.py::test_solution_format_length": "PASSED",
+    "../tests/test_outputs.py::test_solution_format_hex": "PASSED",
+    "../tests/test_outputs.py::test_solution_format_lowercase": "PASSED",
+    "../tests/test_outputs.py::test_solution_single_line": "PASSED",
+    "../tests/test_outputs.py::test_independent_derivation": "PASSED",
+    "../tests/test_outputs.py::test_key_is_not_all_zeros": "PASSED",
+    "../tests/test_outputs.py::test_key_is_not_all_same_char": "PASSED",
+    "../tests/test_outputs.py::test_recover_py_exists": "PASSED",
+    "../tests/test_outputs.py::test_recover_py_produces_same_key": "PASSED",
+    "../tests/test_outputs.py::test_solution_exact_key": "FAILED",
+    "../tests/test_outputs.py::test_key_decrypts_vault": "FAILED",
+    "../tests/test_outputs.py::test_decrypted_plaintext_is_ascii": "FAILED"
+   },
+   "n_pass": 11,
+   "n_fail": 3,
+   "seconds": 0.5,
+   "log_tail": "= decrypt(ciphertext, key_hex)\n    \n        try:\n            text = plaintext.decode(\"ascii\")\n        except UnicodeDecodeError:\n            raise AssertionError(\"Decrypted plaintext is not valid ASCII\")\n    \n        # Every character should be printable ASCII (32-126) or common whitespace\n        for i, ch in enumerate(text):\n>           assert 32 <= ord(ch) <= 126 or ch in (\"\\n\", \"\\r\", \"\\t\"), (\n                f\"Non-printable char at position {i}: ord={ord(ch)}\"\n            )\nE           AssertionError: Non-printable char at position 3: ord=25\nE           assert (32 <= 25 or '\\x19' in ('\\n', '\\r', '\\t'))\nE            +  where 25 = ord('\\x19')\n\n/tests/test_outputs.py:180: AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../tests/test_outputs.py::test_solution_file_exists\nPASSED ../tests/test_outputs.py::test_solution_file_not_empty\nPASSED ../tests/test_outputs.py::test_solution_format_length\nPASSED ../tests/test_outputs.py::test_solution_format_hex\nPASSED ../tests/test_outputs.py::test_solution_format_lowercase\nPASSED ../tests/test_outputs.py::test_solution_single_line\nPASSED ../tests/test_outputs.py::test_independent_derivation\nPASSED ../tests/test_outputs.py::test_key_is_not_all_zeros\nPASSED ../tests/test_outputs.py::test_key_is_not_all_same_char\nPASSED ../tests/test_outputs.py::test_recover_py_exists\nPASSED ../tests/test_outputs.py::test_recover_py_produces_same_key\nFAILED ../tests/test_outputs.py::test_solution_exact_key - AssertionError: Ke...\nFAILED ../tests/test_outputs.py::test_key_decrypts_vault - AssertionError: De...\nFAILED ../tests/test_outputs.py::test_decrypted_plaintext_is_ascii - Assertio...\n3 failed, 11 passed in 0.05s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 44.3
+}

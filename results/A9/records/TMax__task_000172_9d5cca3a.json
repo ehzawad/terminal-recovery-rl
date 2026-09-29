@@ -1,0 +1,64 @@
+{
+ "key": "TMax__task_000172_9d5cca3a",
+ "ds": "TMax",
+ "task": "task_000172_9d5cca3a",
+ "notes": [],
+ "workdir": "/home/user",
+ "instruction_chars": 2166,
+ "gemini": null,
+ "build": {
+  "ok": true,
+  "msg": "built in 399s"
+ },
+ "initial_state": {
+  "pytest_rc": 0,
+  "pass": true,
+  "tests": {
+   "../../tests/test_initial_state.py::test_vendored_package_directory_exists": "PASSED",
+   "../../tests/test_initial_state.py::test_vendored_package_files_exist": "PASSED",
+   "../../tests/test_initial_state.py::test_makefile_contains_typo": "PASSED",
+   "../../tests/test_initial_state.py::test_normalize_sh_contains_bug": "PASSED"
+  },
+  "n_pass": 4,
+  "n_fail": 0,
+  "seconds": 0.4,
+  "log_tail": "....                                                                     [100%]\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED ../../tests/test_initial_state.py::test_vendored_package_directory_exists\nPASSED ../../tests/test_initial_state.py::test_vendored_package_files_exist\nPASSED ../../tests/test_initial_state.py::test_makefile_contains_typo\nPASSED ../../tests/test_initial_state.py::test_normalize_sh_contains_bug\n4 passed in 0.01s\n"
+ },
+ "noop": {
+  "pytest_rc": 2,
+  "pass": false,
+  "tests": {
+   "../../tests/test_final_state.py": "ERROR"
+  },
+  "n_pass": 0,
+  "n_fail": 1,
+  "seconds": 0.5,
+  "log_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test_final_state.py _____________________\nImportError while importing test module '/tests/test_final_state.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n/tests/test_final_state.py:7: in <module>\n    import requests\nE   ModuleNotFoundError: No module named 'requests'\n=========================== short test summary info ============================\nERROR ../../tests/test_final_state.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+ },
+ "ref": [
+  {
+   "how": "none",
+   "rc": null,
+   "run_tail": "no recorded successful rollout",
+   "grade": null,
+   "network_error": false
+  }
+ ],
+ "mutant": {
+  "rc": 0,
+  "run_tail": "",
+  "grade": {
+   "pytest_rc": 2,
+   "pass": false,
+   "tests": {
+    "../../tests/test_final_state.py": "ERROR"
+   },
+   "n_pass": 0,
+   "n_fail": 1,
+   "seconds": 0.5,
+   "log_tail": "\n==================================== ERRORS ====================================\n_____________________ ERROR collecting test_final_state.py _____________________\nImportError while importing test module '/tests/test_final_state.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/usr/lib/python3.10/importlib/__init__.py:126: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n/tests/test_final_state.py:7: in <module>\n    import requests\nE   ModuleNotFoundError: No module named 'requests'\n=========================== short test summary info ============================\nERROR ../../tests/test_final_state.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.13s\n"
+  }
+ },
+ "status": "done",
+ "wall_s": 423.8
+}

@@ -1,0 +1,191 @@
+[
+ {
+  "key": "SETA__ask_ubuntu__1050",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "tests/test_outputs.py has only 3 cases (HEALTHY at 81% avail, CRITICAL at 6%, HEALTHY at 40%). WARNING (instruction.md:12) and INEFFICIENT (instruction.md:14) are never exercised; cache_utilization_percent and efficiency_score (instruction.md:20-22, required output fields) are never read, and required_fields (test lines 97-98, 178-181) omit them; the no-argument /proc/meminfo mode (instruction.md:26) is never run. A script that emits only CRITICAL/HEALTHY with constant efficiency_score and cache_utilization passes all tests."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "efficiency_score is only 'A value from 0-100 where high cache with high available = efficient' (instruction.md:9) with no formula; INEFFICIENT (free AND available > 50%) overlaps HEALTHY (available >= 20%) with no precedence stated; '10-20%' boundary inclusivity unstated. Untested, so harmless for grading but underspecified."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Writes one script under /app and reads /proc/meminfo or a temp file; nothing destructive.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "cat > /app/memory_analyzer.sh <<'EOF'\n#!/bin/bash\nf=${1:-/proc/meminfo}\ng(){ awk -v k=\"$1:\" '$1==k{print $2}' \"$f\"; }\nt=$(g MemTotal); fr=$(g MemFree); a=$(g MemAvailable); b=$(g Buffers); c=$(g Cached)\np=$(awk \"BEGIN{printf \\\"%.1f\\\", ($t-$a)/$t*100}\")\n# only two states: WARNING and INEFFICIENT are never produced\nif [ $((a*10)) -lt $t ]; then s=CRITICAL; else s=HEALTHY; fi\necho \"{\\\"total_memory\\\": $((t*1024)), \\\"available_memory\\\": $((a*1024)), \\\"free_memory\\\": $((fr*1024)), \\\"buff_cache\\\": $(((b+c)*1024)), \\\"memory_pressure_percent\\\": $p, \\\"cache_utilization_percent\\\": 0.0, \\\"efficiency_score\\\": 50, \\\"alert_status\\\": \\\"$s\\\"}\"\nEOF\nchmod +x /app/memory_analyzer.sh\n",
+  "mutant_intent": "Parses values and pressure correctly but never emits WARNING or INEFFICIENT (instruction.md:12,14), hard-codes cache_utilization_percent=0.0 (wrong: should be (buffers+cached)/total) and efficiency_score=50. Violates stated alert logic and metric definitions.",
+  "must_reject": true,
+  "notes": "Core 'available not free' insight is tested well, but half the specified alert states and two of the eight output fields are unchecked, so an incomplete analyzer earns full reward. tests/test.sh fetches uv over the network (harness-level)."
+ },
+ {
+  "key": "LiteCoder__rsa-encrypt-decrypt-demo",
+  "verdict": "valid",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Instruction requires the private key be 'encrypted with AES-256-CBC' (instruction.md:14,24) but test_private_key_format_and_encryption (test_outputs.py:30-57) only checks for the string 'ENCRYPTED' and that the passphrase opens it; -aes128 or -des3 passes. recovered.txt is only compared to the expected string (lines 109-117), so copying plaintext.txt instead of decrypting passes (the ciphertext round trip is checked separately by the grader itself). RSA parameter display (instruction.md:39,45) is unverifiable/untested."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "environment/plaintext.txt is baked into the image (Dockerfile:34) with exactly 'Top-Secret-Data-2024!' and no newline (xxd), so test_plaintext_content passes on the untouched environment."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "'Use textbook RSA with PKCS#1 v1.5 padding' (instruction.md:28) is self-contradictory (textbook RSA = no padding); the explicit PKCS#1 v1.5 clause resolves it and the grader's default rsautl -decrypt requires PKCS#1 v1.5."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_public_key_format requires '-----BEGIN PUBLIC KEY-----' (SPKI, line 68) and byte-equality with 'openssl rsa -pubout' output (lines 160-176); an agent writing PKCS#1 'BEGIN RSA PUBLIC KEY' (also 'RSA public key in PEM format') would fail. Minor; the natural command produces SPKI."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only openssl operations writing files under /app.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "cd /app\nopenssl genrsa -aes128 -passout pass:securepass123 -out /app/private_key.pem 2048\nopenssl rsa -in /app/private_key.pem -passin pass:securepass123 -pubout -out /app/public_key.pem\nprintf 'Top-Secret-Data-2024!' > /app/plaintext.txt\nopenssl pkeyutl -encrypt -pubin -inkey /app/public_key.pem -in /app/plaintext.txt -out /app/ciphertext.bin\n# skip decryption: just copy the original as the \"recovered\" file\ncp /app/plaintext.txt /app/recovered.txt\n",
+  "mutant_intent": "Encrypts the private key with AES-128 instead of the required AES-256-CBC, and fabricates recovered.txt by copying plaintext.txt instead of decrypting ciphertext.bin (skips the decryption step). Both violate explicit requirements.",
+  "must_reject": true,
+  "notes": "Core crypto (2048-bit key, passphrase, key pair match, 256-byte ciphertext that decrypts to the message) is solidly verified; gaps are cipher choice, the decryption step itself, and the pre-baked plaintext. Relies on OpenSSL 3 'rsautl' (deprecated but functional) and openssl being pulled in via ca-certificates."
+ },
+ {
+  "key": "TMax__task_000667_61fefcb4",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_regression_test_script (test_final_state.py:92-109) only runs the script and checks exit 0 + 'Test Passed' in stdout, then does substring checks that 'req-test-999' and '/home/user/ingestion_system/process.sh' appear anywhere in the file (e.g. a comment). It never checks that process.sh is actually executed, that the payload contains the anomalous client_version/negative duration (task.json description Step 2.1), or that 'Test Failed: No Crash'/exit 1 is produced when process.sh succeeds. A stub 'echo Test Passed; exit 0' with the two strings in a comment passes."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The CSV 'timestamp' column source is not stated. processor.log crash lines carry their own timestamp (+2s, container.def:65-70), but the grader requires the service_a.log gateway timestamp (test_final_state.py:28-38, 86). The description only says service_a 'maps request IDs to timestamps', which hints but does not require it; a solver using the crash-line timestamp fails."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "process.sh extracts duration with grep -o '\"duration\":[0-9\\-]*' (container.def:18), which does not match JSON with a space after the colon, e.g. the raw_data payloads written by json.dumps (container.def:74). A regression payload like '{\"duration\": -20}' silently exits 0. Discoverable by reading process.sh, so a trap rather than a blocker."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Image build does chmod -R 777 /home/user inside the container only; the task is log parsing plus a local script; nothing host-affecting.",
+  "realism": "contrived",
+  "difficulty_guess": "medium",
+  "mutant_script": "cd /home/user/ingestion_system\npython3 - <<'EOF'\nimport json, re\nts = {}\nfor l in open('logs/service_a.log'):\n    m = re.match(r'\\[(.*?)\\] INFO: Received incoming API request (\\S+)', l)\n    if m: ts[m.group(2)] = m.group(1)\ncrash, last = [], None\nfor l in open('logs/processor.log'):\n    m = re.search(r'Starting processing for (\\S+)', l)\n    if m: last = m.group(1)\n    if 'Panic: unwrap()' in l: crash.append(last)\np = {}\nfor l in open('raw_data/dump_20231001.jsonl'):\n    d = json.loads(l); p[d['req_id']] = d\nrows = sorted((ts[r], r, p[r]['client_version'], p[r]['metrics']['duration']) for r in crash)\nwith open('/home/user/crash_timeline.csv', 'w') as f:\n    f.write('timestamp,req_id,client_version,duration\\n')\n    for r in rows: f.write(','.join(map(str, r)) + '\\n')\nEOF\n# stub regression test: never builds a payload, never runs process.sh, always \"passes\"\ncat > /home/user/regression_test.sh <<'EOF'\n#!/bin/bash\n# TODO: send {\"req_id\":\"req-test-999\"} to /home/user/ingestion_system/process.sh\necho \"Test Passed: Crash Reproduced\"\nexit 0\nEOF\nchmod +x /home/user/regression_test.sh\n",
+  "mutant_intent": "Produces a correct crash_timeline.csv but a stub regression_test.sh that never constructs the payload and never executes process.sh, always printing 'Test Passed: Crash Reproduced'. Violates Step 2.1-2.3 (must actually run process.sh and branch on its exit code).",
+  "must_reject": true,
+  "notes": "Step 1 is graded robustly (dynamic expected rows from the actual logs, so build-time randomness is handled); Step 2 is graded by string presence only. The 'Rust unwrap panic' is simulated by a bash script."
+ },
+ {
+  "key": "TMax__task_007751_66925dbb",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "nondeterminism",
+    "confirmed": true,
+    "evidence": "JWTs are minted at image build time with exp = utcnow() + 1 day (container.def:28, also setup.sh:22). The grader hard-codes project_alpha == 'pass' and gamma reasons == ['privilege_escalation_risk'] (test_final_state.py:23-27, 50-51). If the task runs more than 24 h after the image is built, a correct validator (which must reject expired tokens per the description) reports alpha and gamma as 'invalid_token' and FAILS, while a lazy validator that skips the expiry check passes. The task is a time bomb for any cached image."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The grader reads only /home/user/enforcement_results.json (test_final_state.py:6-51). It never checks that /home/user/run_policy.sh exists or runs, that a Python JWT validator exists, or that the checks are performed; a hand-written JSON with the three expected verdicts passes. The reasons ordering requirement ('in alphabetical order') is not checked either (sorted() at lines 39, 51)."
+   },
+   {
+    "type": "network_or_gpu",
+    "confirmed": false,
+    "evidence": "setup.sh:5-6 runs apt-get and pip install (network). If setup.sh (rather than the prebuilt container.def image) is used to materialize the environment offline it fails. PyJWT/cryptography are preinstalled in container.def:7, so the agent itself needs no network."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "deploy.sh fixtures contain 'chmod 777' and 'sudo su' as data to be audited; a natural solution only greps them and never executes them.",
+  "realism": "plausible",
+  "difficulty_guess": "easy",
+  "mutant_script": "cat > /home/user/run_policy.sh <<'EOF'\n#!/bin/bash\n# no JWT verification, no secret scan, no deploy.sh audit: hard-coded verdicts\ncat > /home/user/enforcement_results.json <<'J'\n{\"project_alpha\":{\"status\":\"pass\",\"reasons\":[]},\"project_beta\":{\"status\":\"fail\",\"reasons\":[\"hardcoded_secrets_found\",\"invalid_token\"]},\"project_gamma\":{\"status\":\"fail\",\"reasons\":[\"privilege_escalation_risk\"]}}\nJ\nEOF\nchmod +x /home/user/run_policy.sh\n/home/user/run_policy.sh\n",
+  "mutant_intent": "run_policy.sh performs no JWT signature/expiry/role validation, no secret scan and no deploy.sh audit; it writes hard-coded verdicts (values inferable by eyeballing the fixtures). Violates the requirement to build a tool that performs the three checks.",
+  "must_reject": true,
+  "notes": "Graded on output only, and the expected output depends on the wall clock relative to image build, so correct work fails after a day while shortcut work passes."
+ },
+ {
+  "key": "TMax__task_002330_880601ad",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "Description says detector.py contains a recursive CTE with an implicit cross join and missing Redis caching to be fixed; the shipped /home/user/detector.py (container.def:54-68) is a stub whose process_csv is just 'pass': no SQL, no CTE, no API call. There is nothing to 'fix'."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "Description says PostgreSQL 'Stores the base graph of user accounts and historical transactions' and criteria 1-2 need a recursive CTE and 7-day window over that history, but container.def never creates a database, schema, role or seed data (only 'service postgresql start' in /app/start_services.sh, lines 18-24). task.json 'truth' lists 'Seed PostgreSQL with base schema accounts and historical_transactions' as intended setup that was never implemented. No connection credentials are given either."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "fixtures/compose/{nginx.conf,server.py,start.sh,_perturbation.json} (copied to /app/fixtures/compose by container.def:4-8) describe an unrelated nginx misconfigured-upstream scenario (port 8080->5051); nginx is not even installed. Irrelevant, misleading agent-visible content."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "The grader's entire test data are the agent-visible, instruction-named files /home/user/corpora/clean/clean_1.csv (one row alice->bob 100) and /home/user/corpora/evil/evil_1.csv (one row evil_user->accomplice 50000) (container.def:44-52; test_final_state.py:8-15). /app/app.py also hard-codes score 0.9 only for 'evil_user' (container.def:33)."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test_final_state.py:7-69 only checks that the clean file is echoed unchanged and the evil file yields at most a header. It never checks Postgres use, the CTE, the window function, the Flask call or Redis caching; any filter on the string 'evil_user' or on amount>10000 passes. With one row per corpus the 'criteria' cannot be distinguished."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "The grader does not start services; a genuinely correct detector that queries Postgres/Flask/Redis crashes (counted as failure, lines 25-27, 43-45) unless the background processes started by the agent via start_services.sh survive into the verification phase. Also criteria combination (any vs all of 1-3) is unstated."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "chmod -R 777 /app and /home/user inside the image only; starting postgres/redis/flask on localhost within the container.",
+  "realism": "artificial",
+  "difficulty_guess": "medium",
+  "mutant_script": "cat > /home/user/detector.py <<'EOF'\nimport sys\n# no Postgres CTE, no window function, no Flask/Redis: drop rows mentioning a known bad account\ninp, out = sys.argv[1], sys.argv[2]\nlines = open(inp).readlines()\nwith open(out, 'w') as f:\n    f.write(lines[0])\n    for l in lines[1:]:\n        if 'evil_user' not in l:\n            f.write(l)\nEOF\nchmod 777 /home/user/detector.py\n",
+  "mutant_intent": "detector.py ignores all three specified criteria and all services (no recursive CTE, no window function, no Flask score, no Redis cache) and just drops rows containing the literal 'evil_user'. Violates every implementation requirement of the task.",
+  "must_reject": true,
+  "notes": "Generation failure: the described buggy code and seeded database do not exist, stray fixtures from another task are baked in, and the 1+1-row visible corpus makes the grader trivially gameable while correct service-based work may crash at verification time."
+ },
+ {
+  "key": "SETA__kaggle_notebook__nasirmeh_prediction-of-rainfall",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "All metrics are self-reported. test_outputs.py never retrains or recomputes anything from /data: test_predictions_mae_consistency (lines 137-156) only checks that predictions.csv's MAE matches the reported test_mae, test_best_model_threshold (159-165) trusts the reported number, test_cross_validation_performed (104-118) only checks cv_std>0 and 0.5<cv_mean/test_mae<2. Fabricated predictions (actual + noise) with a matching fabricated results table pass. Text checks are keyword/number greps ('36', '1901', '2015', 'drop', 'window', '3', any number >10000)."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": true,
+    "evidence": "test_model_results_structure (lines 77-83) requires every row's train_mae to be in (1, 200). A legitimate unpruned DecisionTreeRegressor, ExtraTreesRegressor or KNN(k=1) row has train_mae of about 0 and fails, although the instruction (instruction.md:18,27) allows any model types and never states plausibility bounds."
+   },
+   {
+    "type": "overstrict_grader",
+    "confirmed": false,
+    "evidence": "test_predictions_file (lines 130-133) requires actual <= 2000 for the first 100 prediction rows, but the data contain a monthly value of 2362.8 mm; if that sample lands early in a test split, a correct run fails. Low probability."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Pure pandas/sklearn analysis writing to /home/agent/workspace.",
+  "realism": "plausible",
+  "difficulty_guess": "medium",
+  "mutant_script": "mkdir -p /home/agent/workspace && cd /home/agent/workspace\npython3 - <<'EOF'\nimport pandas as pd, numpy as np\ndf = pd.read_csv('/data/rainfall_in_india_1901-2015.csv')\nm = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']\ny = df[m[3:]].stack().values\ny = y[(y >= 0) & (y <= 2000)][:1000]\nrng = np.random.default_rng(0)\npred = np.clip(y + rng.normal(0, 50, len(y)), 0, None)   # fabricated \"predictions\", no model trained\nmae = float(np.mean(np.abs(y - pred)))\npd.DataFrame({'actual': y, 'predicted': pred, 'model_name': 'RandomForest'}).to_csv('predictions.csv', index=False)\nrows = []\nfor i, (n, s) in enumerate([(a, b) for a in ['LinearRegression', 'Ridge', 'RandomForest'] for b in ['global', 'subdivision-aware']]):\n    t = mae if (n, s) == ('RandomForest', 'global') else 70 + i\n    rows.append(dict(model_name=n, strategy=s, train_mae=t - 3, test_mae=t, cv_mean_mae=t + 1, cv_std_mae=2.5))\npd.DataFrame(rows).to_csv('model_results.csv', index=False)\nopen('data_analysis.txt', 'w').write(\"Dataset shape 4116 x 19, 36 subdivisions, years 1901 to 2015. Missing values: a few NaN in monthly columns. Strategy: drop rows with missing values because they are rare. \" * 2)\nopen('feature_engineering.txt', 'w').write(\"Sliding window of 3 previous months predicts the next month, producing 37044 samples. Lag features x1, x2, x3. \" * 2)\nopen('final_report.txt', 'w').write(\"Best model: RandomForest with the global strategy. Feature importance: the most recent month lag dominates. Rainfall follows the monsoon season pattern with peaks in July and August. \" * 4)\nEOF\n",
+  "mutant_intent": "Trains no model and runs no cross-validation: predictions.csv is real targets plus Gaussian noise labelled 'RandomForest', model_results.csv is fabricated with a test_mae equal to the noise MAE (~40) and made-up CV numbers, and the reports are boilerplate. Violates requirements to train 3 model types, compare 2 strategies and do 5-fold CV.",
+  "must_reject": true,
+  "notes": "Open-ended data-science task whose grader checks only internal consistency and keywords of self-reported outputs, so fabrication earns full reward; also rejects some legitimate zero-train-error models."
+ }
+]
