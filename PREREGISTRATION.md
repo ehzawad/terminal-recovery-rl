@@ -514,3 +514,22 @@ otherwise the owner decides with the evidence. The headroom gate (48 audited roo
 Qwen3.5-9B + p6, >= 36 informative groups and >= 10 mixed) needs more audited roots than this batch yields, so it
 is not run here; a 4-attempt probe on the admissible tasks may be reported as a descriptive preview only.
 No admitted task from this batch enters training. Results go to `results/A9/`, negative results included.
+
+**A9.1 — 2026-09-29 (after the draw and a read-only look at file layouts; before any container is built or run).**
+Findings that change how stage (3) is done, not the thresholds: TMax-15K ships no reference solution for any
+of its 14,601 tasks (`solutions/summary.json` is empty everywhere); 8,843 tasks carry 8 recorded
+Gemini-3-flash rollouts with a per-run `success` flag. SETA and LiteCoder ship `solution/solve.sh`.
+Adaptations, all recorded per task: the graders' run-time installs (uvx/uv/curl/apt fetching pytest) are
+replaced by the same pre-staged offline Python 3.12 + pytest 8.4.1 toolchain mounted read-only, run as
+`python -m pytest <tests file>` in the task WORKDIR with a pass = exit status 0; LiteCoder's Dockerfile layers
+that install an agent harness (OpenHands, Claude Code, nvm, asciinema) are removed and nothing else changed;
+TMax's Apptainer `container.def` is translated to a Dockerfile (`%post` run verbatim, `%files` mapped from the
+task's own `fixtures/`), its `test_final_state.py` is the grader and `test_initial_state.py` is run first.
+Images are built with network; agent, reference and grading phases run with `--network none`.
+*TMax reference (replaces "the reference solution passes"):* the bash commands of one recorded successful
+Gemini rollout are replayed in order in a fresh container, then graded, twice in two fresh containers. A TMax
+task with no recorded success has *no executable reference* and is reported as **unverified**, not defective;
+it is still not admissible. The TMax dataset decision uses the admissible fraction over all 16 and, separately,
+over the tasks that were verifiable. A wrong-output control for a task without a reference is not possible and is
+skipped (recorded). Whole-corpus, model-free counts (tasks with a recorded success, with `/gpfs` paths, with
+network use in `%post`) are reported as a static screen.
