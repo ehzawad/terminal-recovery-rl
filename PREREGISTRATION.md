@@ -489,3 +489,28 @@ partition (257 episodes, 147 tasks) the prompted base scored macro safe success 
 bootstrap (clean/faulted equal-weighted): difference -0.005, 95% CI [-0.036, +0.027]; discordant episodes 8
 adapter-only vs 9 base-only wins. Result: no measurable change from the adapter; no promotion claim. Files:
 `results/X1/`.
+
+**A9 — 2026-09-29: first audit of three open datasets (registered before any task is drawn or opened).**
+Question: is any of SETA-Env, TMax-15K or LiteCoder-Terminal-RL-preview a sound source of executable training
+tasks? No model is trained here. Pinned revisions: `camel-ai/SETA-Env` 3c3bc8975b05 (4,567 task directories),
+`allenai/TMax-15K` e3ded940596c (14,601 tasks), `Lite-Coder/LiteCoder-Terminal-RL-preview` 6fe7e994ff12 (602).
+*Draw.* Order every candidate by `sha256("audit-a9|" + dataset + "|" + task_id)`; take the first N. SETA: 24 tasks
+from distinct roots (evolution suffix `__[bd]N` stripped; one task per root, the lowest-hash variant), quotas by
+source ask_ubuntu 8, stack_overflow 6, kaggle_notebook 4, unix_linux_se 4, nl2bash 2. TMax: 16 tasks. LiteCoder: 8.
+The first 2 of each dataset by hash order form the canary batch, run first to debug the harness; canaries count
+in the results. Tasks are never swapped after the draw; an infeasible task is a recorded failure of its dataset.
+*Stages, per task:* (1) static screen: licence and source root, agent-visible reference solution or expected
+output (answer exposure), network/GPU/privilege needs, verifier dependencies fetched at run time; (2) build in
+the offline docker sandbox, with verifier toolchains pre-staged as for Endless Terminals and no network at
+grading; (3) executable checks: untouched container fails, the reference solution passes in two fresh
+containers, at least one semantic wrong-output control fails; (4) one independent Opus reviewer per task reads
+instruction and tests for unstated tested requirements, contradictions and exposed answers; (5) safety read of
+the reference and setup (destructive or host-escaping commands).
+*Task admissible* iff it passes all of (2)-(5) and (1) shows no confirmed answer exposure. A task that cannot
+run offline after pre-staging is *infeasible*, reported separately and counted as not admissible.
+*Dataset decision (triage, not a statistical bound; 8-24 tasks):* admissible fraction >= 50% and zero confirmed
+exposure in the sample -> proceed to the roughly 60-root audit; <= 25% or any systematic exposure -> drop;
+otherwise the owner decides with the evidence. The headroom gate (48 audited roots x 4 attempts with
+Qwen3.5-9B + p6, >= 36 informative groups and >= 10 mixed) needs more audited roots than this batch yields, so it
+is not run here; a 4-attempt probe on the admissible tasks may be reported as a descriptive preview only.
+No admitted task from this batch enters training. Results go to `results/A9/`, negative results included.
