@@ -561,3 +561,12 @@ Grading runs the dataset's `run_tests` unchanged except that any run-time fetch 
 offline toolchain (recorded per task, as A9.1). Base images are pulled with network; everything else runs
 offline. Disk: at most 6 base images present at once, and every image this audit pulled or built is removed
 after its task finishes. No admitted task enters training. Results go to `results/A10/`.
+
+**A10.1 — 2026-09-29 (after the base checks; before any repair reference, review or wrong-output control).**
+Harness corrections, none of which changes a threshold: (i) listed test IDs are compared with shell backslashes
+removed, and a run also passes when pytest's final summary reports exactly as many passes as listed IDs and no
+failure, error or skip (the dataset's IDs carry bash escapes); (ii) 2 of the 24 graders list no IDs and run the
+whole suite, which passes iff it reports at least one pass and no failure or error (skips allowed); (iii) each
+container is pinned to 2 CPUs with `--cpuset-cpus` instead of `--cpus 2`, because repositories that run
+`pytest -n auto` otherwise start one worker per host CPU (40) inside 4 GB and crash even on the gold image.
+All 24 base checks are re-run under the corrected harness; earlier base records are discarded, not mixed.

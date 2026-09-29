@@ -1,0 +1,325 @@
+{
+ "per_task": {
+  "CLIGym__kernel-can-database-dbc-signal-scaling-coefficient-bitflip-corruption": {
+   "trace_terms": [
+    "/root/.conda",
+    "/root/.fpu_recovery_hint"
+   ],
+   "kernel_or_loader": [
+    "linux-headers",
+    "uname -r"
+   ],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "danger": [],
+   "run_lines": 10
+  },
+  "CLIGym__api-generator-source-code-subtle-logic-bug-induction": {
+   "trace_terms": [
+    "/root/.cache",
+    "/root/.conda"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 2
+  },
+  "CLIGym__glibc-iconv-module-corruption-for-encoding-conversion-operations.hard": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 22
+  },
+  "CLIGym__corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode.hard": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 8
+  },
+  "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 9
+  },
+  "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling": {
+   "trace_terms": [],
+   "kernel_or_loader": [
+    "seccomp"
+   ],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 2
+  },
+  "CLIGym__compiled-regex-engine-poisoning-via-pcre-library-substitution": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 4
+  },
+  "CLIGym__corrupted-python-string-codec-via-encrypted-encodings-module": {
+   "trace_terms": [
+    "backup",
+    "hint",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "danger": [],
+   "run_lines": 9
+  },
+  "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard": {
+   "trace_terms": [
+    "/root/.cache",
+    "/root/.conda",
+    "backup",
+    "hint",
+    "openssl enc",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 6
+  },
+  "CLIGym__corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard": {
+   "trace_terms": [
+    "hint"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 5
+  },
+  "CLIGym__corrupt-python-bytecode-cache-to-break-module-caching-mechanism": {
+   "trace_terms": [
+    "hint"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 3
+  },
+  "CLIGym__sabotage-pytest-collection-mechanism-via-conftest-injection": {
+   "trace_terms": [
+    "base64",
+    "cipher",
+    "hint",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 1
+  },
+  "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception": {
+   "trace_terms": [
+    "backup",
+    "base64",
+    "xor"
+   ],
+   "kernel_or_loader": [
+    "/proc/sys"
+   ],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 7
+  },
+  "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 2
+  },
+  "CLIGym__encrypted-python-site-packages-with-partial-key-hints": {
+   "trace_terms": [
+    "/root/.keyhint_part",
+    "hint",
+    "openssl enc"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 3
+  },
+  "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard": {
+   "trace_terms": [
+    "backup",
+    "base64",
+    "cipher",
+    "hint",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 21
+  },
+  "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard": {
+   "trace_terms": [
+    "base64",
+    "hint",
+    "recovery"
+   ],
+   "kernel_or_loader": [
+    "ld.so.preload"
+   ],
+   "edits_repo_source": false,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 6
+  },
+  "CLIGym__xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography": {
+   "trace_terms": [
+    "hint",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": false,
+   "removes_git": true,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 3
+  },
+  "CLIGym__kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard": {
+   "trace_terms": [
+    "base64",
+    "hint",
+    "recovery",
+    "xor"
+   ],
+   "kernel_or_loader": [
+    "iptables"
+   ],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "danger": [],
+   "run_lines": 7
+  },
+  "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard": {
+   "trace_terms": [
+    "hint",
+    "password",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "danger": [],
+   "run_lines": 11
+  },
+  "CLIGym__disable-network-socket-connect-system-call": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 1
+  },
+  "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs": {
+   "trace_terms": [],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": false,
+   "build_network": [],
+   "danger": [],
+   "run_lines": 7
+  },
+  "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure.hard": {
+   "trace_terms": [
+    "/root/.bashrc_extensions",
+    "backup",
+    "openssl enc",
+    "recovery"
+   ],
+   "kernel_or_loader": [],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [
+    "apt-get install",
+    "apt-get update"
+   ],
+   "danger": [],
+   "run_lines": 5
+  },
+  "CLIGym__dynamic-linker-cache-corruption-with-obfuscated-library-resolution": {
+   "trace_terms": [
+    "/root/.bashrc",
+    "cipher",
+    "hint",
+    "recovery"
+   ],
+   "kernel_or_loader": [
+    "ldconfig"
+   ],
+   "edits_repo_source": true,
+   "removes_git": true,
+   "build_network": [
+    "pip install"
+   ],
+   "danger": [],
+   "run_lines": 16
+  }
+ },
+ "corpus": {
+  "tasks": 1655,
+  "with_trace_terms": 1072,
+  "kernel_or_loader": 327,
+  "uname_r": 10,
+  "edits_repo_source": 1511,
+  "removes_git": 948,
+  "hard": 814
+ }
+}
