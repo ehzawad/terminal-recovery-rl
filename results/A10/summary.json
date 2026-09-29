@@ -1,22 +1,22 @@
 {
  "n": 24,
  "admissible": 0,
- "not_admissible": 20,
- "pending": 4,
- "max_possible_admissible": 4,
+ "not_admissible": 23,
+ "pending": 1,
+ "max_possible_admissible": 1,
  "reasons": {
   "build_fail": 2,
-  "mutant_accepted": 15,
-  "review_defective": 15,
-  "EXPOSURE": 5,
+  "mutant_accepted": 18,
+  "review_defective": 18,
+  "EXPOSURE": 6,
   "gold_fail": 3
  },
  "confirmed_defects": {
-  "weak_grader": 17,
-  "ambiguity": 7,
+  "weak_grader": 22,
+  "ambiguity": 8,
   "network_or_gpu": 1,
-  "other": 7,
-  "answer_exposure": 5,
+  "other": 10,
+  "answer_exposure": 6,
   "contradiction": 4,
   "unstated_requirement": 3,
   "nondeterminism": 1
@@ -134,16 +134,26 @@
    ]
   },
   "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
   },
   "CLIGym__kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard": {
    "verdict": "not admissible",

@@ -1,0 +1,99 @@
+[
+ {
+  "key": "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "run_tests.sh runs bare `pytest ... --verbose` with no test IDs, so grading falls back to the whole-suite summary (passed>0, no failed/error). Via --explore I left /etc/ld.so.preload -> /tmp/libvdso_corrupt.so in place, installed a testbed sitecustomize.py that retries time.* on OSError, and removed ' -n auto' from pyproject.toml addopts. Result: '585 passed, 1 skipped, 14 warnings in 0.00s' (the same counts as the real fix), while `date` still prints 'Tue Jan 19 03:14:07 UTC 2038'. The grader checks only Python test outcomes, never whether the libc interposition is gone."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "Decoy hint: /var/tmp/.recovery_hint says 'The original library was moved to /tmp/.vdso_bkp_*'. But `cmp /tmp/.vdso_bkp_741d301892c53638 /lib/x86_64-linux-gnu/libc.so.6` prints SAME_LIBC, so libc was never moved or changed. The real damage is the single line in /etc/ld.so.preload. Removing it gives the full suite 585 passed, 1 skipped. The hint misleads but is harmless."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The instruction names about 40 specific failing tests, but the grader runs the full suite (no IDs in the pytest call in run_tests.sh). This is fair in practice, because after the real fix the whole healthy suite passes (585 passed, 1 skipped)."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The damage is an /etc/ld.so.preload shim inside the container. The repair is `rm /etc/ld.so.preload`. Nothing escapes the host.",
+  "realism": 3,
+  "difficulty_guess": "easy-medium (ld.so.preload is a well-known place to look once `date` shows 2038 or time.time() raises EINVAL)",
+  "mutant_script": "# Sloppy \"fix\": leave /etc/ld.so.preload and the interposed libc timing functions in place;\n# only make Python's time functions retry on the injected errors via sitecustomize in the testbed env.\nSP=$(/opt/miniconda3/envs/testbed/bin/python -c 'import site;print(site.getsitepackages()[0])' 2>/dev/null)\ncat > \"$SP/sitecustomize.py\" <<'PY'\nimport time as _t, functools as _f\ndef _retry(fn):\n    @_f.wraps(fn)\n    def w(*a, **k):\n        for _ in range(8):\n            try:\n                return fn(*a, **k)\n            except OSError:\n                pass\n        return fn(*a, **k)\n    return w\nfor _n in (\"time\",\"time_ns\",\"monotonic\",\"monotonic_ns\",\"perf_counter\",\"perf_counter_ns\",\"process_time\",\"process_time_ns\",\"thread_time\",\"thread_time_ns\",\"clock_gettime\",\"clock_gettime_ns\"):\n    if hasattr(_t,_n):\n        setattr(_t,_n,_retry(getattr(_t,_n)))\nPY\necho \"installed $SP/sitecustomize.py\"\n# and drop xdist parallelism, whose worker channel dies under the broken clock\nsed -i 's/ -n auto//' /testbed/pyproject.toml\n",
+  "mutant_intent": "Mask the symptom at the Python level: add a sitecustomize retry wrapper around time.* and turn off xdist. The system-wide LD preload that breaks clock_gettime, gettimeofday and time for every process stays in place. VERIFIED with --explore: the suite reports 585 passed, 1 skipped, which the summary rule ACCEPTS. The grader fails to reject it.",
+  "must_reject": true,
+  "notes": "Before repair, pytest dies with INTERNALERROR OSError [Errno 22] from time.time() in coverage, plus xdist 'node down'. The real fix passes the whole suite in about 18 s. Answer exposure is limited to the standard /etc/ld.so.preload path, which is not a giveaway. The libc 'backup' is an identical copy, not a key."
+ },
+ {
+  "key": "CLIGym__xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "test/test_extractor.py and test/test_kp_extract_span.py loop over json.load('test/keyword_extractor_test_cases.json'). Replacing that file with '[]' (and fixing only the two tiny .txt files) gives '8 passed in 0.03s' on the exact 8 grader IDs, because the loop runs over zero cases. The grader never checks that the 17461-byte JSON was restored."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "4 of the 8 graded IDs never touch the damaged files: test_dictionary_loading, test_list_loading, test_add_keyword_file_missing and test_get_all_keywords. They already pass on the damaged image (no-op run: '4 failed, 4 passed'). The two .txt files are fully determined by the test assertions (java_2e=>java and so on), so they can be rewritten from the tests without any recovery."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "The instruction names /tmp/.xz_polyglot_recovery_hint, which gives each file's exact offset and size, e.g. 'test/keyword_extractor_test_cases.json:XZ_STREAM_OFFSET=50:XZ_ORIGINAL_SIZE=17461:EXTRACTION_METHOD=dd_skip_blocks'. The original bytes sit in plaintext after a 50-byte fake header, followed by 32 NULs. Recovery is just `tail -c +51 | head -c SIZE`, with no real diagnosis needed. (Partial check: skip-only without truncation still fails, with JSON 'Extra data' at char 17461, so the size has to be applied too.)"
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "The instruction's 'XZ polyglot / steganography' framing overstates the damage. The fake header is not a decodable XZ stream, only 3 files are affected (no .csv files), and nothing is hidden beyond the prefix and suffix padding."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The Dockerfile only rewrites 3 files under /testbed/test and writes a hint to /tmp. The repair is local file surgery.",
+  "realism": 2,
+  "difficulty_guess": "easy (the hint gives offset and size)",
+  "mutant_script": "# Sloppy partial repair: recover the two keyword .txt files properly, but give up on the big JSON test-case\n# file and replace it with an empty list, so the extractor tests loop over zero cases.\ncd /testbed\nfor f in test/keywords_format_one.txt test/keywords_format_two.txt; do\n  n=$(grep \"^$f:\" /tmp/.xz_polyglot_recovery_hint | sed 's/.*XZ_ORIGINAL_SIZE=\\([0-9]*\\).*/\\1/')\n  tail -c +51 \"$f\" | head -c \"$n\" > \"$f.rec\" && mv \"$f.rec\" \"$f\"\ndone\necho '[]' > test/keyword_extractor_test_cases.json\n",
+  "mutant_intent": "Partial repair plus data loss: recover the two keyword .txt files but replace the 17 KB extractor test-case JSON with an empty list, so the extractor and span tests pass vacuously. VERIFIED with --explore: all 8 graded IDs pass. The grader fails to reject it.",
+  "must_reject": true,
+  "notes": "The no-op run fails reliably (4/8 pass). An offset-only dd repair is correctly rejected. The weakness is that nothing validates the restored contents (for example a hash or a case count)."
+ },
+ {
+  "key": "CLIGym__kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Adding a /testbed/conftest.py that restores socket.socket.recv, send, sendall and connect from h11._network_compat._original_* makes all 12 graded IDs pass 6/6 times ('12 passed'). Meanwhile `python -c 'import h11,socket; print(socket.socket.recv)'` outside the tests still prints '<function _patched_recv ...>'. The sabotage import on h11/__init__.py line 9 survives. Tests are not restored and nothing checks the library itself."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "10 of the 12 graded IDs (test_connection.py and test_io.py) are pure in-memory tests that pass on the damaged image. The no-op run gives '2 failed, 10 passed' 3/3 times. Only test_h11_as_client and test_h11_as_server exercise the damage."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "Decoy artefacts: /tmp/.hint_fragment_1 decodes to 'Clue1: syncookies', /var/log/.recovery_note says 'original_syncookies XOR with tcp_syn_retries gives the key', and /etc/.restore_sc contains '=oQM'. None of them relate to the real damage, and no encrypted /proc state exists (sysctl shows syncookies=1, syn_retries=6, both defaults). The instruction and title point at kernel TCP state. The actual damage is h11/_network_compat.py, imported from h11/__init__.py, which is still discoverable by grepping the package for socket monkeypatches. Misleading, but solvable."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": false,
+    "evidence": "The damage is probabilistic (random 6-25% failure per socket call), so a no-op could in principle pass by luck. It failed 3/3 no-op runs here, and the per-test failure chance across many socket calls makes a lucky pass unlikely."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The Dockerfile installs iptables, iproute2 and conntrack but applies no rules. The repair is deleting one import line or the module. No host impact.",
+  "realism": 2,
+  "difficulty_guess": "easy-medium (grep for socket monkeypatching in the package; the TCP and syncookie decoys cost time)",
+  "mutant_script": "# Symptom-masking \"fix\": leave h11/_network_compat.py and its import in h11/__init__.py in place (the library\n# still sabotages socket methods for every importer), and only undo the patches inside the test session.\ncd /testbed\ncat > conftest.py <<'PY'\nimport socket\nimport h11._network_compat as _nc\nsocket.socket.recv = _nc._original_recv\nsocket.socket.send = _nc._original_send\nsocket.socket.sendall = _nc._original_sendall\nsocket.socket.connect = _nc._original_connect\nPY\n",
+  "mutant_intent": "Mask the sabotage only inside pytest, with a conftest that restores the original socket methods, while h11 keeps monkeypatching sockets for every real importer. VERIFIED with --explore: 12/12 pass on 6 of 6 runs. The grader fails to reject it.",
+  "must_reject": true,
+  "notes": "The real fix (delete the import in h11/__init__.py plus h11/_network_compat.py) passes 12/12 3/3 times. The '.hard' label and the 'encrypted proc recovery' name are mostly decoy."
+ }
+]

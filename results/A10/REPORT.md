@@ -1,7 +1,7 @@
 # A10 — audit of CLI-Gym (decision reached: DROP; last 4 tasks finishing for the record)
 
-Status as of 2026-09-29: **20 of 24 sampled tasks decided, all 20 not admissible; 4 pending.** At most 4 of 24
-(17%) can be admissible, below the registered 25% line, so **CLI-Gym is dropped as a training source** whatever
+Status as of 2026-09-29: **23 of 24 sampled tasks decided, all 23 not admissible; 1 pending.** At most 1 of 24
+(4%) can be admissible, below the registered 25% line, so **CLI-Gym is dropped as a training source** whatever
 the last 4 show. They are being completed so the defect counts cover the whole sample. Registration: `PREREGISTRATION.md`, A10 and A10.1.
 Live numbers: `summary.json` (regenerate with `scripts/a10_aggregate.py`).
 
@@ -28,7 +28,7 @@ Sample: 24 tasks, one per repository image, in sha256 order (`sample.json`, `scr
 | Build fails (the dataset's own Dockerfile) | 2 |
 | Gold image fails the task's own grader | 3 |
 | Repair reference could not be written | 0 of 18 attempted |
-| Wrong-output control accepted by the grader | 15 of 15 run |
+| Wrong-output control accepted by the grader | 18 of 18 run |
 | Blind reviewer: defective | 12 of 12 reviewed |
 
 - **Build failures:** one installs `linux-headers-$(uname -r)` for the host's kernel (10 of 1,655 tasks do this);
@@ -38,7 +38,7 @@ Sample: 24 tasks, one per repository image, in sha256 order (`sample.json`, `scr
   already has a failing test. None of the 3 can ever be passed.
 - **Every repair was possible, every grader was weak.** The reference authors repaired all 18 tasks attempted on the first
   attempt, and the harness re-ran each reference twice in fresh offline containers (all pass). But the grader
-  accepted a wrong answer in every one of the 15 run so far, again confirmed by the harness itself: editing test expectations; a
+  accepted a wrong answer in every one of the 18 run, again confirmed by the harness itself: editing test expectations; a
   `conftest.py` that undoes the damage only during tests; a stub module returning 0; a `sitecustomize.py`
   shadowing the broken stdlib module; a partial repair that leaves the glibc side broken; removing only the
   sabotage the tests can see (TCP interceptor, import hook and a crashing `ssh-keygen` all left in place);

@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
  "build": {
   "ok": true,
-  "msg": "built in 3s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -40,5 +40,52 @@
    "seconds": 19.2,
    "log_tail": ", 121-122\nautograd/scipy/signal.py                        100      9    91%   18, 109-116, 138\nautograd/scipy/special.py                        87      2    98%   142-143\nautograd/scipy/stats/__init__.py                  9      4    56%   7-8, 12-13\nautograd/scipy/stats/beta.py                     17      0   100%\nautograd/scipy/stats/chi2.py                     13      0   100%\nautograd/scipy/stats/dirichlet.py                 9      0   100%\nautograd/scipy/stats/gamma.py                    15      0   100%\nautograd/scipy/stats/multivariate_normal.py      24      2    92%   21, 27\nautograd/scipy/stats/norm.py                     16      0   100%\nautograd/scipy/stats/poisson.py                  12      0   100%\nautograd/scipy/stats/t.py                        25      0   100%\nautograd/test_util.py                            62      0   100%\nautograd/tracer.py                              101      6    94%   24, 27, 120, 125, 140-141\nautograd/util.py                                 36      0   100%\nautograd/wrap_util.py                            34      2    94%   35-36\n---------------------------------------------------------------------------\nTOTAL                                          2669    244    91%\nCoverage XML written to file coverage.xml\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_wrappers.py:268: fails with NumPy nightlies\n================= 585 passed, 1 skipped, 14 warnings in 18.00s =================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "Tue Sep 29 19:40:04 UTC 2026\n",
+   "grade": {
+    "pass": true,
+    "rule": "summary",
+    "summary": "585 passed, 1 skipped, 14 warnings",
+    "n_ids": 0,
+    "n_pass": 0,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 19.2,
+    "log_tail": ", 121-122\nautograd/scipy/signal.py                        100      9    91%   18, 109-116, 138\nautograd/scipy/special.py                        87      2    98%   142-143\nautograd/scipy/stats/__init__.py                  9      4    56%   7-8, 12-13\nautograd/scipy/stats/beta.py                     17      0   100%\nautograd/scipy/stats/chi2.py                     13      0   100%\nautograd/scipy/stats/dirichlet.py                 9      0   100%\nautograd/scipy/stats/gamma.py                    15      0   100%\nautograd/scipy/stats/multivariate_normal.py      24      2    92%   21, 27\nautograd/scipy/stats/norm.py                     16      0   100%\nautograd/scipy/stats/poisson.py                  12      0   100%\nautograd/scipy/stats/t.py                        25      0   100%\nautograd/test_util.py                            62      0   100%\nautograd/tracer.py                              101      6    94%   24, 27, 120, 125, 140-141\nautograd/util.py                                 36      0   100%\nautograd/wrap_util.py                            34      2    94%   35-36\n---------------------------------------------------------------------------\nTOTAL                                          2669    244    91%\nCoverage XML written to file coverage.xml\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_wrappers.py:268: fails with NumPy nightlies\n================= 585 passed, 1 skipped, 14 warnings in 18.10s =================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "Tue Sep 29 19:40:25 UTC 2026\n",
+   "grade": {
+    "pass": true,
+    "rule": "summary",
+    "summary": "585 passed, 1 skipped, 14 warnings",
+    "n_ids": 0,
+    "n_pass": 0,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 18.9,
+    "log_tail": ", 121-122\nautograd/scipy/signal.py                        100      9    91%   18, 109-116, 138\nautograd/scipy/special.py                        87      2    98%   142-143\nautograd/scipy/stats/__init__.py                  9      4    56%   7-8, 12-13\nautograd/scipy/stats/beta.py                     17      0   100%\nautograd/scipy/stats/chi2.py                     13      0   100%\nautograd/scipy/stats/dirichlet.py                 9      0   100%\nautograd/scipy/stats/gamma.py                    15      0   100%\nautograd/scipy/stats/multivariate_normal.py      24      2    92%   21, 27\nautograd/scipy/stats/norm.py                     16      0   100%\nautograd/scipy/stats/poisson.py                  12      0   100%\nautograd/scipy/stats/t.py                        25      0   100%\nautograd/test_util.py                            62      0   100%\nautograd/tracer.py                              101      6    94%   24, 27, 120, 125, 140-141\nautograd/util.py                                 36      0   100%\nautograd/wrap_util.py                            34      2    94%   35-36\n---------------------------------------------------------------------------\nTOTAL                                          2669    244    91%\nCoverage XML written to file coverage.xml\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_wrappers.py:268: fails with NumPy nightlies\n================= 585 passed, 1 skipped, 14 warnings in 17.79s =================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "installed /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py\n",
+  "grade": {
+   "pass": true,
+   "rule": "summary",
+   "summary": "585 passed, 1 skipped, 14 warnings",
+   "n_ids": 0,
+   "n_pass": 0,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 30.0,
+   "log_tail": ", 121-122\nautograd/scipy/signal.py                        100      9    91%   18, 109-116, 138\nautograd/scipy/special.py                        87      2    98%   142-143\nautograd/scipy/stats/__init__.py                  9      4    56%   7-8, 12-13\nautograd/scipy/stats/beta.py                     17      0   100%\nautograd/scipy/stats/chi2.py                     13      0   100%\nautograd/scipy/stats/dirichlet.py                 9      0   100%\nautograd/scipy/stats/gamma.py                    15      0   100%\nautograd/scipy/stats/multivariate_normal.py      24      2    92%   21, 27\nautograd/scipy/stats/norm.py                     16      0   100%\nautograd/scipy/stats/poisson.py                  12      0   100%\nautograd/scipy/stats/t.py                        25      0   100%\nautograd/test_util.py                            62      0   100%\nautograd/tracer.py                              101      6    94%   24, 27, 120, 125, 140-141\nautograd/util.py                                 36      0   100%\nautograd/wrap_util.py                            34      2    94%   35-36\n---------------------------------------------------------------------------\nTOTAL                                          2669    244    91%\nCoverage XML written to file coverage.xml\n=========================== short test summary info ============================\nSKIPPED [1] tests/test_wrappers.py:268: fails with NumPy nightlies\n================= 585 passed, 1 skipped, 14 warnings in 0.00s ==================\n"
+  }
+ }
 }
