@@ -533,3 +533,31 @@ it is still not admissible. The TMax dataset decision uses the admissible fracti
 over the tasks that were verifiable. A wrong-output control for a task without a reference is not possible and is
 skipped (recorded). Whole-corpus, model-free counts (tasks with a recorded success, with `/gpfs` paths, with
 network use in `%post`) are reported as a static screen.
+
+**A10 — 2026-09-29: audit of CLI-Gym (registered before any task is drawn or opened).**
+Owner chose "drop A9's sources and audit the next-ranked source". Question: is CLI-Gym a sound source of
+executable recovery tasks? No model is trained here. Pinned revision: `LiberCoders/CLI-Gym` 552945c5aaf0,
+`train.parquet` (1,655 rows; columns task_id, task_yaml, dockerfile, docker_compose, run_tests; Apache-2.0).
+Read before registering: the dataset card, the code repository's README and file tree, and corpus-level counts
+of `FROM` lines only (25 distinct public SWE-smith base images, 2-240 tasks each). No task text was read.
+*Construction and its consequence:* each task is a healthy SWE-smith "gold" image plus Dockerfile lines that an
+agent wrote to break it; there is **no released repair script**. Stage (3) is therefore adapted, fixed now:
+(a) the damaged image, untouched, must fail `run_tests`; (b) the gold image (the `FROM` image with no task
+lines) must pass `run_tests` in two fresh containers, showing a passing state exists; (c) a **repair reference**
+is written by one Opus agent that sees the instruction, the Dockerfile and the tests, and must pass in two fresh
+damaged containers under `--network none`; up to 3 attempts, and a task with no passing repair is
+**unverified** (not admissible), reported separately as in A9.1; (d) at least one semantic wrong-output
+control, written blind by the stage-(4) reviewer (a partial repair, a test edit or a hard-coded workaround),
+must fail. The agent sandbox has no network, so a repair that needs a download is **infeasible**.
+*Draw.* Order all rows by `sha256("audit-a10|CLI-Gym|" + task_id)`; walk down that order taking a task only if
+its base image is not yet taken; stop at 24 tasks (so 24 distinct repositories, one task each; this
+over-weights rare repositories against the corpus and is a stated choice for independence). The first 2 are the
+canary batch; canaries count. Tasks are never swapped after the draw.
+*Stages (1), (2), (4), (5), admissibility and the dataset decision are unchanged from A9* (>= 50% admissible and
+zero confirmed exposure -> proceed to a roughly 60-task audit; <= 25% or systematic exposure -> drop; otherwise
+the owner decides). Stage (1) additionally flags traces of the damage that the agent can read (backups,
+`.bak`/`.orig` copies, shell history, comments), which count as answer exposure if confirmed in stage (4).
+Grading runs the dataset's `run_tests` unchanged except that any run-time fetch is replaced by the pre-staged
+offline toolchain (recorded per task, as A9.1). Base images are pulled with network; everything else runs
+offline. Disk: at most 6 base images present at once, and every image this audit pulled or built is removed
+after its task finishes. No admitted task enters training. Results go to `results/A10/`.
