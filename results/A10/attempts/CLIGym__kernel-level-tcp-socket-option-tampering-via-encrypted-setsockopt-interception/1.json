@@ -1,0 +1,15 @@
+{
+ "script_rc": 0,
+ "script_tail": "",
+ "grade": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "17 passed, 34 warnings",
+  "n_ids": 17,
+  "n_pass": 17,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.3,
+  "log_tail": "ed 17 items\n\ntests/test_api.py::TweepyAPITests::testgetdirectmessages PASSED          [  5%]\ntests/test_api.py::TweepyAPITests::testgetfollowers PASSED               [ 11%]\ntests/test_api.py::TweepyAPITests::testgetfriends PASSED                 [ 17%]\ntests/test_api.py::TweepyAPITests::testhometimeline PASSED               [ 23%]\ntests/test_api.py::TweepyAPITests::testsearchtweets PASSED               [ 29%]\ntests/test_api.py::TweepyAPITests::testsendanddeletedirectmessage PASSED [ 35%]\ntests/test_api.py::TweepyAPITests::testupdateanddestroystatus PASSED     [ 41%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_home_timeline PASSED [ 47%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_tweet PASSED [ 52%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_tweets PASSED [ 58%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets PASSED [ 64%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_create_and_delete_tweet PASSED [ 70%]\ntests/test_client.py::TweepyClientTests::test_get_home_timeline PASSED   [ 76%]\ntests/test_client.py::TweepyClientTests::test_get_tweet PASSED           [ 82%]\ntests/test_client.py::TweepyClientTests::test_get_users_tweets PASSED    [ 88%]\ntests/test_client.py::TweepyClientTests::test_search_recent_tweets PASSED [ 94%]\ntests/test_client.py::TweepyClientTests::test_create_and_delete_tweet PASSED [100%]\n\n======================= 17 passed, 34 warnings in 0.52s ========================\n"
+ }
+}

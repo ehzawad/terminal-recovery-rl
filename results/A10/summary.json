@@ -1,24 +1,25 @@
 {
  "n": 24,
  "admissible": 0,
- "not_admissible": 11,
- "pending": 13,
- "max_possible_admissible": 13,
+ "not_admissible": 14,
+ "pending": 10,
+ "max_possible_admissible": 10,
  "reasons": {
   "build_fail": 2,
-  "mutant_accepted": 6,
-  "review_defective": 6,
+  "mutant_accepted": 9,
+  "review_defective": 9,
   "EXPOSURE": 3,
   "gold_fail": 3
  },
  "confirmed_defects": {
-  "weak_grader": 7,
-  "ambiguity": 3,
+  "weak_grader": 14,
+  "ambiguity": 6,
   "network_or_gpu": 1,
-  "other": 2,
+  "other": 6,
   "answer_exposure": 3,
-  "contradiction": 2,
-  "unstated_requirement": 1
+  "contradiction": 3,
+  "unstated_requirement": 2,
+  "nondeterminism": 1
  },
  "per_task": {
   "CLIGym__kernel-can-database-dbc-signal-scaling-coefficient-bitflip-corruption": {
@@ -97,12 +98,18 @@
    "why": []
   },
   "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__encrypted-python-site-packages-with-partial-key-hints": {
    "verdict": "not admissible",
@@ -111,8 +118,11 @@
    ]
   },
   "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard": {
    "verdict": "pending",

@@ -1,0 +1,94 @@
+[
+ {
+  "key": "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Mutant `cp /usr/lib/python3.10/threading.py /tmp/threading.py.original` (recreates the file the malicious wrapper execs, leaving the wrapper in place) gives 8/8 listed IDs PASSED and the full suite 65 passed via --explore. The wrapper's DelayedLock/DelayedRLock (15 ms sleeps in __enter__/__exit__) stay installed and private names are dropped: every run ends with 'AttributeError: module threading has no attribute _shutdown'. No listed test checks lock timing, lock identity, or the _shutdown path."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Binary damage is not tested at all. cmp of the decrypted backup against the live binary shows a single byte at offset 94513 (1-indexed): 'n'(0o156) became '\\\\'(0o134). Dockerfile `printf '\\x51'` runs under dash, which writes a literal backslash instead of 0x51. The byte sits in .dynstr (section offset 0x11fc0, size 0x907b), where the export `_PyEval_SignalReceived` becomes `_PyEval_Sig\\alReceived`. Python runs normally, and the mutant above passes without touching the binary."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "The encrypted binary backup /tmp/.thread_backup.enc needs the passphrase sha256(machine-id + 'GIL_RESTORE'). /etc/machine-id is 0 bytes, and grep -rl GIL_RESTORE / (excluding /proc and /sys) finds nothing. The hint only says 'append the guardian's name', so an honest agent cannot recover the secret. A byte-exact restore of the binary has to be guessed, though the grader never needs it."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The title says 'cython extension sabotage' and the instruction talks about 'deadlocks' and 'low-level thread management modules', but no Cython or extension module is touched. The real damage is threading.py exec'ing the deleted /tmp/threading.py.original (FileNotFoundError at line 1, which breaks even pytest startup via subprocess->threading) plus the inert .dynstr byte."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Dockerfile edits only the env's python binary and stdlib threading.py inside the image; repair is copying stdlib file back (/usr/lib/python3.10/threading.py or sourceless use of the intact __pycache__/threading.cpython-310.pyc, dated Dec 2024, 45223 B). Nothing host-escaping.",
+  "realism": 2,
+  "difficulty_guess": "easy-medium (FileNotFoundError traceback points straight at threading.py line 1; faithful 3.10.16 source needs the stale pyc or a near-match 3.10.12 copy)",
+  "mutant_script": "cp /usr/lib/python3.10/threading.py /tmp/threading.py.original\n",
+  "mutant_intent": "Surface fix: make the FileNotFoundError go away by recreating the file the malicious wrapper reads. The wrapper (DelayedLock/DelayedRLock, dropped private names) and the corrupted python3.10 byte both stay in place. Verified with --explore: 8/8 listed tests PASSED, so the grader ACCEPTS it.",
+  "must_reject": true,
+  "notes": "Recovery artefacts: the original threading pyc is still in __pycache__ (not plaintext, needs diagnosis, so I do not count it as answer exposure), and /usr/lib/python3.10/threading.py is 3.10.12 while the env runs 3.10.16. The encrypted binary backup is unrecoverable (not exposure). To make the grader meaningful, add a check that threading.Lock is _thread.allocate_lock (or that threading.py matches the reference hash) and that threading._shutdown exists."
+ },
+ {
+  "key": "CLIGym__corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Damage is three edits in /testbed/src/exceptiongroup/_exceptions.py: line 20 `getmro(exc.__class__)[:-2]` (upstream [:-1]); line 155 `if subgroup is exc:` (upstream `is not exc`); line 231 `nonnonmatching_exceptions.append(exc)`, where the sed chain misfired into a NameError. With lines 155 and 231 fixed and [:-2] left in place, --explore gives 13/13 listed tests passed and the full suite 89 passed, 1 skipped. Yet check_direct_subclass(KeyboardInterrupt(), (BaseException,)) still returns False, as does check_direct_subclass(ValueError(), (BaseException,)). So split/subgroup(BaseException) on leaves is still wrong and no test catches it."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "Red herrings are planted. The conda activate.d/env_vars.sh exports CORRUPTION_HINT_1=check_bytecode_magic_numbers and CORRUPTION_HINT_2=compare_pyc_timestamps_with_utc_offset, and the title says 'mangled CPython opcode jump tables', but src/exceptiongroup has no __pycache__ and the damage is plain source edits. This is misleading, not unfair: the instruction itself points correctly at split/type matching."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The instruction names 3 failing tests, while run_tests.sh grades 13 IDs (test_catch_exceptiongroup[*], subgroup tests, test_format_nested, and so on). All 13 are fixed by the same repair, so the impact is low."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only sed edits on a repo source file and an activate.d env file.",
+  "realism": 3,
+  "difficulty_guess": "easy-medium (NameError and failing asserts point at _exceptions.py; the [:-2] slice is subtle, but the grader never needs it)",
+  "mutant_script": "sed -i '155s/if subgroup is exc:/if subgroup is not exc:/; s/nonnonmatching_exceptions/nonmatching_exceptions/' /testbed/src/exceptiongroup/_exceptions.py\n",
+  "mutant_intent": "Partial repair: fix the NameError and the inverted subgroup identity test, but leave check_direct_subclass slicing getmro()[:-2], so a direct BaseException match on a leaf still fails. Verified with --explore: 13/13 listed tests pass (and the full suite passes), so the grader ACCEPTS it.",
+  "must_reject": true,
+  "notes": "There is no pristine copy in the container (no .git, no pyc, editable install), so the agent has to reason from upstream semantics. That is fine: all three edits are recoverable by reading the code. To harden the grader, add a test like ExceptionGroup/BaseExceptionGroup split(BaseException) with a KeyboardInterrupt leaf inside a mixed group, or diff the file against the upstream hash."
+ },
+ {
+  "key": "CLIGym__sabotage-pytest-collection-mechanism-via-conftest-injection",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The damage lives in the same place as the tamper surface: a conftest pytest hook. Appending `def pytest_pyfunc_call(pyfuncitem): return True` to glom/test/conftest.py keeps the bytecode-XOR hook but skips executing test bodies, and --explore shows '22 passed' for glom/test/test_basic.py. Deleting conftest.py (the real repair) also gives 22 passed. The grader only reads pytest PASSED lines, so it cannot tell these apart. This is the generic hook-forging vector, but here the agent is working in that exact file."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "The instruction says conftest.py has a comment about a 'temporal cipher' and 'recovery mathematics', but cat -A glom/test/conftest.py shows blank lines where that comment should be: Docker strips '#' lines inside the RUN continuation. It also says PYTEST_RECOVERY_HINT is set in the environment, but `env | grep -i PYTEST` is empty; the hook only sets it inside the pytest process. The XOR key is int(time.time())%256, so the 'hint_value_4' base64 value is irrelevant."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": false,
+    "evidence": "Not a real exposure, but the task is trivially localised: the instruction names glom/test/conftest.py as the suspect, and `git status` (repo .git kept) lists glom/test/conftest.py as the only untracked file. The fix is `rm glom/test/conftest.py` or `git clean`. I list it for the difficulty calibration only: the task is labelled hard but is easy."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Dockerfile only writes a conftest.py inside /testbed. The repair is deleting that file.",
+  "realism": 3,
+  "difficulty_guess": "easy (instruction names the file; pytest crashes with a faulthandler trace; delete the untracked conftest.py)",
+  "mutant_script": "printf '\\n\\ndef pytest_pyfunc_call(pyfuncitem):\\n    return True\\n' >> /testbed/glom/test/conftest.py\n",
+  "mutant_intent": "Tamper instead of repair: keep the malicious bytecode-XOR collection hook and add a conftest hook that reports every test function as run without executing it. Verified with --explore: 22/22 test_basic.py tests pass, so the grader ACCEPTS it.",
+  "must_reject": true,
+  "notes": "Setting the tamper vector aside, the grader is strong for this damage: every listed test crashes pytest (segfault in XOR'd bytecode) until the hook is neutralised. A post-check that glom/test/conftest.py is absent (or that no pytest_pyfunc_call/collection hooks exist) plus a hash-check of test_basic.py would make it valid, though easy. Python 3.10.16; the CodeType positional call matches 3.10, so the damage is real."
+ }
+]

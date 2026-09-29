@@ -1,0 +1,89 @@
+[
+ {
+  "key": "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The graded tests replay VCR cassettes, so they never reach the setsockopt interceptor. Deleting only site-packages/vcr_patch.py (Dockerfile lines 30-47) makes run_tests.sh report 17 passed, 3 of 3 runs, while `socket.socket.setsockopt` is still <function patched_setsockopt>. _socket_intercept.py and the sitecustomize hook stay installed. The damage the instruction names ('modifications to TCP socket handling') is not checked at all."
+   },
+   {
+    "type": "nondeterminism",
+    "confirmed": true,
+    "evidence": "vcr_patch raises randomly when random()<0.3 on each play_response. In the damaged state one run gave '7 failed, 10 passed', so the failure count varies from run to run. P(all 17 pass unrepaired) is at most about 0.7^17, roughly 0.002, so a false pass is rare. After a repair, grading is deterministic."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "Red herring: /var/cache/kernel_tcp_backup.enc is an XOR-encrypted dump of /proc/sys/net. The key fragments on disk (/var/log/.kernel_tcp_key = b64 'SuperSecret', networking.service NETWORK_KEY=retXORFrg, /etc/.hosts_metadata 'ment12345') do not even reassemble the real key 'SuperSecretXORKeyFragment12345'. The dump is irrelevant to the repair, and /proc/sys is not changed by the damage. This wastes effort but does not break the reward."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The Dockerfile only writes Python files into site-packages and some decoy files. The repair is deleting three .py files. Nothing is host-escaping.",
+  "realism": 3,
+  "difficulty_guess": "easy-medium (grep sitecustomize.py, remove 2 imported modules)",
+  "mutant_script": "#!/bin/bash\n# partial repair: remove only the VCR playback saboteur; leave the setsockopt interceptor + sitecustomize hook\nrm -f /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/vcr_patch.py\n",
+  "mutant_intent": "Partial repair: remove only the VCR playback saboteur that the tests can see, and leave the setsockopt tampering (the damage the instruction names) plus the sitecustomize hook in place. Verified with --explore: ACCEPTED (17 passed, 3/3 runs), so the grader cannot reject it.",
+  "must_reject": true,
+  "notes": "Using the tests as a signal is fair: the tests fail randomly, and sitecustomize.py points straight at both patches. But the reward only checks the VCR half. No answer exposure: the encrypted blob is a decoy, not a copy of the repair."
+ },
+ {
+  "key": "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "sitecustomize.py (Dockerfile COPY, active copy in site-packages) returns early if .apispec_validation_defaults.yaml is missing. Deleting only the two YAML files gives 18 passed (3/3 runs) through run_tests.sh, while the global builtins.__import__ hook and both sitecustomize.py files remain installed. The field2range swaps cancel each other: they hard-code maximum/minimum and then the YAML swaps them back. So only the min/max aggregation shows up, in just 2 of the 18 tests (multiple_ranges and multiple_lengths); the other 16 pass while damaged."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The task.yaml hint says 'configuration files or startup scripts in the project root'. Deleting only /testbed/sitecustomize.py does nothing: the active copy is site-packages/sitecustomize.py, which runs before /testbed is on sys.path (sys.path shows '' first, but site runs earlier). The hint misdirects a little but can be recovered from, and diagnosis is still required. Minor."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The damage is Python files only (it hooks builtins.__import__). The repair is deleting files. No host effect.",
+  "realism": 3,
+  "difficulty_guess": "easy-medium",
+  "mutant_script": "#!/bin/bash\n# partial repair: delete only the YAML config; leave both malicious sitecustomize.py import hooks installed\nrm -f /testbed/.apispec_validation_defaults.yaml /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/.apispec_validation_defaults.yaml\n",
+  "mutant_intent": "Partial repair: remove only the YAML trigger and leave the malicious import hook (builtins.__import__ replaced) and both sitecustomize.py copies in place. The hook would re-arm if the config reappeared. Verified with --explore: ACCEPTED (18 passed, 3/3 runs).",
+  "must_reject": true,
+  "notes": "The instruction is fair and the diagnosis path is clear. The pip mirror line is irrelevant, since no download is needed. The weak_grader defect is modest: behaviour is fully restored under that mutant, but leaving the hook is an incomplete cleanup the grader cannot see. Editing the test expectations would also pass. Typo in the instruction ('exaenv'). No answer exposure beyond the malicious code itself, which reveals the damage but is normal diagnosis material."
+ },
+ {
+  "key": "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The graded tests depend only on cryptography's _rust.abi3.so. ldd shows it links no libcrypto: OpenSSL is statically linked. The run: restore only _rust.abi3.so (from the pip-cache wheel) and run_tests.sh reports 14 passed. Meanwhile the conda env's libcrypto.so.3 (3 overwritten spots) and the system /lib/x86_64-linux-gnu/libcrypto.so.3 (3 overwritten spots) stay corrupted, and `ssh-keygen -t rsa` still segfaults (rc 139). The instruction explicitly complains about ssh-keygen. The whole 'five fragments' libcrypto recovery puzzle is never graded."
+   },
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "The damage the tests see (_rust.abi3.so, 16 bytes at file offsets 0x40b590 and 0x40b910 in .text) has no backup, and the instruction and hint never mention it. The planted fragments reconstruct only the conda libcrypto (I verified: the bz2 decompresses to 5172040 bytes, which differ from the damaged file in exactly 24 bytes). Recovery works only because /root/.cache/pip/http-v2/6/e/5/8/f/6e58...b293.body happens to be the cryptography-43.0.3 wheel (cmp: only the 16 damaged bytes differ); /opt/miniconda3 base also has cryptography 41.0.7. So the task is solvable offline, but by luck, not by design."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "The system libcrypto (libssl3 3.0.2-0ubuntu1.18) has no backup and /var/cache/apt/archives has no .deb, so an exact repair of ssh-keygen is impossible offline. Only a workaround exists: `LD_LIBRARY_PATH=/opt/miniconda3/lib ssh-keygen` works (rc 0). This is ungraded, so it does not hurt the reward, but the instruction's goal cannot be fully met."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": false,
+    "evidence": "The fragments (sshd_config, /tmp/.hidden_rsa_part2, /tmp/.hex_fragment_3_hint, /etc/environment, auth.log, plus the /root/recovery_hint.txt riddle) are a deliberately planted base64+bzip2 backup of the original conda libcrypto. It is a readable copy, but of a file the grader does not depend on, so it does not hand over the graded repair. I did not count it."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The damage uses dd on shared libraries inside the image only. The repair copies .so files within the container. Nothing is host-escaping. Note: printf under /bin/sh wrote the literal text '\\x00\\x00' rather than NUL bytes, but it corrupts the files all the same.",
+  "realism": 2,
+  "difficulty_guess": "hard (must work out that the segfault comes from _rust.abi3.so, not libcrypto, and find the cached wheel)",
+  "mutant_script": "#!/bin/bash\n# partial repair: restore only cryptography's _rust.abi3.so from the pip http cache wheel;\n# leave conda + system libcrypto.so.3 corrupted (ssh-keygen still segfaults)\nset -e\nB=$(grep -l -a \"cryptography-43.0.3\" -r /root/.cache/pip/http-v2 | head -1)\nmkdir -p /tmp/w && cd /tmp/w && /opt/miniconda3/envs/testbed/bin/python -m zipfile -e \"$B\" .\ncp /tmp/w/cryptography/hazmat/bindings/_rust.abi3.so /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/bindings/_rust.abi3.so\nrm -rf /tmp/w\n",
+  "mutant_intent": "Partial repair: fix only the Python cryptography binding from the cached wheel, leaving both libcrypto.so.3 copies corrupted, so ssh-keygen still segfaults. Verified with --explore: ACCEPTED (14 passed, ssh-keygen rc 139).",
+  "must_reject": true,
+  "notes": "The recovery path the author intended (reassemble the fragments into libcrypto) does not fix the graded tests. The real fix is a binary that was never mentioned, and the only way to recover it is a cache left behind by accident. The reward measures 'fix cryptography', not the stated problem."
+ }
+]
