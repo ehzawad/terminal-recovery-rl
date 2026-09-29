@@ -1,13 +1,13 @@
 {
  "n": 24,
  "admissible": 0,
- "not_admissible": 14,
- "pending": 10,
- "max_possible_admissible": 10,
+ "not_admissible": 17,
+ "pending": 7,
+ "max_possible_admissible": 7,
  "reasons": {
   "build_fail": 2,
-  "mutant_accepted": 9,
-  "review_defective": 9,
+  "mutant_accepted": 12,
+  "review_defective": 12,
   "EXPOSURE": 3,
   "gold_fail": 3
  },
@@ -80,12 +80,18 @@
    ]
   },
   "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__corrupt-python-bytecode-cache-to-break-module-caching-mechanism": {
    "verdict": "not admissible",
@@ -94,8 +100,11 @@
    ]
   },
   "CLIGym__sabotage-pytest-collection-mechanism-via-conftest-injection": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception": {
    "verdict": "not admissible",

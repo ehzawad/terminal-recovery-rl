@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
  "build": {
   "ok": true,
-  "msg": "built in 4s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -49,5 +49,52 @@
    "seconds": 0.9,
    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_dom_tag_async.py::test_async_bleed PASSED                     [ 12%]\ntests/test_dom_tag.py::test___get_thread_context PASSED                  [ 25%]\ntests/test_dom_tag.py::test_nested_context PASSED                        [ 37%]\ntests/test_html.py::test_context_manager PASSED                          [ 50%]\ntests/test_html.py::test_get_context PASSED                              [ 62%]\ntests/test_html.py::test_nested_decorator PASSED                         [ 75%]\ntests/test_html.py::test_nested_decorator_2 PASSED                       [ 87%]\ntests/test_utils.py::test_context PASSED                                 [100%]\n\n============================== 8 passed in 0.11s ===============================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "candidate threading.py matches original pyc exactly\nthreading OK <class '_thread.lock'>\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "8 passed",
+    "n_ids": 8,
+    "n_pass": 8,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 0.8,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_dom_tag_async.py::test_async_bleed PASSED                     [ 12%]\ntests/test_dom_tag.py::test___get_thread_context PASSED                  [ 25%]\ntests/test_dom_tag.py::test_nested_context PASSED                        [ 37%]\ntests/test_html.py::test_context_manager PASSED                          [ 50%]\ntests/test_html.py::test_get_context PASSED                              [ 62%]\ntests/test_html.py::test_nested_decorator PASSED                         [ 75%]\ntests/test_html.py::test_nested_decorator_2 PASSED                       [ 87%]\ntests/test_utils.py::test_context PASSED                                 [100%]\n\n============================== 8 passed in 0.11s ===============================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "candidate threading.py matches original pyc exactly\nthreading OK <class '_thread.lock'>\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "8 passed",
+    "n_ids": 8,
+    "n_pass": 8,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 0.9,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_dom_tag_async.py::test_async_bleed PASSED                     [ 12%]\ntests/test_dom_tag.py::test___get_thread_context PASSED                  [ 25%]\ntests/test_dom_tag.py::test_nested_context PASSED                        [ 37%]\ntests/test_html.py::test_context_manager PASSED                          [ 50%]\ntests/test_html.py::test_get_context PASSED                              [ 62%]\ntests/test_html.py::test_nested_decorator PASSED                         [ 75%]\ntests/test_html.py::test_nested_decorator_2 PASSED                       [ 87%]\ntests/test_utils.py::test_context PASSED                                 [100%]\n\n============================== 8 passed in 0.12s ===============================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "",
+  "grade": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "8 passed",
+   "n_ids": 8,
+   "n_pass": 8,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.1,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_dom_tag_async.py::test_async_bleed PASSED                     [ 12%]\ntests/test_dom_tag.py::test___get_thread_context PASSED                  [ 25%]\ntests/test_dom_tag.py::test_nested_context PASSED                        [ 37%]\ntests/test_html.py::test_context_manager PASSED                          [ 50%]\ntests/test_html.py::test_get_context PASSED                              [ 62%]\ntests/test_html.py::test_nested_decorator PASSED                         [ 75%]\ntests/test_html.py::test_nested_decorator_2 PASSED                       [ 87%]\ntests/test_utils.py::test_context PASSED                                 [100%]\n\n============================== 8 passed in 0.34s ===============================\nException ignored in: <module 'threading' from '/opt/miniconda3/envs/testbed/lib/python3.10/threading.py'>\nAttributeError: module 'threading' has no attribute '_shutdown'\n"
+  }
+ }
 }

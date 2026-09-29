@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
  "build": {
   "ok": true,
-  "msg": "built in 4s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -46,5 +46,52 @@
    "seconds": 0.8,
    "log_tail": "n starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 13 items\n\ntests/test_catch.py::test_catch_exceptiongroup[iterable_basegroup] PASSED [  7%]\ntests/test_catch.py::test_catch_exceptiongroup[iterable_group] PASSED    [ 15%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_basegroup] PASSED   [ 23%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_group] PASSED       [ 30%]\ntests/test_catch.py::test_catch_nested_group PASSED                      [ 38%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_predicate__match PASSED [ 46%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_type__match PASSED [ 53%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_predicate__match PASSED [ 61%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_type__match PASSED [ 69%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_by_type PASSED [ 76%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_BaseExceptionGroup PASSED [ 84%]\ntests/test_exceptions.py::LeafGeneratorTest::test_leaf_generator PASSED  [ 92%]\ntests/test_formatting.py::test_format_nested PASSED                      [100%]\n\n============================== 13 passed in 0.09s ==============================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "20:    for cls in getmro(exc.__class__)[:-1]:\n155:                if subgroup is not exc:\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "13 passed",
+    "n_ids": 13,
+    "n_pass": 13,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 0.8,
+    "log_tail": "n starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 13 items\n\ntests/test_catch.py::test_catch_exceptiongroup[iterable_basegroup] PASSED [  7%]\ntests/test_catch.py::test_catch_exceptiongroup[iterable_group] PASSED    [ 15%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_basegroup] PASSED   [ 23%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_group] PASSED       [ 30%]\ntests/test_catch.py::test_catch_nested_group PASSED                      [ 38%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_predicate__match PASSED [ 46%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_type__match PASSED [ 53%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_predicate__match PASSED [ 61%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_type__match PASSED [ 69%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_by_type PASSED [ 76%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_BaseExceptionGroup PASSED [ 84%]\ntests/test_exceptions.py::LeafGeneratorTest::test_leaf_generator PASSED  [ 92%]\ntests/test_formatting.py::test_format_nested PASSED                      [100%]\n\n============================== 13 passed in 0.09s ==============================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "20:    for cls in getmro(exc.__class__)[:-1]:\n155:                if subgroup is not exc:\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "13 passed",
+    "n_ids": 13,
+    "n_pass": 13,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 0.8,
+    "log_tail": "n starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 13 items\n\ntests/test_catch.py::test_catch_exceptiongroup[iterable_basegroup] PASSED [  7%]\ntests/test_catch.py::test_catch_exceptiongroup[iterable_group] PASSED    [ 15%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_basegroup] PASSED   [ 23%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_group] PASSED       [ 30%]\ntests/test_catch.py::test_catch_nested_group PASSED                      [ 38%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_predicate__match PASSED [ 46%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_type__match PASSED [ 53%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_predicate__match PASSED [ 61%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_type__match PASSED [ 69%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_by_type PASSED [ 76%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_BaseExceptionGroup PASSED [ 84%]\ntests/test_exceptions.py::LeafGeneratorTest::test_leaf_generator PASSED  [ 92%]\ntests/test_formatting.py::test_format_nested PASSED                      [100%]\n\n============================== 13 passed in 0.09s ==============================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "",
+  "grade": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "13 passed",
+   "n_ids": 13,
+   "n_pass": 13,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 0.8,
+   "log_tail": "n starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 13 items\n\ntests/test_catch.py::test_catch_exceptiongroup[iterable_basegroup] PASSED [  7%]\ntests/test_catch.py::test_catch_exceptiongroup[iterable_group] PASSED    [ 15%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_basegroup] PASSED   [ 23%]\ntests/test_catch.py::test_catch_exceptiongroup[naked_group] PASSED       [ 30%]\ntests/test_catch.py::test_catch_nested_group PASSED                      [ 38%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_predicate__match PASSED [ 46%]\ntests/test_exceptions.py::ExceptionGroupSplitTests::test_basics_split_by_type__match PASSED [ 53%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_predicate__match PASSED [ 61%]\ntests/test_exceptions.py::ExceptionGroupSubgroupTests::test_basics_subgroup_by_type__match PASSED [ 69%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_by_type PASSED [ 76%]\ntests/test_exceptions.py::NestedExceptionGroupSplitTest::test_split_BaseExceptionGroup PASSED [ 84%]\ntests/test_exceptions.py::LeafGeneratorTest::test_leaf_generator PASSED  [ 92%]\ntests/test_formatting.py::test_format_nested PASSED                      [100%]\n\n============================== 13 passed in 0.09s ==============================\n"
+  }
+ }
 }
