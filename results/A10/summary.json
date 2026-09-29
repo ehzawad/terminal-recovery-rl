@@ -1,0 +1,152 @@
+{
+ "n": 24,
+ "admissible": 0,
+ "not_admissible": 11,
+ "pending": 13,
+ "max_possible_admissible": 13,
+ "reasons": {
+  "build_fail": 2,
+  "mutant_accepted": 6,
+  "review_defective": 6,
+  "EXPOSURE": 3,
+  "gold_fail": 3
+ },
+ "confirmed_defects": {
+  "weak_grader": 7,
+  "ambiguity": 3,
+  "network_or_gpu": 1,
+  "other": 2,
+  "answer_exposure": 3,
+  "contradiction": 2,
+  "unstated_requirement": 1
+ },
+ "per_task": {
+  "CLIGym__kernel-can-database-dbc-signal-scaling-coefficient-bitflip-corruption": {
+   "verdict": "not admissible",
+   "why": [
+    "build_fail"
+   ]
+  },
+  "CLIGym__api-generator-source-code-subtle-logic-bug-induction": {
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "CLIGym__glibc-iconv-module-corruption-for-encoding-conversion-operations.hard": {
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "CLIGym__corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode.hard": {
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard": {
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling": {
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
+  },
+  "CLIGym__compiled-regex-engine-poisoning-via-pcre-library-substitution": {
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
+  },
+  "CLIGym__corrupted-python-string-codec-via-encrypted-encodings-module": {
+   "verdict": "not admissible",
+   "why": [
+    "gold_fail"
+   ]
+  },
+  "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__corrupt-python-bytecode-cache-to-break-module-caching-mechanism": {
+   "verdict": "not admissible",
+   "why": [
+    "gold_fail"
+   ]
+  },
+  "CLIGym__sabotage-pytest-collection-mechanism-via-conftest-injection": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__encrypted-python-site-packages-with-partial-key-hints": {
+   "verdict": "not admissible",
+   "why": [
+    "build_fail"
+   ]
+  },
+  "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__disable-network-socket-connect-system-call": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure.hard": {
+   "verdict": "pending",
+   "why": []
+  },
+  "CLIGym__dynamic-linker-cache-corruption-with-obfuscated-library-resolution": {
+   "verdict": "not admissible",
+   "why": [
+    "gold_fail"
+   ]
+  }
+ }
+}
