@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+ "task_id": "openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "build": {
+  "ok": true,
+  "msg": "built in 4s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "2 failed, 16 passed",
+  "n_ids": 18,
+  "n_pass": 16,
+  "not_passed": {
+   "tests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-multiple_ranges-properties2]": "FAILED",
+   "tests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-multiple_lengths-properties7]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.5,
+  "log_tail": "i.py::TestFieldValidation::test_properties[2.0-custom_field_length-properties6] PASSED [ 50%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-custom_field_length-properties6] PASSED [ 55%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-multiple_lengths-properties7] FAILED [ 61%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-equal_length-properties8] PASSED [ 66%]\ntests/test_ext_marshmallow_field.py::test_field_with_choices[2.0] PASSED [ 72%]\ntests/test_ext_marshmallow_field.py::test_field_with_equal[3.0.0] PASSED [ 77%]\ntests/test_ext_marshmallow_field.py::test_field_with_range_datetime_type[2.0] PASSED [ 83%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToModelDefinition::test_no_required_fields[3.0.0] PASSED [ 88%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToParameters::test_field_required[3.0.0] PASSED [ 94%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToModelDefinition::test_observed_field_name_for_required_field[2.0] PASSED [100%]\n\n=========================== short test summary info ============================\nFAILED tests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-multiple_ranges-properties2]\nFAILED tests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-multiple_lengths-properties7]\n========================= 2 failed, 16 passed in 0.37s =========================\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "18 passed",
+   "n_ids": 18,
+   "n_pass": 18,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.1,
+   "log_tail": "list_length-properties3] PASSED [ 33%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-string_length-properties5] PASSED [ 38%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-string_length-properties5] PASSED [ 44%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-custom_field_length-properties6] PASSED [ 50%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-custom_field_length-properties6] PASSED [ 55%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-multiple_lengths-properties7] PASSED [ 61%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-equal_length-properties8] PASSED [ 66%]\ntests/test_ext_marshmallow_field.py::test_field_with_choices[2.0] PASSED [ 72%]\ntests/test_ext_marshmallow_field.py::test_field_with_equal[3.0.0] PASSED [ 77%]\ntests/test_ext_marshmallow_field.py::test_field_with_range_datetime_type[2.0] PASSED [ 83%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToModelDefinition::test_no_required_fields[3.0.0] PASSED [ 88%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToParameters::test_field_required[3.0.0] PASSED [ 94%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToModelDefinition::test_observed_field_name_for_required_field[2.0] PASSED [100%]\n\n============================== 18 passed in 0.37s ==============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "18 passed",
+   "n_ids": 18,
+   "n_pass": 18,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.1,
+   "log_tail": "list_length-properties3] PASSED [ 33%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-string_length-properties5] PASSED [ 38%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-string_length-properties5] PASSED [ 44%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-custom_field_length-properties6] PASSED [ 50%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-custom_field_length-properties6] PASSED [ 55%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[2.0-multiple_lengths-properties7] PASSED [ 61%]\ntests/test_ext_marshmallow_openapi.py::TestFieldValidation::test_properties[3.0.0-equal_length-properties8] PASSED [ 66%]\ntests/test_ext_marshmallow_field.py::test_field_with_choices[2.0] PASSED [ 72%]\ntests/test_ext_marshmallow_field.py::test_field_with_equal[3.0.0] PASSED [ 77%]\ntests/test_ext_marshmallow_field.py::test_field_with_range_datetime_type[2.0] PASSED [ 83%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToModelDefinition::test_no_required_fields[3.0.0] PASSED [ 88%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToParameters::test_field_required[3.0.0] PASSED [ 94%]\ntests/test_ext_marshmallow_openapi.py::TestMarshmallowSchemaToModelDefinition::test_observed_field_name_for_required_field[2.0] PASSED [100%]\n\n============================== 18 passed in 0.36s ==============================\n"
+  }
+ ]
+}

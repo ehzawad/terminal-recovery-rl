@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs",
+ "task_id": "corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "build": {
+  "ok": true,
+  "msg": "built in 3s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "2 failed, 5 passed, 1 warning",
+  "n_ids": 7,
+  "n_pass": 5,
+  "not_passed": {
+   "tests/worksheet_test.py::WorksheetTest::test_get_all_records": "FAILED",
+   "tests/worksheet_test.py::WorksheetTest::test_get_all_values": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.7,
+  "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.5, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: vcr-1.0.2\ncollecting ... collected 7 items\n\ntests/spreadsheet_test.py::SpreadsheetTest::test_timezone_and_locale PASSED [ 14%]\ntests/client_test.py::ClientTest::test_access_non_existing_spreadsheet PASSED [ 28%]\ntests/client_test.py::ClientTest::test_no_found_exeption PASSED          [ 42%]\ntests/spreadsheet_test.py::SpreadsheetTest::test_bad_json_api_error PASSED [ 57%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_records FAILED      [ 71%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_values FAILED       [ 85%]\ntests/client_test.py::ClientTest::test_open_by_name_has_metadata PASSED  [100%]\n\n=========================== short test summary info ============================\nFAILED tests/worksheet_test.py::WorksheetTest::test_get_all_records - Asserti...\nFAILED tests/worksheet_test.py::WorksheetTest::test_get_all_values - gspread....\n==================== 2 failed, 5 passed, 1 warning in 0.16s ====================\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "7 passed, 1 warning",
+   "n_ids": 7,
+   "n_pass": 7,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.4,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.5, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: vcr-1.0.2\ncollecting ... collected 7 items\n\ntests/spreadsheet_test.py::SpreadsheetTest::test_timezone_and_locale PASSED [ 14%]\ntests/client_test.py::ClientTest::test_access_non_existing_spreadsheet PASSED [ 28%]\ntests/client_test.py::ClientTest::test_no_found_exeption PASSED          [ 42%]\ntests/spreadsheet_test.py::SpreadsheetTest::test_bad_json_api_error PASSED [ 57%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_records PASSED      [ 71%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_values PASSED       [ 85%]\ntests/client_test.py::ClientTest::test_open_by_name_has_metadata PASSED  [100%]\n\n========================= 7 passed, 1 warning in 0.17s =========================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "7 passed, 1 warning",
+   "n_ids": 7,
+   "n_pass": 7,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.2,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.5, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: vcr-1.0.2\ncollecting ... collected 7 items\n\ntests/spreadsheet_test.py::SpreadsheetTest::test_timezone_and_locale PASSED [ 14%]\ntests/client_test.py::ClientTest::test_access_non_existing_spreadsheet PASSED [ 28%]\ntests/client_test.py::ClientTest::test_no_found_exeption PASSED          [ 42%]\ntests/spreadsheet_test.py::SpreadsheetTest::test_bad_json_api_error PASSED [ 57%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_records PASSED      [ 71%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_values PASSED       [ 85%]\ntests/client_test.py::ClientTest::test_open_by_name_has_metadata PASSED  [100%]\n\n========================= 7 passed, 1 warning in 0.17s =========================\n"
+  }
+ ]
+}

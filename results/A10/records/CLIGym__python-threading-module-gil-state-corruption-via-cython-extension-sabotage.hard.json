@@ -1,0 +1,53 @@
+{
+ "key": "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard",
+ "task_id": "python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "build": {
+  "ok": true,
+  "msg": "built in 4s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 8,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_dom_tag_async.py::test_async_bleed": "MISSING",
+   "tests/test_dom_tag.py::test___get_thread_context": "MISSING",
+   "tests/test_dom_tag.py::test_nested_context": "MISSING",
+   "tests/test_html.py::test_context_manager": "MISSING",
+   "tests/test_html.py::test_get_context": "MISSING",
+   "tests/test_html.py::test_nested_decorator": "MISSING",
+   "tests/test_html.py::test_nested_decorator_2": "MISSING",
+   "tests/test_utils.py::test_context": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.6,
+  "log_tail": "python3.10/site-packages/_pytest/_code/__init__.py\", line 5, in <module>\n    from .code import Code\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/_code/code.py\", line 45, in <module>\n    from _pytest._io import TerminalWriter\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/_io/__init__.py\", line 3, in <module>\n    from .terminalwriter import get_terminal_width\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/_io/terminalwriter.py\", line 14, in <module>\n    from ..compat import assert_never\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/compat.py\", line 20, in <module>\n    import py\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/py.py\", line 9, in <module>\n    import _pytest._py.path as path\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/_py/path.py\", line 31, in <module>\n    import uuid\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/uuid.py\", line 59, in <module>\n    import platform\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/platform.py\", line 119, in <module>\n    import subprocess\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/subprocess.py\", line 50, in <module>\n    import threading\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/threading.py\", line 1, in <module>\n    with open('/tmp/threading.py.original', 'r') as f:\nFileNotFoundError: [Errno 2] No such file or directory: '/tmp/threading.py.original'\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "8 passed",
+   "n_ids": 8,
+   "n_pass": 8,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 0.9,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_dom_tag_async.py::test_async_bleed PASSED                     [ 12%]\ntests/test_dom_tag.py::test___get_thread_context PASSED                  [ 25%]\ntests/test_dom_tag.py::test_nested_context PASSED                        [ 37%]\ntests/test_html.py::test_context_manager PASSED                          [ 50%]\ntests/test_html.py::test_get_context PASSED                              [ 62%]\ntests/test_html.py::test_nested_decorator PASSED                         [ 75%]\ntests/test_html.py::test_nested_decorator_2 PASSED                       [ 87%]\ntests/test_utils.py::test_context PASSED                                 [100%]\n\n============================== 8 passed in 0.11s ===============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "8 passed",
+   "n_ids": 8,
+   "n_pass": 8,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 0.9,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_dom_tag_async.py::test_async_bleed PASSED                     [ 12%]\ntests/test_dom_tag.py::test___get_thread_context PASSED                  [ 25%]\ntests/test_dom_tag.py::test_nested_context PASSED                        [ 37%]\ntests/test_html.py::test_context_manager PASSED                          [ 50%]\ntests/test_html.py::test_get_context PASSED                              [ 62%]\ntests/test_html.py::test_nested_decorator PASSED                         [ 75%]\ntests/test_html.py::test_nested_decorator_2 PASSED                       [ 87%]\ntests/test_utils.py::test_context PASSED                                 [100%]\n\n============================== 8 passed in 0.11s ===============================\n"
+  }
+ ]
+}

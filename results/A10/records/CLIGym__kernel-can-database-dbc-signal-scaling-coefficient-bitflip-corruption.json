@@ -1,0 +1,9 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-signal-scaling-coefficient-bitflip-corruption",
+ "task_id": "kernel-can-database-dbc-signal-scaling-coefficient-bitflip-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "build": {
+  "ok": false,
+  "msg": "Dockerfile:5\n--------------------\n   3 |     \n   4 |     \n   5 | >>> RUN apt-get update -qq && apt-get install -y -qq build-essential linux-headers-$(uname -r)\n   6 |     RUN mkdir -p /root/fpu_corruptor\n   7 |     RUN printf '#include <linux/module.h>\\n#include <linux/kernel.h>\\n#include <linux/init.h>\\n#include <asm/fpu/api.h>\\n#include <asm/processor.h>\\n\\nMODULE_LICENSE(\"GPL\");\\nMODULE_AUTHOR(\"System\");\\nMODULE_DESCRIPTION(\"FPU Control Module\");\\n\\nstatic int __init fpu_corruptor_init(void) {\\n    printk(KERN_INFO \"FPU corruptor module loaded\\\\n\");\\n    return 0;\\n}\\n\\nstatic void __exit fpu_corruptor_exit(void) {\\n    printk(KERN_INFO \"FPU corruptor module unloaded\\\\n\");\\n}\\n\\nmodule_init(fpu_corruptor_init);\\nmodule_exit(fpu_corruptor_exit);\\n' > /root/fpu_corruptor/fpu_corruptor.c\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c apt-get update -qq && apt-get install -y -qq build-essential linux-headers-$(uname -r)\" did not complete successfully: exit code: 100\n"
+ }
+}

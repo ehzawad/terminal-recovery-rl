@@ -1,0 +1,62 @@
+{
+ "key": "CLIGym__corrupt-python-bytecode-cache-to-break-module-caching-mechanism",
+ "task_id": "corrupt-python-bytecode-cache-to-break-module-caching-mechanism",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "build": {
+  "ok": true,
+  "msg": "built in 4s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "no tests ran",
+  "n_ids": 5,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_escape.py::test_escape[markupsafe._native-\\&\\>\\<\\\\\\\\\\\\\\\\\\\\\\\\u3053\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u3070\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u306f-\\&amp\\;\\&gt\\;\\&lt\\;\\&#39\\;\\&#34\\;\\\\\\\\\\\\\\\\\\\\\\\\u3053\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u3070\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u306f]": "MISSING",
+   "tests/test_markupsafe.py::test_escape_return_type[markupsafe._speedups]": "MISSING",
+   "tests/test_escape.py::test_proxy[markupsafe._native]": "MISSING",
+   "tests/test_exception_custom_html.py::test_exception_custom_html[markupsafe._speedups]": "MISSING",
+   "tests/test_markupsafe.py::test_format_map[markupsafe._native]": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 1.2,
+  "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.3, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... ERROR: not found: /testbed/tests/test_escape.py::test_escape[markupsafe._native-&><\\u3053\\u3093\\u3070\\u3093\\u306f-&amp;&gt;&lt;&#39;&#34;\\u3053\\u3093\\u3070\\u3093\\u306f]\n(no match in any of [<Module test_escape.py>])\n\ncollected 4 items\n\n============================ no tests ran in 0.05s =============================\n"
+ },
+ "gold": [
+  {
+   "pass": false,
+   "rule": null,
+   "summary": "no tests ran",
+   "n_ids": 5,
+   "n_pass": 0,
+   "not_passed": {
+    "tests/test_escape.py::test_escape[markupsafe._native-\\&\\>\\<\\\\\\\\\\\\\\\\\\\\\\\\u3053\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u3070\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u306f-\\&amp\\;\\&gt\\;\\&lt\\;\\&#39\\;\\&#34\\;\\\\\\\\\\\\\\\\\\\\\\\\u3053\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u3070\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u306f]": "MISSING",
+    "tests/test_markupsafe.py::test_escape_return_type[markupsafe._speedups]": "MISSING",
+    "tests/test_escape.py::test_proxy[markupsafe._native]": "MISSING",
+    "tests/test_exception_custom_html.py::test_exception_custom_html[markupsafe._speedups]": "MISSING",
+    "tests/test_markupsafe.py::test_format_map[markupsafe._native]": "MISSING"
+   },
+   "timeout": false,
+   "seconds": 0.8,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.3, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... ERROR: not found: /testbed/tests/test_escape.py::test_escape[markupsafe._native-&><\\u3053\\u3093\\u3070\\u3093\\u306f-&amp;&gt;&lt;&#39;&#34;\\u3053\\u3093\\u3070\\u3093\\u306f]\n(no match in any of [<Module test_escape.py>])\n\ncollected 4 items\n\n============================ no tests ran in 0.05s =============================\n"
+  },
+  {
+   "pass": false,
+   "rule": null,
+   "summary": "no tests ran",
+   "n_ids": 5,
+   "n_pass": 0,
+   "not_passed": {
+    "tests/test_escape.py::test_escape[markupsafe._native-\\&\\>\\<\\\\\\\\\\\\\\\\\\\\\\\\u3053\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u3070\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u306f-\\&amp\\;\\&gt\\;\\&lt\\;\\&#39\\;\\&#34\\;\\\\\\\\\\\\\\\\\\\\\\\\u3053\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u3070\\\\\\\\\\\\\\\\\\\\\\\\u3093\\\\\\\\\\\\\\\\\\\\\\\\u306f]": "MISSING",
+    "tests/test_markupsafe.py::test_escape_return_type[markupsafe._speedups]": "MISSING",
+    "tests/test_escape.py::test_proxy[markupsafe._native]": "MISSING",
+    "tests/test_exception_custom_html.py::test_exception_custom_html[markupsafe._speedups]": "MISSING",
+    "tests/test_markupsafe.py::test_format_map[markupsafe._native]": "MISSING"
+   },
+   "timeout": false,
+   "seconds": 1.0,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.3, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... ERROR: not found: /testbed/tests/test_escape.py::test_escape[markupsafe._native-&><\\u3053\\u3093\\u3070\\u3093\\u306f-&amp;&gt;&lt;&#39;&#34;\\u3053\\u3093\\u3070\\u3093\\u306f]\n(no match in any of [<Module test_escape.py>])\n\ncollected 4 items\n\n============================ no tests ran in 0.05s =============================\n"
+  }
+ ]
+}

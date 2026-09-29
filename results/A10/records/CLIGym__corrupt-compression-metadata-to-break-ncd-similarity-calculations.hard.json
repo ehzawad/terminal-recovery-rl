@@ -1,0 +1,55 @@
+{
+ "key": "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard",
+ "task_id": "corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "build": {
+  "ok": true,
+  "msg": "built in 2s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "2 errors",
+  "n_ids": 10,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_compression/test_common.py::test_simmetry[alg0]": "MISSING",
+   "tests/test_compression/test_common.py::test_simmetry[alg6]": "MISSING",
+   "tests/test_compression/test_common.py::test_simmetry[alg3]": "MISSING",
+   "tests/test_compression/test_common.py::test_simmetry[alg2]": "MISSING",
+   "tests/test_compression/test_common.py::test_simmetry[alg5]": "MISSING",
+   "tests/test_compression/test_common.py::test_is_normalized[alg0]": "MISSING",
+   "tests/test_compression/test_common.py::test_is_normalized[alg5]": "MISSING",
+   "tests/test_compression/test_common.py::test_monotonicity[alg3]": "MISSING",
+   "tests/test_compression/test_common.py::test_monotonicity[alg5]": "MISSING",
+   "tests/test_compression/test_sqrt_ncd.py::test_simmetry_compressor": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 6.0,
+  "log_tail": "hesis profile 'default' -> database=DirectoryBasedExampleDatabase(PosixPath('/testbed/.hypothesis/examples'))\nrootdir: /testbed\nconfigfile: setup.cfg\nplugins: hypothesis-6.126.0\ncollecting ... ERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_simmetry[alg0]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_simmetry[alg6]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_simmetry[alg3]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_simmetry[alg2]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_simmetry[alg5]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_is_normalized[alg0]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_is_normalized[alg5]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_monotonicity[alg3]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_common.py::test_monotonicity[alg5]\n\nERROR: found no collectors for /testbed/tests/test_compression/test_sqrt_ncd.py::test_simmetry_compressor\n\ncollected 0 items / 2 errors\n\n=========================== short test summary info ============================\nERROR tests/test_compression/test_common.py\nERROR tests/test_compression/test_sqrt_ncd.py\n============================== 2 errors in 2.71s ===============================\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "10 passed",
+   "n_ids": 10,
+   "n_pass": 10,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 5.3,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nhypothesis profile 'default' -> database=DirectoryBasedExampleDatabase(PosixPath('/testbed/.hypothesis/examples'))\nrootdir: /testbed\nconfigfile: setup.cfg\nplugins: hypothesis-6.126.0\ncollecting ... collected 10 items\n\ntests/test_compression/test_common.py::test_simmetry[alg0] PASSED        [ 10%]\ntests/test_compression/test_common.py::test_simmetry[alg6] PASSED        [ 20%]\ntests/test_compression/test_common.py::test_simmetry[alg3] PASSED        [ 30%]\ntests/test_compression/test_common.py::test_simmetry[alg2] PASSED        [ 40%]\ntests/test_compression/test_common.py::test_simmetry[alg5] PASSED        [ 50%]\ntests/test_compression/test_common.py::test_is_normalized[alg0] PASSED   [ 60%]\ntests/test_compression/test_common.py::test_is_normalized[alg5] PASSED   [ 70%]\ntests/test_compression/test_common.py::test_monotonicity[alg3] PASSED    [ 80%]\ntests/test_compression/test_common.py::test_monotonicity[alg5] PASSED    [ 90%]\ntests/test_compression/test_sqrt_ncd.py::test_simmetry_compressor PASSED [100%]\n\n============================== 10 passed in 4.48s ==============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "10 passed",
+   "n_ids": 10,
+   "n_pass": 10,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 5.0,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nhypothesis profile 'default' -> database=DirectoryBasedExampleDatabase(PosixPath('/testbed/.hypothesis/examples'))\nrootdir: /testbed\nconfigfile: setup.cfg\nplugins: hypothesis-6.126.0\ncollecting ... collected 10 items\n\ntests/test_compression/test_common.py::test_simmetry[alg0] PASSED        [ 10%]\ntests/test_compression/test_common.py::test_simmetry[alg6] PASSED        [ 20%]\ntests/test_compression/test_common.py::test_simmetry[alg3] PASSED        [ 30%]\ntests/test_compression/test_common.py::test_simmetry[alg2] PASSED        [ 40%]\ntests/test_compression/test_common.py::test_simmetry[alg5] PASSED        [ 50%]\ntests/test_compression/test_common.py::test_is_normalized[alg0] PASSED   [ 60%]\ntests/test_compression/test_common.py::test_is_normalized[alg5] PASSED   [ 70%]\ntests/test_compression/test_common.py::test_monotonicity[alg3] PASSED    [ 80%]\ntests/test_compression/test_common.py::test_monotonicity[alg5] PASSED    [ 90%]\ntests/test_compression/test_sqrt_ncd.py::test_simmetry_compressor PASSED [100%]\n\n============================== 10 passed in 4.22s ==============================\n"
+  }
+ ]
+}

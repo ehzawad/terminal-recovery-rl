@@ -1,0 +1,50 @@
+{
+ "key": "CLIGym__disable-network-socket-connect-system-call",
+ "task_id": "disable-network-socket-connect-system-call",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "build": {
+  "ok": true,
+  "msg": "built in 6s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 5,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_ssl.py::TestConnection::test_connect": "MISSING",
+   "tests/test_ssl.py::TestConnection::test_connect_refused": "MISSING",
+   "tests/test_ssl.py::TestConnection::test_client_get_session": "MISSING",
+   "tests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_no_server": "MISSING",
+   "tests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_server_fail": "MISSING"
+  },
+  "timeout": true,
+  "seconds": 1500.1,
+  "log_tail": "TIMEOUT after 1500s"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "5 passed, 12 warnings",
+   "n_ids": 5,
+   "n_pass": 5,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.2,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nOpenSSL: b'OpenSSL 3.4.0 22 Oct 2024'\ncryptography: 44.0.0\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: rerunfailures-15.0\ncollecting ... collected 5 items\n\ntests/test_ssl.py::TestConnection::test_connect PASSED                   [ 20%]\ntests/test_ssl.py::TestConnection::test_connect_refused PASSED           [ 40%]\ntests/test_ssl.py::TestConnection::test_client_get_session PASSED        [ 60%]\ntests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_no_server PASSED [ 80%]\ntests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_server_fail PASSED [100%]\n\n======================== 5 passed, 12 warnings in 0.46s ========================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "5 passed, 12 warnings",
+   "n_ids": 5,
+   "n_pass": 5,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.2,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nOpenSSL: b'OpenSSL 3.4.0 22 Oct 2024'\ncryptography: 44.0.0\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: rerunfailures-15.0\ncollecting ... collected 5 items\n\ntests/test_ssl.py::TestConnection::test_connect PASSED                   [ 20%]\ntests/test_ssl.py::TestConnection::test_connect_refused PASSED           [ 40%]\ntests/test_ssl.py::TestConnection::test_client_get_session PASSED        [ 60%]\ntests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_no_server PASSED [ 80%]\ntests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_server_fail PASSED [100%]\n\n======================== 5 passed, 12 warnings in 0.45s ========================\n"
+  }
+ ]
+}

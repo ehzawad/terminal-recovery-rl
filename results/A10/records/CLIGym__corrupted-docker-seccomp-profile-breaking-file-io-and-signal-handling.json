@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+ "task_id": "corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "build": {
+  "ok": true,
+  "msg": "built in 4s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "7 failed, 4 passed",
+  "n_ids": 11,
+  "n_pass": 4,
+  "not_passed": {
+   "io_tests/test_file_io.py::TestNativeIO::test_open": "FAILED",
+   "io_tests/test_file_io.py::TestNativeIO::test_rm": "FAILED",
+   "io_tests/test_file_io.py::TestNativeIO::test_symlink": "FAILED",
+   "io_tests/test_file_io.py::TestNativeIO::test_mkdirs": "FAILED",
+   "tests/test_checkpoint.py::TestCheckpointer::test_checkpointables": "FAILED",
+   "tests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer": "FAILED",
+   "tests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 7.9,
+  "log_tail": ":test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink FAILED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs FAILED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables FAILED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer FAILED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep FAILED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n=========================== short test summary info ============================\nFAILED io_tests/test_file_io.py::TestNativeIO::test_open - PermissionError: [...\nFAILED io_tests/test_file_io.py::TestNativeIO::test_rm - PermissionError: [Er...\nFAILED io_tests/test_file_io.py::TestNativeIO::test_symlink - PermissionError...\nFAILED io_tests/test_file_io.py::TestNativeIO::test_mkdirs - PermissionError:...\nFAILED tests/test_checkpoint.py::TestCheckpointer::test_checkpointables - Per...\nFAILED tests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer\nFAILED tests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep\n========================= 7 failed, 4 passed in 5.41s ==========================\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "11 passed",
+   "n_ids": 11,
+   "n_pass": 11,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 3.5,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\ncollecting ... collected 11 items\n\nio_tests/test_file_io.py::TestNativeIO::test_open PASSED                 [  9%]\nio_tests/test_file_io.py::TestNativeIO::test_rm PASSED                   [ 18%]\nio_tests/test_file_io.py::TestNativeIO::test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink PASSED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs PASSED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables PASSED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer PASSED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep PASSED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n============================== 11 passed in 2.38s ==============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "11 passed",
+   "n_ids": 11,
+   "n_pass": 11,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 3.1,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\ncollecting ... collected 11 items\n\nio_tests/test_file_io.py::TestNativeIO::test_open PASSED                 [  9%]\nio_tests/test_file_io.py::TestNativeIO::test_rm PASSED                   [ 18%]\nio_tests/test_file_io.py::TestNativeIO::test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink PASSED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs PASSED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables PASSED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer PASSED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep PASSED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n============================== 11 passed in 2.05s ==============================\n"
+  }
+ ]
+}

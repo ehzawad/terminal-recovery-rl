@@ -1,0 +1,44 @@
+{
+ "key": "CLIGym__dynamic-linker-cache-corruption-with-obfuscated-library-resolution",
+ "task_id": "dynamic-linker-cache-corruption-with-obfuscated-library-resolution",
+ "base": "jyangballin/swesmith.x86_64.cookiecutter_1776_cookiecutter.b4451231",
+ "build": {
+  "ok": true,
+  "msg": "built in 4s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 0,
+  "n_pass": 0,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 0.7,
+  "log_tail": "RC=0\n/opt/miniconda3/envs/testbed/bin/python: error while loading shared libraries: /usr/local/lib/x86_64-linux-gnu-corrupted/libc.so.6: ELF file's phentsize not the expected size\n"
+ },
+ "gold": [
+  {
+   "pass": false,
+   "rule": null,
+   "summary": "1 failed, 377 passed, 4 skipped",
+   "n_ids": 0,
+   "n_pass": 0,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 9.9,
+   "log_tail": "s.py       69      0   100%\ncookiecutter/find.py             16      0   100%\ncookiecutter/generate.py        202      0   100%\ncookiecutter/hooks.py            91      0   100%\ncookiecutter/log.py              22      0   100%\ncookiecutter/main.py             73      0   100%\ncookiecutter/prompt.py          188      0   100%\ncookiecutter/replay.py           25      0   100%\ncookiecutter/repository.py       42      0   100%\ncookiecutter/utils.py            52      0   100%\ncookiecutter/vcs.py              63      0   100%\ncookiecutter/zipfile.py          64      0   100%\n-----------------------------------------------------------\nTOTAL                          1100      0   100%\n\n\n=========================== short test summary info ============================\nFAILED tests/test_generate_files.py::test_generate_files_binaries - AssertionError: assert False\n +  where False = is_binary('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store')\n +    where '/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store' = str(PosixPath('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store'))\n +      where PosixPath('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store') = Path(PosixPath('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files'), '.DS_Store')\n=================== 1 failed, 377 passed, 4 skipped in 8.74s ===================\n"
+  },
+  {
+   "pass": false,
+   "rule": null,
+   "summary": "1 failed, 377 passed, 4 skipped",
+   "n_ids": 0,
+   "n_pass": 0,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 9.8,
+   "log_tail": "s.py       69      0   100%\ncookiecutter/find.py             16      0   100%\ncookiecutter/generate.py        202      0   100%\ncookiecutter/hooks.py            91      0   100%\ncookiecutter/log.py              22      0   100%\ncookiecutter/main.py             73      0   100%\ncookiecutter/prompt.py          188      0   100%\ncookiecutter/replay.py           25      0   100%\ncookiecutter/repository.py       42      0   100%\ncookiecutter/utils.py            52      0   100%\ncookiecutter/vcs.py              63      0   100%\ncookiecutter/zipfile.py          64      0   100%\n-----------------------------------------------------------\nTOTAL                          1100      0   100%\n\n\n=========================== short test summary info ============================\nFAILED tests/test_generate_files.py::test_generate_files_binaries - AssertionError: assert False\n +  where False = is_binary('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store')\n +    where '/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store' = str(PosixPath('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store'))\n +      where PosixPath('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files/.DS_Store') = Path(PosixPath('/tmp/pytest-of-root/pytest-0/test_generate_files_binaries0/inputbinary_files'), '.DS_Store')\n=================== 1 failed, 377 passed, 4 skipped in 8.86s ===================\n"
+  }
+ ]
+}

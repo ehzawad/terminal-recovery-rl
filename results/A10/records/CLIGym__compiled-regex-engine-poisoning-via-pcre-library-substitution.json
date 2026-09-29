@@ -1,0 +1,75 @@
+{
+ "key": "CLIGym__compiled-regex-engine-poisoning-via-pcre-library-substitution",
+ "task_id": "compiled-regex-engine-poisoning-via-pcre-library-substitution",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "build": {
+  "ok": true,
+  "msg": "built in 3s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 30,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/providers/test_internet.py::TestInternetProvider::test_safe_domain_names": "MISSING",
+   "tests/providers/test_internet.py::TestZhCn::test_domain_name": "MISSING",
+   "tests/providers/test_internet.py::TestZhCn::test_domain_name_bad_level": "MISSING",
+   "tests/providers/test_internet.py::TestRuRu::test_tld": "MISSING",
+   "tests/providers/test_internet.py::TestEnPh::test_slug": "MISSING",
+   "tests/providers/test_internet.py::TestPlPl::test_slug": "MISSING",
+   "tests/providers/test_address.py::TestBaseProvider::test_administrative_unit_all_locales": "MISSING",
+   "tests/providers/test_phone_number.py::TestEnUs::test_basic_phone_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestThTh::test_phone_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestHyAm::test_phone_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestTlPh::test_mobile_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestTlPh::test_non_area2_landline_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestEnPh::test_misc_area2_landline_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestFilPh::test_misc_area2_landline_number": "MISSING",
+   "tests/providers/test_phone_number.py::TestArAe::test_service_phone_number": "MISSING",
+   "tests/providers/test_ssn.py::TestPlPL::test_ssn_checksum": "MISSING",
+   "tests/providers/test_ssn.py::TestEtEE::test_ssn_checksum": "MISSING",
+   "tests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed": "MISSING",
+   "tests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed": "MISSING",
+   "tests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit]": "MISSING",
+   "tests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters]": "MISSING",
+   "tests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero": "MISSING",
+   "tests/providers/test_barcode.py::TestEnUs::test_localized_ean": "MISSING",
+   "tests/providers/test_barcode.py::TestEsEs::test_localized_ean": "MISSING",
+   "tests/test_decode.py::test_7bit_purity[18]": "MISSING",
+   "tests/test_decode.py::test_7bit_purity[26]": "MISSING",
+   "tests/test_decode.py::test_7bit_purity[1]": "MISSING",
+   "tests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters]": "MISSING",
+   "tests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks]": "MISSING",
+   "tests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii]": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 1.1,
+  "log_tail": "RC=0\nTraceback (most recent call last):\n  File \"/opt/miniconda3/envs/testbed/bin/pytest\", line 3, in <module>\n    import re\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/re.py\", line 125, in <module>\n    import sre_compile\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/sre_compile.py\", line 14, in <module>\n    import sre_parse\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/sre_parse.py\", line 661\n    if max > 0:\n    ^\nIndentationError: expected an indented block after 'if' statement on line 660\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "30 passed",
+   "n_ids": 30,
+   "n_pass": 30,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 9.1,
+   "log_tail": "]\ntests/providers/test_phone_number.py::TestArAe::test_service_phone_number PASSED [ 50%]\ntests/providers/test_ssn.py::TestPlPL::test_ssn_checksum PASSED          [ 53%]\ntests/providers/test_ssn.py::TestEtEE::test_ssn_checksum PASSED          [ 56%]\ntests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed PASSED [ 60%]\ntests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed PASSED [ 63%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit] PASSED [ 66%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters] PASSED [ 70%]\ntests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero PASSED [ 73%]\ntests/providers/test_barcode.py::TestEnUs::test_localized_ean PASSED     [ 76%]\ntests/providers/test_barcode.py::TestEsEs::test_localized_ean PASSED     [ 80%]\ntests/test_decode.py::test_7bit_purity[18] PASSED                        [ 83%]\ntests/test_decode.py::test_7bit_purity[26] PASSED                        [ 86%]\ntests/test_decode.py::test_7bit_purity[1] PASSED                         [ 90%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters] PASSED [ 93%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks] PASSED [ 96%]\ntests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii] PASSED [100%]\n\n============================== 30 passed in 5.77s ==============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "30 passed",
+   "n_ids": 30,
+   "n_pass": 30,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 6.4,
+   "log_tail": "]\ntests/providers/test_phone_number.py::TestArAe::test_service_phone_number PASSED [ 50%]\ntests/providers/test_ssn.py::TestPlPL::test_ssn_checksum PASSED          [ 53%]\ntests/providers/test_ssn.py::TestEtEE::test_ssn_checksum PASSED          [ 56%]\ntests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed PASSED [ 60%]\ntests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed PASSED [ 63%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit] PASSED [ 66%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters] PASSED [ 70%]\ntests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero PASSED [ 73%]\ntests/providers/test_barcode.py::TestEnUs::test_localized_ean PASSED     [ 76%]\ntests/providers/test_barcode.py::TestEsEs::test_localized_ean PASSED     [ 80%]\ntests/test_decode.py::test_7bit_purity[18] PASSED                        [ 83%]\ntests/test_decode.py::test_7bit_purity[26] PASSED                        [ 86%]\ntests/test_decode.py::test_7bit_purity[1] PASSED                         [ 90%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters] PASSED [ 93%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks] PASSED [ 96%]\ntests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii] PASSED [100%]\n\n============================== 30 passed in 4.92s ==============================\n"
+  }
+ ]
+}

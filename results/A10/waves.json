@@ -1,0 +1,29 @@
+[
+ [
+  "CLIGym__api-generator-source-code-subtle-logic-bug-induction",
+  "CLIGym__glibc-iconv-module-corruption-for-encoding-conversion-operations.hard",
+  "CLIGym__corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode.hard",
+  "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard",
+  "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+  "CLIGym__compiled-regex-engine-poisoning-via-pcre-library-substitution"
+ ],
+ [
+  "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard",
+  "CLIGym__corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard",
+  "CLIGym__sabotage-pytest-collection-mechanism-via-conftest-injection",
+  "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception",
+  "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+  "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard"
+ ],
+ [
+  "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard",
+  "CLIGym__xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography",
+  "CLIGym__kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard",
+  "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard",
+  "CLIGym__disable-network-socket-connect-system-call",
+  "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs"
+ ],
+ [
+  "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure.hard"
+ ]
+]

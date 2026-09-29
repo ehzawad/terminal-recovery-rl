@@ -1,0 +1,54 @@
+{
+ "key": "CLIGym__kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception",
+ "task_id": "kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "build": {
+  "ok": true,
+  "msg": "built in 4s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "9 failed, 8 passed, 34 warnings",
+  "n_ids": 17,
+  "n_pass": 8,
+  "not_passed": {
+   "tests/test_api.py::TweepyAPITests::testgetdirectmessages": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testsendanddeletedirectmessage": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testupdateanddestroystatus": "FAILED",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_tweets": "FAILED",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets": "FAILED",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_create_and_delete_tweet": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_get_tweet": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_get_users_tweets": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_create_and_delete_tweet": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.1,
+  "log_tail": "FAILED [ 58%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets FAILED [ 64%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_create_and_delete_tweet FAILED [ 70%]\ntests/test_client.py::TweepyClientTests::test_get_home_timeline PASSED   [ 76%]\ntests/test_client.py::TweepyClientTests::test_get_tweet FAILED           [ 82%]\ntests/test_client.py::TweepyClientTests::test_get_users_tweets FAILED    [ 88%]\ntests/test_client.py::TweepyClientTests::test_search_recent_tweets PASSED [ 94%]\ntests/test_client.py::TweepyClientTests::test_create_and_delete_tweet FAILED [100%]\n\n=========================== short test summary info ============================\nFAILED tests/test_api.py::TweepyAPITests::testgetdirectmessages - tweepy.erro...\nFAILED tests/test_api.py::TweepyAPITests::testsendanddeletedirectmessage - tw...\nFAILED tests/test_api.py::TweepyAPITests::testupdateanddestroystatus - tweepy...\nFAILED tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_tweets\nFAILED tests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets\nFAILED tests/test_asyncclient.py::TweepyAsyncClientTests::test_create_and_delete_tweet\nFAILED tests/test_client.py::TweepyClientTests::test_get_tweet - requests.exc...\nFAILED tests/test_client.py::TweepyClientTests::test_get_users_tweets - reque...\nFAILED tests/test_client.py::TweepyClientTests::test_create_and_delete_tweet\n=================== 9 failed, 8 passed, 34 warnings in 0.29s ===================\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "17 passed, 34 warnings",
+   "n_ids": 17,
+   "n_pass": 17,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.3,
+   "log_tail": "ed 17 items\n\ntests/test_api.py::TweepyAPITests::testgetdirectmessages PASSED          [  5%]\ntests/test_api.py::TweepyAPITests::testgetfollowers PASSED               [ 11%]\ntests/test_api.py::TweepyAPITests::testgetfriends PASSED                 [ 17%]\ntests/test_api.py::TweepyAPITests::testhometimeline PASSED               [ 23%]\ntests/test_api.py::TweepyAPITests::testsearchtweets PASSED               [ 29%]\ntests/test_api.py::TweepyAPITests::testsendanddeletedirectmessage PASSED [ 35%]\ntests/test_api.py::TweepyAPITests::testupdateanddestroystatus PASSED     [ 41%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_home_timeline PASSED [ 47%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_tweet PASSED [ 52%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_tweets PASSED [ 58%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets PASSED [ 64%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_create_and_delete_tweet PASSED [ 70%]\ntests/test_client.py::TweepyClientTests::test_get_home_timeline PASSED   [ 76%]\ntests/test_client.py::TweepyClientTests::test_get_tweet PASSED           [ 82%]\ntests/test_client.py::TweepyClientTests::test_get_users_tweets PASSED    [ 88%]\ntests/test_client.py::TweepyClientTests::test_search_recent_tweets PASSED [ 94%]\ntests/test_client.py::TweepyClientTests::test_create_and_delete_tweet PASSED [100%]\n\n======================= 17 passed, 34 warnings in 0.52s ========================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "17 passed, 34 warnings",
+   "n_ids": 17,
+   "n_pass": 17,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.3,
+   "log_tail": "ed 17 items\n\ntests/test_api.py::TweepyAPITests::testgetdirectmessages PASSED          [  5%]\ntests/test_api.py::TweepyAPITests::testgetfollowers PASSED               [ 11%]\ntests/test_api.py::TweepyAPITests::testgetfriends PASSED                 [ 17%]\ntests/test_api.py::TweepyAPITests::testhometimeline PASSED               [ 23%]\ntests/test_api.py::TweepyAPITests::testsearchtweets PASSED               [ 29%]\ntests/test_api.py::TweepyAPITests::testsendanddeletedirectmessage PASSED [ 35%]\ntests/test_api.py::TweepyAPITests::testupdateanddestroystatus PASSED     [ 41%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_home_timeline PASSED [ 47%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_tweet PASSED [ 52%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_tweets PASSED [ 58%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets PASSED [ 64%]\ntests/test_asyncclient.py::TweepyAsyncClientTests::test_create_and_delete_tweet PASSED [ 70%]\ntests/test_client.py::TweepyClientTests::test_get_home_timeline PASSED   [ 76%]\ntests/test_client.py::TweepyClientTests::test_get_tweet PASSED           [ 82%]\ntests/test_client.py::TweepyClientTests::test_get_users_tweets PASSED    [ 88%]\ntests/test_client.py::TweepyClientTests::test_search_recent_tweets PASSED [ 94%]\ntests/test_client.py::TweepyClientTests::test_create_and_delete_tweet PASSED [100%]\n\n======================= 17 passed, 34 warnings in 0.57s ========================\n"
+  }
+ ]
+}

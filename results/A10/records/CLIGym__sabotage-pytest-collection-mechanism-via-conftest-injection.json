@@ -1,0 +1,67 @@
+{
+ "key": "CLIGym__sabotage-pytest-collection-mechanism-via-conftest-injection",
+ "task_id": "sabotage-pytest-collection-mechanism-via-conftest-injection",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "build": {
+  "ok": true,
+  "msg": "built in 3s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 22,
+  "n_pass": 0,
+  "not_passed": {
+   "glom/test/test_basic.py::test_abstract_iterable": "FAILED",
+   "glom/test/test_basic.py::test_api_repr": "MISSING",
+   "glom/test/test_basic.py::test_bbformat": "MISSING",
+   "glom/test/test_basic.py::test_bbrepr": "MISSING",
+   "glom/test/test_basic.py::test_beyond_access": "MISSING",
+   "glom/test/test_basic.py::test_call_and_target": "MISSING",
+   "glom/test/test_basic.py::test_coalesce": "MISSING",
+   "glom/test/test_basic.py::test_glom_extra_kwargs": "MISSING",
+   "glom/test/test_basic.py::test_initial_integration": "MISSING",
+   "glom/test/test_basic.py::test_inspect": "MISSING",
+   "glom/test/test_basic.py::test_invoke": "MISSING",
+   "glom/test/test_basic.py::test_list_item_lift_and_access": "MISSING",
+   "glom/test/test_basic.py::test_pipe": "MISSING",
+   "glom/test/test_basic.py::test_python_native": "MISSING",
+   "glom/test/test_basic.py::test_ref": "MISSING",
+   "glom/test/test_basic.py::test_scope": "MISSING",
+   "glom/test/test_basic.py::test_seq_getitem": "MISSING",
+   "glom/test/test_basic.py::test_skip": "MISSING",
+   "glom/test/test_basic.py::test_spec_and_recursion": "MISSING",
+   "glom/test/test_basic.py::test_stop": "MISSING",
+   "glom/test/test_basic.py::test_top_level_default": "MISSING",
+   "glom/test/test_basic.py::test_val": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 1.9,
+  "log_tail": "ec\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_hooks.py\", line 433 in __call__\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py\", line 350 in pytest_runtestloop\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_callers.py\", line 80 in _multicall\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_manager.py\", line 112 in _hookexec\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_hooks.py\", line 433 in __call__\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py\", line 325 in _main\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py\", line 271 in wrap_session\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py\", line 318 in pytest_cmdline_main\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_callers.py\", line 80 in _multicall\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_manager.py\", line 112 in _hookexec\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_hooks.py\", line 433 in __call__\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/config/__init__.py\", line 169 in main\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/config/__init__.py\", line 192 in console_main\n  File \"/opt/miniconda3/envs/testbed/bin/pytest\", line 8 in <module>\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "22 passed",
+   "n_ids": 22,
+   "n_pass": 22,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.0,
+   "log_tail": "y::test_beyond_access PASSED                       [ 22%]\nglom/test/test_basic.py::test_call_and_target PASSED                     [ 27%]\nglom/test/test_basic.py::test_coalesce PASSED                            [ 31%]\nglom/test/test_basic.py::test_glom_extra_kwargs PASSED                   [ 36%]\nglom/test/test_basic.py::test_initial_integration PASSED                 [ 40%]\nglom/test/test_basic.py::test_inspect PASSED                             [ 45%]\nglom/test/test_basic.py::test_invoke PASSED                              [ 50%]\nglom/test/test_basic.py::test_list_item_lift_and_access PASSED           [ 54%]\nglom/test/test_basic.py::test_pipe PASSED                                [ 59%]\nglom/test/test_basic.py::test_python_native PASSED                       [ 63%]\nglom/test/test_basic.py::test_ref PASSED                                 [ 68%]\nglom/test/test_basic.py::test_scope PASSED                               [ 72%]\nglom/test/test_basic.py::test_seq_getitem PASSED                         [ 77%]\nglom/test/test_basic.py::test_skip PASSED                                [ 81%]\nglom/test/test_basic.py::test_spec_and_recursion PASSED                  [ 86%]\nglom/test/test_basic.py::test_stop PASSED                                [ 90%]\nglom/test/test_basic.py::test_top_level_default PASSED                   [ 95%]\nglom/test/test_basic.py::test_val PASSED                                 [100%]\n\n============================== 22 passed in 0.15s ==============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "22 passed",
+   "n_ids": 22,
+   "n_pass": 22,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 0.9,
+   "log_tail": "y::test_beyond_access PASSED                       [ 22%]\nglom/test/test_basic.py::test_call_and_target PASSED                     [ 27%]\nglom/test/test_basic.py::test_coalesce PASSED                            [ 31%]\nglom/test/test_basic.py::test_glom_extra_kwargs PASSED                   [ 36%]\nglom/test/test_basic.py::test_initial_integration PASSED                 [ 40%]\nglom/test/test_basic.py::test_inspect PASSED                             [ 45%]\nglom/test/test_basic.py::test_invoke PASSED                              [ 50%]\nglom/test/test_basic.py::test_list_item_lift_and_access PASSED           [ 54%]\nglom/test/test_basic.py::test_pipe PASSED                                [ 59%]\nglom/test/test_basic.py::test_python_native PASSED                       [ 63%]\nglom/test/test_basic.py::test_ref PASSED                                 [ 68%]\nglom/test/test_basic.py::test_scope PASSED                               [ 72%]\nglom/test/test_basic.py::test_seq_getitem PASSED                         [ 77%]\nglom/test/test_basic.py::test_skip PASSED                                [ 81%]\nglom/test/test_basic.py::test_spec_and_recursion PASSED                  [ 86%]\nglom/test/test_basic.py::test_stop PASSED                                [ 90%]\nglom/test/test_basic.py::test_top_level_default PASSED                   [ 95%]\nglom/test/test_basic.py::test_val PASSED                                 [100%]\n\n============================== 22 passed in 0.15s ==============================\n"
+  }
+ ]
+}

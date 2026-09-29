@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-python-string-codec-via-encrypted-encodings-module",
+ "task_id": "corrupted-python-string-codec-via-encrypted-encodings-module",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "build": {
+  "ok": true,
+  "msg": "built in 5s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 6,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_main.py::test_get_key_encoding": "MISSING",
+   "tests/test_main.py::test_set_key_encoding": "MISSING",
+   "tests/test_main.py::test_unset_encoding": "MISSING",
+   "tests/test_main.py::test_load_dotenv_string_io_utf_8": "MISSING",
+   "tests/test_parser.py::test_parse_stream[a=\\\\\\\\\\\\\\\\xe0-expected28]": "MISSING",
+   "tests/test_parser.py::test_parse_stream[a=\\\\\\\\\\\\\\\\xe0-expected27]": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.8,
+  "log_tail": "RC=0\nPython path configuration:\n  PYTHONHOME = (not set)\n  PYTHONPATH = (not set)\n  program name = '/opt/miniconda3/envs/testbed/bin/python'\n  isolated = 0\n  environment = 1\n  user site = 1\n  import site = 1\n  sys._base_executable = '/opt/miniconda3/envs/testbed/bin/python'\n  sys.base_prefix = '/opt/miniconda3/envs/testbed'\n  sys.base_exec_prefix = '/opt/miniconda3/envs/testbed'\n  sys.platlibdir = 'lib'\n  sys.executable = '/opt/miniconda3/envs/testbed/bin/python'\n  sys.prefix = '/opt/miniconda3/envs/testbed'\n  sys.exec_prefix = '/opt/miniconda3/envs/testbed'\n  sys.path = [\n    '/opt/miniconda3/envs/testbed/lib/python310.zip',\n    '/opt/miniconda3/envs/testbed/lib/python3.10',\n    '/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload',\n  ]\nFatal Python error: init_fs_encoding: failed to get the Python codec of the filesystem encoding\nPython runtime state: core initialized\nTraceback (most recent call last):\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/encodings/__init__.py\", line 122, in search_function\n  File \"/opt/miniconda3/envs/testbed/lib/python3.10/encodings/utf_8.py\", line 37, in getregentry\nencodings.utf_8.EncodingCorruptionError: UTF-8 codec has been compromised - recovery required\n"
+ },
+ "gold": [
+  {
+   "pass": false,
+   "rule": null,
+   "summary": "no tests ran",
+   "n_ids": 6,
+   "n_pass": 0,
+   "not_passed": {
+    "tests/test_main.py::test_get_key_encoding": "MISSING",
+    "tests/test_main.py::test_set_key_encoding": "MISSING",
+    "tests/test_main.py::test_unset_encoding": "MISSING",
+    "tests/test_main.py::test_load_dotenv_string_io_utf_8": "MISSING",
+    "tests/test_parser.py::test_parse_stream[a=\\\\\\\\\\\\\\\\xe0-expected28]": "MISSING",
+    "tests/test_parser.py::test_parse_stream[a=\\\\\\\\\\\\\\\\xe0-expected27]": "MISSING"
+   },
+   "timeout": false,
+   "seconds": 0.9,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.3, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: setup.cfg\nplugins: cov-6.0.0\ncollecting ... ERROR: not found: /testbed/tests/test_parser.py::test_parse_stream[a=\\xe0-expected28]\n(no match in any of [<Module test_parser.py>])\n\ncollected 5 items\n\n============================ no tests ran in 0.08s =============================\n"
+  },
+  {
+   "pass": false,
+   "rule": null,
+   "summary": "no tests ran",
+   "n_ids": 6,
+   "n_pass": 0,
+   "not_passed": {
+    "tests/test_main.py::test_get_key_encoding": "MISSING",
+    "tests/test_main.py::test_set_key_encoding": "MISSING",
+    "tests/test_main.py::test_unset_encoding": "MISSING",
+    "tests/test_main.py::test_load_dotenv_string_io_utf_8": "MISSING",
+    "tests/test_parser.py::test_parse_stream[a=\\\\\\\\\\\\\\\\xe0-expected28]": "MISSING",
+    "tests/test_parser.py::test_parse_stream[a=\\\\\\\\\\\\\\\\xe0-expected27]": "MISSING"
+   },
+   "timeout": false,
+   "seconds": 0.9,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.3, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: setup.cfg\nplugins: cov-6.0.0\ncollecting ... ERROR: not found: /testbed/tests/test_parser.py::test_parse_stream[a=\\xe0-expected28]\n(no match in any of [<Module test_parser.py>])\n\ncollected 5 items\n\n============================ no tests ran in 0.09s =============================\n"
+  }
+ ]
+}

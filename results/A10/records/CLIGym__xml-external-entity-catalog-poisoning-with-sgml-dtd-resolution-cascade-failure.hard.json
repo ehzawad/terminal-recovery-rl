@@ -1,0 +1,70 @@
+{
+ "key": "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure.hard",
+ "task_id": "xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure.hard",
+ "base": "jyangballin/swesmith.x86_64.kurtmckee_1776_feedparser.cad965a3",
+ "build": {
+  "ok": true,
+  "msg": "built in 5s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": "25 failed, 1 passed",
+  "n_ids": 26,
+  "n_pass": 1,
+  "not_passed": {
+   "tests/test_entities.py::test_entities_strict[info37]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info83]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info78]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info109]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info111]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info220]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info31]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info245]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info139]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info68]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info164]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info117]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info138]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info130]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info228]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info0]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info242]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info126]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info32]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info24]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info144]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info233]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info107]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info226]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info234]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.0,
+  "log_tail": "ities_strict[info242] - AssertionError...\nFAILED tests/test_entities.py::test_entities_loose[info109] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_loose[info138] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_strict[info37] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_strict[info68] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_strict[info117] - AssertionError...\nFAILED tests/test_entities.py::test_entities_strict[info139] - AssertionError...\nFAILED tests/test_entities.py::test_entities_strict[info0] - AssertionError: ...\nFAILED tests/test_entities.py::test_entities_loose[info83] - AssertionError: ...\nFAILED tests/test_entities.py::test_entities_strict[info32] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_loose[info233] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_loose[info111] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_strict[info78] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_loose[info107] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_strict[info126] - AssertionError...\nFAILED tests/test_entities.py::test_entities_loose[info226] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_loose[info234] - AssertionError:...\nFAILED tests/test_entities.py::test_entities_strict[info228] - AssertionError...\n========================= 25 failed, 1 passed in 0.53s =========================\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "26 passed",
+   "n_ids": 26,
+   "n_pass": 26,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.2,
+   "log_tail": "::test_entities_strict[info139] PASSED             [ 34%]\ntests/test_entities.py::test_entities_loose[info83] PASSED               [ 38%]\ntests/test_entities.py::test_entities_strict[info78] PASSED              [ 42%]\ntests/test_entities.py::test_entities_loose[info111] PASSED              [ 46%]\ntests/test_entities.py::test_entities_loose[info130] PASSED              [ 50%]\ntests/test_entities.py::test_entities_loose[info144] PASSED              [ 53%]\ntests/test_entities.py::test_entities_strict[info37] PASSED              [ 57%]\ntests/test_entities.py::test_entities_loose[info245] PASSED              [ 61%]\ntests/test_entities.py::test_entities_strict[info228] PASSED             [ 65%]\ntests/test_entities.py::test_entities_strict[info117] PASSED             [ 69%]\ntests/test_entities.py::test_entities_strict[info242] PASSED             [ 73%]\ntests/test_entities.py::test_entities_strict[info220] PASSED             [ 76%]\ntests/test_entities.py::test_entities_strict[info32] PASSED              [ 80%]\ntests/test_entities.py::test_entities_loose[info233] PASSED              [ 84%]\ntests/test_entities.py::test_entities_strict[info68] PASSED              [ 88%]\ntests/test_entities.py::test_entities_loose[info109] PASSED              [ 92%]\ntests/test_entities.py::test_entities_loose[info107] PASSED              [ 96%]\ntests/test_entities.py::test_entities_loose[info226] PASSED              [100%]\n\n============================== 26 passed in 0.16s ==============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "26 passed",
+   "n_ids": 26,
+   "n_pass": 26,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.0,
+   "log_tail": "::test_entities_strict[info242] PASSED             [ 34%]\ntests/test_entities.py::test_entities_strict[info139] PASSED             [ 38%]\ntests/test_entities.py::test_entities_loose[info245] PASSED              [ 42%]\ntests/test_entities.py::test_entities_strict[info78] PASSED              [ 46%]\ntests/test_entities.py::test_entities_strict[info228] PASSED             [ 50%]\ntests/test_entities.py::test_entities_loose[info138] PASSED              [ 53%]\ntests/test_entities.py::test_entities_strict[info186] PASSED             [ 57%]\ntests/test_entities.py::test_entities_strict[info31] PASSED              [ 61%]\ntests/test_entities.py::test_entities_loose[info83] PASSED               [ 65%]\ntests/test_entities.py::test_entities_loose[info111] PASSED              [ 69%]\ntests/test_entities.py::test_entities_loose[info233] PASSED              [ 73%]\ntests/test_entities.py::test_entities_loose[info226] PASSED              [ 76%]\ntests/test_entities.py::test_entities_loose[info234] PASSED              [ 80%]\ntests/test_entities.py::test_entities_strict[info126] PASSED             [ 84%]\ntests/test_entities.py::test_entities_strict[info0] PASSED               [ 88%]\ntests/test_entities.py::test_entities_loose[info144] PASSED              [ 92%]\ntests/test_entities.py::test_entities_loose[info24] PASSED               [ 96%]\ntests/test_entities.py::test_entities_loose[info109] PASSED              [100%]\n\n============================== 26 passed in 0.15s ==============================\n"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "key": "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard",
+ "task_id": "posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "build": {
+  "ok": true,
+  "msg": "built in 2s"
+ },
+ "noop": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 6,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_spawn.py::PtyTestCase::test_pass_fds": "MISSING",
+   "tests/test_spawn.py::PtyTestCase::test_quick_spawn": "MISSING",
+   "tests/test_spawn.py::PtyTestCase::test_spawn_sh": "MISSING",
+   "tests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode": "MISSING",
+   "tests/test_preexec_fn.py::PreexecFns::test_preexec": "MISSING",
+   "tests/test_preexec_fn.py::PreexecFns::test_preexec_error": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.8,
+  "log_tail": "conda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py\", line 279, in wrap_session\nINTERNALERROR>   File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/config/__init__.py\", line 1118, in _do_configure\nINTERNALERROR>   File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_hooks.py\", line 535, in call_historic\nINTERNALERROR>   File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_manager.py\", line 120, in _hookexec\nINTERNALERROR>   File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_callers.py\", line 139, in _multicall\nINTERNALERROR>   File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pluggy/_callers.py\", line 103, in _multicall\nINTERNALERROR>   File \"/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/debugging.py\", line 66, in pytest_configure\nINTERNALERROR>   File \"<frozen importlib._bootstrap>\", line 1027, in _find_and_load\nINTERNALERROR>   File \"<frozen importlib._bootstrap>\", line 1006, in _find_and_load_unlocked\nINTERNALERROR>   File \"<frozen importlib._bootstrap>\", line 688, in _load_unlocked\nINTERNALERROR>   File \"<frozen importlib._bootstrap_external>\", line 879, in exec_module\nINTERNALERROR>   File \"<frozen importlib._bootstrap_external>\", line 1016, in get_code\nINTERNALERROR>   File \"<frozen importlib._bootstrap_external>\", line 1073, in get_data\nINTERNALERROR> OSError: [Errno 24] Too many open files: '/opt/miniconda3/envs/testbed/lib/python3.10/pdb.py'\n"
+ },
+ "gold": [
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "6 passed",
+   "n_ids": 6,
+   "n_pass": 6,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.7,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 6 items\n\ntests/test_spawn.py::PtyTestCase::test_pass_fds PASSED                   [ 16%]\ntests/test_spawn.py::PtyTestCase::test_quick_spawn PASSED                [ 33%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh PASSED                   [ 50%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode PASSED           [ 66%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec PASSED                [ 83%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec_error PASSED          [100%]\n\n============================== 6 passed in 0.79s ===============================\n"
+  },
+  {
+   "pass": true,
+   "rule": "ids",
+   "summary": "6 passed",
+   "n_ids": 6,
+   "n_pass": 6,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.5,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 6 items\n\ntests/test_spawn.py::PtyTestCase::test_pass_fds PASSED                   [ 16%]\ntests/test_spawn.py::PtyTestCase::test_quick_spawn PASSED                [ 33%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh PASSED                   [ 50%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode PASSED           [ 66%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec PASSED                [ 83%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec_error PASSED          [100%]\n\n============================== 6 passed in 0.70s ===============================\n"
+  }
+ ]
+}
