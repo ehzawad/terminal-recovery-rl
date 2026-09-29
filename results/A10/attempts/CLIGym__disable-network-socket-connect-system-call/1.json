@@ -1,0 +1,15 @@
+{
+ "script_rc": 0,
+ "script_tail": "c domain.\n<     def socketpair(family=AF_INET, type=SOCK_STREAM, proto=0):\n<         if family == AF_INET:\n<             host = _LOCALHOST\n<         elif family == AF_INET6:\n<             host = _LOCALHOST_V6\n<         else:\n<             raise ValueError(\"Only AF_INET and AF_INET6 socket address families \"\n<                              \"are supported\")\n<         if type != SOCK_STREAM:\n<             raise ValueError(\"Only SOCK_STREAM socket type is supported\")\n<         if proto != 0:\n<             raise ValueError(\"Only protocol zero is supported\")\n< \n<         # We create a connected TCP socket. Note the trick with\n<         # setblocking(False) that prevents us from having to create a thread.\n<         lsock = socket(family, type, proto)\n<         try:\n<             lsock.bind((host, 0))\n<             lsock.listen()\n<             # On IPv6, ignore flow_info and scope_id\n<             addr, port = lsock.getsockname()[:2]\n<             csock = socket(family, type, proto)\n<             try:\n<                 csock.setblocking(False)\n<                 try:\n<                     csock.connect((addr, port))\n<                 except (BlockingIOError, InterruptedError):\n<                     pass\n<                 csock.setblocking(True)\n<                 ssock, _ = lsock.accept()\n<             except:\n<                 csock.close()\n<                 raise\n<         finally:\n<             lsock.close()\n<         return (ssock, csock)\n---\n>     socketpair = _fallback_socketpair\n",
+ "grade": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "5 passed, 12 warnings",
+  "n_ids": 5,
+  "n_pass": 5,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.2,
+  "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nOpenSSL: b'OpenSSL 3.4.0 22 Oct 2024'\ncryptography: 44.0.0\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: rerunfailures-15.0\ncollecting ... collected 5 items\n\ntests/test_ssl.py::TestConnection::test_connect PASSED                   [ 20%]\ntests/test_ssl.py::TestConnection::test_connect_refused PASSED           [ 40%]\ntests/test_ssl.py::TestConnection::test_client_get_session PASSED        [ 60%]\ntests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_no_server PASSED [ 80%]\ntests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_server_fail PASSED [100%]\n\n======================== 5 passed, 12 warnings in 0.46s ========================\n"
+ }
+}

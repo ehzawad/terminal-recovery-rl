@@ -1,24 +1,24 @@
 {
  "n": 24,
  "admissible": 0,
- "not_admissible": 17,
- "pending": 7,
- "max_possible_admissible": 7,
+ "not_admissible": 20,
+ "pending": 4,
+ "max_possible_admissible": 4,
  "reasons": {
   "build_fail": 2,
-  "mutant_accepted": 12,
-  "review_defective": 12,
-  "EXPOSURE": 3,
+  "mutant_accepted": 15,
+  "review_defective": 15,
+  "EXPOSURE": 5,
   "gold_fail": 3
  },
  "confirmed_defects": {
-  "weak_grader": 14,
-  "ambiguity": 6,
+  "weak_grader": 17,
+  "ambiguity": 7,
   "network_or_gpu": 1,
-  "other": 6,
-  "answer_exposure": 3,
-  "contradiction": 3,
-  "unstated_requirement": 2,
+  "other": 7,
+  "answer_exposure": 5,
+  "contradiction": 4,
+  "unstated_requirement": 3,
   "nondeterminism": 1
  },
  "per_task": {
@@ -146,16 +146,27 @@
    "why": []
   },
   "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
   },
   "CLIGym__disable-network-socket-connect-system-call": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective"
+   ]
   },
   "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs": {
-   "verdict": "pending",
-   "why": []
+   "verdict": "not admissible",
+   "why": [
+    "mutant_accepted",
+    "review_defective",
+    "EXPOSURE"
+   ]
   },
   "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure.hard": {
    "verdict": "pending",

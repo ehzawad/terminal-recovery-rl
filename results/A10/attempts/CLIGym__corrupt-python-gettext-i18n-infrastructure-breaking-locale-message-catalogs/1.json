@@ -1,0 +1,15 @@
+{
+ "script_rc": 0,
+ "script_tail": "strptime-ok\n360:    LE_MAGIC = 0x950412de\n361:    BE_MAGIC = 0xde120495\n",
+ "grade": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "7 passed, 1 warning",
+  "n_ids": 7,
+  "n_pass": 7,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.2,
+  "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.5, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: vcr-1.0.2\ncollecting ... collected 7 items\n\ntests/spreadsheet_test.py::SpreadsheetTest::test_timezone_and_locale PASSED [ 14%]\ntests/client_test.py::ClientTest::test_access_non_existing_spreadsheet PASSED [ 28%]\ntests/client_test.py::ClientTest::test_no_found_exeption PASSED          [ 42%]\ntests/spreadsheet_test.py::SpreadsheetTest::test_bad_json_api_error PASSED [ 57%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_records PASSED      [ 71%]\ntests/worksheet_test.py::WorksheetTest::test_get_all_values PASSED       [ 85%]\ntests/client_test.py::ClientTest::test_open_by_name_has_metadata PASSED  [100%]\n\n========================= 7 passed, 1 warning in 0.18s =========================\n"
+ }
+}

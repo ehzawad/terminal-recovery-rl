@@ -1,0 +1,15 @@
+{
+ "script_rc": 0,
+ "script_tail": "no references left\n",
+ "grade": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "12 passed",
+  "n_ids": 12,
+  "n_pass": 12,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.0,
+  "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\nplugins: cov-6.0.0\ncollecting ... collected 12 items\n\nh11/tests/test_against_stdlib_http.py::test_h11_as_client PASSED         [  8%]\nh11/tests/test_against_stdlib_http.py::test_h11_as_server PASSED         [ 16%]\nh11/tests/test_connection.py::test_Connection_basics_and_content_length PASSED [ 25%]\nh11/tests/test_connection.py::test_chunked PASSED                        [ 33%]\nh11/tests/test_connection.py::test_client_talking_to_http10_server PASSED [ 41%]\nh11/tests/test_connection.py::test_close_simple PASSED                   [ 50%]\nh11/tests/test_connection.py::test_connection_drop PASSED                [ 58%]\nh11/tests/test_connection.py::test_pipelining PASSED                     [ 66%]\nh11/tests/test_connection.py::test_reuse_simple PASSED                   [ 75%]\nh11/tests/test_connection.py::test_server_talking_to_http10_client PASSED [ 83%]\nh11/tests/test_io.py::test_readers_simple PASSED                         [ 91%]\nh11/tests/test_io.py::test_writers_simple PASSED                         [100%]\n\n============================== 12 passed in 0.24s ==============================\n"
+ }
+}

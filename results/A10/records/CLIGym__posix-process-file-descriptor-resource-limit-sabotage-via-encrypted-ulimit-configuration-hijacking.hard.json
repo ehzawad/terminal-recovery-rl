@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
  "build": {
   "ok": true,
-  "msg": "built in 2s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -47,5 +47,52 @@
    "seconds": 1.5,
    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 6 items\n\ntests/test_spawn.py::PtyTestCase::test_pass_fds PASSED                   [ 16%]\ntests/test_spawn.py::PtyTestCase::test_quick_spawn PASSED                [ 33%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh PASSED                   [ 50%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode PASSED           [ 66%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec PASSED                [ 83%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec_error PASSED          [100%]\n\n============================== 6 passed in 0.70s ===============================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "pytest-wrapper-ok\n1\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "6 passed",
+    "n_ids": 6,
+    "n_pass": 6,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 1.7,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 6 items\n\ntests/test_spawn.py::PtyTestCase::test_pass_fds PASSED                   [ 16%]\ntests/test_spawn.py::PtyTestCase::test_quick_spawn PASSED                [ 33%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh PASSED                   [ 50%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode PASSED           [ 66%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec PASSED                [ 83%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec_error PASSED          [100%]\n\n============================== 6 passed in 0.79s ===============================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "pytest-wrapper-ok\n1\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "6 passed",
+    "n_ids": 6,
+    "n_pass": 6,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 1.6,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 6 items\n\ntests/test_spawn.py::PtyTestCase::test_pass_fds PASSED                   [ 16%]\ntests/test_spawn.py::PtyTestCase::test_quick_spawn PASSED                [ 33%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh PASSED                   [ 50%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode PASSED           [ 66%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec PASSED                [ 83%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec_error PASSED          [100%]\n\n============================== 6 passed in 0.73s ===============================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "",
+  "grade": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "6 passed",
+   "n_ids": 6,
+   "n_pass": 6,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.7,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.16, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\nconfigfile: pyproject.toml\ncollecting ... collected 6 items\n\ntests/test_spawn.py::PtyTestCase::test_pass_fds PASSED                   [ 16%]\ntests/test_spawn.py::PtyTestCase::test_quick_spawn PASSED                [ 33%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh PASSED                   [ 50%]\ntests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode PASSED           [ 66%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec PASSED                [ 83%]\ntests/test_preexec_fn.py::PreexecFns::test_preexec_error PASSED          [100%]\n\n============================== 6 passed in 0.90s ===============================\n"
+  }
+ }
 }

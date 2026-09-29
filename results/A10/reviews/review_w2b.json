@@ -1,0 +1,55 @@
+[
+ {
+  "key": "CLIGym__posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard",
+  "verdict": "defective",
+  "defects": [
+   {"type": "weak_grader", "confirmed": true, "evidence": "Only the pytest entry-point wrapper breaks the listed tests: /opt/miniconda3/envs/testbed/bin/pytest line 6 calls resource.setrlimit(RLIMIT_NOFILE,(10,10)), which causes INTERNALERROR 'Too many open files: .../pdb.py'. I deleted only that line and left the rest (--explore): all 6 listed tests PASSED. The poisoned /etc/security/limits.conf ('* soft/hard nofile 10', lines 46-47) and the appended 'session required pam_limits.so' in /etc/pam.d/common-session were still in place, and a non-root login (useradd u1; su u1 -s /bin/bash -c 'ulimit -n') still printed 10. The grader never checks the limits.conf/PAM half of the damage, which the task title, the encrypted archive and the hint all present as part of the repair. Mitigating: those lines do not affect root or the tests, and cheating by editing tests does not work. I rewrote the tests as trivial passes and added pytest.ini '-p no:debugging', and pytest still died with INTERNALERROR 'Too many open files: /dev/null'. A root conftest.py cannot raise the limit either ('ValueError: not allowed to raise maximum limit'). So the damage that actually breaks the tests is strongly graded."},
+   {"type": "answer_exposure", "confirmed": true, "evidence": "/tmp/recovery_hint.txt states the password in plain text ('fd_limit_YYYY where YYYY is 2024'). 7z x -pfd_limit_2024 /tmp/limits_recovery.7z extracts the original limits.conf, and diff shows only the two nofile-10 lines differ. Impact is low: this is the stock Ubuntu file, it is ungraded, and the damage that breaks the tests (the pytest wrapper) is plaintext anyway."},
+   {"type": "ambiguity", "confirmed": false, "evidence": "The instruction says 'unable to create new processes', but only file descriptors (nofile) are limited; nproc is untouched. This misdirects mildly and is not blocking."}
+  ],
+  "safety": "ok",
+  "safety_note": "The Dockerfile only edits files inside the container (limits.conf, pam common-session, the pytest wrapper) and installs p7zip. The repair is file edits. Nothing escapes to the host.",
+  "realism": 3,
+  "difficulty_guess": "easy-medium: the error says 'Too many open files', and head of `which pytest` shows the setrlimit line",
+  "mutant_script": "#!/bin/bash\n# partial repair: fix only the pytest wrapper, leave the hijacked limits.conf + pam_limits line in place\nsed -i '/resource.setrlimit(resource.RLIMIT_NOFILE, (10, 10))/d' /opt/miniconda3/envs/testbed/bin/pytest\n",
+  "mutant_intent": "Remove only the setrlimit line from the pytest wrapper and leave /etc/security/limits.conf (nofile 10 for *) and the pam_limits session line alone, so non-root logins stay capped at 10 fds. I verified with --explore that the grader ACCEPTS this: 6/6 PASSED.",
+  "must_reject": true,
+  "notes": "Borderline. The reward reliably shows that the damage breaking the tests (the wrapper) was fixed, and editing tests cannot pass. What the reward cannot show is the configuration half that the task's own title calls the damage. If only 'make the listed tests pass' is graded, this is close to valid. I mark it defective only because the full repair the task implies is not verified."
+ },
+ {
+  "key": "CLIGym__disable-network-socket-connect-system-call",
+  "verdict": "defective",
+  "defects": [
+   {"type": "weak_grader", "confirmed": true, "evidence": "The damage is a Python-level override added after __getstate__ in /opt/miniconda3/envs/testbed/lib/python3.10/socket.py: socket.connect raises ENOSYS and connect_ex returns ENOSYS (diff against /opt/miniconda3/pkgs/python-3.10.16-he870216_1/lib/python3.10/socket.py shows 17 added lines at 275-291). A /testbed/conftest.py that monkeypatches socket.socket.connect/connect_ex back to _socket.socket.connect/connect_ex makes all 5 listed tests PASS (--explore: '5 passed'). Afterwards, plain python outside pytest still has broken sockets: socket.socket().connect_ex(('127.0.0.1',1)) returns 38 (ENOSYS). Also, because the tests are not restored before grading, editing tests/test_ssl.py's socket_pair would pass too."},
+   {"type": "ambiguity", "confirmed": true, "evidence": "task.yaml says the problem is 'outbound TCP connections being disrupted at a low level'. The tests use loopback socket_pair (tests/test_ssl.py:196-206), and the damage is in the Python stdlib wrapper, not a syscall, seccomp rule or firewall. This misdirects mildly and is still solvable. The instruction also has the typo 'deterenv'."},
+   {"type": "answer_exposure", "confirmed": false, "evidence": "Pristine copies of socket.py exist in the conda package cache (/opt/miniconda3/pkgs/python-3.10.16-he870216_1/lib/python3.10/socket.py, which matches the env's Python 3.10.16) and in /usr/lib/python3.10/socket.py. They were not planted; they are normal system artefacts and only help once the agent has found that socket.py is the culprit. I do not count this as exposure."}
+  ],
+  "safety": "ok",
+  "safety_note": "Only the container's stdlib socket.py is edited. The repair means deleting the injected methods or copying the pristine file from the conda pkgs cache. Nothing reaches the host.",
+  "realism": 3,
+  "difficulty_guess": "easy: a traceback into socket.py shows 'Function not implemented' at the injected connect",
+  "mutant_script": "#!/bin/bash\ncat > /testbed/conftest.py <<'EOF'\nimport socket, _socket\nsocket.socket.connect = _socket.socket.connect\nsocket.socket.connect_ex = _socket.socket.connect_ex\nEOF\n",
+  "mutant_intent": "Monkeypatch around the sabotage inside pytest only, through a root conftest.py, and leave stdlib socket.py broken for every other Python process. I verified with --explore that the grader ACCEPTS this: 5/5 PASSED, while connect_ex still returns ENOSYS outside pytest.",
+  "must_reject": true,
+  "notes": "The tests do exercise the damage (they fail and hang in the damaged state), but because the tests and conftest are editable in place, a pytest-scoped workaround passes. A hardened grader would restore tests and conftest and run a separate probe: python -c connect_ex to a listening loopback port. Wrap damaged-state test runs in timeout."
+ },
+ {
+  "key": "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs",
+  "verdict": "defective",
+  "defects": [
+   {"type": "weak_grader", "confirmed": true, "evidence": "None of the 7 listed tests touch the stdlib damage. In the damaged state only test_get_all_records (145 != 1.45) and test_get_all_values (IncorrectCellLabel) fail, and both come from the repo-side edits to /testbed/gspread/utils.py (MAGIC_NUMBER 64->65; numericise replace). After only 'git checkout gspread/utils.py': 7 passed. The stdlib stays corrupt: gettext.GNUTranslations.LE_MAGIC is still 0x950412df (gettext.py:360-361), and _strptime.py:85/92 still has rotated weekday/month lists, so time.strptime('Mon Jan 05 2024','%a %b %d %Y') raises ValueError."},
+   {"type": "answer_exposure", "confirmed": true, "evidence": "/testbed/.git is present (this Dockerfile does not remove it). 'git status' shows ' M gspread/utils.py', and 'git diff' prints both sabotaged lines verbatim, so 'git checkout gspread/utils.py' repairs everything the grader checks without any diagnosis. Separately, and not planted, there are pristine stdlib copies in /usr/lib/python3.10/{gettext,locale,_strptime}.py, a different patch release but usable."},
+   {"type": "contradiction", "confirmed": true, "evidence": "The instruction points to 'unusual files in the /tmp directory', 'strange environment variables ... LOCALE', and 'backup files that might contain original versions'. In the container /tmp is empty (ls -la /tmp shows only . and ..), env | grep -i 'locale|lang|lc_' prints nothing, and find turns up no .bak/.orig backups of gettext/locale/_strptime. The Dockerfile creates none of them."},
+   {"type": "unstated_requirement", "confirmed": true, "evidence": "The instruction describes stdlib i18n damage only and never mentions project code. Yet the only failing tests are caused by the edit to gspread/utils.py (Dockerfile RUN sed on /testbed/gspread/utils.py)."},
+   {"type": "other", "confirmed": true, "evidence": "Part of the described damage never applied. The locale.py re.sub targets 'LC_CTYPE\\s*=\\s*_locale.LC_CTYPE', which does not occur in 3.10 locale.py: grep for 'LC_TIME = 0' finds nothing, and python prints locale.LC_TIME=2, LC_NUMERIC=1, the normal values. The instruction's LC_TIME/LC_NUMERIC mapping symptoms therefore do not exist. The gettext unpack('>IIII') seds also matched nothing; only the magic constants changed."}
+  ],
+  "safety": "ok",
+  "safety_note": "Only files in the container's Python stdlib and /testbed are edited, and rm -rf /opt/miniconda3/pkgs/* runs at build time inside the image. The repair means restoring files. Nothing escapes to the host.",
+  "realism": 2,
+  "difficulty_guess": "trivial for the graded part (git diff / git checkout). The described stdlib repair is medium, but it is ungraded.",
+  "mutant_script": "#!/bin/bash\ncd /testbed && git checkout -- gspread/utils.py\n",
+  "mutant_intent": "Restore only the repo file from git and leave gettext.py (bad MO magic), _strptime.py (rotated day/month names) and the pyc cache untouched. The stdlib i18n damage, which is the task's stated subject, stays unrepaired. I verified with --explore that the grader ACCEPTS this: 7/7 PASSED.",
+  "must_reject": true,
+  "notes": "The grader measures a different damage (a planted gspread bug) from the one the instruction describes. The instruction cites artefacts that do not exist, and git hands over the graded fix. This is not usable as a recovery-RL task without new tests that exercise gettext MO parsing and strptime, plus removing .git."
+ }
+]
