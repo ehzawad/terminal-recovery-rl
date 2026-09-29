@@ -1,0 +1,207 @@
+{
+ "SETA": [
+  {
+   "root": "ask_ubuntu__1050",
+   "task": "ask_ubuntu__1050",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "ask_ubuntu__391",
+   "task": "ask_ubuntu__391__d1",
+   "subset": "SETA_Evolve"
+  },
+  {
+   "root": "ask_ubuntu__580",
+   "task": "ask_ubuntu__580",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "ask_ubuntu__927",
+   "task": "ask_ubuntu__927",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "ask_ubuntu__711",
+   "task": "ask_ubuntu__711",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "ask_ubuntu__1228",
+   "task": "ask_ubuntu__1228",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "ask_ubuntu__1276",
+   "task": "ask_ubuntu__1276__b1",
+   "subset": "SETA_Evolve"
+  },
+  {
+   "root": "ask_ubuntu__227",
+   "task": "ask_ubuntu__227__d1",
+   "subset": "SETA_Evolve"
+  },
+  {
+   "root": "stack_overflow__6637135",
+   "task": "stack_overflow__6637135",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "stack_overflow__11563963",
+   "task": "stack_overflow__11563963",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "stack_overflow__2885173",
+   "task": "stack_overflow__2885173",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "stack_overflow__74892964",
+   "task": "stack_overflow__74892964",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "stack_overflow__58859092",
+   "task": "stack_overflow__58859092",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "stack_overflow__276927",
+   "task": "stack_overflow__276927",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+   "task": "kaggle_notebook__suzanaiacob_predicting-credit-card-balance-using-regression",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+   "task": "kaggle_notebook__mathchi_churn-problem-for-bank-customer",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+   "task": "kaggle_notebook__azizozmen_heart-failure-predict-8-classification-techniques",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "kaggle_notebook__nasirmeh_prediction-of-rainfall",
+   "task": "kaggle_notebook__nasirmeh_prediction-of-rainfall",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "unix_linux_se__49272",
+   "task": "unix_linux_se__49272",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "unix_linux_se__202383",
+   "task": "unix_linux_se__202383",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "unix_linux_se__82598",
+   "task": "unix_linux_se__82598",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "unix_linux_se__336776",
+   "task": "unix_linux_se__336776",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "nl2bash__966",
+   "task": "nl2bash__966",
+   "subset": "SETA_Synth"
+  },
+  {
+   "root": "nl2bash__086",
+   "task": "nl2bash__086",
+   "subset": "SETA_Synth"
+  }
+ ],
+ "TMax": [
+  {
+   "task": "task_001789_538b3fed"
+  },
+  {
+   "task": "task_002018_b907f747"
+  },
+  {
+   "task": "task_009712_63ae0579"
+  },
+  {
+   "task": "task_005510_9a7eea6f"
+  },
+  {
+   "task": "task_005328_d31b8a1e"
+  },
+  {
+   "task": "task_000667_61fefcb4"
+  },
+  {
+   "task": "task_003160_4040000e"
+  },
+  {
+   "task": "task_006354_0c495fc8"
+  },
+  {
+   "task": "task_007751_66925dbb"
+  },
+  {
+   "task": "task_005795_1c02adf2"
+  },
+  {
+   "task": "task_005524_bb885478"
+  },
+  {
+   "task": "task_005495_82f4b64b"
+  },
+  {
+   "task": "task_002330_880601ad"
+  },
+  {
+   "task": "task_004748_961e3610"
+  },
+  {
+   "task": "task_009840_d53065f3"
+  },
+  {
+   "task": "task_000172_9d5cca3a"
+  }
+ ],
+ "LiteCoder": [
+  {
+   "task": "git-workflow-conflict-sim"
+  },
+  {
+   "task": "automated-offsite-backup-system"
+  },
+  {
+   "task": "pytorch-rnn-stock-prediction"
+  },
+  {
+   "task": "rsa-encrypt-decrypt-demo"
+  },
+  {
+   "task": "news-topic-classification-sklearn"
+  },
+  {
+   "task": "crosslingual-sentiment-classifier"
+  },
+  {
+   "task": "brute-force-key-recovery"
+  },
+  {
+   "task": "fashion-mnist-cnn-pipeline"
+  }
+ ],
+ "meta": {
+  "salt": "audit-a9",
+  "tmax_id_col": "task_id",
+  "n_tmax": 14601,
+  "n_lite": 602,
+  "n_seta_roots": 3474
+ }
+}
