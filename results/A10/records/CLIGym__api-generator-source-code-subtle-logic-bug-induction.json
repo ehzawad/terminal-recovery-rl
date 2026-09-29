@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
  "build": {
   "ok": true,
-  "msg": "built in 7s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -43,5 +43,52 @@
    "seconds": 1.8,
    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.2.0, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\ndjango: version: 5.1.6\nrootdir: /testbed\nconfigfile: pytest.ini\nplugins: cov-5.0.0, django-4.8.0\ncollecting ... collected 9 items\n\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_dynamic_routes PASSED [ 11%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_child PASSED [ 22%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_parent PASSED [ 33%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_no_trailing_slash PASSED [ 44%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_trailing_slash PASSED [ 55%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_no_trailing_slash PASSED [ 66%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_trailing_slash PASSED [ 77%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset PASSED [ 88%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset_with_mixin PASSED [100%]\n\n============================== 9 passed in 0.41s ===============================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "9 passed",
+    "n_ids": 9,
+    "n_pass": 9,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 2.0,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.2.0, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\ndjango: version: 5.1.6\nrootdir: /testbed\nconfigfile: pytest.ini\nplugins: cov-5.0.0, django-4.8.0\ncollecting ... collected 9 items\n\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_dynamic_routes PASSED [ 11%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_child PASSED [ 22%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_parent PASSED [ 33%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_no_trailing_slash PASSED [ 44%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_trailing_slash PASSED [ 55%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_no_trailing_slash PASSED [ 66%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_trailing_slash PASSED [ 77%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset PASSED [ 88%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset_with_mixin PASSED [100%]\n\n============================== 9 passed in 0.41s ===============================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "9 passed",
+    "n_ids": 9,
+    "n_pass": 9,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 1.9,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.2.0, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\ndjango: version: 5.1.6\nrootdir: /testbed\nconfigfile: pytest.ini\nplugins: cov-5.0.0, django-4.8.0\ncollecting ... collected 9 items\n\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_dynamic_routes PASSED [ 11%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_child PASSED [ 22%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_parent PASSED [ 33%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_no_trailing_slash PASSED [ 44%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_trailing_slash PASSED [ 55%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_no_trailing_slash PASSED [ 66%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_trailing_slash PASSED [ 77%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset PASSED [ 88%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset_with_mixin PASSED [100%]\n\n============================== 9 passed in 0.44s ===============================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "",
+  "grade": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "9 passed",
+   "n_ids": 9,
+   "n_pass": 9,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 1.7,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.2.0, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\ndjango: version: 5.1.6\nrootdir: /testbed\nconfigfile: pytest.ini\nplugins: cov-5.0.0, django-4.8.0\ncollecting ... collected 9 items\n\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_dynamic_routes PASSED [ 11%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_child PASSED [ 22%]\ntests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_parent PASSED [ 33%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_no_trailing_slash PASSED [ 44%]\ntests/test_routers.py::TestRouterSettingInheritance::test_explicit_trailing_slash PASSED [ 55%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_no_trailing_slash PASSED [ 66%]\ntests/test_routers.py::TestRouterSettingInheritance::test_inherits_trailing_slash PASSED [ 77%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset PASSED [ 88%]\ntests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset_with_mixin PASSED [100%]\n\n============================== 9 passed in 0.48s ===============================\n"
+  }
+ }
 }

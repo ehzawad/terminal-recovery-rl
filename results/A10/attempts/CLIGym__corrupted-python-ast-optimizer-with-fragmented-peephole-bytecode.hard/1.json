@@ -1,0 +1,15 @@
+{
+ "script_rc": 0,
+ "script_tail": "",
+ "grade": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "22 passed",
+  "n_ids": 22,
+  "n_pass": 22,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.6,
+  "log_tail": "st_util.py::test_import_app_good[support:create_app()] PASSED    [ 31%]\ntests/test_util.py::test_import_app_good[support:create_app(count=3)] PASSED [ 36%]\ntests/test_util.py::test_import_app_good[support] PASSED                 [ 40%]\ntests/test_util.py::test_import_app_bad[support:HOST-AppImportError-callable] PASSED [ 45%]\ntests/test_util.py::test_import_app_bad[support:error_factory()-TypeError-inner] PASSED [ 50%]\ntests/test_util.py::test_import_app_py_ext PASSED                        [ 54%]\ntests/test_config.py::test_worker_class PASSED                           [ 59%]\ntests/test_config.py::test_wsgi_app_config[options0-app:app] PASSED      [ 63%]\ntests/test_config.py::test_wsgi_app_config[options2-app:app] PASSED      [ 68%]\ntests/test_config.py::test_wsgi_app_config[options3-app1:app1] PASSED    [ 72%]\ntests/test_config.py::test_non_wsgi_app[options0] PASSED                 [ 77%]\ntests/test_config.py::test_non_wsgi_app[options1] PASSED                 [ 81%]\ntests/test_reload.py::test_start_reloader_after_load_wsgi PASSED         [ 86%]\ntests/test_reload.py::test_reload_on_syntax_error PASSED                 [ 90%]\ntests/test_arbiter.py::test_env_vars_available_during_preload PASSED     [ 95%]\ntests/workers/test_ggevent.py::test_import PASSED                        [100%]\n\n---------- coverage: platform linux, python 3.10.16-final-0 ----------\nCoverage XML written to file coverage.xml\n\n\n============================== 22 passed in 0.71s ==============================\n"
+ }
+}

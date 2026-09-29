@@ -1,0 +1,99 @@
+[
+ {
+  "key": "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "other",
+    "confirmed": true,
+    "evidence": "The Dockerfile's line-numbered sed edits (32a, 49,55c, 60,88c, 157,165c, 230,242c, 250,262c) do not line up with this textdistance 4.6.3 file. The resulting /testbed/textdistance/algorithms/compression_based.py is structurally destroyed: an assignment at line 34 inside the _NCDBase class body before its docstring, 'def _get_size' duplicated at lines 48-49, the ArithNCD class header and docstring start lost (line 84 is a bare URL), and the _BinaryNCDBase class, RLENCD._compress, the ZLIBNCD class header, the LZMANCD body and EntropyNCD's return/_get_size all overwritten. Import fails with 'SyntaxError: invalid decimal literal' at line 171. The original is not recoverable in the container: /testbed/.git was removed, there is no __pycache__ (checked textdistance/algorithms/__pycache__), no other copy anywhere on the filesystem (checked with find), no textdistance in /root/.cache/pip (checked with grep), and there is no network. The agent must re-implement roughly 100 lines of library code from memory rather than repair it."
+   },
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "task.yaml says only three tests fail 'on assertions' and that 'compression and decompression seem to be working'. In the container, 'pytest tests/test_compression' gives 6 collection errors ('Interrupted: 6 errors during collection') because the package cannot even be imported."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "The 10 graded tests only check algebraic properties (symmetry, a==d==nd, same<=similar<=different, sqrt _compress(text)==_compress(reversed)). Replacing compression_based.py with stubs that return 0 everywhere (mutant_script) gives '10 passed in 3.42s' with the grader's exact test IDs, and the bz2.py damage is left in place."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "A pristine copy of the stdlib bz2.py remains at /opt/miniconda3/pkgs/python-3.10.18-h1a3bd86_0/lib/python3.10/bz2.py ('conda clean --all' did not remove it; the testbed runs Python 3.10.18). Diffing it against envs/testbed/lib/python3.10/bz2.py shows exactly the injected checksum-byte block at line 321. This covers only the bz2 half of the damage."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": false,
+    "evidence": "The bz2 corruption inserts a deterministic byte, which is probably invisible to the symmetry and normalization tests, so the bz2.py damage is likely never exercised by the grader. Not tested in isolation."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The damage stays inside the container (library source plus stdlib bz2.py). The repair is file edits only.",
+  "realism": 2,
+  "difficulty_guess": "hard (as delivered it means rewriting deleted library code from memory; the intended task was medium)",
+  "mutant_script": "cat > /testbed/textdistance/algorithms/compression_based.py <<'PY'\nfrom __future__ import annotations\nfrom .base import Base as _Base\n\n__all__ = [\n    'ArithNCD', 'LZMANCD', 'BZ2NCD', 'RLENCD', 'BWTRLENCD', 'ZLIBNCD',\n    'SqrtNCD', 'EntropyNCD',\n    'bz2_ncd', 'lzma_ncd', 'arith_ncd', 'rle_ncd', 'bwtrle_ncd', 'zlib_ncd',\n    'sqrt_ncd', 'entropy_ncd',\n]\n\n\nclass _NCDBase(_Base):\n    qval = 1\n\n    def __init__(self, *args, **kwargs) -> None:\n        self.qval = 1\n\n    def maximum(self, *sequences) -> int:\n        return 1\n\n    def _compress(self, data):\n        return 0\n\n    def _get_size(self, data) -> float:\n        return 0\n\n    def __call__(self, *sequences) -> float:\n        return 0\n\n\nclass ArithNCD(_NCDBase): pass\nclass RLENCD(_NCDBase): pass\nclass BWTRLENCD(RLENCD): pass\nclass SqrtNCD(_NCDBase): pass\nclass EntropyNCD(_NCDBase): pass\nclass BZ2NCD(_NCDBase): pass\nclass LZMANCD(_NCDBase): pass\nclass ZLIBNCD(_NCDBase): pass\n\n\narith_ncd = ArithNCD()\nbwtrle_ncd = BWTRLENCD()\nbz2_ncd = BZ2NCD()\nlzma_ncd = LZMANCD()\nrle_ncd = RLENCD()\nzlib_ncd = ZLIBNCD()\nsqrt_ncd = SqrtNCD()\nentropy_ncd = EntropyNCD()\nPY\n",
+  "mutant_intent": "Replace the mangled module with stub NCD classes that always return 0, so every property test passes trivially. No real compression distance is restored and the bz2.py corruption is left in place.",
+  "must_reject": true,
+  "notes": "The mutant was checked in --explore: all 10 graded IDs pass. The line-numbered seds misfired against this file version, so the task no longer matches its instruction and the reference state cannot be reconstructed offline."
+ },
+ {
+  "key": "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "Adding a /testbed/conftest.py that re-assigns iopath PathManager.open/mkdirs/rm/symlink to seccomp_patch._orig_* makes all 11 graded IDs pass ('11 passed in 2.07s'). The system-wide hook site-packages/seccomp_loader.pth stays in place, so every other Python process in the env is still broken. Tests are not restored before grading."
+   },
+   {
+    "type": "ambiguity",
+    "confirmed": true,
+    "evidence": "The instruction blames the Docker seccomp profile, syscall permissions and 'signal handling'. The Dockerfile contains no seccomp profile and nothing about signals: the damage is a Python monkeypatch, site-packages/seccomp_patch.py, loaded by seccomp_loader.pth, which raises PermissionError('... (simulated)') for paths containing '/tmp/', 'checkpoint', '.pkl', '.pth' or 'test_'. The failing traceback names the file directly (seccomp_patch.py:27/32/37/42), which offsets the misdirection."
+   },
+   {
+    "type": "unstated_requirement",
+    "confirmed": true,
+    "evidence": "The instruction names 3 tests (test_mkdirs, test_open, test_rm). run_tests.sh grades 11, adding test_symlink, test_exists, 3 test_checkpoint tests and 3 test_jit_model_analysis tests. It is the same root cause, so this is minor. In the damaged state 4 of the 11 (test_exists and the 3 jit tests) already pass, so they do not exercise the damage."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "The damage is a Python .pth hook in the testbed env. The repair is deleting seccomp_loader.pth (and seccomp_patch.py). Nothing touches the host.",
+  "realism": 2,
+  "difficulty_guess": "easy (the traceback points at seccomp_patch.py; removing the .pth made all 36 io/checkpoint/jit tests pass in --explore)",
+  "mutant_script": "cat >> /testbed/conftest.py <<'PY'\n\n# work around the \"seccomp\" restrictions for the test session only\ntry:\n    import seccomp_patch as _sp\n    import iopath.common.file_io as _fio\n    _fio.PathManager.open = _sp._orig_open\n    _fio.PathManager.mkdirs = _sp._orig_mkdirs\n    _fio.PathManager.rm = _sp._orig_rm\n    _fio.PathManager.symlink = _sp._orig_symlink\nexcept ImportError:\n    pass\nPY\n",
+  "mutant_intent": "Undo the monkeypatch only inside the pytest session through conftest.py, leaving the malicious .pth import hook active for every other Python process.",
+  "must_reject": true,
+  "notes": "Checked in --explore: the damaged env gives 7 failed / 4 passed on the graded IDs. Moving seccomp_loader.pth away gives 36/36 passing on the io_tests/TestNativeIO, test_checkpoint and test_jit_model_analysis files. The conftest mutant gives 11/11."
+ },
+ {
+  "key": "CLIGym__compiled-regex-engine-poisoning-via-pcre-library-substitution",
+  "verdict": "defective",
+  "defects": [
+   {
+    "type": "contradiction",
+    "confirmed": true,
+    "evidence": "The instruction describes subtle, inconsistent pattern-matching failures while 'basic functionality appears to work fine'. The Dockerfile's lines.insert(654/655/660/661) misfired: envs/testbed/lib/python3.10/sre_parse.py:660-661 has 'if max > 0:' placed right after 'if max < min:' with no body, so 'import re' fails with 'IndentationError: expected an indented block after 'if' statement on line 660'. pytest cannot start at all. The intended quantifier off-by-one became a hard crash whose traceback names the exact line."
+   },
+   {
+    "type": "answer_exposure",
+    "confirmed": true,
+    "evidence": "/usr/lib/python3.10/sre_parse.py (system Python 3.10) is identical to the original. 'diff' against the damaged file shows exactly the 4 injected lines (655-656 'if min > 0: min = min + 1' and 661-662 'if max > 0: max = max + 1'). Deleting them made the file identical ('SAME'), and all 30 graded tests then passed. This is a legitimate stdlib reference rather than a planted backup, but it hands over the repair by diff."
+   },
+   {
+    "type": "weak_grader",
+    "confirmed": true,
+    "evidence": "A site-packages/sitecustomize.py that preloads /usr/lib/python3.10/sre_parse.py into sys.modules['sre_parse'] leaves the corrupted stdlib file untouched, yet gives '30 passed in 4.99s'. The grader cannot tell this shadowing workaround from a repair; 'python -S' would still crash. Severity is moderate: the workaround is functionally correct for normal interpreter use."
+   }
+  ],
+  "safety": "ok",
+  "safety_note": "Only the container's conda stdlib sre_parse.py is modified. The repair is a 4-line deletion or a copy from /usr/lib/python3.10.",
+  "realism": 3,
+  "difficulty_guess": "easy (the IndentationError traceback points at sre_parse.py:660, and a pristine system copy is available to diff)",
+  "mutant_script": "cat > /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py <<'PY'\nimport sys, importlib.util\n_s = importlib.util.spec_from_file_location('sre_parse', '/usr/lib/python3.10/sre_parse.py')\n_m = importlib.util.module_from_spec(_s); sys.modules['sre_parse'] = _m; _s.loader.exec_module(_m)\nPY\n",
+  "mutant_intent": "Shadow the corrupted stdlib module with a sitecustomize preload of the system copy instead of repairing envs/testbed/lib/python3.10/sre_parse.py. The corrupted file remains, and interpreters started with -S, or anything that bypasses site, still break.",
+  "must_reject": true,
+  "notes": "The grader is strong against real partial repairs. Deleting only the 'max+1' lines leaves 'min+1', which raises 'min repeat greater than max repeat' at pytest import. Keeping 'max+1' after the check breaks pytest ('look-behind requires fixed-width pattern'). Test tampering is impossible because pytest itself imports re. The sitecustomize shadow is the only wrong answer found that the grader accepts; whether a shadow counts as wrong is a policy call."
+ }
+]

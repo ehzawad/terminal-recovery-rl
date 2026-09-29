@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
  "build": {
   "ok": true,
-  "msg": "built in 4s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -48,5 +48,52 @@
    "seconds": 3.1,
    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\ncollecting ... collected 11 items\n\nio_tests/test_file_io.py::TestNativeIO::test_open PASSED                 [  9%]\nio_tests/test_file_io.py::TestNativeIO::test_rm PASSED                   [ 18%]\nio_tests/test_file_io.py::TestNativeIO::test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink PASSED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs PASSED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables PASSED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer PASSED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep PASSED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n============================== 11 passed in 2.05s ==============================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "PathManager clean\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "11 passed",
+    "n_ids": 11,
+    "n_pass": 11,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 3.4,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\ncollecting ... collected 11 items\n\nio_tests/test_file_io.py::TestNativeIO::test_open PASSED                 [  9%]\nio_tests/test_file_io.py::TestNativeIO::test_rm PASSED                   [ 18%]\nio_tests/test_file_io.py::TestNativeIO::test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink PASSED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs PASSED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables PASSED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer PASSED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep PASSED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n============================== 11 passed in 2.34s ==============================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "PathManager clean\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "11 passed",
+    "n_ids": 11,
+    "n_pass": 11,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 3.2,
+    "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\ncollecting ... collected 11 items\n\nio_tests/test_file_io.py::TestNativeIO::test_open PASSED                 [  9%]\nio_tests/test_file_io.py::TestNativeIO::test_rm PASSED                   [ 18%]\nio_tests/test_file_io.py::TestNativeIO::test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink PASSED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs PASSED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables PASSED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer PASSED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep PASSED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n============================== 11 passed in 2.02s ==============================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "",
+  "grade": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "11 passed",
+   "n_ids": 11,
+   "n_pass": 11,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 3.5,
+   "log_tail": "RC=0\n============================= test session starts ==============================\nplatform linux -- Python 3.10.18, pytest-8.3.4, pluggy-1.5.0 -- /opt/miniconda3/envs/testbed/bin/python\ncachedir: .pytest_cache\nrootdir: /testbed\ncollecting ... collected 11 items\n\nio_tests/test_file_io.py::TestNativeIO::test_open PASSED                 [  9%]\nio_tests/test_file_io.py::TestNativeIO::test_rm PASSED                   [ 18%]\nio_tests/test_file_io.py::TestNativeIO::test_exists PASSED               [ 27%]\nio_tests/test_file_io.py::TestNativeIO::test_symlink PASSED              [ 36%]\nio_tests/test_file_io.py::TestNativeIO::test_mkdirs PASSED               [ 45%]\ntests/test_checkpoint.py::TestCheckpointer::test_checkpointables PASSED  [ 54%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer PASSED [ 63%]\ntests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep PASSED [ 72%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_total PASSED [ 81%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_unsupported_ops PASSED [ 90%]\ntests/test_jit_model_analysis.py::TestJitModelAnalysis::test_non_forward_func_call PASSED [100%]\n\n============================== 11 passed in 2.42s ==============================\n"
+  }
+ }
 }

@@ -1,0 +1,53 @@
+[
+  {
+    "key": "CLIGym__api-generator-source-code-subtle-logic-bug-induction",
+    "verdict": "defective",
+    "defects": [
+      {"type": "weak_grader", "confirmed": true, "evidence": "The tests can be edited and are not restored. In a fresh damaged container, running sed -i 's#detail/(?P<detail_pk>#detail(?P<detail_pk>#g; s#/list/(?P<list_pk>#/list(?P<list_pk>#g' tests/test_dynamic_routers.py and then the graded tests gives '10 passed'. rest_framework_nested/routers.py:97-100 is still broken."},
+      {"type": "weak_grader", "confirmed": true, "evidence": "Only 2 of the 9 graded IDs fail before repair (test_dynamic_routers.py::test_nested_parent and ::test_nested_child); the other 7 already pass. The damage also breaks tests that are not graded: tests/test_routers.py::TestNestedSimpleRouter::test_recursive_nested_simple_routers ('a(?P<a_pk>...)/' != 'a/(?P<a_pk>...)/') and all 4 tests in tests/serializers/test_serializers.py ('/parent2/1/child2/1/' not found in 'http://testserver/parent21/child2/1/'). Coverage is thin, so a fix that special-cases one path could pass."},
+      {"type": "ambiguity", "confirmed": true, "evidence": "The instruction ends with 'tell me how to fix it', but the grader requires the fix to be applied. It also contains a typo ('Exaenv the Python module'). The hint names routers.py logic directly, so the task is fair but easy."}
+    ],
+    "safety": "ok",
+    "safety_note": "The Dockerfile only edits /testbed/rest_framework_nested/routers.py with sed and removes .git and caches. The repair is a one-line source edit.",
+    "realism": 3,
+    "difficulty_guess": "easy (the injected condition at routers.py:97-100 is obvious; the fix is to always use f\"{parent_prefix}/{parent_lookup_regex}/\")",
+    "mutant_script": "#!/bin/bash\ncd /testbed\n# Cheat: rewrite the two failing assertions to expect the broken (slash-less) regexes instead of fixing routers.py\nsed -i 's#detail/(?P<detail_pk>#detail(?P<detail_pk>#g; s#/list/(?P<list_pk>#/list(?P<list_pk>#g' tests/test_dynamic_routers.py\n",
+    "mutant_intent": "Test tampering. The broken routers.py is left in place and the expected values in tests/test_dynamic_routers.py are changed to match the broken output. I checked this in --explore: all graded tests pass (10 passed), so this grader will ACCEPT it.",
+    "must_reject": true,
+    "notes": "No answer exposure: no .orig/.bak copies, no stale .pyc, and no other installed copy of routers.py (pip shows drf-nested-routers 0.94.1 is the /testbed checkout). A correct fix also turns the ungraded serializer and recursive tests green, so the reference could be checked against those."
+  },
+  {
+    "key": "CLIGym__glibc-iconv-module-corruption-for-encoding-conversion-operations.hard",
+    "verdict": "defective",
+    "defects": [
+      {"type": "weak_grader", "confirmed": true, "evidence": "The glibc gconv damage is not graded at all. In --explore I restored only the six Python stdlib encodings/*.py files (utf_8, latin_1, iso8859_1, utf_16, utf_32, ascii) from /opt/miniconda3/pkgs/python-3.10.16-he870216_1/. The full graded list then gives '50 passed', while `echo é | iconv -f utf-8 -t latin1` still prints 'iconv: failed to start conversion processing'. lxml does not use the damaged gconv modules: parsing an ISO-8859-1 or GBK-declared XML document works."},
+      {"type": "network_or_gpu", "confirmed": true, "evidence": "The glibc layer cannot be restored offline. Every /usr/lib/x86_64-linux-gnu/gconv/*.so has mode 000, and ISO8859-1, UTF-16, UTF-32, UTF-7, UNICODE, ISO8859-2, ISO8859-15, EUC-JP, GBK and BIG5 are overwritten with random bytes or zeros. gconv-modules and gconv-modules.cache are garbage. There is no other copy: find returns only the damaged paths, /var/cache/apt/archives holds only lock/partial, and dpkg says libc6 owns the files. Only `apt-get install --reinstall libc6` would fix them, and that needs the network. The instruction even tells the agent to use the Huawei PyPI mirror, which is unreachable."},
+      {"type": "other", "confirmed": true, "evidence": "The title and instruction frame this as glibc iconv corruption. The graded failure is really the testbed Python refusing to start ('Current thread ... <no Python frame>' on any python -c) because the stdlib encodings/*.py files contain only '# CORRUPTED'. The glibc damage is a decoy: it cannot be fixed and it is not graded."}
+    ],
+    "safety": "ok",
+    "safety_note": "The Dockerfile damages system gconv modules and the conda stdlib, but only inside the container. The likely repair copies stdlib files from the local conda pkgs cache. Nothing escapes the host.",
+    "realism": 3,
+    "difficulty_guess": "medium (Python fails at startup, and the agent must realise that the pristine encodings files are in /opt/miniconda3/pkgs/python-3.10.*/ or /usr/lib/python3.10/encodings, or rewrite them by hand)",
+    "mutant_script": "#!/bin/bash\n# Partial repair: fix only the Python stdlib codec files; leave every glibc gconv module corrupted (mode 000, random bytes, garbage gconv-modules)\nE=/opt/miniconda3/envs/testbed/lib/python3.10/encodings\nSRC=$(ls -d /opt/miniconda3/pkgs/python-3.10.*/lib/python3.10/encodings | head -1)\nfor f in utf_8 latin_1 iso8859_1 utf_16 utf_32 ascii; do cp \"$SRC/$f.py\" \"$E/$f.py\"; done\n",
+    "mutant_intent": "Repairs only the Python half and leaves the glibc iconv/gconv corruption named in the title untouched: iconv(1) still fails. I checked this in --explore: all 50 graded tests pass, so this grader will ACCEPT it. It shows that no graded test covers the glibc damage.",
+    "must_reject": true,
+    "notes": "About answer exposure: pristine copies of the corrupted encodings/*.py files exist in /opt/miniconda3/pkgs/python-3.10.16 and python-3.10.18 (the env is 3.10.18, per conda-meta), in /opt/miniconda3/lib/python3.12/encodings and in /usr/lib/python3.10/encodings. I judge this a realistic reinstall-from-package-cache recovery rather than a planted hint, so I have not counted it as a defect. Fixing the task would mean grading an iconv/gconv check (and shipping a way to restore glibc offline), or else dropping the glibc framing."
+  },
+  {
+    "key": "CLIGym__corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode.hard",
+    "verdict": "defective",
+    "defects": [
+      {"type": "weak_grader", "confirmed": true, "evidence": "The damage has two parts: a flag in site-packages/bytecode_check.pth that sets sys._bytecode_validation_check, and four injected checks in gunicorn/util.py:111, util.py:~369-371, app/base.py:128-132 and reloader.py:39-42. The util.py:369 injection also splits the `if module.endswith('.py')` block, which causes an IndentationError. Removing the .pth and only that syntax-breaking block gives '22 passed' on the full graded list. The three other sabotage checks stay in the source (grep: gunicorn/util.py:111, gunicorn/app/base.py:129, gunicorn/reloader.py:40) and fire again if the flag ever returns. For contrast, removing only the util.py blocks while keeping the .pth fails 5 tests, so the graded list does cover the base.py and reloader.py checks while the flag is set."},
+      {"type": "answer_exposure", "confirmed": true, "evidence": "Pre-damage bytecode survives. The first Dockerfile RUN imports gunicorn with the base Python 3.12 before the sed edits, which leaves gunicorn/__pycache__/{util,reloader}.cpython-312.pyc and gunicorn/app/__pycache__/base.cpython-312.pyc. None of them contains '_bytecode_validation_check' (grep -c returns 0), so they are readable pristine bytecode (via dis with /opt/miniconda3/bin/python). The impact is low because the injected lines are self-evident."},
+      {"type": "ambiguity", "confirmed": true, "evidence": "The title ('AST optimizer ... fragmented peephole bytecode') does not match the actual damage (a .pth flag plus injected raise statements). The instruction names only 3 test IDs, while 22 are graded, and its verify command has a typo ('pytest tests/test_util.py::test_import_app_good xvs')."}
+    ],
+    "safety": "ok",
+    "safety_note": "The Dockerfile writes a .pth file into the testbed env and makes sed edits in /testbed. The repair deletes lines and a file inside the container.",
+    "realism": 3,
+    "difficulty_guess": "easy-medium (grep for _bytecode_validation_check finds all 5 sites; the IndentationError at util.py:371 is the first thing a test run shows)",
+    "mutant_script": "#!/bin/bash\ncd /testbed\n# Partial repair: drop the .pth flag and fix only the syntax-breaking block in import_app;\n# leave the dormant sabotage in util.load_class, app/base.py and reloader.py\nrm -f /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/bytecode_check.pth\nsed -i '/# Bytecode optimization hook - adds validation check/,+2d' gunicorn/util.py\n",
+    "mutant_intent": "Removes the trigger and fixes the syntax, but leaves the 3 other injected sabotage branches in gunicorn source (util.py:111, app/base.py:129, reloader.py:40). I checked the equivalent edit in --explore: 22 passed, so this grader will ACCEPT it.",
+    "must_reject": true,
+    "notes": "A full repair deletes all four injected blocks and the .pth. The graded tests cannot tell that apart from the mutant: once the .pth is gone, every remaining check is inert, and the source is never compared. A post-check such as `! grep -rq _bytecode_validation_check /testbed/gunicorn` would close the gap."
+  }
+]

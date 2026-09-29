@@ -1,0 +1,15 @@
+{
+ "script_rc": 0,
+ "script_tail": "",
+ "grade": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "50 passed",
+  "n_ids": 50,
+  "n_pass": 50,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 6.5,
+  "log_tail": "est_html.py::TestReadHtml::test_different_number_of_cols[bs4]\n0.01s call     pandas/tests/io/json/test_ujson.py::TestUltraJSONTests::test_default_handler\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_dtype_backend[python-numpy_nullable-lxml]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_parse_dates_list[lxml]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_works_on_valid_markup[bs4]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_skiprows_slice_long[lxml]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_spam[lxml]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_keep_default_na[lxml]\n0.01s call     pandas/tests/io/formats/test_to_csv.py::TestToCSV::test_to_csv_zip_arguments[test_to_csv.csv-zip]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_tfoot_read[bs4]\n0.01s call     pandas/tests/io/json/test_readlines.py::test_readjson_chunks_closes[None]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_multiple_matches[lxml]\n0.01s call     pandas/tests/io/formats/test_to_csv.py::TestToCSV::test_to_csv_compression[zstd-False-False]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_extract_links[lxml-header]\n0.01s call     pandas/tests/io/test_html.py::TestReadHtml::test_encode[chinese_utf-8.html-lxml]\n\n(1 durations < 0.005s hidden.  Use -vv to show these durations.)\n============================== 50 passed in 3.16s ==============================\n"
+ }
+}

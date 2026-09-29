@@ -4,7 +4,7 @@
  "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
  "build": {
   "ok": true,
-  "msg": "built in 3s"
+  "msg": "cached"
  },
  "noop": {
   "pass": false,
@@ -71,5 +71,52 @@
    "seconds": 6.4,
    "log_tail": "]\ntests/providers/test_phone_number.py::TestArAe::test_service_phone_number PASSED [ 50%]\ntests/providers/test_ssn.py::TestPlPL::test_ssn_checksum PASSED          [ 53%]\ntests/providers/test_ssn.py::TestEtEE::test_ssn_checksum PASSED          [ 56%]\ntests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed PASSED [ 60%]\ntests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed PASSED [ 63%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit] PASSED [ 66%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters] PASSED [ 70%]\ntests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero PASSED [ 73%]\ntests/providers/test_barcode.py::TestEnUs::test_localized_ean PASSED     [ 76%]\ntests/providers/test_barcode.py::TestEsEs::test_localized_ean PASSED     [ 80%]\ntests/test_decode.py::test_7bit_purity[18] PASSED                        [ 83%]\ntests/test_decode.py::test_7bit_purity[26] PASSED                        [ 86%]\ntests/test_decode.py::test_7bit_purity[1] PASSED                         [ 90%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters] PASSED [ 93%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks] PASSED [ 96%]\ntests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii] PASSED [100%]\n\n============================== 30 passed in 4.92s ==============================\n"
   }
- ]
+ ],
+ "reference": [
+  {
+   "script_rc": 0,
+   "script_tail": "removed 4 lines\nsre_parse.py matches system copy\nregex ok\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "30 passed",
+    "n_ids": 30,
+    "n_pass": 30,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 6.4,
+    "log_tail": "]\ntests/providers/test_phone_number.py::TestArAe::test_service_phone_number PASSED [ 50%]\ntests/providers/test_ssn.py::TestPlPL::test_ssn_checksum PASSED          [ 53%]\ntests/providers/test_ssn.py::TestEtEE::test_ssn_checksum PASSED          [ 56%]\ntests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed PASSED [ 60%]\ntests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed PASSED [ 63%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit] PASSED [ 66%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters] PASSED [ 70%]\ntests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero PASSED [ 73%]\ntests/providers/test_barcode.py::TestEnUs::test_localized_ean PASSED     [ 76%]\ntests/providers/test_barcode.py::TestEsEs::test_localized_ean PASSED     [ 80%]\ntests/test_decode.py::test_7bit_purity[18] PASSED                        [ 83%]\ntests/test_decode.py::test_7bit_purity[26] PASSED                        [ 86%]\ntests/test_decode.py::test_7bit_purity[1] PASSED                         [ 90%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters] PASSED [ 93%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks] PASSED [ 96%]\ntests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii] PASSED [100%]\n\n============================== 30 passed in 5.10s ==============================\n"
+   }
+  },
+  {
+   "script_rc": 0,
+   "script_tail": "removed 4 lines\nsre_parse.py matches system copy\nregex ok\n",
+   "grade": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "30 passed",
+    "n_ids": 30,
+    "n_pass": 30,
+    "not_passed": {},
+    "timeout": false,
+    "seconds": 6.7,
+    "log_tail": "]\ntests/providers/test_phone_number.py::TestArAe::test_service_phone_number PASSED [ 50%]\ntests/providers/test_ssn.py::TestPlPL::test_ssn_checksum PASSED          [ 53%]\ntests/providers/test_ssn.py::TestEtEE::test_ssn_checksum PASSED          [ 56%]\ntests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed PASSED [ 60%]\ntests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed PASSED [ 63%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit] PASSED [ 66%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters] PASSED [ 70%]\ntests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero PASSED [ 73%]\ntests/providers/test_barcode.py::TestEnUs::test_localized_ean PASSED     [ 76%]\ntests/providers/test_barcode.py::TestEsEs::test_localized_ean PASSED     [ 80%]\ntests/test_decode.py::test_7bit_purity[18] PASSED                        [ 83%]\ntests/test_decode.py::test_7bit_purity[26] PASSED                        [ 86%]\ntests/test_decode.py::test_7bit_purity[1] PASSED                         [ 90%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters] PASSED [ 93%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks] PASSED [ 96%]\ntests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii] PASSED [100%]\n\n============================== 30 passed in 5.10s ==============================\n"
+   }
+  }
+ ],
+ "mutant": {
+  "script_rc": 0,
+  "script_tail": "",
+  "grade": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "30 passed",
+   "n_ids": 30,
+   "n_pass": 30,
+   "not_passed": {},
+   "timeout": false,
+   "seconds": 6.0,
+   "log_tail": "]\ntests/providers/test_phone_number.py::TestArAe::test_service_phone_number PASSED [ 50%]\ntests/providers/test_ssn.py::TestPlPL::test_ssn_checksum PASSED          [ 53%]\ntests/providers/test_ssn.py::TestEtEE::test_ssn_checksum PASSED          [ 56%]\ntests/providers/test_ssn.py::TestNoNO::test_no_NO_ssn_gender_passed PASSED [ 60%]\ntests/providers/test_ssn.py::TestZhCN::test_zh_CN_ssn_gender_passed PASSED [ 63%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[bad_control_digit] PASSED [ 66%]\ntests/providers/test_bank.py::TestEsMx::test_clabe_validation[non_numeric_characters] PASSED [ 70%]\ntests/providers/test_barcode.py::TestBarcodeProvider::test_ean13_leading_zero PASSED [ 73%]\ntests/providers/test_barcode.py::TestEnUs::test_localized_ean PASSED     [ 76%]\ntests/providers/test_barcode.py::TestEsEs::test_localized_ean PASSED     [ 80%]\ntests/test_decode.py::test_7bit_purity[18] PASSED                        [ 83%]\ntests/test_decode.py::test_7bit_purity[26] PASSED                        [ 86%]\ntests/test_decode.py::test_7bit_purity[1] PASSED                         [ 90%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[with_ascii_characters] PASSED [ 93%]\ntests/providers/__init__.py::TestBaseProvider::test_numerify[only_exclamation_marks] PASSED [ 96%]\ntests/providers/__init__.py::TestBaseProvider::test_bothify[simple_pattern_and_letters_using_whole_ascii] PASSED [100%]\n\n============================== 30 passed in 4.69s ==============================\n"
+  }
+ }
 }
