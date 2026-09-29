@@ -480,3 +480,12 @@ on dev_monitor (clean + faulted, 1 attempt each) by macro safe success, ties to 
 p6) and the chosen adapter are evaluated once on the untouched test partition (147 tasks: 1 clean + 1 faulted
 where eligible, same rows for both). Reported as measured, with no promotion claim and no S/D controls; the
 earlier stops predict little or no gain.
+
+**X1 outcome — 2026-09-28.** Training ran all 64 updates (1,024 trajectories, 11.0 h, stopped on the trajectory
+cap, no liveness stop; 36% of groups had reward variance; mean reward 0.81 over the first 8 updates, 0.74 over the
+last 8). dev_monitor chose step 32 (macro safe success 0.820) over step 64 (0.711). On the untouched test
+partition (257 episodes, 147 tasks) the prompted base scored macro safe success 0.867 and the step-32 adapter
+0.857 (faulted 0.809 vs 0.800, clean 0.905 vs 0.905); collateral damage 0.4% vs 1.6%. Paired task-cluster
+bootstrap (clean/faulted equal-weighted): difference -0.005, 95% CI [-0.036, +0.027]; discordant episodes 8
+adapter-only vs 9 base-only wins. Result: no measurable change from the adapter; no promotion claim. Files:
+`results/X1/`.
