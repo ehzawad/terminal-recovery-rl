@@ -621,3 +621,9 @@ counting it would make most tasks unpassable. Directories count only by permissi
 change whenever their contents do); files by content hash and mode, not mtime. Part (b) and (c) are checked on
 the agent's final state before part (a) restores the test-side files and runs the tests, so damage placed in
 test-side files (for example corrupted test data) must still be repaired by the agent.
+
+**A11.4 — 2026-09-30 (before grader v2 has graded anything).** Some Dockerfiles install helper tools
+(`apt-get install`, `pip install`). Files that are added relative to gold **and** belong to a package that is new
+in the damaged image (listed in a dpkg `.list` file or in a newly present `.dist-info/RECORD`) are tooling, not
+damage, and part (b) does not require their removal (their count is recorded). A module dropped into
+site-packages outside any package record is still damage.
