@@ -570,3 +570,34 @@ whole suite, which passes iff it reports at least one pass and no failure or err
 container is pinned to 2 CPUs with `--cpuset-cpus` instead of `--cpus 2`, because repositories that run
 `pytest -n auto` otherwise start one worker per host CPU (40) inside 4 GB and crash even on the gold image.
 All 24 base checks are re-run under the corrected harness; earlier base records are discarded, not mixed.
+
+**A11 — 2026-09-30: hardened CLI-Gym grader and a base-model headroom run (registered before the draw).**
+Owner said "go" to: keep CLI-Gym's tasks (A10 showed every one repairable) but replace its gameable grader,
+and measure on the A6000 how often the prompted base fails. No training here.
+*Grader v2.* A run passes iff all three hold: (a) **tests from gold** — before `run_tests` runs, every test-side
+file under `/testbed` (any `tests`/`test` directory, `test_*.py`, `*_test.py`, `conftest.py`, `pytest.ini`,
+`tox.ini`, `setup.cfg`, `pyproject.toml`, `.coveragerc`) is made identical to the gold image (restored, and
+extra ones deleted), then the A10.1 pass rule applies; (b) **damage undone** — every file in a live location
+that the task's Dockerfile added, changed or deleted relative to gold (found by comparing size, mtime and mode
+listings of the two images, then content) must be back to gold: deleted if it was added, byte-identical to gold
+otherwise, except that a `.py` file may instead be AST-identical; live locations are `/testbed`,
+`/opt/miniconda3`, `/usr/lib`, `/usr/local/lib`, `/lib`, `/etc/ld.so.preload`, `/etc/ld.so.conf.d`, excluding
+`__pycache__`, `*.pyc` and `.pytest_cache`; (c) **no new start-up hooks** — no `.pth`, `sitecustomize.py` or
+`usercustomize.py` in any Python site directory that the gold image lacks, and `/etc/ld.so.preload` as in gold.
+The v1 (dataset) result is recorded next to it.
+*Grader v2 validation (gate G1, on the 18 A10 tasks that have a reference and a wrong-output control):* a task
+whose reference fails v2 part (b) only because the damage cannot be undone offline is **infeasible** and leaves
+the pool (reported). G1 passes iff every other reference passes v2 twice and at least 15 of the 18 controls
+fail v2. If G1 fails, stop before any headroom number is read.
+*Headroom sample.* Candidates: all 1,655 minus the 24 A10 tasks and the 10 that use `uname -r`. Order by
+`sha256("headroom-a11|" + task_id)`; take the first 48 with at most 2 per base image. Tasks whose image does not
+build or whose gold image fails its own grader are replaced by the next in order (recorded; unlike A10, this is
+a measurement of the base model, not of the dataset).
+*Run.* Qwen3.5-9B instruct + the X1 system prompt (p6), no adapter; 4 attempts per task, temperature 0.7,
+at most 30 commands, 32K context, 300 s per command, offline sandbox as A10 (2 pinned CPUs, 4 GB). At episode
+end the container's change set is saved and graded by v1 and v2 in fresh containers. Episodes may start before
+v2 exists; no headroom number is read before G1 passes.
+*Gate G2 (headroom), on v2:* go to designing SFT+RL iff at least 12 of the 48 tasks are **mixed** (1-3 of 4
+attempts pass) and the mean pass rate is between 0.10 and 0.70; otherwise stop and report.
+Disk: at most 8 task images at once; per-episode change sets are kept, images are removed after grading.
+Results go to `results/A11/`.
