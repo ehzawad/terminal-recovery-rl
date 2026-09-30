@@ -1,0 +1,219 @@
+[
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order.hard",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order.hard/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order.hard/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 0,
+  "trace": "results/A11/episodes/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/0.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/0",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 1,
+  "trace": "results/A11/episodes/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/1.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/1",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/Dockerfile"
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 3,
+  "trace": "results/A11/episodes/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/3.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/3",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery/Dockerfile"
+ },
+ {
+  "key": "CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard",
+  "i": 2,
+  "trace": "results/A11/episodes/CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard/2.json",
+  "change_set": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/a11_cs/CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard/2",
+  "dockerfile": "/mnt/sdb/arafat/ehz/llm/.pools/audit10/build/CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard/Dockerfile"
+ }
+]

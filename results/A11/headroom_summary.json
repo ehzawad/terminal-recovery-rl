@@ -114,5 +114,21 @@
   "CLIGym__corrupted-python-json-unicode-escape-handler": 0,
   "CLIGym__encrypted-kernel-modules-disrupting-numerical-extension-loading": 0,
   "CLIGym__corrupt-python-object-hash-seed-breaking-markup-dictionary-internals.hard": 4
+ },
+ "sensitivity_without_vacuous_tasks": {
+  "excluded": [
+   "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+   "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching"
+  ],
+  "tasks": 44,
+  "v2_mean": 0.131,
+  "mixed": 5,
+  "hist": {
+   "0": 35,
+   "1": 3,
+   "2": 2,
+   "4": 4
+  },
+  "gate_G2": "FAIL"
  }
 }

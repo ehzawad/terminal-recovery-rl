@@ -47,6 +47,16 @@ that, the held-out validity check is moved to the headroom run: every v2 pass is
   consistently. That is the opposite of X1 (base already solved nearly everything) with the same consequence:
   plain RL from the base has almost no within-task variance to learn from.
 
+## Held-out check of v2 passes (A11.5)
+
+An independent reviewer read all 31 v2-passing attempts: **23 are genuine root-cause repairs, 0 are test edits
+or pytest-only workarounds, 8 are vacuous** — all 4 attempts on each of 2 tasks whose damage never takes effect
+(one Dockerfile appends a corrupted `re._compile` only if `re.py` lacks `_compile`, which it never does, so
+`re.py` is unchanged; the other plants overlay-whiteout marker files that do nothing in this container). In both
+the untouched container already passes. That exposes a gap in the headroom procedure, not in v2's rules: an
+untouched-container check under v2 would have removed these tasks. Without them: 44 tasks, mean v2 0.136,
+mixed still 5 — G2 still fails. Review: `v2_pass_review.json`.
+
 ## Registered consequence
 
 Stop before any RL design on this basis. The natural next step is SFT first (demonstrations of correct repairs),

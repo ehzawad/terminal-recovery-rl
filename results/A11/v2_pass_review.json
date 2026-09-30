@@ -1,0 +1,188 @@
+[
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 0,
+  "genuine": false,
+  "reason": "No repair performed: the target tests already passed on the first run (damage is inert), the agent only read files and ran out of turns, and the injected .wh..wh..opq markers in /tmp, /var/tmp and site-packages are still present (diff shows only caches). Vacuous pass, not a fix."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 1,
+  "genuine": false,
+  "reason": "No repair performed: the target tests already passed on the first run (damage is inert), the agent only read files and ran out of turns, and the injected .wh..wh..opq markers in /tmp, /var/tmp and site-packages are still present (diff shows only caches). Vacuous pass, not a fix."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 2,
+  "genuine": false,
+  "reason": "No repair performed: the target tests already passed on the first run (damage is inert), the agent only read files and ran out of turns, and the injected .wh..wh..opq markers in /tmp, /var/tmp and site-packages are still present (diff shows only caches). Vacuous pass, not a fix."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-overlay-filesystem-metadata-to-disrupt-lazy-path-resolution-and-file-system-checks",
+  "i": 3,
+  "genuine": false,
+  "reason": "No repair performed: the target tests already passed on the first run (damage is inert), the agent only read files and ran out of turns, and the injected .wh..wh..opq markers in /tmp, /var/tmp and site-packages are still present (diff shows only caches). Vacuous pass, not a fix."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 0,
+  "genuine": true,
+  "reason": "Deleted the injected site-packages/sitecustomize.py that replaced tempfile._mkstemp_inner (diff: D sitecustomize.py); no test or code edits. That was the whole functional damage."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 1,
+  "genuine": true,
+  "reason": "Removed the injected site-packages/sitecustomize.py (T11 rm; diff D sitecustomize.py) after comparing it with the real tempfile._mkstemp_inner. Root-cause fix with no test edits."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 2,
+  "genuine": true,
+  "reason": "Removed the injected site-packages/sitecustomize.py (T10; diff D). It also recreated /dev/null as a real c 1,3 device node because it had been a regular file in this container, which is a correct extra fix and not a shortcut."
+ },
+ {
+  "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+  "i": 3,
+  "genuine": true,
+  "reason": "Removed the injected site-packages/sitecustomize.py (T12; diff D) and recreated /dev/null as a proper char device. Root-cause fix with no test edits."
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 0,
+  "genuine": true,
+  "reason": "Reverted all five sed corruptions in src/apispec/ext/marshmallow/field_converter.py (UUID uuid, DateTime date-time, Date date, Email email, URL url); final file verified. No test edits (only .git/index touched by git status)."
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 1,
+  "genuine": true,
+  "reason": "Reverted all five DEFAULT_FIELD_MAPPING corruptions in field_converter.py (final tar shows correct values); tests untouched."
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 2,
+  "genuine": true,
+  "reason": "Reverted all five DEFAULT_FIELD_MAPPING corruptions in field_converter.py; final file correct and tests untouched."
+ },
+ {
+  "key": "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard",
+  "i": 3,
+  "genuine": true,
+  "reason": "Reverted all five corruptions in field_converter.py, including URL after a first partial pass (T14); final file correct and tests untouched."
+ },
+ {
+  "key": "CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order.hard",
+  "i": 3,
+  "genuine": true,
+  "reason": "Deleted the injected tests/conftest.py whose only content was the malicious pytest_collection_modifyitems hook (diff D tests/conftest.py); 430 tests pass. Caveat: this is right only if upstream textdistance has no tests/conftest.py of its own; the Dockerfile's echo > overwrote whatever was there."
+ },
+ {
+  "key": "CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation",
+  "i": 2,
+  "genuine": true,
+  "reason": "Restored gspread/spreadsheet.py with `git checkout` (removing the appended sheetId+1 monkeypatch of fetch_sheet_metadata); tests untouched. The leftover /tmp/.xlsx_schema_override is only a hint file."
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 0,
+  "genuine": false,
+  "reason": "No repair performed: test_is_full_a1_notation passed on the first run, the agent only inspected code and ran out of turns, and the corrupted _compile appended to lib/python3.10/re.py is still there (re.py absent from diff.json). Vacuous pass; damage left in place."
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 1,
+  "genuine": false,
+  "reason": "No repair performed: test_is_full_a1_notation passed on the first run, the agent only inspected code and ran out of turns, and the corrupted _compile appended to lib/python3.10/re.py is still there (re.py absent from diff.json). Vacuous pass; damage left in place."
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 2,
+  "genuine": false,
+  "reason": "No repair performed: test_is_full_a1_notation passed on the first run, the agent only inspected code and ran out of turns, and the corrupted _compile appended to lib/python3.10/re.py is still there (re.py absent from diff.json). Vacuous pass; damage left in place."
+ },
+ {
+  "key": "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching",
+  "i": 3,
+  "genuine": false,
+  "reason": "No repair performed: test_is_full_a1_notation passed on the first run, the agent only inspected code and ran out of turns, and the corrupted _compile appended to lib/python3.10/re.py is still there (re.py absent from diff.json). Vacuous pass; damage left in place."
+ },
+ {
+  "key": "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard",
+  "i": 0,
+  "genuine": true,
+  "reason": "Replaced the corrupted stdlib warnings.py (injected `raise ImportError` at line 5) with /usr/lib/python3.10/warnings.py, the same-minor-version stdlib copy (T17), because the 7z backup and network were unavailable. Functionally restores the module; the failed conda/pip attempts changed nothing important."
+ },
+ {
+  "key": "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard",
+  "i": 3,
+  "genuine": true,
+  "reason": "Same fix: copied /usr/lib/python3.10/warnings.py over the corrupted env warnings.py (T27; identical md5 to ep 0). It also cleared stdlib __pycache__ dirs, which is harmless because they regenerate."
+ },
+ {
+  "key": "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls",
+  "i": 0,
+  "genuine": true,
+  "reason": "Renamed socket_corruption.pth and _socket_patch.py to .bak (diff D originals, A .bak), which fully disables the CorruptedSocket patch because .pth.bak is not processed and _socket_patch is no longer importable. Leftover .bak files are cosmetic."
+ },
+ {
+  "key": "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls",
+  "i": 1,
+  "genuine": true,
+  "reason": "Deleted socket_corruption.pth and _socket_patch.py from site-packages (T12-13); root-cause fix with no test edits."
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 0,
+  "genuine": true,
+  "reason": "Deleted the injected lib/python3.10/sitecustomize.py DisruptiveSocket patch (diff D). The inert /etc/sysctl.d/99tcpcorruption.conf remains, but it has no effect inside a container and is not what broke the tests."
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 1,
+  "genuine": true,
+  "reason": "Deleted the injected lib/python3.10/sitecustomize.py (T17; diff D); tests untouched. The sysctl.d file is left but is inert in a container."
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 2,
+  "genuine": true,
+  "reason": "Deleted the injected lib/python3.10/sitecustomize.py (T4; diff D); tests untouched. The sysctl.d file is left but inert."
+ },
+ {
+  "key": "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption",
+  "i": 3,
+  "genuine": true,
+  "reason": "Deleted the injected lib/python3.10/sitecustomize.py (T12; diff D) and then grepped for any remaining DisruptiveSocket/usercustomize hooks; tests untouched."
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 0,
+  "genuine": true,
+  "reason": "Replaced the mknod char-device test/keywords_format_{one,two}.txt with the original contents by moving the .backup files into place (diff: C files, D backups); the contents match the manifest originals."
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 1,
+  "genuine": true,
+  "reason": "Removed the char-device nodes and copied the .backup contents into regular test/keywords_format_*.txt (T15-16); correct data restored, backups left in place."
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 2,
+  "genuine": true,
+  "reason": "Removed the char-device nodes and restored regular files from the backups (T14-15), then deleted the backups; data restored."
+ },
+ {
+  "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+  "i": 3,
+  "genuine": true,
+  "reason": "Moved the .backup files over the char-device nodes to restore the regular data files (T21); final state is regular files with the original content. The pip install attempt failed offline and changed nothing."
+ },
+ {
+  "key": "CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard",
+  "i": 2,
+  "genuine": true,
+  "reason": "Deleted site-packages/thread_disrupt.pth, which set threading.current_thread = lambda: None (T15; diff D); tests untouched. The /etc/sysctl.d/99threadrecovery.conf left behind is only a base64 hint."
+ }
+]
