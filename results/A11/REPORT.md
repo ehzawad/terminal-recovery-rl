@@ -54,7 +54,7 @@ or pytest-only workarounds, 8 are vacuous** — all 4 attempts on each of 2 task
 (one Dockerfile appends a corrupted `re._compile` only if `re.py` lacks `_compile`, which it never does, so
 `re.py` is unchanged; the other plants overlay-whiteout marker files that do nothing in this container). In both
 the untouched container already passes. That exposes a gap in the headroom procedure, not in v2's rules: an
-untouched-container check under v2 would have removed these tasks. Without them: 44 tasks, mean v2 0.136,
+untouched-container check under v2 would have removed these tasks. Without them: 44 tasks, mean v2 0.131,
 mixed still 5 — G2 still fails. Review: `v2_pass_review.json`.
 
 ## Registered consequence
