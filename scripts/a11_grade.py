@@ -132,8 +132,15 @@ def same_ast(a: str, b: str) -> bool:
         return False
 
 
+def is_code(p: str) -> bool:
+    n = p.rsplit("/", 1)[-1]
+    return n.endswith((".py", ".pth", ".so")) or ".so." in n or "/bin/" in p or "/sbin/" in p or p.startswith("/etc/ld.so")
+
+
 def check_bc(b, dmg: dict) -> dict:
     fails = []
+    dmg = {**dmg, "added": [p for p in dmg["added"] if is_code(p)],
+           "deleted": [p for p in dmg["deleted"] if is_code(p)]}
     touched = dmg["changed"] + dmg["deleted"]
     now_h, now_m = hashes(b, touched), modes(b, touched + dmg["added"] + list(dmg["dir_mode"]))
     for p in dmg["added"]:
@@ -211,7 +218,8 @@ def g1(jobs: int) -> None:
             r = {"key": k, "error": repr(e)[:500]}
         (OUT / "g1" / f"{k}.json").write_text(json.dumps(r, indent=1))
         spec = A10.spec_of(A10.rows()[k])
-        docker(["image", "rm", "-f", spec["image"]], check=False, timeout=300)
+        busy = {c["base"] for c in json.load(open(OUT / "candidates.json"))["ordered"][:24]}
+        docker(["image", "rm", "-f", spec["image"]] + ([] if spec["gold"] in busy else [spec["gold"]]), check=False, timeout=300)
         return r
 
     with cf.ThreadPoolExecutor(jobs) as ex:

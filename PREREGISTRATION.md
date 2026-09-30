@@ -627,3 +627,12 @@ test-side files (for example corrupted test data) must still be repaired by the 
 in the damaged image (listed in a dpkg `.list` file or in a newly present `.dist-info/RECORD`) are tooling, not
 damage, and part (b) does not require their removal (their count is recorded). A module dropped into
 site-packages outside any package record is still damage.
+
+**A11.5 — 2026-09-30 (prompted by G1 output; G1 is re-run in full under this rule and both counts reported).**
+The first 11 G1 tasks showed part (b) failing a correct repair because the Dockerfile's cleanup had deleted
+repository housekeeping files (`.gitignore`, `.github/` templates) and planted an inert hint script. Part (b) now
+counts **added and deleted** paths only when they are code: `*.py`, `*.pth`, shared libraries (`*.so`, `*.so.*`),
+anything under a `bin/` or `sbin/` directory, and `/etc/ld.so*`. **Changed** files still count whatever their
+type. Because this rule was adjusted after seeing G1 output, G1 is no longer a clean held-out test of v2; the
+held-out check becomes: every episode that passes v2 in the headroom run is read by an independent Opus reviewer
+(blind to the grader's verdict) for a genuine root-cause repair, and the rate of false passes is reported.
