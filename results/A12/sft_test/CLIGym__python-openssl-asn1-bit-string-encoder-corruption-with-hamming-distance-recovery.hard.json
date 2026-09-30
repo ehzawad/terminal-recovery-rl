@@ -1,0 +1,121 @@
+{
+ "key": "CLIGym__python-openssl-asn1-bit-string-encoder-corruption-with-hamming-distance-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "17:06:57",
+ "usable": true,
+ "image": "a10:python-openssl-asn1-bit-string-encoder-corruption-wi-fe799c0c67",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "length_budget",
+   "cmds": 4,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3.bak"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 38 passed, 23 warnings",
+     "n_pass": 38,
+     "n_ids": 39,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3.bak"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 38 passed, 23 warnings",
+     "n_pass": 38,
+     "n_ids": 39,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3.bak"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 38 passed, 23 warnings",
+     "n_pass": 38,
+     "n_ids": 39,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3.bak"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 38 passed, 23 warnings",
+     "n_pass": 38,
+     "n_ids": 39,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

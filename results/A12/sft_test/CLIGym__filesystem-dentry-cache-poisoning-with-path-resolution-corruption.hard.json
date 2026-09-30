@@ -1,0 +1,121 @@
+{
+ "key": "CLIGym__filesystem-dentry-cache-poisoning-with-path-resolution-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.vi3k6i5_1776_flashtext.b316c7e9",
+ "t0": "17:56:23",
+ "usable": true,
+ "image": "a10:filesystem-dentry-cache-poisoning-with-path-resoluti-c6470ecc3f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/test/keywords_format_one.txt"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_two.txt"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/test/keywords_format_one.txt"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_two.txt"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/test/keywords_format_one.txt"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_two.txt"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/test/keywords_format_one.txt"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_two.txt"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,169 @@
+{
+ "key": "CLIGym__posix-file-descriptor-passthrough-corruption-via-encrypted-fcntl-metadata-database",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "16:58:35",
+ "usable": true,
+ "image": "a10:posix-file-descriptor-passthrough-corruption-via-enc-0bb36718f7",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7z"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7za"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7zr"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/7z.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/Codecs/Rar.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7z"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7za"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7zr"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/7z.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/Codecs/Rar.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7z"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7za"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7zr"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/7z.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/Codecs/Rar.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7z"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7za"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/7zr"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/7z.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/p7zip/Codecs/Rar.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}
