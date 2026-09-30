@@ -636,3 +636,28 @@ anything under a `bin/` or `sbin/` directory, and `/etc/ld.so*`. **Changed** fil
 type. Because this rule was adjusted after seeing G1 output, G1 is no longer a clean held-out test of v2; the
 held-out check becomes: every episode that passes v2 in the headroom run is read by an independent Opus reviewer
 (blind to the grader's verdict) for a genuine root-cause repair, and the rate of false passes is reported.
+
+**A12 — 2026-09-30: SFT first, then re-measure headroom (registered before any teacher episode or draw).**
+Owner said "sure thing do it" to the SFT-first plan after A11's G2 failed (base mostly fails, rarely mixed).
+Question: after SFT on verified demonstrations, does the 9B (i) improve on held-out CLI-Gym repairs and (ii) land
+in the mixed range RL needs?
+*Splits.* TEST = the 44 A11 headroom tasks that were graded and are not vacuous (list frozen in
+`results/A12/test_tasks.json`); the base score on TEST is A11's (same prompt p7, harness, 4 attempts, v2):
+mean 0.131. TRAIN pool = CLI-Gym minus A10's 24, minus every task A11 touched (61), minus `uname -r` tasks.
+Train and test share repositories (25 images; test holds 2 per image), so this measures transfer across damage
+types within the same projects, not to new projects; that limit is stated with every result.
+*Train draw.* Order the pool by `sha256("a12-train|" + task_id)`, take the first 200. Processed grouped by base
+image (disk). A train task is usable iff its image builds, the gold image passes v1, and the **untouched damaged
+container fails v2** (the no-op check A11 lacked). Unusable tasks are recorded, not replaced.
+*Teacher.* `Qwen/Qwen3.5-27B-FP8` (same family and chat template; Apache-2.0), prompt p7, same harness (30
+commands, 32K context, offline, 2 pinned CPUs), 2 attempts per usable train task, temperature 0.7. Precondition:
+its tokenizer and chat template produce byte-identical ids to the 9B's on the p7 prompt and a sample trace; if
+not, stop. No Claude-generated text enters training data.
+*SFT data.* Teacher episodes that pass v2 (at most 2 per task), token records as saved (loss on model tokens
+only). LoRA r16 / alpha 32 on the X1 target modules, lr 1e-4, 2 epochs, max length 32K.
+*Evaluation.* The SFT adapter on TEST, 4 attempts, identical settings, v2. Report mean pass rate vs base with a
+task-level paired bootstrap 95% CI, and the mixed count. The teacher is also run on TEST (4 attempts) as a
+ceiling reference; the teacher never sees TEST during data generation.
+*Gate G3 (RL go):* design RL (own registration) iff the SFT model's TEST mean is not below the base's (paired
+CI lower bound > -0.05) **and** at least 12 TEST tasks are mixed for the SFT model. Otherwise report and stop.
+Results go to `results/A12/`.
