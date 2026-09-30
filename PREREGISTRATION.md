@@ -661,3 +661,14 @@ ceiling reference; the teacher never sees TEST during data generation.
 *Gate G3 (RL go):* design RL (own registration) iff the SFT model's TEST mean is not below the base's (paired
 CI lower bound > -0.05) **and** at least 12 TEST tasks are mixed for the SFT model. Otherwise report and stop.
 Results go to `results/A12/`.
+
+**A13 — 2026-09-30: more teacher demonstrations, SFT again (registered before any new episode).**
+Owner chose "more demonstrations, then SFT again" after A12 (SFT +0.071 on TEST, CI [0.000, 0.149]; G3 failed
+on mixed = 5). *Data:* the next 800 tasks of the A12 train pool in the same `sha256("a12-train|" + id)` order
+(tasks 201-1000), same usability checks (build, gold passes v1, untouched container fails v2), same teacher
+(Qwen3.5-27B-FP8), prompt, harness and 2 attempts. *SFT data:* all v2-passing teacher episodes from A12 and A13
+(at most 2 per task). *SFT:* same LoRA recipe as A12 (r16, lr 1e-4, max length 32K) except **1 epoch, 16
+sequences per update**, fixed now because roughly five times the data at 2 epochs would take about 11 hours;
+trained fresh from the base weights. *Evaluation, gate and TEST set:* exactly as A12 (42 usable TEST tasks, 4
+attempts, v2; report paired difference vs base and vs the A12 SFT model; G3 = CI lower bound > -0.05 vs base
+and >= 12 mixed TEST tasks). Results go to `results/A13/`.

@@ -49,6 +49,8 @@ def instruction_of(task_yaml: str) -> str:
 def tasks(split: str) -> list[dict]:
     if split == "train":
         return json.load(open(OUT / "train_tasks.json"))["tasks"]
+    if split.endswith(".json"):
+        return json.load(open(split))["tasks"]
     cand = {c["key"]: c for c in json.load(open(ROOT / "results/A11/candidates.json"))["ordered"]}
     return sorted((cand[k] for k in json.load(open(OUT / "test_tasks.json"))["tasks"]), key=lambda r: (r["base"], r["hash"]))
 
@@ -97,13 +99,13 @@ def run_task(row: dict, out: Path, attempts: int, client: OpenAI, renderer: Rend
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True)
-    ap.add_argument("--split", choices=["train", "test"], required=True)
+    ap.add_argument("--split", required=True, help="train | test | path to a tasks json")
     ap.add_argument("--attempts", type=int, default=2)
     ap.add_argument("--out", required=True)
     ap.add_argument("--tasks-parallel", type=int, default=4)
     ap.add_argument("--limit", type=int, default=0)
     a = ap.parse_args()
-    out = OUT / a.out
+    out = Path(a.out) if "/" in a.out else OUT / a.out
     out.mkdir(parents=True, exist_ok=True)
     todo = [r for r in tasks(a.split) if not (out / f"{r['key']}.json").exists()]
     if a.limit:
