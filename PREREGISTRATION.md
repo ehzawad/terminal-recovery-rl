@@ -601,3 +601,8 @@ v2 exists; no headroom number is read before G1 passes.
 attempts pass) and the mean pass rate is between 0.10 and 0.70; otherwise stop and report.
 Disk: at most 8 task images at once; per-episode change sets are kept, images are removed after grading.
 Results go to `results/A11/`.
+
+**A11.1 — 2026-09-30 (after writing the candidate list, before any image is built or episode run).** The cap
+of 2 per base image leaves only 49 candidates, too few to replace tasks that fail to build or fail gold (A10: 5
+of 24). The ordered list therefore continues in the same sha256 order with the cap raised to 3, then 4
+(`cap_tier` in `results/A11/candidates.json`); the runner still takes the first 48 usable tasks in list order.
