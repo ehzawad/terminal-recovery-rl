@@ -613,3 +613,11 @@ p6 would understate the base model and inflate headroom. The run uses `prompts/p
 same length class, states the real setting (root, /testbed, conda env, no network), asks for a root-cause
 repair verified by the tests, and forbids editing tests or test-only workarounds (the same rule grader v2
 enforces). Any later RL comparison uses this same prompt for both arms.
+
+**A11.3 — 2026-09-30 (before grader v2 has graded anything).** Part (b)'s live locations exclude
+`/testbed/.git` and `/opt/miniconda3/pkgs`: 948 of the 1,655 Dockerfiles delete `.git`, and many clear the conda
+package cache, as build cleanup. That is not the damage to be repaired and cannot be undone offline, so
+counting it would make most tasks unpassable. Directories count only by permission mode (their size and mtime
+change whenever their contents do); files by content hash and mode, not mtime. Part (b) and (c) are checked on
+the agent's final state before part (a) restores the test-side files and runs the tests, so damage placed in
+test-side files (for example corrupted test data) must still be repaired by the agent.
