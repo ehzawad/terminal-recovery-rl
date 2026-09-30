@@ -606,3 +606,10 @@ Results go to `results/A11/`.
 of 2 per base image leaves only 49 candidates, too few to replace tasks that fail to build or fail gold (A10: 5
 of 24). The ordered list therefore continues in the same sha256 order with the cap raised to 3, then 4
 (`cap_tier` in `results/A11/candidates.json`); the runner still takes the first 48 usable tasks in list order.
+
+**A11.2 — 2026-09-30 (before any episode is run).** The X1 prompt p6 describes an ordinary user in
+`/home/user` with unreadable or moved inputs; CLI-Gym runs as root in `/testbed` with a damaged environment, so
+p6 would understate the base model and inflate headroom. The run uses `prompts/p7_cligym_repair.txt` instead:
+same length class, states the real setting (root, /testbed, conda env, no network), asks for a root-cause
+repair verified by the tests, and forbids editing tests or test-only workarounds (the same rule grader v2
+enforces). Any later RL comparison uses this same prompt for both arms.
