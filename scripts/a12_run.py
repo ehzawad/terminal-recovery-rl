@@ -10,7 +10,7 @@ traces: results/A12/<out>/traces/<key>/<i>.json. Resumable.
 """
 from __future__ import annotations
 
-import argparse, concurrent.futures as cf, itertools, json, sys, time
+import argparse, concurrent.futures as cf, itertools, json, re, sys, textwrap, time
 from pathlib import Path
 
 import yaml
@@ -29,6 +29,21 @@ OUT = ROOT / "results/A12"
 CS = A10.POOL / "a12_cs"
 PROMPT = (ROOT / "prompts/p7_cligym_repair.txt").read_text().strip()
 TEACHER = "Qwen/Qwen3.5-27B-FP8"
+
+
+def instruction_of(task_yaml: str) -> str:
+    """The task's `instruction:` block; falls back to a literal-block scan when the file is not valid YAML."""
+    try:
+        return yaml.safe_load(task_yaml)["instruction"].strip()
+    except Exception:
+        lines = task_yaml.splitlines()
+        i = next(k for k, l in enumerate(lines) if l.startswith("instruction:"))
+        body = []
+        for l in lines[i + 1:]:
+            if re.match(r"^[A-Za-z_]+:", l):
+                break
+            body.append(l)
+        return textwrap.dedent("\n".join(body)).strip()
 
 
 def tasks(split: str) -> list[dict]:
@@ -53,7 +68,7 @@ def run_task(row: dict, out: Path, attempts: int, client: OpenAI, renderer: Rend
         noop = G.grade_v2(b, dmg)
     if noop["pass"]:
         return {**rec, "usable": False, "why": "vacuous: untouched container passes v2"}
-    instruction = yaml.safe_load((Path(spec["ctx"]) / "task.yaml").read_text())["instruction"].strip()
+    instruction = instruction_of((Path(spec["ctx"]) / "task.yaml").read_text())
     tdir = out / "traces" / row["key"]
     tdir.mkdir(parents=True, exist_ok=True)
 
