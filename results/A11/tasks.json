@@ -235,5 +235,237 @@
    }
   ],
   "t": "02:35:09"
+ },
+ "CLIGym__corrupt-python-regex-compilation-cache-breaking-pattern-matching": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupt-python-regex-compilation-cache-breaking-patt-67a4db6a18",
+  "gold": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "03:05:17"
+ },
+ "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-merkle-tree-hash-chain-corruption-via-ld-library-path-preload": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:kernel-can-database-dbc-parser-signal-multiplexer-me-daff4d39f3",
+  "gold": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 27,
+    "err": false
+   }
+  ],
+  "t": "03:07:18"
+ },
+ "CLIGym__corrupt-python-object-hash-seed-breaking-markup-dictionary-internals.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupt-python-object-hash-seed-breaking-markup-dict-745f81ebd0",
+  "gold": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "03:07:42"
+ },
+ "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:kernel-syscall-table-manipulation-to-break-ssl-modul-ff80e52b8b",
+  "gold": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+  "episodes": [
+   {
+    "end": "stopped",
+    "cmds": 24,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 17,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 9,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 10,
+    "err": false
+   }
+  ],
+  "t": "03:09:26"
+ },
+ "CLIGym__libnss-plugins-cache-poisoning-with-passwd-shadow-desynchronization": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:libnss-plugins-cache-poisoning-with-passwd-shadow-de-45811c2916",
+  "gold": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "03:11:28"
+ },
+ "CLIGym__corrupted-python-cookie-jar-serialization-with-fragmented-mozilla-format": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupted-python-cookie-jar-serialization-with-fragm-e6def3aa3f",
+  "gold": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "03:13:47"
+ },
+ "CLIGym__filesystem-extended-attributes-corruption": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:filesystem-extended-attributes-corruption-6faebaf4f0",
+  "gold": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "03:16:35"
+ },
+ "CLIGym__posix-file-descriptor-table-corruption-via-encrypted-proc-filesystem-poisoning.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:posix-file-descriptor-table-corruption-via-encrypted-7299e27156",
+  "gold": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "03:18:41"
  }
 }
