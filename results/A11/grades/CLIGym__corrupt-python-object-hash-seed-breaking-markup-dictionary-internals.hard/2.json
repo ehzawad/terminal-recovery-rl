@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__corrupt-python-object-hash-seed-breaking-markup-dictionary-internals.hard",
+ "i": 2,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "16 passed",
+  "n_ids": 16,
+  "n_pass": 16,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.2
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/bin/python3.10"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "16 passed",
+   "n_pass": 16,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

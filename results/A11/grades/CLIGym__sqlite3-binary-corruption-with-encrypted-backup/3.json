@@ -1,0 +1,44 @@
+{
+ "key": "CLIGym__sqlite3-binary-corruption-with-encrypted-backup",
+ "i": 3,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 8,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_routers.py::TestNestedSimpleRouter::test_recursive_nested_simple_routers": "MISSING",
+   "tests/test_viewsets.py::TestNestedSimpleRouter::test_create_child_on_viewset_with_mixin": "MISSING",
+   "tests/test_viewsets.py::TestNestedSimpleRouter::test_get_queryset_for_children_resource": "MISSING",
+   "tests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset": "MISSING",
+   "tests/test_viewsets.py::TestNestedSimpleRouter::test_nested_child_viewset_with_mixin": "MISSING",
+   "tests/test_dynamic_routers.py::TestNestedSimpleRouter::test_dynamic_routes": "MISSING",
+   "tests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_child": "MISSING",
+   "tests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_parent": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.7
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/libsqlite3.so.0.8.6"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 8,
+   "timeout": false
+  }
+ }
+}

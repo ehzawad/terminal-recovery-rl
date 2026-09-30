@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "25 failed, 1 passed",
+  "n_ids": 26,
+  "n_pass": 1,
+  "not_passed": {
+   "tests/test_entities.py::test_entities_strict[info37]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info83]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info78]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info109]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info111]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info220]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info31]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info245]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info139]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info68]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info164]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info117]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info138]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info130]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info228]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info0]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info242]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info126]": "FAILED",
+   "tests/test_entities.py::test_entities_strict[info32]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info24]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info144]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info233]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info107]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info226]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info234]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.1
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/html/entities.py"
+    ],
+    [
+     "content",
+     "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "25 failed, 1 passed",
+   "n_pass": 1,
+   "n_ids": 26,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "key": "CLIGym__posix-file-descriptor-table-corruption-via-encrypted-proc-filesystem-poisoning.hard",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "5 failed, 1 passed",
+  "n_ids": 6,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_spawn.py::PtyTestCase::test_pass_fds": "FAILED",
+   "tests/test_spawn.py::PtyTestCase::test_quick_spawn": "FAILED",
+   "tests/test_spawn.py::PtyTestCase::test_spawn_sh": "FAILED",
+   "tests/test_spawn.py::PtyTestCase::test_spawn_sh_unicode": "FAILED",
+   "tests/test_preexec_fn.py::PreexecFns::test_preexec": "FAILED",
+   "tests/test_preexec_fn.py::PreexecFns::test_preexec_error": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 6.8
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/.hidden_modules/fcntl.cpython-310-x86_64-linux-gnu.so"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/fcntl.py"
+    ],
+    [
+     "missing",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "5 failed, 1 passed",
+   "n_pass": 0,
+   "n_ids": 6,
+   "timeout": false
+  }
+ }
+}

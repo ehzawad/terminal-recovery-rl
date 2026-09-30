@@ -1,0 +1,50 @@
+{
+ "key": "CLIGym__python-stdlib-multi-version-symlink-conflict.hard",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "6 failed",
+  "n_ids": 6,
+  "n_pass": 0,
+  "not_passed": {
+   "glom/test/test_basic.py::test_initial_integration": "FAILED",
+   "glom/test/test_basic.py::test_python_native": "FAILED",
+   "glom/test/test_basic.py::test_ref": "FAILED",
+   "glom/test/test_error.py::test_glom_dev_debug": "FAILED",
+   "glom/test/test_scope_vars.py::test_scoped_vars": "FAILED",
+   "glom/test/test_target_types.py::test_exact_register": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 0.9
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/collections"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/copy.py"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/collections/__init__.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "6 failed",
+   "n_pass": 0,
+   "n_ids": 6,
+   "timeout": false
+  }
+ }
+}

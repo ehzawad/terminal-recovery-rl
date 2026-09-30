@@ -1,0 +1,41 @@
+{
+ "key": "CLIGym__encrypted-feed-configuration-data-with-fragmented-decryption-keys",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "5 failed",
+  "n_ids": 5,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_well_formed.py::test_loose_parser[info917]": "FAILED",
+   "tests/test_entities.py::test_entities_loose[info69]": "FAILED",
+   "tests/test_well_formed.py::test_strict_parser[info1405]": "FAILED",
+   "tests/test_encoding.py::test_local_encoding_file[./tests/encoding/utf-16le-autodetect.xml]": "FAILED",
+   "tests/test_well_formed.py::test_loose_parser[info1117]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.2
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/testbed/feedparser/api.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "5 failed",
+   "n_pass": 0,
+   "n_ids": 5,
+   "timeout": false
+  }
+ }
+}

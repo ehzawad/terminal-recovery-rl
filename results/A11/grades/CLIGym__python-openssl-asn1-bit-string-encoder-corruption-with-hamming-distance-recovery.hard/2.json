@@ -1,0 +1,41 @@
+{
+ "key": "CLIGym__python-openssl-asn1-bit-string-encoder-corruption-with-hamming-distance-recovery.hard",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "1 failed, 38 passed, 23 warnings",
+  "n_ids": 39,
+  "n_pass": 38,
+  "not_passed": {
+   "tests/test_crypto.py::TestFunction::test_dump_certificate": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3.bak"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "1 failed, 38 passed, 23 warnings",
+   "n_pass": 38,
+   "n_ids": 39,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,45 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-merkle-tree-hash-chain-corruption-via-ld-library-path-preload",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "5 failed, 11 passed",
+  "n_ids": 16,
+  "n_pass": 11,
+  "not_passed": {
+   "tests/test_database.py::CanToolsDatabaseTest::test_multiplex_extended": "FAILED",
+   "tests/test_database.py::CanToolsDatabaseTest::test_multiplex": "FAILED",
+   "tests/test_command_line.py::CanToolsCommandLineTest::test_decode_muxed_data": "FAILED",
+   "tests/test_command_line.py::CanToolsCommandLineTest::test_decode_single_line_muxed_data": "FAILED",
+   "tests/test_monitor.py::CanToolsMonitorTest::test_display_muxed_data_multiple_single_line": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 3.6
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/testbed/src/cantools/database/can/message.py"
+    ],
+    [
+     "content",
+     "/testbed/src/cantools/database/utils.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "5 failed, 11 passed",
+   "n_pass": 11,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

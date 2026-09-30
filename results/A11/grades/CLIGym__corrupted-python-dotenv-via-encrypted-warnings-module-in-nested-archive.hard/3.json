@@ -1,0 +1,30 @@
+{
+ "key": "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard",
+ "i": 3,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "15 passed",
+  "n_ids": 15,
+  "n_pass": 15,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.8
+ },
+ "v2": {
+  "pass": true,
+  "bc": {
+   "pass": true,
+   "n_fail": 0,
+   "fails": []
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "15 passed",
+   "n_pass": 15,
+   "n_ids": 15,
+   "timeout": false
+  }
+ }
+}

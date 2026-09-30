@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__floating-point-precision-corruption-for-pandas-interval-boundary-operations.hard",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "5 failed, 45 passed",
+  "n_ids": 50,
+  "n_pass": 45,
+  "not_passed": {
+   "pandas/tests/indexes/interval/test_interval_tree.py::TestIntervalTree::test_is_overlapping[left-order4-left3-right3-False]": "FAILED",
+   "pandas/tests/indexes/interval/test_interval_tree.py::TestIntervalTree::test_is_overlapping[right-order2-left3-right3-False]": "FAILED",
+   "pandas/tests/indexes/interval/test_interval_tree.py::TestIntervalTree::test_is_overlapping[neither-order3-left3-right3-False]": "FAILED",
+   "pandas/tests/indexes/interval/test_interval_tree.py::TestIntervalTree::test_is_overlapping_endpoints[neither-order1]": "FAILED",
+   "pandas/tests/indexes/interval/test_interval_tree.py::TestIntervalTree::test_is_overlapping[left-order0-left3-right3-False]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 3.7
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 5,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy_precision_corruptor.py"
+    ],
+    [
+     "added_still_present",
+     "/usr/lib/libfpu_intercept.so"
+    ],
+    [
+     "added_still_present",
+     "/usr/lib/libnextafter_intercept.so"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "5 failed, 45 passed",
+   "n_pass": 45,
+   "n_ids": 50,
+   "timeout": false
+  }
+ }
+}

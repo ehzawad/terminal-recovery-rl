@@ -1,0 +1,49 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-merkle-tree-hash-chain-corruption-via-ld-library-path-preload",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "9 failed, 7 passed",
+  "n_ids": 16,
+  "n_pass": 7,
+  "not_passed": {
+   "tests/test_database.py::CanToolsDatabaseTest::test_multiplex_extended": "FAILED",
+   "tests/test_database.py::CanToolsDatabaseTest::test_multiplex_choices": "FAILED",
+   "tests/test_database.py::CanToolsDatabaseTest::test_multiplex": "FAILED",
+   "tests/test_database.py::CanToolsDatabaseTest::test_decode_truncated_multiplexed": "FAILED",
+   "tests/test_database.py::CanToolsDatabaseTest::test_multiplex_choices_padding_one": "FAILED",
+   "tests/test_command_line.py::CanToolsCommandLineTest::test_decode_muxed_data": "FAILED",
+   "tests/test_command_line.py::CanToolsCommandLineTest::test_decode_single_line_muxed_data": "FAILED",
+   "tests/test_monitor.py::CanToolsMonitorTest::test_display_muxed_data": "FAILED",
+   "tests/test_monitor.py::CanToolsMonitorTest::test_display_muxed_data_multiple_single_line": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 3.2
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/testbed/src/cantools/database/can/message.py"
+    ],
+    [
+     "content",
+     "/testbed/src/cantools/database/utils.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "9 failed, 7 passed",
+   "n_pass": 7,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

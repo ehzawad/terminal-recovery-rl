@@ -1,0 +1,42 @@
+{
+ "key": "CLIGym__kernel-socket-option-so-keepalive-corruption-with-cascading-tcp-state-machine-disruption.hard",
+ "i": 3,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "2 failed, 11 passed",
+  "n_ids": 13,
+  "n_pass": 11,
+  "not_passed": {
+   "h11/tests/test_against_stdlib_http.py::test_h11_as_client": "FAILED",
+   "h11/tests/test_against_stdlib_http.py::test_h11_as_server": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 0.9
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/testbed/h11/_socket_patch.py"
+    ],
+    [
+     "content",
+     "/testbed/h11/__init__.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "2 failed, 11 passed",
+   "n_pass": 11,
+   "n_ids": 13,
+   "timeout": false
+  }
+ }
+}

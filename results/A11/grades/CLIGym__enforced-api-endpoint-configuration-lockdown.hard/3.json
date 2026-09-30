@@ -1,0 +1,40 @@
+{
+ "key": "CLIGym__enforced-api-endpoint-configuration-lockdown.hard",
+ "i": 3,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "4 failed, 1 passed",
+  "n_ids": 5,
+  "n_pass": 1,
+  "not_passed": {
+   "tests/test_routers.py::TestRouterSettingInheritance::test_explicit_no_trailing_slash": "FAILED",
+   "tests/test_routers.py::TestRouterSettingInheritance::test_explicit_trailing_slash": "FAILED",
+   "tests/test_routers.py::TestRouterSettingInheritance::test_inherits_no_trailing_slash": "FAILED",
+   "tests/test_routers.py::TestRouterSettingInheritance::test_inherits_nonstandard_trailing_slash": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/testbed/rest_framework_nested/routers.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "4 failed, 1 passed",
+   "n_pass": 1,
+   "n_ids": 5,
+   "timeout": false
+  }
+ }
+}

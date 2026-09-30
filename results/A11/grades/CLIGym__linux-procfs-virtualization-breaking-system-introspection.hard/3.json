@@ -1,0 +1,39 @@
+{
+ "key": "CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard",
+ "i": 3,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "10 passed",
+  "n_ids": 10,
+  "n_pass": 10,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 0.9
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/thread_disrupt.pth"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/thread_disrupt.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "10 passed",
+   "n_pass": 10,
+   "n_ids": 10,
+   "timeout": false
+  }
+ }
+}

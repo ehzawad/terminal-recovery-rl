@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__python-codecs-encoding-handler-corruption-via-encodings-module-sabotage",
+ "i": 1,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "12 passed",
+  "n_ids": 12,
+  "n_pass": 12,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/utf_8.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "12 passed",
+   "n_pass": 12,
+   "n_ids": 12,
+   "timeout": false
+  }
+ }
+}

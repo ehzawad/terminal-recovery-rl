@@ -1,0 +1,30 @@
+{
+ "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+ "i": 1,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "5 passed",
+  "n_ids": 5,
+  "n_pass": 5,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 0.9
+ },
+ "v2": {
+  "pass": true,
+  "bc": {
+   "pass": true,
+   "n_fail": 0,
+   "fails": []
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "5 passed",
+   "n_pass": 5,
+   "n_ids": 5,
+   "timeout": false
+  }
+ }
+}

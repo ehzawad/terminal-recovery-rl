@@ -1,0 +1,42 @@
+{
+ "key": "CLIGym__filesystem-dentry-cache-poisoning-with-path-resolution-corruption.hard",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "2 failed, 3 passed",
+  "n_ids": 5,
+  "n_pass": 3,
+  "not_passed": {
+   "test/test_file_load.py::TestFileLoad::test_file_format_one": "FAILED",
+   "test/test_file_load.py::TestFileLoad::test_file_format_two": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.1
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/testbed/test/keywords_format_one.txt"
+    ],
+    [
+     "content",
+     "/testbed/test/keywords_format_two.txt"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "5 passed",
+   "n_pass": 5,
+   "n_ids": 5,
+   "timeout": false
+  }
+ }
+}

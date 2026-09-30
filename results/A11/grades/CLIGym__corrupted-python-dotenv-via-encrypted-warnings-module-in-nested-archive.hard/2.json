@@ -1,0 +1,51 @@
+{
+ "key": "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 15,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_main.py::test_load_dotenv_existing_file": "MISSING",
+   "tests/test_main.py::test_load_dotenv_existing_variable_no_override": "MISSING",
+   "tests/test_main.py::test_load_dotenv_existing_variable_override": "MISSING",
+   "tests/test_main.py::test_dotenv_values_file": "MISSING",
+   "tests/test_main.py::test_get_key_ok": "MISSING",
+   "tests/test_main.py::test_set_key_no_file": "MISSING",
+   "tests/test_main.py::test_find_dotenv_found": "MISSING",
+   "tests/test_cli.py::test_run": "MISSING",
+   "tests/test_cli.py::test_run_with_existing_variable": "MISSING",
+   "tests/test_cli.py::test_get_default_path": "MISSING",
+   "tests/test_cli.py::test_set_non_existent_file": "MISSING",
+   "tests/test_parser.py::test_parse_stream[a=b-expected1]": "MISSING",
+   "tests/test_parser.py::test_parse_stream[a=b\\\\\\\\\\\\\\\\nc=d-expected31]": "MISSING",
+   "tests/test_main.py::test_load_dotenv_file_stream": "MISSING",
+   "tests/test_main.py::test_dotenv_values_file_stream": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.5
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/warnings.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 15,
+   "timeout": false
+  }
+ }
+}

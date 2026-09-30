@@ -1,0 +1,39 @@
+{
+ "key": "CLIGym__corrupted-python-pickle-protocol-with-fragmented-opcode-injection-and-encrypted-wsgi-app-reconstruction",
+ "i": 3,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "16 passed",
+  "n_ids": 16,
+  "n_pass": 16,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.6
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/zzz_corrupt_import.pth"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/zzz_corrupt_import.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "16 passed",
+   "n_pass": 16,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

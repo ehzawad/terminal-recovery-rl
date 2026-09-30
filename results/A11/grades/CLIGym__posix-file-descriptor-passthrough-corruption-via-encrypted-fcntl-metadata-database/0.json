@@ -1,0 +1,74 @@
+{
+ "key": "CLIGym__posix-file-descriptor-passthrough-corruption-via-encrypted-fcntl-metadata-database",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 6,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_spawn.py::PtyTestCase::test_pass_fds": "MISSING",
+   "tests/test_spawn.py::PtyTestCase::test_quick_spawn": "MISSING",
+   "tests/test_spawn.py::PtyTestCase::test_spawn_sh": "MISSING",
+   "tests/test_preexec_fn.py::PreexecFns::test_preexec": "MISSING",
+   "tests/test_preexec_fn.py::PreexecFns::test_preexec_error": "MISSING",
+   "tests/test_wait.py::TestWaitAfterTermination::test_wait_false_shortproc": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.7
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 9,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/bin/7z"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/bin/7za"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/bin/7zr"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/p7zip/7z.so"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/p7zip/Codecs/Rar.so"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/conda-meta/history"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_posixsubprocess.cpython-310-x86_64-linux-gnu.so"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/ssl/cacert.pem"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 6,
+   "timeout": false
+  }
+ }
+}

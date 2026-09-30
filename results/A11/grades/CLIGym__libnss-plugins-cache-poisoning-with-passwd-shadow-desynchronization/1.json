@@ -1,0 +1,43 @@
+{
+ "key": "CLIGym__libnss-plugins-cache-poisoning-with-passwd-shadow-desynchronization",
+ "i": 1,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "35 passed",
+  "n_ids": 35,
+  "n_pass": 35,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 4.4
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/etc/ld.so.preload"
+    ],
+    [
+     "added_still_present",
+     "/usr/lib/x86_64-linux-gnu/libnss_corrupt.so.2"
+    ],
+    [
+     "ld_preload",
+     "/etc/ld.so.preload"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "35 passed",
+   "n_pass": 35,
+   "n_ids": 35,
+   "timeout": false
+  }
+ }
+}

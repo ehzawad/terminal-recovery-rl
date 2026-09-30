@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__python-openssl-asn1-der-tag-encoding-infrastructure-corruption-via-constructed-primitive-bit-inversion",
+ "i": 2,
+ "v1": {
+  "pass": true,
+  "rule": "summary",
+  "summary": "471 passed, 1 skipped, 259 warnings",
+  "n_ids": 0,
+  "n_pass": 0,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 8.2
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "summary",
+   "summary": "471 passed, 1 skipped, 259 warnings",
+   "n_pass": 0,
+   "n_ids": 0,
+   "timeout": false
+  }
+ }
+}

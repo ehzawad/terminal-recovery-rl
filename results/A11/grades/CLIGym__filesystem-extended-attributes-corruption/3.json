@@ -1,0 +1,49 @@
+{
+ "key": "CLIGym__filesystem-extended-attributes-corruption",
+ "i": 3,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "1 error",
+  "n_ids": 9,
+  "n_pass": 0,
+  "not_passed": {
+   "io_tests/test_file_io.py::TestNativeIO::test_exists": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_isdir": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_isfile": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_ls": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_open": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_open_args": "MISSING",
+   "io_tests/test_file_io.py::TestLazyPath::test_materialize": "MISSING",
+   "io_tests/test_file_io.py::TestLazyPath::test_getattr": "MISSING",
+   "io_tests/test_file_io.py::TestLazyPath::test_getitem": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.8
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/iopath/common/file_io.py"
+    ],
+    [
+     "content",
+     "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "1 error",
+   "n_pass": 0,
+   "n_ids": 9,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "key": "CLIGym__corrupted-python-os-path-module-via-layered-obfuscation.hard",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "3 failed, 13 passed",
+  "n_ids": 16,
+  "n_pass": 13,
+  "not_passed": {
+   "tests/test_main.py::test_find_dotenv_found": "FAILED",
+   "tests/test_main.py::test_load_dotenv_in_current_dir": "FAILED",
+   "tests/test_main.py::test_load_dotenv_existing_file": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.1
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/posixpath.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "3 failed, 13 passed",
+   "n_pass": 13,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

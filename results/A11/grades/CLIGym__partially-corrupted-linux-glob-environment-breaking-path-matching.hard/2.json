@@ -1,0 +1,41 @@
+{
+ "key": "CLIGym__partially-corrupted-linux-glob-environment-breaking-path-matching.hard",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "1 error",
+  "n_ids": 5,
+  "n_pass": 0,
+  "not_passed": {
+   "io_tests/test_file_io.py::TestNativeIO::test_ls": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_exists": "MISSING",
+   "io_tests/test_file_io.py::TestNativeIO::test_open": "MISSING",
+   "io_tests/test_file_io.py::TestLazyPath::test_join": "MISSING",
+   "io_tests/test_file_io.py::TestLazyPath::test_getitem": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 1.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "missing",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/iopath/common/file_io.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "1 error",
+   "n_pass": 0,
+   "n_ids": 5,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-merkle-tree-hash-chain-corruption-via-ld-library-path-preload",
+ "i": 3,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "16 passed",
+  "n_ids": 16,
+  "n_pass": 16,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 3.2
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/testbed/src/cantools/database/utils.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "16 passed",
+   "n_pass": 16,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls",
+ "i": 3,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "10 passed, 20 warnings",
+  "n_ids": 10,
+  "n_pass": 10,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 0.9
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_socket_patch.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "10 passed, 20 warnings",
+   "n_pass": 10,
+   "n_ids": 10,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,51 @@
+{
+ "key": "CLIGym__corrupted-python-html-comment-stripping-with-fragmented-cdata-section-reconstruction.hard",
+ "i": 0,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "20 passed",
+  "n_ids": 20,
+  "n_pass": 20,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 2.5
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 5,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_lxml_cdata_hook.pth"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml_cdata_patch.py"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/etree.cpython-310-x86_64-linux-gnu.so"
+    ],
+    [
+     "content",
+     "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.13"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_lxml_cdata_hook.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "20 passed",
+   "n_pass": 20,
+   "n_ids": 20,
+   "timeout": false
+  }
+ }
+}

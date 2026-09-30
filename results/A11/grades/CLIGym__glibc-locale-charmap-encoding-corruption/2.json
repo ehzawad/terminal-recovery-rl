@@ -1,0 +1,42 @@
+{
+ "key": "CLIGym__glibc-locale-charmap-encoding-corruption",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "2 failed, 4 passed",
+  "n_ids": 6,
+  "n_pass": 4,
+  "not_passed": {
+   "tests/test_database.py::CanToolsDatabaseTest::test_cp1252_dbc": "FAILED",
+   "tests/test_database.py::CanToolsDatabaseTest::test_special_chars_6_0_sym": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.4
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/cp1252.py"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/utf_8.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "2 failed, 4 passed",
+   "n_pass": 4,
+   "n_ids": 6,
+   "timeout": false
+  }
+ }
+}

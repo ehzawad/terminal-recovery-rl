@@ -1,0 +1,39 @@
+{
+ "key": "CLIGym__kernel-socket-option-so-keepalive-corruption-with-cascading-tcp-state-machine-disruption.hard",
+ "i": 0,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "13 passed",
+  "n_ids": 13,
+  "n_pass": 13,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/testbed/h11/_socket_patch.py"
+    ],
+    [
+     "content",
+     "/testbed/h11/__init__.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "13 passed",
+   "n_pass": 13,
+   "n_ids": 13,
+   "timeout": false
+  }
+ }
+}

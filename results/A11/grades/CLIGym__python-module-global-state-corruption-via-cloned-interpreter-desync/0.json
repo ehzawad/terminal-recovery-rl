@@ -1,0 +1,51 @@
+{
+ "key": "CLIGym__python-module-global-state-corruption-via-cloned-interpreter-desync",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "7 failed, 1 passed",
+  "n_ids": 8,
+  "n_pass": 1,
+  "not_passed": {
+   "glom/test/test_basic.py::test_initial_integration": "FAILED",
+   "glom/test/test_basic.py::test_scope": "FAILED",
+   "glom/test/test_basic.py::test_ref": "FAILED",
+   "glom/test/test_scope_vars.py::test_scoped_vars": "FAILED",
+   "glom/test/test_scope_vars.py::test_globals": "FAILED",
+   "glom/test/test_scope_vars.py::test_let": "FAILED",
+   "glom/test/test_spec.py::test_scope_spec": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 45.4
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_glom_scope_hook.py"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/glom_init.pth"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/glom_init.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "7 failed, 1 passed",
+   "n_pass": 1,
+   "n_ids": 8,
+   "timeout": false
+  }
+ }
+}

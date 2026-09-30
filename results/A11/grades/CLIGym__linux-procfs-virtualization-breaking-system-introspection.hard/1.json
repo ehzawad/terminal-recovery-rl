@@ -1,0 +1,49 @@
+{
+ "key": "CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "9 failed, 1 passed",
+  "n_ids": 10,
+  "n_pass": 1,
+  "not_passed": {
+   "tests/test_html.py::test_context_manager": "FAILED",
+   "tests/test_html.py::test_nested_decorator": "FAILED",
+   "tests/test_html.py::test_decorator": "FAILED",
+   "tests/test_dom_tag.py::test___get_thread_context": "FAILED",
+   "tests/test_dom_tag.py::test_nested_context": "FAILED",
+   "tests/test_html.py::test_add": "FAILED",
+   "tests/test_html.py::test_iadd": "FAILED",
+   "tests/test_document.py::test_decorator": "FAILED",
+   "tests/test_document.py::test_bare_decorator": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/thread_disrupt.pth"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/thread_disrupt.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "9 failed, 1 passed",
+   "n_pass": 1,
+   "n_ids": 10,
+   "timeout": false
+  }
+ }
+}

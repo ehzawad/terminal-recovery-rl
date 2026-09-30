@@ -1,0 +1,60 @@
+{
+ "key": "CLIGym__corrupted-python-json-unicode-escape-handler",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 24,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_api.py::TweepyAPITests::testgetstatus": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testgetuser": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testhometimeline": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testmentionstimeline": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testsearchtweets": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testusertimeline": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testverifycredentials": "MISSING",
+   "tests/test_api.py::TweepyAPITests::testlookupusers": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_tweet": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_tweets": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_user": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_users": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_home_timeline": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_users_tweets": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_get_users_mentions": "MISSING",
+   "tests/test_client.py::TweepyClientTests::test_search_recent_tweets": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_tweet": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_tweets": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_user": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_home_timeline": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_tweets": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_get_users_mentions": "MISSING",
+   "tests/test_asyncclient.py::TweepyAsyncClientTests::test_search_recent_tweets": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 1.3
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 24,
+   "timeout": false
+  }
+ }
+}

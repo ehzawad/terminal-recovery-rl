@@ -1,0 +1,67 @@
+{
+ "key": "CLIGym__ssh-protocol-certificate-validation-engine-sabotage-with-distributed-cipher-recovery.hard",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 19,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_client.py::SSHClientTest::test_client": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_client_can_be_used_as_context_manager": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_reject_policy": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_host_key_negotiation_1": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_host_key_negotiation_4": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_newer_openssh_uses_rsa_sha2_for_certs_not_ssh_rsa": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_old_openssh_needs_ssh_rsa_for_certs_not_rsa_sha2": "MISSING",
+   "tests/test_transport.py::TransportTest::test_special": "MISSING",
+   "tests/test_transport.py::TransportTest::test_compute_key": "MISSING",
+   "tests/test_transport.py::ServiceRequestingTransportTest::test_invoke_shell": "MISSING",
+   "tests/test_transport.py::ServiceRequestingTransportTest::test_channel_send_misc": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_load_rsa": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_load_dss": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_load_ecdsa_384": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_ed25519": "MISSING",
+   "tests/test_hostkeys.py::HostKeysTest::test_dict": "MISSING",
+   "tests/test_hostkeys.py::HostKeysTabsTest::test_add": "MISSING",
+   "tests/test_kex.py::KexTest::test_gex_client": "MISSING",
+   "tests/test_kex.py::KexTest::test_kex_group16_sha512_client": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 2.7
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 4,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_socket.cpython-310-x86_64-linux-gnu.so"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_ssl.cpython-310-x86_64-linux-gnu.so"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/certifi/cacert.pem"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/pip/_vendor/certifi/cacert.pem"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 19,
+   "timeout": false
+  }
+ }
+}

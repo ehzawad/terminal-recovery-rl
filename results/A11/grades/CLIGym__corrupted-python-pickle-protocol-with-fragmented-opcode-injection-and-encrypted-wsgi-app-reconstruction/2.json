@@ -1,0 +1,48 @@
+{
+ "key": "CLIGym__corrupted-python-pickle-protocol-with-fragmented-opcode-injection-and-encrypted-wsgi-app-reconstruction",
+ "i": 2,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "4 failed, 12 passed",
+  "n_ids": 16,
+  "n_pass": 12,
+  "not_passed": {
+   "tests/test_util.py::test_import_app_good[support]": "FAILED",
+   "tests/test_util.py::test_import_app_good[support:app]": "FAILED",
+   "tests/test_util.py::test_import_app_good[support:create_app\\(\\)]": "FAILED",
+   "tests/test_util.py::test_import_app_good[support:create_app\\(count=3\\)]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.7
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/zzz_corrupt_import.pth"
+    ],
+    [
+     "content",
+     "/testbed/gunicorn/util.py"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/zzz_corrupt_import.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "4 failed, 12 passed",
+   "n_pass": 12,
+   "n_ids": 16,
+   "timeout": false
+  }
+ }
+}

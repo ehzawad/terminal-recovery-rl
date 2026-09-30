@@ -1,0 +1,41 @@
+{
+ "key": "CLIGym__python-uuid-generation-poisoning-via-mac-address-namespace-corruption",
+ "i": 3,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "1 failed, 25 passed",
+  "n_ids": 26,
+  "n_pass": 25,
+  "not_passed": {
+   "tests/test_factory.py::FactoryTestCase::test_cli_seed": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.1
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/usr/local/lib/random_interceptor.so"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/random.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "1 failed, 25 passed",
+   "n_pass": 25,
+   "n_ids": 26,
+   "timeout": false
+  }
+ }
+}
