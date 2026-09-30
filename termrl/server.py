@@ -16,13 +16,15 @@ VLLM = os.path.join(os.path.dirname(sys.executable), "vllm")
 
 
 def start(lora: dict[str, str] | None = None, log_path: str = "runs/vllm_server.log", max_model_len: int = 8192,
-          max_num_seqs: int = 32) -> subprocess.Popen:
+          max_num_seqs: int = 32, model_path: str = MODEL_PATH, served_name: str = "q9",
+          gpu_util: float = 0.80) -> subprocess.Popen:
     """Serve the base model as 'q9' plus any LoRA adapters under their given names."""
     env = dict(os.environ, CUDA_DEVICE_ORDER="PCI_BUS_ID", CUDA_VISIBLE_DEVICES=A6000, HF_HUB_OFFLINE="1")
-    cmd = [VLLM, "serve", MODEL_PATH, "--host", "127.0.0.1", "--port", str(PORT), "--served-model-name", "q9",
-           "--max-model-len", str(max_model_len), "--gpu-memory-utilization", "0.80", "--max-num-seqs", str(max_num_seqs),
-           "--limit-mm-per-prompt", '{"image":0,"video":0}', "--enable-prefix-caching",
-           "--enable-lora", "--max-lora-rank", "16", "--max-loras", "2"]
+    cmd = [VLLM, "serve", model_path, "--host", "127.0.0.1", "--port", str(PORT), "--served-model-name", served_name,
+           "--max-model-len", str(max_model_len), "--gpu-memory-utilization", str(gpu_util), "--max-num-seqs", str(max_num_seqs),
+           "--limit-mm-per-prompt", '{"image":0,"video":0}', "--enable-prefix-caching"]
+    if model_path == MODEL_PATH:
+        cmd += ["--enable-lora", "--max-lora-rank", "16", "--max-loras", "2"]
     if lora:
         cmd += ["--lora-modules", *[f"{k}={v}" for k, v in lora.items()]]
     os.makedirs(os.path.dirname(log_path), exist_ok=True)

@@ -1,0 +1,1205 @@
+{
+ "pool": 1561,
+ "tasks": [
+  {
+   "key": "CLIGym__corrupt-python-traceback-formatting-via-linecache-poisoning",
+   "task_id": "corrupt-python-traceback-formatting-via-linecache-poisoning",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "074e923428abd0ccfc49e712f7cc28be2cae36fe33bf52fb5726ca5ebbf8c8ab"
+  },
+  {
+   "key": "CLIGym__corrupt-python-exception-group-display-via-sys-displayhook-poisoning.hard",
+   "task_id": "corrupt-python-exception-group-display-via-sys-displayhook-poisoning.hard",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "0cde0804327b8ef4ba3d6a18258c6c81b5503f9ab14566761747139a7430ff0b"
+  },
+  {
+   "key": "CLIGym__corrupt-python-exception-repr-via-object-class-tampering",
+   "task_id": "corrupt-python-exception-repr-via-object-class-tampering",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "0ea1495bb6021d1e4c416670b530adc5d82275c505acf184084be0634940bed6"
+  },
+  {
+   "key": "CLIGym__corrupt-python-exception-subclass-checking-via-abstract-base-class-cache-desynchronization.hard",
+   "task_id": "corrupt-python-exception-subclass-checking-via-abstract-base-class-cache-desynchronization.hard",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "1001775a3ff8eb301be0d1dfdc2a7fde18530678d50650395e9845f83ecefea2"
+  },
+  {
+   "key": "CLIGym__corrupt-python-exception-attribute-access-via-getattribute-hook-injection.hard",
+   "task_id": "corrupt-python-exception-attribute-access-via-getattribute-hook-injection.hard",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "177513c9b07d982f1e5f10f2f32edd88abf69e749f7f8e34412a4ea4daa7e887"
+  },
+  {
+   "key": "CLIGym__corrupt-python-descriptor-protocol-to-break-exception-attributes",
+   "task_id": "corrupt-python-descriptor-protocol-to-break-exception-attributes",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "199b164b761a71b5b49d589b2a28c46d8d39cd7d0afdeafc28508a94ca75fa76"
+  },
+  {
+   "key": "CLIGym__corrupt-python-exception-type-registration-via-importlib-machinery-cache-poisoning.hard",
+   "task_id": "corrupt-python-exception-type-registration-via-importlib-machinery-cache-poisoning.hard",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "1ca968fe2d2eafa548606a3afd89c619ab7dfee1a77faf83201dac750717e184"
+  },
+  {
+   "key": "CLIGym__encrypt-core-test-fixtures-to-block-test-setup.hard",
+   "task_id": "encrypt-core-test-fixtures-to-block-test-setup.hard",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "1decd7a09345e3fc4d21fb2483899ac577e0e41d8fa5a751c4e22e380102f36e"
+  },
+  {
+   "key": "CLIGym__corrupt-pytest-plugin-loader-via-setuptools-entrypoint-hijacking.hard",
+   "task_id": "corrupt-pytest-plugin-loader-via-setuptools-entrypoint-hijacking.hard",
+   "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+   "hash": "1e8a0aa664ad70ff0e7a9325e5e9abd58bc183868c1156b28b3972b7e930bb97"
+  },
+  {
+   "key": "CLIGym__api-generator-source-code-subtle-logic-bug-induction.hard",
+   "task_id": "api-generator-source-code-subtle-logic-bug-induction.hard",
+   "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+   "hash": "0c3d2b5249acd053fa5a1a2dfa55831093e7fa8d1e7ef05d9e8d759591d29d10"
+  },
+  {
+   "key": "CLIGym__kernel-futex-syscall-corruption-with-encrypted-test-coordination-metadata.hard",
+   "task_id": "kernel-futex-syscall-corruption-with-encrypted-test-coordination-metadata.hard",
+   "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+   "hash": "104d3ff346a193c8f1b8305df0d830fc5abdde8047c819fae883a429a3aefe99"
+  },
+  {
+   "key": "CLIGym__encrypted-pytest-plugin-system-with-corrupted-hook-registration",
+   "task_id": "encrypted-pytest-plugin-system-with-corrupted-hook-registration",
+   "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+   "hash": "125039db71f4bd5f5db0e7080d17c4f6186c7a086a352f5691d5fd19d9271e44"
+  },
+  {
+   "key": "CLIGym__api-dependency-interpreter-path-tampering",
+   "task_id": "api-dependency-interpreter-path-tampering",
+   "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+   "hash": "160bef1dadc0bbb32894fa4ef52b470bbfee330a54a2cd12d8c20866837eb9d9"
+  },
+  {
+   "key": "CLIGym__system-wide-python-stdlib-symlink-hijack",
+   "task_id": "system-wide-python-stdlib-symlink-hijack",
+   "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+   "hash": "168bd87ae57658a829c3f72199142c2031b22fcd3162d415481925aaaad77bc7"
+  },
+  {
+   "key": "CLIGym__encrypted-serialization-schema-with-dependency-chain-tampering.hard",
+   "task_id": "encrypted-serialization-schema-with-dependency-chain-tampering.hard",
+   "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+   "hash": "1b0e9189968d308147c2893f1e5fe16f20101b0a044b9bb0abc5dbdc999c1b37"
+  },
+  {
+   "key": "CLIGym__corrupt-python-callable-detection-to-break-wsgi-application-validation",
+   "task_id": "corrupt-python-callable-detection-to-break-wsgi-application-validation",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "02be53041ed0dad155c774524ccc201cd5167b824bd8f6483d267aaad657cd59"
+  },
+  {
+   "key": "CLIGym__corrupt-network-address-parsing-and-socket-creation-through-system-library-interception.hard",
+   "task_id": "corrupt-network-address-parsing-and-socket-creation-through-system-library-interception.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "02e429db8553174d318cbc2ef16378eb703ecd72df3ff350a656f17062b35627"
+  },
+  {
+   "key": "CLIGym__corrupt-http-chunked-encoding-parser-via-socket-level-system-call-interception",
+   "task_id": "corrupt-http-chunked-encoding-parser-via-socket-level-system-call-interception",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "04960a7a283069c02486ffea8a1221de700ce877159d9113bc7820532f7437ea"
+  },
+  {
+   "key": "CLIGym__corrupted-python-pickle-protocol-with-fragmented-opcode-injection-and-encrypted-wsgi-app-reconstruction.hard",
+   "task_id": "corrupted-python-pickle-protocol-with-fragmented-opcode-injection-and-encrypted-wsgi-app-reconstruction.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "054917f884473495731cbd9f4398f6ab685affe06c2231b7b535595d60fa070f"
+  },
+  {
+   "key": "CLIGym__corrupted-python-http-status-line-parser-with-fragmented-wsgi-response-header-encoding-and-encrypted-content-negotiation-recovery.hard",
+   "task_id": "corrupted-python-http-status-line-parser-with-fragmented-wsgi-response-header-encoding-and-encrypted-content-negotiation-recovery.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "07fa93e498ad791b22fb482840751deb6d3647416a77c0025249be69e68fc5a2"
+  },
+  {
+   "key": "CLIGym__corrupt-python-descriptor-protocol-and-type-system-internals.hard",
+   "task_id": "corrupt-python-descriptor-protocol-and-type-system-internals.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "07ffbb3ea77328afe3f23051d5848609eddf65989b8b8ad1335eb826cc763bd9"
+  },
+  {
+   "key": "CLIGym__corrupted-python-unix-socket-credential-passing-with-fragmented-scm-credentials-and-systemd-notify-protocol-disruption.hard",
+   "task_id": "corrupted-python-unix-socket-credential-passing-with-fragmented-scm-credentials-and-systemd-notify-protocol-disruption.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "084514b3acab6845c3f7c5a78bc6ac90d56333741a9336c3991ef59c3d26f6d2"
+  },
+  {
+   "key": "CLIGym__corrupted-python-http-parser-via-glibc-string-termination-semantic-exploitation-with-fragmented-wsgi-environ-resurrection",
+   "task_id": "corrupted-python-http-parser-via-glibc-string-termination-semantic-exploitation-with-fragmented-wsgi-environ-resurrection",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "08e5f14e357ca84582a6e6d6cacb000e734144f503748e4d88a2597ef3bb8fad"
+  },
+  {
+   "key": "CLIGym__corrupted-python-socket-sendmsg-iovec-scatter-gather-with-fragmented-kernel-tcp-cork-state-and-encrypted-writev-syscall-metadata.hard",
+   "task_id": "corrupted-python-socket-sendmsg-iovec-scatter-gather-with-fragmented-kernel-tcp-cork-state-and-encrypted-writev-syscall-metadata.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "099f995aefe12e49fbf9816941b3f2dc045416ec155aa1ffddb10e56792ed7b1"
+  },
+  {
+   "key": "CLIGym__corrupted-http-request-parser-via-libc-character-classification-poisoning-with-fragmented-locale-recovery.hard",
+   "task_id": "corrupted-http-request-parser-via-libc-character-classification-poisoning-with-fragmented-locale-recovery.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "099fc0e6b088cf738325166a1b5cb90c4d7f16c3f19769cb8b57bd082e09d2f4"
+  },
+  {
+   "key": "CLIGym__corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode",
+   "task_id": "corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "0b36ed907dd9b77d9dd73b451639c08878ce3db8199f7055c71b3bee7884abff"
+  },
+  {
+   "key": "CLIGym__corrupt-python-callable-detection-to-break-wsgi-application-import-and-validation.hard",
+   "task_id": "corrupt-python-callable-detection-to-break-wsgi-application-import-and-validation.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "0ca4f211b38de75219d15eaf9ffac780ad8b0d53c5053e02a4787bc1ec8db5f7"
+  },
+  {
+   "key": "CLIGym__corrupted-gunicorn-unix-socket-abstract-namespace-with-fragmented-netlink-ipc-and-encrypted-socket-credential-recovery",
+   "task_id": "corrupted-gunicorn-unix-socket-abstract-namespace-with-fragmented-netlink-ipc-and-encrypted-socket-credential-recovery",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "0d28ad015b1851d7dc08b7b5d1181b162798d9cba3a27fcec5e6d46fe8759df0"
+  },
+  {
+   "key": "CLIGym__corrupted-python-socket-recvinto-memoryview-abi-with-fragmented-buffer-protocol-resurrection",
+   "task_id": "corrupted-python-socket-recvinto-memoryview-abi-with-fragmented-buffer-protocol-resurrection",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "0ddb595229526c1b8fbe44222a74f7613dc6ff3028a111724ad940de989805c1"
+  },
+  {
+   "key": "CLIGym__corrupted-gunicorn-http-parser-via-kernel-tcp-window-scaling-sabotage-with-fragmented-socket-metadata-recovery.hard",
+   "task_id": "corrupted-gunicorn-http-parser-via-kernel-tcp-window-scaling-sabotage-with-fragmented-socket-metadata-recovery.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "0e2707e48cad16cd3a269c9870a18d6f599dfb0e5d8e35c8eef0d6e189a47f3b"
+  },
+  {
+   "key": "CLIGym__corrupted-vdso-syscall-interface-with-fragmented-libc-resolver",
+   "task_id": "corrupted-vdso-syscall-interface-with-fragmented-libc-resolver",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "0f2f80155343a94d3c39384c967e4f49c5b15727b306d1bbdbf6aa18ab218f9e"
+  },
+  {
+   "key": "CLIGym__corrupted-gunicorn-worker-lifecycle-with-fragmented-arbiter-ipc-and-encrypted-recovery-protocol",
+   "task_id": "corrupted-gunicorn-worker-lifecycle-with-fragmented-arbiter-ipc-and-encrypted-recovery-protocol",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "117d0db4e3032b0c5f8f87196b8e6a9b086aed2678be56e4954e1229ef89a135"
+  },
+  {
+   "key": "CLIGym__corrupted-gunicorn-socket-handoff-with-fragmented-systemd-protocol-and-poisoned-worker-preload",
+   "task_id": "corrupted-gunicorn-socket-handoff-with-fragmented-systemd-protocol-and-poisoned-worker-preload",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1462183cd85f77a284f2f55583da0fc53e4bac5d8b28005b321fd3172eaec726"
+  },
+  {
+   "key": "CLIGym__http-version-validation-corruption-with-wsgi-protocol-semantic-disruption.hard",
+   "task_id": "http-version-validation-corruption-with-wsgi-protocol-semantic-disruption.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1581fdd0ed568a2a427c3cd0568e4ff4263b12ea8287922e903366d3aacaf24a"
+  },
+  {
+   "key": "CLIGym__corrupted-python-posix-path-handling-with-fragmented-realpath-syscall-and-encrypted-inode-metadata.hard",
+   "task_id": "corrupted-python-posix-path-handling-with-fragmented-realpath-syscall-and-encrypted-inode-metadata.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "15f899d308732e196b3bfa8f053712a5e1c0ed8d744c53b2a5bdbf8caf87b0bf"
+  },
+  {
+   "key": "CLIGym__corrupted-http-request-parser-via-libc-character-classification-poisoning-with-fragmented-locale-recovery",
+   "task_id": "corrupted-http-request-parser-via-libc-character-classification-poisoning-with-fragmented-locale-recovery",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1747c62bc997bd647c1d65aa768c88ca3be0394867a65f4abf9e05fafe3928d5"
+  },
+  {
+   "key": "CLIGym__memory-pressure-induced-http-parser-failures-via-procfs-and-cgroup-manipulation.hard",
+   "task_id": "memory-pressure-induced-http-parser-failures-via-procfs-and-cgroup-manipulation.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "174d68044a826277c1481c26c82fe146651445260562385f98c9bb61acb28b82"
+  },
+  {
+   "key": "CLIGym__kernel-level-io-fragmentation-attack-on-http-request-parsing",
+   "task_id": "kernel-level-io-fragmentation-attack-on-http-request-parsing",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "19143d109969ce2a41e74203cbb5b605b10466519eae739626077bebcea8bf60"
+  },
+  {
+   "key": "CLIGym__corrupted-python-http-chunked-encoding-state-machine-with-fragmented-socket-recv-syscall.hard",
+   "task_id": "corrupted-python-http-chunked-encoding-state-machine-with-fragmented-socket-recv-syscall.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1aeb1e1c8ac328c793d8505c2a5afe12a2dfc0143d774e5ca80b56741e365643"
+  },
+  {
+   "key": "CLIGym__syscall-level-socket-buffer-corruption-via-ld_preload-interception.hard",
+   "task_id": "syscall-level-socket-buffer-corruption-via-ld_preload-interception.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1aed9ec22ace24a081cc46c9ffad1e107c0277de8e50e2a3c3cc094d4a40cb3c"
+  },
+  {
+   "key": "CLIGym__corrupted-gunicorn-http-parser-via-kernel-tcp-urgent-mode-exploitation-with-fragmented-oob-data-resurrection",
+   "task_id": "corrupted-gunicorn-http-parser-via-kernel-tcp-urgent-mode-exploitation-with-fragmented-oob-data-resurrection",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1ca67634bb6d8fd088370b7a2852886b9b3f677adf17a6cc8bca953c5665bc6f"
+  },
+  {
+   "key": "CLIGym__corrupted-python-gc-memory-management-with-fragmented-heap-metadata.hard",
+   "task_id": "corrupted-python-gc-memory-management-with-fragmented-heap-metadata.hard",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1dc032fe3ae254019487fae18ed97d4644adf5ff261489196724b7f322ee351e"
+  },
+  {
+   "key": "CLIGym__corrupt-python-callable-detection-to-break-wsgi-application-import-and-validation",
+   "task_id": "corrupt-python-callable-detection-to-break-wsgi-application-import-and-validation",
+   "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+   "hash": "1e59aa4284c143644bfcf2cd580f97f5dc10da9f5c2bcf6da2a5b0c520fdae2a"
+  },
+  {
+   "key": "CLIGym__corrupt-python-openpyxl-worksheet-cell-range-address-parser-via-coordinate-translation-mangling.hard",
+   "task_id": "corrupt-python-openpyxl-worksheet-cell-range-address-parser-via-coordinate-translation-mangling.hard",
+   "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+   "hash": "04ed747fed914e23b1b588f14e580dabd25e997d0e953334758a64017cf99c20"
+  },
+  {
+   "key": "CLIGym__corrupted-python-gc-with-memory-pressure-affecting-api-responses",
+   "task_id": "corrupted-python-gc-with-memory-pressure-affecting-api-responses",
+   "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+   "hash": "11df48c32134bb63973c902955a4babd51262af8598de4ddb03336717a3738d7"
+  },
+  {
+   "key": "CLIGym__can-signal-scaling-corruption-via-dynamic-linker-library-injection",
+   "task_id": "can-signal-scaling-corruption-via-dynamic-linker-library-injection",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "0005e6c219240b3738b4079a2c8cf38f51542c33b9fcc6883d6257103b92a5ff"
+  },
+  {
+   "key": "CLIGym__kernel-sysctl-network-buffer-size-zeroing",
+   "task_id": "kernel-sysctl-network-buffer-size-zeroing",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "00c741183fa71271d41a64c0a12bd222331d81e1d45b3d99e0c53206966d74be"
+  },
+  {
+   "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-gzip-stream-header-magic-corruption-with-pytest-tmpdir-symlink-race",
+   "task_id": "kernel-can-database-dbc-parser-signal-multiplexer-gzip-stream-header-magic-corruption-with-pytest-tmpdir-symlink-race",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "06c7bc8eb66e23a8894f9f75be5486a0cef6253bb5769151e229e4ad0b37af0b"
+  },
+  {
+   "key": "CLIGym__kernel-timerfd-clocksource-corruption",
+   "task_id": "kernel-timerfd-clocksource-corruption",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "106761dbc1755f1cd7460dbb0dcb3decada53cd13970e92736c123cd4e358c0b"
+  },
+  {
+   "key": "CLIGym__kernel-can-database-dbc-signal-bitfield-cryptographic-interleaving-disruption.hard",
+   "task_id": "kernel-can-database-dbc-signal-bitfield-cryptographic-interleaving-disruption.hard",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "11f016fdcf24d6c90283b5030cb2077a7620c33058b5779830bc744c83197743"
+  },
+  {
+   "key": "CLIGym__glibc-locale-charmap-encoding-corruption.hard",
+   "task_id": "glibc-locale-charmap-encoding-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "1389f4ce021fa6a9d53573cb5e245d3a7246a5f17a68a26fbf9cd65534d02b32"
+  },
+  {
+   "key": "CLIGym__kernel-can-database-dbc-message-frame-id-arithmetic-overflow-corruption.hard",
+   "task_id": "kernel-can-database-dbc-message-frame-id-arithmetic-overflow-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "15b77b9dec324608299f510244c0f2a3feed04b573d22e38fce73ea61f4c94a3"
+  },
+  {
+   "key": "CLIGym__kernel-ipc-semaphore-resource-exhaustion",
+   "task_id": "kernel-ipc-semaphore-resource-exhaustion",
+   "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+   "hash": "1b1dd33f130452f56234b8b1171db666dffb2d201084c20b21bb3d31e5ad41ad"
+  },
+  {
+   "key": "CLIGym__corrupted-python-ssl-certificates-breaking-https-io-operations",
+   "task_id": "corrupted-python-ssl-certificates-breaking-https-io-operations",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "03889692ffdb5a15ce800e468e9a557d5375c6d8de4f629044ddafe72baa8032"
+  },
+  {
+   "key": "CLIGym__corrupted-linux-fuse-filesystem-layer-breaking-io-abstraction",
+   "task_id": "corrupted-linux-fuse-filesystem-layer-breaking-io-abstraction",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "04c19fc77ebaf6b697fc873f1ed60c241bf5a984c7a0441bf7b5828961dc1f7d"
+  },
+  {
+   "key": "CLIGym__partial-encryption-of-lazypath-metadata-with-distributed-decryption-key-fragments.hard",
+   "task_id": "partial-encryption-of-lazypath-metadata-with-distributed-decryption-key-fragments.hard",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "09c88d5e127b2ad7b5c792a67e9d867f10f6b3d2166d92338be28e12d612b12e"
+  },
+  {
+   "key": "CLIGym__python-library-path-pollution-causing-lazypath-and-nativeio-failures",
+   "task_id": "python-library-path-pollution-causing-lazypath-and-nativeio-failures",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "0c4493bdf6b1305f8c17d13b4225781cd044b6fc0d12cd64d2a82c00bf8d8007"
+  },
+  {
+   "key": "CLIGym__corrupted-linux-device-mapper-overlayfs-breaks-container-storage.hard",
+   "task_id": "corrupted-linux-device-mapper-overlayfs-breaks-container-storage.hard",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "0e6eddbaca75e6f3288274bd9c73ed1c577da868df0847bb3d9c786bfbcbf85b"
+  },
+  {
+   "key": "CLIGym__corrupt-linux-kernel-eventfd-semaphore-to-disrupt-async-scheduler-coordination-and-checkpoint-operations.hard",
+   "task_id": "corrupt-linux-kernel-eventfd-semaphore-to-disrupt-async-scheduler-coordination-and-checkpoint-operations.hard",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "177bc802f8c37695c4d888af4b4660c59c52ceae1a6fef1fe833094d29d7de00"
+  },
+  {
+   "key": "CLIGym__corrupted-python-module-metadata-breaking-package-introspection.hard",
+   "task_id": "corrupted-python-module-metadata-breaking-package-introspection.hard",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "182cf0e7ca926ba81edcad0abdea46e21f7530a1b2e4bee0cfdb4108ededccd4"
+  },
+  {
+   "key": "CLIGym__corrupted-linux-pam-session-handling-breaking-file-access.hard",
+   "task_id": "corrupted-linux-pam-session-handling-breaking-file-access.hard",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "184ab705e70cc534b70ced9927077d682f2a6a2079521b5d9d1e06da99b36c4c"
+  },
+  {
+   "key": "CLIGym__corrupted-docker-networking-stack-breaking-io-access",
+   "task_id": "corrupted-docker-networking-stack-breaking-io-access",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "18c04aacb9923f1fd94be50643ea32e622301e2e1bacebfdc4c2b3ef64cb5ae5"
+  },
+  {
+   "key": "CLIGym__partial-encryption-of-lazypath-metadata-with-distributed-decryption-key-fragments",
+   "task_id": "partial-encryption-of-lazypath-metadata-with-distributed-decryption-key-fragments",
+   "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+   "hash": "1956e3213f73ddb3ab0822baf8c3c6cd18b93b650a51e761aafc672e2decba00"
+  },
+  {
+   "key": "CLIGym__corrupt-pthread-thread-local-storage-to-disrupt-numpy-ufunc-dispatch.hard",
+   "task_id": "corrupt-pthread-thread-local-storage-to-disrupt-numpy-ufunc-dispatch.hard",
+   "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+   "hash": "01f349e13cd9b5b8e18e61e254882bfcf385101eaddd00c1f71ab87d82b1277a"
+  },
+  {
+   "key": "CLIGym__encrypted-system-math-libraries-breaking-transcendental-and-statistical-functions",
+   "task_id": "encrypted-system-math-libraries-breaking-transcendental-and-statistical-functions",
+   "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+   "hash": "0a0ac0f04275aeb759ce79ab2f1d65a85e79331c77a5435933572e4b661d3190"
+  },
+  {
+   "key": "CLIGym__kernel-vfs-dentry-cache-poisoning-with-python-locale-module-desynchronization",
+   "task_id": "kernel-vfs-dentry-cache-poisoning-with-python-locale-module-desynchronization",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "0053237f8b904c409eeb5a6e5505ca3e73c0f8ac9e0b041ad18e11aad737c430"
+  },
+  {
+   "key": "CLIGym__python-c-api-refcount-corruption-via-object-header-memory-manipulation",
+   "task_id": "python-c-api-refcount-corruption-via-object-header-memory-manipulation",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "040249d7b0cdc273bacd98800a96178b125cfa6e8a0b83455d6b85c6369cc88d"
+  },
+  {
+   "key": "CLIGym__python-pep-302-import-hook-race-condition-via-sys-meta-path-desynchronization.hard",
+   "task_id": "python-pep-302-import-hook-race-condition-via-sys-meta-path-desynchronization.hard",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "056b38f1138b2ffd0f4bfa104ae46c218a1c2fc1f3f808066e299c6193845bfe"
+  },
+  {
+   "key": "CLIGym__glibc-locale-telephone-formatting-corruption-via-lc-telephone-database-manipulation.hard",
+   "task_id": "glibc-locale-telephone-formatting-corruption-via-lc-telephone-database-manipulation.hard",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "0aa4c37944d5e75a473fa172a8e0cc0fc052dc1b5fe25f533b81aca09bc9c9ef"
+  },
+  {
+   "key": "CLIGym__glibc-strxfrm-weight-table-corruption-via-locale-category-desynchronization-breaking-sorted-data-generation",
+   "task_id": "glibc-strxfrm-weight-table-corruption-via-locale-category-desynchronization-breaking-sorted-data-generation",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "0adb32f8dff932cf8bf513496d34dc6edad095e31ea2d25348f6c5f4a79af3dd"
+  },
+  {
+   "key": "CLIGym__shared-memory-shm-namespace-pollution-with-semaphore-deadlock",
+   "task_id": "shared-memory-shm-namespace-pollution-with-semaphore-deadlock",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "0fbe78490e8128f5d8e7adba32bce68019d509663cb4ac15196c1ff1680d4306"
+  },
+  {
+   "key": "CLIGym__python-import-source-loader-subversion-via-iso-8859-encoding-declaration-injection.hard",
+   "task_id": "python-import-source-loader-subversion-via-iso-8859-encoding-declaration-injection.hard",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "12509e2295077d0e82b92eb64ab927561b20289bfcb0fcbf23e66039f8dd2fd6"
+  },
+  {
+   "key": "CLIGym__kernel-vsdo-syscall-timestamp-corruption-with-python-datetime-random-cascade-failure",
+   "task_id": "kernel-vsdo-syscall-timestamp-corruption-with-python-datetime-random-cascade-failure",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "13cb50943df6c015ab78a60da2ad876e1e0e9924a95dc530497ed62b6c9d57d3"
+  },
+  {
+   "key": "CLIGym__python-c-api-refcount-corruption-via-object-header-memory-manipulation.hard",
+   "task_id": "python-c-api-refcount-corruption-via-object-header-memory-manipulation.hard",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "19bd8b599da18dd05295600e147349a3f0b43a9382b6182294034750a87b902f"
+  },
+  {
+   "key": "CLIGym__system-v-ipc-semaphore-exhaustion-causing-python-multiprocessing-and-random-generation-failures.hard",
+   "task_id": "system-v-ipc-semaphore-exhaustion-causing-python-multiprocessing-and-random-generation-failures.hard",
+   "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+   "hash": "1bbf83e7aa9df3102ffb634043b1af6cc7ce7535748e8bf8eb0a34a21ef38714"
+  },
+  {
+   "key": "CLIGym__dynamic-linker-path-corruption-via-ld_library_path-environment-persistence.hard",
+   "task_id": "dynamic-linker-path-corruption-via-ld_library_path-environment-persistence.hard",
+   "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+   "hash": "001c008093200b53572ba94269cc15046992b51b1c861442a08f3c67eb8b21bd"
+  },
+  {
+   "key": "CLIGym__system-shared-library-symbol-collision-sabotage",
+   "task_id": "system-shared-library-symbol-collision-sabotage",
+   "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+   "hash": "0faedaf4af0d0b5bd37321a81c039955fe37fa8e9a6c286183666ada040ff798"
+  },
+  {
+   "key": "CLIGym__encrypted-feed-configuration-data-with-fragmented-decryption-keys.hard",
+   "task_id": "encrypted-feed-configuration-data-with-fragmented-decryption-keys.hard",
+   "base": "jyangballin/swesmith.x86_64.kurtmckee_1776_feedparser.cad965a3",
+   "hash": "1472604ece2d3f01f3684d818661d33d8aff68cb3f01a9ed3757ef062ccde1f3"
+  },
+  {
+   "key": "CLIGym__encrypt-core-compression-algorithm-binaries-with-partial-key-clues",
+   "task_id": "encrypt-core-compression-algorithm-binaries-with-partial-key-clues",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "0050fc469932dd150e7fdc72fd0374d1bdf312ede734ac675a7524054d176807"
+  },
+  {
+   "key": "CLIGym__corrupt-python-cpython-builtin-str-replace-to-break-string-preprocessing-in-distance-algorithms",
+   "task_id": "corrupt-python-cpython-builtin-str-replace-to-break-string-preprocessing-in-distance-algorithms",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "04800dfff99476fd009e00de7bbe50e29fa6524cc657ca27c0aee8f3707ff1af"
+  },
+  {
+   "key": "CLIGym__corrupt-python-cpython-builtin-reversed-to-break-sequence-reversal-in-distance-algorithms",
+   "task_id": "corrupt-python-cpython-builtin-reversed-to-break-sequence-reversal-in-distance-algorithms",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "0639fd7ee9998cb19d4ace65bc2a646a896cfc5e50d6230f7d1404fc4981950c"
+  },
+  {
+   "key": "CLIGym__subtle-python-decimal-module-precision-corruption.hard",
+   "task_id": "subtle-python-decimal-module-precision-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "0ae1a394d71bd4680ecad20953fd6cfd215e0bd3b62dd88ac67e654050ee27b3"
+  },
+  {
+   "key": "CLIGym__disable-core-compression-libraries-to-disrupt-compression-related-unit-tests.hard",
+   "task_id": "disable-core-compression-libraries-to-disrupt-compression-related-unit-tests.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "0ca63238981dcd71a054d01d6654f349782ed48b3176feec83421e113fa11cec"
+  },
+  {
+   "key": "CLIGym__subtle-corruption-of-python-zlib-compression-stream-headers",
+   "task_id": "subtle-corruption-of-python-zlib-compression-stream-headers",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "130cd16a9f82a6e4f7708754c077b4953a7357c75e1feafbb88d16152f595047"
+  },
+  {
+   "key": "CLIGym__corrupt-elf-interpreter-for-native-extension-loading-failure.hard",
+   "task_id": "corrupt-elf-interpreter-for-native-extension-loading-failure.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "13cd7d424c468bf1f6e437282dedf4b0effa944732e9f169d67aec898a3c8b50"
+  },
+  {
+   "key": "CLIGym__subtly-corrupt-pythons-cpython-divmod-to-break-normalized-distance-and-similarity-calculations",
+   "task_id": "subtly-corrupt-pythons-cpython-divmod-to-break-normalized-distance-and-similarity-calculations",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "151541b2444f337d21bbd15634715fbd63392e03ae3f66f6da21c1d826b923c5"
+  },
+  {
+   "key": "CLIGym__corrupt-python-cpython-enumerate-builtin-to-break-indexed-sequence-algorithms.hard",
+   "task_id": "corrupt-python-cpython-enumerate-builtin-to-break-indexed-sequence-algorithms.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1916a861c8de61b1bb76899a878c8b2baa8e2c82c227bcbd2235336f5846fdb8"
+  },
+  {
+   "key": "CLIGym__corrupt-shared-library-symbol-resolution-to-break-native-extension-loading",
+   "task_id": "corrupt-shared-library-symbol-resolution-to-break-native-extension-loading",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1a2702bd933cd812957a57fe8ddd55d02712fcfa1cdc697637a0d27ef43bb70f"
+  },
+  {
+   "key": "CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order",
+   "task_id": "corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1ac4ab880766545291402b98a83e27a2794f14f3dd05738366d83586b10d4145"
+  },
+  {
+   "key": "CLIGym__corrupt-python-string-interning-mechanism-to-break-string-comparisons",
+   "task_id": "corrupt-python-string-interning-mechanism-to-break-string-comparisons",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1b8f8f46cc75758968248f0c11dda22d71a58f562787d804eabed0d86b140632"
+  },
+  {
+   "key": "CLIGym__encrypt-critical-compression-algorithm-binaries-with-partial-key-clues.hard",
+   "task_id": "encrypt-critical-compression-algorithm-binaries-with-partial-key-clues.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1c39ba5ee902c847f9bb5e518bdc05e1a547f794e0d28e038261a09d8cfaa406"
+  },
+  {
+   "key": "CLIGym__corrupt-python-built-in-min-and-max-functions-to-disrupt-distance-normalization.hard",
+   "task_id": "corrupt-python-built-in-min-and-max-functions-to-disrupt-distance-normalization.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1c4b1dfcc0a510c164b028d1b8a033182d2dd470d7400adc9a88ec185de4344e"
+  },
+  {
+   "key": "CLIGym__corrupt-linux-kernel-write-syscall-to-break-file-io-dependent-tests.hard",
+   "task_id": "corrupt-linux-kernel-write-syscall-to-break-file-io-dependent-tests.hard",
+   "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+   "hash": "1ec9576985319bdd0213550e5b7f958a167ef2358cdba612d96d116834d7c918"
+  },
+  {
+   "key": "CLIGym__partial-elf-loader-corruption-causing-extension-import-failures",
+   "task_id": "partial-elf-loader-corruption-causing-extension-import-failures",
+   "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+   "hash": "03dc46e01252190f2077226609e19f77bc223fb2bb8a4f087d37cfe7e87fbe17"
+  },
+  {
+   "key": "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption.hard",
+   "task_id": "openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+   "hash": "0d2a01fd71130e016fbf0dbe45558ace24a75dadb905e96e407925a521a24e58"
+  },
+  {
+   "key": "CLIGym__python-regex-module-compiled-pattern-cache-poisoning",
+   "task_id": "python-regex-module-compiled-pattern-cache-poisoning",
+   "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+   "hash": "0d2f2ca1c7179482e41bb2f116b7ca9957d20b917df81cdc34a29441b26e56ac"
+  },
+  {
+   "key": "CLIGym__runtime-type-system-corruption-via-c-api-function-pointer-manipulation.hard",
+   "task_id": "runtime-type-system-corruption-via-c-api-function-pointer-manipulation.hard",
+   "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+   "hash": "1367e1d5d6fff7b83007e242cab9b3a48f3d86de38e07fba48dbfa7f89bb8f04"
+  },
+  {
+   "key": "CLIGym__openapi-type-mapping-corruption-via-python-module-shadowing.hard",
+   "task_id": "openapi-type-mapping-corruption-via-python-module-shadowing.hard",
+   "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+   "hash": "159bf655ddf757149be8bbdea747e71042b286ea5f5398fd7e52eb7fac63a2e9"
+  },
+  {
+   "key": "CLIGym__openapi-spec-yaml-safe-loader-custom-tag-handler-injection.hard",
+   "task_id": "openapi-spec-yaml-safe-loader-custom-tag-handler-injection.hard",
+   "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+   "hash": "1a6644953246d412c31568c310c766991d3bf03741aec6ad65e0000e93649203"
+  },
+  {
+   "key": "CLIGym__shared-memory-namespace-pollution-to-disrupt-pytest-plugin-coordination",
+   "task_id": "shared-memory-namespace-pollution-to-disrupt-pytest-plugin-coordination",
+   "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+   "hash": "1bd9f8d5662aa6a3d019d49d88e655dafb80e5cb9423444f5282cdee9d572ec4"
+  },
+  {
+   "key": "CLIGym__disable-python-string-formatting-expression-evaluation",
+   "task_id": "disable-python-string-formatting-expression-evaluation",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "073e32bff977f0418bad787017849f2f92c8a4fbe2b0bdedd8150b4ed82f88bf"
+  },
+  {
+   "key": "CLIGym__corrupt-docker-container-ptrace-restriction-breaking-debugger-and-test-signals.hard",
+   "task_id": "corrupt-docker-container-ptrace-restriction-breaking-debugger-and-test-signals.hard",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "086b085e6d942d0839d5f1b9c0472faa14c7a5b34c3282d1d75e029937976081"
+  },
+  {
+   "key": "CLIGym__corrupt-c-compiler-toolchain-preventing-native-extensions.hard",
+   "task_id": "corrupt-c-compiler-toolchain-preventing-native-extensions.hard",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "0d3e6e27cbae0efabea8b413dcb665dccd82160498754d6270f4cd4eb053102c"
+  },
+  {
+   "key": "CLIGym__corrupt-python-bytecode-cache-to-break-module-caching-mechanism.hard",
+   "task_id": "corrupt-python-bytecode-cache-to-break-module-caching-mechanism.hard",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "0e8ef8b6e1ea2de3d321dc7b99e7a57b0a331404de5234948a8d791c8c919b82"
+  },
+  {
+   "key": "CLIGym__corrupt-python-format-string-parsing-to-break-string-interpolation.hard",
+   "task_id": "corrupt-python-format-string-parsing-to-break-string-interpolation.hard",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "14ec91a42d0a034cdecca413e5411d434255f5d386610645938b1992dc32b906"
+  },
+  {
+   "key": "CLIGym__corrupt-libc-memory-comparison-functions-breaking-string-equality",
+   "task_id": "corrupt-libc-memory-comparison-functions-breaking-string-equality",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "178b86f2ea9ff6b9f5114f27fbf0436454ee3c351abd04edb595ca41a9cd2f72"
+  },
+  {
+   "key": "CLIGym__corrupt-python-contextlib-breaking-markup-context-managers.hard",
+   "task_id": "corrupt-python-contextlib-breaking-markup-context-managers.hard",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "18a60c0f2240ca95ad94f9b7601cf0796cb089db4ed263472d500d2edde9de5d"
+  },
+  {
+   "key": "CLIGym__corrupt-markup-type-identity-through-string-base-class-interference.hard",
+   "task_id": "corrupt-markup-type-identity-through-string-base-class-interference.hard",
+   "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+   "hash": "1b04e3cb045540d60558e6a8e964bfb61c70090b17f1d2bbf0d00a9c544f66a6"
+  },
+  {
+   "key": "CLIGym__numpy-pandas-dtype-backend-conflict-via-incompatible-extension-module",
+   "task_id": "numpy-pandas-dtype-backend-conflict-via-incompatible-extension-module",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0196e85f30e0ff9ff91ca3f345cd8d49e60e178d93b1989e72f949dbed8ffcd0"
+  },
+  {
+   "key": "CLIGym__python-pandas-intervalindex-boundary-corruption-via-glibc-math-symbol-preloading-and-compiled-ufunc-desynchronization.hard",
+   "task_id": "python-pandas-intervalindex-boundary-corruption-via-glibc-math-symbol-preloading-and-compiled-ufunc-desynchronization.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0197e14df052a42831848c9b8cf0958d9767c59b735220bad13b3c215a4c8cc6"
+  },
+  {
+   "key": "CLIGym__glibc-locale-monetary-grouping-corruption-for-numeric-formatting.hard",
+   "task_id": "glibc-locale-monetary-grouping-corruption-for-numeric-formatting.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "02e96e69239c4775a404d8c8afe9c0befbfc1d98d76caf60c0558f8c9583c4d9"
+  },
+  {
+   "key": "CLIGym__python-version-specific-c-extension-abi-mismatch-for-cython-compiled-modules2",
+   "task_id": "python-version-specific-c-extension-abi-mismatch-for-cython-compiled-modules2",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "031c30b2386619e8a166d034cc2f9941414310eacc38fc6213da56270bbf21a2"
+  },
+  {
+   "key": "CLIGym__entropy-pool-depletion-to-disrupt-random-number-generation.hard",
+   "task_id": "entropy-pool-depletion-to-disrupt-random-number-generation.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "03997bcf9d00523c2623a79073fd78211a066aa530cdc3d69d18fc5c2ea31a75"
+  },
+  {
+   "key": "CLIGym__python-pandas-categorical-comparison-corruption-via-ld-preload-symbol-interposition-and-pyicu-collator-backend-hijacking.hard",
+   "task_id": "python-pandas-categorical-comparison-corruption-via-ld-preload-symbol-interposition-and-pyicu-collator-backend-hijacking.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "03dae309c5650a266ae29aa58d5d1b42c9449be51e760bce5e74b1de606f5a76"
+  },
+  {
+   "key": "CLIGym__intervalindex-boundary-comparison-disruption-via-posix-ipc-resource-exhaustion.hard",
+   "task_id": "intervalindex-boundary-comparison-disruption-via-posix-ipc-resource-exhaustion.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "05550fea113981d2f644b12b6bdeff9eeac0df42daa54a96ca7f4def7951d6c7"
+  },
+  {
+   "key": "CLIGym__glibc-iconv-character-encoding-module-selective-corruption-for-unicode-operations",
+   "task_id": "glibc-iconv-character-encoding-module-selective-corruption-for-unicode-operations",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "059ca264120898017ef1c11467923ad31f1eb817a9db5ae31f887806d2dfffb0"
+  },
+  {
+   "key": "CLIGym__loopback-network-packet-reordering-injection-for-distributed-dataframe-operations.hard",
+   "task_id": "loopback-network-packet-reordering-injection-for-distributed-dataframe-operations.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "077b870765a24b0e78cc8daf8b9789effb6541b922afda2a65ff4b4ca963978d"
+  },
+  {
+   "key": "CLIGym__python-pandas-categorical-collation-corruption-via-libc-monetary-locale-injection-and-strxfrm-buffer-truncation.hard",
+   "task_id": "python-pandas-categorical-collation-corruption-via-libc-monetary-locale-injection-and-strxfrm-buffer-truncation.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0a51543462e3314be46eb2b9f166b0af2502b11fc51264b613aef7aec072ce20"
+  },
+  {
+   "key": "CLIGym__system-memory-and-numerical-library-configuration-disruption-for-pandas-operations.hard",
+   "task_id": "system-memory-and-numerical-library-configuration-disruption-for-pandas-operations.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0a7560cdcbc33c78edc44d38dfeef66461c7623747402def6cbf165e21ef8881"
+  },
+  {
+   "key": "CLIGym__python-c-extension-module-symbol-resolution-corruption-via-obfuscated-elf-binary-manipulation",
+   "task_id": "python-c-extension-module-symbol-resolution-corruption-via-obfuscated-elf-binary-manipulation",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0b09d41cca7604c14e795528b133736328fe7c3a2488e7c747e83523c08ed94f"
+  },
+  {
+   "key": "CLIGym__python-threading-rlock-implementation-corruption-for-concurrent-dataframe-operations",
+   "task_id": "python-threading-rlock-implementation-corruption-for-concurrent-dataframe-operations",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0b53be238f6a37d4c2bac43e536b4072e7f13751a8352839d0dc68e74ecebaf8"
+  },
+  {
+   "key": "CLIGym__python-pandas-sparse-compression-corruption-via-blosc-codec-metadata-injection-and-chunk-boundary-desynchronization",
+   "task_id": "python-pandas-sparse-compression-corruption-via-blosc-codec-metadata-injection-and-chunk-boundary-desynchronization",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0b5463ff832761a32db71bf0d615ae1aa88d5a4b5ea073364e99ec78501f92fb"
+  },
+  {
+   "key": "CLIGym__python-pandas-sparse-compression-corruption-via-blosc-codec-metadata-injection-and-chunk-boundary-desynchronization.hard",
+   "task_id": "python-pandas-sparse-compression-corruption-via-blosc-codec-metadata-injection-and-chunk-boundary-desynchronization.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0c9fe63fcd86f5a13671618f3ec2cd52c178ef8bbb7d14d41c69005c4a93d330"
+  },
+  {
+   "key": "CLIGym__python-pandas-excel-openpyxl-schema-corruption-via-xml-entity-expansion-and-shared-strings-table-fragmentation.hard",
+   "task_id": "python-pandas-excel-openpyxl-schema-corruption-via-xml-entity-expansion-and-shared-strings-table-fragmentation.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0da9f2e4916d061b652256009a2bdfeda614656cd08f95cc65d1fcaa977e998c"
+  },
+  {
+   "key": "CLIGym__python-regex-engine-backtracking-catastrophe-via-pcre-library-corruption.hard",
+   "task_id": "python-regex-engine-backtracking-catastrophe-via-pcre-library-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0e7a3f369a0ee0910448ac2d73a518cc0f6128c45246e43c1ab313c2dcb03222"
+  },
+  {
+   "key": "CLIGym__python-pandas-categorical-frequency-encoding-corruption-via-parquet-dictionary-metadata-injection-and-arrow-ipc-batch-desynchronization.hard",
+   "task_id": "python-pandas-categorical-frequency-encoding-corruption-via-parquet-dictionary-metadata-injection-and-arrow-ipc-batch-desynchronization.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0ea244bda213ab7cdc2b312854c7d358bbaa7ee396c56a82fc2a750cb80abc75"
+  },
+  {
+   "key": "CLIGym__categorical-data-corruption-via-system-locale-and-collation-rule-manipulation",
+   "task_id": "categorical-data-corruption-via-system-locale-and-collation-rule-manipulation",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "0eb0d386c4b854d62ae499515858ecb3739959a789197f3b4ecd6150880739da"
+  },
+  {
+   "key": "CLIGym__pandas-user-cache-directory-ownership-hijacking-for-io-operations.hard",
+   "task_id": "pandas-user-cache-directory-ownership-hijacking-for-io-operations.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1155b8839452d99df59bc898153739491beaaa49ff40d33d62fec98cebb1811b"
+  },
+  {
+   "key": "CLIGym__entropy-pool-depletion-to-disrupt-random-number-generation",
+   "task_id": "entropy-pool-depletion-to-disrupt-random-number-generation",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "12d74b0aec23d7959ee1b3a20e17eae42104ec47bb2cdd57f4b7eff11c7b91f5"
+  },
+  {
+   "key": "CLIGym__pandas-interval-boundary-corruption-via-blas-threading-and-numpy-dispatch-manipulation.hard",
+   "task_id": "pandas-interval-boundary-corruption-via-blas-threading-and-numpy-dispatch-manipulation.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "14070b1cd5b9d0db6212280fcc53270ffdaf7925eb50b42145c9c1f142eb540f"
+  },
+  {
+   "key": "CLIGym__python-pickle-protocol-opcode-registry-corruption-via-encrypted-module-injection",
+   "task_id": "python-pickle-protocol-opcode-registry-corruption-via-encrypted-module-injection",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1413b4e84e7102b4124e23819bb2b8c5aea90fb479e4ed7885afe7ba236061e1"
+  },
+  {
+   "key": "CLIGym__python-site-packages-symlink-chain-corruption-for-pandas-extension-loading",
+   "task_id": "python-site-packages-symlink-chain-corruption-for-pandas-extension-loading",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1445abb3f0c3d186801aeedbbd8250017a653550c1aa07c57177364da1e24400"
+  },
+  {
+   "key": "CLIGym__python-pandas-categorical-comparison-corruption-via-glibc-strcoll-locale-mutation-and-icu-transliterator-rule-injection.hard",
+   "task_id": "python-pandas-categorical-comparison-corruption-via-glibc-strcoll-locale-mutation-and-icu-transliterator-rule-injection.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1545af69825020feb7ff3c4a8854f022fc958e777bf4c9134f5ff92bf8a4cf91"
+  },
+  {
+   "key": "CLIGym__python-bz2-compression-library-binary-corruption-with-encrypted-recovery-archive",
+   "task_id": "python-bz2-compression-library-binary-corruption-with-encrypted-recovery-archive",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1553d3bee62cf44d84fcc3e06e73b887299f9f3cae8cd63318071a1a5c453a70"
+  },
+  {
+   "key": "CLIGym__python-pandas-intervalindex-boundary-corruption-via-glibc-malloc-arena-fragmentation-and-numpy-ufunc-dispatch-poisoning",
+   "task_id": "python-pandas-intervalindex-boundary-corruption-via-glibc-malloc-arena-fragmentation-and-numpy-ufunc-dispatch-poisoning",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "158a1e2184b24c8f1625e273b92b47959b14498175cd789ae80f8f46a1166634"
+  },
+  {
+   "key": "CLIGym__loopback-tcp-connection-half-close-starvation-for-multiprocess-serialization.hard",
+   "task_id": "loopback-tcp-connection-half-close-starvation-for-multiprocess-serialization.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "15a6354a6bedc32f6bd947b5d9e05ca9b76daad1e14a988530644b01983b1351"
+  },
+  {
+   "key": "CLIGym__python-pandas-intervalindex-corruption-via-kernel-page-cache-eviction-and-mmap-coherency-desynchronization.hard",
+   "task_id": "python-pandas-intervalindex-corruption-via-kernel-page-cache-eviction-and-mmap-coherency-desynchronization.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "17df1d858284a12fe9c00b1c2945c2bbf9de3d11ce434f4e7546b83b394302b2"
+  },
+  {
+   "key": "CLIGym__sparse-array-block-index-metadata-corruption-via-endianness-and-boundary-manipulation.hard",
+   "task_id": "sparse-array-block-index-metadata-corruption-via-endianness-and-boundary-manipulation.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1adb67a6499f28d8ebd9c9feb7eda2ce561bb35fef053bff3a967916deb9b764"
+  },
+  {
+   "key": "CLIGym__pandas-json-datetime-iso-format-registry-corruption-via-config-override",
+   "task_id": "pandas-json-datetime-iso-format-registry-corruption-via-config-override",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1b69e51bcf3f431a258f87b443380d88794cd8075f81bd0bbf68e4244fff5d5f"
+  },
+  {
+   "key": "CLIGym__sparse-array-block-index-metadata-corruption-via-endianness-and-boundary-manipulation",
+   "task_id": "sparse-array-block-index-metadata-corruption-via-endianness-and-boundary-manipulation",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1bc6fb131a169026904c9a5d9aef9ac461afcd78d733732c0cc5fc2e8741f77d"
+  },
+  {
+   "key": "CLIGym__python-import-hook-compiled-cache-encryption-for-pandas-module-loading",
+   "task_id": "python-import-hook-compiled-cache-encryption-for-pandas-module-loading",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1c375b421de5fa942a4da6b97775e3240254fb9fb47f78a843780362b3e709b3"
+  },
+  {
+   "key": "CLIGym__python-bz2-compression-library-binary-corruption-with-encrypted-recovery-archive.hard",
+   "task_id": "python-bz2-compression-library-binary-corruption-with-encrypted-recovery-archive.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1c5f1eead6c0dcbdc9a2df4b6bd5d020acdaf752209e1ceef767549a9705c320"
+  },
+  {
+   "key": "CLIGym__loopback-tcp-socket-half-open-connection-exhaustion-for-multiprocess-ipc.hard",
+   "task_id": "loopback-tcp-socket-half-open-connection-exhaustion-for-multiprocess-ipc.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1cce651d469e7fbc1eca1f7d6eb11253450514d6ad803f0f384a19b97e9243a4"
+  },
+  {
+   "key": "CLIGym__python-pandas-intervalindex-boundary-corruption-via-gobject-typelib-injection-and-compiled-midpoint-cache-desynchronization",
+   "task_id": "python-pandas-intervalindex-boundary-corruption-via-gobject-typelib-injection-and-compiled-midpoint-cache-desynchronization",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1e163bef6bd9ffdb30ba73825a2c789cf6497fe8b18e63299c801b44e925e4b6"
+  },
+  {
+   "key": "CLIGym__intervalindex-boundary-corruption-via-system-level-file-locking-and-extension-module-interference.hard",
+   "task_id": "intervalindex-boundary-corruption-via-system-level-file-locking-and-extension-module-interference.hard",
+   "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+   "hash": "1e7a1813b9f6f6c3e1565205872345fe37f74e69bc18d80abc9e8675cdbb6cf0"
+  },
+  {
+   "key": "CLIGym__ssh-protocol-dynamic-loader-cache-poisoning-with-morse-encoded-recovery",
+   "task_id": "ssh-protocol-dynamic-loader-cache-poisoning-with-morse-encoded-recovery",
+   "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+   "hash": "137ec258898d284fd3d11b682b0a140554fa2c3b039234512ed7add66d4dc685"
+  },
+  {
+   "key": "CLIGym__ssh-protocol-pseudo-terminal-allocation-library-destruction-with-base64-encoded-recovery.hard",
+   "task_id": "ssh-protocol-pseudo-terminal-allocation-library-destruction-with-base64-encoded-recovery.hard",
+   "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+   "hash": "1f1582397bc6fc7143a12ed4e6b38e023cb3121f8d1dd588a206e5a00a96e3cd"
+  },
+  {
+   "key": "CLIGym__c-standard-library-memory-allocator-corruption-and-process-lifecycle-sabotage",
+   "task_id": "c-standard-library-memory-allocator-corruption-and-process-lifecycle-sabotage",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "045a04f2d736d517e1e1325c1e27c7ff9763e2774f7fa36f8706279ee325194c"
+  },
+  {
+   "key": "CLIGym__python-c-extension-module-import-mechanism-sabotage-via-encrypted-shared-object-replacement",
+   "task_id": "python-c-extension-module-import-mechanism-sabotage-via-encrypted-shared-object-replacement",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "06e93e1f6c02de6f213db448eee2c8d69923817ee0c7085fa5876015cec7e99a"
+  },
+  {
+   "key": "CLIGym__posix-session-management-and-terminal-control-sabotage-via-login-binary-corruption",
+   "task_id": "posix-session-management-and-terminal-control-sabotage-via-login-binary-corruption",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "08aa7d5b523bd32c2a62138e389f745abd30ef8b7e9170d268637f23aabd7ce0"
+  },
+  {
+   "key": "CLIGym__posix-session-management-and-terminal-control-sabotage-via-login-binary-corruption.hard",
+   "task_id": "posix-session-management-and-terminal-control-sabotage-via-login-binary-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "0a89de6dc16b404ef17bcd1fdcb8d7fd0e6040b094ab4e57022892df91bc00dd"
+  },
+  {
+   "key": "CLIGym__terminal-capability-database-corruption-and-terminfo-infrastructure-sabotage.hard",
+   "task_id": "terminal-capability-database-corruption-and-terminfo-infrastructure-sabotage.hard",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "173d8ee9376cc8e0b292d453ba6d34cb0bb17442000c5b92acea705921266c94"
+  },
+  {
+   "key": "CLIGym__posix-process-exit-status-encoding-corruption-via-wait-macros-header-sabotage",
+   "task_id": "posix-process-exit-status-encoding-corruption-via-wait-macros-header-sabotage",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "1a214c79da3bb9d7a5c4d33d9f80d8451b781913c7e942625a2454134b7103a3"
+  },
+  {
+   "key": "CLIGym__process-forking-mechanism-sabotage-via-glibc-syscall-wrapper-corruption",
+   "task_id": "process-forking-mechanism-sabotage-via-glibc-syscall-wrapper-corruption",
+   "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+   "hash": "1d0ca4c7b87673778d416d790d39249d0b97e9534bab54309ac8840e6083d535"
+  },
+  {
+   "key": "CLIGym__library-dependency-symbolic-link-hijacking",
+   "task_id": "library-dependency-symbolic-link-hijacking",
+   "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+   "hash": "01d679343dd2f66df3673fa9bbad296468b37dd1fa5e530bb9627be7e1997b40"
+  },
+  {
+   "key": "CLIGym__encrypted-private-key-files-with-fragmented-passphrase-clues",
+   "task_id": "encrypted-private-key-files-with-fragmented-passphrase-clues",
+   "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+   "hash": "02ea6f02c93e6e297bfa0eec9eee3d810bc252a72406f9b0b160aa3153667a53"
+  },
+  {
+   "key": "CLIGym__corrupt-openssl-x509-crl-files-to-break-revocation-checking.hard",
+   "task_id": "corrupt-openssl-x509-crl-files-to-break-revocation-checking.hard",
+   "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+   "hash": "05d5b507fd6be3724a000badf21bed35ab81d0c2c88669ec7518e31ace3c7eec"
+  },
+  {
+   "key": "CLIGym__openssl-asn.1-der-encoding-corruption-via-binary-library-modification.hard",
+   "task_id": "openssl-asn.1-der-encoding-corruption-via-binary-library-modification.hard",
+   "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+   "hash": "06e5d0b1558e950ceb7a44cb035d4e4013dbd21db088275a9021b542b658626b"
+  },
+  {
+   "key": "CLIGym__openssl-x509v3-extension-handler-source-mutation.hard",
+   "task_id": "openssl-x509v3-extension-handler-source-mutation.hard",
+   "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+   "hash": "0d7bac5a9693033a04633370bfe545dd11a5a6593729bf7f0bcb975365fb295d"
+  },
+  {
+   "key": "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls.hard",
+   "task_id": "kernel-syscall-table-manipulation-to-break-ssl-module-syscalls.hard",
+   "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+   "hash": "19819a7efac2e751f1817679fb4275079f91c1ac62c462b9179c958a2aae775d"
+  },
+  {
+   "key": "CLIGym__kernel-tcp-timestamp-offset-manipulation-with-encrypted-recovery-parameters.hard",
+   "task_id": "kernel-tcp-timestamp-offset-manipulation-with-encrypted-recovery-parameters.hard",
+   "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+   "hash": "0446ae29ad2e4d429b4ba68037c381f6a4852092fed6c8515f25cc984ccbeb6f"
+  },
+  {
+   "key": "CLIGym__network-namespace-isolation-disrupting-localhost-socket-binding.hard",
+   "task_id": "network-namespace-isolation-disrupting-localhost-socket-binding.hard",
+   "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+   "hash": "1560a1cbd8d8cf8126edd8ea43663fae29d59f936cffaaecaba40df8132a54c0"
+  },
+  {
+   "key": "CLIGym__kernel-unix-domain-socket-abstract-namespace-collision-causing-h11-http-test-failures.hard",
+   "task_id": "kernel-unix-domain-socket-abstract-namespace-collision-causing-h11-http-test-failures.hard",
+   "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+   "hash": "1e03d332376edc141d781a113f5682015c7a9d1cd0fc0416f5fc65ba7d78bf0c"
+  },
+  {
+   "key": "CLIGym__corrupted-python-html-comment-stripping-with-fragmented-cdata-section-reconstruction",
+   "task_id": "corrupted-python-html-comment-stripping-with-fragmented-cdata-section-reconstruction",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "027f6d43bd416f358536d721d6050edd31c758a5e2373339dce60a3cd3c8c993"
+  },
+  {
+   "key": "CLIGym__systemd-pid-1-signal-handling-file-descriptor-starvation-impacting-subprocess-calls",
+   "task_id": "systemd-pid-1-signal-handling-file-descriptor-starvation-impacting-subprocess-calls",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "029d2cccafcba4a50099f0429202375b28370f51b63074be01729d1b0e0c7614"
+  },
+  {
+   "key": "CLIGym__corrupted-python-descriptor-protocol-in-settings-with-metaclass-mutation.hard",
+   "task_id": "corrupted-python-descriptor-protocol-in-settings-with-metaclass-mutation.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "05229e22582fa2c070ac1b9ddf12628d89edf3d6bea5e4469fb2a29a6c6691e7"
+  },
+  {
+   "key": "CLIGym__corrupted-python-url-scheme-normalization-with-fragmented-idna-codec-recovery",
+   "task_id": "corrupted-python-url-scheme-normalization-with-fragmented-idna-codec-recovery",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "08b1c5359a30f1d179eaf4c3e1a1ca0fd7b4688be555a1d1af631cc481e8d48a"
+  },
+  {
+   "key": "CLIGym__corrupted-gettext-mo-files-with-partial-locale-restoration",
+   "task_id": "corrupted-gettext-mo-files-with-partial-locale-restoration",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "09302655e306850d6f4d056ea78e7a51b44a480c2e9dc59a24d7da1ec67f2511"
+  },
+  {
+   "key": "CLIGym__corrupted-python-itemloader-field-processor-chain-with-fragmented-compose-function-metadata.hard",
+   "task_id": "corrupted-python-itemloader-field-processor-chain-with-fragmented-compose-function-metadata.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "0acdf87bc4a773cc4cfb8b3590e841d351ce696c77bedbad326a75d6d06ef154"
+  },
+  {
+   "key": "CLIGym__corrupt-dns-resolution-through-nsswitch-and-resolver-configuration-fragmentation",
+   "task_id": "corrupt-dns-resolution-through-nsswitch-and-resolver-configuration-fragmentation",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "0b9eb70e282c40667f4ea97b85efbf3ddea6acae1c0c2aa1159275187a395dee"
+  },
+  {
+   "key": "CLIGym__corrupted-python-zipimport-with-fragmented-central-directory-reconstruction",
+   "task_id": "corrupted-python-zipimport-with-fragmented-central-directory-reconstruction",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "0ba4eb4bca70745d514dd7ec71ae057389d7c61f90c06d06d50006f7ac4ab332"
+  },
+  {
+   "key": "CLIGym__corrupted-python-importlib-metadata-with-fragmented-entry-point-resolution.hard",
+   "task_id": "corrupted-python-importlib-metadata-with-fragmented-entry-point-resolution.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "0f4d20e6eb55d1044ef626516b65c95beda34aad025adffd8f59ac8db65919c0"
+  },
+  {
+   "key": "CLIGym__corrupted-python-ast-node-lineno-metadata-with-traceback-chain-poisoning.hard",
+   "task_id": "corrupted-python-ast-node-lineno-metadata-with-traceback-chain-poisoning.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "11c4360af2306c76baaa560dcd869d37b27bc16ca80d73f64912a38e9af3acad"
+  },
+  {
+   "key": "CLIGym__corrupted-python-robotstxt-cache-with-fragmented-mime-boundary-recovery",
+   "task_id": "corrupted-python-robotstxt-cache-with-fragmented-mime-boundary-recovery",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "16d786cec7dd89f5a4f905dbb44950e0eaa1bce12f7a1557fb41989cf14f4fe3"
+  },
+  {
+   "key": "CLIGym__corrupted-python-urllib-parse-url-splitting-with-scheme-registry-poisoning.hard",
+   "task_id": "corrupted-python-urllib-parse-url-splitting-with-scheme-registry-poisoning.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "17857dba84bd024db55d5e635b0e49e4d876e018dd30d79f7e5693252dd31253"
+  },
+  {
+   "key": "CLIGym__corrupted-python-http-redirect-location-header-parser-with-fragmented-rfc3986-normalization",
+   "task_id": "corrupted-python-http-redirect-location-header-parser-with-fragmented-rfc3986-normalization",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "199bb75a8e43fd4596a47803389dc356b7c08640bdb9549caafdd80600614cd0"
+  },
+  {
+   "key": "CLIGym__corrupted-python-site-packages-symlink-forest-with-circular-dependencies.hard",
+   "task_id": "corrupted-python-site-packages-symlink-forest-with-circular-dependencies.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "1a05babb69af25b74147eae0c29b7f74fe1fff30c5c8217d274222f9c237253f"
+  },
+  {
+   "key": "CLIGym__corrupted-python-requests-session-cookie-persistence-with-fragmented-lwp-cookiejar-recovery.hard",
+   "task_id": "corrupted-python-requests-session-cookie-persistence-with-fragmented-lwp-cookiejar-recovery.hard",
+   "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+   "hash": "1d0f136b52bde7f45873810ca53753a2d7b42b57e6530efef08dc8e9dfa59455"
+  },
+  {
+   "key": "CLIGym__corrupted-python-file-descriptor-operations-via-obfuscated-fcntl-module",
+   "task_id": "corrupted-python-file-descriptor-operations-via-obfuscated-fcntl-module",
+   "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+   "hash": "007b3b398908b20cf0c891c86915e50c4d4165bb0ebed6c2317924a47889c79f"
+  },
+  {
+   "key": "CLIGym__critical-dependency-version-pinning-with-conflicting-transitive-dependencies",
+   "task_id": "critical-dependency-version-pinning-with-conflicting-transitive-dependencies",
+   "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+   "hash": "03f4895a895e6996b0ffaa439d479d291e5eda1f8369084690d9fb45a4b86e3e"
+  },
+  {
+   "key": "CLIGym__corrupted-python-dotenv-via-encrypted-tempfile-module-in-nested-zstd-archive.hard",
+   "task_id": "corrupted-python-dotenv-via-encrypted-tempfile-module-in-nested-zstd-archive.hard",
+   "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+   "hash": "04413c5e6378b2fd3c72373566483a5dea1808fe2bfce7df6925d030cb2f2d70"
+  },
+  {
+   "key": "CLIGym__corrupted-regex-engine-in-dotenv-parser.hard",
+   "task_id": "corrupted-regex-engine-in-dotenv-parser.hard",
+   "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+   "hash": "0a3eaf853b3e334996272de2bfc00202e4a3f3ef38b279991beda2a2ee7fc648"
+  },
+  {
+   "key": "CLIGym__corrupted-python-import-mechanism-via-encrypted-sitecustomize.hard",
+   "task_id": "corrupted-python-import-mechanism-via-encrypted-sitecustomize.hard",
+   "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+   "hash": "15339a25a971b576815d7ee6c5c4528fb0e8416785c8bcc49595e651fd623028"
+  },
+  {
+   "key": "CLIGym__corrupted-regex-engine-in-dotenv-parser",
+   "task_id": "corrupted-regex-engine-in-dotenv-parser",
+   "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+   "hash": "18a7358c867389097b2cfa6244b13cbc2483c67986ec471f423b8764cebf93c7"
+  },
+  {
+   "key": "CLIGym__encryptedapiresponsecachewithdistributedkeyfragments.hard",
+   "task_id": "encryptedapiresponsecachewithdistributedkeyfragments.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "02784dd70bcd683d8202c628aa176759e227b2db9952ac328c191f538fa8a5db"
+  },
+  {
+   "key": "CLIGym__tampered-docker-hostname-resolution-with-encrypted-etchosts.hard",
+   "task_id": "tampered-docker-hostname-resolution-with-encrypted-etchosts.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "02d537b725000d2e22f19d4f62437566c6d76a4f8472fdea8eca4e886768fc8b"
+  },
+  {
+   "key": "CLIGym__tampered-docker-cgroups-permissions.hard",
+   "task_id": "tampered-docker-cgroups-permissions.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "0843b9bd366b02d4403082fa798b12c7d98c3a010cd7009c8b352bcccacecfb2"
+  },
+  {
+   "key": "CLIGym__encrypted-essential-build-tool-corruption.hard",
+   "task_id": "encrypted-essential-build-tool-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "087f4b9349d17ccda8a43e5a00b6daf5bc2a0f73bc125fb6302dd2688e1b3696"
+  },
+  {
+   "key": "CLIGym__corrupted-python-environment-path-resolution",
+   "task_id": "corrupted-python-environment-path-resolution",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "0abc00277a386fc4bf24dd17394ba6e48b01f27bfc3d902919f54ed218ecdc72"
+  },
+  {
+   "key": "CLIGym__systemd-unit-file-overwrite-causing-api-service-socket-activation-failure",
+   "task_id": "systemd-unit-file-overwrite-causing-api-service-socket-activation-failure",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "0bbcf501385a9d8c1a6677cd2c25fb4038c710c222c4e5d52b237b6e9ae4121d"
+  },
+  {
+   "key": "CLIGym__network-toolchain-disruption.hard",
+   "task_id": "network-toolchain-disruption.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "0c261469ca4b58fe5b9b7401a085f2e417c2f74ba34c6eadb0c2334f860959b4"
+  },
+  {
+   "key": "CLIGym__in-memory-filesystem-metadata-encryption-corruption",
+   "task_id": "in-memory-filesystem-metadata-encryption-corruption",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "0cbd667decea5c9be436af7c7e81a66e6f0cb2659a5b927e2425dbcf742f2cb8"
+  },
+  {
+   "key": "CLIGym__dns-resolution-cache-poisoning-via-encrypted-hosts-file-manipulation",
+   "task_id": "dns-resolution-cache-poisoning-via-encrypted-hosts-file-manipulation",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "0d4347d5af1f1f071db931be347cc51109238e21683e84ed99039c1fb7b48eb6"
+  },
+  {
+   "key": "CLIGym__hidden-devnull-device-node-disruption.hard",
+   "task_id": "hidden-devnull-device-node-disruption.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "12469e20e0c285baba1332c7208c49ccc5944f09f62240187ba2702a406de5c0"
+  },
+  {
+   "key": "CLIGym__tampered-openssl-libcrypto-libraries",
+   "task_id": "tampered-openssl-libcrypto-libraries",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "1507220cc47e7f7d854f32ed1e570549739f0a7d2af1bbd01471518e14d82d18"
+  },
+  {
+   "key": "CLIGym__network-toolchain-disruption",
+   "task_id": "network-toolchain-disruption",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "179a66514efa604ef7678a1f93bcb1ea166896680cbde5e38973770ad42e5346"
+  },
+  {
+   "key": "CLIGym__encrypted-critical-dependency-shared-object-with-fragmented-key-recovery.hard",
+   "task_id": "encrypted-critical-dependency-shared-object-with-fragmented-key-recovery.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "18a666484ba9bbf533fc6e7ea047c931fdf0d3fc78ab6ef1760131f15583ae0a"
+  },
+  {
+   "key": "CLIGym__encrypted-critical-dependency-shared-object-with-fragmented-key-recovery",
+   "task_id": "encrypted-critical-dependency-shared-object-with-fragmented-key-recovery",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "1a152b8c2543006a5886d5075817bd529cdefc26c42bee7511135b6fae1e1faf"
+  },
+  {
+   "key": "CLIGym__kernel-level-tcp-socket-buffer-encryption-via-shared-memory-corruption",
+   "task_id": "kernel-level-tcp-socket-buffer-encryption-via-shared-memory-corruption",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "1bc2a63341ce180d2ac2149d981ee722164dba54d50012b22b682df7528f7bfa"
+  },
+  {
+   "key": "CLIGym__partial-dynamic-linker-glibc-symbol-table-corruption.hard",
+   "task_id": "partial-dynamic-linker-glibc-symbol-table-corruption.hard",
+   "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+   "hash": "1d1136da8ef3e888f9857c31ac22263acc54f5c5deed6ba87ab301c4489fa6f1"
+  }
+ ]
+}
