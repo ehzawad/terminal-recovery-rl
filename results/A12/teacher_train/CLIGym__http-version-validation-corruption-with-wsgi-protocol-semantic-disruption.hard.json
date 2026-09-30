@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__http-version-validation-corruption-with-wsgi-protocol-semantic-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "10:43:43",
+ "usable": true,
+ "image": "a10:http-version-validation-corruption-with-wsgi-protoco-c675595fd2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/wsgi.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "19 passed",
+     "n_pass": 19,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/wsgi.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "19 passed",
+     "n_pass": 19,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "key": "CLIGym__kernel-level-tcp-socket-buffer-encryption-via-shared-memory-corruption",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:35:06",
+ "usable": true,
+ "image": "a10:kernel-level-tcp-socket-buffer-encryption-via-shared-fdf5d73d4d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tweepy/asynchronous/client.py"
+     ],
+     [
+      "content",
+      "/testbed/tweepy/client.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "34 warnings, 3 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed, 34 warnings",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

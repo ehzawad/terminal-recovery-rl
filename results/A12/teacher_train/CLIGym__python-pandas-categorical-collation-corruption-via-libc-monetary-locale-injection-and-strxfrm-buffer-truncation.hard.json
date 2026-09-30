@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__python-pandas-categorical-collation-corruption-via-libc-monetary-locale-injection-and-strxfrm-buffer-truncation.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:42:38",
+ "usable": true,
+ "image": "a10:python-pandas-categorical-collation-corruption-via-l-5b8780380a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/algorithms.py"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/en_US.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/en_US.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/en_US.utf8/LC_IDENTIFICATION"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 33,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/algorithms.py"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/en_US.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/en_US.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/en_US.utf8/LC_IDENTIFICATION"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 33,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

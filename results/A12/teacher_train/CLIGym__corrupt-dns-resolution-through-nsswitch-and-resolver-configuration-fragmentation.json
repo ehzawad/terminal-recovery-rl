@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-dns-resolution-through-nsswitch-and-resolver-configuration-fragmentation",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "13:56:10",
+ "usable": false,
+ "why": "build_fail: - For hosts config backup: hostname + current epoch timestamp\\\\n- For resolv.conf backup: hostname + '\\\"'\\\"'recovery'\\\"'\\\"'\\\\n\\\\nLibrary renamed to: libnss_dns.so.2.bak under standard lib directories.\\\\n\\\\nThink twice before touching DNS!\\\\n' > /etc/motd\" did not complete successfully: exit code: 2\n"
+}

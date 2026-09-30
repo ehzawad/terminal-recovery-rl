@@ -1,0 +1,85 @@
+{
+ "key": "CLIGym__corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "10:36:19",
+ "usable": true,
+ "image": "a10:corrupted-python-ast-optimizer-with-fragmented-peeph-50d7f306cf",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/bytecode_check.pth"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/app/base.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/reloader.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/bytecode_check.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 17 passed",
+     "n_pass": 17,
+     "n_ids": 22,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/bytecode_check.pth"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/app/base.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/reloader.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/util.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/bytecode_check.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 17 passed",
+     "n_pass": 17,
+     "n_ids": 22,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

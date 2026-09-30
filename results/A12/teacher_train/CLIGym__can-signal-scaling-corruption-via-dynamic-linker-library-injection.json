@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__can-signal-scaling-corruption-via-dynamic-linker-library-injection",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "11:06:42",
+ "usable": true,
+ "image": "a10:can-signal-scaling-corruption-via-dynamic-linker-lib-d1b0a667bd",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/conversion.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "9 failed, 19 passed",
+     "n_pass": 19,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/conversion.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "9 failed, 19 passed",
+     "n_pass": 19,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

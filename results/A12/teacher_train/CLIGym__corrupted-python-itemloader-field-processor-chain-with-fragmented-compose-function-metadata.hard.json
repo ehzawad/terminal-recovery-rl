@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-itemloader-field-processor-chain-with-fragmented-compose-function-metadata.hard",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "13:55:52",
+ "usable": false,
+ "why": "build_fail: inal_MapCompose_init(self, *corrupted_funcs, **default_loader_context)\\\\n\\\\nCompose.__init__ = _corrupted_Compose_init\\\\nMapCompose.__init__ = _corrupted_MapCompose_init' /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/itemloaders/processors.py\" did not complete successfully: exit code: 2\n"
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-pthread-thread-local-storage-to-disrupt-numpy-ufunc-dispatch.hard",
+ "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+ "t0": "11:39:41",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

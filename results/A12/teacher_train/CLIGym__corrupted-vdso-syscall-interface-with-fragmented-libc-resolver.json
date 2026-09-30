@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-vdso-syscall-interface-with-fragmented-libc-resolver",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "10:40:47",
+ "usable": false,
+ "why": "build_fail: BmaWxlcwoKaG9zdHM6ICAgICAgICAgIGZpbGVzIGRucwpuZXR3b3JrczogICAgICAgZmlsZXMKCnByb3RvY29sczogICAgICBkYiBmaWxlcwpzZXJ2aWNlczogICAgICAgZGIgZmlsZXMKZXRoZXJzOiAgICAgICAgIGRiIGZpbGVzCnJwYzogICAgICAgICAgICBkYiBmaWxlcwoKbmV0Z3JvdXA6ICAgICAgIG5pcwo=\\\" >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

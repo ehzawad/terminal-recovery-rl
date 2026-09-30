@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-robotstxt-cache-with-fragmented-mime-boundary-recovery",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "14:03:12",
+ "usable": false,
+ "why": "build_fail: com www.example.com\" >> /etc/hosts\n   6 |     \n   7 |     RUN cat > /tmp/malicious_http_server.py << 'EOF' && \\\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo \\\"127.0.0.1 example.com www.example.com\\\" >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

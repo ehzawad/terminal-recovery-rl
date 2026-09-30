@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-docker-container-ptrace-restriction-breaking-debugger-and-test-signals.hard",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "12:27:47",
+ "usable": true,
+ "image": "a10:corrupt-docker-container-ptrace-restriction-breaking-c85c3b8bc0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/markupsafe/_speedups.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/testbed/src/markupsafe/_speedups.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "no tests ran",
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

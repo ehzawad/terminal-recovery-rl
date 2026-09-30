@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__corrupted-python-file-descriptor-operations-via-obfuscated-fcntl-module",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "t0": "14:12:02",
+ "usable": true,
+ "image": "a10:corrupted-python-file-descriptor-operations-via-obfu-8138e7ad41",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_fcntl_orig.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_fcntl_hook.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_fcntl_priority.pth"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_fcntl_priority.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 errors",
+     "n_pass": 0,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

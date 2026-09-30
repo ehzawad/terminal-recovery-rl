@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__corrupt-network-address-parsing-and-socket-creation-through-system-library-interception.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "10:25:45",
+ "usable": true,
+ "image": "a10:corrupt-network-address-parsing-and-socket-creation--76bedb6cbe",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/__init__.py"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 18 passed",
+     "n_pass": 18,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/__init__.py"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 18 passed",
+     "n_pass": 18,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

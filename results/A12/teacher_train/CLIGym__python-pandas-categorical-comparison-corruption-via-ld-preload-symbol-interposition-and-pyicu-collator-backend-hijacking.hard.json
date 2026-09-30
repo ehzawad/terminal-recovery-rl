@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__python-pandas-categorical-comparison-corruption-via-ld-preload-symbol-interposition-and-pyicu-collator-backend-hijacking.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:35:15",
+ "usable": true,
+ "image": "a10:python-pandas-categorical-comparison-corruption-via--37a3f75e5e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 27,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/indexes/category.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 45 passed",
+     "n_pass": 45,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

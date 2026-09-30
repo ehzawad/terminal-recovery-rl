@@ -1,0 +1,61 @@
+{
+ "key": "CLIGym__encrypted-private-key-files-with-fragmented-passphrase-clues",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "13:38:37",
+ "usable": true,
+ "image": "a10:encrypted-private-key-files-with-fragmented-passphra-1d7ecb5a07",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/tests/test_data.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed, 5 warnings",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/tests/test_data.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/test_crypto.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed, 5 warnings",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

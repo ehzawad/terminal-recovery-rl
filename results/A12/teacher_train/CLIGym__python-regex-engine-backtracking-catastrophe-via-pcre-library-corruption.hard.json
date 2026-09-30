@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__python-regex-engine-backtracking-catastrophe-via-pcre-library-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:44:45",
+ "usable": true,
+ "image": "a10:python-regex-engine-backtracking-catastrophe-via-pcr-3867374d38",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/build/cp310/pandas/_libs/lib.cpython-310-x86_64-linux-gnu.so.backup"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3.backup"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3.backup.7z"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/pandas/_libs/lib.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/build/cp310/pandas/_libs/lib.cpython-310-x86_64-linux-gnu.so.backup"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3.backup"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libpcre.so.3.13.3.backup.7z"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/pandas/_libs/lib.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

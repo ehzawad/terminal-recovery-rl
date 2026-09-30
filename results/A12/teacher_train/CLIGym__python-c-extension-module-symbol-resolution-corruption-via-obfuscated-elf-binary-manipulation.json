@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-c-extension-module-symbol-resolution-corruption-via-obfuscated-elf-binary-manipulation",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:43:29",
+ "usable": false,
+ "why": "gold_fail: None"
+}

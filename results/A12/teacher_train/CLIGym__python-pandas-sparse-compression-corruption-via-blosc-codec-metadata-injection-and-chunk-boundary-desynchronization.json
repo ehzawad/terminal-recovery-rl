@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__python-pandas-sparse-compression-corruption-via-blosc-codec-metadata-injection-and-chunk-boundary-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:44:18",
+ "usable": true,
+ "image": "a10:python-pandas-sparse-compression-corruption-via-blos-31b298abba",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/blosc/toplevel.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/arrays/sparse/array.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 48 passed",
+     "n_pass": 48,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/blosc/toplevel.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/arrays/sparse/array.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

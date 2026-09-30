@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-format-string-parsing-to-break-string-interpolation.hard",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "12:27:47",
+ "usable": true,
+ "image": "a10:corrupt-python-format-string-parsing-to-break-string-07c556c993",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "22 passed",
+     "n_pass": 22,
+     "n_ids": 22,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "22 passed",
+     "n_pass": 22,
+     "n_ids": 22,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

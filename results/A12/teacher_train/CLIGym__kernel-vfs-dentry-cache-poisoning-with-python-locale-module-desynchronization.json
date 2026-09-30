@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-vfs-dentry-cache-poisoning-with-python-locale-module-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "11:42:57",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

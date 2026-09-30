@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-gunicorn-http-parser-via-kernel-tcp-window-scaling-sabotage-with-fragmented-socket-metadata-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "10:40:38",
+ "usable": false,
+ "why": "build_fail: lib/libsocket_optimize.so -xc - -ldl << 'EOF'\n   8 |     #define _GNU_SOURCE\n--------------------\nERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 05f02546-a52d-4725-8540-cba6c5a55ba1::8p9sgq9m4zck0n71gm0v93hv5: \"/body_modified.py\": not found\n"
+}

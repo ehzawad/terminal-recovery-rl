@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__categorical-data-corruption-via-system-locale-and-collation-rule-manipulation",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:48:35",
+ "usable": true,
+ "image": "a10:categorical-data-corruption-via-system-locale-and-co-7a7d3d4b9f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/categorical.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "46 passed",
+     "n_pass": 46,
+     "n_ids": 46,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 27,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/categorical.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "46 passed",
+     "n_pass": 46,
+     "n_ids": 46,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

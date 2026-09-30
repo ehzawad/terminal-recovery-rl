@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__system-shared-library-symbol-collision-sabotage",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "11:55:33",
+ "usable": true,
+ "image": "a10:system-shared-library-symbol-collision-sabotage-f79719564f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/dominate/dom_tag.py"
+     ],
+     [
+      "content",
+      "/testbed/dominate/util.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/dominate/dom_tag.py"
+     ],
+     [
+      "content",
+      "/testbed/dominate/util.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

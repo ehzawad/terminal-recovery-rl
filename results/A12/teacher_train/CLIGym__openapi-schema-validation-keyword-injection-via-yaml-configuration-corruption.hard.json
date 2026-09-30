@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "12:20:15",
+ "usable": true,
+ "image": "a10:openapi-schema-validation-keyword-injection-via-yaml-0ac035cca1",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 27,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

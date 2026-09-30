@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__systemd-unit-file-overwrite-causing-api-service-socket-activation-failure",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:31:07",
+ "usable": true,
+ "image": "a10:systemd-unit-file-overwrite-causing-api-service-sock-ad90043fc8",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_create_and_delete_tweet.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_get_home_timeline.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_get_tweet.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_client_create_and_delete_tweet.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_client_get_home_timeline.yaml"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 34 warnings",
+     "n_pass": 0,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_create_and_delete_tweet.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_get_home_timeline.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_get_tweet.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_client_create_and_delete_tweet.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_client_get_home_timeline.yaml"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed",
+     "n_pass": 0,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

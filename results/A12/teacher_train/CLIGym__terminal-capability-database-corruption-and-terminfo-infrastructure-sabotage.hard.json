@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__terminal-capability-database-corruption-and-terminfo-infrastructure-sabotage.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "13:15:26",
+ "usable": true,
+ "image": "a10:terminal-capability-database-corruption-and-terminfo-7aaf4c3c7e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/bin/7z"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/bin/7za"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/bin/7zr"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/etc/conda/test-files/frozendict/1/test/__init__.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/etc/conda/test-files/frozendict/1/test/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/bin/7z"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/bin/7za"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/bin/7zr"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/etc/conda/test-files/frozendict/1/test/__init__.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/etc/conda/test-files/frozendict/1/test/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed",
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

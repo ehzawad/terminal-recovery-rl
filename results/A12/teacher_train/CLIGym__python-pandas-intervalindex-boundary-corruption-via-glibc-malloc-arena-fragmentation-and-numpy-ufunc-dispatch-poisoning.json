@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__python-pandas-intervalindex-boundary-corruption-via-glibc-malloc-arena-fragmentation-and-numpy-ufunc-dispatch-poisoning",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:56:49",
+ "usable": true,
+ "image": "a10:python-pandas-intervalindex-boundary-corruption-via--a6a0b837a0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "9 failed, 41 passed",
+     "n_pass": 41,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "9 failed, 41 passed",
+     "n_pass": 41,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-docker-networking-stack-breaking-io-access",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "11:33:11",
+ "usable": false,
+ "why": "build_fail: w.facebook.com facebook.com' >> /etc/hosts && \\\n   7 |         echo '0.0.0.0 1drv.ms api.onedrive.com' >> /etc/hosts && \\\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo \\\"nameserver 203.0.113.1\\\" > /etc/resolv.conf\" did not complete successfully: exit code: 2\n"
+}

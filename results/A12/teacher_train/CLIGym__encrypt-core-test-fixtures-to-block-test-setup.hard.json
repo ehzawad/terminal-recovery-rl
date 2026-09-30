@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__encrypt-core-test-fixtures-to-block-test-setup.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "09:41:44",
+ "usable": true,
+ "image": "a10:encrypt-core-test-fixtures-to-block-test-setup.hard-0389f2f29b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_catch.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_formatting.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_suppress.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_catch.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_formatting.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_suppress.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

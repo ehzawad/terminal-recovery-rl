@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__disable-core-compression-libraries-to-disrupt-compression-related-unit-tests.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "12:01:50",
+ "usable": true,
+ "image": "a10:disable-core-compression-libraries-to-disrupt-compre-17e7a0a20f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0.8.orig"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/liblzma.so.5.6.4.orig"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libz.so.1.2.13.orig"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0.8"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/liblzma.so.5.6.4"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0.8.orig"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/liblzma.so.5.6.4.orig"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/libz.so.1.2.13.orig"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__kernel-timerfd-clocksource-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "11:06:42",
+ "usable": true,
+ "image": "a10:kernel-timerfd-clocksource-corruption-5b958db47d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libtimecorrupt.so"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/logreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 11 passed",
+     "n_pass": 11,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libtimecorrupt.so"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/logreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-python-bytecode-cache-to-break-module-caching-mechanism.hard",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "12:27:47",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

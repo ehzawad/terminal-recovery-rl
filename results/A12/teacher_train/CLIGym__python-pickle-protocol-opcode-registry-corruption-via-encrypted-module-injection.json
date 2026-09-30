@@ -1,0 +1,69 @@
+{
+ "key": "CLIGym__python-pickle-protocol-opcode-registry-corruption-via-encrypted-module-injection",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:54:59",
+ "usable": true,
+ "image": "a10:python-pickle-protocol-opcode-registry-corruption-vi-9ceac0193f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_pickle.cpython-310-x86_64-linux-gnu.so.disabled"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_pickle.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "35 passed",
+     "n_pass": 35,
+     "n_ids": 35,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_pickle.cpython-310-x86_64-linux-gnu.so.disabled"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/pickle.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_pickle.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "35 passed",
+     "n_pass": 35,
+     "n_ids": 35,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__encrypt-critical-compression-algorithm-binaries-with-partial-key-clues.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "12:11:28",
+ "usable": true,
+ "image": "a10:encrypt-critical-compression-algorithm-binaries-with-1cfe0eea8e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0.8"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/liblzma.so.5.6.4"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libz.so.1.2.13"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_bz2.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_lzma.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0.8"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/liblzma.so.5.6.4"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_bz2.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_lzma.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/zlib.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

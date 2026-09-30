@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__python-import-hook-compiled-cache-encryption-for-pandas-module-loading",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "13:02:33",
+ "usable": true,
+ "image": "a10:python-import-hook-compiled-cache-encryption-for-pan-6d75cd5016",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "dir_mode",
+      "/testbed/pandas/arrays"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core/_numba"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core/_numba/kernels"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core/array_algos"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "dir_mode",
+      "/testbed/pandas/arrays"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core/_numba"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core/_numba/kernels"
+     ],
+     [
+      "dir_mode",
+      "/testbed/pandas/core/array_algos"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__system-memory-and-numerical-library-configuration-disruption-for-pandas-operations.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:42:59",
+ "usable": false,
+ "why": "gold_fail: None"
+}

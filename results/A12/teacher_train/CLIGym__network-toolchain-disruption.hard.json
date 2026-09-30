@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__network-toolchain-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:31:48",
+ "usable": false,
+ "why": "build_fail: 7.0.0.1 api.twitter.com\" >> /etc/hosts\n   9 |     RUN rm -f /testbed/cassettes/*.json /testbed/cassettes/*.yaml\n  10 |     \n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo \\\"127.0.0.1 api.twitter.com\\\" >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__python-import-source-loader-subversion-via-iso-8859-encoding-declaration-injection.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "11:44:59",
+ "usable": true,
+ "image": "a10:python-import-source-loader-subversion-via-iso-8859--5ac3eb2bda",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 passed, 27 errors",
+     "n_pass": 4,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 passed, 27 errors",
+     "n_pass": 4,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

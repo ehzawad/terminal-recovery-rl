@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__encrypted-essential-build-tool-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:31:07",
+ "usable": false,
+ "why": "build_fail: \n  37 |             print(f\"Failed to encrypt {filepath}: {e}\", file=sys.stderr)\n  38 |     EOF\n  39 | >>> RUN rm -rf /home/*/.cache/*\n  40 |     \n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c rm -rf /home/*/.cache/*\" did not complete successfully: exit code: 255\n"
+}

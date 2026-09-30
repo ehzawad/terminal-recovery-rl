@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-message-frame-id-arithmetic-overflow-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "11:08:30",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-message-frame-id-arithmetic--eba00b37ab",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_Message.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/CamelCaseEmpty.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/add_two_dbc_files_1.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_Message.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/CamelCaseEmpty.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/add_two_dbc_files_1.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

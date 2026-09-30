@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__pandas-json-datetime-iso-format-registry-corruption-via-config-override",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "13:01:53",
+ "usable": true,
+ "image": "a10:pandas-json-datetime-iso-format-registry-corruption--92dcb07215",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/io/json/_table_schema.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 49 passed",
+     "n_pass": 49,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/io/json/_table_schema.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 49 passed",
+     "n_pass": 49,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

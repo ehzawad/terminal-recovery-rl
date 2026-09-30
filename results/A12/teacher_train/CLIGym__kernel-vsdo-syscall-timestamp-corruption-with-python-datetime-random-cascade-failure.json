@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-vsdo-syscall-timestamp-corruption-with-python-datetime-random-cascade-failure",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "11:45:58",
+ "usable": true,
+ "image": "a10:kernel-vsdo-syscall-timestamp-corruption-with-python-eaa94a15b5",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "2110 passed, 13 skipped, 2 warnings",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "no tests ran",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-unix-domain-socket-abstract-namespace-collision-causing-h11-http-test-failures.hard",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "13:46:03",
+ "usable": true,
+ "image": "a10:kernel-unix-domain-socket-abstract-namespace-collisi-50ddb4d2c2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

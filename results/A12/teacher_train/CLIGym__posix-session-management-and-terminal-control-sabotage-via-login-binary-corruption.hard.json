@@ -1,0 +1,21 @@
+{
+ "key": "CLIGym__posix-session-management-and-terminal-control-sabotage-via-login-binary-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "13:15:26",
+ "usable": true,
+ "image": "a10:posix-session-management-and-terminal-control-sabota-40ec65a6f2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  },
+  {
+   "i": 1,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  }
+ ]
+}

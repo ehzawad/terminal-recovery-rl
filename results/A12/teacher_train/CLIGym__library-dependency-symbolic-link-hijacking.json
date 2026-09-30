@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__library-dependency-symbolic-link-hijacking",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "13:38:37",
+ "usable": true,
+ "image": "a10:library-dependency-symbolic-link-hijacking-748692fc71",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/.libcrypto.so.3.backup"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/.libssl.so.3.backup"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/bindings/._rust.abi3.so.backup"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 19 warnings",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/.libcrypto.so.3.backup"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/.libssl.so.3.backup"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/bindings/._rust.abi3.so.backup"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 19 warnings",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

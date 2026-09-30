@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__tampered-openssl-libcrypto-libraries",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:33:33",
+ "usable": true,
+ "image": "a10:tampered-openssl-libcrypto-libraries-0e02e24363",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libssl.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "148 passed, 3 skipped",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libssl.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "148 passed, 3 skipped, 34 warnings",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

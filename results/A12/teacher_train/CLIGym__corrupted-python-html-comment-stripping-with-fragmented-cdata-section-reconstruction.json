@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-python-html-comment-stripping-with-fragmented-cdata-section-reconstruction",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "13:55:52",
+ "usable": true,
+ "image": "a10:corrupted-python-html-comment-stripping-with-fragmen-a792fb9363",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 10,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/etree.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.13"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/etree.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.13"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

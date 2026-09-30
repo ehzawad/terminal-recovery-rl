@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__glibc-locale-monetary-grouping-corruption-for-numeric-formatting.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "12:35:15",
+ "usable": true,
+ "image": "a10:glibc-locale-monetary-grouping-corruption-for-numeri-86697888ca",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/locale.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/io/formats/format.py"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_MONETARY"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_NUMERIC"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/aa_DJ.utf8/LC_MONETARY"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "7 failed, 24 passed",
+     "n_pass": 24,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/locale.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/io/formats/format.py"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_MONETARY"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_NUMERIC"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/aa_DJ.utf8/LC_MONETARY"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "7 failed, 24 passed",
+     "n_pass": 24,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

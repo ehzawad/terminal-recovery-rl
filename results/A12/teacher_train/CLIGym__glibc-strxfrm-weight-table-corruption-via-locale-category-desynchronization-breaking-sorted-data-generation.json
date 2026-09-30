@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__glibc-strxfrm-weight-table-corruption-via-locale-category-desynchronization-breaking-sorted-data-generation",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "11:42:57",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

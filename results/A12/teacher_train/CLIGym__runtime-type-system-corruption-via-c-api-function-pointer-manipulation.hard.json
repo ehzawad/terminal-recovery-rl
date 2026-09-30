@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__runtime-type-system-corruption-via-c-api-function-pointer-manipulation.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "12:20:15",
+ "usable": true,
+ "image": "a10:runtime-type-system-corruption-via-c-api-function-po-d0b7b0d6c0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "47 passed, 1 warning",
+     "n_pass": 47,
+     "n_ids": 47,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "47 passed, 1 warning",
+     "n_pass": 47,
+     "n_ids": 47,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}
