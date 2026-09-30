@@ -1,0 +1,40 @@
+{
+ "key": "CLIGym__corrupt-linux-kernel-shared-memory-allocation-to-disrupt-compression-algorithm-unit-tests.hard",
+ "i": 3,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "4 failed, 20 passed",
+  "n_ids": 24,
+  "n_pass": 20,
+  "not_passed": {
+   "tests/test_compression/test_bz2_ncd.py::test_similarity[test-test-0.08]": "FAILED",
+   "tests/test_compression/test_bz2_ncd.py::test_similarity[test-nani-0.16]": "FAILED",
+   "tests/test_compression/test_common.py::test_simmetry[alg2]": "FAILED",
+   "tests/test_compression/test_common.py::test_is_normalized[alg2]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 2.6
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/bz2.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "4 failed, 20 passed",
+   "n_pass": 20,
+   "n_ids": 24,
+   "timeout": false
+  }
+ }
+}

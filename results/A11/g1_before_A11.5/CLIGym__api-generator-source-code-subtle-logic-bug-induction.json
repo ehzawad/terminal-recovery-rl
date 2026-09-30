@@ -1,0 +1,64 @@
+{
+ "key": "CLIGym__api-generator-source-code-subtle-logic-bug-induction",
+ "damage": {
+  "added": 0,
+  "deleted": 0,
+  "changed": 1,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "9 passed",
+    "n_pass": 9,
+    "n_ids": 9,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "9 passed",
+    "n_pass": 9,
+    "n_ids": 9,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/testbed/rest_framework_nested/routers.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "2 failed, 7 passed",
+   "n_pass": 7,
+   "n_ids": 9,
+   "timeout": false
+  }
+ }
+}

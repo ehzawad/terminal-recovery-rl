@@ -1,0 +1,138 @@
+{
+ "key": "CLIGym__corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard",
+ "damage": {
+  "added": 1,
+  "deleted": 5,
+  "changed": 1,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": false,
+   "bc": {
+    "pass": false,
+    "n_fail": 6,
+    "fails": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/etc/conda/activate.d/env_vars.sh"
+     ],
+     [
+      "missing",
+      "/testbed/.github/ISSUE_TEMPLATE/bug_report.yaml"
+     ],
+     [
+      "missing",
+      "/testbed/.github/ISSUE_TEMPLATE/config.yml"
+     ],
+     [
+      "missing",
+      "/testbed/.github/ISSUE_TEMPLATE/features_request.yaml"
+     ],
+     [
+      "missing",
+      "/testbed/.gitignore"
+     ],
+     [
+      "missing",
+      "/testbed/.pre-commit-config.yaml"
+     ]
+    ]
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "13 passed",
+    "n_pass": 13,
+    "n_ids": 13,
+    "timeout": false
+   }
+  },
+  {
+   "pass": false,
+   "bc": {
+    "pass": false,
+    "n_fail": 6,
+    "fails": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/etc/conda/activate.d/env_vars.sh"
+     ],
+     [
+      "missing",
+      "/testbed/.github/ISSUE_TEMPLATE/bug_report.yaml"
+     ],
+     [
+      "missing",
+      "/testbed/.github/ISSUE_TEMPLATE/config.yml"
+     ],
+     [
+      "missing",
+      "/testbed/.github/ISSUE_TEMPLATE/features_request.yaml"
+     ],
+     [
+      "missing",
+      "/testbed/.gitignore"
+     ],
+     [
+      "missing",
+      "/testbed/.pre-commit-config.yaml"
+     ]
+    ]
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "13 passed",
+    "n_pass": 13,
+    "n_ids": 13,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 7,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/etc/conda/activate.d/env_vars.sh"
+    ],
+    [
+     "content",
+     "/testbed/src/exceptiongroup/_exceptions.py"
+    ],
+    [
+     "missing",
+     "/testbed/.github/ISSUE_TEMPLATE/bug_report.yaml"
+    ],
+    [
+     "missing",
+     "/testbed/.github/ISSUE_TEMPLATE/config.yml"
+    ],
+    [
+     "missing",
+     "/testbed/.github/ISSUE_TEMPLATE/features_request.yaml"
+    ],
+    [
+     "missing",
+     "/testbed/.gitignore"
+    ],
+    [
+     "missing",
+     "/testbed/.pre-commit-config.yaml"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "13 passed",
+   "n_pass": 13,
+   "n_ids": 13,
+   "timeout": false
+  }
+ }
+}

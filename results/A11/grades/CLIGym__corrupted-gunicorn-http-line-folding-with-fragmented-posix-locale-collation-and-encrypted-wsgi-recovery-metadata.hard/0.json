@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupted-gunicorn-http-line-folding-with-fragmented-posix-locale-collation-and-encrypted-wsgi-recovery-metadata.hard",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "3 failed, 9 passed",
+  "n_ids": 12,
+  "n_pass": 9,
+  "not_passed": {
+   "tests/test_valid_requests.py::test_http_parser[/testbed/tests/requests/valid/compat_obs_fold.http]": "FAILED",
+   "tests/test_valid_requests.py::test_http_parser[/testbed/tests/requests/valid/compat_obs_fold_huge.http]": "FAILED",
+   "tests/test_invalid_requests.py::test_http_parser[/testbed/tests/requests/invalid/obs_fold_01.http]": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.8
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/latin_1.py"
+    ],
+    [
+     "content",
+     "/testbed/gunicorn/http/message.py"
+    ],
+    [
+     "content",
+     "/testbed/gunicorn/util.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "3 failed, 9 passed",
+   "n_pass": 9,
+   "n_ids": 12,
+   "timeout": false
+  }
+ }
+}

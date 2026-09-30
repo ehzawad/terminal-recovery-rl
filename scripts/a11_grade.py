@@ -104,8 +104,8 @@ def damage_set(spec: dict) -> dict:
         tests_tar = sh(g, "cd /testbed && tar -cpf - -T -", 600, ("\n".join(tests_g) + "\n").encode())
         with A10.box(spec) as d:
             md = manifest(d)
-            pkg_d = set(os.path.normpath(x) for x in sh(d, PKGFILES, 900).decode(errors="replace").splitlines() if x)
-            pkg_g = set(os.path.normpath(x) for x in sh(g, PKGFILES, 900).decode(errors="replace").splitlines() if x)
+            pkg_d = merged_usr(sh(d, PKGFILES, 900))
+            pkg_g = merged_usr(sh(g, PKGFILES, 900))
             new_pkg = pkg_d - pkg_g
             added_all = sorted(p for p in md if p not in mg and md[p][0] != "d")
             added = [p for p in added_all if p not in new_pkg]
@@ -123,6 +123,19 @@ def damage_set(spec: dict) -> dict:
     (CACHE / (p.stem + ".tests.tar")).write_bytes(tests_tar)
     p.write_text(json.dumps(res))
     return res
+
+
+def merged_usr(raw: bytes) -> set[str]:
+    """Package file paths, with /lib, /bin, /sbin also listed under /usr (merged-/usr images)."""
+    out = set()
+    for x in raw.decode(errors="replace").splitlines():
+        if x:
+            p = os.path.normpath(x)
+            out.add(p)
+            for top in ("/lib", "/bin", "/sbin", "/lib64"):
+                if p.startswith(top + "/"):
+                    out.add("/usr" + p)
+    return out
 
 
 def same_ast(a: str, b: str) -> bool:
@@ -231,13 +244,54 @@ def g1(jobs: int) -> None:
             print(f"{r['key'][8:70]:62} dmg={r['damage']} ref={','.join(f(g) for g in r['ref'])} mut={f(r['mutant'])}", flush=True)
 
 
+def grade_episode(key: str, i: int, st: dict) -> dict:
+    spec = A10.spec_of({"key": key, "task_id": key[8:], "base": st["gold"]})
+    assert spec["image"] == st["image"], (spec["image"], st["image"])
+    dmg = damage_set(spec)
+    cs = str(A10.POOL / "a11_cs" / key / str(i))
+    res = {"key": key, "i": i}
+    if not os.path.exists(os.path.join(cs, "diff.json")):
+        return {**res, "error": "no change set"}
+    with A10.box(spec) as b:
+        cligym.replay(b.name, cs)
+        res["v1"] = {k: v for k, v in A10.grade(b).items() if k != "log_tail"}
+    with A10.box(spec) as b:
+        cligym.replay(b.name, cs)
+        res["v2"] = grade_v2(b, dmg)
+    return res
+
+
+def episodes(keys: list[str] | None, jobs: int) -> None:
+    st = json.load(open(OUT / "tasks.json"))
+    todo = [(k, i) for k, v in st.items() if v.get("usable") and (not keys or k in keys)
+            for i in range(len(v.get("episodes", []))) if not (OUT / "grades" / k / f"{i}.json").exists()]
+    print(len(todo), "episodes to grade", flush=True)
+
+    def work(ki):
+        k, i = ki
+        try:
+            r = grade_episode(k, i, st[k])
+        except Exception as e:
+            r = {"key": k, "i": i, "error": repr(e)[:500]}
+        (OUT / "grades" / k).mkdir(parents=True, exist_ok=True)
+        (OUT / "grades" / k / f"{i}.json").write_text(json.dumps(r, indent=1))
+        return r
+
+    with cf.ThreadPoolExecutor(jobs) as ex:
+        for r in ex.map(work, todo):
+            print(r["key"][8:60], r["i"], r.get("error") or f"v1={r['v1']['pass']} v2={r['v2']['pass']}", flush=True)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--g1", action="store_true")
     ap.add_argument("--jobs", type=int, default=3)
+    ap.add_argument("--episodes", nargs="?", const="", default=None)
     a = ap.parse_args()
     if a.g1:
         g1(a.jobs)
+    if a.episodes is not None:
+        episodes([x for x in a.episodes.split(",") if x], a.jobs)
 
 
 if __name__ == "__main__":

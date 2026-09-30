@@ -1,0 +1,72 @@
+{
+ "key": "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+ "damage": {
+  "added": 2,
+  "deleted": 0,
+  "changed": 0,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "11 passed",
+    "n_pass": 11,
+    "n_ids": 11,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "11 passed",
+    "n_pass": 11,
+    "n_ids": 11,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/seccomp_loader.pth"
+    ],
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/seccomp_patch.py"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/seccomp_loader.pth"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "7 failed, 4 passed",
+   "n_pass": 4,
+   "n_ids": 11,
+   "timeout": false
+  }
+ }
+}

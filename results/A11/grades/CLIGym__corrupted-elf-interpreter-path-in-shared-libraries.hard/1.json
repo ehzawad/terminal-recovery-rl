@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__corrupted-elf-interpreter-path-in-shared-libraries.hard",
+ "i": 1,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "30 passed, 3 warnings",
+  "n_ids": 30,
+  "n_pass": 30,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 2.0
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/bin/python3.10"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "30 passed, 3 warnings",
+   "n_pass": 30,
+   "n_ids": 30,
+   "timeout": false
+  }
+ }
+}

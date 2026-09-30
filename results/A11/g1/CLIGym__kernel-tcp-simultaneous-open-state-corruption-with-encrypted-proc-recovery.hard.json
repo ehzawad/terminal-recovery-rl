@@ -1,0 +1,68 @@
+{
+ "key": "CLIGym__kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard",
+ "damage": {
+  "added": 1,
+  "deleted": 0,
+  "changed": 1,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "12 passed",
+    "n_pass": 12,
+    "n_ids": 12,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "12 passed",
+    "n_pass": 12,
+    "n_ids": 12,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/testbed/h11/_network_compat.py"
+    ],
+    [
+     "content",
+     "/testbed/h11/__init__.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "2 failed, 10 passed",
+   "n_pass": 10,
+   "n_ids": 12,
+   "timeout": false
+  }
+ }
+}

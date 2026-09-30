@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__categorical-array-corruption-via-posix-shared-memory-and-ipc-namespace-manipulation.hard",
+ "i": 0,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "50 passed",
+  "n_ids": 50,
+  "n_pass": 50,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 2.8
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "added_still_present",
+     "/usr/local/lib/libcorrupt_categorical.so"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "50 passed",
+   "n_pass": 50,
+   "n_ids": 50,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,13 @@
+18 tasks with reference and control; 18 to run
+api-generator-source-code-subtle-logic-bug-induction           dmg={'added': 0, 'deleted': 0, 'changed': 1, 'dir_mode': 0} ref=P,P mut=Fbt
+glibc-iconv-module-corruption-for-encoding-conversion-operatio dmg={'added': 0, 'deleted': 0, 'changed': 261, 'dir_mode': 0} ref=Fb,Fb mut=Fb
+corrupted-python-ast-optimizer-with-fragmented-peephole-byteco dmg={'added': 1, 'deleted': 0, 'changed': 3, 'dir_mode': 0} ref=P,P mut=Fb
+corrupt-compression-metadata-to-break-ncd-similarity-calculati dmg={'added': 0, 'deleted': 0, 'changed': 2, 'dir_mode': 0} ref=Fb,Fb mut=Fb
+corrupted-docker-seccomp-profile-breaking-file-io-and-signal-h dmg={'added': 2, 'deleted': 0, 'changed': 0, 'dir_mode': 0} ref=P,P mut=Fbt
+compiled-regex-engine-poisoning-via-pcre-library-substitution  dmg={'added': 0, 'deleted': 0, 'changed': 1, 'dir_mode': 0} ref=P,P mut=Fb
+python-threading-module-gil-state-corruption-via-cython-extens dmg={'added': 0, 'deleted': 0, 'changed': 2, 'dir_mode': 0} ref=Fb,Fb mut=Fb
+corrupt-python-exception-group-via-mangled-cpython-opcode-jump dmg={'added': 1, 'deleted': 5, 'changed': 1, 'dir_mode': 0} ref=Fb,Fb mut=Fb
+sabotage-pytest-collection-mechanism-via-conftest-injection    dmg={'added': 1, 'deleted': 0, 'changed': 0, 'dir_mode': 0} ref=P,P mut=Fb
+kernel-level-tcp-socket-option-tampering-via-encrypted-setsock dmg={'added': 3, 'deleted': 0, 'changed': 0, 'dir_mode': 0} ref=P,P mut=Fb
+openapi-schema-validation-keyword-injection-via-yaml-configura dmg={'added': 4, 'deleted': 0, 'changed': 0, 'dir_mode': 0} ref=P,P mut=Fb
+ssh-protocol-rsa-key-generation-component-destruction-with-bin dmg={'added': 0, 'deleted': 0, 'changed': 3, 'dir_mode': 0} ref=P,P mut=Fb

@@ -1,0 +1,66 @@
+{
+ "key": "CLIGym__corrupted-elf-interpreter-path-in-shared-libraries.hard",
+ "i": 0,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": null,
+  "n_ids": 30,
+  "n_pass": 0,
+  "not_passed": {
+   "tests/test_utils_python.py::TestMemoizedMethod::test_memoizemethod_noargs": "MISSING",
+   "tests/test_utils_python.py::TestToBytes::test_converting_a_strange_object_should_raise_type_error": "MISSING",
+   "tests/test_utils_url.py::TestAddHttpIfNoScheme::test_complete_url": "MISSING",
+   "tests/test_utils_url.py::TestGuessScheme::test_uri_001": "MISSING",
+   "tests/test_utils_url.py::TestGuessScheme::test_uri_005": "MISSING",
+   "tests/test_utils_url.py::TestGuessScheme::test_uri_006": "MISSING",
+   "tests/test_utils_url.py::TestGuessScheme::test_uri_008": "MISSING",
+   "tests/test_utils_url.py::TestStripUrl::test_default_ports_creds_off": "MISSING",
+   "tests/test_utils_url.py::TestStripUrl::test_noop_query_string": "MISSING",
+   "tests/test_utils_datatypes.py::TestCaseInsensitiveDict::test_iter": "MISSING",
+   "tests/test_utils_conf.py::TestBuildComponentList::test_valid_numbers": "MISSING",
+   "tests/test_utils_conf.py::TestBuildComponentList::test_build_dict": "MISSING",
+   "tests/test_utils_log.py::TestLogging::test_critical_logging": "MISSING",
+   "tests/test_utils_log.py::TestLoggingWithExtra::test_debug_logging": "MISSING",
+   "tests/test_utils_log.py::TestLoggingWithExtra::test_critical_logging": "MISSING",
+   "tests/test_http_headers.py::HeadersTest::test_iterables": "MISSING",
+   "tests/test_stats.py::StatsCollectorTest::test_collector": "MISSING",
+   "tests/test_settings/__init__.py::BaseSettingsTest::test_update_jsonstring": "MISSING",
+   "tests/test_settings/__init__.py::BaseSettingsTest::test_setmodule_by_path": "MISSING",
+   "tests/test_item.py::ItemTest::test_custom_methods": "MISSING",
+   "tests/test_pqueues.py::PriorityQueueTest::test_peek": "MISSING",
+   "tests/test_utils_deprecate.py::TestUpdateClassPath::test_unmatched_path_stays_the_same": "MISSING",
+   "tests/test_utils_deprecate.py::TestWarnWhenSubclassed::test_custom_class_paths": "MISSING",
+   "tests/test_responsetypes.py::ResponseTypesTest::test_from_body": "MISSING",
+   "tests/test_responsetypes.py::ResponseTypesTest::test_from_content_disposition": "MISSING",
+   "tests/test_utils_defer.py::TestIterErrback::test_iter_errback_good": "MISSING",
+   "tests/test_addons.py::AddonManagerTest::test_fallback_workflow": "MISSING",
+   "tests/test_utils_request.py::TestCustomRequestFingerprinter::test_from_settings": "MISSING",
+   "tests/test_dupefilters.py::RFPDupeFilterTest::test_log_debug_default_dupefilter": "MISSING",
+   "tests/test_spiderloader/__init__.py::SpiderLoaderTest::test_load": "MISSING"
+  },
+  "timeout": false,
+  "seconds": 0.9
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/bin/python3.10"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 30,
+   "timeout": false
+  }
+ }
+}

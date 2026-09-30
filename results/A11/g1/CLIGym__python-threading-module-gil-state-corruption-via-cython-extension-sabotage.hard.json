@@ -1,0 +1,78 @@
+{
+ "key": "CLIGym__python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard",
+ "damage": {
+  "added": 0,
+  "deleted": 0,
+  "changed": 2,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": false,
+   "bc": {
+    "pass": false,
+    "n_fail": 1,
+    "fails": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ]
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "8 passed",
+    "n_pass": 8,
+    "n_ids": 8,
+    "timeout": false
+   }
+  },
+  {
+   "pass": false,
+   "bc": {
+    "pass": false,
+    "n_fail": 1,
+    "fails": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ]
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "8 passed",
+    "n_pass": 8,
+    "n_ids": 8,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/bin/python3.10"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/threading.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "8 passed",
+   "n_pass": 8,
+   "n_ids": 8,
+   "timeout": false
+  }
+ }
+}

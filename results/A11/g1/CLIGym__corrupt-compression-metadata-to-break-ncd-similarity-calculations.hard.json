@@ -1,0 +1,78 @@
+{
+ "key": "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard",
+ "damage": {
+  "added": 0,
+  "deleted": 0,
+  "changed": 2,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": false,
+   "bc": {
+    "pass": false,
+    "n_fail": 1,
+    "fails": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ]
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "10 passed",
+    "n_pass": 10,
+    "n_ids": 10,
+    "timeout": false
+   }
+  },
+  {
+   "pass": false,
+   "bc": {
+    "pass": false,
+    "n_fail": 1,
+    "fails": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ]
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "10 passed",
+    "n_pass": 10,
+    "n_ids": 10,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/bz2.py"
+    ],
+    [
+     "content",
+     "/testbed/textdistance/algorithms/compression_based.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "10 passed",
+   "n_pass": 10,
+   "n_ids": 10,
+   "timeout": false
+  }
+ }
+}

@@ -1,0 +1,68 @@
+{
+ "key": "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs",
+ "damage": {
+  "added": 0,
+  "deleted": 0,
+  "changed": 3,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "7 passed, 1 warning",
+    "n_pass": 7,
+    "n_ids": 7,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "7 passed, 1 warning",
+    "n_pass": 7,
+    "n_ids": 7,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/_strptime.py"
+    ],
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/gettext.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "7 passed, 1 warning",
+   "n_pass": 7,
+   "n_ids": 7,
+   "timeout": false
+  }
+ }
+}

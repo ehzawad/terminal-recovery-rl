@@ -1,0 +1,72 @@
+{
+ "key": "CLIGym__openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+ "damage": {
+  "added": 4,
+  "deleted": 0,
+  "changed": 0,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "18 passed",
+    "n_pass": 18,
+    "n_ids": 18,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "ids",
+    "summary": "18 passed",
+    "n_pass": 18,
+    "n_ids": 18,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+    ],
+    [
+     "added_still_present",
+     "/testbed/sitecustomize.py"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "18 passed",
+   "n_pass": 18,
+   "n_ids": 18,
+   "timeout": false
+  }
+ }
+}

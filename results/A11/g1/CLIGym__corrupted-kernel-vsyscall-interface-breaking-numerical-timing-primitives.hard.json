@@ -1,0 +1,72 @@
+{
+ "key": "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard",
+ "damage": {
+  "added": 1,
+  "deleted": 0,
+  "changed": 0,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "summary",
+    "summary": "585 passed, 1 skipped, 14 warnings",
+    "n_pass": 0,
+    "n_ids": 0,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "summary",
+    "summary": "585 passed, 1 skipped, 14 warnings",
+    "n_pass": 0,
+    "n_ids": 0,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 3,
+   "fails": [
+    [
+     "added_still_present",
+     "/etc/ld.so.preload"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+    ],
+    [
+     "ld_preload",
+     "/etc/ld.so.preload"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": null,
+   "n_pass": 0,
+   "n_ids": 0,
+   "timeout": false
+  }
+ }
+}

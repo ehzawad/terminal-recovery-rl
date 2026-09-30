@@ -1,0 +1,68 @@
+{
+ "key": "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard",
+ "damage": {
+  "added": 0,
+  "deleted": 0,
+  "changed": 3,
+  "dir_mode": 0
+ },
+ "ref": [
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "summary",
+    "summary": "14 passed",
+    "n_pass": 0,
+    "n_ids": 14,
+    "timeout": false
+   }
+  },
+  {
+   "pass": true,
+   "bc": {
+    "pass": true,
+    "n_fail": 0,
+    "fails": []
+   },
+   "tests": {
+    "pass": true,
+    "rule": "summary",
+    "summary": "14 passed",
+    "n_pass": 0,
+    "n_ids": 14,
+    "timeout": false
+   }
+  }
+ ],
+ "mutant": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "content",
+     "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+    ],
+    [
+     "content",
+     "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "summary",
+   "summary": "14 passed",
+   "n_pass": 0,
+   "n_ids": 14,
+   "timeout": false
+  }
+ }
+}

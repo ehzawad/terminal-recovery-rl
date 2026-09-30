@@ -1,0 +1,54 @@
+{
+ "key": "CLIGym__kernel-level-http-method-filtering-via-encrypted-netfilter-string-match-corruption",
+ "i": 1,
+ "v1": {
+  "pass": false,
+  "rule": null,
+  "summary": "14 failed, 5 passed",
+  "n_ids": 19,
+  "n_pass": 5,
+  "not_passed": {
+   "tests/test_api.py::TweepyAPITests::testcreatedestroyfavorite": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testcreatedestroyfriendship": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testaddremovelistmember": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testcreatedestroyblock": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testsendanddeletedirectmessage": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testretweetandunretweet": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testupdateanddestroystatus": "FAILED",
+   "tests/test_api.py::TweepyAPITests::testupdateanddestroystatuswithoutkwarg": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_create_and_delete_tweet": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_follow_and_unfollow_user": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_follow_and_unfollow_list": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_like_and_unlike": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_retweet_and_unretweet": "FAILED",
+   "tests/test_client.py::TweepyClientTests::test_hide_and_unhide_reply": "FAILED"
+  },
+  "timeout": false,
+  "seconds": 1.2
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 2,
+   "fails": [
+    [
+     "added_still_present",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+    ],
+    [
+     "new_hook",
+     "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": false,
+   "rule": null,
+   "summary": "14 failed, 5 passed",
+   "n_pass": 5,
+   "n_ids": 19,
+   "timeout": false
+  }
+ }
+}

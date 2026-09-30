@@ -1,0 +1,35 @@
+{
+ "key": "CLIGym__systemd-socket-activation-fd-hijacking-with-corrupted-listen-pid",
+ "i": 2,
+ "v1": {
+  "pass": true,
+  "rule": "ids",
+  "summary": "7 passed",
+  "n_ids": 7,
+  "n_pass": 7,
+  "not_passed": {},
+  "timeout": false,
+  "seconds": 1.5
+ },
+ "v2": {
+  "pass": false,
+  "bc": {
+   "pass": false,
+   "n_fail": 1,
+   "fails": [
+    [
+     "content",
+     "/testbed/gunicorn/sock.py"
+    ]
+   ]
+  },
+  "tests": {
+   "pass": true,
+   "rule": "ids",
+   "summary": "7 passed",
+   "n_pass": 7,
+   "n_ids": 7,
+   "timeout": false
+  }
+ }
+}

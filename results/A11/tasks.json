@@ -1,0 +1,239 @@
+{
+ "CLIGym__corrupted-elf-interpreter-path-in-shared-libraries.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupted-elf-interpreter-path-in-shared-libraries.h-194d489cf7",
+  "gold": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "02:23:56"
+ },
+ "CLIGym__glibc-stdio-buffering-corruption-via-setvbuf-preload-injection": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:glibc-stdio-buffering-corruption-via-setvbuf-preload-95a04df29c",
+  "gold": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "length_budget",
+    "cmds": 26,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "02:24:57"
+ },
+ "CLIGym__system-mathematical-library-symbol-corruption-to-disrupt-numerical-computing": {
+  "usable": false,
+  "why": "gold_fail: None",
+  "t": "02:25:30"
+ },
+ "CLIGym__corrupt-linux-kernel-shared-memory-allocation-to-disrupt-compression-algorithm-unit-tests.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupt-linux-kernel-shared-memory-allocation-to-dis-7fbfc7bb1b",
+  "gold": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "02:27:33"
+ },
+ "CLIGym__systemd-socket-activation-fd-hijacking-with-corrupted-listen-pid": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:systemd-socket-activation-fd-hijacking-with-corrupte-b04e02133c",
+  "gold": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+  "episodes": [
+   {
+    "end": "stopped",
+    "cmds": 18,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 21,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 14,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 13,
+    "err": false
+   }
+  ],
+  "t": "02:29:43"
+ },
+ "CLIGym__corrupted-gunicorn-http-line-folding-with-fragmented-posix-locale-collation-and-encrypted-wsgi-recovery-metadata.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupted-gunicorn-http-line-folding-with-fragmented-344f4121b8",
+  "gold": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "02:30:13"
+ },
+ "CLIGym__kernel-level-http-method-filtering-via-encrypted-netfilter-string-match-corruption": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:kernel-level-http-method-filtering-via-encrypted-net-aead515a69",
+  "gold": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "02:33:07"
+ },
+ "CLIGym__categorical-array-corruption-via-posix-shared-memory-and-ipc-namespace-manipulation.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:categorical-array-corruption-via-posix-shared-memory-1f817f4532",
+  "gold": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+  "episodes": [
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   },
+   {
+    "end": "max_tool_turns",
+    "cmds": 30,
+    "err": false
+   }
+  ],
+  "t": "02:33:37"
+ },
+ "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard": {
+  "usable": true,
+  "why": "ok",
+  "image": "a10:corrupt-linux-proc-self-fd-to-break-file-descriptor--2527562647",
+  "gold": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+  "episodes": [
+   {
+    "end": "stopped",
+    "cmds": 20,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 17,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 16,
+    "err": false
+   },
+   {
+    "end": "stopped",
+    "cmds": 19,
+    "err": false
+   }
+  ],
+  "t": "02:35:09"
+ }
+}
