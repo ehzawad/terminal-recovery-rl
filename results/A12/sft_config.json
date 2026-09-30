@@ -1,0 +1,1 @@
+{"seqs_per_update": 8, "reason": "not fixed by A12; chosen before training so 72 examples give 18 updates over 2 epochs", "lr": 1e-4, "epochs": 2, "lora_r": 16, "max_len": 32768}
