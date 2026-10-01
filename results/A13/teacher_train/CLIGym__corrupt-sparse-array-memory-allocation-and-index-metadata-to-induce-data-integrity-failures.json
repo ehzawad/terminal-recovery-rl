@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-sparse-array-memory-allocation-and-index-metadata-to-induce-data-integrity-failures",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:09:35",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

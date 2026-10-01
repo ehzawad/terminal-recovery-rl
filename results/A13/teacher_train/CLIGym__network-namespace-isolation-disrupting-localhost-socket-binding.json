@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__network-namespace-isolation-disrupting-localhost-socket-binding",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "08:48:39",
+ "usable": true,
+ "image": "a10:network-namespace-isolation-disrupting-localhost-soc-5bbfff76cc",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

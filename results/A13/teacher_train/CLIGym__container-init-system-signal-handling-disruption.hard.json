@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__container-init-system-signal-handling-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "08:56:43",
+ "usable": true,
+ "image": "a10:container-init-system-signal-handling-disruption.har-b1df6ab9c3",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/h11/_connection.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/h11/_connection.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

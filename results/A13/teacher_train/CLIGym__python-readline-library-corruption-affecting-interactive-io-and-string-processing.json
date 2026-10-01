@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-readline-library-corruption-affecting-interactive-io-and-string-processing",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "07:05:04",
+ "usable": false,
+ "why": "gold_fail: None"
+}

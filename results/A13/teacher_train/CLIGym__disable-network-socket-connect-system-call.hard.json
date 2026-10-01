@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__disable-network-socket-connect-system-call.hard",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "08:20:07",
+ "usable": true,
+ "image": "a10:disable-network-socket-connect-system-call.hard-459aa28ba6",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed, 12 warnings",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed, 12 warnings",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-pandas-intervalindex-boundary-corruption-via-libc-random-entropy-poisoning-and-npy-searchsorted-simd-backend-subversion.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:28:11",
+ "usable": false,
+ "why": "build_fail: bed && python -m pip install -e . --no-build-isolation\n  39 |     \n  40 |     RUN rm -f /tmp/entropy_poison.c\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c cd /testbed && python -m pip install -e . --no-build-isolation\" did not complete successfully: exit code: 2\n"
+}

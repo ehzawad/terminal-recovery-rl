@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupted-python-http-header-parser-with-fragmented-rfc7230-field-value-reconstruction",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:20:31",
+ "usable": true,
+ "image": "a10:corrupted-python-http-header-parser-with-fragmented--0d93cbf1bf",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/twisted/web/http_headers.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 19 passed, 3 warnings",
+     "n_pass": 19,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/twisted/web/http_headers.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 19 passed, 3 warnings",
+     "n_pass": 19,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

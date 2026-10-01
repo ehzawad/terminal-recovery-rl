@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__filesystem-namespace-isolation-break-with-cross-mount-overlay-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:24:36",
+ "usable": true,
+ "image": "a10:filesystem-namespace-isolation-break-with-cross-moun-21bce282ef",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/queuelib/tests/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/queuelib/tests/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

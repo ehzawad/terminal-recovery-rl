@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-tcp-urgent-pointer-corruption-with-encrypted-socket-state-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "08:48:39",
+ "usable": true,
+ "image": "a10:kernel-tcp-urgent-pointer-corruption-with-encrypted--2708b6fc23",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

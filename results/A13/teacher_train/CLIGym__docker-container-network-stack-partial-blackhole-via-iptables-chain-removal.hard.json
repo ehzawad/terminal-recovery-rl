@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__docker-container-network-stack-partial-blackhole-via-iptables-chain-removal.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:21:25",
+ "usable": false,
+ "why": "build_fail: apt-get update -qq && apt-get install -y iptables\n   6 | >>> RUN echo \"127.0.0.1 api.twitter.com\" >> /etc/hosts\n   7 |     \n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo \\\"127.0.0.1 api.twitter.com\\\" >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

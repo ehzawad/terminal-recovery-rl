@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__cache-directory-permission-lockdown-for-pandas-operations2",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:52:37",
+ "usable": false,
+ "why": "gold_fail: 1 failed, 49 passed"
+}

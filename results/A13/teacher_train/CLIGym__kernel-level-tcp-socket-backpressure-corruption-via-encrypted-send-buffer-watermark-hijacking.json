@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-level-tcp-socket-backpressure-corruption-via-encrypted-send-buffer-watermark-hijacking",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:43:05",
+ "usable": true,
+ "image": "a10:kernel-level-tcp-socket-backpressure-corruption-via--5d37515da0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tweepy/api.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tweepy/api.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

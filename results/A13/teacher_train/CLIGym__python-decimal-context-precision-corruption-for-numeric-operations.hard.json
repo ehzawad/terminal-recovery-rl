@@ -1,0 +1,69 @@
+{
+ "key": "CLIGym__python-decimal-context-precision-corruption-for-numeric-operations.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:45:41",
+ "usable": true,
+ "image": "a10:python-decimal-context-precision-corruption-for-nume-30bca3eae1",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so.bak"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_pydecimal.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 46 passed",
+     "n_pass": 46,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so.bak"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

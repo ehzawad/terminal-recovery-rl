@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupted-python-dotenv-via-encrypted-textwrap-module-in-nested-tar-lzma.hard",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "t0": "12:57:32",
+ "usable": true,
+ "image": "a10:corrupted-python-dotenv-via-encrypted-textwrap-modul-60b74a3d51",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

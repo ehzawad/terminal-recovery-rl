@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography.hard",
+ "base": "jyangballin/swesmith.x86_64.vi3k6i5_1776_flashtext.b316c7e9",
+ "t0": "14:11:24",
+ "usable": true,
+ "image": "a10:xz-embedded-archive-polyglot-injection-with-dictiona-648497ac49",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

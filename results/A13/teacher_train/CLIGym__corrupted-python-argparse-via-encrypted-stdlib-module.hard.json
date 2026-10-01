@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupted-python-argparse-via-encrypted-stdlib-module.hard",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "t0": "13:02:04",
+ "usable": true,
+ "image": "a10:corrupted-python-argparse-via-encrypted-stdlib-modul-77101dab87",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/argparse.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/argparse.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

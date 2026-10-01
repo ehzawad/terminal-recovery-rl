@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-codec-registry-corruption-for-csv-and-text-io-encoding",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "07:15:14",
+ "usable": false,
+ "why": "gold_fail: 207 passed, 326 errors"
+}

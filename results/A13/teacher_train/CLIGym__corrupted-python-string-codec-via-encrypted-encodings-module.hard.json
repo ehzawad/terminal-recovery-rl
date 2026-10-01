@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-string-codec-via-encrypted-encodings-module.hard",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "t0": "12:57:32",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

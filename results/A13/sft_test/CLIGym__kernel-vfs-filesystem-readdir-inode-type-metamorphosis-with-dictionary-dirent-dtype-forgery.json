@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-vfs-filesystem-readdir-inode-type-metamorphosis-with-dictionary-dirent-dtype-forgery",
+ "base": "jyangballin/swesmith.x86_64.vi3k6i5_1776_flashtext.b316c7e9",
+ "t0": "19:32:43",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

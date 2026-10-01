@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__pandas-display-precision-and-float-format-override-via-global-config-pollution",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:52:05",
+ "usable": false,
+ "why": "gold_fail: 117 passed"
+}

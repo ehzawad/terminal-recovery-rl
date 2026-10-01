@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__loopback-tcp-socket-half-open-connection-exhaustion-for-multiprocess-ipc",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:53:51",
+ "usable": false,
+ "why": "gold_fail: None"
+}

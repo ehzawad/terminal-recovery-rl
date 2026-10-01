@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery",
+ "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+ "t0": "07:37:22",
+ "usable": true,
+ "image": "a10:ssh-protocol-rsa-key-generation-component-destructio-1d4a5ff015",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/bindings/_rust.abi3.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/bindings/_rust.abi3.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

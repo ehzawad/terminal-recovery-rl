@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-level-network-namespace-uid-mapping-corruption",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:30:37",
+ "usable": false,
+ "why": "build_fail: s/testgetfriends.yaml\n   9 |     RUN rm -rf /root/.cache/conda/ /root/.git/\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo \\\"127.0.0.1 api.twitter.com\\\" >> /etc/hosts && echo \\\"127.0.0.1 twitter.com\\\" >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

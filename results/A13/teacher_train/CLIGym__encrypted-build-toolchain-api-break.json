@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__encrypted-build-toolchain-api-break",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "11:39:09",
+ "usable": true,
+ "image": "a10:encrypted-build-toolchain-api-break-416c15bb7e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 10,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/python.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libssl.so.3.bak"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libssl.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 3 warnings",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/python.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libssl.so.3.bak"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libssl.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 3 warnings",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

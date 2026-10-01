@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__network-tcp-socket-state-pollution-and-port-hijacking-for-json-parquet-sql-io",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:24:43",
+ "usable": false,
+ "why": "gold_fail: 3 failed, 289 passed, 10 xfailed, 7 errors"
+}

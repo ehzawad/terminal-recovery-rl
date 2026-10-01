@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-c-extension-linking-with-fragmented-abi-symbol-resolution.hard",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:13:05",
+ "usable": true,
+ "image": "a10:corrupted-python-c-extension-linking-with-fragmented-5e972b5854",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.conf.d/99-corruption.conf"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/etree.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/objectify.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/bfd-plugins/libdep.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libbfd-2.38-system.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.conf.d/99-corruption.conf"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/etree.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/objectify.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/bfd-plugins/libdep.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libbfd-2.38-system.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

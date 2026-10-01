@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__systemd-pid-1-signal-handling-file-descriptor-starvation-impacting-subprocess-calls.hard",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:48:50",
+ "usable": true,
+ "image": "a10:systemd-pid-1-signal-handling-file-descriptor-starva-394f11b690",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/scrapy/core/spidermw.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/crawler.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/downloadermiddlewares/retry.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/spidermiddlewares/httperror.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 1 passed, 3 warnings, 2 errors",
+     "n_pass": 1,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/scrapy/core/spidermw.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/crawler.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/downloadermiddlewares/retry.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/spidermiddlewares/httperror.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 1 passed, 3 warnings, 2 errors",
+     "n_pass": 1,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

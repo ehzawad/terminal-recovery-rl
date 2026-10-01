@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__posix-process-exit-status-encoding-corruption-via-wait-macros-header-sabotage.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "08:04:56",
+ "usable": true,
+ "image": "a10:posix-process-exit-status-encoding-corruption-via-wa-25db048646",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/os.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 1 passed",
+     "n_pass": 1,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

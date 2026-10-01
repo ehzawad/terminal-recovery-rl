@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__python-pandas-categorical-corruption-via-posix-ctype-locale-facet-mutation-and-gnu-libc-collation-binary-desynchronization.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:37:35",
+ "usable": true,
+ "image": "a10:python-pandas-categorical-corruption-via-posix-ctype-e6299b8ae4",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/categorical.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/sorting.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/categorical.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/sorting.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

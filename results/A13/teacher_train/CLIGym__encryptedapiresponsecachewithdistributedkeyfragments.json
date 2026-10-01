@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__encryptedapiresponsecachewithdistributedkeyfragments",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:27:50",
+ "usable": true,
+ "image": "a10:encryptedapiresponsecachewithdistributedkeyfragments-5de926d109",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tweepy/cache.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tweepy/cache.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed, 34 warnings",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

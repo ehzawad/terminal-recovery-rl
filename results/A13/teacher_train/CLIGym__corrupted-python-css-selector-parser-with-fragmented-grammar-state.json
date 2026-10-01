@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-css-selector-parser-with-fragmented-grammar-state",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:28:00",
+ "usable": false,
+ "why": "build_fail: c echo \\\"CORRUPTED_BY_XOR_KEY\\\" >> /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cssselect-1.3.0.dist-info/RECORD &&     echo \\\"CORRUPTED_BY_XOR_KEY\\\" >> /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/parsel-1.10.0.dist-info/RECORD\" did not complete successfully: exit code: 2\n"
+}

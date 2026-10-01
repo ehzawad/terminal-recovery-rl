@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__python-pandas-categorical-sort-corruption-via-radix-sort-bucket-allocation-poisoning-and-comparison-cache-subversion",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:59:00",
+ "usable": true,
+ "image": "a10:python-pandas-categorical-sort-corruption-via-radix--d9c37ac6d9",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/categorical.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 49 passed",
+     "n_pass": 49,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/categorical.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 49 passed",
+     "n_pass": 49,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

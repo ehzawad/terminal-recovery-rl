@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__posix-process-file-descriptor-leak-prevention-mechanism-sabotage-via-python-io-module-structure-corruption",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "07:53:49",
+ "usable": true,
+ "image": "a10:posix-process-file-descriptor-leak-prevention-mechan-8e74a639b4",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_pyio.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/multiprocessing/util.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/subprocess.py"
+     ],
+     [
+      "content",
+      "/testbed/ptyprocess/ptyprocess.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_pyio.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/multiprocessing/util.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/subprocess.py"
+     ],
+     [
+      "content",
+      "/testbed/ptyprocess/ptyprocess.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

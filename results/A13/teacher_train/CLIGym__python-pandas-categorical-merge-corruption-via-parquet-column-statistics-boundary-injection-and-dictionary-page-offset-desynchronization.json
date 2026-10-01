@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-pandas-categorical-merge-corruption-via-parquet-column-statistics-boundary-injection-and-dictionary-page-offset-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:10:34",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

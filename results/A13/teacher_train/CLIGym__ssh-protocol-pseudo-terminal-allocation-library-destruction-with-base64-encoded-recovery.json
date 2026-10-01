@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__ssh-protocol-pseudo-terminal-allocation-library-destruction-with-base64-encoded-recovery",
+ "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+ "t0": "07:37:13",
+ "usable": true,
+ "image": "a10:ssh-protocol-pseudo-terminal-allocation-library-dest-5b5cde045a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libutil.so.1"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libutil.so.1"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

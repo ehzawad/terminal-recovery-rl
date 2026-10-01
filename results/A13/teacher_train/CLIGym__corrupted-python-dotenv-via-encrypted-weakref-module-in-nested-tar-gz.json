@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-dotenv-via-encrypted-weakref-module-in-nested-tar-gz",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "t0": "12:59:54",
+ "usable": false,
+ "why": "gold_fail: 2 failed, 150 passed"
+}

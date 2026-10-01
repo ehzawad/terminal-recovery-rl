@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__c-standard-library-memory-allocator-corruption-and-process-lifecycle-sabotage.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "07:53:49",
+ "usable": false,
+ "why": "build_fail: /malicious_malloc.c\n 112 |     RUN rm -rf /testbed/.git\n 113 |     RUN rm -rf /opt/miniconda3/pkgs/*\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c rm -rf /tmp/glibc-2.35 /tmp/glibc-2.35.tar.gz /tmp/malicious_malloc.c\" did not complete successfully: exit code: 134\n"
+}

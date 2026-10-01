@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__multiindex-tuple-comparison-and-sorting-corruption-via-hash-seed-manipulation",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:11:10",
+ "usable": true,
+ "image": "a10:multiindex-tuple-comparison-and-sorting-corruption-v-434c4359c4",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "41 passed",
+     "n_pass": 41,
+     "n_ids": 41,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "41 passed",
+     "n_pass": 41,
+     "n_ids": 41,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

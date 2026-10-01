@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__posix-shared-memory-segment-exhaustion-for-multiprocessing-operations.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:15:06",
+ "usable": false,
+ "why": "gold_fail: None"
+}

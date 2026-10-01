@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-sax-contenthandler-namespace-context-in-lxml-to-fragment-namespace-resolution",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:28:09",
+ "usable": true,
+ "image": "a10:corrupt-sax-contenthandler-namespace-context-in-lxml-60b6dda6b9",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 27,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/lxml/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

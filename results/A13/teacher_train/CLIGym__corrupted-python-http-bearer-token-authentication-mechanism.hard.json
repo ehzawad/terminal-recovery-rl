@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-http-bearer-token-authentication-mechanism.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:39:16",
+ "usable": false,
+ "why": "build_fail: -\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo 'export AUTH_HDR_CORRUPTION=\\\"emVyby13aWR0aCBzcGFjZSBVKzIwMEIgaW5zZXJ0ZWQgYXQgcG9zaXRpb24gNSBpbnNpZGUgQmVhcmVyIHRva2Vu\\\"' >> /opt/miniconda3/envs/testbed/etc/conda/activate.d/env_vars.sh\" did not complete successfully: exit code: 2\n"
+}

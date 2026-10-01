@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__python-pandas-multiindex-sort-corruption-via-glibc-qsort-comparator-abi-poisoning-and-lexsort-depth-metadata-injection.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:25:20",
+ "usable": true,
+ "image": "a10:python-pandas-multiindex-sort-corruption-via-glibc-q-19e102509b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/indexes/multi.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/indexes/multi.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

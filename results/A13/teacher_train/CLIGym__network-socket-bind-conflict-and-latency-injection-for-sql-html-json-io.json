@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__network-socket-bind-conflict-and-latency-injection-for-sql-html-json-io",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:27:35",
+ "usable": false,
+ "why": "gold_fail: 746 failed, 1449 passed, 10 skipped, 179 xfailed, 673 errors"
+}

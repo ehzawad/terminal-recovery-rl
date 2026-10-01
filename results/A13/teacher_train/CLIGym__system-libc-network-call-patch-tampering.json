@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__system-libc-network-call-patch-tampering",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:49:18",
+ "usable": true,
+ "image": "a10:system-libc-network-call-patch-tampering-03697a6f96",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/gconv/network_preload.so"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_get_users_followers.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_client_get_users_followers.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/testgetfollowers.yaml"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/audit/sotruss-lib.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed",
+     "n_pass": 0,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/gconv/network_preload.so"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_asyncclient_get_users_followers.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/test_client_get_users_followers.yaml"
+     ],
+     [
+      "content",
+      "/testbed/cassettes/testgetfollowers.yaml"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 1 passed",
+     "n_pass": 1,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__pyarrow-numba-abi-incompatibility-for-extension-arrays",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:34:29",
+ "usable": false,
+ "why": "gold_fail: 22187 passed, 1872 skipped, 504 xfailed"
+}

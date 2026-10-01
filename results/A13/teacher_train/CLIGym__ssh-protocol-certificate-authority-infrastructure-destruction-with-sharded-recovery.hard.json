@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__ssh-protocol-certificate-authority-infrastructure-destruction-with-sharded-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+ "t0": "07:38:51",
+ "usable": true,
+ "image": "a10:ssh-protocol-certificate-authority-infrastructure-de-ef85b8fa74",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/primitives/serialization/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 36,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "length_budget",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/cryptography/hazmat/primitives/serialization/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 36,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__glibc-timezone-binary-data-structure-corruption-for-datetime-operations",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:35:12",
+ "usable": true,
+ "image": "a10:glibc-timezone-binary-data-structure-corruption-for--e2f1afd27f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "28 passed",
+     "n_pass": 28,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 10,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "28 passed",
+     "n_pass": 28,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

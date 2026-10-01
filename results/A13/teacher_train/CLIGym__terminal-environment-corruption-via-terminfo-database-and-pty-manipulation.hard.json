@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__terminal-environment-corruption-via-terminfo-database-and-pty-manipulation.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:44:12",
+ "usable": true,
+ "image": "a10:terminal-environment-corruption-via-terminfo-databas-02d5100623",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_terminal_init.pth"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_terminal_patch.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/pty_intercept.so"
+     ],
+     [
+      "content",
+      "/testbed/pandas/io/formats/printing.py"
+     ],
+     [
+      "content",
+      "/usr/lib/terminfo/l/linux"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "11 failed, 6 passed",
+     "n_pass": 6,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_terminal_init.pth"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_terminal_patch.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/pty_intercept.so"
+     ],
+     [
+      "content",
+      "/testbed/pandas/io/formats/printing.py"
+     ],
+     [
+      "content",
+      "/usr/lib/terminfo/l/linux"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "11 failed, 6 passed",
+     "n_pass": 6,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

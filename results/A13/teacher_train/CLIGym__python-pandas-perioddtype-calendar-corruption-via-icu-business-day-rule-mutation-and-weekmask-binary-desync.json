@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__python-pandas-perioddtype-calendar-corruption-via-icu-business-day-rule-mutation-and-weekmask-binary-desync",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:51:28",
+ "usable": true,
+ "image": "a10:python-pandas-perioddtype-calendar-corruption-via-ic-71f5737ed1",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pandas_editable_loader.py"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/.ninja_deps"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/.ninja_log"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/meson-info/intro-dependencies.json"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/meson-info/intro-projectinfo.json"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 24 passed",
+     "n_pass": 24,
+     "n_ids": 38,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pandas_editable_loader.py"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/.ninja_deps"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/.ninja_log"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/meson-info/intro-dependencies.json"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/meson-info/intro-projectinfo.json"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 24 passed",
+     "n_pass": 24,
+     "n_ids": 38,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupted-python-urllib-parse-url-splitting-with-scheme-registry-poisoning",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:39:29",
+ "usable": true,
+ "image": "a10:corrupted-python-urllib-parse-url-splitting-with-sch-f0d35b2cf2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/urllib/parse.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 17 passed",
+     "n_pass": 17,
+     "n_ids": 21,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/urllib/parse.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 21,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

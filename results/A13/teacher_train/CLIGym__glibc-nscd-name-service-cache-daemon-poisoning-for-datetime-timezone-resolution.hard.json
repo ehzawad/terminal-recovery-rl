@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__glibc-nscd-name-service-cache-daemon-poisoning-for-datetime-timezone-resolution.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:54:08",
+ "usable": false,
+ "why": "build_fail: kdir -p /usr/local/bin\n  57 |     COPY <<'EOF' /usr/local/bin/nscd_blocker.py\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c cd /tmp && echo \\\"chaos2024\\\" | 7z a -p -mhe=on nscd_backup.7z /etc/nscd.conf > /dev/null 2>&1\" did not complete successfully: exit code: 2\n"
+}

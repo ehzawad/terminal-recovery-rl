@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__pki-infrastructure-crl-distribution-point-poisoning.hard",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "08:11:49",
+ "usable": false,
+ "why": "gold_fail: None"
+}

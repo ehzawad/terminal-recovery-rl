@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__encrypted-user-config-files-with-key-clues.hard",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:14:13",
+ "usable": false,
+ "why": "build_fail:    if [ -f \\\"$f\\\" ]; then             cp \\\"$f\\\" \\\"$f.bak\\\" &&             openssl enc -aes-256-cbc -salt -in \\\"$f.bak\\\" -out \\\"$f\\\" -pass pass:\\\"$KEY\\\" &&             rm -f \\\"$f.bak\\\";         fi;     done &&     rm -rf .git /opt/miniconda3/pkgs ~/.cache\" did not complete successfully: exit code: 2\n"
+}

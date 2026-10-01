@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__python-pandas-categorical-ordering-corruption-via-shared-object-symbol-interposition-and-cpython-interned-string-cache-poisoning.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:19:36",
+ "usable": true,
+ "image": "a10:python-pandas-categorical-ordering-corruption-via-sh-f3d8f2113e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "31 passed",
+     "n_pass": 31,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "31 passed",
+     "n_pass": 31,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

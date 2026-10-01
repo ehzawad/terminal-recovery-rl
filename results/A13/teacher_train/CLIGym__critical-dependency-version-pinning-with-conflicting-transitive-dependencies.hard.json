@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__critical-dependency-version-pinning-with-conflicting-transitive-dependencies.hard",
+ "base": "jyangballin/swesmith.x86_64.theskumar_1776_python-dotenv.2b8635b7",
+ "t0": "13:11:14",
+ "usable": true,
+ "image": "a10:critical-dependency-version-pinning-with-conflicting-0c481b40b0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/__init__.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_compat.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_termui_impl.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_textwrap.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_winconsole.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/__init__.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_compat.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_termui_impl.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_textwrap.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/click/_winconsole.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

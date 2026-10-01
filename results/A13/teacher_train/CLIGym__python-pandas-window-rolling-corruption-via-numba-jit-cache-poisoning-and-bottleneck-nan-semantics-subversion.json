@@ -1,0 +1,69 @@
+{
+ "key": "CLIGym__python-pandas-window-rolling-corruption-via-numba-jit-cache-poisoning-and-bottleneck-nan-semantics-subversion",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:57:43",
+ "usable": true,
+ "image": "a10:python-pandas-window-rolling-corruption-via-numba-ji-170eabb838",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/build/cp310/pandas/_libs/algos.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/build/cp310/pandas/_libs/algos.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/testbed/build/cp310/pandas/_libs/window/aggregations.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/testbed/pandas/_libs/window/aggregations.pyx"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/window/numba_.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "10 failed, 40 passed",
+     "n_pass": 40,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__read-only-filesystem-simulation-for-pandas-cache-and-temporary-operations",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:00:18",
+ "usable": false,
+ "why": "gold_fail: 290 failed, 896 passed, 3 skipped, 3 xfailed, 25 errors"
+}

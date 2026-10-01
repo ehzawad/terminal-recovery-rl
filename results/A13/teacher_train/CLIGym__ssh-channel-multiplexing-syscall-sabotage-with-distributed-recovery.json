@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__ssh-channel-multiplexing-syscall-sabotage-with-distributed-recovery",
+ "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+ "t0": "07:30:37",
+ "usable": true,
+ "image": "a10:ssh-channel-multiplexing-syscall-sabotage-with-distr-e73a30ce4a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.conf.d/local.conf"
+     ],
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "content",
+      "/testbed/paramiko/pipe.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/_loop.py"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed, 548 passed, 24 skipped, 3 warnings, 2 errors",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.conf.d/local.conf"
+     ],
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libio_wrapper.so"
+     ],
+     [
+      "content",
+      "/testbed/paramiko/pipe.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/_loop.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "45 failed, 509 passed, 24 skipped, 3 warnings",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

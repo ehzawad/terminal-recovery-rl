@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__pandas-interval-boundary-corruption-via-blas-threading-and-numpy-dispatch-manipulation",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "07:06:25",
+ "usable": true,
+ "image": "a10:pandas-interval-boundary-corruption-via-blas-threadi-1cf7f6f143",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/interval.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 45 passed",
+     "n_pass": 45,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/arrays/interval.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "26 failed, 24 passed",
+     "n_pass": 24,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

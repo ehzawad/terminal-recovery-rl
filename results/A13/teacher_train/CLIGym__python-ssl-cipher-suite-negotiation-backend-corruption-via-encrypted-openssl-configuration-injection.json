@@ -1,0 +1,61 @@
+{
+ "key": "CLIGym__python-ssl-cipher-suite-negotiation-backend-corruption-via-encrypted-openssl-configuration-injection",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:28:24",
+ "usable": true,
+ "image": "a10:python-ssl-cipher-suite-negotiation-backend-corrupti-e3810c3ded",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/ssl/cacert.pem"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "30 failed",
+     "n_pass": 0,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/ssl/cacert.pem"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/ssl/openssl.cnf"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "30 failed",
+     "n_pass": 0,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

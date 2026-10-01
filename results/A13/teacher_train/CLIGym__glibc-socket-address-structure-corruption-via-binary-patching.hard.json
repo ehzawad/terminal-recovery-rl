@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__glibc-socket-address-structure-corruption-via-binary-patching.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:03:52",
+ "usable": true,
+ "image": "a10:glibc-socket-address-structure-corruption-via-binary-3e5b420f8c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libc.so.6"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "148 passed, 3 skipped",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libc.so.6"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "148 passed, 3 skipped",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

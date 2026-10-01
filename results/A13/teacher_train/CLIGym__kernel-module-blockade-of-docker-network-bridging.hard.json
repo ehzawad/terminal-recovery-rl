@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-module-blockade-of-docker-network-bridging.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "14:06:06",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupt-openssl-engine-module-to-break-cryptographic-algorithm-loading.hard",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "08:24:29",
+ "usable": true,
+ "image": "a10:corrupt-openssl-engine-module-to-break-cryptographic-2f332593dd",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/afalg.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/capi.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/loader_attic.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/padlock.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/afalg.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/capi.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/loader_attic.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/engines-3/padlock.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

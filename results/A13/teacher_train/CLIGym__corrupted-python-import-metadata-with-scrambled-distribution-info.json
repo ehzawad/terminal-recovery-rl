@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-import-metadata-with-scrambled-distribution-info",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "11:39:09",
+ "usable": true,
+ "image": "a10:corrupted-python-import-metadata-with-scrambled-dist-4381df8078",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/queuelib-1.7.0.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/queuelib-1.7.0.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/service_identity-24.2.0.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/service_identity-24.2.0.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/testbed/Scrapy.egg-info/PKG-INFO"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed, 3 warnings",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/queuelib-1.7.0.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/queuelib-1.7.0.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/service_identity-24.2.0.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/service_identity-24.2.0.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/testbed/Scrapy.egg-info/PKG-INFO"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed, 3 warnings",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

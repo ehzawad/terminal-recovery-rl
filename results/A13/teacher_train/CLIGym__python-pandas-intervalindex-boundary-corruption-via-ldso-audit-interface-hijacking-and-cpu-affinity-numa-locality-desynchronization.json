@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-pandas-intervalindex-boundary-corruption-via-ldso-audit-interface-hijacking-and-cpu-affinity-numa-locality-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:52:33",
+ "usable": false,
+ "why": "build_fail: re/indexes/interval.py\n  21 |     \n  22 |     RUN rm -rf /testbed/.git && \\\n--------------------\nERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 05f02546-a52d-4725-8540-cba6c5a55ba1::02lo9zxi54wkb8lbfhh9j1ezi: \"/interval_index.py\": not found\n"
+}

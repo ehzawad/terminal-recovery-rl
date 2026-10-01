@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupted-python-importlib-metadata-with-fragmented-entry-point-resolution",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "11:46:00",
+ "usable": true,
+ "image": "a10:corrupted-python-importlib-metadata-with-fragmented--98830f9ff9",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/scrapy-2.12.0.dist-info/METADATA"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed, 3 warnings",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/scrapy-2.12.0.dist-info/METADATA"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed, 3 warnings",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

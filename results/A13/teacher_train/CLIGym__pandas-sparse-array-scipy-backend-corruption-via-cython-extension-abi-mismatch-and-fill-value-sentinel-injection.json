@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__pandas-sparse-array-scipy-backend-corruption-via-cython-extension-abi-mismatch-and-fill-value-sentinel-injection",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:55:34",
+ "usable": true,
+ "image": "a10:pandas-sparse-array-scipy-backend-corruption-via-cyt-75b0fd16cb",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pandas_editable_loader.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/arrays/sparse/array.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pandas_editable_loader.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/arrays/sparse/array.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

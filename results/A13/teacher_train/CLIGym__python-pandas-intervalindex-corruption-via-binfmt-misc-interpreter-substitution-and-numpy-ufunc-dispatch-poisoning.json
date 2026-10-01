@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__python-pandas-intervalindex-corruption-via-binfmt-misc-interpreter-substitution-and-numpy-ufunc-dispatch-poisoning",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:05:21",
+ "usable": true,
+ "image": "a10:python-pandas-intervalindex-corruption-via-binfmt-mi-1434acd5ab",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/indexes/interval.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 46 passed",
+     "n_pass": 46,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/pandas/core/indexes/interval.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 46 passed",
+     "n_pass": 46,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

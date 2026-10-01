@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-socket-timestamp-option-corruption-with-encrypted-recovery-chain",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "09:00:10",
+ "usable": true,
+ "image": "a10:kernel-socket-timestamp-option-corruption-with-encry-e0819126de",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

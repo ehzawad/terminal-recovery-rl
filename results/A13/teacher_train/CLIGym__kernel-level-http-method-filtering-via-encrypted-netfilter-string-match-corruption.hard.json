@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-level-http-method-filtering-via-encrypted-netfilter-string-match-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:38:22",
+ "usable": true,
+ "image": "a10:kernel-level-http-method-filtering-via-encrypted-net-aead515a69",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "19 passed",
+     "n_pass": 19,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "19 passed",
+     "n_pass": 19,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

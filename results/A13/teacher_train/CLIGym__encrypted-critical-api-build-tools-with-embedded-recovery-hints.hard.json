@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__encrypted-critical-api-build-tools-with-embedded-recovery-hints.hard",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:03:01",
+ "usable": true,
+ "image": "a10:encrypted-critical-api-build-tools-with-embedded-rec-03a36da390",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/scrapy/commands/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/commands/genspider.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/crawler.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/downloadermiddlewares/httpproxy.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/downloadermiddlewares/retry.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/scrapy/commands/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/commands/genspider.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/crawler.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/downloadermiddlewares/httpproxy.py"
+     ],
+     [
+      "content",
+      "/testbed/scrapy/downloadermiddlewares/retry.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

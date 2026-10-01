@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupted-python-requests-urllib3-retry-logic-layer.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:28:27",
+ "usable": true,
+ "image": "a10:corrupted-python-requests-urllib3-retry-logic-layer.-59e6bc8d02",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/urllib3/util/retry.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/urllib3/util/retry.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

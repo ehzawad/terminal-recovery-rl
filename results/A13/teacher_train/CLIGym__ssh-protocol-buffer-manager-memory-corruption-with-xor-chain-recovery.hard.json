@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__ssh-protocol-buffer-manager-memory-corruption-with-xor-chain-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+ "t0": "07:42:48",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

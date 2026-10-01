@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__loopback-network-packet-reordering-injection-for-distributed-dataframe-operations",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:18:16",
+ "usable": false,
+ "why": "gold_fail: None"
+}

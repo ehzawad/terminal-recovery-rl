@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-pandas-timedelta-frequency-corruption-via-numpy-datetime64-resolution-metadata-poisoning-and-glibc-strftime-locale-cache-subversion",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "07:12:33",
+ "usable": false,
+ "why": "build_fail: -verbose=true\n  11 |     RUN rm -rf /testbed/.git /opt/miniconda3/pkgs/*\n  12 |     \n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c cd /testbed && python -m pip install -ve . --no-build-isolation -Ceditable-verbose=true\" did not complete successfully: exit code: 2\n"
+}

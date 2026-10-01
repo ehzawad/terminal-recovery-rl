@@ -1,0 +1,100 @@
+{
+ "summary": {
+  "tasks": 42,
+  "unusable_now": {
+   "kernel-vfs-filesystem-readdir-inode-type-metamorphos": "vacuous: untouched container passes v2"
+  },
+  "mean": {
+   "base": 0.113,
+   "sft_a12": 0.185,
+   "sft_a13": 0.167,
+   "teacher": 0.274
+  },
+  "mixed": {
+   "base": 5,
+   "sft_a12": 5,
+   "sft_a13": 6,
+   "teacher": 9
+  },
+  "hist_a13": {
+   "0": 32,
+   "1": 2,
+   "2": 2,
+   "3": 2,
+   "4": 4
+  },
+  "a13_vs_base": [
+   0.054,
+   [
+    -0.012,
+    0.131
+   ],
+   5,
+   2
+  ],
+  "a13_vs_a12": [
+   -0.018,
+   [
+    -0.077,
+    0.036
+   ],
+   3,
+   5
+  ],
+  "a12_vs_base_same_tasks": [
+   0.071,
+   [
+    0.0,
+    0.149
+   ],
+   7,
+   2
+  ],
+  "gate_G3": "FAIL"
+ },
+ "sft_a13_per_task": {
+  "CLIGym__posix-file-descriptor-passthrough-corruption-via-encrypted-fcntl-metadata-database": 0,
+  "CLIGym__posix-file-descriptor-table-corruption-via-encrypted-proc-filesystem-poisoning.hard": 2,
+  "CLIGym__python-uuid-generation-poisoning-via-mac-address-namespace-corruption": 0,
+  "CLIGym__python-module-global-state-corruption-via-cloned-interpreter-desync": 0,
+  "CLIGym__categorical-array-corruption-via-posix-shared-memory-and-ipc-namespace-manipulation.hard": 0,
+  "CLIGym__corrupt-pytest-test-collection-metadata-to-scramble-test-execution-order.hard": 3,
+  "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-merkle-tree-hash-chain-corruption-via-ld-library-path-preload": 0,
+  "CLIGym__corrupted-python-pickle-protocol-with-fragmented-opcode-injection-and-encrypted-wsgi-app-reconstruction": 0,
+  "CLIGym__floating-point-precision-corruption-for-pandas-interval-boundary-operations.hard": 0,
+  "CLIGym__corrupted-python-os-path-module-via-layered-obfuscation.hard": 0,
+  "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard": 4,
+  "CLIGym__corrupt-linux-kernel-shared-memory-allocation-to-disrupt-compression-algorithm-unit-tests.hard": 4,
+  "CLIGym__systemd-socket-activation-fd-hijacking-with-corrupted-listen-pid": 0,
+  "CLIGym__corrupted-python-dotenv-via-encrypted-warnings-module-in-nested-archive.hard": 1,
+  "CLIGym__filesystem-extended-attributes-corruption": 0,
+  "CLIGym__python-codecs-encoding-handler-corruption-via-encodings-module-sabotage": 0,
+  "CLIGym__corrupted-python-html-comment-stripping-with-fragmented-cdata-section-reconstruction.hard": 0,
+  "CLIGym__kernel-syscall-table-manipulation-to-break-ssl-module-syscalls": 3,
+  "CLIGym__corrupted-gunicorn-http-line-folding-with-fragmented-posix-locale-collation-and-encrypted-wsgi-recovery-metadata.hard": 0,
+  "CLIGym__linux-procfs-virtualization-breaking-system-introspection.hard": 1,
+  "CLIGym__corrupt-python-object-hash-seed-breaking-markup-dictionary-internals.hard": 0,
+  "CLIGym__python-openssl-asn1-bit-string-encoder-corruption-with-hamming-distance-recovery.hard": 0,
+  "CLIGym__filesystem-dentry-cache-poisoning-with-path-resolution-corruption.hard": 0,
+  "CLIGym__corrupt-marshmallow-field-to-openapi-format-property-mapping-in-schema-conversion.hard": 2,
+  "CLIGym__kernel-socket-option-so-keepalive-corruption-with-cascading-tcp-state-machine-disruption.hard": 0,
+  "CLIGym__corrupted-elf-interpreter-path-in-shared-libraries.hard": 0,
+  "CLIGym__encrypted-kernel-modules-disrupting-numerical-extension-loading": 0,
+  "CLIGym__kernel-level-http-method-filtering-via-encrypted-netfilter-string-match-corruption": 0,
+  "CLIGym__libnss-plugins-cache-poisoning-with-passwd-shadow-desynchronization": 0,
+  "CLIGym__glibc-locale-charmap-encoding-corruption": 0,
+  "CLIGym__python-openssl-asn1-der-tag-encoding-infrastructure-corruption-via-constructed-primitive-bit-inversion": 0,
+  "CLIGym__xml-external-entity-catalog-poisoning-with-sgml-dtd-resolution-cascade-failure": 0,
+  "CLIGym__corrupted-python-cookie-jar-serialization-with-fragmented-mozilla-format": 0,
+  "CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation": 4,
+  "CLIGym__kernel-tcp-connection-state-corruption-via-sockopt-parameter-encryption": 4,
+  "CLIGym__ssh-protocol-certificate-validation-engine-sabotage-with-distributed-cipher-recovery.hard": 0,
+  "CLIGym__corrupted-python-json-unicode-escape-handler": 0,
+  "CLIGym__enforced-api-endpoint-configuration-lockdown.hard": 0,
+  "CLIGym__encrypted-feed-configuration-data-with-fragmented-decryption-keys": 0,
+  "CLIGym__partially-corrupted-linux-glob-environment-breaking-path-matching.hard": 0,
+  "CLIGym__sqlite3-binary-corruption-with-encrypted-backup": 0,
+  "CLIGym__python-stdlib-multi-version-symlink-conflict.hard": 0,
+  "CLIGym__glibc-stdio-buffering-corruption-via-setvbuf-preload-injection": 0
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-level-tcp-socket-read-buffer-poisoning-through-encrypted-sk_buff-metadata-corruption",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:43:00",
+ "usable": true,
+ "image": "a10:kernel-level-tcp-socket-read-buffer-poisoning-throug-575d47275c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/requests/models.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/requests/models.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 5 passed, 34 warnings",
+     "n_pass": 5,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

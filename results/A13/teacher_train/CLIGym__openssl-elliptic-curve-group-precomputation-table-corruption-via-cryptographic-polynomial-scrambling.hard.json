@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__openssl-elliptic-curve-group-precomputation-table-corruption-via-cryptographic-polynomial-scrambling.hard",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "08:25:16",
+ "usable": false,
+ "why": "build_fail: gree: 3' >> /etc/hosts\n   6 |     RUN echo '      _____' > /etc/motd && \\\n   7 |         echo '    /       \\\\' >> /etc/motd && \\\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo '# Polynomial degree: 3' >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

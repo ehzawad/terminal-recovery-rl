@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__openssl-x509v3-extension-handler-source-mutation",
+ "base": "jyangballin/swesmith.x86_64.pyca_1776_pyopenssl.04766a49",
+ "t0": "08:14:20",
+ "usable": true,
+ "image": "a10:openssl-x509v3-extension-handler-source-mutation-7b6b738d72",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "14 passed, 13 warnings",
+     "n_pass": 14,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/OpenSSL/crypto.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "14 passed, 13 warnings",
+     "n_pass": 14,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

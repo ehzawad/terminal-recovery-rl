@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__ssh-protocol-iconv-charset-converter-sabotage-with-lzma-encrypted-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.paramiko_1776_paramiko.23f92003",
+ "t0": "07:32:16",
+ "usable": true,
+ "image": "a10:ssh-protocol-iconv-charset-converter-sabotage-with-l-4d59de09a6",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/ascii.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/iso8859_1.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/latin_1.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/utf_16.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/utf_8.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-1.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-15.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-2.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/UNICODE.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/UTF-16.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "15 passed",
+     "n_pass": 0,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

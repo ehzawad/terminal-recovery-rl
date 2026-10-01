@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__tamper-with-python-path-to-induce-dependency-conflict",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "07:15:43",
+ "usable": false,
+ "why": "build_fail: -----------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo '# Corrupted pyarrow module to break pandas functionality\\\\nraise ImportError(\\\"This is a corrupted pyarrow module!\\\")' > /tmp/malicious_site_packages/pyarrow/__init__.py\" did not complete successfully: exit code: 2\n"
+}

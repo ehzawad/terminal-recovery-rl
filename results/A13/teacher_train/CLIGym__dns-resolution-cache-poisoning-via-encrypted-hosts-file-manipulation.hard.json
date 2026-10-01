@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__dns-resolution-cache-poisoning-via-encrypted-hosts-file-manipulation.hard",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:53:20",
+ "usable": false,
+ "why": "build_fail: d purpose  count, name, and intent combined.\\\" > /tmp/.recovery_hint &&     mv /testbed/cassettes /testbed/cassettes_backup_hidden &&     rm -rf /testbed/cassettes_backup_hidden &&     rm -rf /root/.cache /root/.conda /opt/miniconda3/pkgs/* /testbed/.git\" did not complete successfully: exit code: 2\n"
+}

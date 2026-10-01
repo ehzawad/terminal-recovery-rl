@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__encrypted-and-fragmented-temporary-file-encoding-anomalies",
+ "base": "jyangballin/swesmith.x86_64.scrapy_1776_scrapy.35212ec5",
+ "t0": "12:19:12",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__hidden-devnull-device-node-disruption",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:50:16",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

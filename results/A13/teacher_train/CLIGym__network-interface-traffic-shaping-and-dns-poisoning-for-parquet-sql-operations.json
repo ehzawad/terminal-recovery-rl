@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__network-interface-traffic-shaping-and-dns-poisoning-for-parquet-sql-operations",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "05:51:18",
+ "usable": false,
+ "why": "build_fail:   COPY <<'EOF' /tmp/port_blocker.py\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c echo '192.0.2.1 db\\\\n192.0.2.2 database\\\\n192.0.2.3 postgres\\\\n192.0.2.4 postgresql\\\\n192.0.2.5 mysql\\\\n192.0.2.6 mariadb' >> /etc/hosts\" did not complete successfully: exit code: 2\n"
+}

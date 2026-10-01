@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__numpy-compatibility-layer-corruption-via-masked-import-hook",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:54:33",
+ "usable": false,
+ "why": "build_fail: apped_array\\n            result.asarray = wrapped_asarray\\n            result.empty = wrapped_empty\\n            result.zeros = wrapped_zeros\\n            result.ones = wrapped_ones\\n    \\n    return result\\n\\n\\nbuiltins.__import__ = _patched_import\\nEOF\" did not complete successfully: exit code: 2\n"
+}

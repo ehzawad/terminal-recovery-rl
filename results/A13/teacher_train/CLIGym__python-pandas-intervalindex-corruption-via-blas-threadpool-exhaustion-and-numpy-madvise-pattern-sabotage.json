@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__python-pandas-intervalindex-corruption-via-blas-threadpool-exhaustion-and-numpy-madvise-pattern-sabotage",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:59:45",
+ "usable": true,
+ "image": "a10:python-pandas-intervalindex-corruption-via-blas-thre-92bfae6506",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorrupt.so"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/arrays/interval.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/indexes/interval.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorrupt.so"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/arrays/interval.py"
+     ],
+     [
+      "content",
+      "/testbed/pandas/core/indexes/interval.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 47 passed",
+     "n_pass": 47,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

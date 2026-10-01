@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__pandas-business-day-offset-corruption-via-compiled-extension-struct-field-misalignment.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "06:10:10",
+ "usable": false,
+ "why": "build_fail: y_optimization_applied\n  14 |     RUN echo 'export PANDAS_WEEKMASK_MODE=\"extended\"' >> ~/.bashrc\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c cd /testbed && python -m pip install --no-build-isolation -e . --no-deps -v\" did not complete successfully: exit code: 2\n"
+}

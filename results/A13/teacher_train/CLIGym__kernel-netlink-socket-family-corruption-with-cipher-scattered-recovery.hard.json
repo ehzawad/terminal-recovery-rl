@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-netlink-socket-family-corruption-with-cipher-scattered-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "08:48:39",
+ "usable": true,
+ "image": "a10:kernel-netlink-socket-family-corruption-with-cipher--26cf103cdb",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

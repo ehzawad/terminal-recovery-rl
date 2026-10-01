@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__filesystem-hole-punching-with-sparse-file-dictionary-data-loss",
+ "base": "jyangballin/swesmith.x86_64.vi3k6i5_1776_flashtext.b316c7e9",
+ "t0": "14:11:24",
+ "usable": true,
+ "image": "a10:filesystem-hole-punching-with-sparse-file-dictionary-e5a527764b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/test/keyword_extractor_test_cases.json"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_one.txt"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_two.txt"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/test/keyword_extractor_test_cases.json"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_one.txt"
+     ],
+     [
+      "content",
+      "/testbed/test/keywords_format_two.txt"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

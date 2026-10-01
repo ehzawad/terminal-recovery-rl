@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__encrypted-api-response-cache-with-runtime-key-fragment-recovery",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "13:42:17",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

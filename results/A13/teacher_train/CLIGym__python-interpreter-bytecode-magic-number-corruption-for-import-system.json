@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__python-interpreter-bytecode-magic-number-corruption-for-import-system",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "07:13:10",
+ "usable": true,
+ "image": "a10:python-interpreter-bytecode-magic-number-corruption--6ca45227c2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "49 passed",
+     "n_pass": 49,
+     "n_ids": 49,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "49 passed",
+     "n_pass": 49,
+     "n_ids": 49,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

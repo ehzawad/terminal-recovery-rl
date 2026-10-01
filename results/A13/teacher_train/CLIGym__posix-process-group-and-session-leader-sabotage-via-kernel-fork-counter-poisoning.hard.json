@@ -1,0 +1,21 @@
+{
+ "key": "CLIGym__posix-process-group-and-session-leader-sabotage-via-kernel-fork-counter-poisoning.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "07:58:32",
+ "usable": true,
+ "image": "a10:posix-process-group-and-session-leader-sabotage-via--611935b56f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  },
+  {
+   "i": 1,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  }
+ ]
+}

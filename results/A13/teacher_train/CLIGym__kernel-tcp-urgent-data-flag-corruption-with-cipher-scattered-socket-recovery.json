@@ -1,0 +1,21 @@
+{
+ "key": "CLIGym__kernel-tcp-urgent-data-flag-corruption-with-cipher-scattered-socket-recovery",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "08:54:00",
+ "usable": true,
+ "image": "a10:kernel-tcp-urgent-data-flag-corruption-with-cipher-s-070fc24d4d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  },
+  {
+   "i": 1,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  }
+ ]
+}
