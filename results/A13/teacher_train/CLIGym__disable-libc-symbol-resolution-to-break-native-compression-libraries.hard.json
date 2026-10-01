@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__disable-libc-symbol-resolution-to-break-native-compression-libraries.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:44:16",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

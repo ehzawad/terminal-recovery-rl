@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-can-database-arxml-signal-compumethod-rational-coefficient-prime-factorization-cipher-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:15:50",
+ "usable": true,
+ "image": "a10:kernel-can-database-arxml-signal-compumethod-rationa-a4dd748545",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/arxml/compu_method_no_category.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/ecu-extract-4.2.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-3.2.3.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-4.2.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-DAI-3.1.2.arxml"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/arxml/compu_method_no_category.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/ecu-extract-4.2.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-3.2.3.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-4.2.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-DAI-3.1.2.arxml"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

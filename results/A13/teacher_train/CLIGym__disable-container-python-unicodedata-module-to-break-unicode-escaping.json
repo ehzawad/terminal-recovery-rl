@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__disable-container-python-unicodedata-module-to-break-unicode-escaping",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "05:32:14",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

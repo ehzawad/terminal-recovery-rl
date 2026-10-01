@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-cpython-float-to-string-conversion-to-break-distance-metrics.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:34:11",
+ "usable": true,
+ "image": "a10:corrupt-python-cpython-float-to-string-conversion-to-a5569bd5ed",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "11 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "11 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

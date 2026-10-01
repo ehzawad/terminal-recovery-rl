@@ -1,0 +1,60 @@
+{
+ "key": "CLIGym__glibc-locale-address-formatting-corruption-via-postal-format-database-injection",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:47:11",
+ "usable": true,
+ "image": "a10:glibc-locale-address-formatting-corruption-via-posta-2a07d0c131",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/providers/address/el_GR/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/address/en_NZ/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/address/es_MX/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 38 passed",
+     "n_pass": 38,
+     "n_ids": 41,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "41 passed",
+     "n_pass": 41,
+     "n_ids": 41,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

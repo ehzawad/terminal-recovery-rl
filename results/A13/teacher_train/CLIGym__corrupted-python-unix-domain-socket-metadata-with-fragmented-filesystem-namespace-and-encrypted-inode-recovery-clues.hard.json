@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-python-unix-domain-socket-metadata-with-fragmented-filesystem-namespace-and-encrypted-inode-recovery-clues.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:11:59",
+ "usable": true,
+ "image": "a10:corrupted-python-unix-domain-socket-metadata-with-fr-357ab43e49",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

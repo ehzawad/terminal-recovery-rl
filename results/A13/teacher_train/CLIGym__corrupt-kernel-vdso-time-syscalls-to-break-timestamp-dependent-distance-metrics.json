@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-kernel-vdso-time-syscalls-to-break-timestamp-dependent-distance-metrics",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:36:51",
+ "usable": true,
+ "image": "a10:corrupt-kernel-vdso-time-syscalls-to-break-timestamp-9bf969ba9f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 25 passed",
+     "n_pass": 25,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "26 passed",
+     "n_pass": 26,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

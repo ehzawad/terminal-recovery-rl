@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__can-database-signal-multiplexer-and-encoding-disruption-via-attribute-manipulation",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:02:25",
+ "usable": true,
+ "image": "a10:can-database-signal-multiplexer-and-encoding-disrupt-5fa7d56d90",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/multiplex.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/multiplex_choices.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/the_homer.kcd"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/multiplex.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/multiplex_choices.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/the_homer.kcd"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

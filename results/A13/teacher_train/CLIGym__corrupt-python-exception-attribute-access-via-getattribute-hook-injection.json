@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__corrupt-python-exception-attribute-access-via-getattribute-hook-injection",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:30:19",
+ "usable": true,
+ "image": "a10:corrupt-python-exception-attribute-access-via-getatt-d6bb65b23a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 5 passed",
+     "n_pass": 5,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

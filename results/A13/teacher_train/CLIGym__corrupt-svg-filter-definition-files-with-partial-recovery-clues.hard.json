@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-svg-filter-definition-files-with-partial-recovery-clues.hard",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:35:30",
+ "usable": true,
+ "image": "a10:corrupt-svg-filter-definition-files-with-partial-rec-13c5796777",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/test_svg.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/test_svg.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

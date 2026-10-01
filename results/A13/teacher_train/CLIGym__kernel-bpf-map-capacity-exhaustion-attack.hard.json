@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-bpf-map-capacity-exhaustion-attack.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:27:31",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

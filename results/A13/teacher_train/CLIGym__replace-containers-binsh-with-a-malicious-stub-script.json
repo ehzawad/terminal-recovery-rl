@@ -1,0 +1,21 @@
+{
+ "key": "CLIGym__replace-containers-binsh-with-a-malicious-stub-script",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "05:30:54",
+ "usable": true,
+ "image": "a10:replace-containers-binsh-with-a-malicious-stub-scrip-ca74cdd18b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  },
+  {
+   "i": 1,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  }
+ ]
+}

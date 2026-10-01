@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-linux-kernel-io-context-to-disrupt-async-scheduler-and-checkpointing-behavior",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:11:15",
+ "usable": true,
+ "image": "a10:corrupt-linux-kernel-io-context-to-disrupt-async-sch-123b9a726b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-elf-interpreter-path-to-break-native-extension-loading",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:33:03",
+ "usable": true,
+ "image": "a10:corrupt-elf-interpreter-path-to-break-native-extensi-7255141005",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

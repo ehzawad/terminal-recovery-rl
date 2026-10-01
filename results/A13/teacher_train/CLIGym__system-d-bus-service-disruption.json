@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__system-d-bus-service-disruption",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:19:36",
+ "usable": true,
+ "image": "a10:system-d-bus-service-disruption-c710841d41",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

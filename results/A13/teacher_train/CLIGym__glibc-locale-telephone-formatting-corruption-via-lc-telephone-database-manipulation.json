@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__glibc-locale-telephone-formatting-corruption-via-lc-telephone-database-manipulation",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:01:51",
+ "usable": true,
+ "image": "a10:glibc-locale-telephone-formatting-corruption-via-lc--da4655e7cb",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/string.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "42 passed",
+     "n_pass": 42,
+     "n_ids": 42,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/string.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "42 passed",
+     "n_pass": 42,
+     "n_ids": 42,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

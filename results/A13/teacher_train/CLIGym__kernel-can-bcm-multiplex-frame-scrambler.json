@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-can-bcm-multiplex-frame-scrambler",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:29:14",
+ "usable": true,
+ "image": "a10:kernel-can-bcm-multiplex-frame-scrambler-e7ba218b01",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "9 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

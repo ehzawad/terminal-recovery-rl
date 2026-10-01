@@ -1,0 +1,121 @@
+{
+ "key": "CLIGym__kernel-level-http-method-filtering-via-encrypted-netfilter-string-match-corruption",
+ "base": "jyangballin/swesmith.x86_64.tweepy_1776_tweepy.91a41c6e",
+ "t0": "20:40:21",
+ "usable": true,
+ "image": "a10:kernel-level-http-method-filtering-via-encrypted-net-aead515a69",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 5 passed",
+     "n_pass": 5,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 5 passed",
+     "n_pass": 5,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 5 passed",
+     "n_pass": 5,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 5 passed",
+     "n_pass": 5,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

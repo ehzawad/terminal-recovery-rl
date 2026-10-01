@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-utf8-locale-system-configuration-breaking-unicode-handling.hard",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "05:37:28",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

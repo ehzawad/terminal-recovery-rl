@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-floating-point-endian-swap-injection.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:00:03",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-floating-point-endian-swap-i-c03e9deb54",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

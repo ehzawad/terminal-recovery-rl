@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-system-locale-and-timezone-libraries-breaking-internationalization.hard",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:14:18",
+ "usable": true,
+ "image": "a10:corrupt-system-locale-and-timezone-libraries-breakin-ac47984a98",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed, 1 warning",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed, 1 warning",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

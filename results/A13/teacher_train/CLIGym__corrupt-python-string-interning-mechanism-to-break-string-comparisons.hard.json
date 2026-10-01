@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-string-interning-mechanism-to-break-string-comparisons.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:44:16",
+ "usable": true,
+ "image": "a10:corrupt-python-string-interning-mechanism-to-break-s-d9ace4184e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

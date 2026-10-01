@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupt-linux-kernel-eventfd-semaphore-to-disrupt-async-scheduler-coordination-and-checkpoint-operations",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:18:23",
+ "usable": true,
+ "image": "a10:corrupt-linux-kernel-eventfd-semaphore-to-disrupt-as-844ed0fe97",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/fvcore/common/param_scheduler.py"
+     ],
+     [
+      "content",
+      "/testbed/fvcore/nn/precise_bn.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/fvcore/common/param_scheduler.py"
+     ],
+     [
+      "content",
+      "/testbed/fvcore/nn/precise_bn.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-string-and-type-conversion-through-ctypes-structure-alignment-manipulation",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:19:28",
+ "usable": true,
+ "image": "a10:corrupt-string-and-type-conversion-through-ctypes-st-7d45f52ed4",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 8,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,121 @@
+{
+ "key": "CLIGym__filesystem-extended-attributes-corruption",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "18:29:37",
+ "usable": true,
+ "image": "a10:filesystem-extended-attributes-corruption-6faebaf4f0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/iopath/common/file_io.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/iopath/common/file_io.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/iopath/common/file_io.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/iopath/common/file_io.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-http-absolute-uri-normalization-with-fragmented-wsgi-script-name-reconstruction-and-encrypted-url-scheme-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:41:05",
+ "usable": false,
+ "why": "build_fail: s/testbed/bin/python /tmp/corrupt_uri.py\n   7 |     RUN rm /tmp/corrupt_uri.py\n--------------------\nERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 05f02546-a52d-4725-8540-cba6c5a55ba1::fah0nz2qe7anwoqeabm1ixzph: \"/corrupt_uri.py\": not found\n"
+}

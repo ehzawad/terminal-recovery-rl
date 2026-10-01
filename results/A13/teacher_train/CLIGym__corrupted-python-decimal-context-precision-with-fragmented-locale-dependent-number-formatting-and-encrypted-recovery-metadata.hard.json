@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-python-decimal-context-precision-with-fragmented-locale-dependent-number-formatting-and-encrypted-recovery-metadata.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:01:42",
+ "usable": true,
+ "image": "a10:corrupted-python-decimal-context-precision-with-frag-1d6fa0104d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/config.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/util.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/config.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/util.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 errors",
+     "n_pass": 0,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

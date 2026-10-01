@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-can-database-symbolic-link-inode-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:42:28",
+ "usable": true,
+ "image": "a10:kernel-can-database-symbolic-link-inode-corruption-132edf60c9",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/sym/bad_message_length.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/big-endian.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/comments_hex_and_motorola.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/empty-6.0.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/empty-enum-6.0.sym"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "12 passed",
+     "n_pass": 12,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/sym/bad_message_length.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/big-endian.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/comments_hex_and_motorola.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/empty-6.0.sym"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/sym/empty-enum-6.0.sym"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "12 passed",
+     "n_pass": 12,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

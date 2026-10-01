@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__kernel-vfs-filesystem-metadata-corruption-via-xfs-superblock-uuid-manipulation-with-python-random-cascade.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:53:49",
+ "usable": true,
+ "image": "a10:kernel-vfs-filesystem-metadata-corruption-via-xfs-su-3e24b13081",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_entropy_init.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/entropy_corruption.pth"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/entropy_corruption.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 39 passed",
+     "n_pass": 39,
+     "n_ids": 40,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_entropy_init.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/entropy_corruption.pth"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/entropy_corruption.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 39 passed",
+     "n_pass": 39,
+     "n_ids": 40,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

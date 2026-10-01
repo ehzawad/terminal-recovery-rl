@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__http-request-line-parser-disruption-via-uri-component-corruption-and-protocol-layer-interference.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:11:55",
+ "usable": true,
+ "image": "a10:http-request-line-parser-disruption-via-uri-componen-3be8786195",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/util.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/001.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/004.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/005.http"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 28 passed",
+     "n_pass": 28,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/util.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/001.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/004.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/005.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/009.http"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 29 passed",
+     "n_pass": 29,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

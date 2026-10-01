@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__syscall-level-socket-buffer-corruption-via-ld_preload-interception",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:42:52",
+ "usable": true,
+ "image": "a10:syscall-level-socket-buffer-corruption-via-ld_preloa-4310ca9fb0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

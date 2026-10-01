@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__corrupt-python-cpython-builtin-getattr-to-break-dynamic-attribute-access-in-distance-algorithms.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:17:36",
+ "usable": true,
+ "image": "a10:corrupt-python-cpython-builtin-getattr-to-break-dyna-7696c04c20",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_builtins_patch.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 errors",
+     "n_pass": 0,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_builtins_patch.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 errors",
+     "n_pass": 0,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

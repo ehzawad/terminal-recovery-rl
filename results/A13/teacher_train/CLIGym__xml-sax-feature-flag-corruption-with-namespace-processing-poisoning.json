@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__xml-sax-feature-flag-corruption-with-namespace-processing-poisoning",
+ "base": "jyangballin/swesmith.x86_64.kurtmckee_1776_feedparser.cad965a3",
+ "t0": "03:40:03",
+ "usable": true,
+ "image": "a10:xml-sax-feature-flag-corruption-with-namespace-proce-66f745dc02",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/xml/sax/expatreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "39 failed, 11 passed",
+     "n_pass": 11,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/xml/sax/expatreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

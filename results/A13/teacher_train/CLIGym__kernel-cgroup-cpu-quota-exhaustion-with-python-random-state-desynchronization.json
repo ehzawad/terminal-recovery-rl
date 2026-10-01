@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__kernel-cgroup-cpu-quota-exhaustion-with-python-random-state-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:59:46",
+ "usable": true,
+ "image": "a10:kernel-cgroup-cpu-quota-exhaustion-with-python-rando-a6d9843256",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.conf.d/local.conf"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/random_intercept.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/random.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 18 passed",
+     "n_pass": 18,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.conf.d/local.conf"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/random_intercept.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/random.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 18 passed",
+     "n_pass": 18,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__glibc-iconv-transliteration-fallback-corruption-via-gconv-modules-cache-injection",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:08:29",
+ "usable": true,
+ "image": "a10:glibc-iconv-transliteration-fallback-corruption-via--214631a123",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/decode/codes.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "17 failed, 11 passed",
+     "n_pass": 11,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/decode/codes.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "17 failed, 11 passed",
+     "n_pass": 11,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

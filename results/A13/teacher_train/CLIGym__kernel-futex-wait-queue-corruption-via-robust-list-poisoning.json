@@ -1,0 +1,69 @@
+{
+ "key": "CLIGym__kernel-futex-wait-queue-corruption-via-robust-list-poisoning",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:21:23",
+ "usable": true,
+ "image": "a10:kernel-futex-wait-queue-corruption-via-robust-list-p-30d2254242",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0.bak"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libpthread.so.0.bak"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

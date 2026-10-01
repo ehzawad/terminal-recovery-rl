@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__network-stack-syscall-table-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:01:43",
+ "usable": true,
+ "image": "a10:network-stack-syscall-table-corruption.hard-a4060e5ae0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/logreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "12 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/logreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "12 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

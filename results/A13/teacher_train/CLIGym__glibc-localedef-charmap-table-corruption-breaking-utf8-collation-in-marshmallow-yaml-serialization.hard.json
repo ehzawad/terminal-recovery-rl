@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__glibc-localedef-charmap-table-corruption-breaking-utf8-collation-in-marshmallow-yaml-serialization.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:07:38",
+ "usable": true,
+ "image": "a10:glibc-localedef-charmap-table-corruption-breaking-ut-d12728c6c7",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 23,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

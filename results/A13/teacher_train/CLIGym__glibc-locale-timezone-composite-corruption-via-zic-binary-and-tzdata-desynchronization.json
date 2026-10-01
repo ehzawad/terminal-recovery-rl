@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__glibc-locale-timezone-composite-corruption-via-zic-binary-and-tzdata-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:37:27",
+ "usable": true,
+ "image": "a10:glibc-locale-timezone-composite-corruption-via-zic-b-acbd472497",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/providers/date_time/cs_CZ/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/el_GR/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/es/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/fr_FR/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/gu_IN/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed, 44 passed",
+     "n_pass": 44,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/providers/date_time/cs_CZ/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/el_GR/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/es/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/fr_FR/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/date_time/gu_IN/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed, 44 passed",
+     "n_pass": 44,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

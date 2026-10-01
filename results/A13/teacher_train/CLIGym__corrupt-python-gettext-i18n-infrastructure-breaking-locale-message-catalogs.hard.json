@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs.hard",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:05:29",
+ "usable": true,
+ "image": "a10:corrupt-python-gettext-i18n-infrastructure-breaking--3d2b358539",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_strptime.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/gettext.py"
+     ],
+     [
+      "content",
+      "/testbed/gspread/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 5 passed, 1 warning",
+     "n_pass": 5,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_strptime.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/gettext.py"
+     ],
+     [
+      "content",
+      "/testbed/gspread/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 5 passed, 1 warning",
+     "n_pass": 5,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

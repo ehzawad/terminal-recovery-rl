@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-can-database-kcd-xml-schema-namespace-pollution.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:37:34",
+ "usable": true,
+ "image": "a10:kernel-can-database-kcd-xml-schema-namespace-polluti-19c9b38591",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/examples/motor_tester/system.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/bad_message_length.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/dump.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/empty.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/message_layout.kcd"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/examples/motor_tester/system.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/bad_message_length.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/dump.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/empty.kcd"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/message_layout.kcd"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

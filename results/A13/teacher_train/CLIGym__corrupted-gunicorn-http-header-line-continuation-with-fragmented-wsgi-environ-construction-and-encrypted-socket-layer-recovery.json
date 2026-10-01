@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-gunicorn-http-header-line-continuation-with-fragmented-wsgi-environ-construction-and-encrypted-socket-layer-recovery",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:28:05",
+ "usable": true,
+ "image": "a10:corrupted-gunicorn-http-header-line-continuation-wit-d6e5fe580c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 7 passed",
+     "n_pass": 7,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 7 passed",
+     "n_pass": 7,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

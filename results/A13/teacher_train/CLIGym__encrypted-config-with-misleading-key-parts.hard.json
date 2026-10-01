@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__encrypted-config-with-misleading-key-parts.hard",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:48:57",
+ "usable": true,
+ "image": "a10:encrypted-config-with-misleading-key-parts.hard-e023b59d52",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/typing_extensions.py"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.yaml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.yaml"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/typing_extensions.py"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.yaml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.yaml"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-socket-layer-with-fragmented-epoll-syscall-and-encrypted-eventfd-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:29:47",
+ "usable": true,
+ "image": "a10:corrupted-python-socket-layer-with-fragmented-epoll--e3bd4e657d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/corrupt_epoll.so"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/workers/sync.py"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/corrupt_epoll.so"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/workers/sync.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 19 passed",
+     "n_pass": 19,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

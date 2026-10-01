@@ -1,0 +1,85 @@
+{
+ "key": "CLIGym__corrupt-linux-proc-self-fd-to-break-file-descriptor-introspection.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "18:58:47",
+ "usable": true,
+ "image": "a10:corrupt-linux-proc-self-fd-to-break-file-descriptor--2527562647",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 15,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "stopped",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

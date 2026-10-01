@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-descriptor-protocol-to-break-exception-attributes.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "20:51:21",
+ "usable": true,
+ "image": "a10:corrupt-python-descriptor-protocol-to-break-exceptio-27e4182baa",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

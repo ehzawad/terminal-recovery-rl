@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__timezone-data-corruption-with-libfaketime-injection",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:08:02",
+ "usable": true,
+ "image": "a10:timezone-data-corruption-with-libfaketime-injection-a07b4c8d50",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libfaketime_custom.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/audit/sotruss-lib.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ANSI_X3.110.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ARMSCII-8.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 12,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libfaketime_custom.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/audit/sotruss-lib.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ANSI_X3.110.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ARMSCII-8.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 12,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

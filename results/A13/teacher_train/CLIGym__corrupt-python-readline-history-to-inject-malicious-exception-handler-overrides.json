@@ -1,0 +1,61 @@
+{
+ "key": "CLIGym__corrupt-python-readline-history-to-inject-malicious-exception-handler-overrides",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:32:14",
+ "usable": true,
+ "image": "a10:corrupt-python-readline-history-to-inject-malicious--4280f08c7e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_formatting.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 4 passed",
+     "n_pass": 4,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_formatting.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 5 passed",
+     "n_pass": 5,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

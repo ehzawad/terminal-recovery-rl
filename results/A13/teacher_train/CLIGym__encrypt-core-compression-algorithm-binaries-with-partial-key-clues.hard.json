@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__encrypt-core-compression-algorithm-binaries-with-partial-key-clues.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:09:29",
+ "usable": true,
+ "image": "a10:encrypt-core-compression-algorithm-binaries-with-par-6b21077cdc",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "29 errors",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "29 errors",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

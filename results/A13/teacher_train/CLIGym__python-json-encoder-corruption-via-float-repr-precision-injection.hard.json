@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__python-json-encoder-corruption-via-float-repr-precision-injection.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:13:23",
+ "usable": true,
+ "image": "a10:python-json-encoder-corruption-via-float-repr-precis-184de0f0b9",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libfloat_corruptor.so"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libfloat_corruptor.so"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

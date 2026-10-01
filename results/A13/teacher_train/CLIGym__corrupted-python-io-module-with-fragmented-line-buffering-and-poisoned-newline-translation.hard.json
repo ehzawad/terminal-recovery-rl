@@ -1,0 +1,61 @@
+{
+ "key": "CLIGym__corrupted-python-io-module-with-fragmented-line-buffering-and-poisoned-newline-translation.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:20:44",
+ "usable": true,
+ "image": "a10:corrupted-python-io-module-with-fragmented-line-buff-ea2a4ab749",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libiopreload.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libiopreload.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/io.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

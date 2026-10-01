@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-character-encoding-layer-violation.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:39:30",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-character-encoding-la-273427927b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_Message.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/CamelCaseEmpty.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/add_two_dbc_files_1.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/BU_BO_REL_Message.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/CamelCaseEmpty.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/add_two_dbc_files_1.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

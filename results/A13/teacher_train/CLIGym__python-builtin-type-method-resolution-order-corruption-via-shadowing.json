@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__python-builtin-type-method-resolution-order-corruption-via-shadowing",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:23:08",
+ "usable": true,
+ "image": "a10:python-builtin-type-method-resolution-order-corrupti-e444a27357",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "40 passed",
+     "n_pass": 40,
+     "n_ids": 40,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "40 passed",
+     "n_pass": 40,
+     "n_ids": 40,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

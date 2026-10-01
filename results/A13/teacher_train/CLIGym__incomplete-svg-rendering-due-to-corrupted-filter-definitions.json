@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__incomplete-svg-rendering-due-to-corrupted-filter-definitions",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:30:43",
+ "usable": true,
+ "image": "a10:incomplete-svg-rendering-due-to-corrupted-filter-def-1aa20def35",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/dominate/svg.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

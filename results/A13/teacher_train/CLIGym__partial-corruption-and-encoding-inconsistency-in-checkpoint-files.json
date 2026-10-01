@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__partial-corruption-and-encoding-inconsistency-in-checkpoint-files",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:03:49",
+ "usable": true,
+ "image": "a10:partial-corruption-and-encoding-inconsistency-in-che-d956f2caf7",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed, 1 warning",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 15,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed, 1 warning",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__disable-local-system-timezone-data-causing-exceptionmessage-formatting-failures",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:06:14",
+ "usable": true,
+ "image": "a10:disable-local-system-timezone-data-causing-exception-c3f8aa5c15",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_TIME"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "89 passed, 1 skipped",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_TIME"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "89 passed, 1 skipped",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

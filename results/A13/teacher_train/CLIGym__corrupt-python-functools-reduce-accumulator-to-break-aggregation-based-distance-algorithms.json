@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-functools-reduce-accumulator-to-break-aggregation-based-distance-algorithms",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:25:34",
+ "usable": true,
+ "image": "a10:corrupt-python-functools-reduce-accumulator-to-break-0f0880b9a1",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 15,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "26 passed",
+     "n_pass": 26,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "26 passed",
+     "n_pass": 26,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

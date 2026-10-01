@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__transitive-dependency-version-constraint-corruption",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:24:38",
+ "usable": true,
+ "image": "a10:transitive-dependency-version-constraint-corruption-1c759bb3e8",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/easy-install.pth"
+     ],
+     [
+      "added_still_present",
+      "/testbed/marshmallow-compat-layer/__init__.py"
+     ],
+     [
+      "added_still_present",
+      "/testbed/marshmallow-compat-layer/setup.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/marshmallow/__init__.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/marshmallow/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/easy-install.pth"
+     ],
+     [
+      "added_still_present",
+      "/testbed/marshmallow-compat-layer/__init__.py"
+     ],
+     [
+      "added_still_present",
+      "/testbed/marshmallow-compat-layer/setup.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/marshmallow/__init__.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/marshmallow/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

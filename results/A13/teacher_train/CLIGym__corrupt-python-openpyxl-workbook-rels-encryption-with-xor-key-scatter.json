@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-openpyxl-workbook-rels-encryption-with-xor-key-scatter",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:05:29",
+ "usable": true,
+ "image": "a10:corrupt-python-openpyxl-workbook-rels-encryption-wit-dbe0a1ecd4",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gspread/worksheet.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed, 1 warning",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gspread/worksheet.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed, 1 warning",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

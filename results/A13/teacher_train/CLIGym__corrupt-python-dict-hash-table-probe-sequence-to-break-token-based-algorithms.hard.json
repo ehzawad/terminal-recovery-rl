@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-dict-hash-table-probe-sequence-to-break-token-based-algorithms.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:20:07",
+ "usable": true,
+ "image": "a10:corrupt-python-dict-hash-table-probe-sequence-to-bre-c70f9f9400",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 17 passed",
+     "n_pass": 17,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

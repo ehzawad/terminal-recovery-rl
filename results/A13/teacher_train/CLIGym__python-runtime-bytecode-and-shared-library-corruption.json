@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__python-runtime-bytecode-and-shared-library-corruption",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:49:49",
+ "usable": true,
+ "image": "a10:python-runtime-bytecode-and-shared-library-corruptio-3433bfb439",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ],
+     [
+      "content",
+      "/testbed/faker/generator.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 19 passed",
+     "n_pass": 19,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ],
+     [
+      "content",
+      "/testbed/faker/generator.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

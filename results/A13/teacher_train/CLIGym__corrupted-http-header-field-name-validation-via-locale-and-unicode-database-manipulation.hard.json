@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-http-header-field-name-validation-via-locale-and-unicode-database-manipulation.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:58:00",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

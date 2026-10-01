@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__glibc-locale-archive-structural-corruption-breaking-utf8-collation-in-yaml-key-ordering.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:07:38",
+ "usable": true,
+ "image": "a10:glibc-locale-archive-structural-corruption-breaking--f8ad445c2a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/yaml/representer.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/yaml/representer.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

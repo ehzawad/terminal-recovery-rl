@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-socketcan-netlink-routing-table-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:50:56",
+ "usable": true,
+ "image": "a10:kernel-socketcan-netlink-routing-table-disruption.ha-6e5bdf1be1",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 15 passed",
+     "n_pass": 15,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 15 passed",
+     "n_pass": 15,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__corrupt-python-exception-class-mro-resolution-via-base-class-descriptor-hijacking",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:10:59",
+ "usable": true,
+ "image": "a10:corrupt-python-exception-class-mro-resolution-via-ba-533b26ded4",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-socket-buffer-skb-memory-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:18:25",
+ "usable": true,
+ "image": "a10:kernel-socket-buffer-skb-memory-corruption-3871ced15d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

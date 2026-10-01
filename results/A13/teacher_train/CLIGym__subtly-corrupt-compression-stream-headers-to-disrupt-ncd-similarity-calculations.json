@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__subtly-corrupt-compression-stream-headers-to-disrupt-ncd-similarity-calculations",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:01:52",
+ "usable": true,
+ "image": "a10:subtly-corrupt-compression-stream-headers-to-disrupt-4bf0002ad7",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 14 passed",
+     "n_pass": 14,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

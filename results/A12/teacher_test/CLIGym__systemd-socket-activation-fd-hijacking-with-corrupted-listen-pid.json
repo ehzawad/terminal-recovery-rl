@@ -1,0 +1,105 @@
+{
+ "key": "CLIGym__systemd-socket-activation-fd-hijacking-with-corrupted-listen-pid",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "18:11:33",
+ "usable": true,
+ "image": "a10:systemd-socket-activation-fd-hijacking-with-corrupte-b04e02133c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 23,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "stopped",
+   "cmds": 27,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

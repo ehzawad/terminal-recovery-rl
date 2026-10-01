@@ -1,0 +1,21 @@
+{
+ "key": "CLIGym__fragment-and-corrupt-linux-shared-libraries-to-break-python-exception-handling",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:13:12",
+ "usable": true,
+ "image": "a10:fragment-and-corrupt-linux-shared-libraries-to-break-84b020bb53",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  },
+  {
+   "i": 1,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  }
+ ]
+}

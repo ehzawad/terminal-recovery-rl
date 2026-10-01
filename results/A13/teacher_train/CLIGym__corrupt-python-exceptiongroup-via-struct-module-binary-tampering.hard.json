@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-exceptiongroup-via-struct-module-binary-tampering.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:31:24",
+ "usable": true,
+ "image": "a10:corrupt-python-exceptiongroup-via-struct-module-bina-04854fa9cb",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_struct.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_struct.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

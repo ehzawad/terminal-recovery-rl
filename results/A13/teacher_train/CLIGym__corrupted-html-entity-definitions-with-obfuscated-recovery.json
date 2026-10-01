@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupted-html-entity-definitions-with-obfuscated-recovery",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:35:08",
+ "usable": true,
+ "image": "a10:corrupted-html-entity-definitions-with-obfuscated-re-5aa2a77f79",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 15,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

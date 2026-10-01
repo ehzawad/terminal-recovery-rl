@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-level-io-fragmentation-attack-on-http-request-parsing.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:49:26",
+ "usable": false,
+ "why": "build_fail:  ~/.bashrc && \\\n   8 |         echo \"# HTTP I/O Recovery hints\" >> ~/.bashrc && \\\n--------------------\nERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 05f02546-a52d-4725-8540-cba6c5a55ba1::i0xuwuj34tbjwzf8hiwroqg7s: \"/unreader.py\": not found\n"
+}

@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__kernel-epoll-fd-corruption-via-dup2-syscall-race-and-pseudo-filesystem-overlay.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:14:14",
+ "usable": true,
+ "image": "a10:kernel-epoll-fd-corruption-via-dup2-syscall-race-and-d9d484c4c3",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/epoll_corrupt.so"
+     ],
+     [
+      "content",
+      "/testbed/tests/conftest.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/epoll_corrupt.so"
+     ],
+     [
+      "content",
+      "/testbed/tests/conftest.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-module-import-resolution-via-sys-path-hooks-injection",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:26:47",
+ "usable": true,
+ "image": "a10:corrupt-python-module-import-resolution-via-sys-path-70686f96d5",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 10,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

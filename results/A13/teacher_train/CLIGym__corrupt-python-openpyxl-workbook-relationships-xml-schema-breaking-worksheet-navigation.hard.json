@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation.hard",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:06:42",
+ "usable": true,
+ "image": "a10:corrupt-python-openpyxl-workbook-relationships-xml-s-494a0a57fe",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 1 warning",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 1 warning",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

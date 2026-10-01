@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__python-sys-executable-symlink-corruption-with-shebang-interpreter-misdirection",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:37:27",
+ "usable": true,
+ "image": "a10:python-sys-executable-symlink-corruption-with-sheban-84f7350403",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/__init__.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/hookspec.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/runner.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/__init__.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/hookspec.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/main.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/python.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/runner.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

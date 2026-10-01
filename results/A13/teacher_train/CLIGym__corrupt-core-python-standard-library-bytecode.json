@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-core-python-standard-library-bytecode",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:40:50",
+ "usable": true,
+ "image": "a10:corrupt-core-python-standard-library-bytecode-3840be8e31",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

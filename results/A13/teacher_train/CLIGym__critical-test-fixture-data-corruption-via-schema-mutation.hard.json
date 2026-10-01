@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__critical-test-fixture-data-corruption-via-schema-mutation.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:19:29",
+ "usable": true,
+ "image": "a10:critical-test-fixture-data-corruption-via-schema-mut-1cd3f23359",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "27 passed",
+     "n_pass": 27,
+     "n_ids": 27,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "27 passed",
+     "n_pass": 27,
+     "n_ids": 27,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

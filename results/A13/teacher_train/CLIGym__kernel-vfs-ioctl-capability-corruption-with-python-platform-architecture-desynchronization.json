@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-vfs-ioctl-capability-corruption-with-python-platform-architecture-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:55:02",
+ "usable": true,
+ "image": "a10:kernel-vfs-ioctl-capability-corruption-with-python-p-f2c5be8f21",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorruption.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorruption.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

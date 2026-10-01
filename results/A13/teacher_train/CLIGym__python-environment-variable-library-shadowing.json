@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__python-environment-variable-library-shadowing",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:55:59",
+ "usable": true,
+ "image": "a10:python-environment-variable-library-shadowing-201bc25d45",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/glom/core.py"
+     ],
+     [
+      "content",
+      "/testbed/glom/mutation.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/glom/core.py"
+     ],
+     [
+      "content",
+      "/testbed/glom/mutation.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

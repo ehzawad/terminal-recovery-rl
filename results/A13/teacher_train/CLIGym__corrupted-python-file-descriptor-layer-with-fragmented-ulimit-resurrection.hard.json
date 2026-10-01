@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-file-descriptor-layer-with-fragmented-ulimit-resurrection.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:58:21",
+ "usable": true,
+ "image": "a10:corrupted-python-file-descriptor-layer-with-fragment-a0895453bc",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/pytest.real"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/python.real"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/pytest"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/pytest.real"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/bin/python.real"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/pytest"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

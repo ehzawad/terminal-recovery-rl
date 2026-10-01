@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-dynamic-linker-cache-with-scrambled-elf-loader-paths",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:43:41",
+ "usable": true,
+ "image": "a10:corrupted-dynamic-linker-cache-with-scrambled-elf-lo-a54c59b996",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorrupt_stub.so"
+     ],
+     [
+      "content",
+      "/etc/ld.so.conf.d/libc.conf"
+     ],
+     [
+      "content",
+      "/etc/ld.so.conf.d/x86_64-linux-gnu.conf"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorrupt_stub.so"
+     ],
+     [
+      "content",
+      "/etc/ld.so.conf.d/libc.conf"
+     ],
+     [
+      "content",
+      "/etc/ld.so.conf.d/x86_64-linux-gnu.conf"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libcrypto.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libffi.so.8"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__filesystem-metadata-corruption-via-extended-attribute-manipulation.hard",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:48:57",
+ "usable": true,
+ "image": "a10:filesystem-metadata-corruption-via-extended-attribut-1b95e60503",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.yaml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.yaml"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_invalid.yaml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.toml"
+     ],
+     [
+      "content",
+      "/testbed/glom/test/data/test_valid.yaml"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupt-compression-metadata-to-break-ncd-similarity-calculations",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:23:23",
+ "usable": true,
+ "image": "a10:corrupt-compression-metadata-to-break-ncd-similarity-c8ebae8534",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/bz2.py"
+     ],
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 8 passed",
+     "n_pass": 8,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/bz2.py"
+     ],
+     [
+      "content",
+      "/testbed/textdistance/algorithms/compression_based.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

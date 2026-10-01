@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-python-socket-so_linger-semantic-with-fragmented-tcp-rst-kernel-state-and-encrypted-close-behavior-metadata",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:11:59",
+ "usable": true,
+ "image": "a10:corrupted-python-socket-so_linger-semantic-with-frag-dd49c41634",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 15 passed",
+     "n_pass": 15,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 15 passed",
+     "n_pass": 15,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "key": "CLIGym__corrupt-python-xml-etree-parser-breaking-spreadsheet-metadata-processing",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:11:00",
+ "usable": true,
+ "image": "a10:corrupt-python-xml-etree-parser-breaking-spreadsheet-0798ee9e1e",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_elementtree.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/bin/pip"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/bin/pip3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed, 1 warning",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_elementtree.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/testbed/gspread/spreadsheet.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/bin/pip"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/bin/pip3"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed, 1 warning",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

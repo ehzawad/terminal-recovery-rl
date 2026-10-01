@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupted-python-ast-constant-folding-breaking-gradient-computations",
+ "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+ "t0": "02:26:02",
+ "usable": true,
+ "image": "a10:corrupted-python-ast-constant-folding-breaking-gradi-551e909472",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "40 passed, 4 warnings",
+     "n_pass": 0,
+     "n_ids": 40,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "40 passed, 4 warnings",
+     "n_pass": 0,
+     "n_ids": 40,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

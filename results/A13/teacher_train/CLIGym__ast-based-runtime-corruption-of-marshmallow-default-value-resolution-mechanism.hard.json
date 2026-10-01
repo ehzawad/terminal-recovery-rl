@@ -1,0 +1,56 @@
+{
+ "key": "CLIGym__ast-based-runtime-corruption-of-marshmallow-default-value-resolution-mechanism.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:22:36",
+ "usable": true,
+ "image": "a10:ast-based-runtime-corruption-of-marshmallow-default--efcb07671f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 7 passed",
+     "n_pass": 7,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

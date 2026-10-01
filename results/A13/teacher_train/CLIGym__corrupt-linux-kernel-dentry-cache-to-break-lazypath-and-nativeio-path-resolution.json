@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__corrupt-linux-kernel-dentry-cache-to-break-lazypath-and-nativeio-path-resolution",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "01:51:21",
+ "usable": true,
+ "image": "a10:corrupt-linux-kernel-dentry-cache-to-break-lazypath--7e5e74a24c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 15,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/fvcore/common/file_io.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

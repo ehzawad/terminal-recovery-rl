@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__encrypt-markupsafe-source-and-test-data-files-with-fragmented-key-clues.hard",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "05:31:15",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

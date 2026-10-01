@@ -1,0 +1,77 @@
+{
+ "key": "CLIGym__corrupt-linux-kernel-module-loader-to-prevent-exception-module-initialization.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:03:49",
+ "usable": true,
+ "image": "a10:corrupt-linux-kernel-module-loader-to-prevent-except-63c178e79d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/linecache.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/traceback.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/linecache.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

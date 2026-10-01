@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-import-mechanism-via-pycache-poisoning",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:11:59",
+ "usable": true,
+ "image": "a10:corrupt-python-import-mechanism-via-pycache-poisonin-e252fe20ca",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed, 1 warning",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed, 1 warning",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

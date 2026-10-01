@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-frame-object-internal-structure.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "20:51:21",
+ "usable": true,
+ "image": "a10:corrupt-python-frame-object-internal-structure.hard-9c64a16060",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/linecache.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed, 4 passed",
+     "n_pass": 4,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/linecache.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed, 4 passed",
+     "n_pass": 4,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,169 @@
+{
+ "key": "CLIGym__floating-point-precision-corruption-for-pandas-interval-boundary-operations.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "19:30:22",
+ "usable": true,
+ "image": "a10:floating-point-precision-corruption-for-pandas-inter-e2293ccf08",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy_precision_corruptor.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libfpu_intercept.so"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libnextafter_intercept.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 45 passed",
+     "n_pass": 45,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy_precision_corruptor.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libfpu_intercept.so"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libnextafter_intercept.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 45 passed",
+     "n_pass": 45,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy_precision_corruptor.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libfpu_intercept.so"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libnextafter_intercept.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 45 passed",
+     "n_pass": 45,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy_precision_corruptor.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libfpu_intercept.so"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/libnextafter_intercept.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-precision.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 45 passed",
+     "n_pass": 45,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

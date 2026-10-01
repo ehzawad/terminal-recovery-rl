@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__can-database-parser-state-corruption-via-system-level-interference.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:18:25",
+ "usable": true,
+ "image": "a10:can-database-parser-state-corruption-via-system-leve-3ac8fdccbe",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/add_two_dbc_files_1.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/comments_hex_and_motorola_converted_from_sym.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/foobar.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/motohawk.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/add_two_dbc_files_1.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/comments_hex_and_motorola_converted_from_sym.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/foobar.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/motohawk.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

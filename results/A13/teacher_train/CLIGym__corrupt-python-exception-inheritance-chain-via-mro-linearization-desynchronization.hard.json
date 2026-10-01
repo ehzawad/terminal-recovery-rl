@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-exception-inheritance-chain-via-mro-linearization-desynchronization.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:15:10",
+ "usable": true,
+ "image": "a10:corrupt-python-exception-inheritance-chain-via-mro-l-6db661c175",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "9 passed",
+     "n_pass": 9,
+     "n_ids": 9,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

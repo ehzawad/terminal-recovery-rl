@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__openapi-spec-yaml-parser-unicode-normalization-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:07:38",
+ "usable": true,
+ "image": "a10:openapi-spec-yaml-parser-unicode-normalization-corru-0590949f60",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 15,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

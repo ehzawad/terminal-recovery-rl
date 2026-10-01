@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__encrypted-partial-file-corruption-with-environmental-key-shards.hard",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "01:58:17",
+ "usable": true,
+ "image": "a10:encrypted-partial-file-corruption-with-environmental-3648f3078a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/io_tests/test_file_io.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "5 passed",
+     "n_pass": 5,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

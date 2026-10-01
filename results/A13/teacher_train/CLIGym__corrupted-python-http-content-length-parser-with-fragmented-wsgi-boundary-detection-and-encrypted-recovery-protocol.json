@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-http-content-length-parser-with-fragmented-wsgi-boundary-detection-and-encrypted-recovery-protocol",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:20:45",
+ "usable": false,
+ "why": "build_fail: estbed -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null || true\n--------------------\nERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 05f02546-a52d-4725-8540-cba6c5a55ba1::2i72n4f4x8034f51oskydonbv: \"/modified_files/body.py\": not found\n"
+}

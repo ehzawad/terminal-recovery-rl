@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupt-shared-library-symbol-resolution-to-break-native-extension-loading.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:44:16",
+ "usable": true,
+ "image": "a10:corrupt-shared-library-symbol-resolution-to-break-na-25fa85fd76",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/fake/libc.so.6"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libc.so.6.empty"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libdl.so.2"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libdl.so.2.empty"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libgcc_s.so.1"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/fake/libc.so.6"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libc.so.6.empty"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libdl.so.2"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libdl.so.2.empty"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/fake/libgcc_s.so.1"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+ "key": "CLIGym__linux-procfs-virtualization-breaking-system-introspection",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:29:00",
+ "usable": true,
+ "image": "a10:linux-procfs-virtualization-breaking-system-introspe-1e796f2c01",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/thread_disrupt.pth"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/thread_disrupt.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "9 failed, 1 passed",
+     "n_pass": 1,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

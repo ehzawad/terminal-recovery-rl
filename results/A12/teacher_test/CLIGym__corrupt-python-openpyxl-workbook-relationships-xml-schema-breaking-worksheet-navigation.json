@@ -1,0 +1,85 @@
+{
+ "key": "CLIGym__corrupt-python-openpyxl-workbook-relationships-xml-schema-breaking-worksheet-navigation",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "18:18:53",
+ "usable": true,
+ "image": "a10:corrupt-python-openpyxl-workbook-relationships-xml-s-494a0a57fe",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 1 warning",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 1 warning",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 1 warning",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed, 1 warning",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "key": "CLIGym__corrupt-linux-kernel-shared-memory-allocation-to-disrupt-compression-algorithm-unit-tests.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "18:58:47",
+ "usable": true,
+ "image": "a10:corrupt-linux-kernel-shared-memory-allocation-to-dis-7fbfc7bb1b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

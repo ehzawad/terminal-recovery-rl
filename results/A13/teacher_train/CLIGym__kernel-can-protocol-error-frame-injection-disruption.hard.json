@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-can-protocol-error-frame-injection-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:17:59",
+ "usable": true,
+ "image": "a10:kernel-can-protocol-error-frame-injection-disruption-221b0341a6",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 23,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

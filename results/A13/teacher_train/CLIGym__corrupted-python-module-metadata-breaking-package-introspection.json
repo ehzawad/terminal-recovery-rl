@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-module-metadata-breaking-package-introspection",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:19:12",
+ "usable": true,
+ "image": "a10:corrupted-python-module-metadata-breaking-package-in-171b4de651",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-2.2.3.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-2.2.3.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-2.2.3.dist-info/entry_points.txt"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/torch-2.6.0.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/torch-2.6.0.dist-info/RECORD"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-2.2.3.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-2.2.3.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy-2.2.3.dist-info/entry_points.txt"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/torch-2.6.0.dist-info/METADATA"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/torch-2.6.0.dist-info/RECORD"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__disable-linux-epoll-system-call-to-break-network-related-api-service-unit-tests",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:44:16",
+ "usable": true,
+ "image": "a10:disable-linux-epoll-system-call-to-break-network-rel-760b36a2af",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/Levenshtein/StringMatcher.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/Levenshtein/__init__.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/Levenshtein/levenshtein_cpp.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/jellyfish/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "10 failed",
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libseccomp.so.2.5.3"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/Levenshtein/StringMatcher.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/Levenshtein/__init__.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/Levenshtein/levenshtein_cpp.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/jellyfish/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "10 failed",
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

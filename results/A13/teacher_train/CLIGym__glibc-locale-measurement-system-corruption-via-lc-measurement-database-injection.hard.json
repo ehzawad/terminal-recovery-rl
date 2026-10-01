@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__glibc-locale-measurement-system-corruption-via-lc-measurement-database-injection.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:37:27",
+ "usable": true,
+ "image": "a10:glibc-locale-measurement-system-corruption-via-lc-me-8d389af2c2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/locale/ar_SA.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/ar_SA.utf8/LC_IDENTIFICATION"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/az_AZ/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/az_AZ/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/az_AZ/LC_IDENTIFICATION"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "43 passed",
+     "n_pass": 43,
+     "n_ids": 43,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/locale/ar_SA.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/ar_SA.utf8/LC_IDENTIFICATION"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/az_AZ/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/az_AZ/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/az_AZ/LC_IDENTIFICATION"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "43 passed",
+     "n_pass": 43,
+     "n_ids": 43,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

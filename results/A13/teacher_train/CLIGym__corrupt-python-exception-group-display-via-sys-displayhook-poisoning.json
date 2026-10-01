@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-python-exception-group-display-via-sys-displayhook-poisoning",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "20:58:26",
+ "usable": false,
+ "why": "build_fail: port random, string        chars = list(line)        for i in range(6, len(chars), 7):            chars[i] = random.choice(string.ascii_lowercase)        return '\\\\'''.join(chars)    return '\\\\'''' /opt/miniconda3/envs/testbed/lib/python3.10/linecache.py\" did not complete successfully: exit code: 2\n"
+}

@@ -1,0 +1,77 @@
+{
+ "key": "CLIGym__corrupt-python-cpython-builtin-min-max-alternative-implementation-to-break-distance-normalization.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:37:05",
+ "usable": true,
+ "image": "a10:corrupt-python-cpython-builtin-min-max-alternative-i-4603d6c0a6",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_precision_calibration.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/precision_init.pth"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/precision_init.pth"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "15 failed, 31 passed",
+     "n_pass": 31,
+     "n_ids": 46,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "46 passed",
+     "n_pass": 46,
+     "n_ids": 46,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

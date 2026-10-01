@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__corrupted-python-http-parser-boundary-conditions-with-fragmented-wsgi-protocol-state-and-encrypted-recovery-decoder",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:58:28",
+ "usable": true,
+ "image": "a10:corrupted-python-http-parser-boundary-conditions-wit-f8b4605430",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/wsgi.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "10 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/wsgi.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "10 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

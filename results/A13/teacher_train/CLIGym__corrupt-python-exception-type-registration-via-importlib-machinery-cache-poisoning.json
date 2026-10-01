@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-exception-type-registration-via-importlib-machinery-cache-poisoning",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "20:59:40",
+ "usable": true,
+ "image": "a10:corrupt-python-exception-type-registration-via-impor-7d06ee8860",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

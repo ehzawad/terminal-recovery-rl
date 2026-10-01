@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-set-intersection-logic-to-break-token-overlap-algorithms.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:05:56",
+ "usable": true,
+ "image": "a10:corrupt-python-set-intersection-logic-to-break-token-fd23da2b60",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "8 passed",
+     "n_pass": 8,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

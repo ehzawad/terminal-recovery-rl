@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__kernel-bpf-syscall-accounting-corruption-with-python-resource-tracking-desynchronization",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:14:40",
+ "usable": true,
+ "image": "a10:kernel-bpf-syscall-accounting-corruption-with-python-298e29625f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/providers/misc/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/python/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/utils/checksums.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/providers/misc/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/python/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/utils/checksums.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "8 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

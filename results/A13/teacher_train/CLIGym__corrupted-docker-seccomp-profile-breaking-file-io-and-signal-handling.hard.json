@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling.hard",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "01:53:32",
+ "usable": true,
+ "image": "a10:corrupted-docker-seccomp-profile-breaking-file-io-an-558155a405",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "11 passed",
+     "n_pass": 11,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

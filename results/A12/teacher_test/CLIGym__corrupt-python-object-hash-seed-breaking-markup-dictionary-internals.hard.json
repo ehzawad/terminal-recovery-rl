@@ -1,0 +1,105 @@
+{
+ "key": "CLIGym__corrupt-python-object-hash-seed-breaking-markup-dictionary-internals.hard",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "19:26:10",
+ "usable": true,
+ "image": "a10:corrupt-python-object-hash-seed-breaking-markup-dict-745f81ebd0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/bin/python3.10"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

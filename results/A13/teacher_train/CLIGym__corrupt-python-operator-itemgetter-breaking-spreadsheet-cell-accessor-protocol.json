@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-python-operator-itemgetter-breaking-spreadsheet-cell-accessor-protocol",
+ "base": "jyangballin/swesmith.x86_64.burnash_1776_gspread.a8be3b96",
+ "t0": "00:13:36",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

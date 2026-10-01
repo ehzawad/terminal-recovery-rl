@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__python-pandas-sparse-array-corruption-via-filesystem-extent-fragmentation-and-madvise-sequential-pattern-subversion.hard",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "05:41:59",
+ "usable": true,
+ "image": "a10:python-pandas-sparse-array-corruption-via-filesystem-a5420e20cd",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/madvise_poison.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/madvise_poison.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

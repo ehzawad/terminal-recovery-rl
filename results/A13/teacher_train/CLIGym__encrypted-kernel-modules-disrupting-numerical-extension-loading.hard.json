@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__encrypted-kernel-modules-disrupting-numerical-extension-loading.hard",
+ "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+ "t0": "02:32:57",
+ "usable": true,
+ "image": "a10:encrypted-kernel-modules-disrupting-numerical-extens-51b9331b02",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libscipy_openblas64_-6bb31eeb.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy/_core/_multiarray_tests.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libscipy_openblas64_-6bb31eeb.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy/_core/_multiarray_tests.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy/_core/_multiarray_umath.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

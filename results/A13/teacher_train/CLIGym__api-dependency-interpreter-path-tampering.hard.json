@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__api-dependency-interpreter-path-tampering.hard",
+ "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+ "t0": "21:51:15",
+ "usable": true,
+ "image": "a10:api-dependency-interpreter-path-tampering.hard-85215a8015",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_sqlite3.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_ssl.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/libpython3.10.so.1.0"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_sqlite3.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_ssl.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

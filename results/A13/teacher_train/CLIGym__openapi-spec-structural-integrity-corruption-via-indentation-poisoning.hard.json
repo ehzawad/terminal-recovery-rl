@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__openapi-spec-structural-integrity-corruption-via-indentation-poisoning.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:16:49",
+ "usable": true,
+ "image": "a10:openapi-spec-structural-integrity-corruption-via-ind-5644f5d79b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

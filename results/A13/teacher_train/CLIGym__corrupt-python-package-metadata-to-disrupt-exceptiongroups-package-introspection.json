@@ -1,0 +1,69 @@
+{
+ "key": "CLIGym__corrupt-python-package-metadata-to-disrupt-exceptiongroups-package-introspection",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:20:28",
+ "usable": true,
+ "image": "a10:corrupt-python-package-metadata-to-disrupt-exception-fa5b205024",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/exceptiongroup-0.0.post1.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_version.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/exceptiongroup-0.0.post1.dist-info/METADATA"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/exceptiongroup-0.0.post1.dist-info/RECORD"
+     ],
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_version.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

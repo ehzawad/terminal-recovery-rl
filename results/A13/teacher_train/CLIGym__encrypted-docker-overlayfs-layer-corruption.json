@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__encrypted-docker-overlayfs-layer-corruption",
+ "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+ "t0": "21:45:17",
+ "usable": true,
+ "image": "a10:encrypted-docker-overlayfs-layer-corruption-cb4c5b7f17",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/rest_framework_nested/routers.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/rest_framework_nested/routers.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

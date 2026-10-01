@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__python-environment-library-shadowing-with-partial-module-removal",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:19:37",
+ "usable": true,
+ "image": "a10:python-environment-library-shadowing-with-partial-mo-3d8913a458",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 23,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/dominate/util.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/dominate/util.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

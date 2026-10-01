@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupted-python-http-request-line-tokenization-with-fragmented-wsgi-string-interning-and-encrypted-method-verb-dictionary.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:45:15",
+ "usable": true,
+ "image": "a10:corrupted-python-http-request-line-tokenization-with-9fd07b9100",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "14 passed",
+     "n_pass": 14,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "14 passed",
+     "n_pass": 14,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

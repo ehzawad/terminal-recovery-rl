@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__corrupt-python-io-buffering-to-break-http-line-reading.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:35:32",
+ "usable": true,
+ "image": "a10:corrupt-python-io-buffering-to-break-http-line-readi-e547b3e9e1",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/read_hook.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_pyio.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 17,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/read_hook.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/_pyio.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

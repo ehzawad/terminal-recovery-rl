@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-python-socket-recvinto-memoryview-abi-with-fragmented-buffer-protocol-resurrection.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:13:57",
+ "usable": true,
+ "image": "a10:corrupted-python-socket-recvinto-memoryview-abi-with-7d90469f29",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/t.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 18 passed",
+     "n_pass": 18,
+     "n_ids": 22,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/t.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 18 passed",
+     "n_pass": 18,
+     "n_ids": 22,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

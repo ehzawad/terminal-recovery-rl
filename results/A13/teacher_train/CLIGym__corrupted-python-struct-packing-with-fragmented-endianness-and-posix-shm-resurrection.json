@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__corrupted-python-struct-packing-with-fragmented-endianness-and-posix-shm-resurrection",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:03:18",
+ "usable": true,
+ "image": "a10:corrupted-python-struct-packing-with-fragmented-endi-23710e6652",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/struct.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 22 passed",
+     "n_pass": 22,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/struct.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

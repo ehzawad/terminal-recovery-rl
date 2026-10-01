@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-pipe-buffer-capacity-restriction-attack.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:09:42",
+ "usable": true,
+ "image": "a10:kernel-pipe-buffer-capacity-restriction-attack.hard-1d84381a94",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "19 passed",
+     "n_pass": 19,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "19 passed",
+     "n_pass": 19,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

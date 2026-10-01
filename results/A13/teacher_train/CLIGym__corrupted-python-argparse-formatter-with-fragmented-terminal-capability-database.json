@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-argparse-formatter-with-fragmented-terminal-capability-database",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:36:46",
+ "usable": true,
+ "image": "a10:corrupted-python-argparse-formatter-with-fragmented--1391a96e33",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/ioctl_intercept.so"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/locale_corrupt.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/argparse.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/share/terminfo/s/screen"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "11 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/ioctl_intercept.so"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/locale_corrupt.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/argparse.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/share/terminfo/s/screen"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "11 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

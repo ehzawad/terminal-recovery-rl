@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-value-table-reference-indirection-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:40:26",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-value-table-reference-indire-1a845f13ff",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/issue_199.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/issue_199_extended.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/motohawk.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/multiplex_choices.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/dbc/abs.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/issue_199.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/issue_199_extended.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/motohawk.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/multiplex_choices.dbc"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

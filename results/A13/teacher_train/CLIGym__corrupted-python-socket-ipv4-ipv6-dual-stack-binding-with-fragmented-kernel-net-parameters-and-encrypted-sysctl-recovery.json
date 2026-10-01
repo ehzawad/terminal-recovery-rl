@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-socket-ipv4-ipv6-dual-stack-binding-with-fragmented-kernel-net-parameters-and-encrypted-sysctl-recovery",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:28:50",
+ "usable": false,
+ "why": "build_fail: s\n  13 |     RUN echo '# IPv6 disabled' > /etc/sysctl.d/99-network-sabotage.conf && \\\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c sed -i '/::1.*localhost/d' /etc/hosts &&     sed -i '/::1.*ip6-localhost/d' /etc/hosts\" did not complete successfully: exit code: 4\n"
+}

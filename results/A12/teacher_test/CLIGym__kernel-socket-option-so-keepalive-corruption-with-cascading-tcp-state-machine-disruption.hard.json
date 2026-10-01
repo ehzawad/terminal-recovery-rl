@@ -1,0 +1,85 @@
+{
+ "key": "CLIGym__kernel-socket-option-so-keepalive-corruption-with-cascading-tcp-state-machine-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.python-hyper_1776_h11.bed0dd4a",
+ "t0": "20:15:49",
+ "usable": true,
+ "image": "a10:kernel-socket-option-so-keepalive-corruption-with-ca-889ed6ba62",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 14,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

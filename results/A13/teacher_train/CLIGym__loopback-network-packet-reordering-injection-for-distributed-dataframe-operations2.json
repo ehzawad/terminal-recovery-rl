@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__loopback-network-packet-reordering-injection-for-distributed-dataframe-operations2",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "05:41:59",
+ "usable": false,
+ "why": "build_fail: efault 10 &&     tc class add dev lo parent 1: classid 1:1 htb rate 1000mbit &&     tc class add dev lo parent 1:1 classid 1:10 htb rate 1000mbit ceil 1000mbit &&     tc qdisc add dev lo parent 1:10 handle 20: netem delay 50msec-100msec reorder 25% gap 5\" did not complete successfully: exit code: 2\n"
+}

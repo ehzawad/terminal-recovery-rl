@@ -1,0 +1,99 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-merkle-tree-hash-chain-corruption-via-ld-library-path-preload",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "18:22:54",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-signal-multiplexer-me-daff4d39f3",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/can/message.py"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "5 failed, 11 passed",
+     "n_pass": 11,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "stopped",
+   "cmds": 25,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "16 passed",
+     "n_pass": 16,
+     "n_ids": 16,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

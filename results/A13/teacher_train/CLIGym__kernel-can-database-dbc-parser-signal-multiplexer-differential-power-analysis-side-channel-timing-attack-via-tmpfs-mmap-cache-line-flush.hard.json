@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-differential-power-analysis-side-channel-timing-attack-via-tmpfs-mmap-cache-line-flush.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:47:08",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

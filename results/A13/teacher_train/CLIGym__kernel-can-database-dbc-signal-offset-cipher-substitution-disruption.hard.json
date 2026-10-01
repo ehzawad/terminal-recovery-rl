@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-signal-offset-cipher-substitution-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:52:59",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-signal-offset-cipher-substit-c8e5e66ecf",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "21 passed",
+     "n_pass": 21,
+     "n_ids": 21,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "21 passed",
+     "n_pass": 21,
+     "n_ids": 21,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

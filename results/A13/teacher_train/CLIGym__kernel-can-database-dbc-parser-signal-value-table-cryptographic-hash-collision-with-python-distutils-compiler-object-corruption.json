@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-value-table-cryptographic-hash-collision-with-python-distutils-compiler-object-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:44:33",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-signal-value-table-cr-6f5ce8d9cb",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/conversion.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "10 failed",
+     "n_pass": 0,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/conversion.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 7 passed",
+     "n_pass": 7,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

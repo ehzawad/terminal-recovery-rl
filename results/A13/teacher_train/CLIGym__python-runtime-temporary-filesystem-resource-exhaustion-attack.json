@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__python-runtime-temporary-filesystem-resource-exhaustion-attack",
+ "base": "jyangballin/swesmith.x86_64.knio_1776_dominate.9082227e",
+ "t0": "03:29:42",
+ "usable": true,
+ "image": "a10:python-runtime-temporary-filesystem-resource-exhaust-f350a942af",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/tempfile.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed, 2 warnings",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

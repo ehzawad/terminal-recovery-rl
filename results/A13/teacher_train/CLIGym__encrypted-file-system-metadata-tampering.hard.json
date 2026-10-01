@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__encrypted-file-system-metadata-tampering.hard",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:56:39",
+ "usable": true,
+ "image": "a10:encrypted-file-system-metadata-tampering.hard-f7f806f66c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

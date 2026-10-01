@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__filesystem-extended-attribute-poisoning-causing-spec-and-recursion-failures",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:48:57",
+ "usable": true,
+ "image": "a10:filesystem-extended-attribute-poisoning-causing-spec-0cf06ae388",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/glom/core.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/glom/core.py"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "3 passed",
+     "n_pass": 3,
+     "n_ids": 3,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

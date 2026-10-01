@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__kernel-vfs-ioctl-capability-corruption-with-python-platform-architecture-desynchronization.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:07:22",
+ "usable": true,
+ "image": "a10:kernel-vfs-ioctl-capability-corruption-with-python-p-f2c5be8f21",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_math_corrupt.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/corrupt.pth"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorruption.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/corrupt.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 20 passed",
+     "n_pass": 20,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_math_corrupt.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/corrupt.pth"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libcorruption.so"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/corrupt.pth"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 20 passed",
+     "n_pass": 20,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

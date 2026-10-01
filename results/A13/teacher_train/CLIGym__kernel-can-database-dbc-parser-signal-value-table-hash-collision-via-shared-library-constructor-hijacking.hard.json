@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-value-table-hash-collision-via-shared-library-constructor-hijacking.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:07:40",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-signal-value-table-ha-6d03b16833",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libpydict.so"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "14 passed",
+     "n_pass": 14,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/usr/local/lib/libpydict.so"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "14 passed",
+     "n_pass": 14,
+     "n_ids": 14,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

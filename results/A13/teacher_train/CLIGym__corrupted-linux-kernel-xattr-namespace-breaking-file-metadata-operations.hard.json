@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupted-linux-kernel-xattr-namespace-breaking-file-metadata-operations.hard",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:21:17",
+ "usable": true,
+ "image": "a10:corrupted-linux-kernel-xattr-namespace-breaking-file-7abaaba3c2",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "12 passed",
+     "n_pass": 12,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 10,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/libattr.so.1.1.2501"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "12 passed",
+     "n_pass": 12,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

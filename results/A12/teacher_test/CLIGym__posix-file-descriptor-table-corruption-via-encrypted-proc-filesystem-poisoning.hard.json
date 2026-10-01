@@ -1,0 +1,108 @@
+{
+ "key": "CLIGym__posix-file-descriptor-table-corruption-via-encrypted-proc-filesystem-poisoning.hard",
+ "base": "jyangballin/swesmith.x86_64.pexpect_1776_ptyprocess.1067dbda",
+ "t0": "19:41:04",
+ "usable": true,
+ "image": "a10:posix-file-descriptor-table-corruption-via-encrypted-7299e27156",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/.hidden_modules/fcntl.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/fcntl.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 errors",
+     "n_pass": 0,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/fcntl.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

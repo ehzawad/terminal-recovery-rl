@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__encrypt-and-fragment-critical-exception-group-source-files-with-key-clues-hidden-in-environment",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "20:51:21",
+ "usable": true,
+ "image": "a10:encrypt-and-fragment-critical-exception-group-source-91f2c02829",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__python-pandas-categorical-comparison-corruption-via-glibc-strcoll-locale-mutation-and-icu-transliterator-rule-injection",
+ "base": "jyangballin/swesmith.x86_64.pandas-dev_1776_pandas.95280573",
+ "t0": "05:41:59",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

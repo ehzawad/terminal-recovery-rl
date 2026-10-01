@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__partial-elf-loader-corruption-causing-extension-import-failures.hard",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:57:05",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

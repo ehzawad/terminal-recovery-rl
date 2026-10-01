@@ -1,0 +1,121 @@
+{
+ "key": "CLIGym__glibc-stdio-buffering-corruption-via-setvbuf-preload-injection",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "18:40:24",
+ "usable": true,
+ "image": "a10:glibc-stdio-buffering-corruption-via-setvbuf-preload-95a04df29c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/decode/codes.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/barcode/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/decode/codes.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/barcode/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 2,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/decode/codes.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/barcode/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 3,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/faker/decode/codes.py"
+     ],
+     [
+      "content",
+      "/testbed/faker/providers/barcode/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "14 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 30,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

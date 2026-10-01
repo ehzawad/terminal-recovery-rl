@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupt-shared-object-loader-cache-to-break-native-extension-import.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:28:00",
+ "usable": true,
+ "image": "a10:corrupt-shared-object-loader-cache-to-break-native-e-d4bef0e243",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/liblzma.so.5.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libz.so.1.bak"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "430 passed",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 12,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/liblzma.so.5.bak"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libz.so.1.bak"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/libbz2.so.1.0"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "430 passed",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

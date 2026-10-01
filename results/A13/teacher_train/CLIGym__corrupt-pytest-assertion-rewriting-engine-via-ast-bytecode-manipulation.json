@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-pytest-assertion-rewriting-engine-via-ast-bytecode-manipulation",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:26:03",
+ "usable": true,
+ "image": "a10:corrupt-pytest-assertion-rewriting-engine-via-ast-by-0466ea586c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/assertion/rewrite.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "7 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_pytest/assertion/rewrite.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "7 failed, 12 passed",
+     "n_pass": 12,
+     "n_ids": 19,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

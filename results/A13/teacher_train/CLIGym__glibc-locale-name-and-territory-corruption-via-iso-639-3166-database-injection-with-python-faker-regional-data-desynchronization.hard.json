@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__glibc-locale-name-and-territory-corruption-via-iso-639-3166-database-injection-with-python-faker-regional-data-desynchronization.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:46:34",
+ "usable": true,
+ "image": "a10:glibc-locale-name-and-territory-corruption-via-iso-6-27dd6df620",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/locale.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "16 failed, 32 passed",
+     "n_pass": 32,
+     "n_ids": 48,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/locale.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "16 failed, 32 passed",
+     "n_pass": 32,
+     "n_ids": 48,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

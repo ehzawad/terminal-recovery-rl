@@ -1,0 +1,56 @@
+{
+ "key": "CLIGym__disrupt-python-os-environ-paths-breaking-native-extension-loading",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "05:37:00",
+ "usable": true,
+ "image": "a10:disrupt-python-os-environ-paths-breaking-native-exte-2dedb8acf7",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/shadow/lib/_speedups.so"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/shadow/pythonpath/markupsafe/__init__.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__kernel-vdso-clock-gettime-offset-injection",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:59:30",
+ "usable": true,
+ "image": "a10:kernel-vdso-clock-gettime-offset-injection-4a66d0b141",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libvdso_hook.so"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/logreader.py"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/subparsers/plot.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/libvdso_hook.so"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/logreader.py"
+     ],
+     [
+      "content",
+      "/testbed/src/cantools/subparsers/plot.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 16 passed",
+     "n_pass": 16,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

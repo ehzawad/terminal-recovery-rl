@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-signal-bitfield-cryptographic-interleaving-disruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:13:05",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-signal-bitfield-cryptographi-e22635663c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "26 passed",
+     "n_pass": 26,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/utils.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 error",
+     "n_pass": 0,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-ssl-certificates-breaking-https-io-operations.hard",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:15:43",
+ "usable": false,
+ "why": "gold_fail: 1 failed, 2 passed"
+}

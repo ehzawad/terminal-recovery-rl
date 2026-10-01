@@ -1,0 +1,73 @@
+{
+ "key": "CLIGym__glibc-runtime-dynamic-loader-cache-poisoning-via-ldconfig-corruption",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:10:34",
+ "usable": true,
+ "image": "a10:glibc-runtime-dynamic-loader-cache-poisoning-via-ldc-c629e74c84",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_datetime.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_decimal.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_json.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/_pickle.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/binascii.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 26,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/yaml/_yaml.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed, 1 warning",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

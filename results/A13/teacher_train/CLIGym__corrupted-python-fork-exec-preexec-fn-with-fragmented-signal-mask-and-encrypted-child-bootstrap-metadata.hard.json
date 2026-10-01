@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__corrupted-python-fork-exec-preexec-fn-with-fragmented-signal-mask-and-encrypted-child-bootstrap-metadata.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:27:09",
+ "usable": true,
+ "image": "a10:corrupted-python-fork-exec-preexec-fn-with-fragmente-6e7267beab",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/workers/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

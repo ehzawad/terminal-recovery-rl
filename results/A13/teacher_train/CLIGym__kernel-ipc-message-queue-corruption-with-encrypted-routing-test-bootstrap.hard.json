@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__kernel-ipc-message-queue-corruption-with-encrypted-routing-test-bootstrap.hard",
+ "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+ "t0": "21:45:17",
+ "usable": true,
+ "image": "a10:kernel-ipc-message-queue-corruption-with-encrypted-r-b32a8003a0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/conftest.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/conftest.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "6 passed",
+     "n_pass": 6,
+     "n_ids": 6,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

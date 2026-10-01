@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupt-glibc-qsort-to-break-sequence-ordering-in-alignment-algorithms.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:52:10",
+ "usable": true,
+ "image": "a10:corrupt-glibc-qsort-to-break-sequence-ordering-in-al-a5d7b70e8b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/etc/ld.so.conf.d/fakeroot-x86_64-linux-gnu.conf"
+     ],
+     [
+      "missing",
+      "/etc/ld.so.conf.d/libc.conf"
+     ],
+     [
+      "missing",
+      "/etc/ld.so.conf.d/x86_64-linux-gnu.conf"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/bin/2to3"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/bin/2to3-3.12"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "missing",
+      "/etc/ld.so.conf.d/fakeroot-x86_64-linux-gnu.conf"
+     ],
+     [
+      "missing",
+      "/etc/ld.so.conf.d/libc.conf"
+     ],
+     [
+      "missing",
+      "/etc/ld.so.conf.d/x86_64-linux-gnu.conf"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/bin/2to3"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/bin/2to3-3.12"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 26,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

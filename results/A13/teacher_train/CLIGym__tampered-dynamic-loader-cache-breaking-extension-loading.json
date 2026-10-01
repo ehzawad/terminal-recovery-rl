@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__tampered-dynamic-loader-cache-breaking-extension-loading",
+ "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+ "t0": "02:26:55",
+ "usable": true,
+ "image": "a10:tampered-dynamic-loader-cache-breaking-extension-loa-95467f66ae",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libscipy_openblas64_-6bb31eeb.so.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/scipy.libs/libgfortran-040039e1-0352e75f.so.5.0.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/scipy.libs/libquadmath-96973f99-934c22de.so.0.0.0.bak"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "8 passed",
+     "n_pass": 0,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libgfortran-040039e1-0352e75f.so.5.0.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libquadmath-96973f99-934c22de.so.0.0.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/numpy.libs/libscipy_openblas64_-6bb31eeb.so.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/scipy.libs/libgfortran-040039e1-0352e75f.so.5.0.0.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/scipy.libs/libquadmath-96973f99-934c22de.so.0.0.0.bak"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "8 passed",
+     "n_pass": 0,
+     "n_ids": 8,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

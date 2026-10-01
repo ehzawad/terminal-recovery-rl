@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-socket-address-family-detection-with-fragmented-inet-pton-syscall-and-encrypted-ipv6-scope-recovery.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:58:21",
+ "usable": false,
+ "why": "build_fail: | >>> EOF\n 162 | >>> RUN echo \"import _socket_corruption\" > /opt/miniconda3/envs/testbed/lib/python3.10/site-packages/socket_hook.pth\n 163 | >>> RUN nohup /usr/local/bin/ipv6_toggler.sh > /dev/null 2>&1 &\n 164 |     \n--------------------\nERROR: failed to build: failed to solve: unterminated heredoc\n"
+}

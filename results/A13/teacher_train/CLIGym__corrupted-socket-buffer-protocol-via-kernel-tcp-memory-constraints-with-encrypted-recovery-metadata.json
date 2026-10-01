@@ -1,0 +1,65 @@
+{
+ "key": "CLIGym__corrupted-socket-buffer-protocol-via-kernel-tcp-memory-constraints-with-encrypted-recovery-metadata",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:01:04",
+ "usable": true,
+ "image": "a10:corrupted-socket-buffer-protocol-via-kernel-tcp-memo-2b71853d5a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/body.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/unreader.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

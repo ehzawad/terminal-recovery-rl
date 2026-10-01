@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__python-pickle-protocol-deserialization-corruption-via-opcode-injection",
+ "base": "jyangballin/swesmith.x86_64.mahmoud_1776_glom.fb3c4e76",
+ "t0": "04:57:37",
+ "usable": true,
+ "image": "a10:python-pickle-protocol-deserialization-corruption-vi-71584496ba",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 9 passed",
+     "n_pass": 9,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

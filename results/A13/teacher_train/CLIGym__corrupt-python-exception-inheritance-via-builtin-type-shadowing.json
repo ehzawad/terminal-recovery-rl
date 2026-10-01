@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-python-exception-inheritance-via-builtin-type-shadowing",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:03:41",
+ "usable": true,
+ "image": "a10:corrupt-python-exception-inheritance-via-builtin-typ-bf3a700c14",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 22,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "21 passed",
+     "n_pass": 21,
+     "n_ids": 21,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "21 passed",
+     "n_pass": 21,
+     "n_ids": 21,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

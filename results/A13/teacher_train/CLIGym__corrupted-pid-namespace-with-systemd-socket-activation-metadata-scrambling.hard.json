@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-pid-namespace-with-systemd-socket-activation-metadata-scrambling.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:46:46",
+ "usable": false,
+ "why": "build_fail: _bytes = key.to_bytes(4, byteorder='\\\\''big'\\\\'')    encoded_bytes = bytes.fromhex(encoded_hex)    for i, b in enumerate(encoded_bytes):        decoded.append(chr(b ^ key_bytes[i % 4]))    return '\\\\''\\\\'''\\\\''.join(decoded)' /testbed/gunicorn/systemd.py\" did not complete successfully: exit code: 2\n"
+}

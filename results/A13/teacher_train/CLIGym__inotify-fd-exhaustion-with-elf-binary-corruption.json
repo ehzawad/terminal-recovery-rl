@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__inotify-fd-exhaustion-with-elf-binary-corruption",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:07:38",
+ "usable": false,
+ "why": "build_fail: idden* pattern' >> /etc/hosts &&     rm -rf /testbed/.git &&     rm -rf /opt/miniconda3/pkgs/* &&     mkdir -p /opt/miniconda3/pkgs &&     for d in /proc/*/fd /sys/class/* /dev/*; do [ -e \\\"$d\\\" ] && nohup inotifywait -m -q \\\"$d\\\" > /dev/null 2>&1 & done\" did not complete successfully: exit code: 2\n"
+}

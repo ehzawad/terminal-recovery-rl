@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-regex-engine-with-fragmented-pcre-backtracking-limit-and-encrypted-locale-dependent-pattern-cache",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:48:27",
+ "usable": true,
+ "image": "a10:corrupted-python-regex-engine-with-fragmented-pcre-b-d9aff3a11c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-1.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-15.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/UTF-16.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-1.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-15.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/UTF-16.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "15 passed",
+     "n_pass": 15,
+     "n_ids": 15,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

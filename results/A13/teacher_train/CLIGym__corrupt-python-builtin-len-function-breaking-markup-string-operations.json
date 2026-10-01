@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupt-python-builtin-len-function-breaking-markup-string-operations",
+ "base": "jyangballin/swesmith.x86_64.pallets_1776_markupsafe.620c06c9",
+ "t0": "05:30:11",
+ "usable": false,
+ "why": "gold_fail: no tests ran"
+}

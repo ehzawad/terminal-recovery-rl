@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__corrupted-python-zlib-compression-layer-with-fragmented-deflate-dictionary-and-poisoned-gzip-header-metadata",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:36:02",
+ "usable": true,
+ "image": "a10:corrupted-python-zlib-compression-layer-with-fragmen-b96fac9089",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/gzip.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/002.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/003.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/008.http"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "31 passed",
+     "n_pass": 31,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/gzip.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/http/message.py"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/002.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/003.http"
+     ],
+     [
+      "content",
+      "/testbed/tests/requests/valid/008.http"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "31 passed",
+     "n_pass": 31,
+     "n_ids": 31,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

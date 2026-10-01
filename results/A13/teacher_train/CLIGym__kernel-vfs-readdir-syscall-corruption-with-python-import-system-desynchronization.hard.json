@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-vfs-readdir-syscall-corruption-with-python-import-system-desynchronization.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:40:05",
+ "usable": true,
+ "image": "a10:kernel-vfs-readdir-syscall-corruption-with-python-im-3b86c52ecf",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/libcorrupt_vfs.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/audit/sotruss-lib.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ANSI_X3.110.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ARMSCII-8.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ASMO_449.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/lib/libcorrupt_vfs.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/audit/sotruss-lib.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ANSI_X3.110.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ARMSCII-8.so"
+     ],
+     [
+      "content",
+      "/usr/lib/x86_64-linux-gnu/gconv/ASMO_449.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "50 passed",
+     "n_pass": 50,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

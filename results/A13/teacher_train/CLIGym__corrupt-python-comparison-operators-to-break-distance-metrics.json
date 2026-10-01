@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-comparison-operators-to-break-distance-metrics",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:59:17",
+ "usable": true,
+ "image": "a10:corrupt-python-comparison-operators-to-break-distanc-4459ae1ba5",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "48 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "48 failed, 2 passed",
+     "n_pass": 2,
+     "n_ids": 50,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

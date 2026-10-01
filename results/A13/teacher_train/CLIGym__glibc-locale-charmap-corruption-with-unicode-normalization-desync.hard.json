@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__glibc-locale-charmap-corruption-with-unicode-normalization-desync.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:02:29",
+ "usable": true,
+ "image": "a10:glibc-locale-charmap-corruption-with-unicode-normali-3955f4e5cd",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/unicodedata.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/ca_ES/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/crh_UA/LC_COLLATE"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/unicodedata.cpython-310-x86_64-linux-gnu.so"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/C.utf8/LC_CTYPE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/ca_ES/LC_COLLATE"
+     ],
+     [
+      "content",
+      "/usr/lib/locale/crh_UA/LC_COLLATE"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": null,
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

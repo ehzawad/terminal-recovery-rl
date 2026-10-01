@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-value-table-cryptographic-substitution-with-gcc-plugin-abi-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:27:52",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-signal-value-table-cr-e9d3382f7b",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/conversion.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 failed, 10 passed",
+     "n_pass": 10,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "12 passed",
+     "n_pass": 12,
+     "n_ids": 12,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

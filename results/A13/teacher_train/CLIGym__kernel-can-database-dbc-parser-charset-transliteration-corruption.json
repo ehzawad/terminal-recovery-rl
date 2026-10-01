@@ -1,0 +1,21 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-charset-transliteration-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:41:50",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-charset-transliterati-b770927925",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  },
+  {
+   "i": 1,
+   "end": "harness_error",
+   "cmds": 0,
+   "harness_error": true
+  }
+ ]
+}

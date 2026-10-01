@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__glibc-libm-fpmath-precision-control-corruption-breaking-numeric-field-boundary-validation.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:18:07",
+ "usable": true,
+ "image": "a10:glibc-libm-fpmath-precision-control-corruption-break-4388a60b1a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_numeric_corruption.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/.libm.so.6.orig"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 11,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_numeric_corruption.py"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ],
+     [
+      "added_still_present",
+      "/usr/lib/x86_64-linux-gnu/.libm.so.6.orig"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "13 passed",
+     "n_pass": 13,
+     "n_ids": 13,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

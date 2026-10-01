@@ -1,0 +1,56 @@
+{
+ "key": "CLIGym__entropy-pool-corruption-via-system-level-random-number-generation-interception",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "03:07:41",
+ "usable": true,
+ "image": "a10:entropy-pool-corruption-via-system-level-random-numb-c371ccebdf",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/usercustomize.py"
+     ],
+     [
+      "new_hook",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/usercustomize.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 28 passed",
+     "n_pass": 28,
+     "n_ids": 32,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 23,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "32 passed",
+     "n_pass": 32,
+     "n_ids": 32,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

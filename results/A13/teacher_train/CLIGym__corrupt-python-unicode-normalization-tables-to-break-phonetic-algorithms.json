@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-unicode-normalization-tables-to-break-phonetic-algorithms",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "03:58:10",
+ "usable": true,
+ "image": "a10:corrupt-python-unicode-normalization-tables-to-break-bc32ab207c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/phonetic.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/textdistance/algorithms/phonetic.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "23 passed",
+     "n_pass": 23,
+     "n_ids": 23,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

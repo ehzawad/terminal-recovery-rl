@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-http-readline-buffer-state-through-socket-level-fragmentation",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:40:11",
+ "usable": true,
+ "image": "a10:corrupt-http-readline-buffer-state-through-socket-le-34d7900ec8",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "28 passed",
+     "n_pass": 28,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 13,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "28 passed",
+     "n_pass": 28,
+     "n_ids": 28,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

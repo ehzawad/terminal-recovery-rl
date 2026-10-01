@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-prng-state-corruption-via-getrandom-syscall-hijacking-and-entropy-pool-desynchronization.hard",
+ "base": "jyangballin/swesmith.x86_64.joke2k_1776_faker.8b401a7d",
+ "t0": "02:37:47",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

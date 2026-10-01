@@ -1,0 +1,60 @@
+{
+ "key": "CLIGym__disruption-of-python-multiprocessing-shared-memory-segments-to-induce-silent-data-corruption",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "02:18:42",
+ "usable": true,
+ "image": "a10:disruption-of-python-multiprocessing-shared-memory-s-79d3c80a28",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "7 passed, 3 warnings",
+     "n_pass": 7,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/fvcore/_corruption_patch.py"
+     ],
+     [
+      "content",
+      "/testbed/fvcore/__init__.py"
+     ],
+     [
+      "content",
+      "/testbed/fvcore/common/checkpoint.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "2 errors",
+     "n_pass": 0,
+     "n_ids": 7,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

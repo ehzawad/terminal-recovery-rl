@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-val-table-cryptographic-hash-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:42:07",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-val-table-cryptographic-hash-928a1c7728",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/can/formats/dbc.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/can/formats/dbc.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 errors",
+     "n_pass": 0,
+     "n_ids": 11,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

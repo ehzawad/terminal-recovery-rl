@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-python-http-status-code-integer-coercion-with-fragmented-wsgi-response-protocol-and-encrypted-http-semantic-recovery",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:42:49",
+ "usable": false,
+ "why": "build_fail: h_message.py /tmp/patch_wsgi.py /tmp/patch_util.py /tmp/create_recovery.py\n--------------------\nERROR: failed to build: failed to solve: failed to compute cache key: failed to calculate checksum of ref 05f02546-a52d-4725-8540-cba6c5a55ba1::fz3x7jt6iqpyav7la187mjth6: \"/create_recovery.py\": not found\n"
+}

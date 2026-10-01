@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-gunicorn-http-parser-via-kernel-netfilter-packet-mangling-with-fragmented-socket-metadata-recovery",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:45:06",
+ "usable": false,
+ "why": "build_fail:  | >>> RUN setfattr -n user.recovery.hint -v \"2024\" /etc/hosts\n 152 |     \n 153 |     RUN mkdir -p /opt/.recovery && \\\n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c setfattr -n user.recovery.hint -v \\\"2024\\\" /etc/hosts\" did not complete successfully: exit code: 1\n"
+}

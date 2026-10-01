@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__django-rest-framework-router-registration-corruption",
+ "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+ "t0": "21:55:36",
+ "usable": true,
+ "image": "a10:django-rest-framework-router-registration-corruption-407f83542a",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 28,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/rest_framework/routers.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "10 passed",
+     "n_pass": 10,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/rest_framework/routers.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "3 failed, 7 passed",
+     "n_pass": 7,
+     "n_ids": 10,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

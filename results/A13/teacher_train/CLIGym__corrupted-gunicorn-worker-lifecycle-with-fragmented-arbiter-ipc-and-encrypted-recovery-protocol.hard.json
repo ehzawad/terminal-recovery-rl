@@ -1,0 +1,77 @@
+{
+ "key": "CLIGym__corrupted-gunicorn-worker-lifecycle-with-fragmented-arbiter-ipc-and-encrypted-recovery-protocol.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "23:10:52",
+ "usable": true,
+ "image": "a10:corrupted-gunicorn-worker-lifecycle-with-fragmented--2fb1c836dd",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 24,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/proc_hook.so"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/arbiter.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "18 passed",
+     "n_pass": 18,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/usr/local/lib/proc_hook.so"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/arbiter.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/sock.py"
+     ],
+     [
+      "content",
+      "/testbed/gunicorn/systemd.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 17 passed",
+     "n_pass": 17,
+     "n_ids": 18,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

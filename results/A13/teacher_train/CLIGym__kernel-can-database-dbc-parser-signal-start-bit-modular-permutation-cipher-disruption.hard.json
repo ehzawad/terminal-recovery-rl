@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-start-bit-modular-permutation-cipher-disruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:43:00",
+ "usable": false,
+ "why": "build_fail: sawtooth_bitnum % 8))\\\\n    if sawtooth_bitnum >= 0 and sawtooth_bitnum <= 64:\\\\n        rotation = ((sawtooth_bitnum ^ 0x5A) + mod_offset) % 8\\\\n        return (base_calc + rotation) & 0xFF\\\\n    return base_calc' /testbed/src/cantools/database/utils.py\" did not complete successfully: exit code: 2\n"
+}

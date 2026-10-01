@@ -1,0 +1,52 @@
+{
+ "key": "CLIGym__openapi-schema-reference-resolution-corruption-via-json-pointer-fragment-encoding.hard",
+ "base": "jyangballin/swesmith.x86_64.marshmallow-code_1776_apispec.8b421526",
+ "t0": "05:12:59",
+ "usable": true,
+ "image": "a10:openapi-schema-reference-resolution-corruption-via-j-d4c1ff9bdb",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/apispec/core.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "25 passed",
+     "n_pass": 25,
+     "n_ids": 25,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

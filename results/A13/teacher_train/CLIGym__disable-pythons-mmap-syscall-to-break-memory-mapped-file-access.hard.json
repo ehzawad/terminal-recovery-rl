@@ -1,0 +1,81 @@
+{
+ "key": "CLIGym__disable-pythons-mmap-syscall-to-break-memory-mapped-file-access.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:22:46",
+ "usable": true,
+ "image": "a10:disable-pythons-mmap-syscall-to-break-memory-mapped--3120f43c50",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 9,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/mmap.cpython-310-x86_64-linux-gnu.so.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/mmap.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/bz2_codec.py"
+     ],
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/encodings/zlib_codec.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/mmap.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 16,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/mmap.cpython-310-x86_64-linux-gnu.so.bak"
+     ],
+     [
+      "added_still_present",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/mmap.py"
+     ],
+     [
+      "missing",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/lib-dynload/mmap.cpython-310-x86_64-linux-gnu.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "4 passed",
+     "n_pass": 4,
+     "n_ids": 4,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

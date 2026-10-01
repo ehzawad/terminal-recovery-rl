@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__enforced-api-endpoint-configuration-lockdown",
+ "base": "jyangballin/swesmith.x86_64.alanjds_1776_drf-nested-routers.6144169d",
+ "t0": "21:45:17",
+ "usable": true,
+ "image": "a10:enforced-api-endpoint-configuration-lockdown-ac5565a83d",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/rest_framework_nested/routers.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "4 failed, 1 passed",
+     "n_pass": 1,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/rest_framework_nested/routers.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "1 failed, 4 passed",
+     "n_pass": 4,
+     "n_ids": 5,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

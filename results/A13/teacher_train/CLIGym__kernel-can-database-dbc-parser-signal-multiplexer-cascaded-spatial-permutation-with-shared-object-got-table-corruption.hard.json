@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__kernel-can-database-dbc-parser-signal-multiplexer-cascaded-spatial-permutation-with-shared-object-got-table-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "01:34:16",
+ "usable": true,
+ "image": "a10:kernel-can-database-dbc-parser-signal-multiplexer-ca-ca7886abf0",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/can/message.py"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "6 failed, 11 passed",
+     "n_pass": 11,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/cantools/database/can/message.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

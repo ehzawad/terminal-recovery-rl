@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__corrupt-linux-elf-section-headers-to-break-python-c-extensions.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "20:51:21",
+ "usable": true,
+ "image": "a10:corrupt-linux-elf-section-headers-to-break-python-c--fdcac19c7f",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 27,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "51 passed",
+     "n_pass": 51,
+     "n_ids": 51,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 29,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "51 passed",
+     "n_pass": 51,
+     "n_ids": 51,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

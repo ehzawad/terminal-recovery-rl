@@ -1,0 +1,61 @@
+{
+ "key": "CLIGym__corrupt-python-abs-builtin-to-break-distance-normalization.hard",
+ "base": "jyangballin/swesmith.x86_64.life4_1776_textdistance.c3aca916",
+ "t0": "04:29:27",
+ "usable": true,
+ "image": "a10:corrupt-python-abs-builtin-to-break-distance-normali-33cfa57a54",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 18,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site.py"
+     ],
+     [
+      "content",
+      "/testbed/textdistance/algorithms/base.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "36 passed",
+     "n_pass": 36,
+     "n_ids": 36,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/opt/miniconda3/envs/testbed/lib/python3.10/site.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "36 passed",
+     "n_pass": 36,
+     "n_ids": 36,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

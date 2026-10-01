@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-posix-shared-memory-backing-store-breaking-array-operations",
+ "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+ "t0": "02:32:53",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

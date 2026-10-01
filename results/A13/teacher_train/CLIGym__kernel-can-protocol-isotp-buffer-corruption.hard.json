@@ -1,0 +1,47 @@
+{
+ "key": "CLIGym__kernel-can-protocol-isotp-buffer-corruption.hard",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:25:03",
+ "usable": true,
+ "image": "a10:kernel-can-protocol-isotp-buffer-corruption.hard-f674255185",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "24 passed",
+     "n_pass": 24,
+     "n_ids": 24,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

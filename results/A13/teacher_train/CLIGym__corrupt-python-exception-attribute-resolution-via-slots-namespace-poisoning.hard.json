@@ -1,0 +1,57 @@
+{
+ "key": "CLIGym__corrupt-python-exception-attribute-resolution-via-slots-namespace-poisoning.hard",
+ "base": "jyangballin/swesmith.x86_64.agronholm_1776_exceptiongroup.0b4f4937",
+ "t0": "21:25:58",
+ "usable": true,
+ "image": "a10:corrupt-python-exception-attribute-resolution-via-sl-34a6529abd",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 20,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/src/exceptiongroup/_exceptions.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

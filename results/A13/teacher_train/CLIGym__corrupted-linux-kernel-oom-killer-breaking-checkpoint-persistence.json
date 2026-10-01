@@ -1,0 +1,7 @@
+{
+ "key": "CLIGym__corrupted-linux-kernel-oom-killer-breaking-checkpoint-persistence",
+ "base": "jyangballin/swesmith.x86_64.facebookresearch_1776_fvcore.a491d5b9",
+ "t0": "01:49:46",
+ "usable": false,
+ "why": "vacuous: untouched container passes v2"
+}

@@ -1,0 +1,56 @@
+{
+ "key": "CLIGym__corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives",
+ "base": "jyangballin/swesmith.x86_64.hips_1776_autograd.ac044f0d",
+ "t0": "02:26:02",
+ "usable": true,
+ "image": "a10:corrupted-kernel-vsyscall-interface-breaking-numeric-5f7c49cfe7",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "stopped",
+   "cmds": 21,
+   "harness_error": false,
+   "v1": true,
+   "v2": true,
+   "v2_detail": {
+    "bc": [],
+    "tests": {
+     "pass": true,
+     "rule": "summary",
+     "summary": "585 passed, 1 skipped, 14 warnings",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/etc/ld.so.preload"
+     ],
+     [
+      "ld_preload",
+      "/etc/ld.so.preload"
+     ]
+    ],
+    "tests": {
+     "pass": false,
+     "rule": null,
+     "summary": "no tests ran",
+     "n_pass": 0,
+     "n_ids": 0,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

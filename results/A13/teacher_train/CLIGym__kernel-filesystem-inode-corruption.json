@@ -1,0 +1,89 @@
+{
+ "key": "CLIGym__kernel-filesystem-inode-corruption",
+ "base": "jyangballin/swesmith.x86_64.cantools_1776_cantools.0c6a7871",
+ "t0": "00:35:49",
+ "usable": true,
+ "image": "a10:kernel-filesystem-inode-corruption-bb60efbd1c",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-4.2.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/foobar.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/motohawk.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/vehicle.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/dump.kcd"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": false,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "content",
+      "/testbed/tests/files/arxml/system-4.2.arxml"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/foobar.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/motohawk.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/dbc/vehicle.dbc"
+     ],
+     [
+      "content",
+      "/testbed/tests/files/kcd/dump.kcd"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "20 passed",
+     "n_pass": 20,
+     "n_ids": 20,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}

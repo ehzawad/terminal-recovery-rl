@@ -1,0 +1,61 @@
+{
+ "key": "CLIGym__corrupted-gunicorn-worker-ipc-with-fragmented-pipe-syscall-layer-and-encrypted-socket-handoff-metadata.hard",
+ "base": "jyangballin/swesmith.x86_64.benoitc_1776_gunicorn.bacbf8aa",
+ "t0": "22:03:33",
+ "usable": true,
+ "image": "a10:corrupted-gunicorn-worker-ipc-with-fragmented-pipe-s-c9e9e63793",
+ "episodes": [
+  {
+   "i": 0,
+   "end": "max_tool_turns",
+   "cmds": 30,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/gunicorn/_envmgr.py"
+     ],
+     [
+      "added_still_present",
+      "/testbed/pipe_corruptor.so"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  },
+  {
+   "i": 1,
+   "end": "stopped",
+   "cmds": 19,
+   "harness_error": false,
+   "v1": true,
+   "v2": false,
+   "v2_detail": {
+    "bc": [
+     [
+      "added_still_present",
+      "/testbed/gunicorn/_envmgr.py"
+     ]
+    ],
+    "tests": {
+     "pass": true,
+     "rule": "ids",
+     "summary": "17 passed",
+     "n_pass": 17,
+     "n_ids": 17,
+     "timeout": false
+    }
+   }
+  }
+ ]
+}
