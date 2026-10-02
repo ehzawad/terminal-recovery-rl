@@ -1,0 +1,34 @@
+{
+ "task": "kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 12,
+  "not_passed": {},
+  "summary": "12 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "added_still_present",
+    "/testbed/h11/_network_compat.py"
+   ],
+   [
+    "content",
+    "/testbed/h11/__init__.py"
+   ]
+  ],
+  "tests": {
+   "pass": false,
+   "n_ids": 12,
+   "not_passed": {
+    "h11/tests/test_against_stdlib_http.py::test_h11_as_client": "FAILED",
+    "h11/tests/test_against_stdlib_http.py::test_h11_as_server": "FAILED"
+   },
+   "summary": "2 failed, 10 passed",
+   "timeout": false
+  }
+ }
+}

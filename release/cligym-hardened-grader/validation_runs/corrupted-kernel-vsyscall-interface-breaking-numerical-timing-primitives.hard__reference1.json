@@ -1,0 +1,22 @@
+{
+ "task": "corrupted-kernel-vsyscall-interface-breaking-numerical-timing-primitives.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 0,
+  "not_passed": {},
+  "summary": "585 passed, 1 skipped, 14 warnings",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": true,
+  "residue": [],
+  "tests": {
+   "pass": true,
+   "n_ids": 0,
+   "not_passed": {},
+   "summary": "585 passed, 1 skipped, 14 warnings",
+   "timeout": false
+  }
+ }
+}

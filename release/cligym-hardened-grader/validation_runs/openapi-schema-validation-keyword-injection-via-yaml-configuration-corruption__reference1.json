@@ -1,0 +1,22 @@
+{
+ "task": "openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 18,
+  "not_passed": {},
+  "summary": "18 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": true,
+  "residue": [],
+  "tests": {
+   "pass": true,
+   "n_ids": 18,
+   "not_passed": {},
+   "summary": "18 passed",
+   "timeout": false
+  }
+ }
+}

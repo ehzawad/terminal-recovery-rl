@@ -1,0 +1,31 @@
+{
+ "task": "python-threading-module-gil-state-corruption-via-cython-extension-sabotage.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 8,
+  "not_passed": {},
+  "summary": "8 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/bin/python3.10"
+   ],
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/threading.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 8,
+   "not_passed": {},
+   "summary": "8 passed",
+   "timeout": false
+  }
+ }
+}

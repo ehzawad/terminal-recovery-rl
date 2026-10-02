@@ -1,0 +1,35 @@
+{
+ "task": "openapi-schema-validation-keyword-injection-via-yaml-configuration-corruption",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 18,
+  "not_passed": {},
+  "summary": "18 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "added_still_present",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+   ],
+   [
+    "added_still_present",
+    "/testbed/sitecustomize.py"
+   ],
+   [
+    "new_hook",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 18,
+   "not_passed": {},
+   "summary": "18 passed",
+   "timeout": false
+  }
+ }
+}

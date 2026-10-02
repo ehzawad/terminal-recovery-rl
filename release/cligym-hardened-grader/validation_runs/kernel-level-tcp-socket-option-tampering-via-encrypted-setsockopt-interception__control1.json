@@ -1,0 +1,35 @@
+{
+ "task": "kernel-level-tcp-socket-option-tampering-via-encrypted-setsockopt-interception",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 17,
+  "not_passed": {},
+  "summary": "17 passed, 34 warnings",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "added_still_present",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/_socket_intercept.py"
+   ],
+   [
+    "added_still_present",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+   ],
+   [
+    "new_hook",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 17,
+   "not_passed": {},
+   "summary": "17 passed, 34 warnings",
+   "timeout": false
+  }
+ }
+}

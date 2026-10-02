@@ -1,0 +1,71 @@
+{
+ "task": "glibc-iconv-module-corruption-for-encoding-conversion-operations.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 50,
+  "not_passed": {},
+  "summary": "50 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/BIG5.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/EUC-JP.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/GBK.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-1.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-15.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/ISO8859-2.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/UNICODE.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/UTF-16.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/UTF-32.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/UTF-7.so"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 50,
+   "not_passed": {},
+   "summary": "50 passed",
+   "timeout": false
+  }
+ }
+}

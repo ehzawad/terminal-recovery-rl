@@ -1,0 +1,30 @@
+{
+ "task": "api-generator-source-code-subtle-logic-bug-induction",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 9,
+  "not_passed": {},
+  "summary": "9 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/testbed/rest_framework_nested/routers.py"
+   ]
+  ],
+  "tests": {
+   "pass": false,
+   "n_ids": 9,
+   "not_passed": {
+    "tests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_child": "FAILED",
+    "tests/test_dynamic_routers.py::TestNestedSimpleRouter::test_nested_parent": "FAILED"
+   },
+   "summary": "2 failed, 7 passed",
+   "timeout": false
+  }
+ }
+}

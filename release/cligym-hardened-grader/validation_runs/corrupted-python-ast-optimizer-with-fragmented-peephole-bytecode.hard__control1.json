@@ -1,0 +1,35 @@
+{
+ "task": "corrupted-python-ast-optimizer-with-fragmented-peephole-bytecode.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 22,
+  "not_passed": {},
+  "summary": "22 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/testbed/gunicorn/app/base.py"
+   ],
+   [
+    "content",
+    "/testbed/gunicorn/reloader.py"
+   ],
+   [
+    "content",
+    "/testbed/gunicorn/util.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 22,
+   "not_passed": {},
+   "summary": "22 passed",
+   "timeout": false
+  }
+ }
+}

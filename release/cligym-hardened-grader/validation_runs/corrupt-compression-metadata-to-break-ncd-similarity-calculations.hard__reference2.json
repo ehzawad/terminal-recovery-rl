@@ -1,0 +1,27 @@
+{
+ "task": "corrupt-compression-metadata-to-break-ncd-similarity-calculations.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 10,
+  "not_passed": {},
+  "summary": "10 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/testbed/textdistance/algorithms/compression_based.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 10,
+   "not_passed": {},
+   "summary": "10 passed",
+   "timeout": false
+  }
+ }
+}

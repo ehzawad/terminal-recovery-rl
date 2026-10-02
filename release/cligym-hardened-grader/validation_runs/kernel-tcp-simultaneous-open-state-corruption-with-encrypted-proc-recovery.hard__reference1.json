@@ -1,0 +1,22 @@
+{
+ "task": "kernel-tcp-simultaneous-open-state-corruption-with-encrypted-proc-recovery.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 12,
+  "not_passed": {},
+  "summary": "12 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": true,
+  "residue": [],
+  "tests": {
+   "pass": true,
+   "n_ids": 12,
+   "not_passed": {},
+   "summary": "12 passed",
+   "timeout": false
+  }
+ }
+}

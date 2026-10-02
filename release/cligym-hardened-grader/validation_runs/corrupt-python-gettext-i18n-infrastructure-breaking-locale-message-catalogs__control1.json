@@ -1,0 +1,31 @@
+{
+ "task": "corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 7,
+  "not_passed": {},
+  "summary": "7 passed, 1 warning",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/_strptime.py"
+   ],
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/gettext.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 7,
+   "not_passed": {},
+   "summary": "7 passed, 1 warning",
+   "timeout": false
+  }
+ }
+}

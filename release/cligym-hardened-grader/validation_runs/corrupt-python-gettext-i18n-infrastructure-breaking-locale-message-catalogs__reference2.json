@@ -1,0 +1,22 @@
+{
+ "task": "corrupt-python-gettext-i18n-infrastructure-breaking-locale-message-catalogs",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 7,
+  "not_passed": {},
+  "summary": "7 passed, 1 warning",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": true,
+  "residue": [],
+  "tests": {
+   "pass": true,
+   "n_ids": 7,
+   "not_passed": {},
+   "summary": "7 passed, 1 warning",
+   "timeout": false
+  }
+ }
+}

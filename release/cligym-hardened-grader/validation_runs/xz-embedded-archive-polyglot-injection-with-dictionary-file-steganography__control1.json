@@ -1,0 +1,27 @@
+{
+ "task": "xz-embedded-archive-polyglot-injection-with-dictionary-file-steganography",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 8,
+  "not_passed": {},
+  "summary": "8 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/testbed/test/keyword_extractor_test_cases.json"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 8,
+   "not_passed": {},
+   "summary": "8 passed",
+   "timeout": false
+  }
+ }
+}

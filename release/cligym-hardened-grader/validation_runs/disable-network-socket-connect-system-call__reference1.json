@@ -1,0 +1,22 @@
+{
+ "task": "disable-network-socket-connect-system-call",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 5,
+  "not_passed": {},
+  "summary": "5 passed, 12 warnings",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": true,
+  "residue": [],
+  "tests": {
+   "pass": true,
+   "n_ids": 5,
+   "not_passed": {},
+   "summary": "5 passed, 12 warnings",
+   "timeout": false
+  }
+ }
+}

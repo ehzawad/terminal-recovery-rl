@@ -1,0 +1,43 @@
+{
+ "task": "corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 11,
+  "not_passed": {},
+  "summary": "11 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "added_still_present",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/seccomp_loader.pth"
+   ],
+   [
+    "added_still_present",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/seccomp_patch.py"
+   ],
+   [
+    "new_hook",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/seccomp_loader.pth"
+   ]
+  ],
+  "tests": {
+   "pass": false,
+   "n_ids": 11,
+   "not_passed": {
+    "io_tests/test_file_io.py::TestNativeIO::test_open": "FAILED",
+    "io_tests/test_file_io.py::TestNativeIO::test_rm": "FAILED",
+    "io_tests/test_file_io.py::TestNativeIO::test_symlink": "FAILED",
+    "io_tests/test_file_io.py::TestNativeIO::test_mkdirs": "FAILED",
+    "tests/test_checkpoint.py::TestCheckpointer::test_checkpointables": "FAILED",
+    "tests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer": "FAILED",
+    "tests/test_checkpoint.py::TestPeriodicCheckpointer::test_periodic_checkpointer_max_to_keep": "FAILED"
+   },
+   "summary": "7 failed, 4 passed",
+   "timeout": false
+  }
+ }
+}

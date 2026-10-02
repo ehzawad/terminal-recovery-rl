@@ -1,0 +1,22 @@
+{
+ "task": "corrupted-docker-seccomp-profile-breaking-file-io-and-signal-handling",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 11,
+  "not_passed": {},
+  "summary": "11 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": true,
+  "residue": [],
+  "tests": {
+   "pass": true,
+   "n_ids": 11,
+   "not_passed": {},
+   "summary": "11 passed",
+   "timeout": false
+  }
+ }
+}

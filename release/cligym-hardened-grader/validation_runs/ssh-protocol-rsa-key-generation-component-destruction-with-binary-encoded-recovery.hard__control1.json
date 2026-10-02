@@ -1,0 +1,61 @@
+{
+ "task": "ssh-protocol-rsa-key-generation-component-destruction-with-binary-encoded-recovery.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 14,
+  "not_passed": {
+   "tests/test_pkey.py::KeyTest::test_generate_key_bytes": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_compare_rsa": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_load_openssh_format_RSA_key": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_load_openssh_format_RSA_nopad": "MISSING",
+   "tests/test_pkey.py::KeyTest::test_sign_and_verify_rsa_sha2_512": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_client_rsa": "MISSING",
+   "tests/test_client.py::SSHClientTest::test_old_openssh_needs_ssh_rsa_for_certs_not_rsa_sha2": "MISSING",
+   "tests/pkey.py::PKey_::from_type_string::loads_from_type_and_bytes[rsa]": "MISSING",
+   "tests/pkey.py::PKey_::equality_and_hashing::keys_are_not_equal_to_other_types[rsa]": "MISSING",
+   "tests/pkey.py::PKey_::equality_and_hashing::same_key_same_hash[rsa]": "MISSING",
+   "tests/pkey.py::PKey_::algorithm_name[rsa]": "MISSING",
+   "tests/pkey.py::PKey_::fingerprint[rsa]": "MISSING",
+   "tests/pkey.py::PKey_::load_certificate::rsa_public_cert_blobs": "MISSING",
+   "tests/test_transport.py::TestSHA2SignatureKeyExchange::test_base_case_ssh_rsa_still_used_as_fallback": "MISSING"
+  },
+  "summary": "14 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/lib/libcrypto.so.3"
+   ],
+   [
+    "content",
+    "/usr/lib/x86_64-linux-gnu/libcrypto.so.3"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 14,
+   "not_passed": {
+    "tests/test_pkey.py::KeyTest::test_generate_key_bytes": "MISSING",
+    "tests/test_pkey.py::KeyTest::test_compare_rsa": "MISSING",
+    "tests/test_pkey.py::KeyTest::test_load_openssh_format_RSA_key": "MISSING",
+    "tests/test_pkey.py::KeyTest::test_load_openssh_format_RSA_nopad": "MISSING",
+    "tests/test_pkey.py::KeyTest::test_sign_and_verify_rsa_sha2_512": "MISSING",
+    "tests/test_client.py::SSHClientTest::test_client_rsa": "MISSING",
+    "tests/test_client.py::SSHClientTest::test_old_openssh_needs_ssh_rsa_for_certs_not_rsa_sha2": "MISSING",
+    "tests/pkey.py::PKey_::from_type_string::loads_from_type_and_bytes[rsa]": "MISSING",
+    "tests/pkey.py::PKey_::equality_and_hashing::keys_are_not_equal_to_other_types[rsa]": "MISSING",
+    "tests/pkey.py::PKey_::equality_and_hashing::same_key_same_hash[rsa]": "MISSING",
+    "tests/pkey.py::PKey_::algorithm_name[rsa]": "MISSING",
+    "tests/pkey.py::PKey_::fingerprint[rsa]": "MISSING",
+    "tests/pkey.py::PKey_::load_certificate::rsa_public_cert_blobs": "MISSING",
+    "tests/test_transport.py::TestSHA2SignatureKeyExchange::test_base_case_ssh_rsa_still_used_as_fallback": "MISSING"
+   },
+   "summary": "14 passed",
+   "timeout": false
+  }
+ }
+}

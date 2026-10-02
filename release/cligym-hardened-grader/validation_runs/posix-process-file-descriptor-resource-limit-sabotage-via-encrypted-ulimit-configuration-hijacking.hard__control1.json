@@ -1,0 +1,27 @@
+{
+ "task": "posix-process-file-descriptor-resource-limit-sabotage-via-encrypted-ulimit-configuration-hijacking.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 6,
+  "not_passed": {},
+  "summary": "6 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/bin/pytest"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 6,
+   "not_passed": {},
+   "summary": "6 passed",
+   "timeout": false
+  }
+ }
+}

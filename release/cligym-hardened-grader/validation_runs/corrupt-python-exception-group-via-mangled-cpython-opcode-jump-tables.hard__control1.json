@@ -1,0 +1,27 @@
+{
+ "task": "corrupt-python-exception-group-via-mangled-cpython-opcode-jump-tables.hard",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 13,
+  "not_passed": {},
+  "summary": "13 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/testbed/src/exceptiongroup/_exceptions.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 13,
+   "not_passed": {},
+   "summary": "13 passed",
+   "timeout": false
+  }
+ }
+}

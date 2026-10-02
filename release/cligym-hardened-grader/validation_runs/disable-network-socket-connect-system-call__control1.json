@@ -1,0 +1,33 @@
+{
+ "task": "disable-network-socket-connect-system-call",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 5,
+  "not_passed": {},
+  "summary": "5 passed, 12 warnings",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/socket.py"
+   ]
+  ],
+  "tests": {
+   "pass": false,
+   "n_ids": 5,
+   "not_passed": {
+    "tests/test_ssl.py::TestConnection::test_connect": "MISSING",
+    "tests/test_ssl.py::TestConnection::test_connect_refused": "MISSING",
+    "tests/test_ssl.py::TestConnection::test_client_get_session": "MISSING",
+    "tests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_no_server": "MISSING",
+    "tests/test_ssl.py::TestApplicationLayerProtoNegotiation::test_alpn_server_fail": "MISSING"
+   },
+   "summary": null,
+   "timeout": true
+  }
+ }
+}

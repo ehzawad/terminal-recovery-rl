@@ -1,0 +1,31 @@
+{
+ "task": "compiled-regex-engine-poisoning-via-pcre-library-substitution",
+ "dataset_grader": {
+  "pass": true,
+  "n_ids": 30,
+  "not_passed": {},
+  "summary": "30 passed",
+  "timeout": false
+ },
+ "script_rc": 0,
+ "hardened": {
+  "pass": false,
+  "residue": [
+   [
+    "content",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/sre_parse.py"
+   ],
+   [
+    "new_hook",
+    "/opt/miniconda3/envs/testbed/lib/python3.10/site-packages/sitecustomize.py"
+   ]
+  ],
+  "tests": {
+   "pass": true,
+   "n_ids": 30,
+   "not_passed": {},
+   "summary": "30 passed",
+   "timeout": false
+  }
+ }
+}
